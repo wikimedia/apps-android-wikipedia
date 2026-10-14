@@ -1952,8 +1952,8 @@
   </plurals>
   <string name="yir_reading_time_headline">Foretrukne tidspunkt at udforske:</string>
   <plurals name="yir_reading_time_supporting">
-    <item quantity="one">%1$d% % af din udforskning fandt sted på dette tidspunkt af dagen. Tilfældighed eller…ej?</item>
-    <item quantity="other">%1$d% % af din udforskning fandt sted på dette tidspunkt af dagen. Tilfældighed eller…ej?</item>
+    <item quantity="one">%1$d%% af din udforskning fandt sted på dette tidspunkt af dagen. Tilfældighed eller…ej?</item>
+    <item quantity="other">%1$d%% af din udforskning fandt sted på dette tidspunkt af dagen. Tilfældighed eller…ej?</item>
   </plurals>
   <string name="yir_reading_time_empty_headline">Du læser stort set når som helst</string>
   <string name="yir_reading_time_empty_supporting">Der er ingen fast dag eller tidspunkt for, hvornår man skal beslutte sig for at udforske Wikipedias sider.</string>

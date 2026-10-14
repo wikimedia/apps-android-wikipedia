@@ -1919,8 +1919,8 @@
   </plurals>
   <string name="yir_article_count_headline">Вкупно прочитани статии:</string>
   <plurals name="yir_article_count_supporting_top">
-    <item quantity="one">Ова ве става во првите %1$s% % од читателите на Википедија глобално. Просечниот човек чита %2$d статија годишно.</item>
-    <item quantity="other">Ова ве става во првите %1$s% % од читателите на Википедија глобално. Просечниот човек чита %2$d статии годишно.</item>
+    <item quantity="one">Ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$d статија годишно.</item>
+    <item quantity="other">Ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$d статии годишно.</item>
   </plurals>
   <string name="yir_article_count_supporting">Истражувавте цела година. Секоја статија додаде на вашите знаења.</string>
   <string name="yir_article_count_empty_headline">Имате милиони статии за откривање</string>
@@ -1935,7 +1935,7 @@
   </plurals>
   <string name="yir_reading_time_headline">Омилено време за истражување:</string>
   <plurals name="yir_reading_time_supporting">
-    <item quantity="one">%1$d% % од вашето истражување се одвиваше во ова време од денот. Случајност или…не?</item>
+    <item quantity="one">%1$d%% од вашето истражување се одвиваше во ова време од денот. Случајност или…не?</item>
     <item quantity="other">%1$d%% од вашето истражување се одвиваше во ова време од денот. Случајност или…не?</item>
   </plurals>
   <string name="yir_reading_time_empty_headline">Читате практично во било кое време</string>

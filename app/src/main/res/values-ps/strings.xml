@@ -1929,9 +1929,9 @@
     <item quantity="other">ستاسو کارندتيا په %1$s کې لوړه شوه، کله چې تاسو %2$d ورځې ولوستل.</item>
   </plurals>
   <string name="yir_minutes_read_headline">ستاسو په لوست تېرې کړې ټولټال دقيقې:</string>
-  <string name="yir_minutes_read_supporting" fuzzy="true">دا د يوې بشپړې شپې له خوبه هم اوږد دی. وخت لکه د باد تېرېږي کله چې انسان په يوه سکالو کې ورک شي.</string>
+  <string name="yir_minutes_read_supporting" fuzzy="true">%1$s وخت لکه د باد تېرېږي کله چې انسان په يوه سکالو کې ورک شي.</string>
   <string name="yir_reading_streak_headline">ستاسو د لوست ورځو تر ټولو اوږده لړۍ:</string>
-  <string name="yir_reading_streak_supporting" fuzzy="true">له %1$s راهيسې، تاسو په رښتيا هره ورځ د لوست روږدي کېږئ.</string>
+  <string name="yir_reading_streak_supporting" fuzzy="true">له %1$s څخه تر %2$s پورې، تاسو په رښتيا هره ورځ د لوست روږدي کېږئ.</string>
   <string name="yir_reading_streak_empty_headline">۰ لوست لړئ... تر دې مهاله</string>
   <string name="yir_reading_time_headline">د پلټنې لپاره خواپورې وخت:</string>
   <string name="yir_reading_time_empty_headline">تاسو نږدې هر وخت لوست کوئ</string>

@@ -1909,7 +1909,7 @@
   <string name="yir_days_visited_headline">Vierailit Wikipediassa vuonna %1$d näin monena päivänä:</string>
   <string name="yir_minutes_read_headline">Lukemiseen käytetyt minuutit yhteensä:</string>
   <string name="yir_reading_streak_headline">Pisin lukuputkesi päivinä:</string>
-  <string name="yir_reading_streak_supporting" fuzzy="true">Olet lukenut %1$s alkaen joka päivä. Hyvä putki.</string>
+  <string name="yir_reading_streak_supporting" fuzzy="true">Olet lukenut %1$s–%2$s välisenä aikana joka päivä. Hyvä putki.</string>
   <string name="yir_reading_streak_empty_headline">0 lukuputkea... toistaiseksi</string>
   <string name="yir_reading_time_headline">Suosimasi lukuajankohta:</string>
   <string name="yir_reading_time_empty_headline">Luit vähän milloin sattuu</string>

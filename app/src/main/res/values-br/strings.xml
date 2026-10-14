@@ -2099,11 +2099,11 @@
   </plurals>
   <string name="yir_article_count_headline">Ho niver hollek a bennadoù :</string>
   <plurals name="yir_article_count_supporting_top" fuzzy="true">
-    <item quantity="one">Kement-se ho laka er %1$d%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
-    <item quantity="two">Kement-se ho laka er %1$d%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
-    <item quantity="few">Kement-se ho laka er %1$d%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
-    <item quantity="many">Kement-se ho laka er %1$d%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
-    <item quantity="other">Kement-se ho laka er %1$d%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+    <item quantity="one">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+    <item quantity="two">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+    <item quantity="few">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+    <item quantity="many">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+    <item quantity="other">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
   </plurals>
   <string name="yir_article_count_supporting">A-hed ar bloaz oc\'h bet o furchal. Pep pennad en deus ouzhpennet un dra bennak d\'ar pezh a ouezit.</string>
   <string name="yir_article_count_empty_headline">Milionoù a bennadoù hoc\'h eus da zizoleiñ.</string>
@@ -2117,9 +2117,9 @@
     <item quantity="other">E %1$s ez oc\'h bet an oberiantañ, p\'ho poa lennet da %2$d deiz disheñvel.</item>
   </plurals>
   <string name="yir_minutes_read_headline">Hollad ar munutennoù hoc\'h eus tremenet o lenn :</string>
-  <string name="yir_minutes_read_supporting" fuzzy="true">Hiroc\'h eget un nozvezh kousk eo kement-se. Buan ez a an amzer hebiou pa vezit en ur milendall.</string>
+  <string name="yir_minutes_read_supporting" fuzzy="true">%1$s Buan ez a an amzer hebiou pa vezit en ur milendall.</string>
   <string name="yir_reading_streak_headline">Deizioù en ho steudad lenn hirañ :</string>
-  <string name="yir_reading_streak_supporting" fuzzy="true">Adalek %1$s hoc\'h eus tapet da vat ar boaz da lenn bemdez.</string>
+  <string name="yir_reading_streak_supporting" fuzzy="true">Adalek %1$s-%2$s hoc\'h eus tapet da vat ar boaz da lenn bemdez.</string>
   <string name="yir_reading_streak_empty_headline">0 steudad lenn… evit bremañ</string>
   <plurals name="yir_reading_streak_empty_supporting">
     <item quantity="one">N\'eo ket ur steudad keit ha ma n\'hoc\'h eus ket graet da %1$d deiz da-heul. Perak ne grogfec\'h ket bremañ ?</item>

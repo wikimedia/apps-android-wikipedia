@@ -1969,8 +1969,8 @@
   </plurals>
   <string name="yir_article_count_headline">Gelesene Artikel insgesamt:</string>
   <plurals name="yir_article_count_supporting_top" fuzzy="true">
-    <item quantity="one">Damit gehörst du weltweit zu den Top %1$d %% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
-    <item quantity="other">Damit gehörst du weltweit zu den Top %1$d %% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
+    <item quantity="one">Damit gehörst du weltweit zu den Top %1$s %% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
+    <item quantity="other">Damit gehörst du weltweit zu den Top %1$s %% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
   </plurals>
   <string name="yir_article_count_supporting">Du warst das ganze Jahr auf Entdeckungstour. Jeder Artikel hat dein Wissen erweitert.</string>
   <string name="yir_article_count_empty_headline">Millionen Artikel warten darauf, von dir entdeckt zu werden</string>
@@ -1981,9 +1981,9 @@
     <item quantity="other">Am aktivsten warst du im %1$s, als du an %2$d verschiedenen Tagen gelesen hast.</item>
   </plurals>
   <string name="yir_minutes_read_headline">Lesezeit in Minuten:</string>
-  <string name="yir_minutes_read_supporting" fuzzy="true">Das ist länger als eine ganze Nacht Schlaf. Die Zeit vergeht wie im Flug, wenn man in Wikipedia abtaucht.</string>
+  <string name="yir_minutes_read_supporting" fuzzy="true">%1$s Die Zeit vergeht wie im Flug, wenn man in Wikipedia abtaucht.</string>
   <string name="yir_reading_streak_headline">Tage in deiner längsten Leseserie:</string>
-  <string name="yir_reading_streak_supporting" fuzzy="true">Im Zeitraum %1$s hast du so richtig in den Rhythmus gefunden und jeden Tag gelesen.</string>
+  <string name="yir_reading_streak_supporting" fuzzy="true">Im Zeitraum %1$s–%2$s hast du so richtig in den Rhythmus gefunden und jeden Tag gelesen.</string>
   <string name="yir_reading_streak_empty_headline">0 Leseserien … bisher</string>
   <plurals name="yir_reading_streak_empty_supporting">
     <item quantity="one">Eine Serie zählt erst, wenn du %1$d Tag am Stück gelesen hast. Warum nicht gleich anfangen?</item>
