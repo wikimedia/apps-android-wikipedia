@@ -88,7 +88,7 @@ object YearInReviewRiveContentMapper {
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
                 else resources.getQuantityString(R.plurals.yir_top_topic_supporting, page.articles.size,
                     page.articles.first(), page.articles.last(), page.articles.size, getTopicComment(resources, page.topic)),
-                "topicIcon" to "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/02_Art.png/250px-02_Art.png" /*page.topic.topicId*/
+                "topicIcon" to page.topic.thumbnailUrl
             )
         )
         is YearInReviewPage.OtherTopTopics -> RiveSlideContent(
@@ -99,7 +99,7 @@ object YearInReviewRiveContentMapper {
                 resources.getString(ArticleTopics.all.find { it.topicId == topicId }?.msgKey ?: 0) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
             }),
             numberProperties = listItemCount(page.topicArticleCounts.size),
-            imageUrls = listIcons(page.topicArticleCounts.map { "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/02_Art.png/250px-02_Art.png" /*it.key.topicId*/ })
+            imageUrls = listIcons(page.topicArticleCounts.map { ArticleTopics.all.find { topic -> topic.topicId == it.key }?.thumbnailUrl ?: "" })
         )
         is YearInReviewPage.BiggestReadingDay -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame8"),
