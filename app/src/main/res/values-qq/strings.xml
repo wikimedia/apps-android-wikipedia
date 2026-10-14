@@ -1990,6 +1990,10 @@
   <string name="yir_niche_category_headline">Headline of the Year in Review slide that shows the user\'s most niche category. The next line will state the name of the category.</string>
   <string name="yir_niche_category_supporting">Supporting text of the Year in Review niche category slide.</string>
   <string name="yir_reread_articles_headline">Headline of the Year in Review slide that lists articles the user read more than once.</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">Number of times that the user visited the article. %1$d is the number of visits.</item>
+    <item quantity="other">Number of times that the user visited the article. %1$d is the number of visits.</item>
+  </plurals>
   <string name="yir_reread_articles_empty_headline">Headline of the Year in Review re-read articles slide, shown when the user did not read any article more than once.</string>
   <string name="yir_reread_articles_empty_supporting">Supporting text of the Year in Review re-read articles slide, shown when the user did not read any article more than once.</string>
   <string name="yir_places_headline">Headline of the Year in Review slide that lists places related to the articles the user read.</string>

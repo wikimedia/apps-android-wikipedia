@@ -56,6 +56,12 @@ object YearInReviewFlowDecider {
                 YearInReviewPage.OtherTopTopics(
                     topicArticleCounts = readingStats.topicArticleCountMap
                 )
+            },
+            CandidatePage(status = readingStats.articlesRevisitedStatus) {
+                YearInReviewPage.RevisitedArticles(
+                    isEmptyState = readingStats.articlesRevisitedStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    articles = readingStats.articlesRevisited
+                )
             }
         )
     }
