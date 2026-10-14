@@ -60,12 +60,10 @@ import androidx.compose.ui.unit.dp
 import app.rive.GetBitmapFun
 import app.rive.Result
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.games.WikiGames
 import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 import kotlin.math.roundToInt
 
@@ -259,8 +257,7 @@ private fun YearInReviewContent(
                     page is YearInReviewPage.End -> {
                         YearInReviewEndSlide(
                             isDonor = page.isDonor,
-                            isGameAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.appOrSystemLanguageCode),
-                            isTestGroupUser = YearInReviewEndScreenABTest().isTestGroupUser(),
+                            isTestGroupUser = YearInReviewEndScreenABTest().isUserEligible() && YearInReviewEndScreenABTest().isTestGroupUser(),
                             onCardActionClick = onEndCardClick
                         )
                     }
