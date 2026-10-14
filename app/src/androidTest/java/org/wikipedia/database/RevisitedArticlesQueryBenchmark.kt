@@ -10,6 +10,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.runBlocking
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -26,7 +27,8 @@ import kotlin.random.Random
 import kotlin.system.measureNanoTime
 
 // Compares HistoryEntryWithImageDao.findEntriesVisitedMultipleTimesBetween (excludes only the primary language's Main Page)
-// with findEntriesVisitedMultipleTimesExcludingMainPagesBetween (excludes the Main Pages of all app languages),
+// with findEntriesVisitedMultipleTimesExcludingMainPagesBetween (excludes the Main Pages of all app languages in SQL)
+// and findEntriesVisitedMultipleTimesFilteringMainPagesBetween (drops every language's Main Page in Kotlin),
 // against seeded history of increasing size. Logs a markdown report to logcat under the "RevisitedArticlesBenchmark" tag.
 @RunWith(AndroidJUnit4::class)
 class RevisitedArticlesQueryBenchmark {
@@ -66,8 +68,10 @@ class RevisitedArticlesQueryBenchmark {
 
             val queries = OLD_QUERY_PRIMARY_LANGS.map { primaryLang ->
                 QueryCase("Old, primary $primaryLang") { runOldQuery(primaryLang) }
-            } + listOf(1, 3, APP_LANGUAGES.size).map { languageCount ->
-                QueryCase("New, $languageCount app languages") { runNewQuery(APP_LANGUAGES.take(languageCount)) }
+            } + APP_LANGUAGE_COUNTS.map { languageCount ->
+                QueryCase("SQL exclusion, $languageCount app languages") { runSqlExclusionQuery(APP_LANGUAGES.take(languageCount)) }
+            } + APP_LANGUAGE_COUNTS.map { languageCount ->
+                QueryCase("Kotlin filter, $languageCount app languages") { runKotlinFilterQuery(APP_LANGUAGES.take(languageCount)) }
             }
             val measurements = measure(queries)
 
@@ -83,9 +87,14 @@ class RevisitedArticlesQueryBenchmark {
                 resultRows += "| ${"%,d".format(rowCount)} | ${measurement.label} | ${measurement.results.size} | $mainPages |"
             }
 
-            val newQuery = measurements.last()
-            assertTrue("Expected revisited articles at $rowCount rows", newQuery.results.isNotEmpty())
-            assertTrue("Main Pages in results at $rowCount rows: ${newQuery.mainPagesInResults}", newQuery.mainPagesInResults.isEmpty())
+            val sqlExclusion = measurements.single { it.label == "SQL exclusion, ${APP_LANGUAGES.size} app languages" }
+            val kotlinFilter = measurements.single { it.label == "Kotlin filter, ${APP_LANGUAGES.size} app languages" }
+            assertTrue("Expected revisited articles at $rowCount rows", sqlExclusion.results.isNotEmpty())
+            assertTrue("Main Pages in results at $rowCount rows: ${sqlExclusion.mainPagesInResults}", sqlExclusion.mainPagesInResults.isEmpty())
+            assertEquals("Kotlin filter differs from SQL exclusion at $rowCount rows", sqlExclusion.results, kotlinFilter.results)
+            measurements.filter { it.label.startsWith("Kotlin filter") }.forEach {
+                assertTrue("Main Pages in ${it.label} at $rowCount rows: ${it.mainPagesInResults}", it.mainPagesInResults.isEmpty())
+            }
         }
 
         writeReport(timingRows, resultRows)
@@ -113,8 +122,13 @@ class RevisitedArticlesQueryBenchmark {
             .map { (entry, visitCount) -> RevisitedArticle(entry.lang, entry.apiTitle, visitCount) }
     }
 
-    private suspend fun runNewQuery(languages: List<String>): List<RevisitedArticle> {
+    private suspend fun runSqlExclusionQuery(languages: List<String>): List<RevisitedArticle> {
         return db.historyEntryWithImageDao().findEntriesVisitedMultipleTimesExcludingMainPagesBetween(YEAR_START, YEAR_END, languages, LIMIT)
+            .map { (entry, visitCount) -> RevisitedArticle(entry.lang, entry.apiTitle, visitCount) }
+    }
+
+    private suspend fun runKotlinFilterQuery(languages: List<String>): List<RevisitedArticle> {
+        return db.historyEntryWithImageDao().findEntriesVisitedMultipleTimesFilteringMainPagesBetween(YEAR_START, YEAR_END, languages, LIMIT)
             .map { (entry, visitCount) -> RevisitedArticle(entry.lang, entry.apiTitle, visitCount) }
     }
 
@@ -164,7 +178,9 @@ class RevisitedArticlesQueryBenchmark {
                     "${"%,d".format(DISTINCT_TITLES)} possible article titles per language, $MAIN_PAGE_PERCENT% Main Page visits, $TALK_PAGE_PERCENT% Talk page visits.")
             appendLine("- App languages: ${APP_LANGUAGES.joinToString { "$it (${MainPageNameData.valueFor(it)})" }}")
             appendLine("- Old: `findEntriesVisitedMultipleTimesBetween`, which excludes only the primary language's Main Page.")
-            appendLine("- New: `findEntriesVisitedMultipleTimesExcludingMainPagesBetween`, which excludes Main Pages for 1, 3, or all 5 app languages.")
+            appendLine("- SQL exclusion: `findEntriesVisitedMultipleTimesExcludingMainPagesBetween`, which excludes the Main Pages of the first 1, 3, or all 5 app languages inside the query.")
+            appendLine("- Kotlin filter: `findEntriesVisitedMultipleTimesFilteringMainPagesBetween`, which fetches limit + app language count rows with no Main Page condition, " +
+                    "then drops every row that is its own language's Main Page. Fewer than $LIMIT results means more Main Pages were in the top rows than there were spare rows.")
             appendLine("- Image metadata is seeded for approximately half of article keys; the join includes both matches and misses.")
             appendLine("- Measures warm DAO-call latency, including coroutine scheduling, key construction, Room materialization, and result mapping; not cold-start latency or isolated SQL execution.")
             appendLine("- All variants warm up before measurement; execution order rotates each round. Median averages the middle pair; p90 uses nearest rank and is only a rough tail estimate.")
@@ -209,6 +225,7 @@ class RevisitedArticlesQueryBenchmark {
             lang to PageTitle(MainPageNameData.valueFor(lang), WikiSite.forLanguageCode(lang)).text
         }.toSet()
         private val OLD_QUERY_PRIMARY_LANGS = listOf("en", "de")
+        private val APP_LANGUAGE_COUNTS = listOf(1, 3, APP_LANGUAGES.size)
         private const val WARMUP_RUNS = 5
         private const val MEASURED_RUNS = 50
         private const val LIMIT = 10
