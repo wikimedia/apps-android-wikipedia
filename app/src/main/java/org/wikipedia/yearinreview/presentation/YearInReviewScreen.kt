@@ -41,7 +41,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -58,14 +60,17 @@ import androidx.compose.ui.unit.dp
 import app.rive.GetBitmapFun
 import app.rive.Result
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.games.WikiGames
+import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 import kotlin.math.roundToInt
 
 private val YearInReviewCardCornerRadius = 28.dp
-private val TopAppBarHeight = 64.dp
+internal val TopAppBarHeight = 64.dp
 
 fun Modifier.placeholderBackground() = background(
     brush = Brush.linearGradient(
@@ -92,8 +97,10 @@ fun YearInReviewScreen(
     onShareFeedbackClick: () -> Unit = {},
     onShareClick: (Bitmap) -> Unit = {},
     onDonateClick: (String) -> Unit = { _ -> },
+    onEndCardClick: (YearInReviewEndCard) -> Unit = {},
     onRetryClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
+    onPageImpression: (YearInReviewPage) -> Unit = {},
     onRiveError: (Throwable) -> Unit = {}
 ) {
     when (uiState) {
@@ -121,7 +128,9 @@ fun YearInReviewScreen(
                 onShareFeedbackClick = onShareFeedbackClick,
                 onShareClick = onShareClick,
                 onDonateClick = onDonateClick,
+                onEndCardClick = onEndCardClick,
                 onStatusBarIconColorChange = onStatusBarIconColorChange,
+                onPageImpression = onPageImpression,
                 onRiveError = onRiveError
             )
         }
@@ -158,10 +167,18 @@ private fun YearInReviewContent(
     onShareFeedbackClick: () -> Unit,
     onShareClick: (Bitmap) -> Unit,
     onDonateClick: (String) -> Unit,
+    onEndCardClick: (YearInReviewEndCard) -> Unit,
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
+    onPageImpression: (YearInReviewPage) -> Unit,
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
+    val currentOnPageImpression by rememberUpdatedState(onPageImpression)
+    LaunchedEffect(pagerState, pages) {
+        snapshotFlow { pagerState.settledPage }.collect { position ->
+            pages.getOrNull(position)?.let { currentOnPageImpression(it) }
+        }
+    }
     val useWhiteTopBarIconsByPageId = remember { mutableStateMapOf<String, Boolean>() }
     val useDarkStatusBarIcons by remember(pages) {
         derivedStateOf {
@@ -239,6 +256,14 @@ private fun YearInReviewContent(
                 val page = pages[position]
                 val content = riveContents[page.id]
                 when {
+                    page is YearInReviewPage.End -> {
+                        YearInReviewEndSlide(
+                            isDonor = page.isDonor,
+                            isGameAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.appOrSystemLanguageCode),
+                            isTestGroupUser = YearInReviewEndScreenABTest().isTestGroupUser(),
+                            onCardActionClick = onEndCardClick
+                        )
+                    }
                     // A custom slide, such as an interactive one, gets its own branch above this one
                     content != null -> {
                         YearInReviewRiveSlide(

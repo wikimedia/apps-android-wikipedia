@@ -5,6 +5,7 @@
 * Ainali
 * Bengtsson96
 * Dbrant
+* Diktys
 * Haxpett
 * JohanahoJ
 * Jon Harald Søby
@@ -1923,6 +1924,12 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Se dina sviter, poäng och mer</string>
   <string name="wikipedia_games_title">Wikipedia-spel</string>
   <string name="wikipedia_games_subtitle">Daglig frågesport som bygger på Wikipedias innehåll.</string>
+  <string name="yir_intro_headline">Din Wikipedia-årsöversikt är här</string>
+  <string name="yir_article_count_headline">Ditt totala antal artiklar:</string>
+  <string name="yir_article_count_supporting">Du har utforskat hela året. Varje artikel har bidragit med något till din kunskap.</string>
+  <string name="yir_article_count_empty_headline">Du har miljontals artiklar att upptäcka</string>
+  <string name="yir_article_count_empty_supporting">Vänta bara tills du får reda på allt som finns att lära sig på Wikipedia.</string>
+  <string name="yir_days_visited_headline">Dagar du besökte Wikipedia i %1$d :</string>
   <string name="year_in_review_learn_more">Läs mer</string>
   <string name="year_in_review_get_started">Kom igång</string>
   <string name="year_in_review_topbar_w_icon">Wikipedias W-ikon</string>
@@ -1936,7 +1943,6 @@
   <string name="year_in_review_get_started_headline">Utforska ditt årsöversikt för Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Få insikter om vilka artiklar du läser i Wikipedia-appen och vilka redigeringar du har gjort.</string>
   <string name="year_in_review_get_started_info">Din läshistorik skyddas. Läsinsikter beräknas med hjälp av lokalt lagrad data på din enhet.</string>
-  <string name="year_in_review_get_started_later">Du kan komma åt din årsöversikt senare i Mer-menyn.</string>
   <string name="year_in_review_survey_title">Hjälp till att förbättra årsöversikten</string>
   <string name="year_in_review_survey_subtitle">Är du nöjd med denna funktion?</string>
   <string name="year_in_review_reading_list_survey_title">Hjälp till att förbättra samlingen till årsöversikten för %d.</string>

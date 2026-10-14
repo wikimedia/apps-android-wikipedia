@@ -1360,7 +1360,7 @@
   <string name="talk_warn_submitted">Message op der Diskussiounssäit vum Benotzer verëffentlecht</string>
   <string name="talk_warn_submitted_and_saved">Message gespäichert an op der Diskussiounssäit vuum Benotzer verëffentlecht</string>
   <string name="talk_warn_saved_messages">Gespäichert Messagen</string>
-  <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
+  <string name="talk_page_empty">Dës Diskussiounssäit ass eidel.</string>
   <string name="talk_page_empty_title">D\'Konversatioun fänkt hei un</string>
   <string name="talk_page_empty_content">Op den Diskussiounssäiten gëtt doriwwer geschwat, wéi een den Inhalt vun der Wikipedia sou gutt wéi méiglech maache kann. Fänkt domat un en neien Diskussiounssujet derbäizesetze fir Iech mat der Communautéit vun de Wikipedianer ze vernetzen an zesummenzeschaffen.</string>
   <string name="talk_add_reply">Äntweren</string>
@@ -1804,8 +1804,23 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Kuckt Är Serien, Punkten a méi</string>
   <string name="wikipedia_games_title">Wikipedia-Spiller</string>
   <string name="wikipedia_games_subtitle">Deeglech Quiz-Spiller, déi op Wikipedia-Inhalter baséieren.</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d Artikel</item>
+    <item quantity="other">%1$d Artikelen</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s Opruff</item>
+    <item quantity="other">%1$s Opriff</item>
+  </plurals>
+  <string name="yir_contributor_thanks_headline">Merci!</string>
+  <string name="yir_community_intro_headline">Eise Joresréckbléck ass do</string>
+  <string name="yir_community_articles_headline">Artikelen op Wikipedia:</string>
+  <string name="yir_community_recap_headline">Eise Joresréckbléck</string>
   <string name="year_in_review_learn_more">Méi gewuer ginn</string>
+  <string name="year_in_review_share_feedback">Feedback deelen</string>
+  <string name="year_in_review_feedback_email_subject">Feedback fir de Joresréckbléck</string>
   <string name="year_in_review_get_started">Ufänken</string>
+  <string name="year_in_review_announcement_explore">Entdecken</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia-W-Symbol</string>
   <string name="year_in_review_navigate_left">No lénks navigéieren</string>
   <string name="year_in_review_close">Zoumaachen</string>
@@ -1817,6 +1832,8 @@
   <string name="year_in_review_get_started_headline">Entdeckt Äre Wikipedia-Joresréckbléck</string>
   <string name="year_in_review_get_started_bodytext">Kritt een Abléck doriwwer, wat fir Artikelen Dir an der Wikipedia-App gelies hutt a wat fir Ännerungen Dir gemaach hutt.</string>
   <string name="year_in_review_get_started_info">Äre Lieshistorique bleift geschützt. D\'Ablécker an Äert Liesverhale ginn op Basis vu lokal op Ärem Apparat gespäicherten Donnéeë generéiert.</string>
+  <string name="year_in_review_entry_card_title_collective">Eise Joresréckbléck ass do</string>
+  <string name="year_in_review_entry_card_title_personalized">Äre Joresréckbléck ass do</string>
   <string name="year_in_review_survey_title">Hëlleft eis dobäi fir de Joresréckbléck ze verbesseren</string>
   <string name="year_in_review_survey_subtitle">Sidd Dir zefridde mat dëser Funktioun?</string>
   <string name="year_in_review_reading_list_survey_title">Hëllef dobäi, fir d\'Sammlung vum Joresréckbléck %d ze verbesseren.</string>
@@ -2249,4 +2266,15 @@
   <string name="reading_lists_save_sheet_empty_message">Späichert Artikelen a Sammlungen.</string>
   <string name="reading_lists_save_sheet_create">Uleeën</string>
   <string name="reading_lists_update_tooltip">Lieslëschten heesche lo Sammlungen.</string>
+  <string name="semantic_search_info_dialog_button_text">Méi gewuer ginn</string>
+  <string name="semantic_search_beta_label">Beta</string>
+  <string name="semantic_search_no_results_message">Keng Resultater fir dës Sich</string>
+  <plurals name="semantic_search_result_references">
+    <item quantity="one">%d Referenz</item>
+    <item quantity="other">%d Referenzen</item>
+  </plurals>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">Daum no uewen</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">Daum no ënnen</string>
+  <string name="semantic_search_results_feedback_submitted_message">Merci fir Äre Feedback</string>
+  <string name="semantic_search_feedback_dialog_title">Feedback</string>
 </resources>

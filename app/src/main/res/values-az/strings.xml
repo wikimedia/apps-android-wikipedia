@@ -254,7 +254,7 @@
   <string name="preference_title_sync_reading_lists_from_account">Kolleksiya sinxronizasiyası</string>
   <string name="preference_title_download_reading_list_articles">Kolleksiya məqalələrini yüklə</string>
   <string name="preference_summary_sync_reading_lists">Müxtəlif cihazlar arasında Vikipediya hesabını saxlayaraq kolleksiyaları sinxronizasiya et</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Vikipediya hesabına \"%s\" yazaraq müxtəlif cihazlar arasında kolleksiyaları sinxronlaşdırın</string>
+  <string name="preference_summary_sync_reading_lists_from_account">\"%s\" Vikipediya hesabınıza əlavə etməklə müxtəlif cihazlar arasında kolleksiyaları sinxronlaşdırın</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxronlaşdırılmış kolleksiyalar \"%s\" hesabından silinsin?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Bu, əvvəlcədən sinxronlaşdırılmış kolleksiyaları tamamilə siləcək. Bütün sinxronlaşdırılmış kolleksiyalar \"%s\" hesabınızdan silinsin?</string>
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
@@ -368,7 +368,7 @@
   <string name="dialog_close_description">Bağla</string>
   <string name="preference_title_show_images">Şəkilləri göstər</string>
   <string name="preference_summary_show_images">Səhifələrdə şəkillərin yüklənməsini aktivləşdirin və ya söndürün. İnternet bağlantınız zəifdirsə bunu söndürün.</string>
-  <string name="preference_title_download_only_over_wifi">Yalnız Wi-Fi ilə yükləyin</string>
+  <string name="preference_title_download_only_over_wifi">Yalnız Wi-Fi ilə yüklə</string>
   <string name="dialog_title_download_only_over_wifi">Mobil məlumatdan istifadə edərək yükləməyinizi təsdiqləyin</string>
   <string name="dialog_text_download_only_over_wifi">Parametrlərinizdə \"Yalnız Wi-Fi ilə yüklə\" aktivdir. Bu yükləmə üçün mobil məlumat planınızdan istifadə etməyə icazə vermək istəyirsiniz?</string>
   <string name="dialog_title_download_only_over_wifi_allow">İzin ver</string>
@@ -459,7 +459,7 @@
   <string name="reference_title">İstinad %s</string>
   <string name="reference_list_title">İstinadlar</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Şəklin qaralması (Qaranlıq temada)</string>
-  <string name="preference_title_prefer_offline_content">Oflayn məzmuna üstünlük verin</string>
+  <string name="preference_title_prefer_offline_content">Oflayn məzmuna üstünlük ver</string>
   <string name="preference_summary_prefer_offline_content">Həmişə məqalənin ən son versiyasını yükləməkdənsə, oflayn mövcud olan məqalələri yükləməklə data istifadəsinə qənaət edin</string>
   <string name="preference_title_delete_local_donation_history">İanə tarixçəsini təmizlə</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem mövzusuna uyğunlaşdırın</string>
@@ -1901,6 +1901,7 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Ardıcıllığınıza, xallarınıza və daha çoxuna baxın</string>
   <string name="wikipedia_games_title">Vikipediya oyunları</string>
   <string name="wikipedia_games_subtitle">Vikipediya məzmununa əsaslanan gündəlik trivia oyunları.</string>
+  <string name="yir_intro_headline">Vikipediya İllik İcmalınız hazırdır</string>
   <string name="year_in_review_learn_more">Ətraflı öyrən</string>
   <string name="year_in_review_get_started">Başla</string>
   <string name="year_in_review_topbar_w_icon">Vikipediya W ikonu</string>
@@ -1914,7 +1915,6 @@
   <string name="year_in_review_get_started_headline">Vikipediyadakı ilinizin icmalını nəzərdən keçirin</string>
   <string name="year_in_review_get_started_bodytext">Vikipediya proqramında oxuduğunuz məqalələr və etdiyiniz redaktələr haqqında statistikaya baxın.</string>
   <string name="year_in_review_get_started_info">Oxuma tarixçəniz qorunur. Oxuma statistikası cihazınızda lokal olaraq saxlanılan datadan istifadə etməklə hesablanır.</string>
-  <string name="year_in_review_get_started_later">İlin İcmalına Daha çox menyusundan baxa bilərsiniz.</string>
   <string name="year_in_review_survey_title">İlin İcmalının təkmilləşdirilməsinə kömək et</string>
   <string name="year_in_review_survey_subtitle">Bu funksiya sizi qane edir?</string>
   <string name="year_in_review_reading_list_survey_title">%d İlin İcmalı kolleksiyasının təkmilləşdirilməsinə kömək edin.</string>
@@ -2485,7 +2485,7 @@
   <string name="home_feed_discover_see_all_title">Kəşf ediləcək daha çox şey var</string>
   <string name="home_feed_discover_see_all_description">Fərdiləşdirilmiş kolleksiyada yalnız sizin üçün seçilmiş daha çox hekayə var.</string>
   <string name="home_feed_discover_see_all_button">Bütün tövsiyələri kəşf et</string>
-  <string name="home_feed_places_of_interest_card_footer">%1$s • Yerlərdəki yerinizə əsasən</string>
+  <string name="home_feed_places_of_interest_card_footer">%1$s • Yerlərdəki məkanınıza əsasən</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Bugünlük bu qədər!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Sabah sizin üçün fərdiləşdirilmiş yeni məqalələr tapmaq üçün yenə gəlin.</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">Öyrənməyə davam etmək yolları:</string>

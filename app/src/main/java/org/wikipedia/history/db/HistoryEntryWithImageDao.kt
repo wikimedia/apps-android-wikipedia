@@ -66,6 +66,27 @@ interface HistoryEntryWithImageDao {
     @RewriteQueriesToDropUnusedColumns
     suspend fun getRandomRecentReadEntries(sinceMillis: Long, excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int, langCode: String? = null): List<HistoryEntryWithImage>
 
+    // One row per article (its most recent visit in the range), most-visited first; ties go to the more recently visited.
+    // Only mainspace articles are counted, excluding the Main Page of the given language.
+    @Query("""
+        SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec, RepeatedEntries.visit_count AS visitCount
+        FROM HistoryEntry
+        LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, MAX(timestamp) AS max_timestamp, COUNT(*) AS visit_count FROM HistoryEntry
+            WHERE timestamp BETWEEN :startMillis AND :endMillis
+            AND (namespace IS NULL OR namespace = '' OR namespace = 'MAIN')
+            AND apiTitle NOT IN (:mainPageApiTitles)
+            GROUP BY lang, namespace, apiTitle
+            HAVING COUNT(*) > 1
+        ) RepeatedEntries ON HistoryEntry.lang = RepeatedEntries.lang AND HistoryEntry.namespace = RepeatedEntries.namespace AND HistoryEntry.apiTitle = RepeatedEntries.apiTitle AND HistoryEntry.timestamp = RepeatedEntries.max_timestamp
+        ORDER BY RepeatedEntries.visit_count DESC, HistoryEntry.timestamp DESC
+        LIMIT :limit
+    """
+    )
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, mainPageApiTitles: List<String>, limit: Int): List<HistoryEntryWithVisitCount>
+
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
@@ -83,6 +104,11 @@ interface HistoryEntryWithImageDao {
 
     suspend fun getMostRecentEntriesWithImage(limit: Int): List<HistoryEntry> {
         return getHistoryEntriesWithOffset(limit, 0).map { toHistoryEntry(it) }
+    }
+
+    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<Pair<HistoryEntry, Int>> {
+        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, excludedTitles, limit)
+            .map { toHistoryEntry(it.entryWithImage) to it.visitCount }
     }
 
     suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {
