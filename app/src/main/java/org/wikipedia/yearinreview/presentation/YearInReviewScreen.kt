@@ -244,6 +244,7 @@ private fun YearInReviewContent(
                 when {
                     page is YearInReviewPage.End -> {
                         YearInReviewEndSlide(
+                            isDonor = page.isDonor,
                             onCardActionClick = onEndCardClick
                         )
                     }

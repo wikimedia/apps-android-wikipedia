@@ -14,6 +14,7 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
@@ -98,10 +99,15 @@ class YearInReviewActivity : BaseActivity() {
                         when (card) {
                             YearInReviewEndCard.GAMES -> startActivity(GamesHubActivity.newIntent(this))
                             YearInReviewEndCard.CUSTOMIZE_HOME -> startActivity(PersonalizationActivity.newIntent(this, showInterestsOnly = true))
-                            // TODO: open these once their destination URLs are finalized
-                            YearInReviewEndCard.STORE_DISCOUNT,
-                            YearInReviewEndCard.COMMUNITY_RECAP,
-                            YearInReviewEndCard.QUIZ -> { }
+                            YearInReviewEndCard.STORE_DISCOUNT -> {
+                                UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_store_discount_url).toUri())
+                            }
+                            YearInReviewEndCard.COMMUNITY_RECAP -> {
+                                // TODO: restart Year-in-Review from the beginning.
+                            }
+                            YearInReviewEndCard.QUIZ -> {
+                                UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_quiz_url, WikipediaApp.instance.appOrSystemLanguageCode).toUri())
+                            }
                         }
                     },
                     onStatusBarIconColorChange = { useDarkIcons ->

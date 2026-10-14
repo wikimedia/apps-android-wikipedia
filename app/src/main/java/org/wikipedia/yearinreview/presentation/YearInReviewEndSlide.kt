@@ -58,21 +58,18 @@ import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.DimenUtil
 
 private const val STORE_DISCOUNT_PERCENT = 15
 
-private val EndSlideBackgroundColor = Color(0xFF0F1621)
+private val EndSlideBackgroundColor = Color(0xFF1B223D)
 private val EndCardPagerHorizontalPadding = 32.dp
 private val EndCardPageSpacing = 20.dp
 
 private val EndSlideSkyColorStops = arrayOf(
-    0f to Color(0xFFB5E5FF),
-    0.25f to Color(0xFF5CC4FF),
-    0.5f to Color(0xFF0A9BFF),
-    0.68f to Color(0xFF0A6CF5),
-    0.8f to Color(0xFF0540C8),
-    0.9f to Color(0xFF0A1A3D),
+    0f to Color(0xFFF8F9FA),
+    0.25f to Color(0xFF44D3F0),
+    0.5f to Color(0xFF0099DA),
+    0.85f to Color(0xFF0E2651),
     1f to EndSlideBackgroundColor
 )
 
@@ -99,15 +96,16 @@ private fun YearInReviewEndCard.supportingText(): String = when (this) {
 @Composable
 fun YearInReviewEndSlide(
     modifier: Modifier = Modifier,
-    cards: List<YearInReviewEndCard> = YearInReviewEndCard.entries,
+    isDonor: Boolean = false,
     onCardActionClick: (YearInReviewEndCard) -> Unit = {}
 ) {
+    val cards = if (isDonor) { YearInReviewEndCard.entries } else { YearInReviewEndCard.entries.minus(YearInReviewEndCard.STORE_DISCOUNT) }
     BoxWithConstraints(
         modifier = modifier
             .fillMaxSize()
             .background(EndSlideBackgroundColor)
     ) {
-        // The sky ends at the bottom of the puzzle, which moves down when a tall screen leaves extra room above it
+        // The sky ends at the top of the headline, which moves down when a tall screen leaves extra room above the puzzle
         var skyBottom by remember { mutableFloatStateOf(0f) }
         // Fills the slide on tall screens, and scrolls when the content doesn't fit, e.g. with a large font scale
         Column(
@@ -126,9 +124,6 @@ fun YearInReviewEndSlide(
             Spacer(modifier = Modifier.height(WindowInsets.statusBars.asPaddingValues().calculateTopPadding() + TopAppBarHeight))
             Spacer(modifier = Modifier.weight(1f))
             Image(
-                modifier = Modifier.onPlaced { coordinates ->
-                    skyBottom = coordinates.positionInParent().y + coordinates.size.height + DimenUtil.roundedDpToPx(32f)
-                },
                 painter = painterResource(R.drawable.w_puzzle),
                 contentDescription = null
             )
@@ -136,7 +131,11 @@ fun YearInReviewEndSlide(
                 modifier = Modifier.padding(top = 12.dp)
             )
             Text(
-                modifier = Modifier.padding(start = 32.dp, end = 32.dp, top = 24.dp),
+                modifier = Modifier
+                    .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                    .onPlaced { coordinates ->
+                        skyBottom = coordinates.positionInParent().y
+                    },
                 text = stringResource(R.string.yir_closing_headline).uppercase(),
                 color = ComposeColors.White,
                 textAlign = TextAlign.Center,
@@ -144,11 +143,11 @@ fun YearInReviewEndSlide(
                 style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold, lineHeight = 34.sp)
             )
             Text(
-                modifier = Modifier.padding(start = 32.dp, end = 32.dp, top = 12.dp),
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
                 text = stringResource(R.string.yir_closing_supporting),
                 color = ComposeColors.White,
                 textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.bodyLarge.copy(fontFamily = FontFamily.Serif, lineHeight = 20.sp,  fontSize = 15.sp)
+                style = MaterialTheme.typography.bodyLarge.copy(fontFamily = FontFamily.Serif, lineHeight = 20.sp, fontSize = 15.sp)
             )
             Spacer(modifier = Modifier.height(24.dp))
             Spacer(modifier = Modifier.weight(1f))
@@ -165,7 +164,7 @@ fun YearInReviewEndSlide(
 @Composable
 private fun PuzzleSpotlight(modifier: Modifier = Modifier) {
     Canvas(
-        modifier = modifier.size(width = 96.dp, height = 8.dp)
+        modifier = modifier.size(width = 120.dp, height = 8.dp)
     ) {
         val radius = size.width / 2
         scale(scaleX = 1f, scaleY = size.height / size.width) {
@@ -246,7 +245,7 @@ private fun YearInReviewEndCardItem(
         modifier = modifier
             .fillMaxWidth()
             .background(color = ComposeColors.White, shape = RoundedCornerShape(16.dp))
-            .padding(horizontal = 16.dp, vertical = 20.dp),
+            .padding(start = 16.dp, end = 16.dp, top = 20.dp, bottom = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
