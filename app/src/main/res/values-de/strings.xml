@@ -1969,8 +1969,8 @@
   </plurals>
   <string name="yir_article_count_headline">Gelesene Artikel insgesamt:</string>
   <plurals name="yir_article_count_supporting_top" fuzzy="true">
-    <item quantity="one">Damit gehörst du weltweit zu den Top %1$s %% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
-    <item quantity="other">Damit gehörst du weltweit zu den Top %1$s %% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
+    <item quantity="one">Damit gehörst du weltweit zu den Top %1$s%% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
+    <item quantity="other">Damit gehörst du weltweit zu den Top %1$s%% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
   </plurals>
   <string name="yir_article_count_supporting">Du warst das ganze Jahr auf Entdeckungstour. Jeder Artikel hat dein Wissen erweitert.</string>
   <string name="yir_article_count_empty_headline">Millionen Artikel warten darauf, von dir entdeckt zu werden</string>
