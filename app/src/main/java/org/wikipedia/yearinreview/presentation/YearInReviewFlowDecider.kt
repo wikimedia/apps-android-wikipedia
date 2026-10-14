@@ -25,7 +25,7 @@ object YearInReviewFlowDecider {
         } else {
             YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) } + listOfNotNull(youMatterPage(snapshot))
         }
-        return listOf(YearInReviewPage.Cover(daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End(isDonor = snapshot.rewardData.isDonor)
+        return listOf(YearInReviewPage.Cover(daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End(isDonor = snapshot.rewardData.isContributor)
     }
 
     private fun personalizedCandidates(snapshot: YearInReviewSnapshot): List<CandidatePage> {
