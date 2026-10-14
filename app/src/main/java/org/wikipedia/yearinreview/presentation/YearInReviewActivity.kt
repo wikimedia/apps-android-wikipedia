@@ -117,6 +117,11 @@ class YearInReviewActivity : BaseActivity() {
                         WindowCompat.getInsetsController(window, window.decorView)
                             .isAppearanceLightStatusBars = useDarkIcons
                     },
+                    onPageImpression = { page ->
+                        if (page is YearInReviewPage.End) {
+                            YearInReviewEndScreenABTest().maybeSendExposureEvent()
+                        }
+                    },
                     onRetryClick = {
                         viewModel.loadYearInReview()
                     },

@@ -41,7 +41,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -95,6 +97,7 @@ fun YearInReviewScreen(
     onEndCardClick: (YearInReviewEndCard) -> Unit = {},
     onRetryClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
+    onPageImpression: (YearInReviewPage) -> Unit = {},
     onRiveError: (Throwable) -> Unit = {}
 ) {
     when (uiState) {
@@ -124,6 +127,7 @@ fun YearInReviewScreen(
                 onDonateClick = onDonateClick,
                 onEndCardClick = onEndCardClick,
                 onStatusBarIconColorChange = onStatusBarIconColorChange,
+                onPageImpression = onPageImpression,
                 onRiveError = onRiveError
             )
         }
@@ -162,9 +166,16 @@ private fun YearInReviewContent(
     onDonateClick: (String) -> Unit,
     onEndCardClick: (YearInReviewEndCard) -> Unit,
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
+    onPageImpression: (YearInReviewPage) -> Unit,
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
+    val currentOnPageImpression by rememberUpdatedState(onPageImpression)
+    LaunchedEffect(pagerState, pages) {
+        snapshotFlow { pagerState.settledPage }.collect { position ->
+            pages.getOrNull(position)?.let { currentOnPageImpression(it) }
+        }
+    }
     val useWhiteTopBarIconsByPageId = remember { mutableStateMapOf<String, Boolean>() }
     val useDarkStatusBarIcons by remember(pages) {
         derivedStateOf {
