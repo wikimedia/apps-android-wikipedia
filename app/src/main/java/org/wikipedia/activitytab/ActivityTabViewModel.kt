@@ -135,7 +135,7 @@ class ActivityTabViewModel : ViewModel() {
 
     private fun loadYearInReviewEntry() {
         yearInReviewEntryJob?.cancel()
-        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount || !YearInReviewViewModel.canShowEntryPoint) {
+        if (!YearInReviewViewModel.canShowEntryPoint) {
             _yearInReviewEntryState.value = UiState.Loading
             return
         }
