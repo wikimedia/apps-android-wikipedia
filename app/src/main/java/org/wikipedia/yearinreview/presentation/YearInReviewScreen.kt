@@ -41,7 +41,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -58,7 +57,6 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import app.rive.GetBitmapFun
 import app.rive.Result
-import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -167,7 +165,6 @@ private fun YearInReviewContent(
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
-    val coroutineScope = rememberCoroutineScope()
     val useWhiteTopBarIconsByPageId = remember { mutableStateMapOf<String, Boolean>() }
     val useDarkStatusBarIcons by remember(pages) {
         derivedStateOf {
@@ -248,13 +245,7 @@ private fun YearInReviewContent(
                     page is YearInReviewPage.End -> {
                         YearInReviewEndSlide(
                             isDonor = page.isDonor,
-                            onCardActionClick = { card ->
-                                if (card == YearInReviewEndCard.COMMUNITY_RECAP) {
-                                    coroutineScope.launch { pagerState.animateScrollToPage(0) }
-                                } else {
-                                    onEndCardClick(card)
-                                }
-                            }
+                            onCardActionClick = onEndCardClick
                         )
                     }
                     // A custom slide, such as an interactive one, gets its own branch above this one

@@ -80,7 +80,6 @@ enum class YearInReviewEndCard(
     STORE_DISCOUNT(R.string.yir_store_discount_headline, R.string.yir_store_discount_action),
     GAMES(R.string.yir_games_headline, R.string.yir_games_action),
     CUSTOMIZE_HOME(R.string.yir_customize_home_headline, R.string.yir_customize_home_action),
-    COMMUNITY_RECAP(R.string.yir_community_recap_headline, R.string.yir_community_recap_action),
     QUIZ(R.string.yir_quiz_headline, R.string.yir_quiz_action)
 }
 
@@ -89,7 +88,6 @@ private fun YearInReviewEndCard.supportingText(): String = when (this) {
     YearInReviewEndCard.STORE_DISCOUNT -> pluralStringResource(R.plurals.yir_store_discount_supporting, STORE_DISCOUNT_PERCENT, STORE_DISCOUNT_PERCENT)
     YearInReviewEndCard.GAMES -> stringResource(R.string.yir_games_supporting)
     YearInReviewEndCard.CUSTOMIZE_HOME -> stringResource(R.string.yir_customize_home_supporting)
-    YearInReviewEndCard.COMMUNITY_RECAP -> stringResource(R.string.yir_community_recap_supporting)
     YearInReviewEndCard.QUIZ -> stringResource(R.string.yir_quiz_supporting)
 }
 

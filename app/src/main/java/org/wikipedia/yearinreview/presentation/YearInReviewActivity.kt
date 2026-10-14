@@ -102,9 +102,6 @@ class YearInReviewActivity : BaseActivity() {
                             YearInReviewEndCard.STORE_DISCOUNT -> {
                                 UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_store_discount_url).toUri())
                             }
-                            YearInReviewEndCard.COMMUNITY_RECAP -> {
-                                // Handled by YearInReviewScreen, which restarts the flow from the first slide
-                            }
                             YearInReviewEndCard.QUIZ -> {
                                 UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_quiz_url, WikipediaApp.instance.appOrSystemLanguageCode).toUri())
                             }
