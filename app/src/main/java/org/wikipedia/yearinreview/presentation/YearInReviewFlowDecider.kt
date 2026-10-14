@@ -79,7 +79,7 @@ object YearInReviewFlowDecider {
     }
 
     private fun getTopReadPercentile(snapshot: YearInReviewSnapshot): String {
-        return snapshot.remoteConfig?.topReadPercentages?.find {
+        return snapshot.remoteConfig.topReadPercentages.find {
             snapshot.readingStats.articlesReadCount > it.min && snapshot.readingStats.articlesReadCount <= it.max
         }?.identifier.orEmpty()
     }

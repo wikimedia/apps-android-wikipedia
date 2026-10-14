@@ -14,7 +14,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.yearinreview.data.YearInReviewAvailability
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.data.YearInReviewDonationEligibility
-import org.wikipedia.yearinreview.data.YearInReviewModel
 import org.wikipedia.yearinreview.data.YearInReviewRepository
 import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
 
@@ -58,13 +57,6 @@ class YearInReviewViewModel(
     companion object {
         const val YIR_YEAR = YearInReviewConfig.YEAR
         const val YIR_TAG = "yir_$YIR_YEAR"
-        const val MAX_EDITED_TIMES = 500
-        const val MIN_SAVED_ARTICLES = 3
-        const val MIN_TOP_CATEGORY = 3
-        const val MIN_READING_ARTICLES = 5
-        const val MIN_READING_MINUTES = 1
-        const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
-        const val MAX_ARTICLES_ON_MAP = 32
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
@@ -89,17 +81,5 @@ class YearInReviewViewModel(
             YearInReviewDonationEligibility().hasDonatedWithinContributionsDateRange(YearInReviewConfig.cachedRemoteConfig) ||
                     (it.editingStats?.contributionsEditCount ?: 0) > 0
         } == true
-
-        fun updateYearInReviewModel(year: Int = YIR_YEAR, update: (YearInReviewModel) -> YearInReviewModel) {
-            val currentData = Prefs.yearInReviewModelData.toMutableMap()
-            currentData[year]?.let { model ->
-                currentData[year] = update(model)
-                Prefs.yearInReviewModelData = currentData
-            }
-        }
-
-        fun getYearInReviewModel(year: Int = YIR_YEAR): YearInReviewModel? {
-            return Prefs.yearInReviewModelData[year]
-        }
     }
 }
