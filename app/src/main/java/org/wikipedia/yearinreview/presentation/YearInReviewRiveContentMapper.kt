@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.view.View
 import org.wikipedia.R
 import org.wikipedia.topics.ArticleTopic
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
@@ -86,17 +87,19 @@ object YearInReviewRiveContentMapper {
                 "data" to if (page.isEmptyState) "" else resources.getString(page.topic.msgKey).uppercase(),
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
                 else resources.getQuantityString(R.plurals.yir_top_topic_supporting, page.articles.size,
-                    page.articles.first(), page.articles.last(), page.articles.size, getTopicComment(resources, page.topic))
+                    page.articles.first(), page.articles.last(), page.articles.size, getTopicComment(resources, page.topic)),
+                "topicIcon" to "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/02_Art.png/250px-02_Art.png" /*page.topic.topicId*/
             )
         )
         is YearInReviewPage.OtherTopTopics -> RiveSlideContent(
             spec = allTemplatesListSlideSpec(artboardName = "frame7"),
             textProperties = mapOf(
                 "bodyText" to resources.getString(R.string.yir_runner_up_topics_headline, YearInReviewConfig.YEAR)
-            ) + listRows(page.topicArticleCounts.map { (topic, count) ->
-                resources.getString(topic.msgKey) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
+            ) + listRows(page.topicArticleCounts.map { (topicId, count) ->
+                resources.getString(ArticleTopics.all.find { it.topicId == topicId }?.msgKey ?: 0) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
             }),
-            numberProperties = listItemCount(page.topicArticleCounts.size)
+            numberProperties = listItemCount(page.topicArticleCounts.size),
+            imageUrls = listIcons(page.topicArticleCounts.map { "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/02_Art.png/250px-02_Art.png" /*it.key.topicId*/ })
         )
         is YearInReviewPage.BiggestReadingDay -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame8"),
