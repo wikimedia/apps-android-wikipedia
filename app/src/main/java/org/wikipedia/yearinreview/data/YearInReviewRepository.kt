@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.HistoryEntryDao
+import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
@@ -25,6 +26,7 @@ interface YearInReviewRepository {
 class YearInReviewRepositoryImpl(
     private val restService: RestService = ServiceFactory.getRest(WikipediaApp.instance.wikiSite),
     private val historyEntryDao: HistoryEntryDao = AppDatabase.instance.historyEntryDao(),
+    private val historyEntryWithImageDao: HistoryEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
     private val pageTopicDao: PageTopicDao = AppDatabase.instance.pageTopicDao(),
     private val cache: YearInReviewCache = PrefsYearInReviewStore,
     private val donationEligibility: YearInReviewDonationEligibility = YearInReviewDonationEligibility()
@@ -66,18 +68,23 @@ class YearInReviewRepositoryImpl(
         // TODO: parallelize all of the suspend calls below:
         val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis)
 
+        val mainPageTitles = WikipediaApp.instance.languageState.appLanguageCodes.map { StringUtil.addUnderscores(MainPageNameData.valueFor(it)) }
+
+        val articlesRevisited = historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
+            .map { it.first.title to it.second }
+
         val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis).take(4)
         val topTopic = topTopics.map { it.topic }.firstOrNull()?.let {
             ArticleTopics.all.find { topic -> topic.taxonIds.contains(it) }
         }
         val otherTopTopics = topTopics.drop(1)
 
-        val excludedTitles = WikipediaApp.instance.languageState.appLanguageCodes.map { StringUtil.addUnderscores(MainPageNameData.valueFor(it)) }
         return YearInReviewReadingStats(
-            articlesReadCount = historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, excludedTitles),
+            articlesReadCount = historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles),
             visitedDaysCount = historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis),
             peakMonth = peakMonth?.month ?: 0,
             peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,
+            articlesRevisited = articlesRevisited,
             topTopic = topTopic,
             topTopicArticles = topTopic?.let { topic ->
                 pageTopicDao.findEntriesByTopic(topic.taxonIds.firstOrNull().orEmpty(), dateRange.startMillis, dateRange.endMillis, limit = 3)
