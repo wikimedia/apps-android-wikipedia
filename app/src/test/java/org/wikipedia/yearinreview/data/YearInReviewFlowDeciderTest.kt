@@ -33,7 +33,7 @@ class YearInReviewFlowDeciderTest {
             YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], articles = emptyList()),
             YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
             YearInReviewPage.YouMatter(showLoginPrompt = false),
-            YearInReviewPage.End
+            YearInReviewPage.End(isDonor = false)
         )
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = dataRichStats)))
     }
@@ -47,13 +47,13 @@ class YearInReviewFlowDeciderTest {
 
     @Test
     fun `logged-in low-data user gets collective slides`() {
-        val expected = listOf(YearInReviewPage.Cover(daysSpent = 1)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End
+        val expected = listOf(YearInReviewPage.Cover(daysSpent = 1)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End(isDonor = false)
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = lowDataStats)))
     }
 
     @Test
     fun `logged-out data-rich user gets collective slides with a login prompt`() {
-        val expected = listOf(YearInReviewPage.Cover(daysSpent = 2)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = true) + YearInReviewPage.End
+        val expected = listOf(YearInReviewPage.Cover(daysSpent = 2)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = true) + YearInReviewPage.End(isDonor = false)
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(isLoggedIn = false, readingStats = dataRichStats)))
     }
 
@@ -65,7 +65,7 @@ class YearInReviewFlowDeciderTest {
 
     @Test
     fun `low-data contributor gets you matter slide`() {
-        val expected = listOf(YearInReviewPage.Cover(daysSpent = 1)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End
+        val expected = listOf(YearInReviewPage.Cover(daysSpent = 1)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End(isDonor = true)
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = lowDataStats, rewardData = contributorRewardData)))
     }
 

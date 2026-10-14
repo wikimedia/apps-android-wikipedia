@@ -126,7 +126,7 @@ object YearInReviewPlaygroundPreview {
         ),
         YearInReviewPage.ThankYou(isEditor = true, isDonor = true),
         YearInReviewPage.YouMatter(showLoginPrompt = false),
-        YearInReviewPage.End
+        YearInReviewPage.End(isDonor = true)
     )
 
     // Visits has no empty state: it's left out of the flow instead
@@ -140,7 +140,7 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.Geography(isEmptyState = true, placeArticleCounts = emptyMap()),
         YearInReviewPage.SavedArticles(isEmptyState = true, savedCount = 0, articles = emptyList()),
         YearInReviewPage.TotalEdits(isEmptyState = true, editCount = 0),
-        YearInReviewPage.End
+        YearInReviewPage.End(isDonor = false)
     )
 
     // Between 1 and all of the items, so slides with a variable number of rows can be checked

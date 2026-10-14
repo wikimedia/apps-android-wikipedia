@@ -2161,6 +2161,7 @@
         <item quantity="one">Because you help keep knowledge free, we\'re giving you %1$d%% off the Wikipedia store. No code needed, it\'s applied at checkout.</item>
         <item quantity="other">Because you help keep knowledge free, we\'re giving you %1$d%% off the Wikipedia store. No code needed, it\'s applied at checkout.</item>
     </plurals>
+    <string name="yir_store_discount_action">Visit the store</string>
     <string name="yir_games_headline">Ready for another challenge?</string>
     <string name="yir_games_supporting">Put your Wikipedia brain to the test with quick games inspired by the world\'s knowledge.</string>
     <string name="yir_games_action">Start playing</string>
