@@ -1068,7 +1068,7 @@
   <string name="suggested_edits_gate_message">%s, ќе мора да извршите барем три уредувања непосредно во статија за да можете да ја користите оваа можност.</string>
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>
-  <string name="suggested_edits_edit_streak_label_text">Последователни уредувања</string>
+  <string name="suggested_edits_edit_streak_label_text">Низа уредувања</string>
   <string name="suggested_edits_views_label_text">Посети</string>
   <string name="suggested_edits_quality_label_text">Квалитет на уредувањата</string>
   <string name="suggested_edits_quality_perfect_text">Совршен</string>
@@ -1200,7 +1200,7 @@
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Последен дар&lt;/b&gt; во прилог</string>
   <string name="activity_tab_total_edits_all_projects">Вкупно уредувања низ проектите</string>
   <string name="activity_tab_game_stats">Статистика за игри</string>
-  <string name="activity_tab_game_stats_best_streak">Најдобра тура</string>
+  <string name="activity_tab_game_stats_best_streak">Најдобра низа</string>
   <string name="activity_tab_play_wiki_games">Играјте Викиигри</string>
   <string name="activity_tab_report_email_subject">Пријава на проблем — Јазиче за активности</string>
   <string name="activity_tab_report_email_body">Наидов на проблем со функцијата Јазиче за активности:\n- [Опишете го конкретниот проблем]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
@@ -1234,7 +1234,7 @@
     <item quantity="one">%d ден</item>
     <item quantity="other">%d дена</item>
   </plurals>
-  <string name="activity_tab_impact_best_streak">Најдобра тура</string>
+  <string name="activity_tab_impact_best_streak">Најдобра низа</string>
   <string name="activity_tab_impact_last_edited">Последно уредување</string>
   <string name="activity_tab_impact_suggested_edits_title">0 уредувања на статии во последно време</string>
   <string name="activity_tab_impact_suggested_edits_message">Изгледа дека немате направено уредување овој месец. Проширете го слободното знаење уредувајќи на теми што највеќе ве интересираат.</string>
@@ -1863,7 +1863,7 @@
     <item quantity="other">Одиграни игри</item>
   </plurals>
   <string name="on_this_day_game_stats_average_score">Просечно бодови</string>
-  <string name="on_this_day_game_stats_streak">Тековна седенка</string>
+  <string name="on_this_day_game_stats_streak">Тековна низа</string>
   <string name="on_this_day_game_result_subtitle">Статии на кои се однесува денешната игра</string>
   <string name="on_this_day_game_completed_message">Благодариме што играте. Имаме нова игра „Што се случило попрво?“ секој ден во тековникот „Почетна“.</string>
   <string name="on_this_day_game_menu_notifications">Известувања во играта</string>
@@ -1912,6 +1912,48 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Погледајте ги вашите тури, резултати и друго</string>
   <string name="wikipedia_games_title">Википедиини игри</string>
   <string name="wikipedia_games_subtitle">Дневни квизови засновани на содржини на Википедија.</string>
+  <string name="yir_intro_headline">Пристигна вашиот Преглед на годината на Википедија</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">Ви благодариме што проведовте %1$d ден со нашиот прилог за Википедија во %2$d г.</item>
+    <item quantity="other">Ви благодариме што проведовте %1$d дена со нашиот прилог за Википедија во %2$d г.</item>
+  </plurals>
+  <string name="yir_article_count_headline">Вкупно прочитани статии:</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="one">Ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$d статија годишно.</item>
+    <item quantity="other">Ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$d статии годишно.</item>
+  </plurals>
+  <string name="yir_article_count_supporting">Истражувавте цела година. Секоја статија додаде на вашите знаења.</string>
+  <string name="yir_article_count_empty_headline">Имате милиони статии за откривање</string>
+  <string name="yir_article_count_empty_supporting">Само почекајте да дознаете што сè може да се научи на Википедија.</string>
+  <string name="yir_days_visited_headline">Денови во кои ја посетивте Википедија во %1$d година:</string>
+  <string name="yir_minutes_read_supporting">%1$s Времето лета кога ќе се вовлечете во нешто.</string>
+  <string name="yir_reading_streak_headline">Денови во вашата најдолга читачка низа:</string>
+  <string name="yir_reading_streak_empty_headline">0 низа на читање… досега</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">Не е низа додека не исполните %1$d последователен ден. Зошто не почнете сега?</item>
+    <item quantity="other">Не е низа додека не исполните %1$d последователни денови. Зошто не почнете сега?</item>
+  </plurals>
+  <string name="yir_reading_time_headline">Омилено време за истражување:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">%1$d%% од вашето истражување се одвиваше во ова време од денот. Случајност или…не?</item>
+    <item quantity="other">%1$d%% од вашето истражување се одвиваше во ова време од денот. Случајност или…не?</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">Читате практично во било кое време</string>
+  <string name="yir_reading_time_empty_supporting">Нема одреден ден или време кога решавате да истражувате страници на Википедија.</string>
+  <string name="yir_top_topic_headline">Вашата најзастапена тема за %1$d година:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">Од %1$s до %2$s, %3$d од вашите статии се поврзани со оваа тема. %4$s</item>
+    <item quantity="other">Од %1$s до %2$s, %3$d од вашите статии се поврзани со оваа тема. %4$s</item>
+  </plurals>
+  <string name="yir_top_topic_empty_headline">Вашата тема број 1 во %1$d година е… сите</string>
+  <string name="yir_rabbit_hole_headline">Во што највеќе се вовлековте?</string>
+  <string name="yir_rabbit_hole_depth_supporting">Во што ќе се вовлечете следно?</string>
+  <string name="yir_reread_articles_empty_supporting">Не се навраќате на статии. Претпочитате новини и нови вовлекувања.</string>
+  <string name="yir_community_contribute_headline">Вие сте важни.</string>
+  <string name="yir_closing_headline">До следното вовлекување</string>
+  <string name="yir_quiz_action">Одговорете на квизот</string>
+  <string name="yir_open_tabs_headline">Навратете се на отворените јазичиња</string>
+  <string name="yir_topic_comment_literature">Годинава вашето читање има книжевна црта.</string>
   <string name="year_in_review_learn_more">Дознајте повеќе</string>
   <string name="year_in_review_get_started">Започнете</string>
   <string name="year_in_review_topbar_w_icon">Икона W на Википедија</string>
@@ -1925,7 +1967,6 @@
   <string name="year_in_review_get_started_headline">Истражете го вашиот Преглед на годината на Википедија</string>
   <string name="year_in_review_get_started_bodytext">Добијте сознанија за тоа кои статии ги читате на прилогот на Википедија и кои уредувања ги правите.</string>
   <string name="year_in_review_get_started_info">Вашата историја на читање е заштитена. Сознанијата за читањето се пресметуваат со месно складирани податоци на вашиот уред.</string>
-  <string name="year_in_review_get_started_later">Можете да го отворите вашиот Преглед на годината во менито Повеќе.</string>
   <string name="year_in_review_survey_title">Помогнете ни да го подобриме Прегледот на годината</string>
   <string name="year_in_review_survey_subtitle">Дали сте задоволни од оваа функција?</string>
   <string name="year_in_review_reading_list_survey_title">Помогнете да се подобри збирката на Преглед на годината %d од прегледот на годината.</string>

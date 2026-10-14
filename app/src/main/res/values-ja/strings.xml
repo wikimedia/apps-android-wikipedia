@@ -420,6 +420,7 @@
   <string name="widget_title_featured_page">今日の秀逸な記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
   <string name="widget_description_search">ウィキペディアを検索する最速の方法</string>
+  <string name="widget_description_featured_page">ウィキペディアが提供する最高の記事</string>
   <string name="wiktionary_no_definitions_found">語釈が見つかりませんでした。</string>
   <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
@@ -1297,7 +1298,7 @@
   <string name="onboarding_skip">スキップ</string>
   <string name="onboarding_continue">続ける</string>
   <string name="onboarding_get_started">始めよう</string>
-  <string name="onboarding_maybe_later">あとで寄付する</string>
+  <string name="onboarding_maybe_later">後で</string>
   <string name="onboarding_explore_title">新しいツールで探検しよう</string>
   <string name="onboarding_explore_text">絶えずアップデートしていくホームフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_reading_list_sync_title">コレクションの同期</string>
@@ -1891,6 +1892,38 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">あなたの連続記録、スコアなどを確認します</string>
   <string name="wikipedia_games_title">ウィキペディアゲーム</string>
   <string name="wikipedia_games_subtitle">ウィキペディアのコンテンツに基づく毎日のトリビアゲーム。</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="other">あなたが後で読むために保存した記事数: %1$d記事</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="other">%1$s ビュー</item>
+  </plurals>
+  <string name="yir_saved_articles_empty_headline">保存済み記事は0件です</string>
+  <string name="yir_saved_articles_empty_supporting">現在保存済み記事は0件です。記事でブックマークアイコンを探して、後で読むことができます。</string>
+  <string name="yir_edits_headline">あなたが行った編集数:</string>
+  <string name="yir_edits_supporting">ウィキペディア、ウィキメディア・コモンズ、あるいはウィキデータへ貢献し、皆の人間の知識へのアクセスを改善していただきありがとうございます。</string>
+  <string name="yir_edits_empty_headline">これまであなたが行った編集は0回です</string>
+  <string name="yir_edits_empty_supporting">あなたはまだ編集を行っていませんが、簡単に方法を学べます。今こそウィキペディアを構築するコミュニティに参加する好機です。</string>
+  <string name="yir_edit_views_headline">あなたの編集が受けたビュー数:</string>
+  <string name="yir_edit_views_supporting">%1$d年に、あなたの行った編集を世界中の読者が目にしました。</string>
+  <string name="yir_most_viewed_edited_articles_headline">あなたの編集以降最も閲覧された記事:</string>
+  <string name="yir_contributor_thanks_headline">ありがとうございます!</string>
+  <string name="yir_contributor_thanks_supporting">%1$sとして、あなたはウィキペディアを広告なしで、信頼に値し、誰でも利用できるように維持することに貢献しました。ウィキペディアを支援していただいたことに感謝してもしきれません!</string>
+  <string name="yir_non_contributor_supporting">ウィキペディアが発展し続けられるように貢献してくださる、あなたのような実在の人々のおかげでウィキペディアは存在します。ウィキペディアがあなたにとって価値のあるものならば、寄付あるいは編集によって支援することをご検討ください。</string>
+  <plurals name="yir_community_languages_headline">
+    <item quantity="other">ウィキペディアの知識が利用可能な言語数: %1$d言語以上</item>
+  </plurals>
+  <string name="yir_community_languages_supporting">ウィキペディアは世界中のボランティアコミュニティによって書かれ維持されます—人間の知識がひとつの言語にとどまらず語られている証です。</string>
+  <string name="yir_community_articles_headline">ウィキペディアの記事数:</string>
+  <string name="yir_community_articles_supporting">ウィキペディアは人間による構築を継続します—世界中のボランティアが信頼できる情報源を利用して、あらゆるコンテンツを作成および収集します。</string>
+  <string name="yir_community_saved_articles_headline">%1$d年に保存された記事数:</string>
+  <string name="yir_community_saved_articles_supporting">読者は何千もの記事をブックマークして、1回、3回、あるいは100回と読みました。</string>
+  <string name="yir_community_editors_headline">ボランティア編集者数:</string>
+  <string name="yir_community_editors_supporting">ウィキメディアプロジェクトはすべてボランティアによって作られていることを知っていますか？編集者は新しい記事を投稿し、現在の記事を改善します。</string>
+  <string name="yir_community_edits_headline">編集数:</string>
+  <string name="yir_community_edits_supporting">毎日の毎時、世界中のボランティアが、記事の事実を更新、歴史的ランドマークを撮影、そして誤字を修正することによって、ウィキペディアの改善に取り組んでいます。</string>
+  <string name="yir_community_global_reach_headline">ウィキペディアの世界的な影響範囲: 世界の最も訪問されたウェブサイトトップテンのひとつ</string>
+  <string name="yir_community_global_reach_supporting">ウィキペディアはインターネットの知識の支柱です。学生からチャットボットまで、皆ここから学んでいます。</string>
   <string name="year_in_review_learn_more">詳細</string>
   <string name="year_in_review_get_started">始める</string>
   <string name="year_in_review_topbar_w_icon">ウィキペディア W アイコン</string>

@@ -612,8 +612,8 @@
     <item quantity="other">Syncing %1$d lists…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description" fuzzy="true">
-    <item quantity="one">%1$d list left</item>
-    <item quantity="other">%1$d lists left</item>
+    <item quantity="one">စရင်%1$dသှ်ေဒၟံင်</item>
+    <item quantity="other">စရင်%1$dဂမၠိုၚ်သှ်ေဒၟံင်</item>
   </plurals>
   <string name="notification_echo_channel_description">တင်မကဵုသမ္တီ ဝဳကဳပဳဒဳယာဂမၠိုင်</string>
   <string name="notifications_activity_title">တင်မကဵုသမ္တီဂမၠိုင်</string>
