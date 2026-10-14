@@ -63,6 +63,7 @@ class SearchResultsViewModel : ViewModel() {
 
     private var lastXSearchIdPrefix = ""
     private var lastXSearchIdFullText = ""
+    var lastXSearchIdSemantic = ""
 
     val isSemanticSearchEnabled = combine(
         _languageCode,
@@ -128,6 +129,18 @@ class SearchResultsViewModel : ViewModel() {
         return buildMap {
             put("search_id_pre", lastXSearchIdPrefix)
             put("search_id_ful", lastXSearchIdFullText)
+            if (result != null) {
+                put("position", result.indexInApiCall)
+                put("type", result.type)
+            }
+        }
+    }
+
+    fun getSemanticEventActionContext(result: SearchResult? = null): Map<String, Any> {
+        return buildMap {
+            put("search_id_pre", lastXSearchIdPrefix)
+            put("search_id_ful", lastXSearchIdFullText)
+            put("search_id_sem", lastXSearchIdSemantic)
             if (result != null) {
                 put("position", result.indexInApiCall)
                 put("type", result.type)

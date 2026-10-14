@@ -99,15 +99,19 @@ import org.wikipedia.views.imageservice.ImageService
 import java.util.Date
 import kotlin.math.ceil
 
+enum class LoadingType {
+    Loading, Error, Empty, Success
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SemanticSearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
-    onItemClick: (PageTitle, String?) -> Unit,
+    onItemClick: (SearchResult) -> Unit,
     onCloseClick: () -> Unit,
     onFeedbackSubmit: (isPositive: Boolean?, feedbackText: String) -> Unit,
-    onLoading: (Boolean) -> Unit,
+    onLoading: (LoadingType) -> Unit
 ) {
 
     val searchResultsState = viewModel.semanticSearchResultsState.collectAsState().value
@@ -144,19 +148,20 @@ fun SemanticSearchResultsScreen(
 
             when (searchResultsState) {
                 is UiState.Loading -> {
-                    onLoading(true)
+                    onLoading(LoadingType.Loading)
                     SemanticSearchResultsSkeletonLoader()
                 }
 
                 is UiState.Success -> {
-                    onLoading(false)
                     val results = searchResultsState.data
                     if (results.isEmpty()) {
+                        onLoading(LoadingType.Empty)
                         SemanticSearchNoResultsContent(
                             languageCode = viewModel.languageCode
                         )
                         return@CompositionLocalProvider
                     }
+                    onLoading(LoadingType.Success)
                     SemanticSearchFeedbackContent(
                         languageCode = viewModel.languageCode,
                         modifier = Modifier
@@ -181,7 +186,7 @@ fun SemanticSearchResultsScreen(
                 }
 
                 is UiState.Error -> {
-                    onLoading(false)
+                    onLoading(LoadingType.Error)
                     SemanticSearchErrorContent(
                         throwable = searchResultsState.error,
                         wikiErrorClickEvents = WikiErrorClickEvents(
@@ -416,7 +421,7 @@ fun SemanticSearchResultsContent(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
     items: List<SearchResult>,
-    onItemClick: (PageTitle, String?) -> Unit
+    onItemClick: (SearchResult) -> Unit
 ) {
     Box(
         modifier = modifier
@@ -435,7 +440,7 @@ fun SemanticSearchResultsContent(
                     prefixQuotationMark = SemanticSearchAbTest.getQuotationMark(viewModel.languageCode),
                     showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
-                    onItemClick = { onItemClick(searchResult.pageTitle, searchResult.snippet) }
+                    onItemClick = { onItemClick(searchResult) }
                 )
             }
         }

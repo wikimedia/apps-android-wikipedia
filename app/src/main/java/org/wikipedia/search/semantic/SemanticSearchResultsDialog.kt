@@ -17,6 +17,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResultCallback
+import org.wikipedia.search.SearchResultsFragment
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 
@@ -33,13 +34,26 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                 BaseTheme {
                     SemanticSearchResultsScreen(
                         viewModel = viewModel,
-                        onItemClick = { title, snippet ->
+                        onItemClick = { searchResult ->
+
+                            SemanticSearchAbTest().shouldSendEvent {
+                                requireActivity().instrument?.submitInteraction("click",
+                                    actionSubtype = "semantic_result",
+                                    elementId = "search_result",
+                                    actionContext = mapOf(
+                                        "position" to searchResult.indexInApiCall,
+                                        "search_id_sem" to viewModel.lastXSearchIdSemantic,
+                                        "type" to searchResult.type
+                                    )
+                                )
+                            }
+
                             callback()?.navigateToTitle(
-                                item = title,
+                                item = searchResult.pageTitle,
                                 inNewTab = false,
-                                position = 0,
+                                position = searchResult.indexInApiCall,
                                 showSemanticSearchFeedback = viewModel.deferFeedbackToArticle(),
-                                highlightText = StringUtil.extractStringFromStyle("searchmatch", snippet)
+                                highlightText = StringUtil.extractStringFromStyle("searchmatch", searchResult.snippet)
                             )
                         },
                         onCloseClick = {
@@ -52,19 +66,26 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             dismiss()
                         },
                         onFeedbackSubmit = { isPositive, feedbackText ->
-                            // TODO: send the feedback to instrumentation in another ticket.
                             val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
                             FeedbackUtil.makeSnackbar(requireView(), message).show()
                         },
                         onLoading = {
-                            if (!it) {
+                            if (it != LoadingType.Loading) {
                                 SemanticSearchAbTest().shouldSendEvent {
                                     requireActivity().instrument?.submitInteraction("impression",
-                                        actionSubtype = "semantic_result",
-                                        elementId = "close_result_button",
-                                        actionContext = mapOf(
-                                            "search_id_sem" to viewModel.lastXSearchIdSemantic
-                                        )
+                                        actionSubtype = if (it != LoadingType.Empty) "semantic_result" else "semantic_result",
+                                        elementId = "search_result",
+                                        actionContext = if (it != LoadingType.Empty) {
+                                            mapOf(
+                                                "search_id_sem" to viewModel.lastXSearchIdSemantic
+                                            )
+                                        } else null
+                                    )
+                                }
+
+                                if (it == LoadingType.Success) {
+                                    (parentFragment as SearchResultsFragment).setSemanticSearchId(
+                                        viewModel.lastXSearchIdSemantic
                                     )
                                 }
                             }

@@ -50,10 +50,10 @@ class SearchResultsFragment : Fragment() {
                             "search_init", actionContext = mapOf("query" to query)
                         )
                         SemanticSearchAbTest().shouldSendEvent {
-                            val isRecent = viewModel.isFromRecentSearch
+                            val isFromRecentSearch = viewModel.isFromRecentSearch
                             requireActivity().instrument?.submitInteraction("init",
-                                actionSubtype = if (isRecent) "recent_search" else null,
-                                elementId = if (isRecent) "search_result" else null,
+                                actionSubtype = if (isFromRecentSearch) "recent_search" else null,
+                                elementId = if (isFromRecentSearch) "search_result" else null,
                                 actionContext = mapOf(
                                     "query" to query,
                                     "query_trunc" to (query.length > 256)
@@ -76,6 +76,13 @@ class SearchResultsFragment : Fragment() {
                             requireActivity().instrument?.submitInteraction("impression",
                                 elementId = "search_result",
                                 actionContext = viewModel.getStandardEventActionContext()
+                            )
+                        }
+                        SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_2) {
+                            requireActivity().instrument?.submitInteraction("impression",
+                                elementId = "search_result",
+                                actionSubtype = "lexical_result",
+                                actionContext = viewModel.getSemanticEventActionContext()
                             )
                         }
                     }
@@ -202,6 +209,10 @@ class SearchResultsFragment : Fragment() {
 
     fun setInvokeSource(invokeSource: Constants.InvokeSource) {
         viewModel.invokeSource = invokeSource
+    }
+
+    fun setSemanticSearchId(searchId: String) {
+        viewModel.lastXSearchIdSemantic = searchId
     }
 
     val isSemanticSearchFeedbackShown get() = viewModel.isSemanticSearchFeedbackShown
