@@ -2018,7 +2018,6 @@
   <string name="year_in_review_get_started_headline">Ознайомтеся зі своїм оглядом року у Вікіпедії</string>
   <string name="year_in_review_get_started_bodytext">Переглядайте статистику того, які статті ви читали в програмці Вікіпедії, а також редагування, які ви зробили.</string>
   <string name="year_in_review_get_started_info">Ваша історія читання захищена. Статистика читання розраховується на основі даних, що зберігаються локально на вашому пристрої.</string>
-  <string name="year_in_review_get_started_later">Ви можете переглянути свій огляд року пізніше у меню «Більше».</string>
   <string name="year_in_review_survey_title">Допоможіть покращити Огляд року</string>
   <string name="year_in_review_survey_subtitle">Ви задоволені цією функцією?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Допоможіть поліпшити список читання Огляду року %d.</string>

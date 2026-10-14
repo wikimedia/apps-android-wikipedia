@@ -1869,7 +1869,6 @@
   <string name="year_in_review_get_started_headline">Explorar tu summario del anno de Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Vider analyses sur le articulos que tu ha legite in le application Wikipedia e sur le modificationes que tu ha apportate.</string>
   <string name="year_in_review_get_started_info">Tu historia de lectura se mantene protegite. Le analyses de lectura se calcula a base de datos immagazinate localmente sur tu apparato.</string>
-  <string name="year_in_review_get_started_later">Tu pote acceder a tu Summario del anno plus tarde in le menu Plus.</string>
   <string name="year_in_review_survey_title">Adjuta a meliorar le Summario del anno</string>
   <string name="year_in_review_survey_subtitle">Es tu satisfacite de iste function?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Adjuta a meliorar le lista de lectura del Summario del anno %d.</string>
