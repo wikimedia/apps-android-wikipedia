@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.view.View
 import org.wikipedia.R
 import org.wikipedia.topics.ArticleTopic
+import org.wikipedia.util.StringUtil
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import java.text.NumberFormat
@@ -28,9 +29,13 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame1-empty" else "frame1"),
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_article_count_empty_headline else R.string.yir_article_count_headline),
-                "data" to page.count.toString(),
-                "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_article_count_empty_supporting) else
-                    resources.getQuantityString(R.plurals.yir_article_count_supporting_top, page.count, page.percentile, page.averageCount)
+                "data" to formatNumber(resources, page.count.toLong()),
+                "bodyCopy" to when {
+                    page.isEmptyState -> resources.getString(R.string.yir_article_count_empty_supporting)
+                    page.percentile.toDoubleOrNull()?.let { it > 0 && it <= 50 } == true ->
+                        resources.getQuantityString(R.plurals.yir_article_count_supporting_top, page.averageCount, page.percentile, page.averageCount)
+                    else -> resources.getString(R.string.yir_article_count_supporting)
+                }
             )
         )
         is YearInReviewPage.Visits -> RiveSlideContent(
@@ -135,8 +140,8 @@ object YearInReviewRiveContentMapper {
                 spec = allTemplatesListSlideSpec("frame13"),
                 textProperties = mapOf(
                     "bodyText" to resources.getString(R.string.yir_reread_articles_headline)
-                ) + listRows(page.articles.map { it.title to it.description }),
-                imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
+                ) + listRows(page.articles.map { StringUtil.fromHtml(it.first.displayText).toString() to resources.getQuantityString(R.plurals.yir_reread_articles_visits_count, it.second, it.second) }),
+                imageUrls = listIcons(page.articles.map { it.first.thumbUrl })
             )
         }
         is YearInReviewPage.Geography -> if (page.isEmptyState) {

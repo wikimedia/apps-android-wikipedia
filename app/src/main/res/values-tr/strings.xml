@@ -1924,7 +1924,6 @@
   <string name="year_in_review_get_started_headline">Vikipedi Yıl Değerlendirmenizi keşfedin</string>
   <string name="year_in_review_get_started_bodytext">Vikipedi uygulamasında hangi maddeleri okuduğunuz ve yaptığınız düzenlemeler hakkında içgörüleri görün.</string>
   <string name="year_in_review_get_started_info">Okuma geçmişiniz korunur. Okuma içgörüleri, cihazınızda yerel olarak depolanan veriler kullanılarak hesaplanır.</string>
-  <string name="year_in_review_get_started_later">Yıl Değerlendirmenize daha sonra Daha fazla menüsünden erişebilirsiniz.</string>
   <string name="year_in_review_survey_title">Yıl Değerlendirmesini iyileştirmeye yardımcı olun</string>
   <string name="year_in_review_survey_subtitle">Bu özellikten memnun musunuz?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">%d Yıl Değerlendirmesi okuma listesinin iyileştirilmesine yardımcı olun.</string>
