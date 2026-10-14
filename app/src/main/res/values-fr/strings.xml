@@ -1975,7 +1975,6 @@
   <string name="year_in_review_get_started_headline">Explorez votre bilan Wikipédia de l’année</string>
   <string name="year_in_review_get_started_bodytext">Consultez une présentation des articles que vous lisez sur l’application Wikipédia et des modifications que vous avez apportées.</string>
   <string name="year_in_review_get_started_info">Votre historique de lecture est protégé. La présentation de vos lectures est réalisée à partir des données stockées localement sur votre appareil.</string>
-  <string name="year_in_review_get_started_later">Vous pourrez accéder par la suite à votre rétrospective annuelle depuis le menu Plus.</string>
   <string name="year_in_review_survey_title">Aidez-nous à améliorer le bilan de l’année</string>
   <string name="year_in_review_survey_subtitle">Êtes-vous satisfait de cette fonctionnalité ?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Aidez à améliorer la liste de lecture %d de la rétrospective annuelle</string>

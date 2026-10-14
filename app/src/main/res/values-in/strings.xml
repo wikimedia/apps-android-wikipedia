@@ -1869,7 +1869,6 @@
   <string name="year_in_review_get_started_headline">Jelajahi Tinjauan Tahunan Wikipedia Anda</string>
   <string name="year_in_review_get_started_bodytext">Lihat wawasan tentang artikel mana yang Anda baca di aplikasi Wikipedia dan suntingan yang Anda buat.</string>
   <string name="year_in_review_get_started_info">Riwayat bacaan Anda dijaga kerahasiaannya. Wawasan bacaan dihitung menggunakan data yang tersimpan secara lokal di perangkat Anda.</string>
-  <string name="year_in_review_get_started_later">Anda bisa mengakses Tinjauan Tahunan Anda nanti di menu Selebihnya.</string>
   <string name="year_in_review_survey_title">Bantu tingkatkan Tinjauan Tahunan</string>
   <string name="year_in_review_survey_subtitle">Apakah Anda puas dengan fitur ini?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Bantu tingkatkan daftar bacaan Tinjauan Tahunan %d.</string>
