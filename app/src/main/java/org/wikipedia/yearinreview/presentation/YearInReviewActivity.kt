@@ -118,7 +118,7 @@ class YearInReviewActivity : BaseActivity() {
                             .isAppearanceLightStatusBars = useDarkIcons
                     },
                     onPageImpression = { page ->
-                        if (page is YearInReviewPage.End) {
+                        if (page is YearInReviewPage.End && YearInReviewEndScreenABTest().isUserEligible()) {
                             YearInReviewEndScreenABTest().maybeSendExposureEvent()
                         }
                     },
