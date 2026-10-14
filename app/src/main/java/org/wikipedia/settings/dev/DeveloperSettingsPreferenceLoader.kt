@@ -343,7 +343,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             DonationReminderAbTest(),
             NewWithinInterestABTest(),
             ReadAloudLeadSectionABTest(),
-            SemanticSearchAbTest()
+            SemanticSearchAbTest(),
             YearInReviewEndScreenABTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
