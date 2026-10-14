@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.settings.Prefs
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.topics.db.PageTopicDao
 import org.wikipedia.util.DateUtil
@@ -76,8 +77,9 @@ class YearInReviewRepositoryImpl(
         }
         val otherTopTopics = topTopics.drop(1)
 
+        val excludedTitles = WikipediaApp.instance.languageState.appLanguageCodes.map { StringUtil.addUnderscores(MainPageNameData.valueFor(it)) }
         return YearInReviewReadingStats(
-            articlesReadCount = historyEntryDao.getDistinctEntriesCountBetween(dateRange.startMillis, dateRange.endMillis),
+            articlesReadCount = historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, excludedTitles),
             visitedDaysCount = historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis),
             peakMonth = peakMonth?.month ?: 0,
             peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,

@@ -3,6 +3,7 @@ package org.wikipedia.yearinreview.data
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.wikipedia.history.db.MonthVisitedDays
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.yearinreview.presentation.YearInReviewCollectiveInsight
 import org.wikipedia.yearinreview.presentation.YearInReviewFlowDecider
@@ -14,6 +15,14 @@ class YearInReviewFlowDeciderTest {
     private val lowDataStats = YearInReviewReadingStats(articlesReadCount = 3, visitedDaysCount = 1, peakMonth = 1, peakMonthVisitedDays = 1)
     private val contributorRewardData = YearInReviewRewardData(isDonor = true, isEditor = true)
     private val collectiveSlides = YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) }
+    private val topReadPercentagesConfig = RemoteConfig.RemoteConfigYearInReview(
+        year = YearInReviewConfig.YEAR,
+        topReadPercentages = listOf(
+            RemoteConfig.TopReadPercentage(identifier = "0.01", min = 43740),
+            RemoteConfig.TopReadPercentage(identifier = "20", min = 4567, max = 8900),
+            RemoteConfig.TopReadPercentage(identifier = "50", min = 336, max = 1233)
+        )
+    )
 
     @Test
     fun `logged-in data-rich user gets personalized slides in order`() {
@@ -60,17 +69,39 @@ class YearInReviewFlowDeciderTest {
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = lowDataStats, rewardData = contributorRewardData)))
     }
 
+    @Test
+    fun `articles read slide gets the percentile bucket of the article count`() {
+        assertEquals("20", articlesReadPercentile(articlesReadCount = 5000))
+    }
+
+    @Test
+    fun `articles read slide gets the top bucket when it has no max`() {
+        assertEquals("0.01", articlesReadPercentile(articlesReadCount = 50000))
+    }
+
+    @Test
+    fun `articles read slide gets no percentile below the lowest bucket`() {
+        assertEquals("", articlesReadPercentile(articlesReadCount = 100))
+    }
+
+    private fun articlesReadPercentile(articlesReadCount: Int): String {
+        val stats = dataRichStats.copy(articlesReadCount = articlesReadCount)
+        val slides = YearInReviewFlowDecider.pages(snapshot(readingStats = stats, remoteConfig = topReadPercentagesConfig))
+        return slides.filterIsInstance<YearInReviewPage.ArticlesRead>().single().percentile
+    }
+
     private fun snapshot(
         isLoggedIn: Boolean = true,
         isDonationEligible: Boolean = true,
         readingStats: YearInReviewReadingStats = YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0),
-        rewardData: YearInReviewRewardData = YearInReviewRewardData(isDonor = false, isEditor = false)
+        rewardData: YearInReviewRewardData = YearInReviewRewardData(isDonor = false, isEditor = false),
+        remoteConfig: RemoteConfig.RemoteConfigYearInReview = YearInReviewConfig.fallbackConfig
     ) = YearInReviewSnapshot(
         year = YearInReviewConfig.YEAR,
         isLoggedIn = isLoggedIn,
         isDonationEligible = isDonationEligible,
         readingStats = readingStats,
         rewardData = rewardData,
-        remoteConfig = YearInReviewConfig.fallbackConfig
+        remoteConfig = remoteConfig
     )
 }
