@@ -467,7 +467,7 @@
   <string name="reading_list_delete_confirm">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेटाउन चाहनुहुन्छ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश गर्नुहोस्</string>
-  <string name="reading_list_turned_sync_off_dialog_ok">हुन्छ</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ठीक छ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">मेरो अभिरुचिहरू</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">मलाई यो फेरि नदेखाउनुहोस्</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समक्रमण सक्षम पार्नुहोस्</string>
@@ -482,13 +482,13 @@
     <item quantity="other">यी लेखहरू हाल अफलाइनमा उपलब्ध हुनेछन्</item>
   </plurals>
   <string name="reading_list_toast_last_sync" fuzzy="true">अध्ययन सूची समक्रमण गर्दै</string>
-  <string name="reading_list_remove_list_dialog_ok_button_text">हुन्छ</string>
-  <string name="reading_list_delete_dialog_ok_button_text">हुन्छ</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ठीक छ</string>
+  <string name="reading_list_delete_dialog_ok_button_text">ठीक छ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_delete_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द गर्नुहोस्</string>
-  <string name="reading_list_split_dialog_ok_button_text">हुन्छ</string>
+  <string name="reading_list_split_dialog_ok_button_text">ठीक छ</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">मेटाउनुहोस्</string>
   <string name="reading_list_activity_title" fuzzy="true">पठन सूची: %s</string>
   <string name="reading_list_notification_title" fuzzy="true">पठन सूची(हरू) निर्यात गरियो</string>
@@ -552,7 +552,7 @@
   <string name="preference_summary_notification_thanks">कसैले तपाईलाई सम्पादन गरेकोमा धन्यवाद दिएका छन्</string>
   <string name="preference_title_notification_revert">पूर्ववत</string>
   <string name="preference_summary_notification_revert">तपाईको एउटा योगदान पूर्ववत् गरियो</string>
-  <string name="preference_title_notification_login_fail">प्रवेश</string>
+  <string name="preference_title_notification_login_fail">प्रवेश गर्नुहोस्</string>
   <string name="preference_title_notification_mention">उल्लेख</string>
   <string name="preference_summary_notification_mention">कसैले तपाईलाई पृष्ठमा उल्लेख गरेकाे छ</string>
   <string name="preference_title_notification_user_talk">वार्तालाप पृष्ठ</string>
@@ -636,9 +636,9 @@
   <string name="feed_item_type_places">हालको स्थानमा आधारित नजिकैका लेखहरू</string>
   <string name="feed_empty_message" fuzzy="true">तपाईको अन्वेषण फिडमा केही पनि छैन।</string>
   <string name="feed_configure_onboarding_action">अनुकुलित बनाउनुहोस्</string>
-  <string name="customize_lang_selection_dialog_ok_button_text">हुन्छ</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">ठीक छ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
-  <string name="feed_lang_selection_dialog_ok_button_text">हुन्छ</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">ठीक छ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="feed_accessibility_card_text">तपाई सामग्रीको फेदमा पुग्नुभएको छ।</string>
   <string name="feed_accessibility_card_load_more_button">अझै धेरै देखाउनुहोस्</string>
@@ -843,12 +843,12 @@
   <string name="more_language_options">थप</string>
   <string name="add_wikipedia_languages_text">विकिपिडिया भाषाहरू थप्नुहोस्</string>
   <string name="remove_language_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
-  <string name="remove_language_dialog_ok_button_text">हुन्छ</string>
-  <string name="remove_all_language_warning_dialog_ok_button_text">हुन्छ</string>
-  <string name="protected_page_warning_dialog_ok_button_text">हुन्छ</string>
-  <string name="account_editing_blocked_dialog_ok_button_text">हुन्छ</string>
-  <string name="edit_conflict_dialog_ok_button_text">हुन्छ</string>
-  <string name="reverted_edit_dialog_ok_button_text">हुन्छ</string>
+  <string name="remove_language_dialog_ok_button_text">ठीक छ</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">ठीक छ</string>
+  <string name="protected_page_warning_dialog_ok_button_text">ठीक छ</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">ठीक छ</string>
+  <string name="edit_conflict_dialog_ok_button_text">ठीक छ</string>
+  <string name="reverted_edit_dialog_ok_button_text">ठीक छ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="edit_type_all">सबै योगदानहरू</string>
   <string name="wikitext_bold">गाढा</string>
@@ -886,8 +886,8 @@
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
   <string name="main_tooltip_action_button">सुरु गर्नुहोस्</string>
   <string name="main_tooltip_watchlist_title">अवलोकनसूची</string>
-  <string name="custom_date_picker_dialog_ok_button_text">हुन्छ</string>
-  <string name="text_input_dialog_ok_button_text">हुन्छ</string>
+  <string name="custom_date_picker_dialog_ok_button_text">ठीक छ</string>
+  <string name="text_input_dialog_ok_button_text">ठीक छ</string>
   <string name="text_input_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="custom_date_picker_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="talk_title">वार्तालाप</string>

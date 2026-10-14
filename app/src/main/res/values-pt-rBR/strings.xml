@@ -236,7 +236,7 @@
   <string name="history_empty_message">Acompanhe aqui o que você tem lido ultimamente.</string>
   <string name="history_offline_articles_toast">Alguns artigos no histórico podem não ser visualizados enquanto estiver desconectado da internet.</string>
   <string name="search_empty_message">Procure e leia a enciclopédia livre em seu idioma</string>
-  <string name="search_empty_message_multilingual_upgrade">Pesquise na Wikipédia em mais idiomas</string>
+  <string name="search_empty_message_multilingual_upgrade">Pesquisar na Wikipédia em mais idiomas</string>
   <string name="delete_selected_items">Excluir itens selecionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuário</string>
@@ -1947,7 +1947,6 @@
   <string name="year_in_review_get_started_headline">Explore sua Wikipédia: Resumo do ano</string>
   <string name="year_in_review_get_started_bodytext">Veja informações sobre os artigos que você leu no aplicativo da Wikipédia e as edições que você fez. Seu histórico de leitura é mantido protegido.</string>
   <string name="year_in_review_get_started_info">Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
-  <string name="year_in_review_get_started_later">Você pode acessar sua retrospectiva do ano mais tarde no menu Mais.</string>
   <string name="year_in_review_survey_title">Ajude a melhorar o resumo do ano</string>
   <string name="year_in_review_survey_subtitle">Você está satisfeito com este recurso?</string>
   <string name="year_in_review_reading_list_survey_title">Ajude a melhorar a coleção de Resumo do ano %d.</string>

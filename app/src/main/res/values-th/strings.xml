@@ -1023,7 +1023,6 @@
   <string name="year_in_review_get_started_headline">สำรวจสรุปรอบปีวิกิพีเดีย</string>
   <string name="year_in_review_get_started_bodytext">ดูข้อมูลเชิงลึกเกี่ยวกับบทความที่คุณอ่านบนแอปวิกิพีเดียและการแก้ไขที่คุณทำ</string>
   <string name="year_in_review_get_started_info">ประวัติการอ่านของคุณถูกเก็บรักษาอย่างดีและข้อมูลเชิงลึกต่าง ๆ ถูกคำนวนและเก็บไว้ในอุปกรณ์ของคุณเท่านั้น</string>
-  <string name="year_in_review_get_started_later">คุณสามารถเข้าถึงสรุปรอบปีนี้ได้ทุกเมื่อในเมนูเพิ่มเติม</string>
   <string name="year_in_review_survey_title">ช่วยเราปรับปรุงสรุปรอบปี</string>
   <string name="year_in_review_survey_subtitle">คุณรู้สึกอย่างไรบ้างกับฟีเจอร์นี้</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">ช่วยปรับปรุงรายการอ่านของสรุปรอบปี %d</string>

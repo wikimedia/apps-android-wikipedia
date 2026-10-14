@@ -1916,6 +1916,7 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Vedi le tue serie di vittorie, i punteggi e altro ancora.</string>
   <string name="wikipedia_games_title">Giochi di Wikipedia</string>
   <string name="wikipedia_games_subtitle">Giochi a quiz giornalieri basati sui contenuti di Wikipedia.</string>
+  <string name="yir_games_headline">Pronti per un\'altra sfida?</string>
   <string name="year_in_review_learn_more">Ulteriori informazioni</string>
   <string name="year_in_review_get_started">Inizia</string>
   <string name="year_in_review_topbar_w_icon">Icona W di Wikipedia</string>
@@ -1929,7 +1930,6 @@
   <string name="year_in_review_get_started_headline">Esplora il tuo Anno in Rassegna su Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Visualizza informazioni su quali voci hai letto sull\'app Wikipedia, e sulle modifiche che hai fatto.</string>
   <string name="year_in_review_get_started_info">La cronologia di lettura è protetta. Le statistiche di lettura vengono calcolate utilizzando i dati memorizzati localmente sul dispositivo.</string>
-  <string name="year_in_review_get_started_later">Potrai accedere al tuo riepilogo annuale in un secondo momento, tramite il menu Altro.</string>
   <string name="year_in_review_survey_title">Aiutaci a migliorare l\'Anno in Rassenga</string>
   <string name="year_in_review_survey_subtitle">Sei soddisfatto di questa funzionalità?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Aiutaci a migliorare l\'elenco di lettura dell\'Anno in Rassegna %d.</string>
@@ -2191,4 +2191,5 @@
   <string name="reading_lists_tab_all_articles">Tutte le voci</string>
   <string name="reading_lists_tab_collections">Raccolte</string>
   <string name="reading_lists_remove_articles_confirm_button">Annulla salvataggio</string>
+  <string name="semantic_search_entry_point_card_text_button">Provalo subito</string>
 </resources>

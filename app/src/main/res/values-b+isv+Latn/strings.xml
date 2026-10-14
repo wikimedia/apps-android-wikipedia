@@ -1932,7 +1932,6 @@
   <string name="year_in_review_get_started_headline">Odkryjte svoj Prěgled goda na Vikipediji</string>
   <string name="year_in_review_get_started_bodytext">Prěgledajte statistiky o člankah, ktore vy jeste pročitali v aplikaciji Vikipedije, i o vnesenyh vami pravkah.</string>
   <string name="year_in_review_get_started_info">Vaša historija čitanja jest zaščičena. Statistiky čitanja sut kalkulovane na osnově danyh shranjenyh lokalno na vašem aparatu.</string>
-  <string name="year_in_review_get_started_later">Vy možete otvoriti svoj Prěgled goda pozdněje v menju «Veče».</string>
   <string name="year_in_review_survey_title">Pomožite ulěpčiti Prěgled goda</string>
   <string name="year_in_review_survey_subtitle">Zadovaljaje vam tuta funkcija?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Pomožite ulěpšiti spisok za čitanje v Prěgledu goda %d.</string>

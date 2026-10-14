@@ -1989,7 +1989,6 @@
   <string name="year_in_review_get_started_headline">Explora tu Wikipedia: Resumen del año</string>
   <string name="year_in_review_get_started_bodytext">Consulta información sobre los artículos que leíste en la aplicación Wikipedia y las ediciones que realizaste.</string>
   <string name="year_in_review_get_started_info">Tu historial de lectura está protegido. La información de lectura se calcula con datos almacenados localmente en tu dispositivo.</string>
-  <string name="year_in_review_get_started_later">Podrás acceder a tu Resumen Anual más tarde en el menú Más.</string>
   <string name="year_in_review_survey_title">Ayude a mejorar Resumen del año</string>
   <string name="year_in_review_survey_subtitle">¿Estás satisfecho con esta función?</string>
   <string name="year_in_review_reading_list_survey_title">Ayude a mejorar la colección de Resumen del año %d.</string>

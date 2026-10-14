@@ -1,6 +1,7 @@
 package org.wikipedia.yearinreview.data
 
 import kotlinx.serialization.Serializable
+import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopic
 
 @Serializable
@@ -20,6 +21,7 @@ data class YearInReviewReadingStats(
     val visitedDaysCount: Int,
     val peakMonth: Int,
     val peakMonthVisitedDays: Int,
+    val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
     val topTopic: ArticleTopic? = null,
     val topTopicArticles: List<String>? = emptyList(),
     val topicArticleCountMap: Map<ArticleTopic, Int> = emptyMap()
@@ -46,6 +48,12 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val articlesRevisitedStatus get() = if (articlesRevisited.size >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
     }
 
     val hasPeakMonth get() = peakMonthVisitedDays >= MIN_PEAK_MONTH_VISITED_DAYS

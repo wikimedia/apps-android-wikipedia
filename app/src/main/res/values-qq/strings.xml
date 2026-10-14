@@ -1990,6 +1990,10 @@
   <string name="yir_niche_category_headline">Headline of the Year in Review slide that shows the user\'s most niche category. The next line will state the name of the category.</string>
   <string name="yir_niche_category_supporting">Supporting text of the Year in Review niche category slide.</string>
   <string name="yir_reread_articles_headline">Headline of the Year in Review slide that lists articles the user read more than once.</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">Number of times that the user visited the article. %1$d is the number of visits.</item>
+    <item quantity="other">Number of times that the user visited the article. %1$d is the number of visits.</item>
+  </plurals>
   <string name="yir_reread_articles_empty_headline">Headline of the Year in Review re-read articles slide, shown when the user did not read any article more than once.</string>
   <string name="yir_reread_articles_empty_supporting">Supporting text of the Year in Review re-read articles slide, shown when the user did not read any article more than once.</string>
   <string name="yir_places_headline">Headline of the Year in Review slide that lists places related to the articles the user read.</string>
@@ -2617,12 +2621,12 @@
   <string name="semantic_search_results_close_button_content_description">Text for the close the semantic search results button.</string>
   <string name="semantic_search_results_read_in_article_label">Text that indicates the full article is available in the article screen.</string>
   <plurals name="semantic_search_result_contributors">
-      <item quantity="one">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
-      <item quantity="other">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
+    <item quantity="one">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
+    <item quantity="other">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
   </plurals>
   <plurals name="semantic_search_result_references">
-      <item quantity="one">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
-      <item quantity="other">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
+    <item quantity="one">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
+    <item quantity="other">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
   </plurals>
   <string name="semantic_search_results_last_updated_label">Label that indicates the last update time. %s is replaced by the last update time.</string>
   <string name="semantic_search_results_feedback_title">Question shown in the feedback area of the semantic search results, asking whether the user found what they were looking for.</string>

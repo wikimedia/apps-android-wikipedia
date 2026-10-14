@@ -59,6 +59,7 @@
 * Wolfdietmann
 * Wrai
 * Xqt
+* YeBoy371
 * Ygramul
 -->
 <resources>
@@ -266,26 +267,26 @@
   <string name="email_recommendation_dialog_create_with_email_action">Eine E-Mail-Adresse hinzufügen</string>
   <string name="create_account_button">Benutzerkonto erstellen</string>
   <string name="create_account_encourage_title">Wikipedia ist noch besser mit einem Konto</string>
-  <string name="create_account_encourage_year_in_review_title_zero">Sehen Sie Ihre Tage mit Leseaktivität im Jahresüberblick</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Sieh deine Tage mit Leseaktivität im Jahresrückblick</string>
   <plurals name="create_account_encourage_year_in_review_title">
-    <item quantity="one">Sehen Sie Ihren %1$d Tag mit Leseaktivität im Jahresüberblick</item>
-    <item quantity="other">Sehen Sie Ihre %1$d Tage mit Leseaktivität im Jahresüberblick</item>
+    <item quantity="one">Sieh deinen %1$d Tag mit Leseaktivität im Jahresrückblick</item>
+    <item quantity="other">Sieh deine %1$d Tage mit Leseaktivität im Jahresrückblick</item>
   </plurals>
-  <string name="create_account_encourage_year_in_review_description">Einmal im Jahr erhalten Sie einen Rückblick auf Ihre aktiven Lesetage und darauf, wohin das Jahr Sie geführt hat – bereit zum Teilen.</string>
-  <string name="create_account_encourage_saved_articles_title_zero">Synchronisieren Sie Ihre gespeicherten Artikel</string>
+  <string name="create_account_encourage_year_in_review_description">Einmal im Jahr erhältst du einen Rückblick auf deine aktiven Lesetage und darauf, wohin dich das Jahr geführt hat – bereit zum Teilen.</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Synchronisiere deine gespeicherten Artikel</string>
   <plurals name="create_account_encourage_saved_articles_title">
-    <item quantity="one">Synchronisieren Sie Ihre %1$d gespeicherten Artikel</item>
-    <item quantity="other">Synchronisieren Sie Ihre %1$d gespeicherten Artikel</item>
+    <item quantity="one">Synchronisiere deinen %1$d gespeicherten Artikel</item>
+    <item quantity="other">Synchronisiere deine %1$d gespeicherten Artikel</item>
   </plurals>
-  <string name="create_account_encourage_saved_articles_description">Melden Sie sich bei Ihrem Wikipedia-Konto an, damit Ihre gespeicherten Artikel auf allen Geräten synchronisiert werden.</string>
-  <string name="create_account_encourage_activity_title_zero">Sehen Sie sich Ihre zuletzt gelesenen Artikel in der Registerkarte „Aktivität“ erneut an</string>
+  <string name="create_account_encourage_saved_articles_description">Melde dich bei deinem Wikipedia-Konto an, damit deine gespeicherten Artikel auf allen Geräten synchronisiert werden.</string>
+  <string name="create_account_encourage_activity_title_zero">Sieh dir deine zuletzt gelesenen Artikel in der Registerkarte „Aktivität“ erneut an</string>
   <plurals name="create_account_encourage_activity_title">
-    <item quantity="one">Sehen Sie sich Ihre %1$d zuletzt gelesenen Artikel in der Registerkarte „Aktivität“ erneut an</item>
-    <item quantity="other">Sehen Sie sich Ihre %1$d zuletzt gelesenen Artikel in der Registerkarte „Aktivität“ erneut an</item>
+    <item quantity="one">Sieh dir deinen %1$d zuletzt gelesenen Artikel in der Registerkarte „Aktivität“ erneut an</item>
+    <item quantity="other">Sieh dir deine %1$d zuletzt gelesenen Artikel in der Registerkarte „Aktivität“ erneut an</item>
   </plurals>
-  <string name="create_account_encourage_activity_description">Sehen Sie in der Registerkarte „Aktivität“ Ihre Lesezeit, erkundete Themen und die Reichweite Ihrer Beiträge</string>
-  <string name="create_account_encourage_edits_title">Erhalten Sie Anerkennung für Ihre Bearbeitungen</string>
-  <string name="create_account_encourage_edits_description">Erarbeiten Sie eine Erfolgsbilanz auf, auf die Sie stolz sein können: Beiträge zu Wikimedia-Projekten werden Ihrem Konto zugeordnet.</string>
+  <string name="create_account_encourage_activity_description">Sieh in der Registerkarte „Aktivität“ deine Lesezeit, erkundete Themen und die Reichweite deiner Beiträge.</string>
+  <string name="create_account_encourage_edits_title">Erhalte Anerkennung für deine Bearbeitungen</string>
+  <string name="create_account_encourage_edits_description">Bau dir eine Erfolgsbilanz auf, auf die du stolz sein kannst: Beiträge zu Wikimedia-Projekten werden deinem Konto zugeordnet.</string>
   <string name="create_account_name_unavailable">Der Benutzername „%s“ ist nicht verfügbar. Bitte wähle einen anderen Namen aus.</string>
   <string name="create_account_ip_block_message">Leider ist deine IP-Adresse derzeit für das Erstellen neuer Benutzerkonten gesperrt.</string>
   <string name="create_account_ip_block_help_url">https://de.wikipedia.org/wiki/Wikipedia:Benutzersperrung</string>
@@ -1961,6 +1962,185 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Sieh dir deine Serien, Punktzahlen und mehr an</string>
   <string name="wikipedia_games_title">Wikipedia-Spiele</string>
   <string name="wikipedia_games_subtitle">Tägliche Quizspiele auf Basis von Wikipedia-Inhalten.</string>
+  <string name="yir_intro_headline">Dein Wikipedia-Jahresrückblick ist da</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">Danke, dass du im Jahr %2$d an %1$d Tag deine treue Wikipedia-App geöffnet hast.</item>
+    <item quantity="other">Danke, dass du im Jahr %2$d an %1$d Tagen deine treue Wikipedia-App geöffnet hast.</item>
+  </plurals>
+  <string name="yir_article_count_headline">Gelesene Artikel insgesamt:</string>
+  <plurals name="yir_article_count_supporting_top" fuzzy="true">
+    <item quantity="one">Damit gehörst du weltweit zu den Top %1$s%% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
+    <item quantity="other">Damit gehörst du weltweit zu den Top %1$s%% der Wikipedia-Leser. Im Durchschnitt liest ein Mensch %2$d Artikel pro Jahr.</item>
+  </plurals>
+  <string name="yir_article_count_supporting">Du warst das ganze Jahr auf Entdeckungstour. Jeder Artikel hat dein Wissen erweitert.</string>
+  <string name="yir_article_count_empty_headline">Millionen Artikel warten darauf, von dir entdeckt zu werden</string>
+  <string name="yir_article_count_empty_supporting">Du wirst staunen, was es auf Wikipedia alles zu lernen gibt.</string>
+  <string name="yir_days_visited_headline">Tage, an denen du Wikipedia im Jahr %1$d besucht hast:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">Am aktivsten warst du im %1$s, als du an %2$d Tag gelesen hast.</item>
+    <item quantity="other">Am aktivsten warst du im %1$s, als du an %2$d verschiedenen Tagen gelesen hast.</item>
+  </plurals>
+  <string name="yir_minutes_read_headline">Lesezeit in Minuten:</string>
+  <string name="yir_minutes_read_supporting" fuzzy="true">%1$s Die Zeit vergeht wie im Flug, wenn man in Wikipedia abtaucht.</string>
+  <string name="yir_reading_streak_headline">Tage in deiner längsten Leseserie:</string>
+  <string name="yir_reading_streak_supporting" fuzzy="true">Im Zeitraum %1$s–%2$s hast du so richtig in den Rhythmus gefunden und jeden Tag gelesen.</string>
+  <string name="yir_reading_streak_empty_headline">0 Leseserien … bisher</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">Eine Serie zählt erst, wenn du %1$d Tag am Stück gelesen hast. Warum nicht gleich anfangen?</item>
+    <item quantity="other">Eine Serie zählt erst, wenn du %1$d Tage am Stück gelesen hast. Warum nicht gleich anfangen?</item>
+  </plurals>
+  <string name="yir_reading_time_headline">Lieblingszeit zum Entdecken:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">%1$d %% deiner Entdeckungen fielen in diese Tageszeit. Zufall oder … doch nicht?</item>
+    <item quantity="other">%1$d %% deiner Entdeckungen fielen in diese Tageszeit. Zufall oder … doch nicht?</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">Du liest einfach, wann es dir passt</string>
+  <string name="yir_reading_time_empty_supporting">Es gibt keinen festen Tag und keine feste Uhrzeit, zu der du Wikipedia erkundest.</string>
+  <string name="yir_top_topic_headline">Dein Top-Thema im Jahr %1$d:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">Von %1$s bis %2$s: %3$d deiner Artikel drehte sich um dieses Thema. %4$s</item>
+    <item quantity="other">Von %1$s bis %2$s: %3$d deiner Artikel drehten sich um dieses Thema. %4$s</item>
+  </plurals>
+  <string name="yir_top_topic_empty_headline">Dein Thema Nr. 1 im Jahr %1$d? … Alle</string>
+  <string name="yir_top_topic_empty_supporting">Bei so vielen Interessen gibt es nicht das eine Thema, das dein Leseverhalten geprägt hat.</string>
+  <string name="yir_runner_up_topics_headline">Und auf den weiteren Plätzen im Jahr %1$d:</string>
+  <string name="yir_biggest_reading_day_headline">Dein Rekord-Lesetag:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">Du hast insgesamt %1$d Minute auf Wikipedia verbracht. Ganz schön produktiv, oder?</item>
+    <item quantity="other">Du hast insgesamt %1$d Minuten auf Wikipedia verbracht. Ganz schön produktiv, oder?</item>
+  </plurals>
+  <string name="yir_articles_read_headline">Eine Auswahl der Artikel, die du gelesen hast:</string>
+  <string name="yir_most_time_article_headline">Mit welchem Artikel hast du die meiste Zeit verbracht?</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">Im Laufe des Jahres %2$d hast du insgesamt %1$d Minute mit diesem Artikel verbracht!</item>
+    <item quantity="other">Im Laufe des Jahres %2$d hast du insgesamt %1$d Minuten mit diesem Artikel verbracht!</item>
+  </plurals>
+  <string name="yir_rabbit_hole_headline">Wo bist du am tiefsten abgetaucht?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">%1$d Link tief – beeindruckend!</item>
+    <item quantity="other">%1$d Links tief – beeindruckend!</item>
+  </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">Wo tauchst du als Nächstes ab?</string>
+  <string name="yir_niche_category_headline">Das nennt man Nischeninteressen, zum Beispiel:</string>
+  <string name="yir_niche_category_supporting">Aus welchem Grund auch immer: Bei dieser Kategorie warst du voll dabei!</string>
+  <string name="yir_reread_articles_headline">Artikel, die du immer wieder gelesen hast:</string>
+  <string name="yir_reread_articles_empty_headline">Doppelt lesen ist nicht dein Ding</string>
+  <string name="yir_reread_articles_empty_supporting">Einen Artikel zweimal lesen? Nicht mit dir. Du magst Neues und tauchst lieber in neue Themen ab.</string>
+  <string name="yir_places_headline">Deine Lektüre hat dich praktisch hierhin geführt:</string>
+  <string name="yir_places_empty_headline">Deine Lektüre hat dich rund um die Welt geführt</string>
+  <string name="yir_places_empty_supporting">Im Jahr %1$d bist du kreuz und quer durch Wikipedia gereist. Schau dir die Funktion „Orte“ an, wenn du Ideen für unterwegs suchst.</string>
+  <string name="yir_saved_articles_headline" fuzzy="true">Artikel, die du für später gespeichert hast:</string>
+  <string name="yir_saved_articles_empty_headline">Du hast 0 Artikel gespeichert</string>
+  <string name="yir_saved_articles_empty_supporting">Du hast derzeit 0 Artikel gespeichert. Achte in Artikeln auf das Lesezeichensymbol, dann kannst du alles Mögliche … später nachlesen.</string>
+  <string name="yir_edits_headline">Deine Bearbeitungen:</string>
+  <string name="yir_edits_supporting">Ob du zu Wikipedia, Wikimedia Commons oder Wikidata beiträgst: Danke, dass du allen einen besseren Zugang zum Wissen der Menschheit ermöglichst.</string>
+  <string name="yir_edits_empty_headline">Bisher 0 Bearbeitungen</string>
+  <string name="yir_edits_empty_supporting">Du hast noch nichts bearbeitet, aber es ist ganz leicht zu lernen. Jetzt ist ein guter Zeitpunkt, der Community beizutreten, die Wikipedia erstellt.</string>
+  <string name="yir_edit_views_headline">Aufrufe deiner Bearbeitungen:</string>
+  <string name="yir_edit_views_supporting">Im Jahr %1$d haben Leser aus aller Welt deine Änderungen gesehen.</string>
+  <string name="yir_most_viewed_edited_articles_headline">Die meistaufgerufenen Artikel seit deiner Bearbeitung:</string>
+  <string name="yir_contributor_thanks_headline">Danke!</string>
+  <string name="yir_contributor_thanks_supporting">Du bist %1$s – deine Beiträge halten Wikipedia werbefrei, vertrauenswürdig und für alle zugänglich. Wir können dir gar nicht genug dafür danken, dass du Wikipedia unterstützt!</string>
+  <string name="yir_non_contributor_headline">Du zählst.</string>
+  <string name="yir_non_contributor_supporting">Wikipedia gibt es dank echter Menschen wie dir, die beitragen, was sie können, damit Wikipedia weiter gedeiht. Wenn dir Wikipedia etwas bedeutet, unterstütze sie doch mit einer Spende oder einer Bearbeitung.</string>
+  <string name="yir_community_intro_headline">Unser Jahresrückblick ist da</string>
+  <string name="yir_community_intro_supporting">Diesmal gab es nicht genug Aktivität für deinen persönlichen Jahresrückblick, aber du kannst trotzdem erkunden, was die Welt gemeinsam entdeckt hat.</string>
+  <string name="yir_community_reading_hours_headline">Stunden, die wir im Jahr %1$d mit Wikipedia-Lesen verbracht haben:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">Zusammengenommen haben Leser wie du in allen Sprachen schätzungsweise %1$,d Jahr mit Wikipedia-Lesen verbracht.</item>
+    <item quantity="other">Zusammengenommen haben Leser wie du in allen Sprachen schätzungsweise %1$,d Jahre mit Wikipedia-Lesen verbracht.</item>
+  </plurals>
+  <plurals name="yir_community_languages_headline">
+    <item quantity="one">Sprachen, in denen es Wikipedia gibt: über %1$d</item>
+    <item quantity="other">Sprachen, in denen es Wikipedia gibt: über %1$d</item>
+  </plurals>
+  <string name="yir_community_languages_supporting">Wikipedia wird von ehrenamtlichen Communitys aus aller Welt geschrieben und gepflegt – der Beweis, dass menschliches Wissen weit mehr als nur eine Sprache spricht.</string>
+  <string name="yir_community_articles_headline">Artikel auf Wikipedia:</string>
+  <string name="yir_community_articles_supporting">Wikipedia wird nach wie vor von Menschen gemacht – von Freiwilligen aus aller Welt, die alle Inhalte auf Grundlage zuverlässiger Quellen verfassen und pflegen.</string>
+  <string name="yir_community_saved_articles_headline">Im Jahr %1$d gespeicherte Artikel:</string>
+  <string name="yir_community_saved_articles_supporting">Leser haben Tausende und Abertausende Artikel gespeichert, um sie zum ersten, dritten oder hundertsten Mal zu lesen.</string>
+  <string name="yir_community_editors_headline">Ehrenamtliche Autoren:</string>
+  <string name="yir_community_editors_supporting">Wusstest du, dass alle Wikimedia-Projekte von Freiwilligen gemacht werden? Autoren schreiben neue Artikel und verbessern bestehende.</string>
+  <string name="yir_community_edits_headline">Bearbeitungen:</string>
+  <string name="yir_community_edits_supporting">Rund um die Uhr arbeiten Freiwillige auf der ganzen Welt daran, Wikipedia zu verbessern, indem sie Fakten in Artikeln aktualisieren, historische Sehenswürdigkeiten fotografieren und Tippfehler korrigieren.</string>
+  <string name="yir_community_global_reach_headline">Die globale Reichweite von Wikipedia: eine der zehn meistbesuchten Websites der Welt</string>
+  <string name="yir_community_global_reach_supporting">Wikipedia ist das Rückgrat des Wissens im Internet. Von Schülern bis zu Chatbots – alle lernen von ihr.</string>
+  <string name="yir_community_contribute_headline">Du zählst.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia gibt es dank echter Menschen wie dir, die beitragen, was sie können, damit Wikipedia weiter gedeiht. Wenn dir Wikipedia etwas bedeutet, unterstütze sie doch mit einer Spende oder einer Bearbeitung. Du trägst bereits bei? Melde dich an oder erstelle ein Konto, um deine Erfolge zu sehen.</string>
+  <string name="yir_closing_headline">Bis zum nächsten Abtauchen</string>
+  <string name="yir_closing_supporting">Ob du für einen Artikel gekommen bist oder für hundert: Danke, dass du mit uns auf Wikipedia entdeckst, liest und neugierig bleibst.</string>
+  <string name="yir_closing_share_action">Highlights teilen</string>
+  <string name="yir_store_discount_headline">Ein kleines Dankeschön</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">Weil du hilfst, Wissen frei zu halten, bekommst du %1$d %% Rabatt im Wikipedia-Shop. Kein Code nötig, der Rabatt wird an der Kasse abgezogen.</item>
+    <item quantity="other">Weil du hilfst, Wissen frei zu halten, bekommst du %1$d %% Rabatt im Wikipedia-Shop. Kein Code nötig, der Rabatt wird an der Kasse abgezogen.</item>
+  </plurals>
+  <string name="yir_games_headline">Bereit für die nächste Herausforderung?</string>
+  <string name="yir_games_supporting">Stell dein Wikipedia-Wissen mit kurzen Spielen auf die Probe, inspiriert vom Wissen der Welt.</string>
+  <string name="yir_games_action">Jetzt spielen</string>
+  <string name="yir_customize_home_headline">Gestalte deine Startseite</string>
+  <string name="yir_customize_home_supporting">Wähle die Themen aus, die dich faszinieren, und erhalte Empfehlungen, die auf deine Interessen zugeschnitten sind.</string>
+  <string name="yir_customize_home_action">Interessen anpassen</string>
+  <string name="yir_community_recap_headline">Unser Jahresrückblick</string>
+  <string name="yir_community_recap_supporting">Entdecke noch einmal, wie viel die Welt gemeinsam gelesen, bearbeitet und erkundet hat.</string>
+  <string name="yir_community_recap_action">Jetzt entdecken</string>
+  <string name="yir_quiz_headline">Welche Wikipedia bist du?</string>
+  <string name="yir_quiz_supporting">Von der Modem-Ära bis heute: eine Reise durch die Geschichte von Wikipedia.</string>
+  <string name="yir_quiz_action">Quiz starten</string>
+  <string name="yir_open_tabs_headline">Zurück zu deinen Registerkarten</string>
+  <string name="yir_share_text">Hier ist mein Wikipedia-Jahresrückblick %1$d aus der Wikipedia-App: %2$s</string>
+  <string name="yir_topic_comment_architecture">Du hast das Jahr damit verbracht, Dinge zu bewundern, die für die Ewigkeit gebaut wurden.</string>
+  <string name="yir_topic_comment_art">Dich zog es zum Schönen, zum Kühnen und gelegentlich zum Rätselhaften.</string>
+  <string name="yir_topic_comment_comics_and_anime">Panel für Panel bist du tief in die Welten von Comics und Anime eingetaucht.</string>
+  <string name="yir_topic_comment_entertainment">Von der Welt der Unterhaltung konntest du dieses Jahr einfach nicht lassen.</string>
+  <string name="yir_topic_comment_fashion">Du hast dich öfter als die meisten in die Welt der Mode geklickt.</string>
+  <string name="yir_topic_comment_literature">Deine Lektüre hatte dieses Jahr eine literarische Ader.</string>
+  <string name="yir_topic_comment_music">Deine Neugier hatte dieses Jahr einen Soundtrack.</string>
+  <string name="yir_topic_comment_performing_arts">Dich zog es auf die Bühne, in der einen oder anderen Form.</string>
+  <string name="yir_topic_comment_sports">Du hast dieses Jahr die Welt des Sports genau verfolgt.</string>
+  <string name="yir_topic_comment_tv_and_film">Deine Lektüre war dieses Jahr zugleich deine Merkliste für Filme und Serien.</string>
+  <string name="yir_topic_comment_video_games">Du hast dein Wissen über Videospiele aufs nächste Level gebracht.</string>
+  <string name="yir_topic_comment_biography">Du hast das Jahr damit verbracht, die Geschichten anderer Menschen kennenzulernen.</string>
+  <string name="yir_topic_comment_women">Du hast das Jahr damit verbracht, die Geschichten anderer Menschen kennenzulernen.</string>
+  <string name="yir_topic_comment_business_and_economics">Du hast im Blick behalten, wie die Welt Geschäfte macht.</string>
+  <string name="yir_topic_comment_education">Lernen über das Lernen war dieses Jahr so richtig dein Ding.</string>
+  <string name="yir_topic_comment_food_and_drink">Deine Neugier hatte dieses Jahr ordentlich Appetit.</string>
+  <string name="yir_topic_comment_history">Die Vergangenheit fasziniert dich ganz offensichtlich.</string>
+  <string name="yir_topic_comment_military_and_warfare">Du hast dich eingehend mit der Geschichte von Konflikten und Verteidigung beschäftigt.</string>
+  <string name="yir_topic_comment_philosophy_and_religion">Du hast dich dieses Jahr mit den großen Fragen beschäftigt.</string>
+  <string name="yir_topic_comment_politics_and_government">Du hast verfolgt, wie die Welt regiert wird.</string>
+  <string name="yir_topic_comment_society">Dich hat interessiert, wie Menschen leben und sich organisieren.</string>
+  <string name="yir_topic_comment_transportation">Du hast dich damit beschäftigt, wie die Welt von A nach B kommt.</string>
+  <string name="yir_topic_comment_biology">Du hast die Wissenschaft vom Leben erkundet.</string>
+  <string name="yir_topic_comment_chemistry">Du hast deiner Lektüre dieses Jahr eine Prise Chemie beigemischt.</string>
+  <string name="yir_topic_comment_computers_and_internet">Du hast dir richtig Zeit genommen, die Technik hinter deinem Bildschirm zu verstehen.</string>
+  <string name="yir_topic_comment_earth_and_environment">Du bist bei deiner Lektüre auf dem Boden geblieben – im wahrsten Sinne des Wortes.</string>
+  <string name="yir_topic_comment_engineering">Du wolltest wissen, wie Dinge gebaut werden und wie sie funktionieren.</string>
+  <string name="yir_topic_comment_general_science">Deine Neugier erstreckte sich über alle Wissenschaften.</string>
+  <string name="yir_topic_comment_mathematics">Du hast dieses Jahr den Zahlen die Ehre erwiesen.</string>
+  <string name="yir_topic_comment_medicine_and_health">Du hast dich damit beschäftigt, wie der Körper funktioniert.</string>
+  <string name="yir_topic_comment_physics">Du hast dich mit den Gesetzen beschäftigt, die das Universum bestimmen.</string>
+  <string name="yir_topic_comment_technology">Du bist auf dem Laufenden geblieben, wie sich die Dinge verändern.</string>
+  <string name="yir_topic_comment_africa">Deine Lektüre hat dich dieses Jahr quer durch Afrika geführt.</string>
+  <string name="yir_topic_comment_asia">Deine Lektüre hat dich dieses Jahr quer durch Asien geführt.</string>
+  <string name="yir_topic_comment_central_america">Deine Lektüre hat dich dieses Jahr durch Mittelamerika geführt.</string>
+  <string name="yir_topic_comment_europe">Deine Lektüre hat dich dieses Jahr quer durch Europa geführt.</string>
+  <string name="yir_topic_comment_north_america">Deine Lektüre hat dich nach Nordamerika geführt – vielleicht vor die eigene Haustür, vielleicht aus der Ferne.</string>
+  <string name="yir_topic_comment_oceania">Deine Lektüre hat dich dieses Jahr bis nach Ozeanien geführt.</string>
+  <string name="yir_topic_comment_south_america">Deine Lektüre hat dich dieses Jahr quer durch Südamerika geführt.</string>
+  <string name="yir_time_spent_comment_1">Das ist länger, als das Herz eines Kolibris braucht, um 1200 Mal zu schlagen.</string>
+  <string name="yir_time_spent_comment_9">Das ist länger, als das Sonnenlicht von der Sonne bis zur Erde braucht.</string>
+  <string name="yir_time_spent_comment_13">Das ist länger, als es dauert, ein Ei hart zu kochen.</string>
+  <string name="yir_time_spent_comment_19">Das ist länger, als Menschen im Durchschnitt zum Einschlafen brauchen.</string>
+  <string name="yir_time_spent_comment_31">Das ist länger als eine Sitcom-Folge, Werbung inklusive.</string>
+  <string name="yir_time_spent_comment_93">Das ist länger, als die Internationale Raumstation für eine Erdumrundung braucht.</string>
+  <string name="yir_time_spent_comment_121">Das ist länger als der aktuelle Marathon-Weltrekord.</string>
+  <string name="yir_time_spent_comment_540">Das ist länger als eine ganze Nacht Schlaf.</string>
+  <string name="yir_time_spent_comment_1441">Das ist länger, als eine Bienenkönigin braucht, um bis zu 2000 Eier zu legen.</string>
+  <plurals name="yir_time_spent_comment_2800">
+    <item quantity="one">Das ist länger als %1$d ganzer Tag.</item>
+    <item quantity="other">Das ist länger als %1$d ganze Tage.</item>
+  </plurals>
   <string name="year_in_review_learn_more">Mehr erfahren</string>
   <string name="year_in_review_get_started">Erste Schritte</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia W-Symbol</string>
@@ -1974,7 +2154,6 @@
   <string name="year_in_review_get_started_headline">Entdecke dein Wikipedia-Jahr im Rückblick</string>
   <string name="year_in_review_get_started_bodytext">Erfahre, welche Artikel du in der Wikipedia-App gelesen und welche Änderungen du vorgenommen hast.</string>
   <string name="year_in_review_get_started_info">Dein Leseverlauf bleibt geschützt. Die Leseeinblicke werden anhand der lokal gespeicherten Daten auf deinem Gerät erstellt.</string>
-  <string name="year_in_review_get_started_later">Du kannst später in im Menü „Mehr“ auf deinen Jahresrückblick zugreifen.</string>
   <string name="year_in_review_survey_title">Hilf mit, den Jahresrückblick zu verbessern</string>
   <string name="year_in_review_survey_subtitle">Bist du mit dieser Funktion zufrieden?</string>
   <string name="year_in_review_reading_list_survey_title">Hilf bei der Verbesserung der Sammlung für den Jahresrückblick %d mit.</string>
@@ -2584,4 +2763,37 @@
     <item quantity="one">Wenn du diesen Artikel nicht mehr speicherst, wird er aus allen zugehörigen Sammlungen entfernt.</item>
     <item quantity="other">Wenn du diese Artikel nicht mehr speicherst, werden sie aus allen zugehörigen Sammlungen entfernt.</item>
   </plurals>
+  <string name="semantic_search_entry_point_card_message">Innerhalb von Artikeln suchen und direkt zur passenden Textstelle springen</string>
+  <string name="semantic_search_entry_point_card_text_button">Jetzt ausprobieren</string>
+  <string name="semantic_search_info_dialog_title">Was ist das für eine Funktion?</string>
+  <string name="semantic_search_info_dialog_message">Finde Antworten auf deine Fragen direkt in Wikipedia-Artikeln und springe gleich zur passenden Textstelle. \n\nDie Textstellen stammen aus Artikeln, die Menschen recherchiert, geschrieben und bearbeitet haben – jede davon ist durch Belege gestützt, die du überprüfen kannst.</string>
+  <string name="semantic_search_info_dialog_button_text">Mehr erfahren</string>
+  <string name="semantic_search_info_btn_content_description">Informationen zur Suche in Artikeln</string>
+  <string name="semantic_search_close_btn_content_description">Suche in Artikeln deaktivieren und schließen</string>
+  <string name="semantic_search_beta_label">Beta</string>
+  <string name="semantic_search_no_results_message">Keine Ergebnisse für diese Suche</string>
+  <string name="semantic_search_results_close_button_content_description">Ergebnisse der Suche in Artikeln schließen</string>
+  <string name="semantic_search_results_read_in_article_label">Im Artikel lesen</string>
+  <plurals name="semantic_search_result_contributors">
+    <item quantity="one">%d Mitwirkender</item>
+    <item quantity="other">%d Mitwirkende</item>
+  </plurals>
+  <plurals name="semantic_search_result_references">
+    <item quantity="one">%d Einzelnachweis</item>
+    <item quantity="other">%d Einzelnachweise</item>
+  </plurals>
+  <string name="semantic_search_results_last_updated_label">Zuletzt aktualisiert: %s</string>
+  <string name="semantic_search_results_feedback_title">Hast du gefunden, wonach du gesucht hast?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">Daumen hoch</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">Daumen runter</string>
+  <string name="semantic_search_results_feedback_input_hint">Erzähl uns mehr (optional)</string>
+  <string name="semantic_search_results_feedback_submit_button_text">Absenden</string>
+  <string name="semantic_search_results_feedback_submitted_message">Danke für dein Feedback</string>
+  <string name="semantic_search_feedback_dialog_title">Feedback</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">Feedback zur Suche in Artikeln schließen</string>
+  <string name="preference_heading_semantic_search">Suche</string>
+  <string name="preference_title_semantic_search_within_articles">In Artikeln suchen</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">Direkt zur passenden Textstelle springen</string>
+  <string name="semantic_search_snackbar_message">Modul ausgeblendet. Du kannst es in den Einstellungen wieder einblenden</string>
+  <string name="semantic_search_snackbar_action_label">Ändern</string>
 </resources>
