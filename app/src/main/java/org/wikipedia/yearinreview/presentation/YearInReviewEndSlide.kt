@@ -58,6 +58,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.theme.Theme
+import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 
 private const val STORE_DISCOUNT_PERCENT = 15
 
@@ -97,7 +98,16 @@ fun YearInReviewEndSlide(
     isDonor: Boolean = false,
     onCardActionClick: (YearInReviewEndCard) -> Unit = {}
 ) {
-    val cards = if (isDonor) { YearInReviewEndCard.entries } else { YearInReviewEndCard.entries.minus(YearInReviewEndCard.STORE_DISCOUNT) }
+    val cards = buildList {
+        if (isDonor) {
+            add(YearInReviewEndCard.STORE_DISCOUNT)
+        }
+        if (YearInReviewEndScreenABTest().isTestGroupUser()) {
+            add(YearInReviewEndCard.GAMES)
+            add(YearInReviewEndCard.CUSTOMIZE_HOME)
+        }
+        add(YearInReviewEndCard.QUIZ)
+    }
     BoxWithConstraints(
         modifier = modifier
             .fillMaxSize()
