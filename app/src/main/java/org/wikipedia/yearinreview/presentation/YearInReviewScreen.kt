@@ -64,6 +64,7 @@ import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 import kotlin.math.roundToInt
 
 private val YearInReviewCardCornerRadius = 28.dp
@@ -256,6 +257,7 @@ private fun YearInReviewContent(
                     page is YearInReviewPage.End -> {
                         YearInReviewEndSlide(
                             isDonor = page.isDonor,
+                            isTestGroupUser = YearInReviewEndScreenABTest().isTestGroupUser(),
                             onCardActionClick = onEndCardClick
                         )
                     }

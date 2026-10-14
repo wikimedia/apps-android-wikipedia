@@ -58,7 +58,6 @@ import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.theme.Theme
-import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 
 private const val STORE_DISCOUNT_PERCENT = 15
 
@@ -96,13 +95,14 @@ private fun YearInReviewEndCard.supportingText(): String = when (this) {
 fun YearInReviewEndSlide(
     modifier: Modifier = Modifier,
     isDonor: Boolean = false,
+    isTestGroupUser: Boolean = true,
     onCardActionClick: (YearInReviewEndCard) -> Unit = {}
 ) {
     val cards = buildList {
         if (isDonor) {
             add(YearInReviewEndCard.STORE_DISCOUNT)
         }
-        if (YearInReviewEndScreenABTest().isTestGroupUser()) {
+        if (isTestGroupUser) {
             add(YearInReviewEndCard.GAMES)
             add(YearInReviewEndCard.CUSTOMIZE_HOME)
         }
