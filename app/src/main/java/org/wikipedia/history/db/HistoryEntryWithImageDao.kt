@@ -8,7 +8,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
-import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 import java.text.DateFormat
 import java.util.Calendar
@@ -107,9 +106,8 @@ interface HistoryEntryWithImageDao {
         return getHistoryEntriesWithOffset(limit, 0).map { toHistoryEntry(it) }
     }
 
-    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, languageCodes: List<String>, limit: Int): List<Pair<HistoryEntry, Int>> {
-        val mainPageApiTitles = languageCodes.map { StringUtil.addUnderscores(MainPageNameData.valueFor(it)) }
-        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, mainPageApiTitles, limit)
+    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<Pair<HistoryEntry, Int>> {
+        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, excludedTitles, limit)
             .map { toHistoryEntry(it.entryWithImage) to it.visitCount }
     }
 

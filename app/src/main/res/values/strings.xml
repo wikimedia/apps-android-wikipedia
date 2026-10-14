@@ -2028,7 +2028,7 @@
     <string name="wikipedia_games_title">Wikipedia games</string>
     <string name="wikipedia_games_subtitle">Daily trivia games based Wikipedia content.</string>
 
-    <!-- Year In Review -->
+    <!-- Year In Review -->y
     <string name="yir_intro_headline">Your Wikipedia Year in Review is here</string>
     <plurals name="yir_intro_supporting">
         <item quantity="one">Thanks for spending %1$d day on your trusty Wikipedia app in %2$d.</item>
