@@ -67,7 +67,7 @@ class YearInReviewRepositoryImpl(
         // TODO: parallelize all of the suspend calls below:
         val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis)
 
-        val articlesRevisited = historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, WikipediaApp.instance.wikiSite.languageCode, limit = 3)
+        val articlesRevisited = historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, WikipediaApp.instance.languageState.appLanguageCodes, limit = 3)
             .map { it.first.title to it.second }
 
         val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis).take(4)

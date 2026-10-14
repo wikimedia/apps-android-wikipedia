@@ -77,7 +77,7 @@ interface HistoryEntryWithImageDao {
             SELECT lang, namespace, apiTitle, MAX(timestamp) AS max_timestamp, COUNT(*) AS visit_count FROM HistoryEntry
             WHERE timestamp BETWEEN :startMillis AND :endMillis
             AND (namespace IS NULL OR namespace = '' OR namespace = 'MAIN')
-            AND NOT (lang = :mainPageLang AND apiTitle = :mainPageApiTitle)
+            AND apiTitle NOT IN (:mainPageApiTitles)
             GROUP BY lang, namespace, apiTitle
             HAVING COUNT(*) > 1
         ) RepeatedEntries ON HistoryEntry.lang = RepeatedEntries.lang AND HistoryEntry.namespace = RepeatedEntries.namespace AND HistoryEntry.apiTitle = RepeatedEntries.apiTitle AND HistoryEntry.timestamp = RepeatedEntries.max_timestamp
@@ -86,7 +86,7 @@ interface HistoryEntryWithImageDao {
     """
     )
     @RewriteQueriesToDropUnusedColumns
-    suspend fun getEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, mainPageLang: String, mainPageApiTitle: String, limit: Int): List<HistoryEntryWithVisitCount>
+    suspend fun getEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, mainPageApiTitles: List<String>, limit: Int): List<HistoryEntryWithVisitCount>
 
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
@@ -107,9 +107,9 @@ interface HistoryEntryWithImageDao {
         return getHistoryEntriesWithOffset(limit, 0).map { toHistoryEntry(it) }
     }
 
-    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, languageCode: String, limit: Int): List<Pair<HistoryEntry, Int>> {
-        val mainPageApiTitle = StringUtil.addUnderscores(MainPageNameData.valueFor(languageCode))
-        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, languageCode, mainPageApiTitle, limit)
+    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, languageCodes: List<String>, limit: Int): List<Pair<HistoryEntry, Int>> {
+        val mainPageApiTitles = languageCodes.map { StringUtil.addUnderscores(MainPageNameData.valueFor(it)) }
+        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, mainPageApiTitles, limit)
             .map { toHistoryEntry(it.entryWithImage) to it.visitCount }
     }
 
