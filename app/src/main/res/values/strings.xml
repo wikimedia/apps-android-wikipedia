@@ -2890,7 +2890,7 @@
         <item quantity="one">%d reference</item>
         <item quantity="other">%d references</item>
     </plurals>
-    <string name="semantic_search_results_last_updated_label">Last update %s</string>
+    <string name="semantic_search_results_last_updated_label">Last updated %s</string>
     <string name="semantic_search_results_feedback_title">Found what you were looking for?</string>
     <string name="semantic_search_results_feedback_thumb_up_content_description">Thumbs up</string>
     <string name="semantic_search_results_feedback_thumb_down_content_description">Thumbs down</string>
