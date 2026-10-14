@@ -95,6 +95,7 @@ private fun YearInReviewEndCard.supportingText(): String = when (this) {
 fun YearInReviewEndSlide(
     modifier: Modifier = Modifier,
     isDonor: Boolean = false,
+    isGameAvailable: Boolean = true,
     isTestGroupUser: Boolean = true,
     onCardActionClick: (YearInReviewEndCard) -> Unit = {}
 ) {
@@ -103,7 +104,9 @@ fun YearInReviewEndSlide(
             add(YearInReviewEndCard.STORE_DISCOUNT)
         }
         if (isTestGroupUser) {
-            add(YearInReviewEndCard.GAMES)
+            if (isGameAvailable) {
+                add(YearInReviewEndCard.GAMES)
+            }
             add(YearInReviewEndCard.CUSTOMIZE_HOME)
         }
         add(YearInReviewEndCard.QUIZ)
