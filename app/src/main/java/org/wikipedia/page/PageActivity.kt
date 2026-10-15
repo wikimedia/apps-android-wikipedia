@@ -707,7 +707,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             if (intent.getBooleanExtra(EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, false)) {
                 semanticSearchFeedbackTitle = title
                 semanticSearchFeedbackSearchId = intent.getStringExtra(EXTRA_SEMANTIC_SEARCH_ID)
-                semanticSearchFeedbackFunnel = intent.parcelableExtra(EXTRA_SEMANTIC_SEARCH_FUNNEL)
+                semanticSearchFeedbackFunnel = intent.getSerializableExtra(EXTRA_SEMANTIC_SEARCH_FUNNEL) as Funnel?
             }
             val highlightText = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
             when (intent.action) {

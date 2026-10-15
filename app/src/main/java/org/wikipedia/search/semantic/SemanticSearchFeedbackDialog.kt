@@ -94,7 +94,7 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
             dialog.arguments = Bundle().apply {
                 putString(ARG_LANGUAGE_CODE, languageCode)
                 putString(ARG_SEARCH_ID_SEMANTIC, searchIdSemantic)
-                putParcelable(ARG_FUNNEL, funnel)
+                putSerializable(ARG_FUNNEL, funnel)
             }
             return dialog
         }

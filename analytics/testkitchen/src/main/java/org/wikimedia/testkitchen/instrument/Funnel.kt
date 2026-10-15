@@ -1,21 +1,16 @@
 package org.wikimedia.testkitchen.instrument
 
-import android.os.Parcelable
-import kotlinx.parcelize.IgnoredOnParcel
-import kotlinx.parcelize.Parcelize
 import org.wikimedia.testkitchen.SessionController
+import java.io.Serializable
 
-@Parcelize
 class Funnel(
-    val name: String? = null,
-    val token: String = SessionController.generateSessionId(),
-    private var _sequence: Int = 1,
-    private var startTime: Long = System.currentTimeMillis()
-) : Parcelable {
+    val name: String? = null
+) : Serializable {
+    val token = SessionController.generateSessionId()
     val sequence get() = _sequence
-
-    @IgnoredOnParcel
+    private var startTime = System.currentTimeMillis()
     private var pauseTime = 0L
+    private var _sequence: Int = 1
 
     fun touch() {
         _sequence++
