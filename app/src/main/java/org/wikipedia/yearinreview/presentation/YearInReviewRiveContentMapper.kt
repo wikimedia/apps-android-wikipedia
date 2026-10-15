@@ -1,7 +1,6 @@
 package org.wikipedia.yearinreview.presentation
 
 import android.content.res.Resources
-import android.view.View
 import org.wikipedia.R
 import org.wikipedia.topics.ArticleTopic
 import org.wikipedia.topics.ArticleTopics
@@ -110,12 +109,7 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.BiggestReadingDayArticles -> RiveSlideContent(
-            // v3 splits frame9 into a left-to-right and a right-to-left artboard, which share one instance
-            spec = allTemplatesSlideSpec(
-                artboardName = if (resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL) "frame9-rightToLeft" else "frame9-leftToRight",
-                viewModelName = "List",
-                instanceType = RiveInstanceType.Named("frame9")
-            ),
+            spec = allTemplatesListSlideSpec(artboardName = "frame9"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_articles_read_headline)
             ) + listRows(page.articles.map { it.title to it.description }),
@@ -260,8 +254,10 @@ fun allTemplatesSlideSpec(
     isTopBarUiIconsWhite = "isUIWhite"
 )
 
-// Artboards that show up to three articles or topics, each with an icon, title and subtitle
-private fun allTemplatesListSlideSpec(artboardName: String) = allTemplatesSlideSpec(artboardName, viewModelName = "List")
+// Artboards that show up to three articles or topics, each with an icon, title and subtitle.
+// The List view model's layoutDir is passed down to each card, where it sets the card's layout direction.
+private fun allTemplatesListSlideSpec(artboardName: String) =
+    allTemplatesSlideSpec(artboardName, viewModelName = "List").copy(layoutDirectionEnum = "layoutDir")
 
 // Fills the List view model's numbered rows. Rows without an item are cleared, so the instance's sample text doesn't show.
 private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String, String> {
