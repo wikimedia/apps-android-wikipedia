@@ -33,6 +33,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -46,6 +47,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -76,12 +79,20 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                         YearInReviewPlayground.previewPageId = null
                         mutableStateOf<String?>(null)
                     }
-                    val isYearInReviewEnabled = Prefs.isYearInReviewEnabled
+                    // Bumped each time the playground comes back, since the screens it opens can change login, history and seen state
+                    var refreshCount by remember { mutableIntStateOf(0) }
+                    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { refreshCount++ }
+                    val userName = remember(refreshCount) { AccountUtil.userName.takeIf { AccountUtil.isLoggedIn } }
+                    val isTemporaryAccount = remember(refreshCount) { AccountUtil.isTemporaryAccount }
+                    val isYearInReviewEnabled = remember(refreshCount) { Prefs.isYearInReviewEnabled }
+                    val isAnnouncementSeen = remember(refreshCount) { Prefs.yearInReviewVisited }
+                    val isActivityTabDotSeen = remember(refreshCount) { Prefs.yearInReviewActivityTabDotSeenYear == YearInReviewViewModel.YIR_YEAR }
                     val hiddenCountryCodes = remember { YearInReviewPlayground.hiddenCountryCodes }
                     var realDataSummary by remember { mutableStateOf<String?>(null) }
-                    LaunchedEffect(Unit) { realDataSummary = YearInReviewPlaygroundSummary.realData() }
+                    LaunchedEffect(refreshCount) { realDataSummary = YearInReviewPlaygroundSummary.realData() }
                     YearInReviewPlaygroundScreen(
-                        isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
+                        userName = userName,
+                        isTemporaryAccount = isTemporaryAccount,
                         selectedData = selectedData,
                         onDataSelected = {
                             selectedData = it
@@ -95,12 +106,19 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                             YearInReviewPlayground.previewPageId = it
                         },
                         entryPoint = entryPoint,
-                        canShowEntryPoint = remember(entryPoint) { YearInReviewViewModel.canShowEntryPoint },
-                        hiddenReasons = remember(entryPoint) { entryPoint.hiddenReasons(isYearInReviewEnabled, hiddenCountryCodes) },
+                        canShowEntryPoint = remember(entryPoint, refreshCount) { YearInReviewViewModel.canShowEntryPoint },
+                        hiddenReasons = remember(entryPoint, isYearInReviewEnabled) { entryPoint.hiddenReasons(isYearInReviewEnabled, hiddenCountryCodes) },
                         hiddenCountryCodes = hiddenCountryCodes,
                         onEntryPointChange = {
                             entryPoint = it
                             Prefs.yearInReviewPlaygroundEntryPoint = it
+                        },
+                        isAnnouncementSeen = isAnnouncementSeen,
+                        isActivityTabDotSeen = isActivityTabDotSeen,
+                        onResetSeenStateClick = {
+                            Prefs.yearInReviewVisited = false
+                            Prefs.yearInReviewActivityTabDotSeenYear = 0
+                            refreshCount++
                         },
                         realDataSummary = realDataSummary,
                         onAnnouncementClick = { startActivity(YearInReviewOnboardingActivity.newIntent(requireContext())) },
@@ -128,7 +146,8 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
 
 @Composable
 fun YearInReviewPlaygroundScreen(
-    isLoggedIn: Boolean,
+    userName: String?,
+    isTemporaryAccount: Boolean,
     selectedData: YearInReviewPlaygroundData,
     onDataSelected: (YearInReviewPlaygroundData) -> Unit,
     previewPageId: String?,
@@ -138,6 +157,9 @@ fun YearInReviewPlaygroundScreen(
     hiddenReasons: List<String>,
     hiddenCountryCodes: List<String>,
     onEntryPointChange: (YearInReviewPlaygroundEntryPoint) -> Unit,
+    isAnnouncementSeen: Boolean,
+    isActivityTabDotSeen: Boolean,
+    onResetSeenStateClick: () -> Unit,
     realDataSummary: String?,
     onAnnouncementClick: () -> Unit,
     onActivityTabClick: () -> Unit,
@@ -177,7 +199,8 @@ fun YearInReviewPlaygroundScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             ReadingDataCard(
-                isLoggedIn = isLoggedIn,
+                userName = userName,
+                isTemporaryAccount = isTemporaryAccount,
                 selectedData = selectedData,
                 onDataSelected = onDataSelected,
                 previewPageId = previewPageId,
@@ -190,6 +213,11 @@ fun YearInReviewPlaygroundScreen(
                 hiddenReasons = hiddenReasons,
                 hiddenCountryCodes = hiddenCountryCodes,
                 onEntryPointChange = onEntryPointChange
+            )
+            SeenStateCard(
+                isAnnouncementSeen = isAnnouncementSeen,
+                isActivityTabDotSeen = isActivityTabDotSeen,
+                onResetClick = onResetSeenStateClick
             )
         }
         LaunchButtons(
@@ -239,7 +267,8 @@ private fun LaunchButtons(
 
 @Composable
 private fun ReadingDataCard(
-    isLoggedIn: Boolean,
+    userName: String?,
+    isTemporaryAccount: Boolean,
     selectedData: YearInReviewPlaygroundData,
     onDataSelected: (YearInReviewPlaygroundData) -> Unit,
     previewPageId: String?,
@@ -252,14 +281,15 @@ private fun ReadingDataCard(
             style = MaterialTheme.typography.bodyMedium,
             color = WikipediaTheme.colors.secondaryColor
         )
+        // Temporary accounts count as logged in, the same as in the slides
         Text(
-            text = if (isLoggedIn) {
-                "Logged in as ${AccountUtil.userName}."
-            } else {
-                "You're not logged in. Personalized only shows the personalized slides when you're logged in, so log in first."
+            text = when {
+                userName == null -> "You're not logged in. Personalized only shows the personalized slides when you're logged in, so log in first."
+                isTemporaryAccount -> "Logged in with the temporary account $userName."
+                else -> "Logged in as $userName."
             },
             style = MaterialTheme.typography.bodyMedium,
-            color = if (isLoggedIn) WikipediaTheme.colors.successColor else WikipediaTheme.colors.destructiveColor
+            color = if (userName != null) WikipediaTheme.colors.successColor else WikipediaTheme.colors.destructiveColor
         )
         PlaygroundOptions(
             options = YearInReviewPlaygroundData.entries.filter { it.previewPages == null },
@@ -414,6 +444,35 @@ private fun EntryPointCard(
             style = MaterialTheme.typography.bodyMedium,
             color = if (isDateAndCountryChecked) WikipediaTheme.colors.secondaryColor else WikipediaTheme.colors.inactiveColor
         )
+    }
+}
+
+@Composable
+private fun SeenStateCard(
+    isAnnouncementSeen: Boolean,
+    isActivityTabDotSeen: Boolean,
+    onResetClick: () -> Unit
+) {
+    PlaygroundCard(title = "Seen state") {
+        Text(
+            text = "The announcement opens by itself once, and the Activity tab shows a dot until the tab is opened. " +
+                    "After a reset, the announcement opens the next time an article or the main screen opens, and the dot shows when you go back to the app. " +
+                    "The Activity tab button opens the tab, so it clears the dot.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        Text(
+            text = "Announcement: ${if (isAnnouncementSeen) "seen" else "not seen"}\n" +
+                    "Activity tab dot: ${if (isActivityTabDotSeen) "seen" else "not seen"}",
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        OutlinedButton(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = onResetClick
+        ) {
+            Text("Reset seen state", color = WikipediaTheme.colors.progressiveColor)
+        }
     }
 }
 
@@ -575,7 +634,8 @@ private fun <T> PlaygroundOptions(
 private fun YearInReviewPlaygroundScreenPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewPlaygroundScreen(
-            isLoggedIn = false,
+            userName = null,
+            isTemporaryAccount = false,
             selectedData = YearInReviewPlaygroundData.REAL,
             onDataSelected = {},
             previewPageId = null,
@@ -585,6 +645,9 @@ private fun YearInReviewPlaygroundScreenPreview() {
             hiddenReasons = listOf("RU is a hidden country"),
             hiddenCountryCodes = listOf("RU", "IR", "CN"),
             onEntryPointChange = {},
+            isAnnouncementSeen = true,
+            isActivityTabDotSeen = false,
+            onResetSeenStateClick = {},
             realDataSummary = "Entry card and announcement: Data-rich\nSlides: Personalized\nReading history from 2026-01-01 to 2026-11-30\n" +
                     "Articles read: 3\nVisited days: 2\nVisited days in the peak month: 2",
             onAnnouncementClick = {},
