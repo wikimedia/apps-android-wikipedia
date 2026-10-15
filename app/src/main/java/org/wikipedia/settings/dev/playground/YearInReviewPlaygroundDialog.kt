@@ -21,7 +21,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -48,15 +47,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.presentation.YearInReviewActivity
+import org.wikipedia.yearinreview.presentation.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.presentation.YearInReviewPage
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
@@ -99,6 +103,13 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                             Prefs.yearInReviewPlaygroundEntryPoint = it
                         },
                         realDataSummary = realDataSummary,
+                        onAnnouncementClick = { startActivity(YearInReviewOnboardingActivity.newIntent(requireContext())) },
+                        // A new MainActivity on top, so going back returns to the playground
+                        onActivityTabClick = {
+                            startActivity(MainActivity.newIntent(requireContext())
+                                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EDITS.code()))
+                        },
                         onLaunchClick = { startActivity(YearInReviewActivity.newIntent(requireContext())) },
                         onBackClick = { dismiss() }
                     )
@@ -128,66 +139,97 @@ fun YearInReviewPlaygroundScreen(
     hiddenCountryCodes: List<String>,
     onEntryPointChange: (YearInReviewPlaygroundEntryPoint) -> Unit,
     realDataSummary: String?,
+    onAnnouncementClick: () -> Unit,
+    onActivityTabClick: () -> Unit,
     onLaunchClick: () -> Unit,
     onBackClick: () -> Unit
 ) {
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(WikipediaTheme.colors.paperColor)
     ) {
-        Column {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(onClick = onBackClick) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
-                        contentDescription = stringResource(R.string.nav_item_back),
-                        tint = WikipediaTheme.colors.primaryColor
-                    )
-                }
-                Text(
-                    modifier = Modifier.padding(start = 8.dp),
-                    text = "Year in Review Playground",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold, fontSize = 18.sp),
-                    color = WikipediaTheme.colors.primaryColor
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            IconButton(onClick = onBackClick) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                    contentDescription = stringResource(R.string.nav_item_back),
+                    tint = WikipediaTheme.colors.primaryColor
                 )
             }
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .verticalScroll(rememberScrollState())
-                    // Leaves room below the last card for the launch button
-                    .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 88.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+            Text(
+                modifier = Modifier.padding(start = 8.dp),
+                text = "Year in Review Playground",
+                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold, fontSize = 18.sp),
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            ReadingDataCard(
+                isLoggedIn = isLoggedIn,
+                selectedData = selectedData,
+                onDataSelected = onDataSelected,
+                previewPageId = previewPageId,
+                onPreviewPageSelected = onPreviewPageSelected,
+                realDataSummary = realDataSummary
+            )
+            EntryPointCard(
+                entryPoint = entryPoint,
+                canShowEntryPoint = canShowEntryPoint,
+                hiddenReasons = hiddenReasons,
+                hiddenCountryCodes = hiddenCountryCodes,
+                onEntryPointChange = onEntryPointChange
+            )
+        }
+        LaunchButtons(
+            onAnnouncementClick = onAnnouncementClick,
+            onActivityTabClick = onActivityTabClick,
+            onLaunchClick = onLaunchClick
+        )
+    }
+}
+
+// The announcement opens even when the entry point checks would hide it; the Activity tab card follows the checks.
+@Composable
+private fun LaunchButtons(
+    onAnnouncementClick: () -> Unit,
+    onActivityTabClick: () -> Unit,
+    onLaunchClick: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(WikipediaTheme.colors.paperColor)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            OutlinedButton(
+                modifier = Modifier.weight(1f),
+                onClick = onAnnouncementClick
             ) {
-                ReadingDataCard(
-                    isLoggedIn = isLoggedIn,
-                    selectedData = selectedData,
-                    onDataSelected = onDataSelected,
-                    previewPageId = previewPageId,
-                    onPreviewPageSelected = onPreviewPageSelected,
-                    realDataSummary = realDataSummary
-                )
-                EntryPointCard(
-                    entryPoint = entryPoint,
-                    canShowEntryPoint = canShowEntryPoint,
-                    hiddenReasons = hiddenReasons,
-                    hiddenCountryCodes = hiddenCountryCodes,
-                    onEntryPointChange = onEntryPointChange
-                )
+                Text("Announcement", color = WikipediaTheme.colors.progressiveColor)
+            }
+            OutlinedButton(
+                modifier = Modifier.weight(1f),
+                onClick = onActivityTabClick
+            ) {
+                Text("Activity tab", color = WikipediaTheme.colors.progressiveColor)
             }
         }
-        ExtendedFloatingActionButton(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(16.dp),
-            containerColor = WikipediaTheme.colors.progressiveColor,
-            contentColor = WikipediaTheme.colors.paperColor,
+        AppButton(
+            modifier = Modifier.fillMaxWidth(),
             onClick = onLaunchClick
         ) {
             Text("Launch Year in Review")
@@ -545,6 +587,8 @@ private fun YearInReviewPlaygroundScreenPreview() {
             onEntryPointChange = {},
             realDataSummary = "Entry card and announcement: Data-rich\nSlides: Personalized\nReading history from 2026-01-01 to 2026-11-30\n" +
                     "Articles read: 3\nVisited days: 2\nVisited days in the peak month: 2",
+            onAnnouncementClick = {},
+            onActivityTabClick = {},
             onLaunchClick = {},
             onBackClick = {}
         )
