@@ -1989,6 +1989,10 @@
   <string name="yir_niche_category_headline">Tal om at have nicheinteresser, som f.eks.:</string>
   <string name="yir_niche_category_supporting">Af en eller anden grund gik du all in i denne kategori!</string>
   <string name="yir_reread_articles_headline">Nogle artikler i din rotation:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d besøg</item>
+    <item quantity="other">%1$d besøg</item>
+  </plurals>
   <string name="yir_reread_articles_empty_headline">Du er ikke en genlæser</string>
   <string name="yir_reread_articles_empty_supporting">Så meget for at læse en artikel to gange. Du foretrækker nyheder og at falde ned i nye kaninhuller.</string>
   <string name="yir_places_headline">Din læsning førte dig praktisk talt til:</string>
@@ -2051,6 +2055,7 @@
     <item quantity="one">Fordi du hjælper med at holde viden gratis, giver vi dig %1$d%% rabat i Wikipedia-butikken. Ingen kode nødvendig, den anvendes ved kassen.</item>
     <item quantity="other">Fordi du hjælper med at holde viden gratis, giver vi dig %1$d%% rabat i Wikipedia-butikken. Ingen kode nødvendig, den anvendes ved kassen.</item>
   </plurals>
+  <string name="yir_store_discount_action">Besøg butikken</string>
   <string name="yir_games_headline">Klar til endnu en udfordring?</string>
   <string name="yir_games_supporting">Sæt din Wikipedia-hjerne på prøve med hurtige spil inspireret af verdens viden.</string>
   <string name="yir_games_action">Begynd at spille</string>
