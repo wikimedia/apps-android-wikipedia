@@ -196,8 +196,8 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         super.onDestroyView()
     }
 
-    override fun switchToSearch(text: String, isFromRecentSearch: Boolean) {
-        startSearch(text, true, isFromRecentSearch)
+    override fun switchToSearch(text: String) {
+        startSearch(term = text, force = true, isFromRecentSearch = true)
         binding.searchCabView.setOnQueryTextListener(null)
         binding.searchCabView.setQuery(text, false)
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)

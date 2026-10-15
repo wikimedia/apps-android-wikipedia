@@ -92,7 +92,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             if (it == LoadingType.Success || it == LoadingType.Empty) {
                                 SemanticSearchAbTest().shouldSendEvent {
                                     requireActivity().instrument?.submitInteraction("impression",
-                                        actionSubtype = "semantic_result",
+                                        actionSubtype =  if (it == LoadingType.Empty) "semantic_result_empty" else "semantic_result",
                                         elementId = "search_result",
                                         actionContext = if (it == LoadingType.Success) {
                                             mapOf(

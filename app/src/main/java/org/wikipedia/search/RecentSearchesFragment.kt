@@ -33,7 +33,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 class RecentSearchesFragment : Fragment() {
     interface Callback {
-        fun switchToSearch(text: String, isFromRecentSearch: Boolean = false)
+        fun switchToSearch(text: String)
         fun onAddLanguageClicked()
         fun getLangCode(): String
     }
@@ -157,7 +157,7 @@ class RecentSearchesFragment : Fragment() {
             requireActivity().instrument?.submitInteraction("click", elementId = "recent_search",
                 actionContext = mapOf("query" to text))
 
-            callback?.switchToSearch(text, isFromRecentSearch = true)
+            callback?.switchToSearch(text)
         }
 
         override fun onSwipe() {
