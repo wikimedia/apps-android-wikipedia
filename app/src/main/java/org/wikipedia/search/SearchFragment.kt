@@ -373,6 +373,10 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         }
     }
 
+    fun setSemanticSearchId(searchId: String) {
+        searchResultsFragment.setSemanticSearchId(searchId)
+    }
+
     override fun onLanguageTabSelected(selectedLanguageCode: String) {
         if (langBtnClicked) {
             // We need to skip an event when we return back from 'add languages' screen,

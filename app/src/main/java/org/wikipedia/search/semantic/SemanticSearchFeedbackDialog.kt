@@ -8,9 +8,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
 import org.wikipedia.R
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.getString
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.search.SearchResult
 import org.wikipedia.util.FeedbackUtil
 
 class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
@@ -28,10 +30,33 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                         selectedRating = viewModel.selectedRating.collectAsState().value,
                         onRatingClick = viewModel::selectRating,
                         onCloseClick = {
+                            // TODO: make sure the funnel is the same from the search result.
+                            SemanticSearchAbTest().shouldSendEvent {
+                                TestKitchenAdapter.client.getInstrument("apps-search").submitInteraction("click",
+                                    actionSource = "search",
+                                    actionSubtype = "article_result",
+                                    elementId = "feedback_close_button"
+                                )
+                            }
                             dismiss()
                         },
                         onSubmitClick = { isPositive, feedbackText ->
-                            // TODO: send the feedback to instrumentation in another ticket.
+                            // TODO: make sure the funnel is the same from the search result.
+                            SemanticSearchAbTest().shouldSendEvent {
+                                isPositive?.let {
+                                    TestKitchenAdapter.client.getInstrument("apps-search").submitInteraction("click",
+                                        actionSource = "search",
+                                        actionSubtype = "article_result",
+                                        elementId = "feedback_submit",
+                                        actionContext = mapOf(
+                                            "score" to if (it) "1" else "0",
+                                            "text" to feedbackText,
+                                            "search_id_sem" to "", // TODO: get this
+                                            "type" to SearchResult.SearchResultType.SEMANTIC
+                                        )
+                                    )
+                                }
+                            }
                             val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
                             FeedbackUtil.showMessage(requireActivity(), message)
                             dismiss()
@@ -53,5 +78,12 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
             }
             return dialog
         }
+    }
+
+    enum class FeedbackSuppression(val value: String) {
+        LEFT_ARTICLE("left_article"), // The reader left the article before the card was due.
+        STARTED_ACTIVITY("started_activity"), // The reader started something else in the article: find in page, share, and so on.
+        SCREEN_COVERED("screen_covered"), // Another screen was on top when the card was due.
+        DISMISSED("dismissed") // The card was dismissed by the reader.
     }
 }

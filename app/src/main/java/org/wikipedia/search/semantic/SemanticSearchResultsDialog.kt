@@ -16,8 +16,9 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.search.SearchFragment
+import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResultCallback
-import org.wikipedia.search.SearchResultsFragment
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 
@@ -58,14 +59,29 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                         },
                         onCloseClick = {
                             SemanticSearchAbTest().shouldSendEvent {
+                                val isFeedbackVisible = viewModel.feedbackState.value.isVisible
                                 requireActivity().instrument?.submitInteraction("click",
-                                    actionSubtype = "semantic_result",
-                                    elementId = "close_result_button"
+                                    actionSubtype = if (isFeedbackVisible) "cardview_result" else "semantic_result",
+                                    elementId = if (isFeedbackVisible) "feedback_close_button" else "close_result_button"
                                 )
                             }
                             dismiss()
                         },
                         onFeedbackSubmit = { isPositive, feedbackText ->
+                            SemanticSearchAbTest().shouldSendEvent {
+                                isPositive?.let {
+                                    requireActivity().instrument?.submitInteraction("click",
+                                        actionSubtype = "cardview_result",
+                                        elementId = "feedback_submit",
+                                        actionContext = mapOf(
+                                            "score" to if (it) "1" else "0",
+                                            "text" to feedbackText,
+                                            "search_id_sem" to viewModel.lastXSearchIdSemantic,
+                                            "type" to SearchResult.SearchResultType.SEMANTIC
+                                        )
+                                    )
+                                }
+                            }
                             val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
                             FeedbackUtil.makeSnackbar(requireView(), message).show()
                         },
@@ -84,7 +100,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                                 }
 
                                 if (it == LoadingType.Success) {
-                                    (parentFragment as SearchResultsFragment).setSemanticSearchId(
+                                    (parentFragment as SearchFragment).setSemanticSearchId(
                                         viewModel.lastXSearchIdSemantic
                                     )
                                 }
@@ -101,6 +117,24 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.feedbackState.first { it.isVisible }
             callback()?.onSemanticSearchFeedbackShown()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.feedbackState.first {
+                it.isVisible && it.isPositive == null
+            }
+            SemanticSearchAbTest().shouldSendEvent {
+                requireActivity().instrument?.submitInteraction("error",
+                    actionSubtype = "cardview_result",
+                    elementId = "feedback_prompt",
+                    actionContext = mapOf(
+                        "error_type" to SemanticSearchFeedbackDialog.FeedbackSuppression.DISMISSED.value
+                    )
+                )
+            }
         }
     }
 
