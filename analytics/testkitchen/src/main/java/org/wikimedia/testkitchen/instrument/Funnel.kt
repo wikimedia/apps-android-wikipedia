@@ -9,16 +9,16 @@ import org.wikimedia.testkitchen.SessionController
 class Funnel(
     val name: String? = null,
     val token: String = SessionController.generateSessionId(),
-    private var sequencePosition: Int = 1,
+    private var _sequence: Int = 1,
     private var startTime: Long = System.currentTimeMillis()
 ) : Parcelable {
-    val sequence get() = sequencePosition
+    val sequence get() = _sequence
 
     @IgnoredOnParcel
     private var pauseTime = 0L
 
     fun touch() {
-        sequencePosition++
+        _sequence++
     }
 
     val duration get() = (System.currentTimeMillis() - startTime).toInt()
