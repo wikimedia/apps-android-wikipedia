@@ -65,7 +65,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                                 val isFeedbackVisible = viewModel.feedbackState.value.isVisible
                                 requireActivity().instrument?.submitInteraction("click",
                                     actionSubtype = if (isFeedbackVisible) "cardview_result" else "semantic_result",
-                                    elementId = if (isFeedbackVisible) "feedback_close_button" else "close_result_button"
+                                    elementId = if (isFeedbackVisible) "close_feedback_button" else "close_result_button"
                                 )
                             }
                             dismiss()

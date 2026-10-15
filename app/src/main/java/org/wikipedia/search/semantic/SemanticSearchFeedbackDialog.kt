@@ -35,7 +35,7 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                             SemanticSearchAbTest().shouldSendEvent {
                                 viewModel.instrument.submitInteraction("click",
                                     actionSubtype = "article_result",
-                                    elementId = "feedback_close_button"
+                                    elementId = "close_feedback_button"
                                 )
                             }
                             dismiss()
