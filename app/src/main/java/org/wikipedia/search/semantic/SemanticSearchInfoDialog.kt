@@ -45,8 +45,6 @@ import org.wikipedia.util.UriUtil
 
 class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
-    override fun getTheme() = R.style.App_BottomSheetDialogTheme_BelowStatusBar
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         return ComposeView(requireContext()).apply {
