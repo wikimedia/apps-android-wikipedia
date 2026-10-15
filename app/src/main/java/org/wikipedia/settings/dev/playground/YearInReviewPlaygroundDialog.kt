@@ -1,5 +1,6 @@
 package org.wikipedia.settings.dev.playground
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -122,9 +123,10 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                         },
                         realDataSummary = realDataSummary,
                         onAnnouncementClick = { startActivity(YearInReviewOnboardingActivity.newIntent(requireContext())) },
-                        // A new MainActivity on top, so going back returns to the playground
+                        // Clears the task, so going back from the Activity tab exits the app as it normally would
                         onActivityTabClick = {
                             startActivity(MainActivity.newIntent(requireContext())
+                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
                                 .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EDITS.code()))
                         },
