@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 import org.wikimedia.testkitchen.instrument.Funnel
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.R
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.getString
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -56,7 +55,6 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                                     )
                                 }
                             }
-                            viewModel.submitFeedback()
                             val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
                             FeedbackUtil.showMessage(requireActivity(), message)
                             dismiss()
@@ -67,27 +65,29 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.feedbackSubmitted.first { it == true }
-            SemanticSearchAbTest().shouldSendEvent {
-                viewModel.instrument.submitInteraction("error",
-                    actionSubtype = "article_result",
-                    elementId = "feedback_prompt",
-                    actionContext = mapOf(
-                        "error_type" to FeedbackSuppression.DISMISSED.value
-                    )
-                )
-            }
-        }
-    }
-
     companion object {
         const val ARG_LANGUAGE_CODE = "languageCode"
         const val ARG_SEARCH_ID_SEMANTIC = "searchIdSemantic"
         const val ARG_FUNNEL = "funnel"
         const val ARTICLE_DISPLAY_DELAY_MILLIS = 5000L
+
+        fun newInstrument(funnel: Funnel?): InstrumentImpl {
+            return TestKitchenAdapter.client.getInstrument("apps-search")
+                .setDefaultActionSource("search")
+                .continueFunnel(funnel)
+        }
+
+        fun submitSuppressedEvent(instrument: InstrumentImpl?, actionSubtype: String, suppression: FeedbackSuppression) {
+            SemanticSearchAbTest().shouldSendEvent {
+                instrument?.submitInteraction("error",
+                    actionSubtype = actionSubtype,
+                    elementId = "feedback_prompt",
+                    actionContext = mapOf(
+                        "error_type" to suppression.value
+                    )
+                )
+            }
+        }
 
         fun newInstance(languageCode: String, searchIdSemantic: String?, funnel: Funnel?): SemanticSearchFeedbackDialog {
             val dialog = SemanticSearchFeedbackDialog()
@@ -101,9 +101,8 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
     }
 
     enum class FeedbackSuppression(val value: String) {
-        LEFT_ARTICLE("left_article"), // The reader left the article before the card was due.
-        STARTED_ACTIVITY("started_activity"), // The reader started something else in the article: find in page, share, and so on.
-        SCREEN_COVERED("screen_covered"), // Another screen was on top when the card was due.
-        DISMISSED("dismissed") // The card was dismissed by the reader.
+        LEFT_ARTICLE("left_article"), // The reader left the article (or closed the results) before the card was due.
+        STARTED_ACTIVITY("started_activity"), // The reader was using find in page, text selection or the table of contents when the card was due.
+        SCREEN_COVERED("screen_covered") // Another screen, sheet or dialog was on top (or the app was in the background) when the card was due.
     }
 }

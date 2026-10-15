@@ -35,6 +35,9 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
 
     var lastXSearchIdSemantic = ""
 
+    var isFeedbackPending = false
+        private set
+
     init {
         loadSemanticSearchResults()
     }
@@ -44,6 +47,15 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     }
 
     fun submitFeedback() {
+        _feedbackState.update { it.copy(isVisible = false) }
+    }
+
+    fun onFeedbackShown() {
+        isFeedbackPending = false
+    }
+
+    fun suppressFeedback() {
+        isFeedbackPending = false
         _feedbackState.update { it.copy(isVisible = false) }
     }
 
@@ -101,8 +113,9 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
     private fun initFeedbackState() {
         if (showFeedback) {
             viewModelScope.launch {
-                delay(FEEDBACK_DISPLAY_DELAY_MILLIS.milliseconds)
                 semanticSearchResultsState.first { it is UiState.Success && it.data.isNotEmpty() }
+                isFeedbackPending = true
+                delay(FEEDBACK_DISPLAY_DELAY_MILLIS.milliseconds)
                 _feedbackState.update { it.copy(isVisible = true) }
             }
         }

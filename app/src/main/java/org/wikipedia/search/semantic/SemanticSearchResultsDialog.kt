@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -19,6 +20,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResultCallback
+import org.wikipedia.search.semantic.SemanticSearchFeedbackDialog.FeedbackSuppression
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 
@@ -117,26 +119,26 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.feedbackState.first { it.isVisible }
-            callback()?.onSemanticSearchFeedbackShown()
+            if (!viewModel.isFeedbackPending) {
+                return@launch
+            }
+            if (lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+                viewModel.onFeedbackShown()
+                callback()?.onSemanticSearchFeedbackShown()
+            } else {
+                viewModel.suppressFeedback()
+                SemanticSearchFeedbackDialog.submitSuppressedEvent(requireActivity().instrument,
+                    "cardview_result", FeedbackSuppression.SCREEN_COVERED)
+            }
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.feedbackState.first {
-                it.isVisible && it.isPositive == null
-            }
-            SemanticSearchAbTest().shouldSendEvent {
-                requireActivity().instrument?.submitInteraction("error",
-                    actionSubtype = "cardview_result",
-                    elementId = "feedback_prompt",
-                    actionContext = mapOf(
-                        "error_type" to SemanticSearchFeedbackDialog.FeedbackSuppression.DISMISSED.value
-                    )
-                )
-            }
+    override fun onDestroy() {
+        if (viewModel.isFeedbackPending && activity?.isChangingConfigurations == false) {
+            SemanticSearchFeedbackDialog.submitSuppressedEvent(activity?.instrument,
+                "cardview_result", FeedbackSuppression.LEFT_ARTICLE)
         }
+        super.onDestroy()
     }
 
     private fun callback(): SearchResultCallback? {
