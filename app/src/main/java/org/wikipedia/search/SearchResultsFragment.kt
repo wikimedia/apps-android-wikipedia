@@ -73,7 +73,7 @@ class SearchResultsFragment : Fragment() {
                             "show_search_result",
                             actionContext = viewModel.getStandardEventActionContext()
                         )
-                        submitLexicalResultEvent("impression")
+                        submitSemanticLexicalResultEvent("impression")
                     }
                 }
             }
@@ -93,8 +93,7 @@ class SearchResultsFragment : Fragment() {
                                 actionContext = viewModel.getStandardEventActionContext(result)
                             )
 
-                            // TODO: use combine logic with slide semantic search results.
-                            submitLexicalResultEvent("click", result)
+                            submitSemanticLexicalResultEvent("click", result)
 
                             callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
                         },
@@ -191,7 +190,7 @@ class SearchResultsFragment : Fragment() {
         return getCallback(this, SearchResultCallback::class.java)
     }
 
-    private fun submitLexicalResultEvent(action: String, result: SearchResult? = null) {
+    private fun submitSemanticLexicalResultEvent(action: String, result: SearchResult? = null) {
         semanticSearchAbTest.shouldSendEvent {
             val isTreatment = semanticSearchAbTest.group == ABTest.GROUP_2
             requireActivity().instrument?.submitInteraction(action,
