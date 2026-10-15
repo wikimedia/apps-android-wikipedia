@@ -113,7 +113,7 @@ fun YearInReviewOnboardingCover(entryStats: YearInReviewEntryStats, onCoverReady
         RiveSlideContent(
             spec = allTemplatesSlideSpec("cover"),
             textProperties = mapOf(
-                "coverTitle" to resources.getString(if (isDataRich) R.string.yir_intro_headline else R.string.yir_community_intro_headline),
+                "coverTitle" to resources.getString(if (isDataRich) R.string.yir_intro_headline else R.string.yir_community_intro_headline).uppercase(),
                 "bodyCopy" to if (isDataRich) {
                     resources.getQuantityString(R.plurals.yir_intro_supporting, daysSpent, daysSpent, YearInReviewConfig.YEAR)
                 } else {

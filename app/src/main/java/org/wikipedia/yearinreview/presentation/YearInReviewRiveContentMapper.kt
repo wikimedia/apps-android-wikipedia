@@ -235,8 +235,8 @@ object YearInReviewRiveContentMapper {
 private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
     name = "GlobalProperties",
     textSizes = mapOf(
-        "coverGlyphsFontSize" to 44f,
-        "coverGlyphsLineHeight" to 48f,
+        "coverGlyphsFontSize" to 40f,
+        "coverGlyphsLineHeight" to 42f,
         "dataNumberFontSize" to 72f,
         "dataNumbersLineHeight" to 76f,
         "headlineFontSize" to 24f,
@@ -252,7 +252,7 @@ fun allTemplatesSlideSpec(
     viewModelName: String = "DataTemplate",
     instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName)
 ) = RiveSlideSpec(
-    resourceId = R.raw.all_templates_v3,
+    resourceId = R.raw.all_templates_v4,
     artboardName = artboardName,
     viewModelName = viewModelName,
     instanceType = instanceType,
