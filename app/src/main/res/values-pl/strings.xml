@@ -2149,6 +2149,12 @@
   <string name="yir_niche_category_headline">Masz naprawdę niszowe zainteresowania, na przykład:</string>
   <string name="yir_niche_category_supporting">Z jakiegoś powodu ta kategoria wciągnęła Cię bez reszty!</string>
   <string name="yir_reread_articles_headline">Artykuły, do których wracasz najczęściej:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d odsłona</item>
+    <item quantity="few">%1$d odsłony</item>
+    <item quantity="many">%1$d odsłon</item>
+    <item quantity="other">%1$d odsłony</item>
+  </plurals>
   <string name="yir_reread_articles_empty_headline">Rzadko wracasz do tych samych artykułów</string>
   <string name="yir_reread_articles_empty_supporting">Czytanie tego samego dwa razy? Nie dla Ciebie. Zdecydowanie stawiasz na nowości i dawanie szansy nowym tematom.</string>
   <string name="yir_places_headline">Twoje czytelnicze podróże poniosły Cię w te miejsca:</string>
@@ -2223,6 +2229,7 @@
     <item quantity="many">W podziękowaniu za wspieranie darmowej wiedzy mamy dla Ciebie %1$d%% zniżki w naszym sklepie. Kod naliczy się automatycznie w koszyku.</item>
     <item quantity="other">W podziękowaniu za wspieranie darmowej wiedzy mamy dla Ciebie %1$d%% zniżki w naszym sklepie. Kod naliczy się automatycznie w koszyku.</item>
   </plurals>
+  <string name="yir_store_discount_action">Odwiedź sklep</string>
   <string name="yir_games_headline">Czas na kolejne wyzwanie?</string>
   <string name="yir_games_supporting">Sprawdź swoją wiedzę w szybkich grach opartych na wiedzy z całego świata.</string>
   <string name="yir_games_action">Zagraj teraz</string>

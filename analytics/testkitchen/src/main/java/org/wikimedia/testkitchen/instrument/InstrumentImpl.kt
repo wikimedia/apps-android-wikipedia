@@ -51,6 +51,11 @@ class InstrumentImpl(
         return this
     }
 
+    fun continueFunnel(funnel: Funnel?): InstrumentImpl {
+        this.funnel = funnel
+        return this
+    }
+
     fun stopFunnel(): InstrumentImpl {
         funnel = null
         return this
