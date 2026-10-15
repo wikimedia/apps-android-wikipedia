@@ -1,10 +1,11 @@
 package org.wikimedia.testkitchen.instrument
 
 import org.wikimedia.testkitchen.SessionController
+import java.io.Serializable
 
 class Funnel(
     val name: String? = null
-) {
+) : Serializable {
     val token = SessionController.generateSessionId()
     val sequence get() = _sequence
     private var startTime = System.currentTimeMillis()
