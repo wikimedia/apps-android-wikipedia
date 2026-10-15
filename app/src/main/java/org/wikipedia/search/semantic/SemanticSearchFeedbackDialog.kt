@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import org.wikimedia.testkitchen.instrument.Funnel
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
@@ -32,7 +35,6 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                         onCloseClick = {
                             SemanticSearchAbTest().shouldSendEvent {
                                 viewModel.instrument.submitInteraction("click",
-                                    actionSource = "search",
                                     actionSubtype = "article_result",
                                     elementId = "feedback_close_button"
                                 )
@@ -43,7 +45,6 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                             SemanticSearchAbTest().shouldSendEvent {
                                 isPositive?.let {
                                     viewModel.instrument.submitInteraction("click",
-                                        actionSource = "search",
                                         actionSubtype = "article_result",
                                         elementId = "feedback_submit",
                                         actionContext = mapOf(
@@ -55,12 +56,29 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                                     )
                                 }
                             }
+                            viewModel.submitFeedback()
                             val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
                             FeedbackUtil.showMessage(requireActivity(), message)
                             dismiss()
                         }
                     )
                 }
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.feedbackSubmitted.first { it == true }
+            SemanticSearchAbTest().shouldSendEvent {
+                viewModel.instrument.submitInteraction("error",
+                    actionSubtype = "article_result",
+                    elementId = "feedback_prompt",
+                    actionContext = mapOf(
+                        "error_type" to FeedbackSuppression.DISMISSED.value
+                    )
+                )
             }
         }
     }

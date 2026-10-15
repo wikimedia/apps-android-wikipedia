@@ -16,12 +16,20 @@ class SemanticSearchFeedbackViewModel(savedStateHandle: SavedStateHandle) : View
     val searchIdSemantic = savedStateHandle.get<String>(SemanticSearchFeedbackDialog.ARG_SEARCH_ID_SEMANTIC).orEmpty()
 
     val instrument = TestKitchenAdapter.client.getInstrument("apps-search")
+        .setDefaultActionSource("search")
         .continueFunnel(savedStateHandle.get<Funnel>(SemanticSearchFeedbackDialog.ARG_FUNNEL))
 
     private val _selectedRating = MutableStateFlow<Boolean?>(null)
     val selectedRating = _selectedRating.asStateFlow()
 
+    private val _feedbackSubmitted = MutableStateFlow<Boolean?>(null)
+    val feedbackSubmitted = _feedbackSubmitted.asStateFlow()
+
     fun selectRating(isPositive: Boolean) {
         _selectedRating.value = isPositive
+    }
+
+    fun submitFeedback() {
+        _feedbackSubmitted.value = true
     }
 }
