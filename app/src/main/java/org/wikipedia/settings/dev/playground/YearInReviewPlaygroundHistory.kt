@@ -156,7 +156,8 @@ object YearInReviewPlaygroundHistorySeeder {
     // Mirrors the repository: cached reading stats win until the history changes
     suspend fun withReadingStats(state: YearInReviewPlaygroundHistoryState): YearInReviewPlaygroundHistoryState {
         val range = dateRange
-        val currentStats = YearInReviewRepositoryImpl().getReadingStats(range)
+        val repository = YearInReviewRepositoryImpl()
+        val currentStats = repository.getReadingStats(range)
         val readingStats = PrefsYearInReviewStore.get(YearInReviewConfig.YEAR)?.readingStats ?: currentStats
         val dao = AppDatabase.instance.historyEntryDao()
         val visitsCount = dao.getEntriesCountBetween(range.startMillis, range.endMillis)
@@ -174,11 +175,12 @@ object YearInReviewPlaygroundHistorySeeder {
             readingStats = readingStats,
             rewardData = YearInReviewRewardData(isDonor = false, isEditor = false)
         )
+        val entryVersion = if (repository.getEntryStats().isDataRich) "Data-rich" else "Low-data"
         val reasons = listOfNotNull(
             "not logged in".takeIf { !snapshot.isLoggedIn },
-            "not enough personalized slides".takeIf { !YearInReviewFlowDecider.isDataRich(snapshot) }
+            "not enough personalized slides".takeIf { !YearInReviewFlowDecider.hasEnoughPersonalizedPages(snapshot) }
         )
-        val flow = if (reasons.isEmpty()) "Personalized" else "Collective (${reasons.joinToString()})"
+        val slides = if (reasons.isEmpty()) "Personalized" else "Collective (${reasons.joinToString()})"
         val articlesReadSlide = YearInReviewFlowDecider.pages(snapshot).filterIsInstance<YearInReviewPage.ArticlesRead>().firstOrNull()?.let {
             when {
                 it.isEmptyState -> "\nArticles read slide: empty state"
@@ -190,13 +192,14 @@ object YearInReviewPlaygroundHistorySeeder {
             "Unexpected: ${readingStats.articlesReadCount} articles read, but ${it.expectedArticlesRead} expected. Main pages or non-article pages may be counted."
         }
         return state.copy(
-            flowSummary = "Flow: $flow\n" +
+            flowSummary = "Entry card and announcement: $entryVersion\n" +
+                    "Slides: $slides\n" +
                     "Articles read: ${readingStats.articlesReadCount}\n" +
                     "Visited days: ${readingStats.visitedDaysCount}\n" +
                     "Visited days in the peak month: ${readingStats.peakMonthVisitedDays}" +
                     articlesReadSlide + historyBreakdown,
             warning = articlesReadMismatch ?: state.selectedPreset?.let {
-                if (reasons.isEmpty()) it.warning(readingStats) else "Not reached: Year in Review shows the collective flow (${reasons.joinToString()})."
+                if (reasons.isEmpty()) it.warning(readingStats) else "Not reached: Year in Review shows the collective slides (${reasons.joinToString()})."
             }
         )
     }

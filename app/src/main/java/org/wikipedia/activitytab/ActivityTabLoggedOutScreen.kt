@@ -31,13 +31,13 @@ import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
-import org.wikipedia.yearinreview.presentation.YearInReviewEntryCard
+import org.wikipedia.util.UiState
 
 @Composable
 fun ActivityTabLoggedOutScreen(
     onCreateAccountClick: () -> Unit,
     onLoginClick: () -> Unit,
-    showYearInReviewCard: Boolean,
+    yearInReviewEntryState: UiState<Boolean>?,
     onYirGetStartedClick: () -> Unit
 ) {
     Scaffold(
@@ -66,14 +66,11 @@ fun ActivityTabLoggedOutScreen(
                 )
                 Spacer(modifier = Modifier.weight(1f))
 
-                if (showYearInReviewCard) {
-                    YearInReviewEntryCard(
-                        modifier = Modifier.padding(16.dp),
-                        title = stringResource(R.string.year_in_review_entry_card_title_collective),
-                        subtitle = stringResource(R.string.year_in_review_entry_card_data_low_subtitle),
-                        onGetStartedClick = onYirGetStartedClick
-                    )
-                }
+                ActivityTabYearInReviewEntry(
+                    modifier = Modifier.padding(bottom = 16.dp),
+                    state = yearInReviewEntryState,
+                    onGetStartedClick = onYirGetStartedClick
+                )
             }
         }
     }
@@ -146,7 +143,7 @@ private fun ActivityTabLoggedOutScreenPreview() {
         ActivityTabLoggedOutScreen(
             onCreateAccountClick = {},
             onLoginClick = {},
-            showYearInReviewCard = false,
+            yearInReviewEntryState = null,
             onYirGetStartedClick = {}
         )
     }
@@ -159,7 +156,7 @@ private fun ActivityTabLoggedOutScreenWithYearInReviewPreview() {
         ActivityTabLoggedOutScreen(
             onCreateAccountClick = {},
             onLoginClick = {},
-            showYearInReviewCard = true,
+            yearInReviewEntryState = UiState.Success(false),
             onYirGetStartedClick = {}
         )
     }

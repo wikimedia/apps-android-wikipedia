@@ -9,6 +9,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.yearinreview.data.YearInReviewAvailability
 import org.wikipedia.yearinreview.data.YearInReviewConfig
+import org.wikipedia.yearinreview.data.YearInReviewEntryStats
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import org.wikipedia.yearinreview.data.YearInReviewRewardData
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
@@ -25,9 +26,9 @@ enum class YearInReviewPlaygroundData(
     val previewPages: (() -> List<YearInReviewPage>)? = null
 ) {
     REAL("Real data", "Uses your real data, like reading history and edits. Add test entries below to try slide states.", null),
-    LOW_DATA("Low data", "Fixed test data for the collective flow. Only tests the flow, it doesn't use any of your real data.",
+    COLLECTIVE("Collective", "Fixed test data for the low-data card and announcement, and the collective slides. It doesn't use any of your real data.",
         YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0)),
-    DATA_RICH("Data rich", "Fixed test data for the personalized flow. Only tests the flow, it doesn't use any of your real data.",
+    PERSONALIZED("Personalized", "Fixed test data for the data-rich card and announcement, and the personalized slides. It doesn't use any of your real data.",
         YearInReviewReadingStats(articlesReadCount = 120, visitedDaysCount = 45, peakMonth = 12, peakMonthVisitedDays = 20)),
     ALL_SLIDES("All slides", "Every personalized slide, with the cover and closing slides.", null, { YearInReviewPlaygroundPreview.allSlides }),
     ALL_EMPTY_STATES("All empty states", "Every empty state slide, with the cover and closing slides.", null, { YearInReviewPlaygroundPreview.emptyStates })
@@ -124,6 +125,15 @@ object YearInReviewPlayground {
             readingStats = data.readingStats ?: YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0),
             rewardData = YearInReviewRewardData(isDonor = false, isEditor = false)
         )
+    }
+
+    // null unless fixed data is chosen, and always outside pre-production builds
+    val entryStats: YearInReviewEntryStats? get() {
+        val readingStats = Prefs.yearInReviewPlaygroundData.readingStats
+        if (!ReleaseUtil.isPreProdRelease || readingStats == null) {
+            return null
+        }
+        return YearInReviewEntryStats(articlesReadCount = readingStats.articlesReadCount, visitedDaysCount = readingStats.visitedDaysCount)
     }
 
     // null unless a preview is chosen, and always outside pre-production builds
