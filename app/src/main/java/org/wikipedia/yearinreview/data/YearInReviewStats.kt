@@ -23,7 +23,8 @@ data class YearInReviewReadingStats(
     val peakMonthVisitedDays: Int,
     val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
     val topTopic: ArticleTopic? = null,
-    val topTopicArticles: List<String>? = emptyList(),
+    val topTopicTotalArticles: Int = 0,
+    val topTopicSampleArticles: List<String>? = emptyList(),
     val topicArticleCountMap: Map<String, Int> = emptyMap()
 ) {
     val totalArticlesStatus get() = if (articlesReadCount >= MIN_ARTICLES_READ) {
@@ -38,13 +39,13 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.SUPPRESSED
     }
 
-    val topTopicsStatus get() = if (topTopic != null && (topTopicArticles?.size ?: 0) >= 3) {
+    val topTopicsStatus get() = if (topTopic != null && topTopicTotalArticles >= 3) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
-    val otherTopicsStatus get() = if (topicArticleCountMap.size >= 2) {
+    val otherTopicsStatus get() = if (topTopic != null && topicArticleCountMap.size >= 2) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.SUPPRESSED

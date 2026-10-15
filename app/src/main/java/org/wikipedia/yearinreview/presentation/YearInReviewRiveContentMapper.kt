@@ -85,10 +85,10 @@ object YearInReviewRiveContentMapper {
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_top_topic_empty_headline else R.string.yir_top_topic_headline, YearInReviewConfig.YEAR),
                 "data" to if (page.isEmptyState) "" else resources.getString(page.topic.msgKey).uppercase(),
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
-                else resources.getQuantityString(R.plurals.yir_top_topic_supporting, page.articles.size,
-                    page.articles.first(), page.articles.last(), page.articles.size, getTopicComment(resources, page.topic)),
-                "topicIcon" to page.topic.thumbnailUrl
-            )
+                else resources.getQuantityString(R.plurals.yir_top_topic_supporting, page.totalArticles,
+                    page.sampleArticles.first(), page.sampleArticles.last(), page.totalArticles, getTopicComment(resources, page.topic))
+            ),
+            imageUrls = if (page.isEmptyState) emptyMap() else mapOf("topicIcon" to page.topic.thumbnailUrl)
         )
         is YearInReviewPage.OtherTopTopics -> RiveSlideContent(
             spec = allTemplatesListSlideSpec(artboardName = "frame7"),
