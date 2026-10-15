@@ -75,7 +75,9 @@ class SearchResultsViewModel : ViewModel() {
         SharingStarted.Eagerly,
         semanticSearchAbTest.isSemanticSearchEnabled(_languageCode.value)
     ).apply {
-        semanticSearchAbTest.maybeSendExposureEvent()
+        semanticSearchAbTest.shouldSendEvent {
+            semanticSearchAbTest.maybeSendExposureEvent()
+        }
     }
 
     val isSemanticSearchFirstUse = semanticSearchIsFirstUsePrefUpdates
@@ -114,10 +116,16 @@ class SearchResultsViewModel : ViewModel() {
         }.cachedIn(viewModelScope)
 
     fun updateSearchTerm(term: String?) {
+        if (_searchTerm.value != term) {
+            lastXSearchIdSemantic = ""
+        }
         _searchTerm.value = term
     }
 
     fun updateLanguageCode(code: String) {
+        if (_languageCode.value != code) {
+            lastXSearchIdSemantic = ""
+        }
         _languageCode.value = code
     }
 

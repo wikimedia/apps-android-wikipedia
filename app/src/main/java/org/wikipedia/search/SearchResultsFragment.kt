@@ -111,6 +111,13 @@ class SearchResultsFragment : Fragment() {
                                     actionContext = viewModel.getStandardEventActionContext(result)
                                 )
                             }
+                            SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_2) {
+                                requireActivity().instrument?.submitInteraction("click",
+                                    elementId = "search_result",
+                                    actionSubtype = "lexical_result",
+                                    actionContext = viewModel.getSemanticEventActionContext(result)
+                                )
+                            }
 
                             callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
                         },

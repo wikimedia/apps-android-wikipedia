@@ -196,8 +196,8 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         super.onDestroyView()
     }
 
-    override fun switchToSearch(text: String) {
-        startSearch(text, true)
+    override fun switchToSearch(text: String, isFromRecentSearch: Boolean) {
+        startSearch(text, true, isFromRecentSearch)
         binding.searchCabView.setOnQueryTextListener(null)
         binding.searchCabView.setQuery(text, false)
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
@@ -277,16 +277,14 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         requestAddLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SEARCH))
     }
 
-    private fun startSearch(term: String?, force: Boolean) {
+    private fun startSearch(term: String?, force: Boolean, isFromRecentSearch: Boolean = false) {
         if (!isSearchActive) {
             openSearch()
         }
-        var isFromRecentSearch = false
         if (term.isNullOrEmpty()) {
             showPanel(PANEL_RECENT_SEARCHES)
         } else if (activePanel == PANEL_RECENT_SEARCHES) {
             // start with title search...
-            isFromRecentSearch = true
             showPanel(PANEL_SEARCH_RESULTS)
         }
         query = term

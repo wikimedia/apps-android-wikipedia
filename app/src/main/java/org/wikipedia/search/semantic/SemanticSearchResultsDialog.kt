@@ -89,24 +89,24 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             FeedbackUtil.makeSnackbar(requireView(), message).show()
                         },
                         onLoading = {
-                            if (it != LoadingType.Loading) {
+                            if (it == LoadingType.Success || it == LoadingType.Empty) {
                                 SemanticSearchAbTest().shouldSendEvent {
                                     requireActivity().instrument?.submitInteraction("impression",
-                                        actionSubtype = if (it != LoadingType.Empty) "semantic_result" else "semantic_result",
+                                        actionSubtype = "semantic_result",
                                         elementId = "search_result",
-                                        actionContext = if (it != LoadingType.Empty) {
+                                        actionContext = if (it == LoadingType.Success) {
                                             mapOf(
                                                 "search_id_sem" to viewModel.lastXSearchIdSemantic
                                             )
                                         } else null
                                     )
                                 }
+                            }
 
-                                if (it == LoadingType.Success) {
-                                    (parentFragment as SearchFragment).setSemanticSearchId(
-                                        viewModel.lastXSearchIdSemantic
-                                    )
-                                }
+                            if (it == LoadingType.Success) {
+                                (parentFragment as SearchFragment).setSemanticSearchId(
+                                    viewModel.lastXSearchIdSemantic
+                                )
                             }
                         }
                     )

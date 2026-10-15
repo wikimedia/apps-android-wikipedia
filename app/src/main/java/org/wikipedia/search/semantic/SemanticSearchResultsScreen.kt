@@ -48,6 +48,7 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -117,6 +118,15 @@ fun SemanticSearchResultsScreen(
     val searchResultsState = viewModel.semanticSearchResultsState.collectAsState().value
     val feedbackState = viewModel.feedbackState.collectAsState().value
 
+    val loadingType = when (searchResultsState) {
+        is UiState.Loading -> LoadingType.Loading
+        is UiState.Success -> if (searchResultsState.data.isEmpty()) LoadingType.Empty else LoadingType.Success
+        is UiState.Error -> LoadingType.Error
+    }
+    LaunchedEffect(loadingType) {
+        onLoading(loadingType)
+    }
+
     val languageCode = viewModel.languageCode
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
@@ -148,20 +158,17 @@ fun SemanticSearchResultsScreen(
 
             when (searchResultsState) {
                 is UiState.Loading -> {
-                    onLoading(LoadingType.Loading)
                     SemanticSearchResultsSkeletonLoader()
                 }
 
                 is UiState.Success -> {
                     val results = searchResultsState.data
                     if (results.isEmpty()) {
-                        onLoading(LoadingType.Empty)
                         SemanticSearchNoResultsContent(
                             languageCode = viewModel.languageCode
                         )
                         return@CompositionLocalProvider
                     }
-                    onLoading(LoadingType.Success)
                     SemanticSearchFeedbackContent(
                         languageCode = viewModel.languageCode,
                         modifier = Modifier
@@ -186,7 +193,6 @@ fun SemanticSearchResultsScreen(
                 }
 
                 is UiState.Error -> {
-                    onLoading(LoadingType.Error)
                     SemanticSearchErrorContent(
                         throwable = searchResultsState.error,
                         wikiErrorClickEvents = WikiErrorClickEvents(
