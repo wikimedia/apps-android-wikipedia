@@ -51,6 +51,15 @@ class InstrumentImpl(
         return this
     }
 
+    /**
+     * Continues a funnel that was started by another instrument (e.g. in a different Activity),
+     * so that subsequent events share its entry token and sequence.
+     */
+    fun continueFunnel(funnel: Funnel?): InstrumentImpl {
+        this.funnel = funnel
+        return this
+    }
+
     fun stopFunnel(): InstrumentImpl {
         funnel = null
         return this

@@ -13,7 +13,8 @@ interface SearchResultCallback {
         position: Int,
         location: Location? = null,
         showSemanticSearchFeedback: Boolean = false,
-        highlightText: String? = null
+        highlightText: String? = null,
+        semanticSearchId: String? = null
     )
 
     fun setSearchText(text: String)

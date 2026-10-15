@@ -54,7 +54,8 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                                 inNewTab = false,
                                 position = searchResult.indexInApiCall,
                                 showSemanticSearchFeedback = viewModel.deferFeedbackToArticle(),
-                                highlightText = StringUtil.extractStringFromStyle("searchmatch", searchResult.snippet)
+                                highlightText = StringUtil.extractStringFromStyle("searchmatch", searchResult.snippet),
+                                semanticSearchId = viewModel.lastXSearchIdSemantic
                             )
                         },
                         onCloseClick = {

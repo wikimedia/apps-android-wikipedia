@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
+import org.wikimedia.testkitchen.instrument.Funnel
 import org.wikipedia.R
-import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.getString
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -30,9 +30,8 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                         selectedRating = viewModel.selectedRating.collectAsState().value,
                         onRatingClick = viewModel::selectRating,
                         onCloseClick = {
-                            // TODO: make sure the funnel is the same from the search result.
                             SemanticSearchAbTest().shouldSendEvent {
-                                TestKitchenAdapter.client.getInstrument("apps-search").submitInteraction("click",
+                                viewModel.instrument.submitInteraction("click",
                                     actionSource = "search",
                                     actionSubtype = "article_result",
                                     elementId = "feedback_close_button"
@@ -41,17 +40,16 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                             dismiss()
                         },
                         onSubmitClick = { isPositive, feedbackText ->
-                            // TODO: make sure the funnel is the same from the search result.
                             SemanticSearchAbTest().shouldSendEvent {
                                 isPositive?.let {
-                                    TestKitchenAdapter.client.getInstrument("apps-search").submitInteraction("click",
+                                    viewModel.instrument.submitInteraction("click",
                                         actionSource = "search",
                                         actionSubtype = "article_result",
                                         elementId = "feedback_submit",
                                         actionContext = mapOf(
                                             "score" to if (it) "1" else "0",
                                             "text" to feedbackText,
-                                            "search_id_sem" to "", // TODO: get this
+                                            "search_id_sem" to viewModel.searchIdSemantic,
                                             "type" to SearchResult.SearchResultType.SEMANTIC
                                         )
                                     )
@@ -69,12 +67,16 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
 
     companion object {
         const val ARG_LANGUAGE_CODE = "languageCode"
+        const val ARG_SEARCH_ID_SEMANTIC = "searchIdSemantic"
+        const val ARG_FUNNEL = "funnel"
         const val ARTICLE_DISPLAY_DELAY_MILLIS = 5000L
 
-        fun newInstance(languageCode: String): SemanticSearchFeedbackDialog {
+        fun newInstance(languageCode: String, searchIdSemantic: String?, funnel: Funnel?): SemanticSearchFeedbackDialog {
             val dialog = SemanticSearchFeedbackDialog()
             dialog.arguments = Bundle().apply {
                 putString(ARG_LANGUAGE_CODE, languageCode)
+                putString(ARG_SEARCH_ID_SEMANTIC, searchIdSemantic)
+                putParcelable(ARG_FUNNEL, funnel)
             }
             return dialog
         }

@@ -36,6 +36,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikimedia.testkitchen.instrument.Funnel
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -124,6 +125,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
     private var semanticSearchFeedbackTitle: PageTitle? = null
+    private var semanticSearchFeedbackSearchId: String? = null
+    private var semanticSearchFeedbackFunnel: Funnel? = null
     private var semanticSearchFeedbackJob: Job? = null
 
     private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -463,7 +466,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             withResumed {
                 if (pageFragment.title == feedbackTitle && ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) == null) {
                     ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                        SemanticSearchFeedbackDialog.newInstance(feedbackTitle.wikiSite.languageCode))
+                        SemanticSearchFeedbackDialog.newInstance(feedbackTitle.wikiSite.languageCode,
+                            semanticSearchFeedbackSearchId, semanticSearchFeedbackFunnel))
                 }
             }
             semanticSearchFeedbackTitle = null
@@ -702,6 +706,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             cancelSemanticSearchFeedback()
             if (intent.getBooleanExtra(EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, false)) {
                 semanticSearchFeedbackTitle = title
+                semanticSearchFeedbackSearchId = intent.getStringExtra(EXTRA_SEMANTIC_SEARCH_ID)
+                semanticSearchFeedbackFunnel = intent.parcelableExtra(EXTRA_SEMANTIC_SEARCH_FUNNEL)
             }
             val highlightText = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
             when (intent.action) {
@@ -966,6 +972,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         const val ACTION_RESUME_READING = "org.wikipedia.resume_reading"
         const val EXTRA_HISTORYENTRY = "org.wikipedia.history.historyentry"
         const val EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK = "org.wikipedia.search.semantic.show_feedback"
+        const val EXTRA_SEMANTIC_SEARCH_ID = "org.wikipedia.search.semantic.search_id"
+        const val EXTRA_SEMANTIC_SEARCH_FUNNEL = "org.wikipedia.search.semantic.funnel"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.page.highlight_text"
 
         fun newIntent(context: Context): Intent {

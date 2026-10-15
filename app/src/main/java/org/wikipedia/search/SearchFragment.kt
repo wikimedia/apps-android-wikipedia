@@ -216,7 +216,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         switchToSearch(text)
     }
 
-    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?, showSemanticSearchFeedback: Boolean, highlightText: String?) {
+    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?, showSemanticSearchFeedback: Boolean, highlightText: String?, semanticSearchId: String?) {
         if (!isAdded) {
             return
         }
@@ -236,6 +236,8 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             startActivity(
                 intent
                     .putExtra(PageActivity.EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, showSemanticSearchFeedback)
+                    .putExtra(PageActivity.EXTRA_SEMANTIC_SEARCH_ID, semanticSearchId)
+                    .putExtra(PageActivity.EXTRA_SEMANTIC_SEARCH_FUNNEL, requireActivity().instrument?.funnel)
                     .putExtra(PageActivity.EXTRA_HIGHLIGHT_TEXT, highlightText)
             )
         }
