@@ -6,6 +6,7 @@
 * MuratTheTurkish
 * Ninjastrikers
 * SawJaemin
+* Wrai
 * 咽頭べさ
 -->
 <resources>
@@ -789,6 +790,7 @@
   <string name="suggested_edits_describe_articles">ချူဗၟံက်ပရူ လိက်ပရေင်ဂမၠိုင်</string>
   <string name="suggested_edits_caption_images">စုတ်လိက် ဗီုရုပ်ဂမၠိုင်</string>
   <string name="suggested_edits_tag_images">စင် ဗီုရုပ်</string>
+  <string name="suggested_edits_edit_patrol_review">ကလေၚ်ဂၠိုက်ဂၠာဲ</string>
   <string name="suggested_edits_review_description">ကလေင်ရံင် ပရူပရာ လိက်ပရေင်</string>
   <string name="suggested_edits_add_description_button">စုတ် တင်ဗမံက်ထ္ၜး</string>
   <string name="suggested_edits_edit_description_button">ပလေဝ်ဒါန် မဗၟံက်ထ္ၜး</string>
