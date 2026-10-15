@@ -14,16 +14,21 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.donate.DonateDialog
+import org.wikipedia.feed.personalization.PersonalizationActivity
+import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -31,6 +36,10 @@ class YearInReviewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+            .startFunnel("year-in-review")
+            .setExperiment(TestKitchenAdapter.getExperiment(YearInReviewEndScreenABTest()))
 
         initializeYearInReviewRive(this)
 
@@ -92,9 +101,26 @@ class YearInReviewActivity : BaseActivity() {
                         )
                         ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = campaignId, fromYiR = true))
                     },
+                    onEndCardClick = { card ->
+                        when (card) {
+                            YearInReviewEndCard.GAMES -> startActivity(GamesHubActivity.newIntent(this))
+                            YearInReviewEndCard.CUSTOMIZE_HOME -> startActivity(PersonalizationActivity.newIntent(this, showInterestsOnly = true))
+                            YearInReviewEndCard.STORE_DISCOUNT -> {
+                                UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_store_discount_url).toUri())
+                            }
+                            YearInReviewEndCard.QUIZ -> {
+                                UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_quiz_url, WikipediaApp.instance.appOrSystemLanguageCode).toUri())
+                            }
+                        }
+                    },
                     onStatusBarIconColorChange = { useDarkIcons ->
                         WindowCompat.getInsetsController(window, window.decorView)
                             .isAppearanceLightStatusBars = useDarkIcons
+                    },
+                    onPageImpression = { page ->
+                        if (page is YearInReviewPage.End && YearInReviewEndScreenABTest().isUserEligible()) {
+                            YearInReviewEndScreenABTest().maybeSendExposureEvent()
+                        }
                     },
                     onRetryClick = {
                         viewModel.loadYearInReview()

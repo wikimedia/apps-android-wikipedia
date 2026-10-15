@@ -19,9 +19,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.sp
 import androidx.startup.AppInitializer
 import app.rive.ExperimentalRiveGlobalViewModels
@@ -61,7 +63,8 @@ data class RiveSlideSpec(
     val instanceType: RiveInstanceType = RiveInstanceType.Default,
     val globalViewModel: RiveGlobalViewModel? = null,
     val fit: RiveSlideFit = RiveSlideFit.Layout,
-    val isTopBarUiIconsWhite: String? = null
+    val isTopBarUiIconsWhite: String? = null,
+    val layoutDirectionEnum: String? = null
 )
 
 // A view model whose values every artboard in the file can read; left null when the app doesn't set them
@@ -256,6 +259,7 @@ private fun YearInReviewRiveArtboard(
     val imageResults = rememberRiveImages(riveFile.riveWorker, imageUrls)
     // waits for the images too, so the slide's animation never starts with the designer's sample pictures
     val imagesLoading = imageResults.values.any { it is Result.Loading }
+    val layoutDirection = LocalLayoutDirection.current
 
     when (val result = artboardResult.zip(stateMachineResult).zip(instanceResult).zip(globalInstanceResult)) {
         is Result.Loading -> RiveLoadingIndicator(modifier)
@@ -295,6 +299,10 @@ private fun YearInReviewRiveArtboard(
                 numberProperties.forEach { (property, value) ->
                     instance.setNumber(property, value.toFloat())
                 }
+            }
+            LaunchedEffect(instance, spec.layoutDirectionEnum, layoutDirection) {
+                val propertyName = spec.layoutDirectionEnum ?: return@LaunchedEffect
+                instance.setEnum(propertyName, if (layoutDirection == LayoutDirection.Rtl) "Right to Left" else "Left to Right")
             }
             val currentOnRiveLoaded by rememberUpdatedState(onRiveLoaded)
             LaunchedEffect(artboard, instance) {

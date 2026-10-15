@@ -14,6 +14,33 @@ import org.wikipedia.yearinreview.presentation.YearInReviewPage
 object YearInReviewPlaygroundPreview {
     private val averageArticlesReadPerYear = YearInReviewConfig.fallbackConfig.averageArticlesReadPerYear
 
+    // Shared with the Personalized test data, so its Top topic and Revisited articles slides aren't empty
+    val sampleTopTopic = ArticleTopics.all.first { it.topicId == "music" }
+    val sampleTopTopicArticles = listOf("Abbey Road") + (1..15).map { "Music article $it" } + "Woodstock"
+    val sampleRevisitedArticles = listOf(
+        PageTitle(
+            text = "Moon",
+            wiki = WikiSite.preview(),
+            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/120px-FullMoon2010.jpg",
+            description = "Natural satellite orbiting Earth",
+            displayText = "Moon"
+        ) to 10,
+        PageTitle(
+            text = "Leonardo da Vinci",
+            wiki = WikiSite.preview(),
+            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/120px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png",
+            description = "Italian polymath (1452–1519)",
+            displayText = "Leonardo da Vinci"
+        ) to 9,
+        PageTitle(
+            text = "Python (programming language)",
+            wiki = WikiSite.preview(),
+            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/120px-Python-logo-notext.svg.png",
+            description = "General-purpose programming language",
+            displayText = "Python (programming language)"
+        ) to 8
+    )
+
     // this excludes LongestReadGuess, LongestReadReveal, RabbitHoleGuess, and RabbitHoleReveal which are not included in the template
     val allSlides get() = listOf(
         YearInReviewPage.Cover(daysSpent = 45),
@@ -22,16 +49,12 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.TimeSpent(duration = 1500),
         YearInReviewPage.ReadingStreak(isEmptyState = false, longestStreak = 21, streakStartDate = "March 4", streakEndDate = "24"),
         YearInReviewPage.ReadingPattern(isEmptyState = false, favoriteTime = "AFTERNOON", favoriteTimePercentage = 68),
-        YearInReviewPage.TopTopic(
-            isEmptyState = false,
-            topic = ArticleTopics.all.first { it.topicId == "music" },
-            articles = listOf("Abbey Road") + (1..15).map { "Music article $it" } + "Woodstock"
-        ),
+        YearInReviewPage.TopTopic(isEmptyState = false, topic = sampleTopTopic, articles = sampleTopTopicArticles),
         YearInReviewPage.OtherTopTopics(
             topicArticleCounts = listOf(
-                ArticleTopics.all[0] to 14,
-                ArticleTopics.all[5] to 12,
-                ArticleTopics.all[7] to 8
+                ArticleTopics.all[0].topicId to 14,
+                ArticleTopics.all[5].topicId to 12,
+                ArticleTopics.all[7].topicId to 8
             ).takeRandomCount().toMap()
         ),
         YearInReviewPage.BiggestReadingDay(date = "September 30", minutesSpent = 423),
@@ -55,32 +78,7 @@ object YearInReviewPlaygroundPreview {
             ).takeRandomCount()
         ),
         YearInReviewPage.Category(categoryName = "LIGHTHOUSES IN SCOTLAND"),
-        YearInReviewPage.RevisitedArticles(
-            isEmptyState = false,
-            articles = listOf(
-                PageTitle(
-                    text = "Moon",
-                    wiki = WikiSite.preview(),
-                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/120px-FullMoon2010.jpg",
-                    description = "Natural satellite orbiting Earth",
-                    displayText = "Moon"
-                ) to 10,
-                PageTitle(
-                    text = "Leonardo da Vinci",
-                    wiki = WikiSite.preview(),
-                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/120px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png",
-                    description = "Italian polymath (1452–1519)",
-                    displayText = "Leonardo da Vinci"
-                ) to 9,
-                PageTitle(
-                    text = "Python (programming language)",
-                    wiki = WikiSite.preview(),
-                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/120px-Python-logo-notext.svg.png",
-                    description = "General-purpose programming language",
-                    displayText = "Python (programming language)"
-                ) to 8
-            )
-        ),
+        YearInReviewPage.RevisitedArticles(isEmptyState = false, articles = sampleRevisitedArticles),
         YearInReviewPage.Geography(isEmptyState = false, placeArticleCounts = mapOf("Brazil" to 12)),
         YearInReviewPage.SavedArticles(
             isEmptyState = false,
@@ -126,7 +124,7 @@ object YearInReviewPlaygroundPreview {
         ),
         YearInReviewPage.ThankYou(isEditor = true, isDonor = true),
         YearInReviewPage.YouMatter(showLoginPrompt = false),
-        YearInReviewPage.End
+        YearInReviewPage.End(isDonor = true)
     )
 
     // Visits has no empty state: it's left out of the flow instead
@@ -140,7 +138,7 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.Geography(isEmptyState = true, placeArticleCounts = emptyMap()),
         YearInReviewPage.SavedArticles(isEmptyState = true, savedCount = 0, articles = emptyList()),
         YearInReviewPage.TotalEdits(isEmptyState = true, editCount = 0),
-        YearInReviewPage.End
+        YearInReviewPage.End(isDonor = false)
     )
 
     // Between 1 and all of the items, so slides with a variable number of rows can be checked

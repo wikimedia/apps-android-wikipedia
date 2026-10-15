@@ -2055,6 +2055,7 @@
     <item quantity="one">Supporting text of the Year in Review store discount card. %1$d will be replaced by the discount percentage.</item>
     <item quantity="other">Supporting text of the Year in Review store discount card. %1$d will be replaced by the discount percentage.</item>
   </plurals>
+  <string name="yir_store_discount_action">Button label on the Year in Review store discount card.</string>
   <string name="yir_games_headline">Headline of the Year in Review card that promotes Wikipedia games.</string>
   <string name="yir_games_supporting">Supporting text of the Year in Review games card.</string>
   <string name="yir_games_action">Button label on the Year in Review games card.</string>

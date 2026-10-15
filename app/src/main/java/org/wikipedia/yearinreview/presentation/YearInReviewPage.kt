@@ -59,7 +59,7 @@ sealed interface YearInReviewPage {
         override val id get() = if (isEmptyState) "top_topic_empty" else "top_topic"
     }
 
-    data class OtherTopTopics(val topicArticleCounts: Map<ArticleTopic, Int>) : YearInReviewPage {
+    data class OtherTopTopics(val topicArticleCounts: Map<String, Int>) : YearInReviewPage {
         override val id = "other_top_topics"
     }
 
@@ -127,7 +127,9 @@ sealed interface YearInReviewPage {
         override val id = "you_matter"
     }
 
-    data object End : YearInReviewPage {
+    data class End(val isDonor: Boolean) : YearInReviewPage {
         override val id = "end"
+        // The top of the slide is a light sky
+        override val useDarkStatusBarIcons = true
     }
 }

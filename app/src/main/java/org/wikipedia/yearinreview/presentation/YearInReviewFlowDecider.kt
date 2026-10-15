@@ -11,21 +11,21 @@ object YearInReviewFlowDecider {
     // The page should only be built when the slide isn't suppressed, since its data may not exist otherwise.
     private class CandidatePage(val status: YearInReviewInsightStatus, val page: () -> YearInReviewPage)
 
-    fun isDataRich(snapshot: YearInReviewSnapshot): Boolean {
+    fun hasEnoughPersonalizedPages(snapshot: YearInReviewSnapshot): Boolean {
         val candidates = personalizedCandidates(snapshot)
         return hasEnoughPersonalizedPages(candidates)
     }
 
     fun pages(snapshot: YearInReviewSnapshot): List<YearInReviewPage> {
         val candidates = personalizedCandidates(snapshot)
-        val hasEnoughData = hasEnoughPersonalizedPages(candidates)
-        val flowPages = if (snapshot.isLoggedIn && hasEnoughData) {
+        val isPersonalized = snapshot.isLoggedIn && hasEnoughPersonalizedPages(candidates)
+        val flowPages = if (isPersonalized) {
             candidates.filter { it.status != YearInReviewInsightStatus.SUPPRESSED }.map { it.page() } +
                     listOfNotNull(personalizedClosingPage(snapshot))
         } else {
             YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) } + listOfNotNull(youMatterPage(snapshot))
         }
-        return listOf(YearInReviewPage.Cover(daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End
+        return listOf(YearInReviewPage.Cover(daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End(isDonor = snapshot.rewardData.isContributor)
     }
 
     private fun personalizedCandidates(snapshot: YearInReviewSnapshot): List<CandidatePage> {

@@ -12,6 +12,7 @@
 * Huñvreüs
 * Kadwallan
 * Lompezh
+* Wrai
 * Y-M D
 * YeBoy371
 -->
@@ -2098,7 +2099,7 @@
     <item quantity="other">Trugarez da vezañ tremenet %1$d devezh war ho arload Wikipedia solius e %2$d.</item>
   </plurals>
   <string name="yir_article_count_headline">Ho niver hollek a bennadoù :</string>
-  <plurals name="yir_article_count_supporting_top" fuzzy="true">
+  <plurals name="yir_article_count_supporting_top">
     <item quantity="one">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
     <item quantity="two">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
     <item quantity="few">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
@@ -2117,9 +2118,9 @@
     <item quantity="other">E %1$s ez oc\'h bet an oberiantañ, p\'ho poa lennet da %2$d deiz disheñvel.</item>
   </plurals>
   <string name="yir_minutes_read_headline">Hollad ar munutennoù hoc\'h eus tremenet o lenn :</string>
-  <string name="yir_minutes_read_supporting" fuzzy="true">%1$s Hiroc\'h eget un nozvezh kousk eo kement-se. Buan ez a an amzer hebiou pa vezit en ur milendall.</string>
+  <string name="yir_minutes_read_supporting">%1$s Hiroc\'h eget un nozvezh kousk eo kement-se. Buan ez a an amzer hebiou pa vezit en ur milendall.</string>
   <string name="yir_reading_streak_headline">Deizioù en ho steudad lenn hirañ :</string>
-  <string name="yir_reading_streak_supporting" fuzzy="true">Adalek %1$s-%2$s hoc\'h eus tapet da vat ar boaz da lenn bemdez.</string>
+  <string name="yir_reading_streak_supporting">Adalek %1$s–%2$s hoc\'h eus tapet da vat ar boaz da lenn bemdez.</string>
   <string name="yir_reading_streak_empty_headline">0 steudad lenn… evit bremañ</string>
   <plurals name="yir_reading_streak_empty_supporting">
     <item quantity="one">N\'eo ket ur steudad keit ha ma n\'hoc\'h eus ket graet da %1$d deiz da-heul. Perak ne grogfec\'h ket bremañ ?</item>
@@ -2149,6 +2150,13 @@
   <string name="yir_top_topic_empty_headline">Ho todenn #1 diwar %1$d eo… an holl</string>
   <string name="yir_top_topic_empty_supporting">N\'eus diduadenn ebet a gement a dermenas ho poazioù lenn</string>
   <string name="yir_runner_up_topics_headline">Hag ho peskampioned e %1$d :</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d pennad</item>
+    <item quantity="two">%1$d pennad</item>
+    <item quantity="few">%1$d pennad</item>
+    <item quantity="many">%1$d pennad</item>
+    <item quantity="other">%1$d pennad</item>
+  </plurals>
   <string name="yir_biggest_reading_day_headline">Ho tevezhiad lenn brasañ :</string>
   <plurals name="yir_biggest_reading_day_supporting">
     <item quantity="one">%1$d munutenn en holl hoc\'h eus tremenet e Wikipedia. on Wikipedia. Setu bezañ oberiek !</item>
@@ -2181,9 +2189,29 @@
   <string name="yir_reread_articles_empty_headline">N\'oc\'h ket un adlenner</string>
   <string name="yir_reread_articles_empty_supporting">Ne blij ket deoc\'h lenn ur pennad div wech. Gwell eo deoc\'h an nevezentioù ha kouezhañ e milendalloù nevez.</string>
   <string name="yir_places_headline">Gant ho lennadoù ez oc\'h bet hogozik kaset da :</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">Diazezet war %1$d pennad</item>
+    <item quantity="two">Diazezet war %1$d </item>
+    <item quantity="few">Diazezet war %1$d </item>
+    <item quantity="many">Diazezet war %1$d </item>
+    <item quantity="other">Diazezet war %1$d </item>
+  </plurals>
   <string name="yir_places_empty_headline">Dre ar gartenn a-bezh ez oc\'h bet kaset gant ho lennadennoù</string>
   <string name="yir_places_empty_supporting">E %1$d hoc\'h eus beajet dre Wikipedia a-bezh. Taolit ur sell war an arc\'hweladur Lec\'hioù evit kaout mennozhioù  a-zivout pe da lec\'h mont da bourmen.</string>
-  <string name="yir_saved_articles_headline" fuzzy="true">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+    <item quantity="two">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+    <item quantity="few">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+    <item quantity="many">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+    <item quantity="other">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s gweladenn</item>
+    <item quantity="two">%1$s gweladenn</item>
+    <item quantity="few">%1$s gweladenn</item>
+    <item quantity="many">%1$s gweladenn</item>
+    <item quantity="other">%1$s gweladenn</item>
+  </plurals>
   <string name="yir_saved_articles_empty_headline">0 pennad zo bet enrollet ganeoc\'h</string>
   <string name="yir_saved_articles_empty_supporting">N\'hoc\'h eus pennad enrollet ebet evit bremañ. Klikit war arlun ar sined en ur pennad evit gallout e lenn... diwezhatoc\'h.</string>
   <string name="yir_edits_headline">Kemmoù graet ganeoc\'h :</string>
@@ -2308,7 +2336,11 @@
     <item quantity="other">Hiroc\'h eo eget %1$d devezh.</item>
   </plurals>
   <string name="year_in_review_learn_more">Gouzout hiroc\'h</string>
+  <string name="year_in_review_about_your_insights">A-zivout ho stadegoù</string>
+  <string name="year_in_review_share_feedback">Lodañ evezhiadennoù</string>
+  <string name="year_in_review_feedback_email_subject">Evezhiadennoù a-zivout Bilañs ar Bloaz</string>
   <string name="year_in_review_get_started">Kregiñ ganti</string>
+  <string name="year_in_review_announcement_explore">Furchal</string>
   <string name="year_in_review_topbar_w_icon">Arlun Wikipedia W</string>
   <string name="year_in_review_navigate_left">Merdeiñ en tu kleiz</string>
   <string name="year_in_review_close">Serriñ</string>
@@ -2320,6 +2352,11 @@
   <string name="year_in_review_get_started_headline">Furchit bilañs ho ploaziad Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Gwelit titouroù a-zivout ar pennadoù hoc\'h eus lennet dre an arload Wikipedia hag ar c\'hemmoù hoc\'h eus graet.</string>
   <string name="year_in_review_get_started_info">Gwarezet eo istor ho lennadennoù. Dre roadennoù miret en ho ardivink e jeder an titouroù a-zivout al lennadennoù.</string>
+  <string name="year_in_review_get_started_later_activity">En Obererezh e c\'hallot tizhout ho Pilañs ar Bloaz diwezhatoc\'h.</string>
+  <string name="year_in_review_entry_card_title_collective">Amañ emañ hor Bilañs ar Bloaz</string>
+  <string name="year_in_review_entry_card_title_personalized">Amañ emañ ho Pilañs ar Bloaz</string>
+  <string name="year_in_review_entry_card_subtitle">Adwelit ho ploavezh e Wikipedia</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">Re zister ez eo bet ho obererezh evit genel ho Pilañs ar Bloaz ar wech-mañ, met furchal ar pezh a zo bet dizoloet a-gevret gant tud eus ar bed a-bezh a c\'hallit ober bepred.</string>
   <string name="year_in_review_survey_title">Sikourit da wellaat Bilañs ar Bloaz</string>
   <string name="year_in_review_survey_subtitle">Ha laouen oc\'h gant an arc\'hweladur-mañ ?</string>
   <string name="year_in_review_reading_list_survey_title">Sikourit da wellaat roll Bilañs ar Bloaz %d.</string>

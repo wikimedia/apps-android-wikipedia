@@ -834,7 +834,7 @@ object Prefs {
 
     var yearInReviewPlaygroundData: YearInReviewPlaygroundData
         get() = PrefsIoUtil.getString(R.string.preference_key_yir_playground_data, null)?.let {
-            YearInReviewPlaygroundData.valueOf(it)
+            YearInReviewPlaygroundData.entries.find { data -> data.name == it }
         } ?: YearInReviewPlaygroundData.REAL
         set(value) = PrefsIoUtil.setString(R.string.preference_key_yir_playground_data, value.name)
 

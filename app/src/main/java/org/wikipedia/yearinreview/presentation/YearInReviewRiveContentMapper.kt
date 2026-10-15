@@ -1,9 +1,9 @@
 package org.wikipedia.yearinreview.presentation
 
 import android.content.res.Resources
-import android.view.View
 import org.wikipedia.R
 import org.wikipedia.topics.ArticleTopic
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
@@ -86,17 +86,19 @@ object YearInReviewRiveContentMapper {
                 "data" to if (page.isEmptyState) "" else resources.getString(page.topic.msgKey).uppercase(),
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
                 else resources.getQuantityString(R.plurals.yir_top_topic_supporting, page.articles.size,
-                    page.articles.first(), page.articles.last(), page.articles.size, getTopicComment(resources, page.topic))
+                    page.articles.first(), page.articles.last(), page.articles.size, getTopicComment(resources, page.topic)),
+                "topicIcon" to page.topic.thumbnailUrl
             )
         )
         is YearInReviewPage.OtherTopTopics -> RiveSlideContent(
             spec = allTemplatesListSlideSpec(artboardName = "frame7"),
             textProperties = mapOf(
                 "bodyText" to resources.getString(R.string.yir_runner_up_topics_headline, YearInReviewConfig.YEAR)
-            ) + listRows(page.topicArticleCounts.map { (topic, count) ->
-                resources.getString(topic.msgKey) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
+            ) + listRows(page.topicArticleCounts.map { (topicId, count) ->
+                resources.getString(ArticleTopics.all.find { it.topicId == topicId }?.msgKey ?: 0) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
             }),
-            numberProperties = listItemCount(page.topicArticleCounts.size)
+            numberProperties = listItemCount(page.topicArticleCounts.size),
+            imageUrls = listIcons(page.topicArticleCounts.map { ArticleTopics.all.find { topic -> topic.topicId == it.key }?.thumbnailUrl ?: "" })
         )
         is YearInReviewPage.BiggestReadingDay -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame8"),
@@ -107,12 +109,7 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.BiggestReadingDayArticles -> RiveSlideContent(
-            // v3 splits frame9 into a left-to-right and a right-to-left artboard, which share one instance
-            spec = allTemplatesSlideSpec(
-                artboardName = if (resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL) "frame9-rightToLeft" else "frame9-leftToRight",
-                viewModelName = "List",
-                instanceType = RiveInstanceType.Named("frame9")
-            ),
+            spec = allTemplatesListSlideSpec(artboardName = "frame9"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_articles_read_headline)
             ) + listRows(page.articles.map { it.title to it.description }),
@@ -232,8 +229,8 @@ object YearInReviewRiveContentMapper {
 private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
     name = "GlobalProperties",
     textSizes = mapOf(
-        "coverGlyphsFontSize" to 44f,
-        "coverGlyphsLineHeight" to 48f,
+        "coverGlyphsFontSize" to 40f,
+        "coverGlyphsLineHeight" to 42f,
         "dataNumberFontSize" to 72f,
         "dataNumbersLineHeight" to 76f,
         "headlineFontSize" to 24f,
@@ -249,7 +246,7 @@ fun allTemplatesSlideSpec(
     viewModelName: String = "DataTemplate",
     instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName)
 ) = RiveSlideSpec(
-    resourceId = R.raw.all_templates_v3,
+    resourceId = R.raw.all_templates_v4,
     artboardName = artboardName,
     viewModelName = viewModelName,
     instanceType = instanceType,
@@ -257,8 +254,10 @@ fun allTemplatesSlideSpec(
     isTopBarUiIconsWhite = "isUIWhite"
 )
 
-// Artboards that show up to three articles or topics, each with an icon, title and subtitle
-private fun allTemplatesListSlideSpec(artboardName: String) = allTemplatesSlideSpec(artboardName, viewModelName = "List")
+// Artboards that show up to three articles or topics, each with an icon, title and subtitle.
+// The List view model's layoutDir is passed down to each card, where it sets the card's layout direction.
+private fun allTemplatesListSlideSpec(artboardName: String) =
+    allTemplatesSlideSpec(artboardName, viewModelName = "List").copy(layoutDirectionEnum = "layoutDir")
 
 // Fills the List view model's numbered rows. Rows without an item are cleared, so the instance's sample text doesn't show.
 private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String, String> {

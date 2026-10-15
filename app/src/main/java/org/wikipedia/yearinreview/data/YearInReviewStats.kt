@@ -24,7 +24,7 @@ data class YearInReviewReadingStats(
     val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
     val topTopic: ArticleTopic? = null,
     val topTopicArticles: List<String>? = emptyList(),
-    val topicArticleCountMap: Map<ArticleTopic, Int> = emptyMap()
+    val topicArticleCountMap: Map<String, Int> = emptyMap()
 ) {
     val totalArticlesStatus get() = if (articlesReadCount >= MIN_ARTICLES_READ) {
         YearInReviewInsightStatus.PERSONALIZED
@@ -63,6 +63,14 @@ data class YearInReviewReadingStats(
         const val MIN_VISITED_DAYS = 2
         const val MIN_PEAK_MONTH_VISITED_DAYS = 2
     }
+}
+
+data class YearInReviewEntryStats(
+    val articlesReadCount: Int,
+    val visitedDaysCount: Int
+) {
+    val isDataRich get() = articlesReadCount >= YearInReviewReadingStats.MIN_ARTICLES_READ &&
+            visitedDaysCount >= YearInReviewReadingStats.MIN_VISITED_DAYS
 }
 
 data class YearInReviewRewardData(
