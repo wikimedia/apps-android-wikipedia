@@ -26,8 +26,14 @@ enum class YearInReviewPlaygroundData(
     val previewPages: (() -> List<YearInReviewPage>)? = null
 ) {
     REAL("Real data", "Turns off the playground data. The card, announcement and slides use your real reading history, edits and login.", null),
-    COLLECTIVE("Collective", "Fixed test data for the low-data card and announcement, and the collective slides. It doesn't use any of your real data.",
-        YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0)),
+    COLLECTIVE("Collective", "Fixed test data for a light reader, just under the data-rich and personalized thresholds, so it shows the low-data card " +
+            "and announcement, and the collective slides. It doesn't use any of your real data.",
+        YearInReviewReadingStats(
+            articlesReadCount = YearInReviewReadingStats.MIN_ARTICLES_READ - 1,
+            visitedDaysCount = YearInReviewReadingStats.MIN_VISITED_DAYS - 1,
+            peakMonth = 9,
+            peakMonthVisitedDays = YearInReviewReadingStats.MIN_VISITED_DAYS - 1
+        )),
     PERSONALIZED("Personalized", "Fixed test data for the data-rich card and announcement, and the personalized slides. It doesn't use any of your real data.",
         YearInReviewReadingStats(
             articlesReadCount = 120,

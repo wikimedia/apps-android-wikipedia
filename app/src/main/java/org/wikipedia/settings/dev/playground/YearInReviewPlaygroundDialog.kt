@@ -80,14 +80,12 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                         YearInReviewPlayground.previewPageId = null
                         mutableStateOf<String?>(null)
                     }
-                    // Bumped each time the playground comes back, since the screens it opens can change login, history and seen state
+                    // Bumped each time the playground comes back, since the screens it opens can change login and history
                     var refreshCount by remember { mutableIntStateOf(0) }
                     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { refreshCount++ }
                     val userName = remember(refreshCount) { AccountUtil.userName.takeIf { AccountUtil.isLoggedIn } }
                     val isTemporaryAccount = remember(refreshCount) { AccountUtil.isTemporaryAccount }
                     val isYearInReviewEnabled = remember(refreshCount) { Prefs.isYearInReviewEnabled }
-                    val isAnnouncementSeen = remember(refreshCount) { Prefs.yearInReviewVisited }
-                    val isActivityTabDotSeen = remember(refreshCount) { Prefs.yearInReviewActivityTabDotSeenYear == YearInReviewViewModel.YIR_YEAR }
                     val hiddenCountryCodes = remember { YearInReviewPlayground.hiddenCountryCodes }
                     var realDataSummary by remember { mutableStateOf<String?>(null) }
                     LaunchedEffect(refreshCount) { realDataSummary = YearInReviewPlaygroundSummary.realData() }
@@ -113,13 +111,6 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                         onEntryPointChange = {
                             entryPoint = it
                             Prefs.yearInReviewPlaygroundEntryPoint = it
-                        },
-                        isAnnouncementSeen = isAnnouncementSeen,
-                        isActivityTabDotSeen = isActivityTabDotSeen,
-                        onResetSeenStateClick = {
-                            Prefs.yearInReviewVisited = false
-                            Prefs.yearInReviewActivityTabDotSeenYear = 0
-                            refreshCount++
                         },
                         realDataSummary = realDataSummary,
                         onAnnouncementClick = { startActivity(YearInReviewOnboardingActivity.newIntent(requireContext())) },
@@ -159,9 +150,6 @@ fun YearInReviewPlaygroundScreen(
     hiddenReasons: List<String>,
     hiddenCountryCodes: List<String>,
     onEntryPointChange: (YearInReviewPlaygroundEntryPoint) -> Unit,
-    isAnnouncementSeen: Boolean,
-    isActivityTabDotSeen: Boolean,
-    onResetSeenStateClick: () -> Unit,
     realDataSummary: String?,
     onAnnouncementClick: () -> Unit,
     onActivityTabClick: () -> Unit,
@@ -216,11 +204,6 @@ fun YearInReviewPlaygroundScreen(
                 hiddenCountryCodes = hiddenCountryCodes,
                 onEntryPointChange = onEntryPointChange
             )
-            SeenStateCard(
-                isAnnouncementSeen = isAnnouncementSeen,
-                isActivityTabDotSeen = isActivityTabDotSeen,
-                onResetClick = onResetSeenStateClick
-            )
         }
         LaunchButtons(
             onAnnouncementClick = onAnnouncementClick,
@@ -230,7 +213,6 @@ fun YearInReviewPlaygroundScreen(
     }
 }
 
-// The announcement opens even when the entry point checks would hide it; the Activity tab card follows the checks.
 @Composable
 private fun LaunchButtons(
     onAnnouncementClick: () -> Unit,
@@ -244,6 +226,11 @@ private fun LaunchButtons(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        Text(
+            text = "The announcement opens even when the entry point checks would hide it. The Activity tab only shows the card when they pass.",
+            style = MaterialTheme.typography.bodySmall,
+            color = WikipediaTheme.colors.secondaryColor
+        )
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             OutlinedButton(
                 modifier = Modifier.weight(1f),
@@ -450,35 +437,6 @@ private fun EntryPointCard(
 }
 
 @Composable
-private fun SeenStateCard(
-    isAnnouncementSeen: Boolean,
-    isActivityTabDotSeen: Boolean,
-    onResetClick: () -> Unit
-) {
-    PlaygroundCard(title = "Seen state") {
-        Text(
-            text = "The announcement opens by itself once, and the Activity tab shows a dot until the tab is opened. " +
-                    "After a reset, the announcement opens the next time an article or the main screen opens, and the dot shows when you go back to the app. " +
-                    "The Activity tab button opens the tab, so it clears the dot.",
-            style = MaterialTheme.typography.bodyMedium,
-            color = WikipediaTheme.colors.secondaryColor
-        )
-        Text(
-            text = "Announcement: ${if (isAnnouncementSeen) "seen" else "not seen"}\n" +
-                    "Activity tab dot: ${if (isActivityTabDotSeen) "seen" else "not seen"}",
-            style = MaterialTheme.typography.bodyMedium,
-            color = WikipediaTheme.colors.primaryColor
-        )
-        OutlinedButton(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = onResetClick
-        ) {
-            Text("Reset seen state", color = WikipediaTheme.colors.progressiveColor)
-        }
-    }
-}
-
-@Composable
 private fun PlaygroundCard(
     title: String,
     content: @Composable ColumnScope.() -> Unit
@@ -647,9 +605,6 @@ private fun YearInReviewPlaygroundScreenPreview() {
             hiddenReasons = listOf("RU is a hidden country"),
             hiddenCountryCodes = listOf("RU", "IR", "CN"),
             onEntryPointChange = {},
-            isAnnouncementSeen = true,
-            isActivityTabDotSeen = false,
-            onResetSeenStateClick = {},
             realDataSummary = "Entry card and announcement: Data-rich\nSlides: Personalized\nReading history from 2026-01-01 to 2026-11-30\n" +
                     "Articles read: 3\nVisited days: 2\nVisited days in the peak month: 2",
             onAnnouncementClick = {},
