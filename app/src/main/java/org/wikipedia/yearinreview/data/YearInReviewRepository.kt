@@ -88,10 +88,10 @@ class YearInReviewRepositoryImpl(
             .map { it.first.title to it.second }
 
         val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis).take(4)
-        val topTopic = topTopics.map { it.topic }.firstOrNull()?.let {
+        val topTopic = topTopics.firstOrNull { it.articleCount >= 3 }?.topic?.let {
             ArticleTopics.all.find { topic -> topic.taxonIds.contains(it) }
         }
-        val otherTopTopics = topTopics.drop(1)
+        val otherTopTopics = topTopics.drop(1).filter { it.articleCount > 1 }
 
         return YearInReviewReadingStats(
             articlesReadCount = historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles),

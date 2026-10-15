@@ -44,7 +44,7 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
-    val otherTopicsStatus get() = if (topicArticleCountMap.size >= 2) {
+    val otherTopicsStatus get() = if (topTopic != null && topicArticleCountMap.size >= 2) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.SUPPRESSED
