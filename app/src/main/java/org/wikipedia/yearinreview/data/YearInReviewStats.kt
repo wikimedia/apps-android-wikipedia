@@ -65,6 +65,14 @@ data class YearInReviewReadingStats(
     }
 }
 
+data class YearInReviewEntryStats(
+    val articlesReadCount: Int,
+    val visitedDaysCount: Int
+) {
+    val isDataRich get() = articlesReadCount >= YearInReviewReadingStats.MIN_ARTICLES_READ &&
+            visitedDaysCount >= YearInReviewReadingStats.MIN_VISITED_DAYS
+}
+
 data class YearInReviewRewardData(
     val isDonor: Boolean,
     val isEditor: Boolean

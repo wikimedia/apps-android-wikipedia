@@ -143,8 +143,9 @@ class ActivityTabFragment : Fragment() {
                 BaseTheme {
                     // Collected outside the login branch so that loadAll() after a login/logout recomposes this and re-checks the account state.
                     val readingHistoryState = viewModel.readingHistoryState.collectAsState().value
+                    val yearInReviewEntryState = viewModel.yearInReviewEntryState.collectAsState().value
                     if (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) {
-                        LoggedInScreen(readingHistoryState)
+                        LoggedInScreen(readingHistoryState, yearInReviewEntryState)
                     } else {
                         ActivityTabLoggedOutScreen(
                             onCreateAccountClick = {
@@ -155,7 +156,7 @@ class ActivityTabFragment : Fragment() {
                                 ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "login_click")
                                 startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY_TAB, createAccountFirst = false))
                             },
-                            showYearInReviewCard = YearInReviewViewModel.canShowEntryPoint,
+                            yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
                             onYirGetStartedClick = {
                                 ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "yir_click")
                                 startActivity(YearInReviewActivity.newIntent(requireContext()))
@@ -200,9 +201,8 @@ class ActivityTabFragment : Fragment() {
     }
 
     @Composable
-    private fun LoggedInScreen(readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>) {
+    private fun LoggedInScreen(readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>, yearInReviewEntryState: UiState<Boolean>?) {
         val userName = AccountUtil.userName
-        val yearInReviewEntryState = viewModel.yearInReviewEntryState.collectAsState().value
         ActivityTabLoggedInScreen(
             userName = userName,
             languageCode = WikipediaApp.instance.wikiSite.languageCode,

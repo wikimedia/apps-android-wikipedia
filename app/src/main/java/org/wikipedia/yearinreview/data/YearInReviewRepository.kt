@@ -21,6 +21,7 @@ import java.io.IOException
 
 interface YearInReviewRepository {
     suspend fun getYearInReview(): YearInReviewSnapshot
+    suspend fun getEntryStats(): YearInReviewEntryStats
 }
 
 class YearInReviewRepositoryImpl(
@@ -64,11 +65,24 @@ class YearInReviewRepositoryImpl(
         )
     }
 
+    // Only reads local data, so the entry card and announcement never wait on the network. Once Year in Review has been
+    // calculated, its cached stats are used instead, so these counts match the ones the slides show.
+    override suspend fun getEntryStats(): YearInReviewEntryStats {
+        cache.get(YearInReviewConfig.YEAR)?.readingStats?.let {
+            return YearInReviewEntryStats(articlesReadCount = it.articlesReadCount, visitedDaysCount = it.visitedDaysCount)
+        }
+        val dateRange = YearInReviewConfig.insightsDateRange(YearInReviewConfig.cachedRemoteConfig)
+        return YearInReviewEntryStats(
+            articlesReadCount = historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles()),
+            visitedDaysCount = historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis)
+        )
+    }
+
     suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats {
         // TODO: parallelize all of the suspend calls below:
         val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis)
 
-        val mainPageTitles = WikipediaApp.instance.languageState.appLanguageCodes.map { StringUtil.addUnderscores(MainPageNameData.valueFor(it)) }
+        val mainPageTitles = mainPageTitles()
 
         val articlesRevisited = historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
             .map { it.first.title to it.second }
@@ -97,6 +111,10 @@ class YearInReviewRepositoryImpl(
                 if (it.key != null) it.key!! to it.value else null
             }.associate { it.first.topicId to it.second }
         )
+    }
+
+    private fun mainPageTitles(): List<String> {
+        return WikipediaApp.instance.languageState.appLanguageCodes.map { StringUtil.addUnderscores(MainPageNameData.valueFor(it)) }
     }
 
     // Returns null when logged out, or when the request fails so that it's retried next time instead of caching zero edits.
