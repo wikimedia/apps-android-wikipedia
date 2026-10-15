@@ -27,9 +27,11 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -509,7 +511,14 @@ private fun PlaygroundSwitch(
             modifier = Modifier.padding(start = 12.dp),
             checked = checked,
             onCheckedChange = null,
-            enabled = enabled
+            enabled = enabled,
+            colors = SwitchDefaults.colors(
+                uncheckedTrackColor = WikipediaTheme.colors.paperColor,
+                uncheckedThumbColor = MaterialTheme.colorScheme.outline,
+                uncheckedBorderColor = MaterialTheme.colorScheme.outline,
+                checkedTrackColor = WikipediaTheme.colors.progressiveColor,
+                checkedThumbColor = WikipediaTheme.colors.paperColor
+            )
         )
     }
 }
@@ -536,7 +545,22 @@ private fun CountryCodeField(
         enabled = enabled,
         label = { Text("Country code") },
         isError = enabled && text.length != 2,
-        singleLine = true
+        singleLine = true,
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedTextColor = WikipediaTheme.colors.primaryColor,
+            unfocusedTextColor = WikipediaTheme.colors.primaryColor,
+            errorTextColor = WikipediaTheme.colors.primaryColor,
+            disabledTextColor = WikipediaTheme.colors.inactiveColor,
+            focusedBorderColor = WikipediaTheme.colors.progressiveColor,
+            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+            errorBorderColor = WikipediaTheme.colors.destructiveColor,
+            disabledBorderColor = WikipediaTheme.colors.inactiveColor,
+            focusedLabelColor = WikipediaTheme.colors.progressiveColor,
+            unfocusedLabelColor = WikipediaTheme.colors.secondaryColor,
+            errorLabelColor = WikipediaTheme.colors.destructiveColor,
+            disabledLabelColor = WikipediaTheme.colors.inactiveColor,
+            cursorColor = WikipediaTheme.colors.progressiveColor
+        )
     )
 }
 
@@ -569,7 +593,9 @@ private fun <T> PlaygroundOptions(
                     enabled = enabled,
                     colors = RadioButtonDefaults.colors(
                         selectedColor = WikipediaTheme.colors.progressiveColor,
-                        unselectedColor = WikipediaTheme.colors.primaryColor
+                        unselectedColor = WikipediaTheme.colors.primaryColor,
+                        disabledSelectedColor = WikipediaTheme.colors.inactiveColor,
+                        disabledUnselectedColor = WikipediaTheme.colors.inactiveColor
                     )
                 )
                 Column(modifier = Modifier.padding(start = 12.dp)) {
