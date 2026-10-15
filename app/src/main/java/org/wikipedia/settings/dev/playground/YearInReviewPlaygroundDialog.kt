@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,12 +18,10 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -34,13 +31,11 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -53,8 +48,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
@@ -62,7 +55,6 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.log.L
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.presentation.YearInReviewActivity
 import org.wikipedia.yearinreview.presentation.YearInReviewPage
@@ -82,11 +74,8 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                     }
                     val isYearInReviewEnabled = Prefs.isYearInReviewEnabled
                     val hiddenCountryCodes = remember { YearInReviewPlayground.hiddenCountryCodes }
-                    var historyState by remember {
-                        mutableStateOf(YearInReviewPlaygroundHistoryState(YearInReviewPlaygroundHistorySeeder.dateRange.let { "${it.start} to ${it.endInclusive}" }))
-                    }
-                    val scope = rememberCoroutineScope()
-                    LaunchedEffect(Unit) { historyState = YearInReviewPlaygroundHistorySeeder.withReadingStats(historyState) }
+                    var realDataSummary by remember { mutableStateOf<String?>(null) }
+                    LaunchedEffect(Unit) { realDataSummary = YearInReviewPlaygroundSummary.realData() }
                     YearInReviewPlaygroundScreen(
                         isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
                         selectedData = selectedData,
@@ -109,21 +98,7 @@ class YearInReviewPlaygroundDialog : ExtendedBottomSheetDialogFragment(startExpa
                             entryPoint = it
                             Prefs.yearInReviewPlaygroundEntryPoint = it
                         },
-                        historyState = historyState,
-                        onTestHistoryChange = { preset ->
-                            historyState = historyState.copy(isUpdating = true, error = null)
-                            scope.launch {
-                                historyState = try {
-                                    val testEntries = YearInReviewPlaygroundHistorySeeder.update(preset?.history)
-                                    YearInReviewPlaygroundHistorySeeder.withReadingStats(historyState.copy(selectedPreset = preset, testEntries = testEntries, isUpdating = false))
-                                } catch (e: CancellationException) {
-                                    throw e
-                                } catch (e: Exception) {
-                                    L.e(e)
-                                    historyState.copy(isUpdating = false, error = e.message ?: "Unable to update reading history. Try again.")
-                                }
-                            }
-                        },
+                        realDataSummary = realDataSummary,
                         onLaunchClick = { startActivity(YearInReviewActivity.newIntent(requireContext())) },
                         onBackClick = { dismiss() }
                     )
@@ -152,8 +127,7 @@ fun YearInReviewPlaygroundScreen(
     hiddenReasons: List<String>,
     hiddenCountryCodes: List<String>,
     onEntryPointChange: (YearInReviewPlaygroundEntryPoint) -> Unit,
-    historyState: YearInReviewPlaygroundHistoryState,
-    onTestHistoryChange: (YearInReviewPlaygroundHistoryPreset?) -> Unit,
+    realDataSummary: String?,
     onLaunchClick: () -> Unit,
     onBackClick: () -> Unit
 ) {
@@ -197,8 +171,7 @@ fun YearInReviewPlaygroundScreen(
                     onDataSelected = onDataSelected,
                     previewPageId = previewPageId,
                     onPreviewPageSelected = onPreviewPageSelected,
-                    historyState = historyState,
-                    onTestHistoryChange = onTestHistoryChange
+                    realDataSummary = realDataSummary
                 )
                 EntryPointCard(
                     entryPoint = entryPoint,
@@ -229,8 +202,7 @@ private fun ReadingDataCard(
     onDataSelected: (YearInReviewPlaygroundData) -> Unit,
     previewPageId: String?,
     onPreviewPageSelected: (String?) -> Unit,
-    historyState: YearInReviewPlaygroundHistoryState,
-    onTestHistoryChange: (YearInReviewPlaygroundHistoryPreset?) -> Unit
+    realDataSummary: String?
 ) {
     PlaygroundCard(title = "Year in Review data") {
         Text(
@@ -255,46 +227,8 @@ private fun ReadingDataCard(
             onOptionSelected = onDataSelected
         )
         if (selectedData == YearInReviewPlaygroundData.REAL) {
-            historyState.flowSummary?.let {
+            realDataSummary?.let {
                 Text(text = it, style = MaterialTheme.typography.bodyMedium, color = WikipediaTheme.colors.primaryColor)
-            }
-            PlaygroundSectionTitle(title = "Test reading history", enabled = !historyState.isUpdating, note = historyState.dateRange)
-            Text(
-                text = "Each preset replaces earlier test entries with the fewest needed for that slide state. Your real history counts too.",
-                style = MaterialTheme.typography.bodyMedium,
-                color = WikipediaTheme.colors.secondaryColor
-            )
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                YearInReviewPlaygroundHistoryPreset.entries.forEach { preset ->
-                    FilterChip(
-                        selected = preset == historyState.selectedPreset,
-                        onClick = { onTestHistoryChange(preset) },
-                        enabled = !historyState.isUpdating,
-                        label = { Text(preset.label, color = WikipediaTheme.colors.primaryColor) }
-                    )
-                }
-            }
-            (historyState.error ?: historyState.warning ?: historyState.selectedPreset?.description)?.let {
-                Text(
-                    text = it,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = when {
-                        historyState.error != null -> WikipediaTheme.colors.destructiveColor
-                        historyState.warning != null -> WikipediaTheme.colors.warningColor
-                        else -> WikipediaTheme.colors.secondaryColor
-                    }
-                )
-            }
-            historyState.testEntries?.let {
-                Text(text = it.summary, style = MaterialTheme.typography.bodyMedium, color = WikipediaTheme.colors.primaryColor)
-            }
-            TextButton(
-                modifier = Modifier.align(Alignment.End),
-                colors = ButtonDefaults.textButtonColors(contentColor = WikipediaTheme.colors.destructiveColor),
-                enabled = !historyState.isUpdating,
-                onClick = { onTestHistoryChange(null) }
-            ) {
-                Text("Clear test entries")
             }
         }
         PlaygroundSectionTitle(title = "Preview", enabled = true)
@@ -609,12 +543,8 @@ private fun YearInReviewPlaygroundScreenPreview() {
             hiddenReasons = listOf("RU is a hidden country"),
             hiddenCountryCodes = listOf("RU", "IR", "CN"),
             onEntryPointChange = {},
-            historyState = YearInReviewPlaygroundHistoryState(
-                dateRange = "2026-01-01 to 2026-11-30",
-                selectedPreset = YearInReviewPlaygroundHistoryPreset.VISITS_WITH_PEAK_MONTH,
-                flowSummary = "Entry card and announcement: Data-rich\nSlides: Personalized\nArticles read: 3\nVisited days: 2\nVisited days in the peak month: 2"
-            ),
-            onTestHistoryChange = {},
+            realDataSummary = "Entry card and announcement: Data-rich\nSlides: Personalized\nReading history from 2026-01-01 to 2026-11-30\n" +
+                    "Articles read: 3\nVisited days: 2\nVisited days in the peak month: 2",
             onLaunchClick = {},
             onBackClick = {}
         )
