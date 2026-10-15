@@ -42,7 +42,8 @@ enum class YearInReviewPlaygroundData(
             peakMonthVisitedDays = 20,
             articlesRevisited = YearInReviewPlaygroundPreview.sampleRevisitedArticles,
             topTopic = YearInReviewPlaygroundPreview.sampleTopTopic,
-            topTopicArticles = YearInReviewPlaygroundPreview.sampleTopTopicArticles
+            topTopicTotalArticles = 123,
+            topTopicSampleArticles = YearInReviewPlaygroundPreview.sampleTopTopicArticles
         )),
     ALL_SLIDES("All slides", "Every personalized slide, with the cover and closing slides.", null, { YearInReviewPlaygroundPreview.allSlides }),
     ALL_EMPTY_STATES("All empty states", "Every empty state slide, with the cover and closing slides.", null, { YearInReviewPlaygroundPreview.emptyStates })

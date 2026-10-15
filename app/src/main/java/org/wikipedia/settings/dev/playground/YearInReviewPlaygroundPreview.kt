@@ -49,7 +49,7 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.TimeSpent(duration = 1500),
         YearInReviewPage.ReadingStreak(isEmptyState = false, longestStreak = 21, streakStartDate = "March 4", streakEndDate = "24"),
         YearInReviewPage.ReadingPattern(isEmptyState = false, favoriteTime = "AFTERNOON", favoriteTimePercentage = 68),
-        YearInReviewPage.TopTopic(isEmptyState = false, topic = sampleTopTopic, articles = sampleTopTopicArticles),
+        YearInReviewPage.TopTopic(isEmptyState = false, topic = sampleTopTopic, totalArticles = 123, sampleArticles = sampleTopTopicArticles),
         YearInReviewPage.OtherTopTopics(
             topicArticleCounts = listOf(
                 ArticleTopics.all[0].topicId to 14,
@@ -133,7 +133,7 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.ArticlesRead(isEmptyState = true, count = 0, percentile = "", averageCount = averageArticlesReadPerYear),
         YearInReviewPage.ReadingStreak(isEmptyState = true, longestStreak = 0, streakStartDate = "", streakEndDate = ""),
         YearInReviewPage.ReadingPattern(isEmptyState = true, favoriteTime = "", favoriteTimePercentage = 0),
-        YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all.first(), articles = emptyList()),
+        YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all.first(), totalArticles = 0, sampleArticles = emptyList()),
         YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
         YearInReviewPage.Geography(isEmptyState = true, placeArticleCounts = emptyMap()),
         YearInReviewPage.SavedArticles(isEmptyState = true, savedCount = 0, articles = emptyList()),

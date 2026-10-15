@@ -49,7 +49,8 @@ object YearInReviewFlowDecider {
                 YearInReviewPage.TopTopic(
                     isEmptyState = readingStats.topTopicsStatus == YearInReviewInsightStatus.EMPTY_STATE,
                     topic = readingStats.topTopic ?: ArticleTopics.all.first(),
-                    articles = readingStats.topTopicArticles.orEmpty()
+                    totalArticles = readingStats.topTopicTotalArticles,
+                    sampleArticles = readingStats.topTopicSampleArticles.orEmpty()
                 )
             },
             CandidatePage(status = readingStats.otherTopicsStatus) {
