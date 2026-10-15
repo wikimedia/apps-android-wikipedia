@@ -1926,8 +1926,14 @@
   <string name="yir_article_count_empty_headline">Имате милиони статии за откривање</string>
   <string name="yir_article_count_empty_supporting">Само почекајте да дознаете што сè може да се научи на Википедија.</string>
   <string name="yir_days_visited_headline">Денови во кои ја посетивте Википедија во %1$d година:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">Вашата активност достигна врв во %1$s, кога читавте %2$d ден.</item>
+    <item quantity="other">Вашата активност достигна врв во %1$s, кога читавте %2$d дена.</item>
+  </plurals>
+  <string name="yir_minutes_read_headline">Вкупно минути проведени во читање:</string>
   <string name="yir_minutes_read_supporting">%1$s Времето лета кога ќе се вовлечете во нешто.</string>
   <string name="yir_reading_streak_headline">Денови во вашата најдолга читачка низа:</string>
+  <string name="yir_reading_streak_supporting">Од %1$s до %2$s навистина влеговте во фазон, читајќи секој ден.</string>
   <string name="yir_reading_streak_empty_headline">0 низа на читање… досега</string>
   <plurals name="yir_reading_streak_empty_supporting">
     <item quantity="one">Не е низа додека не исполните %1$d последователен ден. Зошто не почнете сега?</item>
@@ -1946,9 +1952,61 @@
     <item quantity="other">Од %1$s до %2$s, %3$d од вашите статии се поврзани со оваа тема. %4$s</item>
   </plurals>
   <string name="yir_top_topic_empty_headline">Вашата тема број 1 во %1$d година е… сите</string>
+  <string name="yir_top_topic_empty_supporting">Со толкав број интереси, нема ниедна тема што ги опишува вашите навики на читање.</string>
+  <string name="yir_runner_up_topics_headline">Останати пласмани за %1$d година:</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d статија</item>
+    <item quantity="other">%1$d статии</item>
+  </plurals>
+  <string name="yir_biggest_reading_day_headline">Најчитачки ден:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">Проведовте вкупно %1$d минута на Википедија. Нели сте продуктивни?</item>
+    <item quantity="other">Проведовте вкупно %1$d минути на Википедија. Нели сте продуктивни?</item>
+  </plurals>
+  <string name="yir_articles_read_headline">Малку од статиите што ги читавте:</string>
+  <string name="yir_most_time_article_headline">На што проведовте највеќе време?</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">Проведовте вкупно %1$d минута на оваа статија во текот на %2$d година!</item>
+    <item quantity="other">Проведовте вкупно %1$d минути на оваа статија во текот на %2$d година!</item>
+  </plurals>
   <string name="yir_rabbit_hole_headline">Во што највеќе се вовлековте?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">Продревте %1$d врска. Импресивно.</item>
+    <item quantity="other">Продревте %1$d врски. Импресивно.</item>
+  </plurals>
   <string name="yir_rabbit_hole_depth_supporting">Во што ќе се вовлечете следно?</string>
+  <string name="yir_niche_category_headline">Имате прилично специфични интереси, како на пример:</string>
+  <string name="yir_niche_category_supporting">Од некаква причина, целосно се вложивте на оваа категорија!</string>
+  <string name="yir_reread_articles_headline">Некои статии што ги читавте повеќе пати:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d посета</item>
+    <item quantity="other">%1$d посети</item>
+  </plurals>
+  <string name="yir_reread_articles_empty_headline">Не сте пречитувач</string>
   <string name="yir_reread_articles_empty_supporting">Не се навраќате на статии. Претпочитате новини и нови вовлекувања.</string>
+  <string name="yir_places_headline">Вашето читање практично ве одведе до:</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">Според %1$d статија</item>
+    <item quantity="other">Според %1$d статии</item>
+  </plurals>
+  <string name="yir_places_empty_headline">Вашето читање ве поведе насекаде низ картата</string>
+  <string name="yir_places_empty_supporting">Во %1$d г. пропатувавте низ целата Википедија. Погледајте ја функцијата Места за да добиете идеи каде да одите кога сте во движење.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Статија што ја зачувавте за подоцна: %1$d</item>
+    <item quantity="other">Статии што ги зачувавте за подоцна: %1$d</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s посета</item>
+    <item quantity="other">%1$s посети</item>
+  </plurals>
+  <string name="yir_saved_articles_empty_headline">Имате 0 зачувани статии</string>
+  <string name="yir_saved_articles_empty_supporting">Моментално имате 0 зачувани статии. Побарајте ја иконката за одбележувач на статијата, за да можете да прочитате другите подоцна.</string>
+  <string name="yir_edits_headline">Уредувања што ги направивте:</string>
+  <string name="yir_edits_supporting">Без разлика дали учествувате на Википедија, Ризницата, или на Википодатоци, ви благодариме што го подобрувате пристапот на сите до човековото знаење.</string>
+  <string name="yir_edits_empty_headline">Досега сте направиле 0 уредувања</string>
+  <string name="yir_edits_empty_supporting">Засега немате направено ниедно уредување, но лесно ќе научите како. Сега е вистинско време да се придружите на заедницата што ја гради Википедија.</string>
+  <string name="yir_edit_views_headline">Посети на вашите уредувања:</string>
+  <string name="yir_edit_views_supporting">Во %1$d година читателите широм светот ги видоа промените што ги направивте.</string>
   <string name="yir_community_contribute_headline">Вие сте важни.</string>
   <string name="yir_closing_headline">До следното вовлекување</string>
   <string name="yir_quiz_action">Одговорете на квизот</string>
@@ -2576,4 +2634,11 @@
     <item quantity="one">Со одзачувување на оваа статија истата ќе ја отстраните од сите поврзани збирки.</item>
     <item quantity="other">Со одзачувување на овие статии истатите ќе ги отстраните од сите поврзани збирки.</item>
   </plurals>
+  <string name="semantic_search_feedback_dialog_title">Мислења</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">Затвори мислења за семантичко пребарување</string>
+  <string name="preference_heading_semantic_search">Пребарување</string>
+  <string name="preference_title_semantic_search_within_articles">Пребарување во статии</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">Прејди право на релевантниот пасус</string>
+  <string name="semantic_search_snackbar_message">Модулот е скриен. Можете да го направите повторно видлив во Поставките</string>
+  <string name="semantic_search_snackbar_action_label">Измени</string>
 </resources>
