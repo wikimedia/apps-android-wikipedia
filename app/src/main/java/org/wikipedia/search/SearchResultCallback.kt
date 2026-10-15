@@ -21,4 +21,5 @@ interface SearchResultCallback {
     fun showSemanticSearchResultsDialog(query: String)
     fun showSemanticSearchInfoDialog()
     fun onSemanticSearchFeedbackShown()
+    fun onSemanticSearchIdLoaded(searchId: String)
 }

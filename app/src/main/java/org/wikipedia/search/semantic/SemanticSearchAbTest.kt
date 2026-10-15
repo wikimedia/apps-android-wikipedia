@@ -1,7 +1,9 @@
 package org.wikipedia.search.semantic
 
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 
@@ -53,6 +55,12 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
     fun shouldSendEvent(group: Int? = null, function: () -> (Unit)) {
         if (WikipediaApp.instance.languageState.appLanguageCodes.any { isSemanticSearchEligible(it) } && (group == null || group == this.group)) {
             function.invoke()
+        }
+    }
+
+    fun setExperimentIfEligible(instrument: InstrumentImpl) {
+        shouldSendEvent {
+            instrument.setExperiment(TestKitchenAdapter.getExperiment(this))
         }
     }
 

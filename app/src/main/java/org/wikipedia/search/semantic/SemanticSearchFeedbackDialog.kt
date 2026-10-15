@@ -12,6 +12,7 @@ import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.R
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResult
@@ -71,10 +72,12 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
         const val ARG_FUNNEL = "funnel"
         const val ARTICLE_DISPLAY_DELAY_MILLIS = 5000L
 
-        fun newInstrument(funnel: Funnel?): InstrumentImpl {
+        fun newInstrument(funnel: Funnel?, wikiSite: WikiSite): InstrumentImpl {
             return TestKitchenAdapter.client.getInstrument("apps-search")
                 .setDefaultActionSource("search")
+                .setDefaultMediaWikiData(wikiSite.dbName())
                 .continueFunnel(funnel)
+                .also { SemanticSearchAbTest().setExperimentIfEligible(it) }
         }
 
         fun submitSuppressedEvent(instrument: InstrumentImpl?, actionSubtype: String, suppression: FeedbackSuppression) {

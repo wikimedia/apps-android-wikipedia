@@ -17,7 +17,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResultCallback
 import org.wikipedia.search.semantic.SemanticSearchFeedbackDialog.FeedbackSuppression
@@ -104,9 +103,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             }
 
                             if (it == LoadingType.Success) {
-                                (parentFragment as SearchFragment).setSemanticSearchId(
-                                    viewModel.lastXSearchIdSemantic
-                                )
+                                callback()?.onSemanticSearchIdLoaded(viewModel.lastXSearchIdSemantic)
                             }
                         }
                     )

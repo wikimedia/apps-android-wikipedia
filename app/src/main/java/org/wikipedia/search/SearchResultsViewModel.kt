@@ -64,6 +64,7 @@ class SearchResultsViewModel : ViewModel() {
     private var lastXSearchIdPrefix = ""
     private var lastXSearchIdFullText = ""
     var lastXSearchIdSemantic = ""
+    private var isSemanticSearchExposureSent = false
 
     val isSemanticSearchEnabled = combine(
         _languageCode,
@@ -74,11 +75,7 @@ class SearchResultsViewModel : ViewModel() {
         viewModelScope,
         SharingStarted.Eagerly,
         semanticSearchAbTest.isSemanticSearchEnabled(_languageCode.value)
-    ).apply {
-        semanticSearchAbTest.shouldSendEvent {
-            semanticSearchAbTest.maybeSendExposureEvent()
-        }
-    }
+    )
 
     val isSemanticSearchFirstUse = semanticSearchIsFirstUsePrefUpdates
         .map { Prefs.isSemanticSearchFirstUse }
@@ -97,7 +94,13 @@ class SearchResultsViewModel : ViewModel() {
         combine(_searchTerm.debounce(delayMillis.milliseconds), _languageCode, _refreshSearchResults) { term, lang, _ ->
             Pair(term, lang)
         }.flatMapLatest { (term, lang) ->
-            _searchTermForLogging.emit(term)
+            // A language change or refresh can re-emit the previous debounced term before the new one settles.
+            if (term == _searchTerm.value) {
+                _searchTermForLogging.emit(term)
+                if (!term.isNullOrBlank()) {
+                    maybeSendSemanticSearchExposure(lang)
+                }
+            }
             val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize)) {
                 SearchResultsPagingSource(
@@ -154,6 +157,16 @@ class SearchResultsViewModel : ViewModel() {
                 put("type", result.type)
             }
         }
+    }
+
+    // Sent for both groups at the point where the semantic search entry card can appear.
+    private fun maybeSendSemanticSearchExposure(languageCode: String) {
+        if (isSemanticSearchExposureSent || invokeSource == Constants.InvokeSource.PLACES ||
+            !Prefs.isSemanticSearchEnabled || !semanticSearchAbTest.isSemanticSearchEligible(languageCode)) {
+            return
+        }
+        isSemanticSearchExposureSent = true
+        semanticSearchAbTest.maybeSendExposureEvent()
     }
 
     fun disableSemanticSearch() {

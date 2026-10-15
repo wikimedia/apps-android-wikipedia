@@ -266,6 +266,10 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         searchResultsFragment.onSemanticSearchFeedbackShown()
     }
 
+    override fun onSemanticSearchIdLoaded(searchId: String) {
+        searchResultsFragment.setSemanticSearchId(searchId)
+    }
+
     private fun onSearchContainerClick() {
         // Give the root container view an empty click handler, so that click events won't
         // get passed down to any underlying views (e.g. a PageFragment on top of which
@@ -371,10 +375,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
                 recentSearchesFragment.updateList()
             }
         }
-    }
-
-    fun setSemanticSearchId(searchId: String) {
-        searchResultsFragment.setSemanticSearchId(searchId)
     }
 
     override fun onLanguageTabSelected(selectedLanguageCode: String) {

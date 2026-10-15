@@ -34,6 +34,7 @@ class SearchResultsFragment : Fragment() {
 
     private var composeView: ComposeView? = null
     private val viewModel: SearchResultsViewModel by viewModels()
+    private val semanticSearchAbTest = SemanticSearchAbTest()
     val isShowing get() = composeView?.visibility == View.VISIBLE
 
     override fun onCreateView(
@@ -49,7 +50,7 @@ class SearchResultsFragment : Fragment() {
                         requireActivity().instrument?.submitInteraction(
                             "search_init", actionContext = mapOf("query" to query)
                         )
-                        SemanticSearchAbTest().shouldSendEvent {
+                        semanticSearchAbTest.shouldSendEvent {
                             val isFromRecentSearch = viewModel.isFromRecentSearch
                             requireActivity().instrument?.submitInteraction("init",
                                 actionSubtype = if (isFromRecentSearch) "recent_search" else null,
@@ -72,19 +73,7 @@ class SearchResultsFragment : Fragment() {
                             "show_search_result",
                             actionContext = viewModel.getStandardEventActionContext()
                         )
-                        SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_1) {
-                            requireActivity().instrument?.submitInteraction("impression",
-                                elementId = "search_result",
-                                actionContext = viewModel.getStandardEventActionContext()
-                            )
-                        }
-                        SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_2) {
-                            requireActivity().instrument?.submitInteraction("impression",
-                                elementId = "search_result",
-                                actionSubtype = "lexical_result",
-                                actionContext = viewModel.getSemanticEventActionContext()
-                            )
-                        }
+                        submitLexicalResultEvent("impression")
                     }
                 }
             }
@@ -105,19 +94,7 @@ class SearchResultsFragment : Fragment() {
                             )
 
                             // TODO: use combine logic with slide semantic search results.
-                            SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_1) {
-                                requireActivity().instrument?.submitInteraction("click",
-                                    elementId = "search_result",
-                                    actionContext = viewModel.getStandardEventActionContext(result)
-                                )
-                            }
-                            SemanticSearchAbTest().shouldSendEvent(group = ABTest.GROUP_2) {
-                                requireActivity().instrument?.submitInteraction("click",
-                                    elementId = "search_result",
-                                    actionSubtype = "lexical_result",
-                                    actionContext = viewModel.getSemanticEventActionContext(result)
-                                )
-                            }
+                            submitLexicalResultEvent("click", result)
 
                             callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
                         },
@@ -144,7 +121,7 @@ class SearchResultsFragment : Fragment() {
                             callback()?.onSearchProgressBar(enabled)
                         },
                         onSemanticSearchClick = { searchTerm, isFirstUse ->
-                            SemanticSearchAbTest().shouldSendEvent {
+                            semanticSearchAbTest.shouldSendEvent {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "enter_semantic_search"
                                 )
@@ -159,7 +136,7 @@ class SearchResultsFragment : Fragment() {
                             }
                         },
                         onSemanticSearchInfoClick = {
-                            SemanticSearchAbTest().shouldSendEvent {
+                            semanticSearchAbTest.shouldSendEvent {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "info_button"
                                 )
@@ -167,7 +144,7 @@ class SearchResultsFragment : Fragment() {
                             callback()?.showSemanticSearchInfoDialog()
                         },
                         onSemanticSearchCloseClick = {
-                            SemanticSearchAbTest().shouldSendEvent {
+                            semanticSearchAbTest.shouldSendEvent {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "close_semantic_button"
                                 )
@@ -212,6 +189,17 @@ class SearchResultsFragment : Fragment() {
 
     private fun callback(): SearchResultCallback? {
         return getCallback(this, SearchResultCallback::class.java)
+    }
+
+    private fun submitLexicalResultEvent(action: String, result: SearchResult? = null) {
+        semanticSearchAbTest.shouldSendEvent {
+            val isTreatment = semanticSearchAbTest.group == ABTest.GROUP_2
+            requireActivity().instrument?.submitInteraction(action,
+                elementId = "search_result",
+                actionSubtype = if (isTreatment) "lexical_result" else null,
+                actionContext = if (isTreatment) viewModel.getSemanticEventActionContext(result) else viewModel.getStandardEventActionContext(result)
+            )
+        }
     }
 
     fun setInvokeSource(invokeSource: Constants.InvokeSource) {

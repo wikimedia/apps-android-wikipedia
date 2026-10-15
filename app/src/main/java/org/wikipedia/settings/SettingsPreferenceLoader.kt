@@ -212,12 +212,15 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         semanticSearchPref.isVisible = SemanticSearchAbTest().isSemanticSearchSettingVisible()
         findPreference(R.string.preference_key_semantic_search_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
             val isEnable = newValue as Boolean
-            SemanticSearchAbTest().shouldSendEvent {
-                TestKitchenAdapter.client.getInstrument("apps-search").submitInteraction(
-                    action = if (isEnable) "enable" else "disable",
-                    actionSource = "settings",
-                    actionSubtype = "semantic_search"
-                )
+            val semanticSearchAbTest = SemanticSearchAbTest()
+            semanticSearchAbTest.shouldSendEvent {
+                TestKitchenAdapter.client.getInstrument("apps-search")
+                    .setExperiment(TestKitchenAdapter.getExperiment(semanticSearchAbTest))
+                    .submitInteraction(
+                        action = if (isEnable) "enable" else "disable",
+                        actionSource = "settings",
+                        actionSubtype = "semantic_search"
+                    )
             }
             true
         }

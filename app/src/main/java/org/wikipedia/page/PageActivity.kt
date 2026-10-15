@@ -478,7 +478,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     SemanticSearchFeedbackDialog.newInstance(feedbackTitle.wikiSite.languageCode,
                         semanticSearchFeedbackSearchId, semanticSearchFeedbackFunnel))
             } else {
-                submitSemanticSearchFeedbackSuppressed(suppression)
+                submitSemanticSearchFeedbackSuppressed(feedbackTitle, suppression)
             }
             semanticSearchFeedbackTitle = null
             semanticSearchFeedbackJob = null
@@ -486,17 +486,18 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun cancelSemanticSearchFeedback(suppression: FeedbackSuppression? = null) {
-        if (semanticSearchFeedbackTitle != null && suppression != null) {
-            submitSemanticSearchFeedbackSuppressed(suppression)
+        val feedbackTitle = semanticSearchFeedbackTitle
+        if (feedbackTitle != null && suppression != null) {
+            submitSemanticSearchFeedbackSuppressed(feedbackTitle, suppression)
         }
         semanticSearchFeedbackJob?.cancel()
         semanticSearchFeedbackJob = null
         semanticSearchFeedbackTitle = null
     }
 
-    private fun submitSemanticSearchFeedbackSuppressed(suppression: FeedbackSuppression) {
+    private fun submitSemanticSearchFeedbackSuppressed(feedbackTitle: PageTitle, suppression: FeedbackSuppression) {
         SemanticSearchFeedbackDialog.submitSuppressedEvent(
-            instrument = SemanticSearchFeedbackDialog.newInstrument(semanticSearchFeedbackFunnel),
+            instrument = SemanticSearchFeedbackDialog.newInstrument(semanticSearchFeedbackFunnel, feedbackTitle.wikiSite),
             actionSubtype = "article_result", suppression
         )
     }
