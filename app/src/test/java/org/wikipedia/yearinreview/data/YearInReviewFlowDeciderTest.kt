@@ -30,7 +30,7 @@ class YearInReviewFlowDeciderTest {
             YearInReviewPage.Cover(daysSpent = 2),
             YearInReviewPage.ArticlesRead(isEmptyState = false, count = 3, percentile = "", averageCount = YearInReviewConfig.fallbackConfig.averageArticlesReadPerYear),
             YearInReviewPage.Visits(days = 2, peakMonth = MonthVisitedDays(month = 1, visitedDays = 2)),
-            YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], articles = emptyList()),
+            YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], totalArticles = 0, sampleArticles = emptyList()),
             YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
             YearInReviewPage.YouMatter(showLoginPrompt = false),
             YearInReviewPage.End(isDonor = false)
