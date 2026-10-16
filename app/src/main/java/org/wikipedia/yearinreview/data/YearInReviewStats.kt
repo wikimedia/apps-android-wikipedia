@@ -3,7 +3,6 @@ package org.wikipedia.yearinreview.data
 import kotlinx.serialization.Serializable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopic
-import org.wikipedia.yearinreview.data.YearInReviewReadingStats.Companion.MIN_ARTICLES_READ
 
 @Serializable
 data class YearInReviewCachedStats(
