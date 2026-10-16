@@ -65,6 +65,11 @@ object YearInReviewFlowDecider {
                     articles = readingStats.articlesRevisited
                 )
             },
+            CandidatePage(status = readingStats.topCategoryStatus) {
+                YearInReviewPage.Category(
+                    categoryName = readingStats.topCategory.orEmpty()
+                )
+            },
             CandidatePage(status = editingStats.totalEditCountStatus) {
                 YearInReviewPage.TotalEdits(
                     isEmptyState = editingStats.totalEditCountStatus == YearInReviewInsightStatus.EMPTY_STATE,

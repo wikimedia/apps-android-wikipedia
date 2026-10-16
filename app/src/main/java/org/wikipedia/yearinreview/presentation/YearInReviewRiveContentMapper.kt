@@ -120,7 +120,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec("frame12"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_niche_category_headline),
-                "data" to page.categoryName,
+                "data" to StringUtil.removeNamespace(page.categoryName).uppercase(),
                 "bodyCopy" to resources.getString(R.string.yir_niche_category_supporting)
             )
         )
@@ -228,7 +228,6 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.LongestReadReveal,
         is YearInReviewPage.RabbitHoleGuess,
         is YearInReviewPage.RabbitHoleReveal,
-        is YearInReviewPage.YouMatter,
         is YearInReviewPage.End -> null
     }
 }
