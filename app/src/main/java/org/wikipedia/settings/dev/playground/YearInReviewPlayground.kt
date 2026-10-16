@@ -45,6 +45,7 @@ enum class YearInReviewPlaygroundData(
             peakMonth = 12,
             peakMonthVisitedDays = 20,
             articlesRevisited = YearInReviewPlaygroundPreview.sampleArticles.map { it to 5 },
+            topCategory = "Fungi of Europe",
             topTopic = YearInReviewPlaygroundPreview.sampleTopTopic,
             topTopicTotalArticles = 123,
             topTopicSampleArticles = YearInReviewPlaygroundPreview.sampleTopTopicArticles
