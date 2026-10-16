@@ -200,6 +200,13 @@ interface RestService {
         @Path("toDate") toDate: String
     ): PageViews
 
+    @GET("metrics/pageviews/v3/per_editor/{globalUserId}/monthly/{fromDate}/{toDate}")
+    suspend fun getPageViewsForEditedPagesMonthly(
+        @Path("globalUserId") globalUserId: Int,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): PageViews
+
     @GET("metrics/pageviews/v3/top_pages_per_editor/{globalUserId}/monthly/{fromDate}/{toDate}")
     suspend fun getMostViewedEditedPagesMonthly(
         @Path("globalUserId") globalUserId: Int,

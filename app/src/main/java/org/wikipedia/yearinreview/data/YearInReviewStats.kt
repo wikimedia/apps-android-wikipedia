@@ -12,7 +12,9 @@ data class YearInReviewCachedStats(
 
 @Serializable
 data class YearInReviewEditingStats(
-    val contributionsEditCount: Int
+    val totalEditCount: Int,
+    val totalPageViewsCount: Long,
+    val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList()
 )
 
 @Serializable

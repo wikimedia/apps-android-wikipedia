@@ -1,5 +1,7 @@
 package org.wikipedia.yearinreview.data
 
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
@@ -7,8 +9,10 @@ import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.restbase.PageViews
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
@@ -60,7 +64,7 @@ class YearInReviewRepositoryImpl(
             editingStats = editingStats,
             rewardData = YearInReviewRewardData(
                 isDonor = donationEligibility.hasDonatedWithinContributionsDateRange(remoteConfig),
-                isEditor = (editingStats?.contributionsEditCount ?: 0) > 0
+                isEditor = (editingStats?.totalEditCount ?: 0) > 0
             )
         )
     }
@@ -78,34 +82,40 @@ class YearInReviewRepositoryImpl(
         )
     }
 
-    suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats {
-        // TODO: parallelize all of the suspend calls below:
-        val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis)
-
+    suspend fun getReadingStats(dateRange: YearInReviewDateRange): YearInReviewReadingStats = coroutineScope {
         val mainPageTitles = mainPageTitles()
 
-        val articlesRevisited = historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
-            .map { it.first.title to it.second }
+        val articlesReadCount = async { historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles) }
+        val visitedDaysCount = async { historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis) }
+        val peakMonthDeferred = async { historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis) }
+        val articlesRevisited = async {
+            historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
+                .map { it.first.title to it.second }
+        }
 
+        // The sample articles query depends on the top topic, so the topic queries run in sequence here,
+        // while the queries above keep running in parallel.
         val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis).take(4)
         val topTopicWithCount = topTopics.firstOrNull { it.articleCount >= 3 }
         val topTopic = topTopicWithCount?.topic?.let {
             ArticleTopics.all.find { topic -> topic.taxonIds.contains(it) }
         }
+        val topTopicSampleArticles = topTopic?.let { topic ->
+            pageTopicDao.findEntriesByTopic(topic.taxonIds.firstOrNull().orEmpty(), dateRange.startMillis, dateRange.endMillis, limit = 3)
+                .map { StringUtil.fromHtml(it.displayTitle).toString() }
+        }
         val otherTopTopics = topTopics.drop(1).filter { it.articleCount > 1 }
 
-        return YearInReviewReadingStats(
-            articlesReadCount = historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles),
-            visitedDaysCount = historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis),
+        val peakMonth = peakMonthDeferred.await()
+        YearInReviewReadingStats(
+            articlesReadCount = articlesReadCount.await(),
+            visitedDaysCount = visitedDaysCount.await(),
             peakMonth = peakMonth?.month ?: 0,
             peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,
-            articlesRevisited = articlesRevisited,
+            articlesRevisited = articlesRevisited.await(),
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
-            topTopicSampleArticles = topTopic?.let { topic ->
-                pageTopicDao.findEntriesByTopic(topic.taxonIds.firstOrNull().orEmpty(), dateRange.startMillis, dateRange.endMillis, limit = 3)
-                    .map { StringUtil.fromHtml(it.displayTitle).toString() }
-            },
+            topTopicSampleArticles = topTopicSampleArticles,
             topicArticleCountMap = otherTopTopics.associate { entry ->
                 val topic = ArticleTopics.all.find { topic -> topic.taxonIds.contains(entry.topic) }
                 topic to entry.articleCount
@@ -120,20 +130,85 @@ class YearInReviewRepositoryImpl(
     }
 
     // Returns null when logged out, or when the request fails so that it's retried next time instead of caching zero edits.
-    private suspend fun getContributorEditingStats(dateRange: YearInReviewDateRange): YearInReviewEditingStats? {
+    private suspend fun getContributorEditingStats(dateRange: YearInReviewDateRange): YearInReviewEditingStats? = coroutineScope {
         if (!AccountUtil.isLoggedIn) {
-            return null
+            return@coroutineScope null
         }
-        return try {
+        try {
+            val mainPageTitles = mainPageTitles()
             val userInfoResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).getLocalAndGlobalUserInfo()
-            val globalUserId = userInfoResponse.query?.globalUserInfo?.id ?: return null
-            val edits = ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
-                .getEditsPerGlobalUserMonthly(
-                    globalUserId,
-                    DateUtil.getYMDDateString(dateRange.start),
-                    DateUtil.getYMDDateString(dateRange.endInclusive)
-                )
-            YearInReviewEditingStats(contributionsEditCount = edits.items.sumOf { it.editCount })
+            val globalUserId = userInfoResponse.query?.globalUserInfo?.id ?: return@coroutineScope null
+            val totalEditsDeferred = async {
+                ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
+                    .getEditsPerGlobalUserMonthly(
+                        globalUserId,
+                        DateUtil.getYMDDateString(dateRange.start),
+                        DateUtil.getYMDDateString(dateRange.endInclusive)
+                    )
+            }
+            val totalPageViewsDeferred = async {
+                ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
+                    .getPageViewsForEditedPagesMonthly(
+                        globalUserId,
+                        DateUtil.getYMDDateString(dateRange.start),
+                        DateUtil.getYMDDateString(dateRange.endInclusive)
+                    )
+            }
+            val mostViewedArticlesDeferred = async {
+                ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
+                    .getMostViewedEditedPagesMonthly(
+                        globalUserId,
+                        DateUtil.getYMDDateString(dateRange.start),
+                        DateUtil.getYMDDateString(dateRange.endInclusive)
+                    )
+            }
+
+            val mostViewedPages = mostViewedArticlesDeferred.await().items
+                .flatMap { it.rankItems }
+                .filter { it.rank < 10 }
+                .groupBy { it.wikiId to it.pageId }
+                .map { (wikiAndPageId, items) ->
+                    PageViews.PageItem(
+                        wikiId = wikiAndPageId.first,
+                        pageId = wikiAndPageId.second,
+                        viewCount = items.sumOf { it.viewCount }
+                    )
+                }
+                .sortedByDescending { it.viewCount }
+                .let { pages ->
+                    val topWikiId = pages.groupingBy { it.wikiId }
+                        .fold(0L) { totalViews, page -> totalViews + page.viewCount }
+                        .maxByOrNull { it.value }?.key
+                    pages.filter { it.wikiId == topWikiId }
+                }.take(10)
+
+            val mostViewedPagesToViews = mutableListOf<Pair<PageTitle, Long>>()
+            if (mostViewedPages.isNotEmpty()) {
+                val wikiSite = WikiSite.forLanguageCode(mostViewedPages.first().wikiId.replace("wiki", ""))
+                val pages = ServiceFactory.get(wikiSite)
+                    .getInfoByPageIdsOrTitles(pageIds = mostViewedPages.map { it.pageId }.joinToString("|"))
+                    .query?.pages.orEmpty().filter { it.ns == 0 && !mainPageTitles.contains(StringUtil.addUnderscores(it.title)) }
+
+                mostViewedPages.forEach { page ->
+                    pages.find { it.pageId.toLong() == page.pageId }?.let { pageInfo ->
+                        mostViewedPagesToViews.add(
+                            PageTitle(
+                                text = pageInfo.title,
+                                wiki = wikiSite,
+                                thumbUrl = pageInfo.thumbUrl(),
+                                description = pageInfo.description,
+                                displayText = pageInfo.displayTitle(WikipediaApp.instance.appOrSystemLanguageCode)
+                            ) to page.viewCount
+                        )
+                    }
+                }
+            }
+
+            YearInReviewEditingStats(
+                totalEditCount = totalEditsDeferred.await().items.sumOf { it.editCount },
+                totalPageViewsCount = totalPageViewsDeferred.await().items.sumOf { it.viewCount },
+                mostViewedArticles = mostViewedPagesToViews
+            )
         } catch (e: IOException) {
             L.e(e)
             null
