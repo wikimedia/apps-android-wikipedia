@@ -46,7 +46,7 @@ class YearInReviewRepositoryImpl(
 
         val cachedStats = cache.get(year)
         val readingStats = cachedStats?.readingStats ?: getReadingStats(YearInReviewConfig.insightsDateRange(remoteConfig))
-        val editingStats = cachedStats?.editingStats ?: getContributorEditingStats(YearInReviewConfig.contributionsDateRange(remoteConfig))
+        val editingStats = cachedStats?.editingStats ?: getEditingStats(YearInReviewConfig.contributionsDateRange(remoteConfig))
         val updatedStats = YearInReviewCachedStats(readingStats = readingStats, editingStats = editingStats)
         if (updatedStats != cachedStats) {
             cache.put(year, updatedStats)
@@ -61,7 +61,7 @@ class YearInReviewRepositoryImpl(
             isDonationEligible = isDonationEligible,
             remoteConfig = remoteConfig,
             readingStats = readingStats,
-            editingStats = editingStats,
+            editingStats = editingStats ?: YearInReviewEditingStats(),
             rewardData = YearInReviewRewardData(
                 isDonor = donationEligibility.hasDonatedWithinContributionsDateRange(remoteConfig),
                 isEditor = (editingStats?.totalEditCount ?: 0) > 0
@@ -130,7 +130,7 @@ class YearInReviewRepositoryImpl(
     }
 
     // Returns null when logged out, or when the request fails so that it's retried next time instead of caching zero edits.
-    private suspend fun getContributorEditingStats(dateRange: YearInReviewDateRange): YearInReviewEditingStats? = coroutineScope {
+    suspend fun getEditingStats(dateRange: YearInReviewDateRange): YearInReviewEditingStats? = coroutineScope {
         if (!AccountUtil.isLoggedIn) {
             return@coroutineScope null
         }

@@ -3,6 +3,7 @@ package org.wikipedia.settings.dev.playground
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.yearinreview.data.PrefsYearInReviewStore
 import org.wikipedia.yearinreview.data.YearInReviewConfig
+import org.wikipedia.yearinreview.data.YearInReviewEditingStats
 import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
 import org.wikipedia.yearinreview.data.YearInReviewRewardData
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
@@ -15,13 +16,16 @@ object YearInReviewPlaygroundSummary {
     suspend fun realData(): String {
         val dateRange = YearInReviewConfig.insightsDateRange(YearInReviewConfig.cachedRemoteConfig)
         val repository = YearInReviewRepositoryImpl()
-        val readingStats = PrefsYearInReviewStore.get(YearInReviewConfig.YEAR)?.readingStats ?: repository.getReadingStats(dateRange)
+        val fromPrefs = PrefsYearInReviewStore.get(YearInReviewConfig.YEAR)
+        val readingStats = fromPrefs?.readingStats ?: repository.getReadingStats(dateRange)
+        val editingStats = fromPrefs?.editingStats ?: repository.getEditingStats(dateRange)
         val snapshot = YearInReviewSnapshot(
             year = YearInReviewConfig.YEAR,
             isLoggedIn = AccountUtil.isLoggedIn,
             isDonationEligible = false,
             remoteConfig = YearInReviewConfig.cachedRemoteConfig ?: YearInReviewConfig.fallbackConfig,
             readingStats = readingStats,
+            editingStats = editingStats ?: YearInReviewEditingStats(),
             rewardData = YearInReviewRewardData(isDonor = false, isEditor = false)
         )
         val entryVersion = if (repository.getEntryStats().isDataRich) "Data-rich" else "Low-data"

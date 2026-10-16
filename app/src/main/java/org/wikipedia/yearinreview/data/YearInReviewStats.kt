@@ -3,6 +3,7 @@ package org.wikipedia.yearinreview.data
 import kotlinx.serialization.Serializable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopic
+import org.wikipedia.yearinreview.data.YearInReviewReadingStats.Companion.MIN_ARTICLES_READ
 
 @Serializable
 data class YearInReviewCachedStats(
@@ -12,10 +13,28 @@ data class YearInReviewCachedStats(
 
 @Serializable
 data class YearInReviewEditingStats(
-    val totalEditCount: Int,
-    val totalPageViewsCount: Long,
+    val totalEditCount: Int = 0,
+    val totalPageViewsCount: Long = 0,
     val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList()
-)
+) {
+    val totalEditCountStatus get() = if (totalEditCount > 1) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
+    val totalPageViewsCountStatus get() = if (totalPageViewsCount > 25) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val mostViewedArticlesStatus get() = if (totalPageViewsCount > 25 && mostViewedArticles.size >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+}
 
 @Serializable
 data class YearInReviewReadingStats(

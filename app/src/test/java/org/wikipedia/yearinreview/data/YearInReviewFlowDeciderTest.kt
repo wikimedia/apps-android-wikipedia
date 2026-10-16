@@ -94,6 +94,7 @@ class YearInReviewFlowDeciderTest {
         isLoggedIn: Boolean = true,
         isDonationEligible: Boolean = true,
         readingStats: YearInReviewReadingStats = YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0),
+        editingStats: YearInReviewEditingStats = YearInReviewEditingStats(),
         rewardData: YearInReviewRewardData = YearInReviewRewardData(isDonor = false, isEditor = false),
         remoteConfig: RemoteConfig.RemoteConfigYearInReview = YearInReviewConfig.fallbackConfig
     ) = YearInReviewSnapshot(
@@ -101,6 +102,7 @@ class YearInReviewFlowDeciderTest {
         isLoggedIn = isLoggedIn,
         isDonationEligible = isDonationEligible,
         readingStats = readingStats,
+        editingStats = editingStats,
         rewardData = rewardData,
         remoteConfig = remoteConfig
     )

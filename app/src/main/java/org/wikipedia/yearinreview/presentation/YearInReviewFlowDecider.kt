@@ -30,6 +30,7 @@ object YearInReviewFlowDecider {
 
     private fun personalizedCandidates(snapshot: YearInReviewSnapshot): List<CandidatePage> {
         val readingStats = snapshot.readingStats
+        val editingStats = snapshot.editingStats
         return listOf(
             CandidatePage(status = readingStats.totalArticlesStatus) {
                 YearInReviewPage.ArticlesRead(
@@ -62,6 +63,22 @@ object YearInReviewFlowDecider {
                 YearInReviewPage.RevisitedArticles(
                     isEmptyState = readingStats.articlesRevisitedStatus == YearInReviewInsightStatus.EMPTY_STATE,
                     articles = readingStats.articlesRevisited
+                )
+            },
+            CandidatePage(status = editingStats.totalEditCountStatus) {
+                YearInReviewPage.TotalEdits(
+                    isEmptyState = editingStats.totalEditCountStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    editCount = editingStats.totalEditCount
+                )
+            },
+            CandidatePage(status = editingStats.totalPageViewsCountStatus) {
+                YearInReviewPage.EditedArticleViews(
+                    viewCount = editingStats.totalPageViewsCount
+                )
+            },
+            CandidatePage(status = editingStats.mostViewedArticlesStatus) {
+                YearInReviewPage.MostViewedEditedArticles(
+                    articles = editingStats.mostViewedArticles
                 )
             }
         )

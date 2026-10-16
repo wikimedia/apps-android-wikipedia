@@ -8,6 +8,6 @@ data class YearInReviewSnapshot(
     val isDonationEligible: Boolean,
     val remoteConfig: RemoteConfig.RemoteConfigYearInReview,
     val readingStats: YearInReviewReadingStats,
-    val editingStats: YearInReviewEditingStats? = null,
+    val editingStats: YearInReviewEditingStats,
     val rewardData: YearInReviewRewardData
 )
