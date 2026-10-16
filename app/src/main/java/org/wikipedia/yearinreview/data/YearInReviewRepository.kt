@@ -46,7 +46,12 @@ class YearInReviewRepositoryImpl(
 
         val cachedStats = cache.get(year)
         val readingStats = cachedStats?.readingStats ?: getReadingStats(YearInReviewConfig.insightsDateRange(remoteConfig))
-        val editingStats = cachedStats?.editingStats ?: getEditingStats(YearInReviewConfig.contributionsDateRange(remoteConfig))
+        val editingStats = cachedStats?.editingStats ?: try {
+            getEditingStats(YearInReviewConfig.contributionsDateRange(remoteConfig))
+        } catch (e: IOException) {
+            L.e(e)
+            null
+        }
         val updatedStats = YearInReviewCachedStats(readingStats = readingStats, editingStats = editingStats)
         if (updatedStats != cachedStats) {
             cache.put(year, updatedStats)
@@ -134,84 +139,79 @@ class YearInReviewRepositoryImpl(
         if (!AccountUtil.isLoggedIn) {
             return@coroutineScope null
         }
-        try {
-            val mainPageTitles = mainPageTitles()
-            val userInfoResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).getLocalAndGlobalUserInfo()
-            val globalUserId = userInfoResponse.query?.globalUserInfo?.id ?: return@coroutineScope null
-            val totalEditsDeferred = async {
-                ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
-                    .getEditsPerGlobalUserMonthly(
-                        globalUserId,
-                        DateUtil.getYMDDateString(dateRange.start),
-                        DateUtil.getYMDDateString(dateRange.endInclusive)
-                    )
-            }
-            val totalPageViewsDeferred = async {
-                ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
-                    .getPageViewsForEditedPagesMonthly(
-                        globalUserId,
-                        DateUtil.getYMDDateString(dateRange.start),
-                        DateUtil.getYMDDateString(dateRange.endInclusive)
-                    )
-            }
-            val mostViewedArticlesDeferred = async {
-                ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
-                    .getMostViewedEditedPagesMonthly(
-                        globalUserId,
-                        DateUtil.getYMDDateString(dateRange.start),
-                        DateUtil.getYMDDateString(dateRange.endInclusive)
-                    )
-            }
-
-            val mostViewedPages = mostViewedArticlesDeferred.await().items
-                .flatMap { it.rankItems }
-                .filter { it.rank < 10 }
-                .groupBy { it.wikiId to it.pageId }
-                .map { (wikiAndPageId, items) ->
-                    PageViews.PageItem(
-                        wikiId = wikiAndPageId.first,
-                        pageId = wikiAndPageId.second,
-                        viewCount = items.sumOf { it.viewCount }
-                    )
-                }
-                .sortedByDescending { it.viewCount }
-                .let { pages ->
-                    val topWikiId = pages.groupingBy { it.wikiId }
-                        .fold(0L) { totalViews, page -> totalViews + page.viewCount }
-                        .maxByOrNull { it.value }?.key
-                    pages.filter { it.wikiId == topWikiId }
-                }.take(10)
-
-            val mostViewedPagesToViews = mutableListOf<Pair<PageTitle, Long>>()
-            if (mostViewedPages.isNotEmpty()) {
-                val wikiSite = WikiSite.forLanguageCode(mostViewedPages.first().wikiId.replace("wiki", ""))
-                val pages = ServiceFactory.get(wikiSite)
-                    .getInfoByPageIdsOrTitles(pageIds = mostViewedPages.map { it.pageId }.joinToString("|"))
-                    .query?.pages.orEmpty().filter { it.ns == 0 && !mainPageTitles.contains(StringUtil.addUnderscores(it.title)) }
-
-                mostViewedPages.forEach { page ->
-                    pages.find { it.pageId.toLong() == page.pageId }?.let { pageInfo ->
-                        mostViewedPagesToViews.add(
-                            PageTitle(
-                                text = pageInfo.title,
-                                wiki = wikiSite,
-                                thumbUrl = pageInfo.thumbUrl(),
-                                description = pageInfo.description,
-                                displayText = pageInfo.displayTitle(WikipediaApp.instance.appOrSystemLanguageCode)
-                            ) to page.viewCount
-                        )
-                    }
-                }
-            }
-
-            YearInReviewEditingStats(
-                totalEditCount = totalEditsDeferred.await().items.sumOf { it.editCount },
-                totalPageViewsCount = totalPageViewsDeferred.await().items.sumOf { it.viewCount },
-                mostViewedArticles = mostViewedPagesToViews
-            )
-        } catch (e: IOException) {
-            L.e(e)
-            null
+        val mainPageTitles = mainPageTitles()
+        val userInfoResponse = ServiceFactory.get(WikipediaApp.instance.wikiSite).getLocalAndGlobalUserInfo()
+        val globalUserId = userInfoResponse.query?.globalUserInfo?.id ?: return@coroutineScope null
+        val totalEditsDeferred = async {
+            ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
+                .getEditsPerGlobalUserMonthly(
+                    globalUserId,
+                    DateUtil.getYMDDateString(dateRange.start),
+                    DateUtil.getYMDDateString(dateRange.endInclusive)
+                )
         }
+        val totalPageViewsDeferred = async {
+            ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
+                .getPageViewsForEditedPagesMonthly(
+                    globalUserId,
+                    DateUtil.getYMDDateString(dateRange.start),
+                    DateUtil.getYMDDateString(dateRange.endInclusive)
+                )
+        }
+        val mostViewedArticlesDeferred = async {
+            ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
+                .getMostViewedEditedPagesMonthly(
+                    globalUserId,
+                    DateUtil.getYMDDateString(dateRange.start),
+                    DateUtil.getYMDDateString(dateRange.endInclusive)
+                )
+        }
+
+        val mostViewedPages = mostViewedArticlesDeferred.await().items
+            .flatMap { it.rankItems }
+            .filter { it.rank < 10 }
+            .groupBy { it.wikiId to it.pageId }
+            .map { (wikiAndPageId, items) ->
+                PageViews.PageItem(
+                    wikiId = wikiAndPageId.first,
+                    pageId = wikiAndPageId.second,
+                    viewCount = items.sumOf { it.viewCount }
+                )
+            }
+            .sortedByDescending { it.viewCount }
+            .let { pages ->
+                val topWikiId = pages.groupingBy { it.wikiId }
+                    .fold(0L) { totalViews, page -> totalViews + page.viewCount }
+                    .maxByOrNull { it.value }?.key
+                pages.filter { it.wikiId == topWikiId }
+            }.take(10)
+
+        val mostViewedPagesToViews = mutableListOf<Pair<PageTitle, Long>>()
+        if (mostViewedPages.isNotEmpty()) {
+            val wikiSite = WikiSite.forLanguageCode(StringUtil.dbNameToLangCode(mostViewedPages.first().wikiId))
+            val pages = ServiceFactory.get(wikiSite)
+                .getInfoByPageIdsOrTitles(pageIds = mostViewedPages.map { it.pageId }.joinToString("|"))
+                .query?.pages.orEmpty().filter { it.ns == 0 && !mainPageTitles.contains(StringUtil.addUnderscores(it.title)) }
+
+            mostViewedPages.forEach { page ->
+                pages.find { it.pageId.toLong() == page.pageId }?.let { pageInfo ->
+                    mostViewedPagesToViews.add(
+                        PageTitle(
+                            text = pageInfo.title,
+                            wiki = wikiSite,
+                            thumbUrl = pageInfo.thumbUrl(),
+                            description = pageInfo.description,
+                            displayText = pageInfo.displayTitle(WikipediaApp.instance.appOrSystemLanguageCode)
+                        ) to page.viewCount
+                    )
+                }
+            }
+        }
+
+        YearInReviewEditingStats(
+            totalEditCount = totalEditsDeferred.await().items.sumOf { it.editCount },
+            totalPageViewsCount = totalPageViewsDeferred.await().items.sumOf { it.viewCount },
+            mostViewedArticles = mostViewedPagesToViews
+        )
     }
 }

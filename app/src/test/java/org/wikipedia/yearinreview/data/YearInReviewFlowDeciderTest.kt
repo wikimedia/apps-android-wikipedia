@@ -32,6 +32,7 @@ class YearInReviewFlowDeciderTest {
             YearInReviewPage.Visits(days = 2, peakMonth = MonthVisitedDays(month = 1, visitedDays = 2)),
             YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], totalArticles = 0, sampleArticles = emptyList()),
             YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
+            YearInReviewPage.TotalEdits(isEmptyState = true, editCount = 0),
             YearInReviewPage.YouMatter(showLoginPrompt = false),
             YearInReviewPage.End(isDonor = false)
         )
