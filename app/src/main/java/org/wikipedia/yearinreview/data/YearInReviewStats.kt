@@ -52,6 +52,10 @@ data class YearInReviewReadingStats(
     val longestStreakStartDay: Int = 0,
     val longestStreakEndMonth: Int = 0,
     val longestStreakEndDay: Int = 0,
+    val biggestReadingDayMonth: Int = 0, // 1 = January, as in java.time.Month
+    val biggestReadingDayOfMonth: Int = 0,
+    val biggestReadingDayTimeSpentSec: Int = 0,
+    val biggestReadingDayArticles: List<PageTitle> = emptyList(),
     val topTopic: ArticleTopic? = null,
     val topTopicTotalArticles: Int = 0,
     val topTopicSampleArticles: List<String>? = emptyList(),

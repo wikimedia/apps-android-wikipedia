@@ -106,6 +106,12 @@ class YearInReviewRepositoryImpl(
             historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
                 .map { it.first.title to it.second }
         }
+        val biggestReadingDayDeferred = async {
+            historyEntryWithImageDao.getBiggestReadingDayBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles)?.let { biggestDay ->
+                biggestDay to historyEntryWithImageDao.findLongestReadEntriesOnDay(biggestDay.day, dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
+                    .map { it.title }
+            }
+        }
         val topCategoriesDeferred = async { categoryDao.getTopCategoriesByYear(YearInReviewConfig.YEAR, limit = 10) }
 
         // The sample articles query depends on the top topic, so the topic queries run in sequence here,
@@ -164,6 +170,9 @@ class YearInReviewRepositoryImpl(
         val peakMonth = peakMonthDeferred.await()
         val favoriteTimeOfDay = favoriteTimeOfDayDeferred.await()
         val longestStreak = longestStreakDeferred.await()
+        val biggestReadingDay = biggestReadingDayDeferred.await()
+        val biggestReadingDate = biggestReadingDay?.first?.day?.let { LocalDate.parse(it) }
+
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
             visitedDaysCount = visitedDaysCount.await(),
@@ -180,6 +189,10 @@ class YearInReviewRepositoryImpl(
             longestStreakStartDay = longestStreak?.start?.dayOfMonth ?: 0,
             longestStreakEndMonth = longestStreak?.end?.monthValue ?: 0,
             longestStreakEndDay = longestStreak?.end?.dayOfMonth ?: 0,
+            biggestReadingDayMonth = biggestReadingDate?.monthValue ?: 0,
+            biggestReadingDayOfMonth = biggestReadingDate?.dayOfMonth ?: 0,
+            biggestReadingDayTimeSpentSec = biggestReadingDay?.first?.timeSpentSec ?: 0,
+            biggestReadingDayArticles = biggestReadingDay?.second.orEmpty(),
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,
