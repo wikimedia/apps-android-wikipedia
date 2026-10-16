@@ -17,7 +17,7 @@ data class YearInReviewEditingStats(
     val totalPageViewsCount: Long = 0,
     val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList()
 ) {
-    val totalEditCountStatus get() = if (totalEditCount > 1) {
+    val totalEditCountStatus get() = if (totalEditCount > 0) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
