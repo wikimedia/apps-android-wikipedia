@@ -53,8 +53,8 @@ object RemoteConfig {
     class RemoteConfigAndroidV1(
         val disableReadingListSync: Boolean? = false,
         val hCaptcha: RemoteConfigHCaptcha? = null,
-        val hybridSearchEnabled: Boolean? = null,
-        val hybridSearchLanguages: List<String>? = null,
+        val semanticSearchEnabledv2: Boolean? = null,
+        val semanticSearchLanguagesv2: List<String>? = null,
         val newArticlesWithinInterestEnabled: Boolean? = null,
         val visualEditorEnabled: Boolean? = null,
         val readAloudLeadSectionEnabled: Boolean? = null,

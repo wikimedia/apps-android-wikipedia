@@ -18,7 +18,7 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
         if (Prefs.semanticSearchIsTestActive) {
             return true
         }
-        return RemoteConfig.config.androidv1?.hybridSearchEnabled ?: false // TODO: update to the new variable.
+        return RemoteConfig.config.androidv1?.semanticSearchEnabledv2 ?: false
     }
 
     private fun isTestGroupUser(): Boolean {
