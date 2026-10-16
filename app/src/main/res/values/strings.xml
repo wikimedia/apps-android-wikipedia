@@ -2136,6 +2136,7 @@
         <item quantity="one">Collectively, across all languages, readers like you spent an estimated %1$,d year reading Wikipedia.</item>
         <item quantity="other">Collectively, across all languages, readers like you spent an estimated %1$,d years reading Wikipedia.</item>
     </plurals>
+    <string name="yir_community_languages_title">Languages Wikipedia is available in:</string>
     <plurals name="yir_community_languages_headline">
         <item quantity="one">Languages Wikipedia is available in: over %1$d</item>
         <item quantity="other">Languages Wikipedia is available in: over %1$d</item>
@@ -2149,6 +2150,8 @@
     <string name="yir_community_editors_supporting">Did you know that all Wikimedia projects are made by volunteers? Editors contribute new articles and improve current articles.</string>
     <string name="yir_community_edits_headline">Edits made:</string>
     <string name="yir_community_edits_supporting">Every hour of every day, volunteers around the world work to improve Wikipedia by updating article facts, photographing historic landmarks, and fixing typos.</string>
+    <string name="yir_community_global_reach_title">Wikipedia\'s global reach:</string>
+    <string name="yir_community_global_reach_subtitle">One of the top ten most visited websites in the world</string>
     <string name="yir_community_global_reach_headline">Wikipedia\'s global reach: one of the top ten most visited websites in the world</string>
     <string name="yir_community_global_reach_supporting">Wikipedia is the backbone of the internet\'s knowledge. From students to chatbots, everyone learns from it.</string>
     <string name="yir_community_contribute_headline">You matter.</string>

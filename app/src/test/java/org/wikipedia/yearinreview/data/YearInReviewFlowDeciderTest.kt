@@ -14,7 +14,7 @@ class YearInReviewFlowDeciderTest {
     private val twoPersonalizedPagesStats = YearInReviewReadingStats(articlesReadCount = 3, visitedDaysCount = 2, peakMonth = 1, peakMonthVisitedDays = 2)
     private val onePersonalizedPageStats = YearInReviewReadingStats(articlesReadCount = 3, visitedDaysCount = 1, peakMonth = 1, peakMonthVisitedDays = 1)
     private val contributorRewardData = YearInReviewRewardData(isDonor = true, isEditor = true)
-    private val collectiveSlides = YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) }
+    private val collectiveSlides = YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it, YearInReviewConfig.fallbackConfig) }
     private val topReadPercentagesConfig = RemoteConfig.RemoteConfigYearInReview(
         year = YearInReviewConfig.YEAR,
         topReadPercentages = listOf(

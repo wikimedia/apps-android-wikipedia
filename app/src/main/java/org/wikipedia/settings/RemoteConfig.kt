@@ -87,6 +87,7 @@ object RemoteConfig {
         @Serializable(with = LocalDateTimeSerializer::class) val contributionsEndDate: LocalDateTime? = null,
         val languages: Int = 0,
         val articles: Long = 0,
+        val editors: Long = 0,
         val savedArticlesApps: Long = 0,
         val viewsApps: Long = 0,
         val editsApps: Long = 0,

@@ -23,7 +23,7 @@ object YearInReviewFlowDecider {
             candidates.filter { it.status != YearInReviewInsightStatus.SUPPRESSED }.map { it.page() } +
                     listOfNotNull(personalizedClosingPage(snapshot))
         } else {
-            YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) } + listOfNotNull(youMatterPage(snapshot))
+            YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it, snapshot.remoteConfig) } + listOfNotNull(youMatterPage(snapshot))
         }
         return listOf(YearInReviewPage.Cover(daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End(isDonor = snapshot.rewardData.isContributor)
     }
