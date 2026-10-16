@@ -254,11 +254,13 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     }
 
     override fun showSemanticSearchResultsDialog(query: String) {
+        DeviceUtil.hideSoftKeyboard(requireActivity())
         ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchResultsDialog.newInstance(query, searchLanguageCode, invokeSource,
             showFeedback = !searchResultsFragment.isSemanticSearchFeedbackShown))
     }
 
     override fun showSemanticSearchInfoDialog() {
+        DeviceUtil.hideSoftKeyboard(requireActivity())
         ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchInfoDialog.newInstance(searchLanguageCode))
     }
 
