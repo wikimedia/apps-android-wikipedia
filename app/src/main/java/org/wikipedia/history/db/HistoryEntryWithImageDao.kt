@@ -130,6 +130,12 @@ interface HistoryEntryWithImageDao {
     @RewriteQueriesToDropUnusedColumns
     suspend fun getLongestReadEntriesOnDay(day: String, startMillis: Long, endMillis: Long, mainPageApiTitles: List<String>, limit: Int): List<HistoryEntryWithImage>
 
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry" +
+            "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +
+            "  WHERE HistoryEntry.id IN (:ids)")
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getEntriesByIds(ids: List<Long>): List<HistoryEntryWithImage>
+
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
@@ -156,6 +162,10 @@ interface HistoryEntryWithImageDao {
 
     suspend fun findLongestReadEntriesOnDay(day: String, startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<HistoryEntry> {
         return getLongestReadEntriesOnDay(day, startMillis, endMillis, excludedTitles, limit).map { toHistoryEntry(it) }
+    }
+
+    suspend fun findEntriesByIds(ids: List<Long>): List<HistoryEntry> {
+        return getEntriesByIds(ids).map { toHistoryEntry(it) }
     }
 
     suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {

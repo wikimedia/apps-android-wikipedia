@@ -112,6 +112,12 @@ class YearInReviewRepositoryImpl(
                     .map { it.title }
             }
         }
+        val rabbitHoleDeferred = async {
+            YearInReviewRabbitHole.longestOf(historyEntryDao.getArticleLinksBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles))?.let { rabbitHole ->
+                val entriesById = historyEntryWithImageDao.findEntriesByIds(listOf(rabbitHole.startEntryId, rabbitHole.endEntryId)).associateBy { it.id }
+                Triple(entriesById[rabbitHole.startEntryId]?.title, entriesById[rabbitHole.endEntryId]?.title, rabbitHole.articleCount)
+            }
+        }
         val topCategoriesDeferred = async { categoryDao.getTopCategoriesByYear(YearInReviewConfig.YEAR, limit = 10) }
 
         // The sample articles query depends on the top topic, so the topic queries run in sequence here,
@@ -172,6 +178,7 @@ class YearInReviewRepositoryImpl(
         val longestStreak = longestStreakDeferred.await()
         val biggestReadingDay = biggestReadingDayDeferred.await()
         val biggestReadingDate = biggestReadingDay?.first?.day?.let { LocalDate.parse(it) }
+        val rabbitHole = rabbitHoleDeferred.await()
 
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
@@ -193,6 +200,9 @@ class YearInReviewRepositoryImpl(
             biggestReadingDayOfMonth = biggestReadingDate?.dayOfMonth ?: 0,
             biggestReadingDayTimeSpentSec = biggestReadingDay?.first?.timeSpentSec ?: 0,
             biggestReadingDayArticles = biggestReadingDay?.second.orEmpty(),
+            rabbitHoleStart = rabbitHole?.first,
+            rabbitHoleEnd = rabbitHole?.second,
+            rabbitHoleArticleCount = rabbitHole?.third ?: 0,
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,

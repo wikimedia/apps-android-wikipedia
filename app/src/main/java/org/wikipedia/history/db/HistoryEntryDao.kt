@@ -38,6 +38,9 @@ interface HistoryEntryDao {
     @Query("SELECT DISTINCT date(timestamp / 1000, 'unixepoch', 'localtime') AS day FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis ORDER BY day")
     suspend fun getDistinctDaysBetween(startMillis: Long, endMillis: Long): List<String>
 
+    @Query("SELECT id, prevId FROM HistoryEntry WHERE namespace = '' AND apiTitle NOT IN (:excludedTitles) AND timestamp BETWEEN :startMillis AND :endMillis")
+    suspend fun getArticleLinksBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>): List<HistoryEntryLink>
+
     // The calendar month with the most distinct reading days. Months are grouped with their year, so a range that
     // spans a new year doesn't merge two Decembers; a tie goes to the more recent month. Null when there's no history.
     @Query("SELECT CAST(strftime('%m', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS month, " +
