@@ -26,6 +26,7 @@ import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
+import java.time.LocalDate
 
 interface YearInReviewRepository {
     suspend fun getYearInReview(): YearInReviewSnapshot
@@ -98,6 +99,9 @@ class YearInReviewRepositoryImpl(
         val articlesReadCount = async { historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles) }
         val visitedDaysCount = async { historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis) }
         val peakMonthDeferred = async { historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis) }
+        val longestStreakDeferred = async {
+            YearInReviewReadingStreak.longestOf(historyEntryDao.getDistinctDaysBetween(dateRange.startMillis, dateRange.endMillis).map { LocalDate.parse(it) })
+        }
         val articlesRevisited = async {
             historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
                 .map { it.first.title to it.second }
@@ -159,6 +163,7 @@ class YearInReviewRepositoryImpl(
 
         val peakMonth = peakMonthDeferred.await()
         val favoriteTimeOfDay = favoriteTimeOfDayDeferred.await()
+        val longestStreak = longestStreakDeferred.await()
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
             visitedDaysCount = visitedDaysCount.await(),
@@ -168,8 +173,13 @@ class YearInReviewRepositoryImpl(
             topCategory = topCategory?.title,
             topCountry = topCountry.first,
             topCountryArticleCount = topCountry.second,
-            favoriteTimeOfDayResId = favoriteTimeOfDay?.first?.resId ?: 0,
+            favoriteTimeOfDay = favoriteTimeOfDay?.first,
             favoriteTimeOfDayPercentage = favoriteTimeOfDay?.second ?: 0,
+            longestStreakDays = longestStreak?.days ?: 0,
+            longestStreakStartMonth = longestStreak?.start?.monthValue ?: 0,
+            longestStreakStartDay = longestStreak?.start?.dayOfMonth ?: 0,
+            longestStreakEndMonth = longestStreak?.end?.monthValue ?: 0,
+            longestStreakEndDay = longestStreak?.end?.dayOfMonth ?: 0,
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,
