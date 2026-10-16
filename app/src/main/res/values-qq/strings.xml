@@ -2210,7 +2210,7 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Text of the time bucket that indicates the favorite time to read.</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Text of the time bucket that indicates the favorite day to read.</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Text of the time bucket that indicates the month you did the most reading.</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Text of the time bucket that indicates morning.</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Text of the time bucket that indicates morning</string>
   <string name="year_in_review_slide_reading_pattern_midday">Text of the time bucket that indicates midday</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">Text of the time bucket that indicates afternoon</string>
   <string name="year_in_review_slide_reading_pattern_evening">Text of the time bucket that indicates evening</string>
