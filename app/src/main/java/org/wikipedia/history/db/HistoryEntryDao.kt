@@ -67,8 +67,11 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry ORDER BY timestamp DESC LIMIT 1")
     suspend fun getMostRecentEntry(): HistoryEntry?
 
-    @Query("SELECT CAST(strftime('%H', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS hour FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY hour ORDER BY COUNT(id) DESC LIMIT 1")
-    suspend fun getFavoriteTimeToReadBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int?
+    // Article visits per local hour of the day. Hours without any visits are left out.
+    @Query("SELECT CAST(strftime('%H', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS hour, COUNT(*) AS visitCount " +
+            "FROM HistoryEntry WHERE namespace = '' AND apiTitle NOT IN (:excludedTitles) AND timestamp BETWEEN :startMillis AND :endMillis " +
+            "GROUP BY hour")
+    suspend fun getArticleVisitCountsByHourBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>): List<HourVisitCount>
 
     @Query("SELECT CAST(strftime('%w', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS dayOfWeek FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY dayOfWeek ORDER BY COUNT(id) DESC LIMIT 1")
     suspend fun getFavoriteDayToReadBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int?

@@ -45,6 +45,8 @@ data class YearInReviewReadingStats(
     val topCategory: String? = null,
     val topCountry: String? = null,
     val topCountryArticleCount: Int = 0,
+    val favoriteTimeOfDayResId: Int = 0,
+    val favoriteTimeOfDayPercentage: Int = 0,
     val topTopic: ArticleTopic? = null,
     val topTopicTotalArticles: Int = 0,
     val topTopicSampleArticles: List<String>? = emptyList(),

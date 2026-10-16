@@ -121,8 +121,8 @@ class YearInReviewRepositoryImpl(
         val topCategoriesWithSpaces = topCategories.filter { it.title.split(" ").size > 2 }
         val topCategory = topCategoriesWithSpaces.firstOrNull() ?: topCategories.firstOrNull()
 
-        val favoriteHourToRead = async {
-            AppDatabase.instance.historyEntryDao().getFavoriteTimeToReadBetween(dateRange.startMillis, dateRange.endMillis)
+        val favoriteTimeOfDayDeferred = async {
+            YearInReviewTimeOfDay.favoriteOf(historyEntryDao.getArticleVisitCountsByHourBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles))
         }
 
         val topCountry = async {
@@ -158,6 +158,7 @@ class YearInReviewRepositoryImpl(
         }.await()
 
         val peakMonth = peakMonthDeferred.await()
+        val favoriteTimeOfDay = favoriteTimeOfDayDeferred.await()
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
             visitedDaysCount = visitedDaysCount.await(),
@@ -167,6 +168,8 @@ class YearInReviewRepositoryImpl(
             topCategory = topCategory?.title,
             topCountry = topCountry.first,
             topCountryArticleCount = topCountry.second,
+            favoriteTimeOfDayResId = favoriteTimeOfDay?.first?.resId ?: 0,
+            favoriteTimeOfDayPercentage = favoriteTimeOfDay?.second ?: 0,
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,
