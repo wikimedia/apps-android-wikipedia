@@ -34,6 +34,13 @@ interface HistoryEntryDao {
     @Query("SELECT COUNT(DISTINCT date(timestamp / 1000, 'unixepoch', 'localtime')) FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis")
     suspend fun getDistinctDaysCountBetween(startMillis: Long, endMillis: Long): Int
 
+    // Each local day with any history, formatted as yyyy-MM-dd, oldest first.
+    @Query("SELECT DISTINCT date(timestamp / 1000, 'unixepoch', 'localtime') AS day FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis ORDER BY day")
+    suspend fun getDistinctDaysBetween(startMillis: Long, endMillis: Long): List<String>
+
+    @Query("SELECT id, prevId FROM HistoryEntry WHERE namespace = '' AND apiTitle NOT IN (:excludedTitles) AND timestamp BETWEEN :startMillis AND :endMillis")
+    suspend fun getArticleLinksBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>): List<HistoryEntryLink>
+
     // The calendar month with the most distinct reading days. Months are grouped with their year, so a range that
     // spans a new year doesn't merge two Decembers; a tie goes to the more recent month. Null when there's no history.
     @Query("SELECT CAST(strftime('%m', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS month, " +
@@ -67,8 +74,11 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry ORDER BY timestamp DESC LIMIT 1")
     suspend fun getMostRecentEntry(): HistoryEntry?
 
-    @Query("SELECT CAST(strftime('%H', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS hour FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY hour ORDER BY COUNT(id) DESC LIMIT 1")
-    suspend fun getFavoriteTimeToReadBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int?
+    // Article visits per local hour of the day. Hours without any visits are left out.
+    @Query("SELECT CAST(strftime('%H', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS hour, COUNT(*) AS visitCount " +
+            "FROM HistoryEntry WHERE namespace = '' AND apiTitle NOT IN (:excludedTitles) AND timestamp BETWEEN :startMillis AND :endMillis " +
+            "GROUP BY hour")
+    suspend fun getArticleVisitCountsByHourBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>): List<HourVisitCount>
 
     @Query("SELECT CAST(strftime('%w', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS dayOfWeek FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY dayOfWeek ORDER BY COUNT(id) DESC LIMIT 1")
     suspend fun getFavoriteDayToReadBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int?

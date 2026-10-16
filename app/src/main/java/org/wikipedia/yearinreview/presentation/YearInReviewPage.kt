@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview.presentation
 
 import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.topics.ArticleTopic
 
 data class YearInReviewArticle(
@@ -31,7 +32,7 @@ sealed interface YearInReviewPage {
     val id: String
     val useDarkStatusBarIcons: Boolean get() = false
 
-    data class Cover(val daysSpent: Int) : YearInReviewPage {
+    data class Cover(val isPersonalized: Boolean = true, val daysSpent: Int) : YearInReviewPage {
         override val id = "cover"
     }
 
@@ -115,7 +116,7 @@ sealed interface YearInReviewPage {
         override val id = "most_viewed_edited_articles"
     }
 
-    data class Collective(val insight: YearInReviewCollectiveInsight) : YearInReviewPage {
+    data class Collective(val insight: YearInReviewCollectiveInsight, val config: RemoteConfig.RemoteConfigYearInReview) : YearInReviewPage {
         override val id get() = "collective_" + insight.name.lowercase()
     }
 

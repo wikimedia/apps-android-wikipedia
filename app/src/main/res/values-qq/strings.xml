@@ -2030,6 +2030,7 @@
     <item quantity="one">Supporting text of the community Year in Review reading hours slide. %1$,d will be replaced by the formatted number of years.</item>
     <item quantity="other">Supporting text of the community Year in Review reading hours slide. %1$,d will be replaced by the formatted number of years.</item>
   </plurals>
+  <string name="yir_community_languages_title">Headline of the community Year in Review slide that shows how many languages Wikipedia is available in.</string>
   <plurals name="yir_community_languages_headline">
     <item quantity="one">Headline of the community Year in Review slide that shows how many languages Wikipedia is available in. %1$d will be replaced by the number of languages.</item>
     <item quantity="other">Headline of the community Year in Review slide that shows how many languages Wikipedia is available in. %1$d will be replaced by the number of languages.</item>
@@ -2044,6 +2045,8 @@
   <string name="yir_community_edits_headline">Headline of the community Year in Review slide that shows how many edits were made.</string>
   <string name="yir_community_edits_supporting">Supporting text of the community Year in Review edits slide.</string>
   <string name="yir_community_global_reach_headline">Headline of the community Year in Review slide about Wikipedia\'s global reach.</string>
+  <string name="yir_community_global_reach_title">Title of the community Year in Review slide about Wikipedia\'s global reach.</string>
+  <string name="yir_community_global_reach_subtitle">Subtitle of the community Year in Review slide about Wikipedia\'s global reach.</string>
   <string name="yir_community_global_reach_supporting">Supporting text of the community Year in Review global reach slide.</string>
   <string name="yir_community_contribute_headline">Headline of the community Year in Review slide that invites the user to contribute.</string>
   <string name="yir_community_contribute_supporting">Supporting text of the community Year in Review slide that invites the user to contribute.</string>
@@ -2209,7 +2212,7 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Text of the time bucket that indicates the favorite time to read.</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Text of the time bucket that indicates the favorite day to read.</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Text of the time bucket that indicates the month you did the most reading.</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Text of the time bucket that indicates morning.</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Text of the time bucket that indicates morning</string>
   <string name="year_in_review_slide_reading_pattern_midday">Text of the time bucket that indicates midday</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">Text of the time bucket that indicates afternoon</string>
   <string name="year_in_review_slide_reading_pattern_evening">Text of the time bucket that indicates evening</string>
