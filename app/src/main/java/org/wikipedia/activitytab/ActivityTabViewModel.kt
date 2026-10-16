@@ -40,9 +40,9 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.dev.playground.YearInReviewPlayground
 import org.wikipedia.util.UiState
 import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
-import org.wikipedia.yearinreview.presentation.YearInReviewFlowDecider
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.time.Instant
 import java.time.LocalDate
@@ -135,7 +135,7 @@ class ActivityTabViewModel : ViewModel() {
 
     private fun loadYearInReviewEntry() {
         yearInReviewEntryJob?.cancel()
-        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount || !YearInReviewViewModel.canShowEntryPoint) {
+        if (!YearInReviewViewModel.canShowEntryPoint) {
             _yearInReviewEntryState.value = UiState.Loading
             return
         }
@@ -149,8 +149,8 @@ class ActivityTabViewModel : ViewModel() {
                 _yearInReviewEntryState.value = UiState.Success(false)
             }
         }) {
-            val snapshot = YearInReviewRepositoryImpl().getYearInReview()
-            _yearInReviewEntryState.value = UiState.Success(YearInReviewFlowDecider.isDataRich(snapshot))
+            val entryStats = YearInReviewPlayground.entryStats ?: YearInReviewRepositoryImpl().getEntryStats()
+            _yearInReviewEntryState.value = UiState.Success(entryStats.isDataRich)
         }
     }
 

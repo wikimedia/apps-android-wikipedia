@@ -11,8 +11,8 @@ import org.wikipedia.yearinreview.presentation.YearInReviewPage
 
 class YearInReviewFlowDeciderTest {
 
-    private val dataRichStats = YearInReviewReadingStats(articlesReadCount = 3, visitedDaysCount = 2, peakMonth = 1, peakMonthVisitedDays = 2)
-    private val lowDataStats = YearInReviewReadingStats(articlesReadCount = 3, visitedDaysCount = 1, peakMonth = 1, peakMonthVisitedDays = 1)
+    private val twoPersonalizedPagesStats = YearInReviewReadingStats(articlesReadCount = 3, visitedDaysCount = 2, peakMonth = 1, peakMonthVisitedDays = 2)
+    private val onePersonalizedPageStats = YearInReviewReadingStats(articlesReadCount = 3, visitedDaysCount = 1, peakMonth = 1, peakMonthVisitedDays = 1)
     private val contributorRewardData = YearInReviewRewardData(isDonor = true, isEditor = true)
     private val collectiveSlides = YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it) }
     private val topReadPercentagesConfig = RemoteConfig.RemoteConfigYearInReview(
@@ -25,17 +25,17 @@ class YearInReviewFlowDeciderTest {
     )
 
     @Test
-    fun `logged-in data-rich user gets personalized slides in order`() {
+    fun `logged-in user with 2 personalized pages gets personalized slides in order`() {
         val expected = listOf(
             YearInReviewPage.Cover(daysSpent = 2),
             YearInReviewPage.ArticlesRead(isEmptyState = false, count = 3, percentile = "", averageCount = YearInReviewConfig.fallbackConfig.averageArticlesReadPerYear),
             YearInReviewPage.Visits(days = 2, peakMonth = MonthVisitedDays(month = 1, visitedDays = 2)),
-            YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], articles = emptyList()),
+            YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], totalArticles = 0, sampleArticles = emptyList()),
             YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
             YearInReviewPage.YouMatter(showLoginPrompt = false),
             YearInReviewPage.End(isDonor = false)
         )
-        assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = dataRichStats)))
+        assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = twoPersonalizedPagesStats)))
     }
 
     @Test
@@ -46,27 +46,27 @@ class YearInReviewFlowDeciderTest {
     }
 
     @Test
-    fun `logged-in low-data user gets collective slides`() {
+    fun `logged-in user with 1 personalized page gets collective slides`() {
         val expected = listOf(YearInReviewPage.Cover(daysSpent = 1)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End(isDonor = false)
-        assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = lowDataStats)))
+        assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = onePersonalizedPageStats)))
     }
 
     @Test
-    fun `logged-out data-rich user gets collective slides with a login prompt`() {
+    fun `logged-out user with 2 personalized pages gets collective slides with a login prompt`() {
         val expected = listOf(YearInReviewPage.Cover(daysSpent = 2)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = true) + YearInReviewPage.End(isDonor = false)
-        assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(isLoggedIn = false, readingStats = dataRichStats)))
+        assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(isLoggedIn = false, readingStats = twoPersonalizedPagesStats)))
     }
 
     @Test
-    fun `data-rich contributor gets thank you slide`() {
-        val slides = YearInReviewFlowDecider.pages(snapshot(readingStats = dataRichStats, rewardData = contributorRewardData))
+    fun `contributor with personalized slides gets thank you slide`() {
+        val slides = YearInReviewFlowDecider.pages(snapshot(readingStats = twoPersonalizedPagesStats, rewardData = contributorRewardData))
         assertEquals(YearInReviewPage.ThankYou(isEditor = true, isDonor = true), slides[slides.size - 2])
     }
 
     @Test
-    fun `low-data contributor gets you matter slide`() {
+    fun `contributor with collective slides gets you matter slide`() {
         val expected = listOf(YearInReviewPage.Cover(daysSpent = 1)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End(isDonor = true)
-        assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = lowDataStats, rewardData = contributorRewardData)))
+        assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = onePersonalizedPageStats, rewardData = contributorRewardData)))
     }
 
     @Test
@@ -85,7 +85,7 @@ class YearInReviewFlowDeciderTest {
     }
 
     private fun articlesReadPercentile(articlesReadCount: Int): String {
-        val stats = dataRichStats.copy(articlesReadCount = articlesReadCount)
+        val stats = twoPersonalizedPagesStats.copy(articlesReadCount = articlesReadCount)
         val slides = YearInReviewFlowDecider.pages(snapshot(readingStats = stats, remoteConfig = topReadPercentagesConfig))
         return slides.filterIsInstance<YearInReviewPage.ArticlesRead>().single().percentile
     }
