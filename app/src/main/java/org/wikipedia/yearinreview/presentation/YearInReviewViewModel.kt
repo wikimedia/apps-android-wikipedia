@@ -79,7 +79,7 @@ class YearInReviewViewModel(
 
         val isCustomIconAllowed get() = Prefs.yearInReviewCachedStats[YIR_YEAR]?.let {
             YearInReviewDonationEligibility().hasDonatedWithinContributionsDateRange(YearInReviewConfig.cachedRemoteConfig) ||
-                    (it.editingStats?.contributionsEditCount ?: 0) > 0
+                    (it.editingStats?.totalEditCount ?: 0) > 0
         } == true
     }
 }

@@ -9,6 +9,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.yearinreview.data.YearInReviewAvailability
 import org.wikipedia.yearinreview.data.YearInReviewConfig
+import org.wikipedia.yearinreview.data.YearInReviewEditingStats
 import org.wikipedia.yearinreview.data.YearInReviewEntryStats
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import org.wikipedia.yearinreview.data.YearInReviewRewardData
@@ -23,30 +24,39 @@ enum class YearInReviewPlaygroundData(
     val label: String,
     val description: String,
     val readingStats: YearInReviewReadingStats?,
+    val editingStats: YearInReviewEditingStats?,
     val previewPages: (() -> List<YearInReviewPage>)? = null
 ) {
-    REAL("Real data", "Turns off the playground data. The card, announcement and slides use your real reading history, edits and login.", null),
+    REAL("Real data", "Turns off the playground data. The card, announcement and slides use your real reading history, edits and login.", null, null),
     COLLECTIVE("Collective", "Fixed test data for a light reader, just under the data-rich and personalized thresholds, so it shows the low-data card " +
             "and announcement, and the collective slides. It doesn't use any of your real data.",
-        YearInReviewReadingStats(
+        readingStats = YearInReviewReadingStats(
             articlesReadCount = YearInReviewReadingStats.MIN_ARTICLES_READ - 1,
             visitedDaysCount = YearInReviewReadingStats.MIN_VISITED_DAYS - 1,
             peakMonth = 9,
             peakMonthVisitedDays = YearInReviewReadingStats.MIN_VISITED_DAYS - 1
-        )),
+        ),
+        editingStats = YearInReviewEditingStats()
+    ),
     PERSONALIZED("Personalized", "Fixed test data for the data-rich card and announcement, and the personalized slides. It doesn't use any of your real data.",
-        YearInReviewReadingStats(
+        readingStats = YearInReviewReadingStats(
             articlesReadCount = 120,
             visitedDaysCount = 45,
             peakMonth = 12,
             peakMonthVisitedDays = 20,
-            articlesRevisited = YearInReviewPlaygroundPreview.sampleRevisitedArticles,
+            articlesRevisited = YearInReviewPlaygroundPreview.sampleArticles.map { it to 5 },
             topTopic = YearInReviewPlaygroundPreview.sampleTopTopic,
             topTopicTotalArticles = 123,
             topTopicSampleArticles = YearInReviewPlaygroundPreview.sampleTopTopicArticles
-        )),
-    ALL_SLIDES("All slides", "Every personalized slide, with the cover and closing slides.", null, { YearInReviewPlaygroundPreview.allSlides }),
-    ALL_EMPTY_STATES("All empty states", "Every empty state slide, with the cover and closing slides.", null, { YearInReviewPlaygroundPreview.emptyStates })
+        ),
+        editingStats = YearInReviewEditingStats(
+            totalEditCount = 10,
+            totalPageViewsCount = 1234567,
+            mostViewedArticles = YearInReviewPlaygroundPreview.sampleArticles.map { it to 100000 }
+        )
+    ),
+    ALL_SLIDES("All slides", "Every personalized slide, with the cover and closing slides.", null, null, { YearInReviewPlaygroundPreview.allSlides }),
+    ALL_EMPTY_STATES("All empty states", "Every empty state slide, with the cover and closing slides.", null, null, { YearInReviewPlaygroundPreview.emptyStates })
 }
 
 val testActiveStartDate: LocalDate = LocalDate.of(YearInReviewConfig.YEAR, 12, 1)
@@ -141,6 +151,7 @@ object YearInReviewPlayground {
             isDonationEligible = true,
             remoteConfig = remoteConfig,
             readingStats = data.readingStats ?: YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0),
+            editingStats = data.editingStats ?: YearInReviewEditingStats(),
             rewardData = YearInReviewRewardData(isDonor = false, isEditor = false)
         )
     }

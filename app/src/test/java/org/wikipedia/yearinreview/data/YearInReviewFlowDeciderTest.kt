@@ -32,6 +32,7 @@ class YearInReviewFlowDeciderTest {
             YearInReviewPage.Visits(days = 2, peakMonth = MonthVisitedDays(month = 1, visitedDays = 2)),
             YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], totalArticles = 0, sampleArticles = emptyList()),
             YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
+            YearInReviewPage.TotalEdits(isEmptyState = true, editCount = 0),
             YearInReviewPage.YouMatter(showLoginPrompt = false),
             YearInReviewPage.End(isDonor = false)
         )
@@ -94,6 +95,7 @@ class YearInReviewFlowDeciderTest {
         isLoggedIn: Boolean = true,
         isDonationEligible: Boolean = true,
         readingStats: YearInReviewReadingStats = YearInReviewReadingStats(articlesReadCount = 0, visitedDaysCount = 0, peakMonth = 0, peakMonthVisitedDays = 0),
+        editingStats: YearInReviewEditingStats = YearInReviewEditingStats(),
         rewardData: YearInReviewRewardData = YearInReviewRewardData(isDonor = false, isEditor = false),
         remoteConfig: RemoteConfig.RemoteConfigYearInReview = YearInReviewConfig.fallbackConfig
     ) = YearInReviewSnapshot(
@@ -101,6 +103,7 @@ class YearInReviewFlowDeciderTest {
         isLoggedIn = isLoggedIn,
         isDonationEligible = isDonationEligible,
         readingStats = readingStats,
+        editingStats = editingStats,
         rewardData = rewardData,
         remoteConfig = remoteConfig
     )

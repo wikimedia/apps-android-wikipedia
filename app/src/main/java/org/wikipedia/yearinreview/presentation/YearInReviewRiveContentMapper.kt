@@ -196,8 +196,8 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesListSlideSpec("frame18"),
             textProperties = mapOf(
                 "bodyText" to resources.getString(R.string.yir_most_viewed_edited_articles_headline)
-            ) + listRows(page.articles.map { it.title to getViewCountText(resources, it.viewCount) }),
-            imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
+            ) + listRows(page.articles.map { StringUtil.fromHtml(it.first.displayText).toString() to getViewCountText(resources, it.second) }),
+            imageUrls = listIcons(page.articles.map { it.first.thumbUrl })
         )
         is YearInReviewPage.ThankYou -> RiveSlideContent(
             spec = allTemplatesSlideSpec("end"),

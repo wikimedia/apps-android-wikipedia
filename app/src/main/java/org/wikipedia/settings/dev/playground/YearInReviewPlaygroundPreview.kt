@@ -17,28 +17,28 @@ object YearInReviewPlaygroundPreview {
     // Shared with the Personalized test data, so its Top topic and Revisited articles slides aren't empty
     val sampleTopTopic = ArticleTopics.all.first { it.topicId == "music" }
     val sampleTopTopicArticles = listOf("Abbey Road") + (1..15).map { "Music article $it" } + "Woodstock"
-    val sampleRevisitedArticles = listOf(
+    val sampleArticles = listOf(
         PageTitle(
             text = "Moon",
             wiki = WikiSite.preview(),
             thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/120px-FullMoon2010.jpg",
             description = "Natural satellite orbiting Earth",
             displayText = "Moon"
-        ) to 10,
+        ),
         PageTitle(
             text = "Leonardo da Vinci",
             wiki = WikiSite.preview(),
             thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/120px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png",
             description = "Italian polymath (1452–1519)",
             displayText = "Leonardo da Vinci"
-        ) to 9,
+        ),
         PageTitle(
             text = "Python (programming language)",
             wiki = WikiSite.preview(),
             thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/120px-Python-logo-notext.svg.png",
             description = "General-purpose programming language",
             displayText = "Python (programming language)"
-        ) to 8
+        )
     )
 
     // this excludes LongestReadGuess, LongestReadReveal, RabbitHoleGuess, and RabbitHoleReveal which are not included in the template
@@ -78,7 +78,7 @@ object YearInReviewPlaygroundPreview {
             ).takeRandomCount()
         ),
         YearInReviewPage.Category(categoryName = "LIGHTHOUSES IN SCOTLAND"),
-        YearInReviewPage.RevisitedArticles(isEmptyState = false, articles = sampleRevisitedArticles),
+        YearInReviewPage.RevisitedArticles(isEmptyState = false, articles = sampleArticles.map { it to 5 }),
         YearInReviewPage.Geography(isEmptyState = false, placeArticleCounts = mapOf("Brazil" to 12)),
         YearInReviewPage.SavedArticles(
             isEmptyState = false,
@@ -103,25 +103,7 @@ object YearInReviewPlaygroundPreview {
         ),
         YearInReviewPage.TotalEdits(isEmptyState = false, editCount = 357),
         YearInReviewPage.EditedArticleViews(viewCount = 52145),
-        YearInReviewPage.MostViewedEditedArticles(
-            articles = listOf(
-                YearInReviewArticleViewCount(
-                    title = "Olympic Games",
-                    viewCount = 12_480,
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Olympic_rings_without_rims.svg/120px-Olympic_rings_without_rims.svg.png"
-                ),
-                YearInReviewArticleViewCount(
-                    title = "Climate change",
-                    viewCount = 8_312,
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Change_in_Average_Temperature_With_Fahrenheit.svg/120px-Change_in_Average_Temperature_With_Fahrenheit.svg.png"
-                ),
-                YearInReviewArticleViewCount(
-                    title = "Honey bee",
-                    viewCount = 1_509,
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/120px-The_Lone_Pollinator.jpg"
-                )
-            )
-        ),
+        YearInReviewPage.MostViewedEditedArticles(articles = sampleArticles.map { it to 100000 }),
         YearInReviewPage.ThankYou(isEditor = true, isDonor = true),
         YearInReviewPage.YouMatter(showLoginPrompt = false),
         YearInReviewPage.End(isDonor = true)
