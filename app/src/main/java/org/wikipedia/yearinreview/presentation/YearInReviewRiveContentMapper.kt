@@ -207,6 +207,13 @@ object YearInReviewRiveContentMapper {
                 "data" to ""
             )
         )
+        is YearInReviewPage.YouMatter -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("end"),
+            textProperties = mapOf(
+                "coverTitle" to resources.getString(R.string.yir_non_contributor_headline).uppercase(),
+                "bodyCopy" to resources.getString(R.string.yir_non_contributor_supporting) + (if (!page.showLoginPrompt) "\n\n" + resources.getString(R.string.yir_community_contribute_supporting_prompt) else ""),
+            )
+        )
         // The file has no collective artboards yet, so these reuse the personal artboard closest to each insight
         is YearInReviewPage.Collective -> when (page.insight) {
             YearInReviewCollectiveInsight.HOURS_READ -> RiveSlideContent(allTemplatesSlideSpec("frame3"))

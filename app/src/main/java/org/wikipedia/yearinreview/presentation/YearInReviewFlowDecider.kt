@@ -84,7 +84,6 @@ object YearInReviewFlowDecider {
         )
     }
 
-    // TODO: confirm this logic
     private fun personalizedClosingPage(snapshot: YearInReviewSnapshot): YearInReviewPage? {
         val rewardData = snapshot.rewardData
         return if (rewardData.isContributor) {

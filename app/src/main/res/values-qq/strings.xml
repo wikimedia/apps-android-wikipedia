@@ -2048,6 +2048,7 @@
   <string name="yir_community_global_reach_supporting">Supporting text of the community Year in Review global reach slide.</string>
   <string name="yir_community_contribute_headline">Headline of the community Year in Review slide that invites the user to contribute.</string>
   <string name="yir_community_contribute_supporting">Supporting text of the community Year in Review slide that invites the user to contribute.</string>
+  <string name="yir_community_contribute_supporting_prompt">A prompt for the user to log in, so that they can see their statistics.</string>
   <string name="yir_closing_headline">Headline of the closing slide of the Year in Review.</string>
   <string name="yir_closing_supporting">Supporting text of the closing slide of the Year in Review.</string>
   <string name="yir_closing_share_action">Button label on the closing slide of the Year in Review for sharing the user\'s highlights.</string>
