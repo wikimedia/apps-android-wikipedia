@@ -1,7 +1,10 @@
 package org.wikipedia.yearinreview.data
 
+import android.location.Geocoder
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.CategoryDao
@@ -118,6 +121,42 @@ class YearInReviewRepositoryImpl(
         val topCategoriesWithSpaces = topCategories.filter { it.title.split(" ").size > 2 }
         val topCategory = topCategoriesWithSpaces.firstOrNull() ?: topCategories.firstOrNull()
 
+        val favoriteHourToRead = async {
+            AppDatabase.instance.historyEntryDao().getFavoriteTimeToReadBetween(dateRange.startMillis, dateRange.endMillis)
+        }
+
+        val topCountry = async {
+            val pagesWithCoordinates = AppDatabase.instance.historyEntryWithImageDao().getEntriesWithCoordinates(256, dateRange.startMillis, dateRange.endMillis)
+                .distinctBy { it.apiTitle }
+            if (pagesWithCoordinates.size > 2) {
+                try {
+                    val clusters = GeoUtil.LocationClusterer().clusterLocations(
+                        locations = pagesWithCoordinates,
+                        epsilonKm = 500.0,
+                        minPoints = 3
+                    )
+                    val largestCluster = clusters.maxByOrNull { it.locations.size }
+                    if (largestCluster?.centroid != null && largestCluster.locations.size >= 2) {
+                        val largestClusterLatitude = largestCluster.centroid.latitude
+                        val largestClusterLongitude = largestCluster.centroid.longitude
+
+                        val largestClusterBounds = LatLngBounds.Builder()
+                        largestCluster.locations.forEach {
+                            largestClusterBounds.include(LatLng(it.geoLat ?: 0.0, it.geoLon ?: 0.0))
+                        }
+                        val geocoder = Geocoder(WikipediaApp.instance)
+                        val results = geocoder.getFromLocation(largestClusterLatitude, largestClusterLongitude, 2)
+                        if (!results.isNullOrEmpty()) {
+                            return@async Pair(results.first().countryName.orEmpty(), largestCluster.locations.size)
+                        }
+                    }
+                } catch (_: IOException) {
+                    // could be thrown by Geocoder, and safe to ignore.
+                }
+            }
+            Pair(null, 0)
+        }.await()
+
         val peakMonth = peakMonthDeferred.await()
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
@@ -126,6 +165,8 @@ class YearInReviewRepositoryImpl(
             peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,
             articlesRevisited = articlesRevisited.await(),
             topCategory = topCategory?.title,
+            topCountry = topCountry.first,
+            topCountryArticleCount = topCountry.second,
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,

@@ -43,6 +43,8 @@ data class YearInReviewReadingStats(
     val peakMonthVisitedDays: Int,
     val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
     val topCategory: String? = null,
+    val topCountry: String? = null,
+    val topCountryArticleCount: Int = 0,
     val topTopic: ArticleTopic? = null,
     val topTopicTotalArticles: Int = 0,
     val topTopicSampleArticles: List<String>? = emptyList(),
