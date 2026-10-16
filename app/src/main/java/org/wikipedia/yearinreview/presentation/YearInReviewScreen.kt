@@ -53,6 +53,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntOffset
@@ -61,9 +62,12 @@ import app.rive.GetBitmapFun
 import app.rive.Result
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
+import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 import kotlin.math.roundToInt
 
@@ -211,7 +215,8 @@ private fun YearInReviewContent(
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         bottomBar = {
             YearInReviewBottomBar(
-                showDonateButton = showDonateButton && pages.isNotEmpty(),
+                showDonateButton = showDonateButton && pages.isNotEmpty() &&
+                        pages.getOrNull(pagerState.currentPage) !is YearInReviewPage.YouMatter,
                 shareEnabled = pages.getOrNull(pagerState.currentPage)?.let { page ->
                     screenshotGetters.containsKey(page.id)
                 } == true,
@@ -263,15 +268,28 @@ private fun YearInReviewContent(
                     }
                     // A custom slide, such as an interactive one, gets its own branch above this one
                     content != null -> {
-                        YearInReviewRiveSlide(
-                            riveFileResult = riveFiles[content.spec.resourceId] ?: Result.Loading,
-                            content = content,
-                            playing = pagerState.currentPage == position,
-                            slideId = page.id,
-                            screenshotGetters = screenshotGetters,
-                            onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
-                            onRiveError = onRiveError
-                        )
+                        Box(
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            YearInReviewRiveSlide(
+                                riveFileResult = riveFiles[content.spec.resourceId] ?: Result.Loading,
+                                content = content,
+                                playing = pagerState.currentPage == position,
+                                slideId = page.id,
+                                screenshotGetters = screenshotGetters,
+                                onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
+                                onRiveError = onRiveError
+                            )
+                            if (page is YearInReviewPage.YouMatter && showDonateButton) {
+                                YearInReviewSlideDonateButton(
+                                    modifier = Modifier
+                                        .align(Alignment.BottomCenter)
+                                        .fillMaxWidth()
+                                        .padding(16.dp),
+                                    onClick = { onDonateClick(page.id) }
+                                )
+                            }
+                        }
                     }
                     // TODO: else branch stands in for each page until its slide is built
                     else -> {
@@ -526,5 +544,41 @@ private fun YearInReviewBottomBar(
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun YearInReviewSlideDonateButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    // The slide artwork looks the same in every app theme, so the button uses fixed colors
+    AppButton(
+        modifier = modifier,
+        backgroundColor = ComposeColors.Blue600,
+        contentColor = ComposeColors.White,
+        onClick = onClick
+    ) {
+        Icon(
+            modifier = Modifier.size(20.dp),
+            painter = painterResource(R.drawable.ic_heart_24),
+            contentDescription = null
+        )
+        Text(
+            modifier = Modifier.padding(start = 4.dp),
+            text = stringResource(R.string.year_in_review_donate),
+            style = MaterialTheme.typography.labelLarge
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun YearInReviewSlideDonateButtonPreview() {
+    BaseTheme(currentTheme = Theme.DARK) {
+        YearInReviewSlideDonateButton(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {}
+        )
     }
 }

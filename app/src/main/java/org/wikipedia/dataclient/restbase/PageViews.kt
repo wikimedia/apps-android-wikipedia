@@ -18,10 +18,10 @@ class PageViews {
     }
 
     @Serializable
-    class PageItem {
-        val rank: Int = 0
-        @SerialName("wiki_id") val wikiId: String = ""
-        @SerialName("page_id") val pageId: Long = 0
+    class PageItem(
+        val rank: Int = 0,
+        @SerialName("wiki_id") val wikiId: String = "",
+        @SerialName("page_id") val pageId: Long = 0,
         @SerialName("view_count") val viewCount: Long = 0
-    }
+    )
 }

@@ -30,6 +30,7 @@ object YearInReviewFlowDecider {
 
     private fun personalizedCandidates(snapshot: YearInReviewSnapshot): List<CandidatePage> {
         val readingStats = snapshot.readingStats
+        val editingStats = snapshot.editingStats
         return listOf(
             CandidatePage(status = readingStats.totalArticlesStatus) {
                 YearInReviewPage.ArticlesRead(
@@ -63,11 +64,31 @@ object YearInReviewFlowDecider {
                     isEmptyState = readingStats.articlesRevisitedStatus == YearInReviewInsightStatus.EMPTY_STATE,
                     articles = readingStats.articlesRevisited
                 )
+            },
+            CandidatePage(status = readingStats.topCategoryStatus) {
+                YearInReviewPage.Category(
+                    categoryName = readingStats.topCategory.orEmpty()
+                )
+            },
+            CandidatePage(status = editingStats.totalEditCountStatus) {
+                YearInReviewPage.TotalEdits(
+                    isEmptyState = editingStats.totalEditCountStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    editCount = editingStats.totalEditCount
+                )
+            },
+            CandidatePage(status = editingStats.totalPageViewsCountStatus) {
+                YearInReviewPage.EditedArticleViews(
+                    viewCount = editingStats.totalPageViewsCount
+                )
+            },
+            CandidatePage(status = editingStats.mostViewedArticlesStatus) {
+                YearInReviewPage.MostViewedEditedArticles(
+                    articles = editingStats.mostViewedArticles
+                )
             }
         )
     }
 
-    // TODO: confirm this logic
     private fun personalizedClosingPage(snapshot: YearInReviewSnapshot): YearInReviewPage? {
         val rewardData = snapshot.rewardData
         return if (rewardData.isContributor) {
