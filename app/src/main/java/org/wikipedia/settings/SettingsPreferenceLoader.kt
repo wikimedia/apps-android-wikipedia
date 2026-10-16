@@ -62,18 +62,16 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
         findPreference(R.string.preference_key_editor_mode_choice).let {
-            val isVisualEditorEnabled = updateVisualEditorPreference(it)
-            if (isVisualEditorEnabled) {
-                it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                    TestKitchenAdapter.client.getInstrument("apps-editing")
-                        .submitInteraction(
-                            action = "click",
-                            actionSource = "settings",
-                            elementId = "editing_method"
-                        )
-                    activity.startActivity(VisualEditorSettingsActivity.newIntent(activity))
-                    true
-                }
+            updateVisualEditorPreference(it)
+            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                TestKitchenAdapter.client.getInstrument("apps-editing")
+                    .submitInteraction(
+                        action = "click",
+                        actionSource = "settings",
+                        elementId = "editing_method"
+                    )
+                activity.startActivity(VisualEditorSettingsActivity.newIntent(activity))
+                true
             }
         }
 
