@@ -33,9 +33,7 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
         return supportedLanguages.any { it.equals(languageCode, true) }
     }
 
-    private val supportedLanguages = listOf(
-        "ja", "ar", "fr"
-    )
+    private val supportedLanguages = RemoteConfig.config.androidv1?.semanticSearchLanguagesv2.orEmpty()
 
     fun isSemanticSearchSettingVisible(): Boolean {
         return isTestActive() && isTestGroupUser()
