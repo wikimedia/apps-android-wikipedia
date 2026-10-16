@@ -55,7 +55,7 @@ sealed interface YearInReviewPage {
         override val id get() = if (isEmptyState) "reading_pattern_empty" else "reading_pattern"
     }
 
-    data class TopTopic(val isEmptyState: Boolean, val topic: ArticleTopic, val articles: List<String>) : YearInReviewPage {
+    data class TopTopic(val isEmptyState: Boolean, val topic: ArticleTopic, val totalArticles: Int, val sampleArticles: List<String>) : YearInReviewPage {
         override val id get() = if (isEmptyState) "top_topic_empty" else "top_topic"
     }
 

@@ -171,7 +171,7 @@ fun ActivityTabLoggedInScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     if (showYearInReviewEntry) {
-                        LoggedInYearInReviewEntry(
+                        ActivityTabYearInReviewEntry(
                             state = yearInReviewEntryState,
                             onGetStartedClick = onYirGetStartedClick
                         )
@@ -219,7 +219,7 @@ fun ActivityTabLoggedInScreen(
             ) {
                 if (showYearInReviewEntry) {
                     item {
-                        LoggedInYearInReviewEntry(
+                        ActivityTabYearInReviewEntry(
                             modifier = Modifier.padding(paddingValues),
                             state = yearInReviewEntryState,
                             onGetStartedClick = onYirGetStartedClick
@@ -451,7 +451,7 @@ fun ActivityTabLoggedInScreen(
 }
 
 @Composable
-private fun LoggedInYearInReviewEntry(
+fun ActivityTabYearInReviewEntry(
     state: UiState<Boolean>?,
     modifier: Modifier = Modifier,
     onGetStartedClick: () -> Unit
