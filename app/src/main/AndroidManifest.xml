@@ -417,6 +417,8 @@
 
         <activity android:name=".settings.homefeed.HomeFeedSettingsActivity"/>
 
+        <activity android:name=".settings.VisualEditorSettingsActivity"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

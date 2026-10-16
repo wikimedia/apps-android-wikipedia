@@ -14,18 +14,19 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EDITOR_CHOICE_VE
-import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
@@ -62,15 +63,16 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
         findPreference(R.string.preference_key_editor_mode_choice).let {
-            val isVisualEditorEnabled = updateVisualEditorPreference(it)
-            if (isVisualEditorEnabled) {
-                it.onPreferenceClickListener = Preference.OnPreferenceClickListener { prefs ->
-                    showEditorChoiceDialog(activity, isSettingsScreen = true) { editorChoice, _ ->
-                        Prefs.editorModeChoice = editorChoice
-                        prefs.setSummary(if (editorChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
-                    }
-                    true
-                }
+            updateVisualEditorPreference(it)
+            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                TestKitchenAdapter.client.getInstrument("apps-editing")
+                    .submitInteraction(
+                        action = "click",
+                        actionSource = "settings",
+                        elementId = "editing_method"
+                    )
+                activity.startActivity(VisualEditorSettingsActivity.newIntent(activity))
+                true
             }
         }
 
@@ -203,6 +205,25 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         visualEditorPref.isVisible = true
         visualEditorPref.setSummary(if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) R.string.editor_select_dialog_ve_title else R.string.editor_select_dialog_source_title)
         return true
+    }
+
+    fun updateSemanticSearchPreference() {
+        val semanticSearchPref = findPreference(R.string.preference_key_semantic_search_settings_category)
+        semanticSearchPref.isVisible = SemanticSearchAbTest().isSemanticSearchSettingVisible()
+        findPreference(R.string.preference_key_semantic_search_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+            val isEnable = newValue as Boolean
+            val semanticSearchAbTest = SemanticSearchAbTest()
+            semanticSearchAbTest.shouldSendEvent {
+                TestKitchenAdapter.client.getInstrument("apps-search")
+                    .setExperiment(TestKitchenAdapter.getExperiment(semanticSearchAbTest))
+                    .submitInteraction(
+                        action = if (isEnable) "enable" else "disable",
+                        actionSource = "settings",
+                        actionSubtype = "semantic_search"
+                    )
+            }
+            true
+        }
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

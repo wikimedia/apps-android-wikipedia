@@ -338,7 +338,6 @@
     <string name="editor_select_dialog_continue">Continue</string>
     <string name="editor_select_icon_ve_title">Open in external browser icon</string>
     <string name="editor_select_title_settings_screen">Editing preference</string>
-    <string name="editor_select_save_btn_settings_screen">Save</string>
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>
@@ -2898,7 +2897,7 @@
         <item quantity="one">%d reference</item>
         <item quantity="other">%d references</item>
     </plurals>
-    <string name="semantic_search_results_last_updated_label">Last update %s</string>
+    <string name="semantic_search_results_last_updated_label">Last updated %s</string>
     <string name="semantic_search_results_feedback_title">Found what you were looking for?</string>
     <string name="semantic_search_results_feedback_thumb_up_content_description">Thumbs up</string>
     <string name="semantic_search_results_feedback_thumb_down_content_description">Thumbs down</string>
