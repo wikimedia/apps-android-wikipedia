@@ -211,7 +211,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec("end"),
             textProperties = mapOf(
                 "coverTitle" to resources.getString(R.string.yir_non_contributor_headline).uppercase(),
-                "bodyCopy" to resources.getString(R.string.yir_non_contributor_supporting) + (if (!page.showLoginPrompt) "\n\n" + resources.getString(R.string.yir_community_contribute_supporting_prompt) else ""),
+                "bodyCopy" to resources.getString(if (page.showLoginPrompt) R.string.yir_community_contribute_supporting else R.string.yir_non_contributor_supporting),
             )
         )
         // The file has no collective artboards yet, so these reuse the personal artboard closest to each insight
