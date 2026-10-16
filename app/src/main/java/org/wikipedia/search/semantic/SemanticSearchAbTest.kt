@@ -8,7 +8,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 
 class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
-    // TODO: confirm with data about the abTestName & group name
     override fun getGroupName(): String {
         return when (group) {
             GROUP_2 -> "treatment"
@@ -17,11 +16,7 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
     }
 
     private fun isTestActive(): Boolean {
-        // TODO: remove the Prefs check before release
-        if (Prefs.semanticSearchIsTestActive) {
-            return true
-        }
-        return RemoteConfig.config.androidv1?.semanticSearchEnabledv2 ?: false
+        return Prefs.semanticSearchIsTestActive || RemoteConfig.config.androidv1?.semanticSearchEnabledv2 ?: false
     }
 
     private fun isTestGroupUser(): Boolean {
@@ -29,11 +24,7 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
     }
 
     private fun isLanguageSupported(languageCode: String?): Boolean {
-        // TODO: remove the Prefs check before release
-        if (Prefs.semanticSearchLanguageOverride) {
-            return true
-        }
-        return supportedLanguages.any { it.equals(languageCode, true) }
+        return Prefs.semanticSearchLanguageOverride || supportedLanguages.any { it.equals(languageCode, true) }
     }
 
     private val supportedLanguages = RemoteConfig.config.androidv1?.semanticSearchLanguagesv2.orEmpty()
