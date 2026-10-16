@@ -28,6 +28,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.Prefs
+import kotlin.time.Duration.Companion.milliseconds
 
 class SearchResultsViewModel : ViewModel() {
     private val semanticSearchAbTest = SemanticSearchAbTest()
@@ -43,6 +44,7 @@ class SearchResultsViewModel : ViewModel() {
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
     var isSemanticSearchFeedbackShown = false
+    var isFromRecentSearch = false
 
     lateinit var invokeSource: Constants.InvokeSource
 
@@ -61,6 +63,8 @@ class SearchResultsViewModel : ViewModel() {
 
     private var lastXSearchIdPrefix = ""
     private var lastXSearchIdFullText = ""
+    var lastXSearchIdSemantic = ""
+    private var isSemanticSearchExposureSent = false
 
     val isSemanticSearchEnabled = combine(
         _languageCode,
@@ -87,10 +91,16 @@ class SearchResultsViewModel : ViewModel() {
         ExperimentalCoroutinesApi::class
     ) // TODO: revisit if the debounce method changed.
     val searchResultsFlow =
-        combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
+        combine(_searchTerm.debounce(delayMillis.milliseconds), _languageCode, _refreshSearchResults) { term, lang, _ ->
             Pair(term, lang)
         }.flatMapLatest { (term, lang) ->
-            _searchTermForLogging.emit(term)
+            // A language change or refresh can re-emit the previous debounced term before the new one settles.
+            if (term == _searchTerm.value) {
+                _searchTermForLogging.emit(term)
+                if (!term.isNullOrBlank()) {
+                    maybeSendSemanticSearchExposure(lang)
+                }
+            }
             val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize)) {
                 SearchResultsPagingSource(
@@ -109,10 +119,16 @@ class SearchResultsViewModel : ViewModel() {
         }.cachedIn(viewModelScope)
 
     fun updateSearchTerm(term: String?) {
+        if (_searchTerm.value != term) {
+            lastXSearchIdSemantic = ""
+        }
         _searchTerm.value = term
     }
 
     fun updateLanguageCode(code: String) {
+        if (_languageCode.value != code) {
+            lastXSearchIdSemantic = ""
+        }
         _languageCode.value = code
     }
 
@@ -129,6 +145,28 @@ class SearchResultsViewModel : ViewModel() {
                 put("type", result.type)
             }
         }
+    }
+
+    fun getSemanticEventActionContext(result: SearchResult? = null): Map<String, Any> {
+        return buildMap {
+            put("search_id_pre", lastXSearchIdPrefix)
+            put("search_id_ful", lastXSearchIdFullText)
+            put("search_id_sem", lastXSearchIdSemantic)
+            if (result != null) {
+                put("position", result.indexInApiCall)
+                put("type", result.type)
+            }
+        }
+    }
+
+    // Sent for both groups at the point where the semantic search entry card can appear.
+    private fun maybeSendSemanticSearchExposure(languageCode: String) {
+        if (isSemanticSearchExposureSent || invokeSource == Constants.InvokeSource.PLACES ||
+            !Prefs.isSemanticSearchEnabled || !semanticSearchAbTest.isSemanticSearchEligible(languageCode)) {
+            return
+        }
+        isSemanticSearchExposureSent = true
+        semanticSearchAbTest.maybeSendExposureEvent()
     }
 
     fun disableSemanticSearch() {

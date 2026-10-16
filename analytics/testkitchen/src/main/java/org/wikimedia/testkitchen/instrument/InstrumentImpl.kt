@@ -52,7 +52,7 @@ class InstrumentImpl(
     }
 
     fun continueFunnel(funnel: Funnel?): InstrumentImpl {
-        this.funnel = funnel
+        this.funnel = funnel?.let { Funnel.resolve(it) }
         return this
     }
 

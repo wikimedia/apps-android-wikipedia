@@ -14,6 +14,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
@@ -209,6 +210,20 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     fun updateSemanticSearchPreference() {
         val semanticSearchPref = findPreference(R.string.preference_key_semantic_search_settings_category)
         semanticSearchPref.isVisible = SemanticSearchAbTest().isSemanticSearchSettingVisible()
+        findPreference(R.string.preference_key_semantic_search_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+            val isEnable = newValue as Boolean
+            val semanticSearchAbTest = SemanticSearchAbTest()
+            semanticSearchAbTest.shouldSendEvent {
+                TestKitchenAdapter.client.getInstrument("apps-search")
+                    .setExperiment(TestKitchenAdapter.getExperiment(semanticSearchAbTest))
+                    .submitInteraction(
+                        action = if (isEnable) "enable" else "disable",
+                        actionSource = "settings",
+                        actionSubtype = "semantic_search"
+                    )
+            }
+            true
+        }
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

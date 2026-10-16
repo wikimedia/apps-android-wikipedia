@@ -36,6 +36,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.instrument
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
@@ -50,8 +51,22 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
         return ComposeView(requireContext()).apply {
             setContent {
                 SemanticSearchInfoDialogContent(
-                    onCloseClick = { dismiss() },
+                    onCloseClick = {
+                        SemanticSearchAbTest().shouldSendEvent {
+                            requireActivity().instrument?.submitInteraction("click",
+                                actionSubtype = "feature_info",
+                                elementId = "close_info_button"
+                            )
+                        }
+                        dismiss()
+                    },
                     onLearnMoreClick = {
+                        SemanticSearchAbTest().shouldSendEvent {
+                            requireActivity().instrument?.submitInteraction("click",
+                                actionSubtype = "feature_info",
+                                elementId = "learn_more_button"
+                            )
+                        }
                         UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_learn_more_link).toUri())
                         dismiss()
                     },

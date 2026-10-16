@@ -72,12 +72,12 @@ fun SearchResultsScreen(
     onNavigateToTitle: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
-    onSemanticSearchClick: (String?) -> Unit,
+    onSemanticSearchClick: (String?, Boolean) -> Unit,
     onSemanticSearchInfoClick: () -> Unit,
     onSemanticSearchCloseClick: () -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
-    onLoading: (Boolean) -> Unit,
+    onLoading: (Boolean) -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -144,10 +144,11 @@ fun SearchResultsScreen(
                         },
                         onInfoBtnClick = { onSemanticSearchInfoClick() },
                         onSemanticSearchClick = {
-                            if (isSemanticSearchFirstUse.value) {
+                            val isSemanticSearchFirstUse = isSemanticSearchFirstUse.value
+                            if (isSemanticSearchFirstUse) {
                                 Prefs.isSemanticSearchFirstUse = false
                             }
-                            onSemanticSearchClick(searchTerm.value)
+                            onSemanticSearchClick(searchTerm.value, isSemanticSearchFirstUse)
                         },
                         isFirstUse = isSemanticSearchFirstUse.value
                     )

@@ -48,6 +48,7 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -99,19 +100,32 @@ import org.wikipedia.views.imageservice.ImageService
 import java.util.Date
 import kotlin.math.ceil
 
+enum class LoadingType {
+    Loading, Error, Empty, Success
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SemanticSearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
-    onItemClick: (PageTitle, String?) -> Unit,
+    onItemClick: (SearchResult) -> Unit,
     onCloseClick: () -> Unit,
     onFeedbackSubmit: (isPositive: Boolean?, feedbackText: String) -> Unit,
-    onLoading: (Boolean) -> Unit,
+    onLoading: (LoadingType) -> Unit
 ) {
 
     val searchResultsState = viewModel.semanticSearchResultsState.collectAsState().value
     val feedbackState = viewModel.feedbackState.collectAsState().value
+
+    val loadingType = when (searchResultsState) {
+        is UiState.Loading -> LoadingType.Loading
+        is UiState.Success -> if (searchResultsState.data.isEmpty()) LoadingType.Empty else LoadingType.Success
+        is UiState.Error -> LoadingType.Error
+    }
+    LaunchedEffect(loadingType) {
+        onLoading(loadingType)
+    }
 
     val languageCode = viewModel.languageCode
     val layoutDirection =
@@ -144,12 +158,10 @@ fun SemanticSearchResultsScreen(
 
             when (searchResultsState) {
                 is UiState.Loading -> {
-                    onLoading(true)
                     SemanticSearchResultsSkeletonLoader()
                 }
 
                 is UiState.Success -> {
-                    onLoading(false)
                     val results = searchResultsState.data
                     if (results.isEmpty()) {
                         SemanticSearchNoResultsContent(
@@ -181,7 +193,6 @@ fun SemanticSearchResultsScreen(
                 }
 
                 is UiState.Error -> {
-                    onLoading(false)
                     SemanticSearchErrorContent(
                         throwable = searchResultsState.error,
                         wikiErrorClickEvents = WikiErrorClickEvents(
@@ -416,7 +427,7 @@ fun SemanticSearchResultsContent(
     modifier: Modifier = Modifier,
     viewModel: SemanticSearchResultsViewModel,
     items: List<SearchResult>,
-    onItemClick: (PageTitle, String?) -> Unit
+    onItemClick: (SearchResult) -> Unit
 ) {
     Box(
         modifier = modifier
@@ -435,7 +446,7 @@ fun SemanticSearchResultsContent(
                     prefixQuotationMark = SemanticSearchAbTest.getQuotationMark(viewModel.languageCode),
                     showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
-                    onItemClick = { onItemClick(searchResult.pageTitle, searchResult.snippet) }
+                    onItemClick = { onItemClick(searchResult) }
                 )
             }
         }

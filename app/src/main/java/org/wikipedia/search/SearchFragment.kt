@@ -32,6 +32,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.db.RecentSearch
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.search.semantic.SemanticSearchInfoDialog
 import org.wikipedia.search.semantic.SemanticSearchResultsDialog
 import org.wikipedia.settings.Prefs
@@ -135,6 +136,12 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
         requireActivity().instrument?.submitInteraction("search_impression", actionSource = invokeSource.value)
 
+        SemanticSearchAbTest().shouldSendEvent {
+            requireActivity().instrument?.submitInteraction("impression",
+                actionSubtype = invokeSource.value
+            )
+        }
+
         return binding.root
     }
 
@@ -190,7 +197,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     }
 
     override fun switchToSearch(text: String) {
-        startSearch(text, true)
+        startSearch(term = text, force = true, isFromRecentSearch = true)
         binding.searchCabView.setOnQueryTextListener(null)
         binding.searchCabView.setQuery(text, false)
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
@@ -209,7 +216,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         switchToSearch(text)
     }
 
-    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?, showSemanticSearchFeedback: Boolean, highlightText: String?) {
+    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?, showSemanticSearchFeedback: Boolean, highlightText: String?, semanticSearchId: String?) {
         if (!isAdded) {
             return
         }
@@ -229,6 +236,8 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             startActivity(
                 intent
                     .putExtra(PageActivity.EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, showSemanticSearchFeedback)
+                    .putExtra(PageActivity.EXTRA_SEMANTIC_SEARCH_ID, semanticSearchId)
+                    .putExtra(PageActivity.EXTRA_SEMANTIC_SEARCH_FUNNEL, requireActivity().instrument?.funnel)
                     .putExtra(PageActivity.EXTRA_HIGHLIGHT_TEXT, highlightText)
             )
         }
@@ -257,6 +266,10 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         searchResultsFragment.onSemanticSearchFeedbackShown()
     }
 
+    override fun onSemanticSearchIdLoaded(searchId: String) {
+        searchResultsFragment.setSemanticSearchId(searchId)
+    }
+
     private fun onSearchContainerClick() {
         // Give the root container view an empty click handler, so that click events won't
         // get passed down to any underlying views (e.g. a PageFragment on top of which
@@ -268,7 +281,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         requestAddLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SEARCH))
     }
 
-    private fun startSearch(term: String?, force: Boolean) {
+    private fun startSearch(term: String?, force: Boolean, isFromRecentSearch: Boolean = false) {
         if (!isSearchActive) {
             openSearch()
         }
@@ -288,7 +301,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             }
             when (activePanel) {
                 PANEL_SEARCH_RESULTS -> {
-                    searchResultsFragment.startSearch(term, force)
+                    searchResultsFragment.startSearch(term, force, isFromRecentSearch)
                 }
             }
         }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)

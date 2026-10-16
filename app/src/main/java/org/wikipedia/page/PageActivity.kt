@@ -27,7 +27,6 @@ import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.lifecycle.withResumed
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -36,6 +35,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikimedia.testkitchen.instrument.Funnel
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -79,6 +79,7 @@ import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.semantic.SemanticSearchFeedbackDialog
+import org.wikipedia.search.semantic.SemanticSearchFeedbackDialog.FeedbackSuppression
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.staticdata.MainPageNameData
@@ -124,6 +125,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
     private var semanticSearchFeedbackTitle: PageTitle? = null
+    private var semanticSearchFeedbackSearchId: String? = null
+    private var semanticSearchFeedbackFunnel: Funnel? = null
     private var semanticSearchFeedbackJob: Job? = null
 
     private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -387,6 +390,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onDestroy() {
         Prefs.hasVisitedArticlePage = true
+        if (isFinishing) {
+            cancelSemanticSearchFeedback(FeedbackSuppression.LEFT_ARTICLE)
+        }
         super.onDestroy()
     }
 
@@ -452,7 +458,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private fun scheduleSemanticSearchFeedback() {
         val feedbackTitle = semanticSearchFeedbackTitle ?: return
         if (pageFragment.title != feedbackTitle) {
-            cancelSemanticSearchFeedback()
+            cancelSemanticSearchFeedback(FeedbackSuppression.LEFT_ARTICLE)
             return
         }
         if (semanticSearchFeedbackJob != null) {
@@ -460,21 +466,40 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }
         semanticSearchFeedbackJob = lifecycleScope.launch {
             delay(SemanticSearchFeedbackDialog.ARTICLE_DISPLAY_DELAY_MILLIS.milliseconds)
-            withResumed {
-                if (pageFragment.title == feedbackTitle && ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) == null) {
-                    ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                        SemanticSearchFeedbackDialog.newInstance(feedbackTitle.wikiSite.languageCode))
-                }
+            val suppression = when {
+                pageFragment.title != feedbackTitle -> FeedbackSuppression.LEFT_ARTICLE
+                !lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) ||
+                        ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) != null -> FeedbackSuppression.SCREEN_COVERED
+                isCabOpen || pageFragment.sidePanelHandler.isVisible -> FeedbackSuppression.STARTED_ACTIVITY
+                else -> null
+            }
+            if (suppression == null) {
+                ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                    SemanticSearchFeedbackDialog.newInstance(feedbackTitle.wikiSite.languageCode,
+                        semanticSearchFeedbackSearchId, semanticSearchFeedbackFunnel))
+            } else {
+                submitSemanticSearchFeedbackSuppressed(feedbackTitle, suppression)
             }
             semanticSearchFeedbackTitle = null
             semanticSearchFeedbackJob = null
         }
     }
 
-    private fun cancelSemanticSearchFeedback() {
+    private fun cancelSemanticSearchFeedback(suppression: FeedbackSuppression? = null) {
+        val feedbackTitle = semanticSearchFeedbackTitle
+        if (feedbackTitle != null && suppression != null) {
+            submitSemanticSearchFeedbackSuppressed(feedbackTitle, suppression)
+        }
         semanticSearchFeedbackJob?.cancel()
         semanticSearchFeedbackJob = null
         semanticSearchFeedbackTitle = null
+    }
+
+    private fun submitSemanticSearchFeedbackSuppressed(feedbackTitle: PageTitle, suppression: FeedbackSuppression) {
+        SemanticSearchFeedbackDialog.submitSuppressedEvent(
+            instrument = SemanticSearchFeedbackDialog.newInstrument(semanticSearchFeedbackFunnel, feedbackTitle.wikiSite),
+            actionSubtype = "article_result", suppression
+        )
     }
 
     override fun onPageDismissBottomSheet() {
@@ -699,9 +724,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     ACTION_LOAD_IN_CURRENT_TAB_SQUASH == intent.action) && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
             val historyEntry = intent.parcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
-            cancelSemanticSearchFeedback()
+            cancelSemanticSearchFeedback(FeedbackSuppression.LEFT_ARTICLE)
             if (intent.getBooleanExtra(EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, false)) {
                 semanticSearchFeedbackTitle = title
+                semanticSearchFeedbackSearchId = intent.getStringExtra(EXTRA_SEMANTIC_SEARCH_ID)
+                semanticSearchFeedbackFunnel = intent.getSerializableExtra(EXTRA_SEMANTIC_SEARCH_FUNNEL) as Funnel?
             }
             val highlightText = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
             when (intent.action) {
@@ -966,6 +993,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         const val ACTION_RESUME_READING = "org.wikipedia.resume_reading"
         const val EXTRA_HISTORYENTRY = "org.wikipedia.history.historyentry"
         const val EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK = "org.wikipedia.search.semantic.show_feedback"
+        const val EXTRA_SEMANTIC_SEARCH_ID = "org.wikipedia.search.semantic.search_id"
+        const val EXTRA_SEMANTIC_SEARCH_FUNNEL = "org.wikipedia.search.semantic.funnel"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.page.highlight_text"
 
         fun newIntent(context: Context): Intent {
