@@ -4,6 +4,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.categories.db.CategoryDao
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.Service
@@ -33,6 +34,7 @@ class YearInReviewRepositoryImpl(
     private val historyEntryDao: HistoryEntryDao = AppDatabase.instance.historyEntryDao(),
     private val historyEntryWithImageDao: HistoryEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
     private val pageTopicDao: PageTopicDao = AppDatabase.instance.pageTopicDao(),
+    private val categoryDao: CategoryDao = AppDatabase.instance.categoryDao(),
     private val cache: YearInReviewCache = PrefsYearInReviewStore,
     private val donationEligibility: YearInReviewDonationEligibility = YearInReviewDonationEligibility()
 ) : YearInReviewRepository {
@@ -97,6 +99,7 @@ class YearInReviewRepositoryImpl(
             historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
                 .map { it.first.title to it.second }
         }
+        val topCategoriesDeferred = async { categoryDao.getTopCategoriesByYear(YearInReviewConfig.YEAR, limit = 10) }
 
         // The sample articles query depends on the top topic, so the topic queries run in sequence here,
         // while the queries above keep running in parallel.
@@ -111,6 +114,10 @@ class YearInReviewRepositoryImpl(
         }
         val otherTopTopics = topTopics.drop(1).filter { it.articleCount > 1 }
 
+        val topCategories = topCategoriesDeferred.await().filter { it.count > 1 }
+        val topCategoriesWithSpaces = topCategories.filter { it.title.split(" ").size > 2 }
+        val topCategory = topCategoriesWithSpaces.firstOrNull() ?: topCategories.firstOrNull()
+
         val peakMonth = peakMonthDeferred.await()
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
@@ -118,6 +125,7 @@ class YearInReviewRepositoryImpl(
             peakMonth = peakMonth?.month ?: 0,
             peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,
             articlesRevisited = articlesRevisited.await(),
+            topCategory = topCategory?.title,
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,
