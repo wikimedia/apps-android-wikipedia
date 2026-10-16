@@ -8,6 +8,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.withResumed
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -115,6 +116,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.withResumed { /* show feedback */ }
             viewModel.feedbackState.first { it.isVisible }
             if (!viewModel.isFeedbackPending) {
                 return@launch
