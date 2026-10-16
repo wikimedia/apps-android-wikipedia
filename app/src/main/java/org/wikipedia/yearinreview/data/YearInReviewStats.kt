@@ -12,8 +12,28 @@ data class YearInReviewCachedStats(
 
 @Serializable
 data class YearInReviewEditingStats(
-    val contributionsEditCount: Int
-)
+    val totalEditCount: Int = 0,
+    val totalPageViewsCount: Long = 0,
+    val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList()
+) {
+    val totalEditCountStatus get() = if (totalEditCount > 0) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
+    val totalPageViewsCountStatus get() = if (totalPageViewsCount > 25) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val mostViewedArticlesStatus get() = if (totalPageViewsCount > 25 && mostViewedArticles.size >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+}
 
 @Serializable
 data class YearInReviewReadingStats(
@@ -22,6 +42,7 @@ data class YearInReviewReadingStats(
     val peakMonth: Int,
     val peakMonthVisitedDays: Int,
     val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
+    val topCategory: String? = null,
     val topTopic: ArticleTopic? = null,
     val topTopicTotalArticles: Int = 0,
     val topTopicSampleArticles: List<String>? = emptyList(),
@@ -55,6 +76,12 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
+    }
+
+    val topCategoryStatus get() = if (!topCategory.isNullOrEmpty()) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
     }
 
     val hasPeakMonth get() = peakMonthVisitedDays >= MIN_PEAK_MONTH_VISITED_DAYS

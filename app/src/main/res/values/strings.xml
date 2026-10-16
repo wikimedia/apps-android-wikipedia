@@ -2152,7 +2152,7 @@
     <string name="yir_community_global_reach_headline">Wikipedia\'s global reach: one of the top ten most visited websites in the world</string>
     <string name="yir_community_global_reach_supporting">Wikipedia is the backbone of the internet\'s knowledge. From students to chatbots, everyone learns from it.</string>
     <string name="yir_community_contribute_headline">You matter.</string>
-    <string name="yir_community_contribute_supporting">Wikipedia exists thanks to real people like you, contributing what they can to keep it thriving. If Wikipedia is valuable to you, please consider supporting it by donating or editing. Already a contributor? Log in or create an account to see your achievements.</string>
+    <string name="yir_community_contribute_supporting">Wikipedia exists thanks to real people like you, contributing what they can to keep it thriving. If Wikipedia is valuable to you, please consider supporting it by donating or editing.\n\nAlready a contributor? Log in or create an account to see your achievements.</string>
     <string name="yir_closing_headline">Until the next rabbit hole</string>
     <string name="yir_closing_supporting">Whether you came for one article or one hundred, thanks for exploring, reading, and staying curious with us on Wikipedia.</string>
     <string name="yir_closing_share_action">Share highlights</string>

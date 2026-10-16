@@ -111,7 +111,7 @@ sealed interface YearInReviewPage {
         override val id = "edited_article_views"
     }
 
-    data class MostViewedEditedArticles(val articles: List<YearInReviewArticleViewCount>) : YearInReviewPage {
+    data class MostViewedEditedArticles(val articles: List<Pair<PageTitle, Long>>) : YearInReviewPage {
         override val id = "most_viewed_edited_articles"
     }
 

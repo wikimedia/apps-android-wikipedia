@@ -120,7 +120,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec("frame12"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_niche_category_headline),
-                "data" to page.categoryName,
+                "data" to StringUtil.removeNamespace(page.categoryName).uppercase(),
                 "bodyCopy" to resources.getString(R.string.yir_niche_category_supporting)
             )
         )
@@ -196,8 +196,8 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesListSlideSpec("frame18"),
             textProperties = mapOf(
                 "bodyText" to resources.getString(R.string.yir_most_viewed_edited_articles_headline)
-            ) + listRows(page.articles.map { it.title to getViewCountText(resources, it.viewCount) }),
-            imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
+            ) + listRows(page.articles.map { StringUtil.fromHtml(it.first.displayText).toString() to getViewCountText(resources, it.second) }),
+            imageUrls = listIcons(page.articles.map { it.first.thumbUrl })
         )
         is YearInReviewPage.ThankYou -> RiveSlideContent(
             spec = allTemplatesSlideSpec("end"),
@@ -205,6 +205,13 @@ object YearInReviewRiveContentMapper {
                 "coverTitle" to resources.getString(R.string.yir_contributor_thanks_headline).uppercase(),
                 "bodyCopy" to resources.getString(R.string.yir_contributor_thanks_supporting, getDonorEditorString(resources, page.isDonor, page.isEditor)),
                 "data" to ""
+            )
+        )
+        is YearInReviewPage.YouMatter -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("end"),
+            textProperties = mapOf(
+                "coverTitle" to resources.getString(R.string.yir_non_contributor_headline).uppercase(),
+                "bodyCopy" to resources.getString(if (page.showLoginPrompt) R.string.yir_community_contribute_supporting else R.string.yir_non_contributor_supporting),
             )
         )
         // The file has no collective artboards yet, so these reuse the personal artboard closest to each insight
@@ -221,7 +228,6 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.LongestReadReveal,
         is YearInReviewPage.RabbitHoleGuess,
         is YearInReviewPage.RabbitHoleReveal,
-        is YearInReviewPage.YouMatter,
         is YearInReviewPage.End -> null
     }
 }
