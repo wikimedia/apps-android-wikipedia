@@ -1,6 +1,7 @@
 package org.wikipedia.yearinreview.data
 
 import android.location.Geocoder
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import org.maplibre.android.geometry.LatLng
@@ -141,8 +142,9 @@ class YearInReviewRepositoryImpl(
             YearInReviewTimeOfDay.favoriteOf(historyEntryDao.getArticleVisitCountsByHourBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles))
         }
 
-        val topCountry = async {
+        val topCountry = async(Dispatchers.IO) {
             val pagesWithCoordinates = AppDatabase.instance.historyEntryWithImageDao().getEntriesWithCoordinates(256, dateRange.startMillis, dateRange.endMillis)
+                .filter { it.geoLat != null && it.geoLon != null }
                 .distinctBy { it.apiTitle }
             if (pagesWithCoordinates.size > 2) {
                 try {

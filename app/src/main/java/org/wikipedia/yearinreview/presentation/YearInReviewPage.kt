@@ -32,7 +32,7 @@ sealed interface YearInReviewPage {
     val id: String
     val useDarkStatusBarIcons: Boolean get() = false
 
-    data class Cover(val isPersonalized: Boolean = false, val daysSpent: Int) : YearInReviewPage {
+    data class Cover(val isPersonalized: Boolean = true, val daysSpent: Int) : YearInReviewPage {
         override val id = "cover"
     }
 
