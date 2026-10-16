@@ -1008,7 +1008,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (currentTab.backStack.isNotEmpty() &&
                 title == currentTab.backStack[currentTab.backStackPosition].title) {
             if (model.page == null || isRefresh) {
-                pageFragmentLoadState.loadFromBackStack()
+                if (highlightText.isNullOrEmpty()) {
+                    pageFragmentLoadState.loadFromBackStack()
+                } else {
+                    // Scroll to the highlighted passage instead of restoring the previous scroll position.
+                    loadPage(title, entry, false, 0, isRefresh, highlightText)
+                }
             } else {
                 // Keep the model in sync so that a pending final_setup does not jump to a stale target.
                 model.title?.fragment = title.fragment

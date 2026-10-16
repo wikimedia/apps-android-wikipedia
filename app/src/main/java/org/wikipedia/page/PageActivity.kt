@@ -469,7 +469,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             val suppression = when {
                 pageFragment.title != feedbackTitle -> FeedbackSuppression.LEFT_ARTICLE
                 !lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) ||
-                        ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) != null -> FeedbackSuppression.SCREEN_COVERED
+                        ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) != null ||
+                        ExclusiveBottomSheetPresenter.getCurrentBottomSheet(pageFragment.childFragmentManager) != null -> FeedbackSuppression.SCREEN_COVERED
                 isCabOpen || pageFragment.sidePanelHandler.isVisible -> FeedbackSuppression.STARTED_ACTIVITY
                 else -> null
             }
@@ -796,6 +797,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(pageTitle, entry)
                 TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
                 else -> pageFragment.openFromExistingTab(pageTitle, entry)
+            }
+            // Reusing an already-loaded page does not trigger onPageLoadComplete().
+            if (pageFragment.page != null && !pageFragment.isLoading) {
+                scheduleSemanticSearchFeedback()
             }
         }
     }
