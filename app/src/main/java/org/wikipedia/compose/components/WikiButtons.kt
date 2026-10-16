@@ -27,6 +27,7 @@ import org.wikipedia.theme.Theme
 fun AppButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     backgroundColor: Color = WikipediaTheme.colors.progressiveColor,
     contentColor: Color = WikipediaTheme.colors.paperColor,
     content: @Composable (() -> Unit)
@@ -34,6 +35,7 @@ fun AppButton(
     Button(
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
         colors = ButtonDefaults.buttonColors(
             containerColor = backgroundColor,
             contentColor = contentColor,

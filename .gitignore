@@ -11,6 +11,7 @@ gen-external-apklibs
 .gradle
 /local.properties
 /build
+release/
 
 # IDE files
 *.iml
@@ -18,6 +19,7 @@ gen-external-apklibs
 out
 *.tmproj
 /captures
+.vscode/
 
 # OS specific files
 *~

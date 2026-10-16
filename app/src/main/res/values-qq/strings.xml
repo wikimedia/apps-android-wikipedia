@@ -1931,8 +1931,8 @@
   </plurals>
   <string name="yir_article_count_headline">Headline of the Year in Review slide that shows how many articles the user read.</string>
   <plurals name="yir_article_count_supporting_top">
-    <item quantity="one">Supporting text of the Year in Review article count slide, shown when the user is in the top percentile of readers. %1$d will be replaced by the percentile (e.g. 50), and %2$d will be replaced by the formatted average number of articles a person reads per year.</item>
-    <item quantity="other">Supporting text of the Year in Review article count slide, shown when the user is in the top percentile of readers. %1$d will be replaced by the percentile (e.g. 50), and %2$d will be replaced by the formatted average number of articles a person reads per year.</item>
+    <item quantity="one">Supporting text of the Year in Review article count slide, shown when the user is in the top percentile of readers. %1$s will be replaced by the percentile, and %2$d will be replaced by the formatted average number of articles a person reads per year.</item>
+    <item quantity="other">Supporting text of the Year in Review article count slide, shown when the user is in the top percentile of readers. %1$s will be replaced by the percentile, and %2$d will be replaced by the formatted average number of articles a person reads per year.</item>
   </plurals>
   <string name="yir_article_count_supporting">Supporting text of the Year in Review article count slide, shown when the user is not in the top percentile of readers.</string>
   <string name="yir_article_count_empty_headline">Headline of the Year in Review article count slide, shown when the user has not read any articles.</string>
@@ -1943,9 +1943,9 @@
     <item quantity="other">Supporting text of the Year in Review days visited slide. %1$s will be replaced by the name of the month with the most activity, and %2$d will be replaced by the number of days in that month on which the user read.</item>
   </plurals>
   <string name="yir_minutes_read_headline">Headline of the Year in Review slide that shows how many minutes the user spent reading.</string>
-  <string name="yir_minutes_read_supporting">Supporting text of the Year in Review minutes read slide.</string>
+  <string name="yir_minutes_read_supporting">Supporting text of the Year in Review minutes read slide. %1$s is replaced by a comment about the length of time spent reading.</string>
   <string name="yir_reading_streak_headline">Headline of the Year in Review slide that shows the user\'s longest reading streak.</string>
-  <string name="yir_reading_streak_supporting">Supporting text of the Year in Review reading streak slide. %1$s will be replaced by the localized date range of the streak (e.g. \"March 4–14\").</string>
+  <string name="yir_reading_streak_supporting">Supporting text of the Year in Review reading streak slide. %1$s and %2$s will be replaced by the localized date range of the streak (e.g. \"March 4–14\").</string>
   <string name="yir_reading_streak_empty_headline">Headline of the Year in Review reading streak slide, shown when the user has no reading streaks.</string>
   <plurals name="yir_reading_streak_empty_supporting">
     <item quantity="one">Supporting text of the Year in Review reading streak slide, shown when the user has no reading streaks. %1$d will be replaced by the minimum number of consecutive days that count as a streak.</item>
@@ -1966,6 +1966,10 @@
   <string name="yir_top_topic_empty_headline">Headline of the Year in Review top topic slide, shown when the user has no single top topic. %1$d will be replaced by the year.</string>
   <string name="yir_top_topic_empty_supporting">Supporting text of the Year in Review top topic slide, shown when the user has no single top topic.</string>
   <string name="yir_runner_up_topics_headline">Headline of the Year in Review slide that lists the user\'s runner-up topics. %1$d will be replaced by the year.</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">Shown under each topic on the Year in Review runner-up topics slide. %1$d will be replaced by the number of articles the user read in that topic.</item>
+    <item quantity="other">Shown under each topic on the Year in Review runner-up topics slide. %1$d will be replaced by the number of articles the user read in that topic.</item>
+  </plurals>
   <string name="yir_biggest_reading_day_headline">Headline of the Year in Review slide that shows the day the user read the most.</string>
   <plurals name="yir_biggest_reading_day_supporting">
     <item quantity="one">Supporting text of the Year in Review biggest reading day slide. %1$d will be replaced by the number of minutes.</item>
@@ -1986,12 +1990,27 @@
   <string name="yir_niche_category_headline">Headline of the Year in Review slide that shows the user\'s most niche category. The next line will state the name of the category.</string>
   <string name="yir_niche_category_supporting">Supporting text of the Year in Review niche category slide.</string>
   <string name="yir_reread_articles_headline">Headline of the Year in Review slide that lists articles the user read more than once.</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">Number of times that the user visited the article. %1$d is the number of visits.</item>
+    <item quantity="other">Number of times that the user visited the article. %1$d is the number of visits.</item>
+  </plurals>
   <string name="yir_reread_articles_empty_headline">Headline of the Year in Review re-read articles slide, shown when the user did not read any article more than once.</string>
   <string name="yir_reread_articles_empty_supporting">Supporting text of the Year in Review re-read articles slide, shown when the user did not read any article more than once.</string>
   <string name="yir_places_headline">Headline of the Year in Review slide that lists places related to the articles the user read.</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">Shown under each place on the Year in Review places slide. %1$d will be replaced by the number of articles the user read about that place.</item>
+    <item quantity="other">Shown under each place on the Year in Review places slide. %1$d will be replaced by the number of articles the user read about that place.</item>
+  </plurals>
   <string name="yir_places_empty_headline">Headline of the Year in Review places slide, shown when there is no single place that stands out.</string>
   <string name="yir_places_empty_supporting">Supporting text of the Year in Review places slide, shown when there is no single place that stands out. %1$d will be replaced by the year.</string>
-  <string name="yir_saved_articles_headline">Headline of the Year in Review slide that shows how many articles the user saved.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Headline of the Year in Review slide that shows how many articles the user saved. %1$d is the number of articles.</item>
+    <item quantity="other">Headline of the Year in Review slide that shows how many articles the user saved. %1$d is the number of articles.</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">Shown under an article on Year in Review slides that list articles with their view counts. %1$s will be replaced by the formatted number of views.</item>
+    <item quantity="other">Shown under an article on Year in Review slides that list articles with their view counts. %1$s will be replaced by the formatted number of views.</item>
+  </plurals>
   <string name="yir_saved_articles_empty_headline">Headline of the Year in Review saved articles slide, shown when the user has no saved articles.</string>
   <string name="yir_saved_articles_empty_supporting">Supporting text of the Year in Review saved articles slide, shown when the user has no saved articles.</string>
   <string name="yir_edits_headline">Headline of the Year in Review slide that shows how many edits the user made.</string>
@@ -2037,6 +2056,7 @@
     <item quantity="one">Supporting text of the Year in Review store discount card. %1$d will be replaced by the discount percentage.</item>
     <item quantity="other">Supporting text of the Year in Review store discount card. %1$d will be replaced by the discount percentage.</item>
   </plurals>
+  <string name="yir_store_discount_action">Button label on the Year in Review store discount card.</string>
   <string name="yir_games_headline">Headline of the Year in Review card that promotes Wikipedia games.</string>
   <string name="yir_games_supporting">Supporting text of the Year in Review games card.</string>
   <string name="yir_games_action">Button label on the Year in Review games card.</string>
@@ -2090,10 +2110,7 @@
   <string name="yir_topic_comment_north_america">Comment shown in the Year in Review top topic slide when the user\'s top topic is \"North America\".</string>
   <string name="yir_topic_comment_oceania">Comment shown in the Year in Review top topic slide when the user\'s top topic is \"Oceania\".</string>
   <string name="yir_topic_comment_south_america">Comment shown in the Year in Review top topic slide when the user\'s top topic is \"South America\".</string>
-  <plurals name="yir_time_spent_comment_1">
-    <item quantity="one">Comment shown in the Year in Review minutes read slide when the user spent at least 1 minutes reading. %1$,d will be replaced by the formatted number of heartbeats (1,200).</item>
-    <item quantity="other">Comment shown in the Year in Review minutes read slide when the user spent at least 1 minutes reading. %1$,d will be replaced by the formatted number of heartbeats (1,200).</item>
-  </plurals>
+  <string name="yir_time_spent_comment_1">Comment shown in the Year in Review minutes read slide when the user spent at least 1 minutes reading.</string>
   <string name="yir_time_spent_comment_9">Comment shown in the Year in Review minutes read slide when the user spent at least 9 minutes reading.</string>
   <string name="yir_time_spent_comment_13">Comment shown in the Year in Review minutes read slide when the user spent at least 13 minutes reading.</string>
   <string name="yir_time_spent_comment_19">Comment shown in the Year in Review minutes read slide when the user spent at least 19 minutes reading.</string>
@@ -2101,16 +2118,17 @@
   <string name="yir_time_spent_comment_93">Comment shown in the Year in Review minutes read slide when the user spent at least 93 minutes reading.</string>
   <string name="yir_time_spent_comment_121">Comment shown in the Year in Review minutes read slide when the user spent at least 121 minutes reading.</string>
   <string name="yir_time_spent_comment_540">Comment shown in the Year in Review minutes read slide when the user spent at least 540 minutes reading.</string>
-  <plurals name="yir_time_spent_comment_1441">
-    <item quantity="one">Comment shown in the Year in Review minutes read slide when the user spent at least 1441 minutes reading. %1$,d will be replaced by the formatted number of eggs (2,000).</item>
-    <item quantity="other">Comment shown in the Year in Review minutes read slide when the user spent at least 1441 minutes reading. %1$,d will be replaced by the formatted number of eggs (2,000).</item>
-  </plurals>
+  <string name="yir_time_spent_comment_1441">Comment shown in the Year in Review minutes read slide when the user spent at least 1441 minutes reading.</string>
   <plurals name="yir_time_spent_comment_2800">
     <item quantity="one">Comment shown in the Year in Review minutes read slide when the user spent at least 2800 minutes reading. %1$d will be replaced by the number of whole days the user spent reading.</item>
     <item quantity="other">Comment shown in the Year in Review minutes read slide when the user spent at least 2800 minutes reading. %1$d will be replaced by the number of whole days the user spent reading.</item>
   </plurals>
   <string name="year_in_review_learn_more">Button text for the Year in Review button Learn More.</string>
+  <string name="year_in_review_about_your_insights">Menu item that navigates to a page explaining how insights are processed.</string>
+  <string name="year_in_review_share_feedback">Menu item that opens an email for sharing feedback about Year in Review.</string>
+  <string name="year_in_review_feedback_email_subject">Subject line of the support email created when the user chooses to share feedback about Year in Review.</string>
   <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>
+  <string name="year_in_review_announcement_explore">Button text on the Year in Review announcement sheet, which opens the full Year in Review.</string>
   <string name="year_in_review_topbar_w_icon">Content description of the W Wikipedia icon for the Year in Review scaffold.</string>
   <string name="year_in_review_navigate_left">Content description of the navigation left icon for the Year in Review Scaffold.</string>
   <string name="year_in_review_close">Content description of the close button in the Year in Review app bar.</string>
@@ -2122,7 +2140,11 @@
   <string name="year_in_review_get_started_headline">Healine text for the year in review get started page</string>
   <string name="year_in_review_get_started_bodytext">Body text for the year in review get started page.</string>
   <string name="year_in_review_get_started_info">Info text for the year in review get started page.</string>
-  <string name="year_in_review_get_started_later">Snackbar message for the year in review that indicates the feature can be visited in the More menu.</string>
+  <string name="year_in_review_get_started_later_activity">Snackbar message for the year in review that indicates the feature can be visited in the Activity tab.</string>
+  <string name="year_in_review_entry_card_title_collective">Title of the Year in Review card on the Activity tab, shown to users without enough reading data for a personalized Year in Review.</string>
+  <string name="year_in_review_entry_card_title_personalized">Title of the Year in Review card on the Activity tab, shown to logged-in users with enough reading data for a personalized Year in Review.</string>
+  <string name="year_in_review_entry_card_subtitle">Subtitle of the Year in Review card on the Activity tab.</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">Subtitle of the Year in Review card on the Activity tab when there is not enough data for a personalized Year in Review.</string>
   <string name="year_in_review_survey_title">Title for the Year in Review survey</string>
   <string name="year_in_review_survey_subtitle">Subtitle for the Year in Review survey</string>
   <string name="year_in_review_reading_list_survey_title">Title for the Year in Review Collection survey. %d will be replaced by the current year.</string>
@@ -2600,12 +2622,12 @@
   <string name="semantic_search_results_close_button_content_description">Text for the close the semantic search results button.</string>
   <string name="semantic_search_results_read_in_article_label">Text that indicates the full article is available in the article screen.</string>
   <plurals name="semantic_search_result_contributors">
-      <item quantity="one">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
-      <item quantity="other">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
+    <item quantity="one">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
+    <item quantity="other">Text of the number of the contributors in the semantic search result. %d is replaced by the number of contributors.</item>
   </plurals>
   <plurals name="semantic_search_result_references">
-      <item quantity="one">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
-      <item quantity="other">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
+    <item quantity="one">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
+    <item quantity="other">Text of the number of the references in the semantic search result. %d is replaced by the number of references.</item>
   </plurals>
   <string name="semantic_search_results_last_updated_label">Label that indicates the last update time. %s is replaced by the last update time.</string>
   <string name="semantic_search_results_feedback_title">Question shown in the feedback area of the semantic search results, asking whether the user found what they were looking for.</string>

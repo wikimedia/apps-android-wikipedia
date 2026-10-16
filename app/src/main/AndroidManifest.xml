@@ -386,10 +386,10 @@
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
-            android:name=".yearinreview.YearInReviewOnboardingActivity"/>
+            android:name=".yearinreview.presentation.YearInReviewOnboardingActivity"/>
 
         <activity
-            android:name=".yearinreview.YearInReviewActivity"/>
+            android:name=".yearinreview.presentation.YearInReviewActivity"/>
       
         <activity
             android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"

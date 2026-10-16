@@ -1988,7 +1988,6 @@
   <string name="year_in_review_get_started_headline">לסקור את השנה שלך בוויקיפדיה</string>
   <string name="year_in_review_get_started_bodytext">צפייה בתובנות לגבי אילו ערכים קראת ביישום ויקיפדיה והעריכות שעשית.</string>
   <string name="year_in_review_get_started_info">היסטוריית הקריאה שלך נשמרת מוגנת. תובנות הקריאה מחושבות באמצעות נתונים המאוחסנים באופן מקומי במכשיר שלך.</string>
-  <string name="year_in_review_get_started_later">אפשר לגשת לסקירת השנה שלך מאוחר יותר בתפריט \"עוד\".</string>
   <string name="year_in_review_survey_title">נא לעזור לנו לשפר את הסקירה השנתית</string>
   <string name="year_in_review_survey_subtitle">מרוצה מהתכונה הזאת?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">נא לעזור לנו לשפר את רשימת הקריאה של הסקירה השנתית ל־%d.</string>

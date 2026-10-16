@@ -23,6 +23,7 @@
 * Urbalazs
 * ViDam
 * Wolf Rex
+* YeBoy371
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
@@ -198,7 +199,7 @@
   <string name="account_vanish_request_title">Fiók eltüntetése</string>
   <string name="account_vanish_request_confirm_title">Fiókeltüntetés-figyelmeztetés</string>
   <string name="account_vanish_request_confirm">Az eltűnés egy &lt;b&gt;utolsó lehetőség&lt;/b&gt;; &lt;b&gt;csak akkor használd, ha örökre abba akarod hagyni a szerkesztést&lt;/b&gt;, és az eddigi szerkesztéseiddel való összekapcsolhatóságot is a lehető legnagyobb mértékben meg akarod szüntetni.&lt;br/&gt;&lt;br/&gt;A fióktörlés a Wikipédián a szerkesztőnév olyanra módosításával történik, amitől mások nem ismerik fel a közreműködéseidet (ez az ún. fiókeltüntetés). &lt;b&gt;Az eltűnés nem jelent se teljes anonimitást, se a közreműködéseid eltávolítását a projektekből.&lt;/b&gt;</string>
-  <string name="history_empty_title">Nincsenek nemrég megtekintett cikkek</string>
+  <string name="history_empty_title">Nincsenek nemrég megtekintett szócikkek</string>
   <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
   <string name="history_offline_articles_toast">Néhány szócikk lehet, hogy nem olvasható offline módban.</string>
   <string name="search_empty_message">Keresd és olvasd a cikkeket a saját nyelveden</string>
@@ -278,7 +279,7 @@
   <string name="page_protected_can_not_edit_anon">Sajnáljuk, ez a lap jelenleg nem szerkeszthető névtelenül.</string>
   <string name="page_protected_can_not_edit_title">Ez a lap védett</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Hozzáadás a figyelőlistához</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Kövesse nyomon, mi történik az Önt érdeklő cikkekkel. Érintse meg a menüt, és válassza a &lt;b&gt;Hozzáadás a figyelőlistához&lt;/b&gt; lehetőséget, hogy később is láthassa a cikkhez kapcsolódó változásokat.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Kövesd nyomon, mi történik az érdeklődésedre számot tartó szócikkekkel. Koppints a további lehetőségek menüjére, majd válaszd a &lt;b&gt;Hozzáadás a figyelőlistához&lt;/b&gt; lehetőséget, hogy lásd a szócikk módosításait.</string>
   <string name="settings_item_preferences">Beállítások</string>
   <string name="settings_activity_title">Beállítások</string>
   <string name="about_description">A Wikipédia alkalmazás névjegye</string>
@@ -377,7 +378,7 @@
   <string name="widget_title_featured_page">Mai kiemelt szócikk:</string>
   <string name="widget_name_search">Wikipédia keresés</string>
   <string name="widget_description_search">A Wikipédián való keresés leggyorsabb módja</string>
-  <string name="widget_description_featured_page">A Wikipédia legjobb cikkei</string>
+  <string name="widget_description_featured_page">A Wikipédia legjobb szócikkei</string>
   <string name="wiktionary_no_definitions_found">Nem találhatók definíciók.</string>
   <string name="alpha_update_notification_title">Új alfa frissítés érhető el</string>
   <string name="alpha_update_notification_text">Koppints a letöltéshez</string>
@@ -467,7 +468,7 @@
   <string name="link_preview_dialog_save_button">Mentés</string>
   <string name="link_preview_dialog_saved_button">Elmentve</string>
   <string name="link_preview_dialog_share_button">Megosztás</string>
-  <string name="link_preview_stub_placeholder_text">Ez a szócikk egy csonk, ami azt jelenti, hogy nincs elég tartalom a cikkben az előnézet létrehozásához. Ezen azonban változtathatsz.</string>
+  <string name="link_preview_stub_placeholder_text">Ez a szócikk egy csonk, ami azt jelenti, hogy nincs elég tartalom a szócikkben az előnézet létrehozásához. Ezen azonban változtathatsz.</string>
   <string name="error_page_does_not_exist">Ez a lap nem létezik</string>
   <string name="error_user_page_does_not_exist">Nincs pontosan ilyen nevű &lt;a href=\"%1$s\"&gt;szerkesztői lap&lt;/a&gt; a Wikipédián. Általánosságban ezt a lapot csak a tulajdonosának (&lt;b&gt;%2$s&lt;/b&gt;) szabad létrehoznia és szerkesztenie. Ha kétséged van, ellenőrizd, hogy létezik-e „%3$s” nevű regisztrált szerkesztő.</string>
   <string name="view_wiki_error_message_offline">Nem sikerült csatlakozni az internethez</string>
@@ -476,7 +477,7 @@
   <string name="reference_list_title">Forráshivatkozások</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Képsötétítés (Sötét téma esetén)</string>
   <string name="preference_title_prefer_offline_content">Kapcsolat nélkül elérhető tartalom előnyben részesítése</string>
-  <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
+  <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a szócikk legfrissebb verziója helyett.</string>
   <string name="preference_title_delete_local_donation_history">Adományozási előzmények törlése</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Rendszertémával egyező</string>
   <string name="page_footer_license_text">A tartalom további jelölés hiányában a(z) $1 feltételei szerint használható fel</string>
@@ -554,7 +555,7 @@
   <string name="reading_list_article_added_to_default_list">%s elmentve. Szeretnéd hozzáadni egy gyűjteményhez?</string>
   <string name="reading_list_article_moved_to_named">%1$s átmozgatva a(z) %2$s listára.</string>
   <string name="reading_list_article_already_exists_message">Minden rendben! A(z) %1$s már tartalmazza ezt: %2$s.</string>
-  <string name="reading_list_articles_already_exist_message">Minden rendben! A(z) %s már tartalmaz minden cikket.</string>
+  <string name="reading_list_articles_already_exist_message">Minden rendben! A(z) %s már tartalmaz minden szócikket.</string>
   <string name="reading_list_added_view_button">Gyűjtemény megtekintése</string>
   <string name="reading_list_add_to_list_button">Hozzáadás gyűjteményhez</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
@@ -651,7 +652,7 @@
   <string name="reading_lists_ignore_button">Ne most</string>
   <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
   <string name="reading_lists_confirm_remote_delete_no">Nem</string>
-  <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
+  <string name="reading_list_article_save_in_progress">A szócikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
   <string name="reading_list_articles_added_to_named">%1$d szócikk hozzáadva ide: %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d szócikk átmozgatva a(z) %2$s olvasólistára</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni a(z) %s olvasólistát?</string>
@@ -858,14 +859,14 @@
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
   <string name="view_random_article_card_title">Szócikk találomra</string>
-  <string name="view_random_article_card_action">Több cikk találomra</string>
+  <string name="view_random_article_card_action">Több szócikk találomra</string>
   <string name="view_top_read_card_title">Legtöbbet megnézve</string>
   <string name="view_top_read_card_description">Mi népszerű ma a Wikipédián?</string>
   <string name="view_top_read_card_action">További megnézettek</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_top_read_card_pageviews_views_suffix">megtekintések</string>
-  <string name="view_next_random_article">Másik cikk betöltése találomra</string>
+  <string name="view_next_random_article">Másik szócikk betöltése találomra</string>
   <string name="view_main_page_card_title">Ma a Wikipédián</string>
   <string name="view_main_page_card_action">Kezdőlap megtekintése</string>
   <string name="view_featured_image_card_title">A nap képe</string>
@@ -898,7 +899,7 @@
   <string name="feed_item_type_news">Szócikkek aktuális eseményekről</string>
   <string name="feed_item_type_on_this_day">Történelmi események ezen a napon</string>
   <string name="feed_item_type_because_you_read">Ajánlatok egy nemrég olvasott szócikk alapján</string>
-  <string name="feed_item_type_featured_article">A Wikipédia napi kiemelt cikke</string>
+  <string name="feed_item_type_featured_article">A Wikipédia napi kiemelt szócikke</string>
   <string name="feed_item_type_trending">A legolvasottabb szócikkek naponta</string>
   <string name="feed_item_type_featured_image">A nap kiemelt képe a Wikimédia Commonsról</string>
   <string name="feed_item_type_main_page">A Wikipédia kezdőlapja napi kiemelt tartalommal</string>
@@ -1780,7 +1781,7 @@
   <string name="patroller_saved_message_body_coi_rem">Szia {{{username}}}!\n\nKöszönöm, hogy hozzájárulsz a Wikipédiához. Ugyanakkor észrevettem, hogy szerkesztéseid során [[Wikipedia:Összeférhetetlenség|összeférhetetlenség]] merülhet fel.\nAz összeférhetetlenség azt jelenti, hogy egyes szerkesztők, személyek, szervezetek vagy cégek céljai nem minden esetben egyeztethetők össze a Wikipédia semlegességre és megbízhatóságra épülő irányelveivel.\n\nA fő névtérben végzett minden szerkesztésre a Wikipédia tartalmi irányelvei vonatkoznak:\n– [[Wikipedia:A Wikipédia nem az, ami nem]]\n– [[Wikipedia:Ellenőrizhetőség]], [[Wikipedia:Eredetileg nem közölt kutatás]],\n– [[Wikipedia:Semleges nézőpont]]\n– és a [[Wikipedia:Szerzői jogok]].\n\nMinden szerkesztőtől elvárjuk, hogy ezekhez az elvekhez tartsa magát, tartalomkészítés és véleményezés során is, valamint hogy feltételezze a jó szándékot más szerkesztők részéről.\n\nHa összeférhetetlenség fennáll, különösen fontos, hogy fokozottan ügyelj ezen szabályok betartására. Ennek elmulasztása esetén a szerkesztői fiókot magáncélú használatúnak tekinthetjük, ami blokkoláshoz vezethet.\n\nHa kérdésed van, bátran írj a [[User talk:{{{senderUserName}}}|vitalapomra]].</string>
   <string name="patroller_saved_message_body_final_warning">Több romboló szerkesztésed miatt ez az utolsó figyelmeztetésed.\nHa ismét vandál szerkesztést végzel, szerkesztési jogaidat megvonhatjuk.</string>
   <string name="patroller_saved_message_body_copy_vio">A legutóbbi szerkesztésed valószínűleg jogvédett tartalmat tartalmazott engedély nélkül.\nKérlek, győződj meg róla, hogy minden hozzájárulásod megfelel a Wikipédia [[Wikipedia:Szerzői jogok|szerzői jogi irányelveinek]], ellenkező esetben a tartalmat el kell távolítanunk.</string>
-  <string name="patroller_saved_message_body_edit_summary">Kedves {{{username}}}, úgy tűnik, szerkesztési összefoglaló nélkül távolítottál el tartalmat a Wikipédiáról. Kérlek, mindig hagyj szerkesztési összefoglalót, amikor hozzáadsz vagy eltávolítasz tartalmat a Wikipédián.</string>
+  <string name="patroller_saved_message_body_edit_summary">Szia {{{username}}}!\n\nÚgy tűnik, szerkesztési összefoglaló nélkül távolítottál el tartalmat a Wikipédiáról. Kérlek, mindig hagyj szerkesztési összefoglalót, amikor hozzáadsz vagy eltávolítasz tartalmat a Wikipédián.</string>
   <string name="patroller_saved_message_body_do_not_censor">Szia {{{username}}}!\n\nÚgy tűnik, hogy tartalmat távolítottál el anélkül, hogy azt a cikk [[Vita:Cikk_címe|vitalapján]] megbeszélted volna.\nKérlek, vedd figyelembe, hogy a Wikipédia nem cenzúrázott, és a tartalom pusztán azért nem törölhető, mert vitatott.\nHa úgy gondolod, hogy az adott információ pontatlan, kérlek, kezdeményezz megbeszélést a cikk vitalapján, és törekedj konszenzusra.</string>
   <string name="talk_warn_learn_more_label">Ismerd meg az üzenethelyettesítőket</string>
   <string name="talk_warn_saved_messages_usage_instruction">Használd az alábbi példaüzenetet a testreszabáshoz, elküldéshez és az üzeneteid mentéséhez.</string>
@@ -1924,8 +1925,211 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Nézd meg a sorozataidat, pontszámaidat és még sok mást.</string>
   <string name="wikipedia_games_title">Wikipédia játékok</string>
   <string name="wikipedia_games_subtitle">Napi kvízjátékok Wikipédia-tartalmak alapján.</string>
-  <string name="year_in_review_learn_more">További információk</string>
+  <string name="yir_intro_headline">Megérkezett a Wikipédia Éves összefoglalód</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">Köszönjük, hogy %2$d-ben %1$d napot töltöttél a jól bevált Wikipédia-alkalmazásoddal.</item>
+    <item quantity="other">Köszönjük, hogy %2$d-ben %1$d napot töltöttél a jól bevált Wikipédia-alkalmazásoddal.</item>
+  </plurals>
+  <string name="yir_article_count_headline">Az összes elolvasott szócikked száma:</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="one">Ezzel világszerte a Wikipédia-olvasók felső %1$s%%-ába tartozol. Egy átlagos ember évente %2$d szócikket olvas el.</item>
+    <item quantity="other">Ezzel világszerte a Wikipédia-olvasók felső %1$s%%-ába tartozol. Egy átlagos ember évente %2$d szócikket olvas el.</item>
+  </plurals>
+  <string name="yir_article_count_supporting">Egész évben felfedeztél. Minden egyes szócikk hozzátett valamit a tudásodhoz.</string>
+  <string name="yir_article_count_empty_headline">Több millió szócikk vár még felfedezésre</string>
+  <string name="yir_article_count_empty_supporting">Még csak ezután fedezed fel, mennyi mindent tanulhatsz a Wikipédián.</string>
+  <string name="yir_days_visited_headline">%1$d-ben ennyi napon kerested fel a Wikipédiát:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">A legaktívabb időszakod %1$s volt: %2$d napon olvastál.</item>
+    <item quantity="other">A legaktívabb időszakod %1$s volt: %2$d napon olvastál.</item>
+  </plurals>
+  <string name="yir_minutes_read_headline">Olvasással töltött percek összesen:</string>
+  <string name="yir_minutes_read_supporting">%1$s Repül az idő, amikor belemerülsz egy témába.</string>
+  <string name="yir_reading_streak_headline">Leghosszabb megszakítás nélküli olvasási sorozatod napokban:</string>
+  <string name="yir_reading_streak_supporting">%1$s és %2$s között igazán belejöttél a mindennapos olvasásba.</string>
+  <string name="yir_reading_streak_empty_headline">0 napos olvasási sorozat… egyelőre</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">Addig nem beszélhetünk olvasási sorozatról, amíg nem olvasol %1$d egymást követő napon. Miért ne kezdenéd el most?</item>
+    <item quantity="other">Addig nem beszélhetünk olvasási sorozatról, amíg nem olvasol %1$d egymást követő napon. Miért ne kezdenéd el most?</item>
+  </plurals>
+  <string name="yir_reading_time_headline">Kedvenc időszakod a felfedezésre:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">A felfedezéseid %1$d%%-a erre a napszakra esett. Véletlen… vagy mégsem?</item>
+    <item quantity="other">A felfedezéseid %1$d%%-a erre a napszakra esett. Véletlen… vagy mégsem?</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">Gyakorlatilag bármikor olvastál</string>
+  <string name="yir_reading_time_empty_supporting">Nincs meghatározott nap vagy időpont, amikor a Wikipédia lapjainak felfedezésére adnád a fejed.</string>
+  <string name="yir_top_topic_headline">Legnépszerűbb témád %1$d során:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">A(z) %1$s és %2$s csak két példa: %3$d szócikked kapcsolódott ehhez a témához. %4$s</item>
+    <item quantity="other">A(z) %1$s és %2$s csak két példa: %3$d szócikked kapcsolódott ehhez a témához. %4$s</item>
+  </plurals>
+  <string name="yir_top_topic_empty_headline">%1$d első számú témád… mindegyik</string>
+  <string name="yir_top_topic_empty_supporting">Ennyi érdeklődési kör mellett nincs egyetlen téma sem, amely meghatározta volna az olvasási szokásaidat.</string>
+  <string name="yir_runner_up_topics_headline">És a további legnépszerűbb témáid %1$d során:</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d szócikk</item>
+    <item quantity="other">%1$dszócikk</item>
+  </plurals>
+  <string name="yir_biggest_reading_day_headline">Legaktívabb olvasási napod:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">Összesen %1$d percet töltöttél a Wikipédián. Na, ez aztán a hasznos időtöltés!</item>
+    <item quantity="other">Összesen %1$d percet töltöttél a Wikipédián. Na, ez aztán a hasznos időtöltés!</item>
+  </plurals>
+  <string name="yir_articles_read_headline">Ízelítő az általad olvasott szócikkekből:</string>
+  <string name="yir_most_time_article_headline">Melyikkel töltötted a legtöbb időt?</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">Összesen %1$d percet töltöttél ezzel a szócikkel %2$d során!</item>
+    <item quantity="other">Összesen %1$d percet töltöttél ezzel a szócikkel %2$d során!</item>
+  </plurals>
+  <string name="yir_rabbit_hole_headline">Melyik témába ástad bele magad a legmélyebben?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">Lenyűgöző, hogy %1$d hivatkozáson át jutottál el.</item>
+    <item quantity="other">Lenyűgöző, hogy %1$d hivatkozáson át jutottál el.</item>
+  </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">Melyik témába ásod bele magad legközelebb?</string>
+  <string name="yir_niche_category_headline">Igazán különleges érdeklődési köreid voltak, például:</string>
+  <string name="yir_niche_category_supporting">Valamiért ebbe a kategóriába teljesen belemerültél!</string>
+  <string name="yir_reread_articles_headline">Néhány szócikk, amelyhez újra és újra visszatértél:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d megtekintés</item>
+    <item quantity="other">%1$d megtekintés</item>
+  </plurals>
+  <string name="yir_reread_articles_empty_headline">Nem vagy egy újraolvasós fajta</string>
+  <string name="yir_reread_articles_empty_supporting">Ugyan minek kétszer elolvasni ugyanazt a szócikket? Inkább az újdonságokat keresed, és új témákba ásod bele magad.</string>
+  <string name="yir_places_headline">Olvasmányaid szinte elrepítettek ide:</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">%1$d szócikk alapján</item>
+    <item quantity="other">%1$d szócikk alapján</item>
+  </plurals>
+  <string name="yir_places_empty_headline">Olvasmányaid a világ minden tájára elvittek</string>
+  <string name="yir_places_empty_supporting">%1$d során bejártad az egész Wikipédiát. A Helyek funkcióban ötleteket is találhatsz arra, merre indulj, amikor úton vagy.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Későbbre elmentett szócikkeid száma: %1$d</item>
+    <item quantity="other">Későbbre elmentett szócikkeid száma: %1$d</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s megtekintés</item>
+    <item quantity="other">%1$s megtekintés</item>
+  </plurals>
+  <string name="yir_saved_articles_empty_headline">Nem mentettél el egyetlen szócikket sem</string>
+  <string name="yir_saved_articles_empty_supporting">Jelenleg nincs egyetlen mentett szócikked sem. Keresd a könyvjelző ikont a szócikkeknél, így bármit elmenthetsz későbbi olvasásra.</string>
+  <string name="yir_edits_headline">Szerkesztéseid:</string>
+  <string name="yir_edits_supporting">Akár a Wikipédiához, akár a Wikimédia Commonshoz vagy a Wikidatához járulsz hozzá, köszönjük, hogy segítesz mindenki számára hozzáférhetőbbé tenni az emberiség tudását.</string>
+  <string name="yir_edits_empty_headline">Eddig még nem szerkesztettél</string>
+  <string name="yir_edits_empty_supporting">Még nem szerkesztettél, de könnyen megtanulhatod, hogyan kell. Most remek alkalom, hogy csatlakozz a Wikipédiát építő közösséghez.</string>
+  <string name="yir_edit_views_headline">Szerkesztéseid megtekintéseinek száma:</string>
+  <string name="yir_edit_views_supporting">%1$d során a világ minden tájáról látták az olvasók az általad végzett módosításokat.</string>
+  <string name="yir_most_viewed_edited_articles_headline">A szerkesztésed óta legtöbbször megtekintett szócikkek:</string>
+  <string name="yir_contributor_thanks_headline">Köszönjük!</string>
+  <string name="yir_contributor_thanks_supporting">Azzal, hogy %1$s vagy, hozzájárulsz ahhoz, hogy a Wikipédia reklámmentes, megbízható és mindenki számára elérhető maradjon. Nem tudjuk eléggé megköszönni, hogy támogatod a Wikipédiát!</string>
+  <string name="yir_non_contributor_headline">Számítasz.</string>
+  <string name="yir_non_contributor_supporting">A Wikipédia olyan valódi embereknek köszönheti a létezését, mint te, akik lehetőségeikhez mérten hozzájárulnak ahhoz, hogy továbbra is fejlődjön. Ha fontos számodra a Wikipédia, kérjük, fontold meg, hogy adománnyal vagy szerkesztéssel támogatod.</string>
+  <string name="yir_community_intro_headline">Megérkezett az Éves összefoglalónk</string>
+  <string name="yir_community_intro_supporting">Ezúttal nem volt elegendő aktivitás a saját Éves összefoglalód elkészítéséhez, de így is felfedezheted, mit fedezett fel együtt a világ.</string>
+  <string name="yir_community_reading_hours_headline">Ennyi órát töltöttünk a Wikipédia olvasásával %1$d során:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">Az összes nyelvi változatot együttvéve a hozzád hasonló olvasók becslések szerint %1$,d évet töltöttek a Wikipédia olvasásával.</item>
+    <item quantity="other">Az összes nyelvi változatot együttvéve a hozzád hasonló olvasók becslések szerint %1$,d évet töltöttek a Wikipédia olvasásával.</item>
+  </plurals>
+  <plurals name="yir_community_languages_headline">
+    <item quantity="one">A Wikipédia több mint %1$d nyelven érhető el</item>
+    <item quantity="other">A Wikipédia több mint %1$d nyelven érhető el</item>
+  </plurals>
+  <string name="yir_community_languages_supporting">A Wikipédiát a világ minden tájáról érkező önkéntes közösségek írják és tartják fenn – bizonyítva, hogy az emberiség tudása jóval több mint egy nyelven szól.</string>
+  <string name="yir_community_articles_headline">Szócikkek a Wikipédián:</string>
+  <string name="yir_community_articles_supporting">A Wikipédiát továbbra is emberek építik – önkéntesek a világ minden tájáról, akik megbízható forrásokra támaszkodva hozzák létre és gondozzák annak teljes tartalmát.</string>
+  <string name="yir_community_saved_articles_headline">%1$d során mentett szócikkek:</string>
+  <string name="yir_community_saved_articles_supporting">Az olvasók ezrével mentették el a szócikkeket, hogy először, harmadszor vagy akár századszor is elolvassák őket.</string>
+  <string name="yir_community_editors_headline">Önkéntes szerkesztők:</string>
+  <string name="yir_community_editors_supporting">Tudtad, hogy minden Wikimédia-projekt önkéntesek munkájával készül? A szerkesztők új szócikkeket írnak, és javítják a már meglévőket.</string>
+  <string name="yir_community_edits_headline">Szerkesztések:</string>
+  <string name="yir_community_edits_supporting">A világ minden táján önkéntesek dolgoznak nap mint nap, óráról órára a Wikipédia fejlesztésén: frissítik a szócikkek adatait, történelmi nevezetességeket fényképeznek, és kijavítják az elírásokat.</string>
+  <string name="yir_community_global_reach_headline">A Wikipédia globális elérése: a világ tíz leglátogatottabb weboldalának egyike</string>
+  <string name="yir_community_global_reach_supporting">A Wikipédia az internet tudásának egyik alappillére. A diákoktól a csevegőrobotokig mindenki tanul belőle.</string>
+  <string name="yir_community_contribute_headline">Számítasz.</string>
+  <string name="yir_community_contribute_supporting">A Wikipédia olyan valódi embereknek köszönheti a létezését, mint te, akik lehetőségeikhez mérten hozzájárulnak ahhoz, hogy továbbra is fejlődjön. Ha fontos számodra a Wikipédia, kérjük, fontold meg, hogy adománnyal vagy szerkesztéssel támogatod. Már közreműködő vagy? Jelentkezz be, vagy hozz létre egy fiókot az eredményeid megtekintéséhez.</string>
+  <string name="yir_closing_headline">A következő témáig, amibe beleásod magad</string>
+  <string name="yir_closing_supporting">Akár egyetlen szócikkért jöttél, akár százért, köszönjük, hogy velünk együtt felfedeztél, olvastál és kíváncsi maradtál a Wikipédián.</string>
+  <string name="yir_closing_share_action">Összefoglaló megosztása</string>
+  <string name="yir_store_discount_headline">Egy kis köszönet</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">Mivel te is segítesz abban, hogy a tudás szabadon hozzáférhető maradjon, %1$d%% kedvezményt adunk neked a Wikipédia áruházában. Nincs szükség kuponkódra, a kedvezmény a fizetésnél automatikusan érvényesül.</item>
+    <item quantity="other">Mivel te is segítesz abban, hogy a tudás szabadon hozzáférhető maradjon, %1$d%% kedvezményt adunk neked a Wikipédia áruházában. Nincs szükség kuponkódra, a kedvezmény a fizetésnél automatikusan érvényesül.</item>
+  </plurals>
+  <string name="yir_store_discount_action">Bolt meglátogatása</string>
+  <string name="yir_games_headline">Készen állsz egy újabb kihívásra?</string>
+  <string name="yir_games_supporting">Tedd próbára Wikipédia-tudásodat a világ tudása által ihletett gyors játékokkal.</string>
+  <string name="yir_games_action">Játék indítása</string>
+  <string name="yir_customize_home_headline">Tedd a Kezdőlapot igazán a sajátoddá</string>
+  <string name="yir_customize_home_supporting">Válaszd ki a téged érdeklő témákat, és kapj az érdeklődési köreidhez igazított ajánlásokat.</string>
+  <string name="yir_customize_home_action">Érdeklődési körök személyre szabása</string>
+  <string name="yir_community_recap_headline">Éves összefoglalónk</string>
+  <string name="yir_community_recap_supporting">Fedezd fel újra, mennyit olvasott, szerkesztett és fedezett fel együtt a világ.</string>
+  <string name="yir_community_recap_action">Fedezd fel most</string>
+  <string name="yir_quiz_headline">Te melyik Wikipédia vagy?</string>
+  <string name="yir_quiz_supporting">A betárcsázós internet korától napjainkig fedezd fel a Wikipédia történetét.</string>
+  <string name="yir_quiz_action">Kvíz kitöltése</string>
+  <string name="yir_open_tabs_headline">Térj vissza a megnyitott lapjaidhoz</string>
+  <string name="yir_share_text">Íme a %1$d évre szóló Wikipédia Éves összefoglalóm a Wikipédia alkalmazásból: %2$s</string>
+  <string name="yir_topic_comment_architecture">Az év során azok a dolgok vonzottak, amelyeket hosszú távra terveztek.</string>
+  <string name="yir_topic_comment_art">A szép, a merész és időnként a meghökkentő dolgok vonzottak.</string>
+  <string name="yir_topic_comment_comics_and_anime">Kockáról kockára egyre mélyebbre ástad magad a képregények és animék világában.</string>
+  <string name="yir_topic_comment_entertainment">Idén egyszerűen nem tudtál elszakadni a szórakozás világától.</string>
+  <string name="yir_topic_comment_fashion">Az átlagnál gyakrabban kalandoztál a stílus világában.</string>
+  <string name="yir_topic_comment_literature">Idén irodalmi vonal is végigkísérte az olvasásodat.</string>
+  <string name="yir_topic_comment_music">Idén zenei aláfestést kapott a kíváncsiságod.</string>
+  <string name="yir_topic_comment_performing_arts">Valamilyen formában mindig vonzott a színpad világa.</string>
+  <string name="yir_topic_comment_sports">Idén végig követted a sportvilág eredményeit.</string>
+  <string name="yir_topic_comment_tv_and_film">Idén az olvasmányaid egyben a megnézendők listájaként is szolgáltak.</string>
+  <string name="yir_topic_comment_video_games">Magasabb szintre emelted a videojátékokról szerzett tudásodat.</string>
+  <string name="yir_topic_comment_biography">Az évet mások történeteinek megismerésével töltötted.</string>
+  <string name="yir_topic_comment_women">Az évet mások történeteinek megismerésével töltötted.</string>
+  <string name="yir_topic_comment_business_and_economics">Figyelemmel kísérted, hogyan működik az üzleti világ.</string>
+  <string name="yir_topic_comment_education">Idén valahogy a tanulásról való tanulás lett az egyik fő témád.</string>
+  <string name="yir_topic_comment_food_and_drink">Idén a kíváncsiságodnak is megjött az étvágya.</string>
+  <string name="yir_topic_comment_history">Nyilvánvalóan lenyűgöz a múlt.</string>
+  <string name="yir_topic_comment_military_and_warfare">Alaposan beleástad magad a háborúk és a hadviselés történetébe.</string>
+  <string name="yir_topic_comment_philosophy_and_religion">Idén a nagy kérdések is foglalkoztattak.</string>
+  <string name="yir_topic_comment_politics_and_government">Figyelemmel kísérted, hogyan irányítják a világot.</string>
+  <string name="yir_topic_comment_society">Kíváncsi voltál arra, hogyan élnek és szerveződnek az emberek.</string>
+  <string name="yir_topic_comment_transportation">Utánanéztél, hogyan jutnak el az emberek egyik helyről a másikra.</string>
+  <string name="yir_topic_comment_biology">Az élővilág tudományát fedezted fel.</string>
+  <string name="yir_topic_comment_chemistry">Idén egy kis kémiát is elegyítettél az olvasmányaid közé.</string>
+  <string name="yir_topic_comment_computers_and_internet">Idén igazán időt szántál arra, hogy megértsd a képernyőd mögött működő technológiát.</string>
+  <string name="yir_topic_comment_earth_and_environment">Idén az olvasmányaid szó szerint a földön maradtak.</string>
+  <string name="yir_topic_comment_engineering">Szeretted megtudni, hogyan épülnek fel a dolgok és hogyan működnek.</string>
+  <string name="yir_topic_comment_general_science">A kíváncsiságod a tudományok széles körére kiterjedt.</string>
+  <string name="yir_topic_comment_mathematics">Idén a számoknak is megadtad a nekik járó figyelmet.</string>
+  <string name="yir_topic_comment_medicine_and_health">Időt szántál arra, hogy megismerd az emberi test működését.</string>
+  <string name="yir_topic_comment_physics">Utánanéztél a világegyetemet működtető törvényeknek.</string>
+  <string name="yir_topic_comment_technology">Lépést tartottál a technológia változásaival.</string>
+  <string name="yir_topic_comment_africa">Idén az olvasmányaid Afrikán át vezettek.</string>
+  <string name="yir_topic_comment_asia">Idén az olvasmányaid Ázsián át vezettek.</string>
+  <string name="yir_topic_comment_central_america">Idén az olvasmányaid Közép-Amerikán át vezettek.</string>
+  <string name="yir_topic_comment_europe">Idén az olvasmányaid Európán át vezettek.</string>
+  <string name="yir_topic_comment_north_america">Idén az olvasmányaid Észak-Amerika közelében tartottak – vagy éppen messziről fedezted fel.</string>
+  <string name="yir_topic_comment_oceania">Idén az olvasmányaid egészen Óceániáig repítettek.</string>
+  <string name="yir_topic_comment_south_america">Idén az olvasmányaid Dél-Amerikán át vezettek.</string>
+  <string name="yir_time_spent_comment_1">Ez hosszabb, mint amennyi idő alatt egy kolibri szíve 1200 alkalommal dobban.</string>
+  <string name="yir_time_spent_comment_9">Ez hosszabb, mint amennyi idő alatt a napfény eljut a Naptól a Földig.</string>
+  <string name="yir_time_spent_comment_13">Ez hosszabb, mint amennyi idő alatt keményre fő egy tojás.</string>
+  <string name="yir_time_spent_comment_19">Ez hosszabb, mint amennyi idő alatt az emberek átlagosan elalszanak.</string>
+  <string name="yir_time_spent_comment_31">Ez hosszabb, mint egy teljes szitkom epizód reklámokkal együtt.</string>
+  <string name="yir_time_spent_comment_93">Ez hosszabb, mint amennyi idő alatt a Nemzetközi Űrállomás egyszer megkerüli a Földet.</string>
+  <string name="yir_time_spent_comment_121">Ez hosszabb, mint a jelenlegi maratoni világrekord.</string>
+  <string name="yir_time_spent_comment_540">Ez hosszabb egy teljes éjszakai alvásnál.</string>
+  <string name="yir_time_spent_comment_1441">Ez hosszabb, mint amennyi idő alatt egy méhkirálynő akár 2000 petét is lerak.</string>
+  <plurals name="yir_time_spent_comment_2800">
+    <item quantity="one">Ez hosszabb, mint %1$d teljes nap.</item>
+    <item quantity="other">Ez hosszabb, mint %1$d teljes nap.</item>
+  </plurals>
+  <string name="year_in_review_learn_more">Tudj meg többet</string>
+  <string name="year_in_review_about_your_insights">A személyes összegzésedről</string>
+  <string name="year_in_review_share_feedback">Visszajelzés megosztása</string>
+  <string name="year_in_review_feedback_email_subject">Visszajelzés az Éves összefoglalóról</string>
   <string name="year_in_review_get_started">Kezdés</string>
+  <string name="year_in_review_announcement_explore">Felfedezés</string>
   <string name="year_in_review_topbar_w_icon">Wikipédia W ikon</string>
   <string name="year_in_review_navigate_left">Navigálás balra</string>
   <string name="year_in_review_close">Bezárás</string>
@@ -1937,7 +2141,11 @@
   <string name="year_in_review_get_started_headline">Fedezd fel a Wikipédia Éves összefoglalódat</string>
   <string name="year_in_review_get_started_bodytext">Tekintsd meg, hogy mely cikkeket olvastad a Wikipédia alkalmazásban, és milyen módosításokat végeztél.</string>
   <string name="year_in_review_get_started_info">Az olvasási előzményeid védve vannak. Az olvasási statisztikákat az eszközödön helyben tárolt adatok alapján számítjuk ki.</string>
-  <string name="year_in_review_get_started_later">Az Éves összefoglalódat később a Továbbiak menüben is elérheted.</string>
+  <string name="year_in_review_get_started_later_activity">Az Éves összefoglalódat később a Tevékenység menüben is elérheted.</string>
+  <string name="year_in_review_entry_card_title_collective">Megérkezett az Éves összefoglalónk</string>
+  <string name="year_in_review_entry_card_title_personalized">Megérkezett az Éves összefoglalód</string>
+  <string name="year_in_review_entry_card_subtitle">Fedezd fel újra az éved a Wikipédián.</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">Ezúttal nem volt elegendő aktivitás a saját Éves összefoglalód elkészítéséhez, de így is felfedezheted, mit fedezett fel együtt a világ.</string>
   <string name="year_in_review_survey_title">Segíts fejleszteni az Éves összefoglalót</string>
   <string name="year_in_review_survey_subtitle">Elégedett vagy ezzel a funkcióval?</string>
   <string name="year_in_review_reading_list_survey_title">Segíts fejleszteni a %d. évi Éves összefoglaló gyűjteményt.</string>
@@ -1947,7 +2155,7 @@
   <string name="year_in_review_survey_neutral">Semleges</string>
   <string name="year_in_review_survey_unsatisfied">Elégedetlen</string>
   <string name="year_in_review_survey_very_unsatisfied">Nagyon elégedetlen</string>
-  <string name="year_in_review_survey_placeholder_text">További gondolatod van?</string>
+  <string name="year_in_review_survey_placeholder_text">További gondolatok?</string>
   <string name="year_in_review_survey_cancel">Mégse</string>
   <string name="year_in_review_survey_submit">Elküldés</string>
   <string name="year_in_review_disable_title">Biztosan ki szeretnéd kapcsolni az Éves összefoglalót?</string>
@@ -2468,7 +2676,7 @@
   <string name="home_feed_settings_feed_configuration_location_subtitle">Frissítsd a tartózkodási helyedet a Helyekben a közeli szócikkek megjelenítéséhez</string>
   <string name="home_feed_settings_feed_configuration_empty_interest_subtitle">Az érdeklődési köreid listája üres. Adj hozzá valamit, ami érdekel.</string>
   <string name="home_feed_settings_feed_configuration_reading_history_title">Olvasási előzmények</string>
-  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Böngészd a nemrég olvasott cikkeidet</string>
+  <string name="home_feed_settings_feed_configuration_reading_history_subtitle">Böngészd a nemrég olvasott szócikkeidet</string>
   <string name="home_feed_settings_feed_configuration_empty_reading_history_subtitle">Az olvasási előzményeid üresek. Kezdj el cikkeket böngészni a személyre szabott ajánlások kialakításához.</string>
   <string name="home_feed_settings_feed_configuration_languages_title">Nyelvek</string>
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Kedvenc nyelveid szerkesztése</string>
@@ -2547,4 +2755,37 @@
     <item quantity="one">A szócikk mentésének megszüntetésével az összes kapcsolódó gyűjteményből eltávolítod.</item>
     <item quantity="other">A szócikkek mentésének megszüntetésével az összes kapcsolódó gyűjteményből eltávolítod őket.</item>
   </plurals>
+  <string name="semantic_search_entry_point_card_message">Keress a szócikkeken belül, és ugorj közvetlenül a releváns szövegrészhez</string>
+  <string name="semantic_search_entry_point_card_text_button">Próbáld ki most</string>
+  <string name="semantic_search_info_dialog_title">Mi ez a funkció?</string>
+  <string name="semantic_search_info_dialog_message">Találd meg a kérdéseidre adott válaszokat a Wikipédia szócikkeiben, és ugorj közvetlenül a releváns szövegrészhez.\n\nA szövegrészletek emberek által kutatott, írt és szerkesztett szócikkekből származnak, és mindegyiket olyan hivatkozott források támasztják alá, amelyeket te is ellenőrizhetsz.</string>
+  <string name="semantic_search_info_dialog_button_text">További információk</string>
+  <string name="semantic_search_info_btn_content_description">A tartalmi keresés információs gombja</string>
+  <string name="semantic_search_close_btn_content_description">A tartalmi keresés kikapcsolására és bezárására szolgáló ikongomb</string>
+  <string name="semantic_search_beta_label">Béta</string>
+  <string name="semantic_search_no_results_message">Nincs találat erre a keresésre</string>
+  <string name="semantic_search_results_close_button_content_description">A tartalmi keresés találatainak bezárása</string>
+  <string name="semantic_search_results_read_in_article_label">Olvasás a szócikkben</string>
+  <plurals name="semantic_search_result_contributors">
+    <item quantity="one">%d közreműködő</item>
+    <item quantity="other">%d közreműködő</item>
+  </plurals>
+  <plurals name="semantic_search_result_references">
+    <item quantity="one">%d forrás</item>
+    <item quantity="other">%d forrás</item>
+  </plurals>
+  <string name="semantic_search_results_last_updated_label">Utoljára frissítve: %s</string>
+  <string name="semantic_search_results_feedback_title">Megtaláltad, amit kerestél?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">Megtaláltam</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">Nem találtam meg</string>
+  <string name="semantic_search_results_feedback_input_hint">Mondd el részletesebben (nem kötelező)</string>
+  <string name="semantic_search_results_feedback_submit_button_text">Beküldés</string>
+  <string name="semantic_search_results_feedback_submitted_message">Köszönjük a visszajelzésedet</string>
+  <string name="semantic_search_feedback_dialog_title">Visszajelzés</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">A tartalmi keresés visszajelzésének bezárása</string>
+  <string name="preference_heading_semantic_search">Keresés</string>
+  <string name="preference_title_semantic_search_within_articles">Keresés a szócikkekben</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">Ugrás közvetlenül a releváns szövegrészhez</string>
+  <string name="semantic_search_snackbar_message">A modul elrejtve. A Beállításokban újra láthatóvá teheted.</string>
+  <string name="semantic_search_snackbar_action_label">Beállítások módosítása</string>
 </resources>
