@@ -1,128 +1,292 @@
 package org.wikipedia.categories
 
-import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.core.os.bundleOf
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.repeatOnLifecycle
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.databinding.DialogCategoriesBinding
-import org.wikipedia.extensions.setLayoutDirectionByLang
+import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
-import org.wikipedia.views.DrawableItemDecoration
-import org.wikipedia.views.PageItemView
 
 class CategoryDialog : ExtendedBottomSheetDialogFragment() {
-    private var _binding: DialogCategoriesBinding? = null
-    private val binding get() = _binding!!
-
-    private val itemCallback = ItemCallback()
     private val viewModel: CategoryDialogViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = DialogCategoriesBinding.inflate(inflater, container, false)
-        binding.categoriesRecycler.layoutManager = LinearLayoutManager(requireActivity())
-        binding.categoriesRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = false, drawEnd = false))
-        binding.categoriesDialogPageTitle.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
-        binding.root.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
+        return ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                var categoriesData by remember { mutableStateOf<Resource<List<PageTitle>>>(Resource.Loading()) }
+                val lifecycleOwner = LocalLifecycleOwner.current
 
-        binding.categoriesError.isVisible = false
-        binding.categoriesNoneFound.isVisible = false
-        binding.categoriesRecycler.isVisible = false
-        binding.dialogCategoriesProgress.isVisible = true
-        binding.categoriesError.backClickListener = View.OnClickListener { dismiss() }
+                LaunchedEffect(viewModel) {
+                    lifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.categoriesData.observe(lifecycleOwner) { data ->
+                            categoriesData = data
+                        }
+                    }
+                }
 
-        viewModel.categoriesData.observe(this) {
-            binding.dialogCategoriesProgress.isVisible = false
-            if (it is Resource.Success) {
-                layOutCategories(it.data)
-            } else if (it is Resource.Error) {
-                binding.categoriesRecycler.isVisible = false
-                binding.categoriesError.setError(it.throwable)
-                binding.categoriesError.isVisible = true
-                L.e(it.throwable)
+                BaseTheme {
+                    CategoryDialogContent(
+                        pageTitle = viewModel.pageTitle,
+                        categoriesData = categoriesData,
+                        onCategoryClick = { title ->
+                            startActivity(CategoryActivity.newIntent(requireActivity(), title))
+                        },
+                        onDismiss = { dismiss() }
+                    )
+                }
             }
         }
-
-        return binding.root
-    }
-
-    override fun onDestroy() {
-        _binding = null
-        super.onDestroy()
-    }
-
-    private fun layOutCategories(categoryList: List<PageTitle>) {
-        binding.categoriesRecycler.isVisible = categoryList.isNotEmpty()
-        binding.categoriesNoneFound.isVisible = categoryList.isEmpty()
-        binding.categoriesError.visibility = View.GONE
-        binding.categoriesRecycler.adapter = CategoryAdapter(categoryList)
-    }
-
-    private inner class CategoryItemHolder constructor(val view: PageItemView<PageTitle>) : RecyclerView.ViewHolder(view) {
-        fun bindItem(title: PageTitle) {
-            view.item = title
-            view.setTitle(StringUtil.removeNamespace(title.displayText))
-        }
-    }
-
-    private inner class CategoryAdapter(val categoryList: List<PageTitle>) : RecyclerView.Adapter<CategoryItemHolder>() {
-        override fun getItemCount(): Int {
-            return categoryList.size
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, pos: Int): CategoryItemHolder {
-            val view = PageItemView<PageTitle>(requireContext())
-            view.setImageVisible(false)
-            view.setTitleTypeface(Typeface.NORMAL)
-            return CategoryItemHolder(view)
-        }
-
-        override fun onBindViewHolder(holder: CategoryItemHolder, pos: Int) {
-            holder.bindItem(categoryList[pos])
-        }
-
-        override fun onViewAttachedToWindow(holder: CategoryItemHolder) {
-            super.onViewAttachedToWindow(holder)
-            holder.view.callback = itemCallback
-        }
-
-        override fun onViewDetachedFromWindow(holder: CategoryItemHolder) {
-            holder.view.callback = null
-            super.onViewDetachedFromWindow(holder)
-        }
-    }
-
-    private inner class ItemCallback : PageItemView.Callback<PageTitle?> {
-        override fun onClick(item: PageTitle?) {
-            if (item != null) {
-                startActivity(CategoryActivity.newIntent(requireActivity(), item))
-            }
-        }
-
-        override fun onLongClick(item: PageTitle?): Boolean {
-            return false
-        }
-
-        override fun onActionClick(item: PageTitle?, view: View) {}
-
-        override fun onListChipClick(readingList: ReadingList) {}
     }
 
     companion object {
         fun newInstance(title: PageTitle): CategoryDialog {
             return CategoryDialog().apply { arguments = bundleOf(Constants.ARG_TITLE to title) }
         }
+    }
+}
+
+@Composable
+fun CategoryDialogContent(
+    pageTitle: PageTitle,
+    categoriesData: Resource<List<PageTitle>>,
+    onCategoryClick: (PageTitle) -> Unit,
+    onDismiss: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(WikipediaTheme.colors.paperColor)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_category_black_24dp),
+                tint = WikipediaTheme.colors.secondaryColor,
+                contentDescription = null,
+                modifier = Modifier.size(24.dp)
+            )
+
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 20.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.action_item_categories),
+                    style = MaterialTheme.typography.titleLarge.copy(
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
+                    ),
+                    color = WikipediaTheme.colors.primaryColor,
+                    maxLines = 1
+                )
+
+                HtmlText(
+                    text = pageTitle.displayText,
+                    style = MaterialTheme.typography.bodyLarge.copy(fontSize = 16.sp),
+                    color = WikipediaTheme.colors.primaryColor,
+                    maxLines = 1,
+                    modifier = Modifier.padding(top = 4.dp)
+                )
+            }
+        }
+
+        HorizontalDivider(
+            color = WikipediaTheme.colors.borderColor,
+            thickness = 0.5.dp
+        )
+
+        when (categoriesData) {
+            is Resource.Success -> {
+                val categories = categoriesData.data
+                if (categories.isEmpty()) {
+                    Text(
+                        text = stringResource(R.string.page_no_categories),
+                        color = WikipediaTheme.colors.primaryColor,
+                        modifier = Modifier.padding(16.dp)
+                    )
+                } else {
+                    LazyColumn {
+                        items(categories) { category ->
+                            CategoryDialogItem(
+                                pageTitle = category,
+                                onClick = { onCategoryClick(category) }
+                            )
+                            HorizontalDivider(
+                                color = WikipediaTheme.colors.borderColor,
+                                thickness = 1.dp
+                            )
+                        }
+                    }
+                }
+            }
+
+            is Resource.Error -> {
+                WikiErrorView(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    caught = categoriesData.throwable,
+                    errorClickEvents = WikiErrorClickEvents(
+                        backClickListener = { onDismiss() }
+                    )
+                )
+            }
+
+            else -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(24.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator(
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun CategoryDialogItem(
+    pageTitle: PageTitle,
+    onClick: () -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .background(WikipediaTheme.colors.paperColor)
+            .padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = StringUtil.removeNamespace(pageTitle.displayText),
+            color = WikipediaTheme.colors.primaryColor,
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.weight(1f)
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryDialogContentLoadingPreview() {
+    val wikiSite = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CategoryDialogContent(
+            pageTitle = PageTitle("Albert Einstein", wikiSite),
+            categoriesData = Resource.Loading(),
+            onCategoryClick = {},
+            onDismiss = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryDialogContentSuccessPreview() {
+    val wikiSite = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CategoryDialogContent(
+            pageTitle = PageTitle("Albert Einstein", wikiSite),
+            categoriesData = Resource.Success(
+                listOf(
+                    PageTitle("Category:Physics", wikiSite),
+                    PageTitle("Category:Chemistry", wikiSite),
+                    PageTitle("Category:Biology", wikiSite)
+                )
+            ),
+            onCategoryClick = {},
+            onDismiss = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryDialogContentEmptyPreview() {
+    val wikiSite = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CategoryDialogContent(
+            pageTitle = PageTitle("Albert Einstein", wikiSite),
+            categoriesData = Resource.Success(emptyList()),
+            onCategoryClick = {},
+            onDismiss = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryDialogContentDarkPreview() {
+    val wikiSite = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    BaseTheme(currentTheme = Theme.DARK) {
+        CategoryDialogContent(
+            pageTitle = PageTitle("Albert Einstein", wikiSite),
+            categoriesData = Resource.Success(
+                listOf(
+                    PageTitle("Category:Physics", wikiSite),
+                    PageTitle("Category:Chemistry", wikiSite)
+                )
+            ),
+            onCategoryClick = {},
+            onDismiss = {}
+        )
     }
 }
