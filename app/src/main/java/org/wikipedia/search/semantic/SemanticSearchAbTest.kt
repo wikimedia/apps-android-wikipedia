@@ -41,8 +41,8 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
         return isSemanticSearchEligible(languageCode) && isTestGroupUser() && Prefs.isSemanticSearchEnabled
     }
 
-    fun shouldSendEvent(group: Int? = null, function: () -> (Unit)) {
-        if (WikipediaApp.instance.languageState.appLanguageCodes.any { isSemanticSearchEligible(it) } && (group == null || group == this.group)) {
+    fun shouldSendEvent(function: () -> Unit) {
+        if (WikipediaApp.instance.languageState.appLanguageCodes.any { isSemanticSearchEligible(it) }) {
             function.invoke()
         }
     }
