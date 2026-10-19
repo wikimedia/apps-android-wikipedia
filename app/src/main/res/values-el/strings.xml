@@ -325,7 +325,6 @@
   <string name="editor_select_dialog_dont_show_again">Να μην μου ξαναεμφανιστεί αυτό. Αυτή η προεπιλογή μπορεί να αλλάξει αργότερα στις Ρυθμίσεις.</string>
   <string name="editor_select_dialog_continue">Συνέχεια</string>
   <string name="editor_select_title_settings_screen">Προτίμηση επεξεργασίας</string>
-  <string name="editor_select_save_btn_settings_screen">Αποθήκευση</string>
   <string name="find_next">Εύρεση επομένου</string>
   <string name="find_previous">Εύρεση προηγουμένου</string>
   <string name="find_first_occurence">Αυτό είναι το πρώτο ταίριασμα</string>
@@ -1666,12 +1665,12 @@
   <string name="year_in_review_slide_reading_patterns_headline">Έχετε καθαρά μοτίβα ανάγνωσης</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Αγαπημένη ώρα ανάγνωσης</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Αγαπημένη μέρα ανάγνωσης</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Πρωί</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Μεσημέρι</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Μεσημεροαπόγευμα</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Απόγευμα</string>
-  <string name="year_in_review_slide_reading_pattern_night">Βράδυ</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Αργά βράδυ</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Πρωί</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Μεσημέρι</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Μεσημεροαπόγευμα</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Απόγευμα</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Βράδυ</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Αργά βράδυ</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Δημιουργία</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Όχι ευχαριστώ</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Ξεκινήστε</string>

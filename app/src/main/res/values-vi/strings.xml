@@ -326,7 +326,6 @@
   <string name="editor_select_dialog_title">Chọn cách chỉnh sửa</string>
   <string name="editor_select_dialog_ve_title">Trình soạn thảo trực quan</string>
   <string name="editor_select_dialog_continue">Tiếp tục</string>
-  <string name="editor_select_save_btn_settings_screen">Lưu</string>
   <string name="find_next">Tìm tiếp</string>
   <string name="find_previous">Tìm trước</string>
   <string name="find_first_occurence">Đây là lần đầu tiên</string>
@@ -1790,12 +1789,12 @@
   <string name="settings_app_icon_title">Biểu tượng ứng dụng</string>
   <string name="year_in_review_login_dialog_positive">Đăng nhập / Tham gia Wikipedia</string>
   <string name="year_in_review_login_dialog_negative">Tiếp tục mà không cần đăng nhập</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Buổi sáng</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Giữa trưa</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Buổi chiều</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Buổi tối</string>
-  <string name="year_in_review_slide_reading_pattern_night">Buổi đêm</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Đêm muộn</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Buổi sáng</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Giữa trưa</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Buổi chiều</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Buổi tối</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Buổi đêm</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Đêm muộn</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Tạo</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Không, cảm ơn</string>
   <string name="recommended_reading_list_title">Khám phá</string>

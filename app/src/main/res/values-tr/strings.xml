@@ -2040,12 +2040,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">En sevdiğiniz okuma zamanı</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">En sevdiğiniz okuma günü</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">En çok okuduğunuz ay</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Sabah</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Öğle</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Öğleden sonra</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Akşam</string>
-  <string name="year_in_review_slide_reading_pattern_night">Gece</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Gece geç</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Sabah</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Öğle</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Öğleden sonra</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Akşam</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Gece</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Gece geç</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">%,d saat okuyarak geçirdik</item>
     <item quantity="other">%,d saat okuyarak geçirdik</item>

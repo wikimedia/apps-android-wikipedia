@@ -352,7 +352,6 @@
   <string name="editor_select_dialog_continue">Kenderc\'hel</string>
   <string name="editor_select_icon_ve_title">Arlun Digeriñ en ur merdeer diavaez</string>
   <string name="editor_select_title_settings_screen">Penndibaboù kemmañ</string>
-  <string name="editor_select_save_btn_settings_screen">Enrollañ</string>
   <string name="find_next">Kavout an hini da-heul</string>
   <string name="find_previous">Kavout an hini a-raok</string>
   <string name="find_first_occurence">Kentañ degouezh</string>
@@ -2254,7 +2253,7 @@
   <string name="yir_community_global_reach_headline">Skog bedel Wikipedia : unan eus an dek lec\'hienn web a vez gweladennet an aliesañ er bed</string>
   <string name="yir_community_global_reach_supporting">Livenn-gein gouiziegezh an Internet eo Wikipedia. Koulz studierien ha graerioù kaozeal a zesk digantañ.</string>
   <string name="yir_community_contribute_headline">Pouezus oc\'h.</string>
-  <string name="yir_community_contribute_supporting">Bez\' ez eus eus Wikipedia a-drugarez da dud wirion eveldoc\'h, a ginnig ar pezh a c\'hellont evit e lakaat da greskiñ. Mard eo talvoudus Wikipedia evidoc\'h, soñjit mar plij e skorañ ar raktres dre zonezonañ pe dre e gemmañ. Ur perzhiad zo ac\'hanoc\'h dija ? Kevreit pe krouit ur gont evit gwelet ar pezh hoc\'h eus graet.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Bez\' ez eus eus Wikipedia a-drugarez da dud wirion eveldoc\'h, a ginnig ar pezh a c\'hellont evit e lakaat da greskiñ. Mard eo talvoudus Wikipedia evidoc\'h, soñjit mar plij e skorañ ar raktres dre zonezonañ pe dre e gemmañ. Ur perzhiad zo ac\'hanoc\'h dija ? Kevreit pe krouit ur gont evit gwelet ar pezh hoc\'h eus graet.</string>
   <string name="yir_closing_headline">Betek ar milendall kentañ</string>
   <string name="yir_closing_supporting">Hag evit ur pennad pe evit kant anezho ez oc\'h deuet, trugarez deoc\'h evit furchal, lenn ha chom ranell ganimp e Wikipedia.</string>
   <string name="yir_closing_share_action">Lodañ krafoù</string>
@@ -2524,12 +2523,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Mare gwellañ-karet evit lenn</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Deiz gwellañ-karet evit lenn</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Miz m\'hoc\'h eus lennet ar muiañ</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Beure</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Kreisteiz</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Enderv</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Abardaez</string>
-  <string name="year_in_review_slide_reading_pattern_night">Noz</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Diwezhat en noz</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Beure</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Kreisteiz</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Enderv</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Abardaez</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Noz</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Diwezhat en noz</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">E-pad %,d eurvezh ez omp bet o lenn</item>
     <item quantity="two">E-pad %,d eurvezh ez omp bet o lenn</item>
@@ -3144,7 +3143,7 @@
     <item quantity="many">%d daveenn</item>
     <item quantity="other">%d daveenn</item>
   </plurals>
-  <string name="semantic_search_results_last_updated_label">Hizivadenn nevesañ %s</string>
+  <string name="semantic_search_results_last_updated_label" fuzzy="true">Hizivadenn nevesañ %s</string>
   <string name="semantic_search_results_feedback_title">Ha kavet hoc\'h eus ar pezh e oac\'h o klask ?</string>
   <string name="semantic_search_results_feedback_thumb_up_content_description">Kavet</string>
   <string name="semantic_search_results_feedback_thumb_down_content_description">Kazeg</string>

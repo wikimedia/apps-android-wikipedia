@@ -2082,12 +2082,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Ljubimy čas za čitanje</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Ljubimy denj za čitanje</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Měsec, v ktorom vy največe jeste čitali</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Utrom</string>
-  <string name="year_in_review_slide_reading_pattern_midday">V poldenj</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">V popoldenj</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Večerom</string>
-  <string name="year_in_review_slide_reading_pattern_night">Nočju</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Pozdno v noči</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Utrom</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">V poldenj</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">V popoldenj</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Večerom</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Nočju</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Pozdno v noči</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">My jesmo provedli %,d časinu čitajuči</item>
     <item quantity="few">My jesmo provedli %,d časiny čitajuči</item>

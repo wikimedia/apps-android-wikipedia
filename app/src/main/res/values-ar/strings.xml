@@ -1085,7 +1085,7 @@
   <string name="description_edit_success_saved_image_tags_snackbar">نُشر وسم الصورة!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">استمتعت بذلك؟ ساعدنا في إضافة المزيد.</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
-  <string name="description_edit_success_done">تم</string>
+  <string name="description_edit_success_done">نفذ</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>
   <string name="description_edit_success_article_edit_hint">يُمكنك أيضًا تحرير المقالات في التطبيق. حاول إصلاح خطأ إملائي وجمل صغيرة بالضغط على أيقونة ^1 في المرّة القادمة.</string>
   <string name="description_edit_tutorial_title_descriptions">أوصاف المقالات</string>
@@ -2286,12 +2286,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">الوقت المفضل للقراءة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">اليوم المفضل للقراءة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">الشهر الذي قرأت فيه أكثر</string>
-  <string name="year_in_review_slide_reading_pattern_morning">صباح</string>
-  <string name="year_in_review_slide_reading_pattern_midday">منتصف النهار</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">بعد الظهر</string>
-  <string name="year_in_review_slide_reading_pattern_evening">مساء</string>
-  <string name="year_in_review_slide_reading_pattern_night">ليلة</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">في وقت متأخر من الليل</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">صباح</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">منتصف النهار</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">بعد الظهر</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">مساء</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">ليلة</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">في وقت متأخر من الليل</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="zero">لم نمضِ أي ساعة في القراءة</item>
     <item quantity="one">أمضينا ساعة واحدة في القراءة</item>
@@ -2537,4 +2537,42 @@
   <string name="home_feed_settings_modules_title">الوحدات</string>
   <string name="home_feed_did_you_know_title">هل تعلم؟</string>
   <string name="home_feed_did_you_know_subtitle">حقائق مثيرة للاهتمام من مقالات اختارها محررون متطوعون</string>
+  <string name="semantic_search_entry_point_card_message">ابحث داخل المقالات وانتقل مباشرةً إلى المقطع ذي الصلة</string>
+  <string name="semantic_search_entry_point_card_text_button">جرّبه الآن</string>
+  <string name="semantic_search_info_dialog_title">ما هذه الميزة؟</string>
+  <string name="semantic_search_info_dialog_message">اعثر على إجابات لأسئلتك داخل مقالات ويكيبيديا، وانتقل مباشرةً إلى المقطع ذي الصلة.\n\nتُستخلص المقاطع من مقالات أعدّها أشخاص بالبحث والكتابة والتحرير، ويستند كل مقطع منها إلى مصادر مُستشهد بها يمكنك التحقق منها.</string>
+  <string name="semantic_search_info_dialog_button_text">المزيد من المعلومات</string>
+  <string name="semantic_search_info_btn_content_description">تُستخلص هذه الأجزاء من مقالات بحثها أشخاص وكتبوها وحرروها، وكل مقال منها مدعوم بمصادر موثوقة يمكنك التحقق منها.</string>
+  <string name="semantic_search_close_btn_content_description">زر تعطيل وإغلاق أيقونة البحث الدلالي</string>
+  <string name="semantic_search_beta_label">النسخة التجريبية</string>
+  <string name="semantic_search_no_results_message">لا توجد نتائج لهذا البحث</string>
+  <string name="semantic_search_results_close_button_content_description">إغلاق نتائج البحث الدلالي</string>
+  <string name="semantic_search_results_read_in_article_label">اقرأ في المقالة</string>
+  <plurals name="semantic_search_result_contributors">
+    <item quantity="zero">%d المساهمون</item>
+    <item quantity="one">%d المساهمون</item>
+    <item quantity="two">%d المساهمون</item>
+    <item quantity="few">%d المساهمون</item>
+    <item quantity="many">%d المساهمون</item>
+    <item quantity="other">%d المساهمون</item>
+  </plurals>
+  <plurals name="semantic_search_result_references">
+    <item quantity="zero">%d المراجع</item>
+    <item quantity="one">%d المراجع</item>
+    <item quantity="two">%d المراجع</item>
+    <item quantity="few">%d المراجع</item>
+    <item quantity="many">%d المراجع</item>
+    <item quantity="other">%d المراجع</item>
+  </plurals>
+  <string name="semantic_search_results_last_updated_label">آخر تحديث%s</string>
+  <string name="semantic_search_results_feedback_title">هل وجدت ما كنت تبحث عنه؟</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">ممتاز</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">اعترض</string>
+  <string name="semantic_search_results_feedback_input_hint">أخبرنا المزيد (اختياري)</string>
+  <string name="semantic_search_results_feedback_submit_button_text">إرسال</string>
+  <string name="semantic_search_results_feedback_submitted_message">شكراً على ملاحظاتك</string>
+  <string name="semantic_search_feedback_dialog_title">ملاحظات</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">إغلاق ملاحظات البحث الدلالي</string>
+  <string name="semantic_search_snackbar_message">الوحدة مخفية يمكنك إظهارها مرة أخرى من الإعدادات</string>
+  <string name="semantic_search_snackbar_action_label">تعديل</string>
 </resources>
