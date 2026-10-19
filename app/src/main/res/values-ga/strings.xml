@@ -321,7 +321,6 @@
   <string name="editor_select_dialog_continue">Lean ar aghaidh</string>
   <string name="editor_select_icon_ve_title">Deilbhín Oscail i mbrabhsálaí seachtrach</string>
   <string name="editor_select_title_settings_screen">Rogha eagarthóireachta</string>
-  <string name="editor_select_save_btn_settings_screen">Sábháil</string>
   <string name="find_next">An chéad ceann eile</string>
   <string name="find_previous">An ceann roimhe</string>
   <string name="find_first_occurence">Is é seo an chéad tarlú</string>
@@ -2243,12 +2242,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Am is fearr leat le léamh</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Lá is fearr leat le léamh</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">An mhí a léigh tú an chuid is mó</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Maidin</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Inniu</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Tráthnóna</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Tráthnóna</string>
-  <string name="year_in_review_slide_reading_pattern_night">Oíche</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Déanach san oíche</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Maidin</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Inniu</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Tráthnóna</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Tráthnóna</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Oíche</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Déanach san oíche</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Chaith muid %,d uair an chloig ag léamh</item>
     <item quantity="two">Chaith muid %,d uair an chloig ag léamh</item>

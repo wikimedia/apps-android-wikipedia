@@ -348,7 +348,6 @@
   <string name="editor_select_dialog_continue">Folytatás</string>
   <string name="editor_select_icon_ve_title">Megnyitás külső böngészőben ikon</string>
   <string name="editor_select_title_settings_screen">Szerkesztési beállítás</string>
-  <string name="editor_select_save_btn_settings_screen">Mentés</string>
   <string name="find_next">Következő keresése</string>
   <string name="find_previous">Előző keresése</string>
   <string name="find_first_occurence">Ez az első találat</string>
@@ -2032,6 +2031,7 @@
     <item quantity="one">Az összes nyelvi változatot együttvéve a hozzád hasonló olvasók becslések szerint %1$,d évet töltöttek a Wikipédia olvasásával.</item>
     <item quantity="other">Az összes nyelvi változatot együttvéve a hozzád hasonló olvasók becslések szerint %1$,d évet töltöttek a Wikipédia olvasásával.</item>
   </plurals>
+  <string name="yir_community_languages_title">A Wikipédia a következő nyelveken érhető el:</string>
   <plurals name="yir_community_languages_headline">
     <item quantity="one">A Wikipédia több mint %1$d nyelven érhető el</item>
     <item quantity="other">A Wikipédia több mint %1$d nyelven érhető el</item>
@@ -2048,7 +2048,7 @@
   <string name="yir_community_global_reach_headline">A Wikipédia globális elérése: a világ tíz leglátogatottabb weboldalának egyike</string>
   <string name="yir_community_global_reach_supporting">A Wikipédia az internet tudásának egyik alappillére. A diákoktól a csevegőrobotokig mindenki tanul belőle.</string>
   <string name="yir_community_contribute_headline">Számítasz.</string>
-  <string name="yir_community_contribute_supporting">A Wikipédia olyan valódi embereknek köszönheti a létezését, mint te, akik lehetőségeikhez mérten hozzájárulnak ahhoz, hogy továbbra is fejlődjön. Ha fontos számodra a Wikipédia, kérjük, fontold meg, hogy adománnyal vagy szerkesztéssel támogatod. Már közreműködő vagy? Jelentkezz be, vagy hozz létre egy fiókot az eredményeid megtekintéséhez.</string>
+  <string name="yir_community_contribute_supporting">A Wikipédia olyan valódi embereknek köszönheti a létezését, mint te, akik lehetőségeikhez mérten hozzájárulnak ahhoz, hogy továbbra is fejlődjön. Ha fontos számodra a Wikipédia, kérjük, fontold meg, hogy adománnyal vagy szerkesztéssel támogatod. \n\nMár közreműködő vagy? Jelentkezz be, vagy hozz létre egy fiókot az eredményeid megtekintéséhez.</string>
   <string name="yir_closing_headline">A következő témáig, amibe beleásod magad</string>
   <string name="yir_closing_supporting">Akár egyetlen szócikkért jöttél, akár százért, köszönjük, hogy velünk együtt felfedeztél, olvastál és kíváncsi maradtál a Wikipédián.</string>
   <string name="yir_closing_share_action">Összefoglaló megosztása</string>
@@ -2262,12 +2262,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Kedvenc olvasási időpontod</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Kedvenc olvasási napod</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">A hónap, amikor a legtöbbet olvastál</string>
-  <string name="year_in_review_slide_reading_pattern_morning">reggel</string>
-  <string name="year_in_review_slide_reading_pattern_midday">dél</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">délután</string>
-  <string name="year_in_review_slide_reading_pattern_evening">este</string>
-  <string name="year_in_review_slide_reading_pattern_night">éjszaka</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">késő éjszaka</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">reggel</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">dél</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">délután</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">este</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">éjszaka</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">késő éjszaka</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Összesen %,d órát töltöttünk olvasással</item>
     <item quantity="other">Összesen %,d órát töltöttünk olvasással</item>

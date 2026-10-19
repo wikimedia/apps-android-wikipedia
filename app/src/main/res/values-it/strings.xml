@@ -1916,6 +1916,8 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Vedi le tue serie di vittorie, i punteggi e altro ancora.</string>
   <string name="wikipedia_games_title">Giochi di Wikipedia</string>
   <string name="wikipedia_games_subtitle">Giochi a quiz giornalieri basati sui contenuti di Wikipedia.</string>
+  <string name="yir_community_languages_title">Lingue Wikipedia è disponibile in:</string>
+  <string name="yir_community_global_reach_subtitle">Uno dei dieci siti web più visitati al mondo.</string>
   <string name="yir_games_headline">Pronti per un\'altra sfida?</string>
   <string name="year_in_review_learn_more">Ulteriori informazioni</string>
   <string name="year_in_review_get_started">Inizia</string>
@@ -1981,12 +1983,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Momento preferito per leggere</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Giorno preferito per leggere</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mese in cui hai letto di più</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Mattina</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Mezzogiorno</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Pomeriggio</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Sera</string>
-  <string name="year_in_review_slide_reading_pattern_night">Notte</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Tarda notte</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Mattine</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Mezzogiorni</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Pomeriggi</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Sere</string>
+  <string name="year_in_review_slide_reading_pattern_night">Notti</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Tarda notti</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Abbiamo trascorso %,d ore a leggere</item>
     <item quantity="other">Abbiamo trascorso %,d ore a leggere</item>
@@ -2192,4 +2194,5 @@
   <string name="reading_lists_tab_collections">Raccolte</string>
   <string name="reading_lists_remove_articles_confirm_button">Annulla salvataggio</string>
   <string name="semantic_search_entry_point_card_text_button">Provalo subito</string>
+  <string name="semantic_search_results_last_updated_label">Ultimo aggiornamento %s</string>
 </resources>

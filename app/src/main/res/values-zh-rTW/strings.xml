@@ -2027,12 +2027,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">最喜歡的閱讀時間</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">最喜歡的閱讀日子</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">您閱讀最多次的月份</string>
-  <string name="year_in_review_slide_reading_pattern_morning">早晨</string>
-  <string name="year_in_review_slide_reading_pattern_midday">中午</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">下午</string>
-  <string name="year_in_review_slide_reading_pattern_evening">傍晚</string>
-  <string name="year_in_review_slide_reading_pattern_night">晚間</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">早晨</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">中午</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">下午</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">傍晚</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">晚間</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">深夜</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">我們用了 %,d 小時閱讀</item>
     <item quantity="other">我們用了 %,d 小時閱讀</item>

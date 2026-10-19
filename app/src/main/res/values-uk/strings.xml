@@ -2168,12 +2168,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Улюблений час для читання</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Улюблений день для читання</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Місяць, коли ви найбільше читали</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Ранок</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Полудень</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Після обіду</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Вечір</string>
-  <string name="year_in_review_slide_reading_pattern_night">Ніч</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Пізній вечір</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Ранок</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Полудень</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Після обіду</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Вечір</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Ніч</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Пізній вечір</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Ми провели за читанням %,d годину</item>
     <item quantity="few">Ми провели за читанням %,d години</item>
