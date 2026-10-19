@@ -43,7 +43,6 @@ object YearInReviewPlaygroundPreview {
 
     // this excludes LongestReadGuess, LongestReadReveal, RabbitHoleGuess, and RabbitHoleReveal which are not included in the template
     val allSlides get() = listOf(
-        YearInReviewPage.Cover(daysSpent = 45),
         YearInReviewPage.ArticlesRead(isEmptyState = false, count = 120, percentile = "5", averageCount = averageArticlesReadPerYear),
         YearInReviewPage.Visits(days = 45, peakMonth = MonthVisitedDays(month = 9, visitedDays = 20)),
         YearInReviewPage.TimeSpent(duration = 1500),
@@ -111,7 +110,6 @@ object YearInReviewPlaygroundPreview {
 
     // Visits has no empty state: it's left out of the flow instead
     val emptyStates = listOf(
-        YearInReviewPage.Cover(daysSpent = 12),
         YearInReviewPage.ArticlesRead(isEmptyState = true, count = 0, percentile = "", averageCount = averageArticlesReadPerYear),
         YearInReviewPage.ReadingStreak(isEmptyState = true, longestStreak = 0, streakStartDate = "", streakEndDate = ""),
         YearInReviewPage.ReadingPattern(isEmptyState = true, favoriteTime = "", favoriteTimePercentage = 0),
