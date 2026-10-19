@@ -19,6 +19,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontVariation
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,6 +47,10 @@ private val EntryCardBottomGlow = Brush.verticalGradient(
         0.79f to EntryCardGlowColor.copy(alpha = 0.57f),
         1f to EntryCardGlowColor
     )
+)
+
+private val RobotoFlexFontFamily = FontFamily(
+    Font(R.font.robotoflex, variationSettings = FontVariation.Settings(FontVariation.width(140f)))
 )
 
 @Composable
@@ -70,12 +78,14 @@ fun YearInReviewEntryCard(
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.titleSmall,
                 textAlign = TextAlign.Center,
-                color = ComposeColors.White
+                color = ComposeColors.White,
+                fontFamily = RobotoFlexFontFamily,
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.W700
             )
             Text(
-                modifier = Modifier.padding(top = 4.dp),
+                modifier = Modifier.padding(top = 8.dp),
                 text = subtitle,
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center,
