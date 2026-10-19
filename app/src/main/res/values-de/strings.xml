@@ -384,7 +384,6 @@
   <string name="editor_select_dialog_continue">Weiter</string>
   <string name="editor_select_icon_ve_title">Im externen Browser öffnen</string>
   <string name="editor_select_title_settings_screen">Bearbeitungseinstellung</string>
-  <string name="editor_select_save_btn_settings_screen">Speichern</string>
   <string name="find_next">Nächste finden</string>
   <string name="find_previous">Vorherige finden</string>
   <string name="find_first_occurence">Dies ist das erste Auftreten</string>
@@ -2066,7 +2065,7 @@
   <string name="yir_community_global_reach_headline">Die globale Reichweite von Wikipedia: eine der zehn meistbesuchten Websites der Welt</string>
   <string name="yir_community_global_reach_supporting">Wikipedia ist das Rückgrat des Wissens im Internet. Von Schülern bis zu Chatbots – alle lernen von ihr.</string>
   <string name="yir_community_contribute_headline">Du zählst.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia gibt es dank echter Menschen wie dir, die beitragen, was sie können, damit Wikipedia weiter gedeiht. Wenn dir Wikipedia etwas bedeutet, unterstütze sie doch mit einer Spende oder einer Bearbeitung. Du trägst bereits bei? Melde dich an oder erstelle ein Konto, um deine Erfolge zu sehen.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Wikipedia gibt es dank echter Menschen wie dir, die beitragen, was sie können, damit Wikipedia weiter gedeiht. Wenn dir Wikipedia etwas bedeutet, unterstütze sie doch mit einer Spende oder einer Bearbeitung. Du trägst bereits bei? Melde dich an oder erstelle ein Konto, um deine Erfolge zu sehen.</string>
   <string name="yir_closing_headline">Bis zum nächsten Abtauchen</string>
   <string name="yir_closing_supporting">Ob du für einen Artikel gekommen bist oder für hundert: Danke, dass du mit uns auf Wikipedia entdeckst, liest und neugierig bleibst.</string>
   <string name="yir_closing_share_action">Highlights teilen</string>
@@ -2270,12 +2269,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Lieblings-Lesezeit</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Lieblings-Lesetag</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Monat, in dem du am meisten gelesen hast</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Morgen</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Mittag</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Nachmittag</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Abend</string>
-  <string name="year_in_review_slide_reading_pattern_night">Nacht</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Späte Nacht</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Morgen</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Mittag</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Nachmittag</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Abend</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Nacht</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Späte Nacht</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Wir haben %,d Stunde mit Lesen verbracht</item>
     <item quantity="other">Wir haben %,d Stunden mit Lesen verbracht</item>
@@ -2782,7 +2781,7 @@
     <item quantity="one">%d Einzelnachweis</item>
     <item quantity="other">%d Einzelnachweise</item>
   </plurals>
-  <string name="semantic_search_results_last_updated_label">Zuletzt aktualisiert: %s</string>
+  <string name="semantic_search_results_last_updated_label" fuzzy="true">Zuletzt aktualisiert: %s</string>
   <string name="semantic_search_results_feedback_title">Hast du gefunden, wonach du gesucht hast?</string>
   <string name="semantic_search_results_feedback_thumb_up_content_description">Daumen hoch</string>
   <string name="semantic_search_results_feedback_thumb_down_content_description">Daumen runter</string>

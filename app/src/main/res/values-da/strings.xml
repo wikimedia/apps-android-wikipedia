@@ -345,7 +345,6 @@
   <string name="editor_select_dialog_continue">Fortsæt</string>
   <string name="editor_select_icon_ve_title">Ikon for at åbne i en ekstern browser</string>
   <string name="editor_select_title_settings_screen">Redigeringspræference</string>
-  <string name="editor_select_save_btn_settings_screen">Gem</string>
   <string name="find_next">Find næste</string>
   <string name="find_previous">Find forrige</string>
   <string name="find_first_occurence">Dette er den første forekomst</string>
@@ -2030,6 +2029,7 @@
     <item quantity="one">Samlet set brugte læsere som dig på tværs af alle sprog anslået %1$,d år på at læse Wikipedia.</item>
     <item quantity="other">Samlet set brugte læsere som dig på tværs af alle sprog anslået %1$,d år på at læse Wikipedia.</item>
   </plurals>
+  <string name="yir_community_languages_title">Sprog Wikipedia er tilgængelig på:</string>
   <plurals name="yir_community_languages_headline">
     <item quantity="one">Wikipedia er tilgængelig på: over %1$d sprog</item>
     <item quantity="other">Wikipedia er tilgængelig på: over %1$d sprog</item>
@@ -2043,10 +2043,12 @@
   <string name="yir_community_editors_supporting">Vidste du, at alle Wikimedia-projekter er lavet af frivillige? Bidragsydere bidrager med nye artikler og forbedrer eksisterende artikler.</string>
   <string name="yir_community_edits_headline">Foretagne redigeringer:</string>
   <string name="yir_community_edits_supporting">Hver time hver dag arbejder frivillige verden over på at forbedre Wikipedia ved at opdatere artikelfakta, fotografere historiske vartegn og rette stavefejl.</string>
+  <string name="yir_community_global_reach_title">Wikipedias globale rækkevidde:</string>
+  <string name="yir_community_global_reach_subtitle">En af de ti mest besøgte hjemmesider i verden</string>
   <string name="yir_community_global_reach_headline">Wikipedias globale rækkevidde: en af de ti mest besøgte hjemmesider i verden</string>
   <string name="yir_community_global_reach_supporting">Wikipedia er rygraden i internettets viden. Fra studerende til chatbots lærer alle af den.</string>
   <string name="yir_community_contribute_headline">Du betyder noget.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia eksisterer takket være virkelige mennesker som dig, der bidrager med deres evne til at holde den blomstrende. Hvis Wikipedia er værdifuld for dig, så overvej venligst at støtte den ved at donere eller redigere. Er du allerede bidragyder? Log ind eller opret en konto for at se dine præstationer.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia eksisterer takket være virkelige mennesker som dig, der bidrager med deres evne til at holde den blomstrende. Hvis Wikipedia er værdifuld for dig, så overvej venligst at støtte den ved at donere eller redigere. \n\nEr du allerede bidragyder? Log ind eller opret en konto for at se dine præstationer.</string>
   <string name="yir_closing_headline">Indtil det næste kaninhul</string>
   <string name="yir_closing_supporting">Uanset om du kom for én artikel eller hundrede, tak fordi du udforskede, læste og forblev nysgerrig sammen med os på Wikipedia.</string>
   <string name="yir_closing_share_action">Del højdepunkter</string>
@@ -2772,7 +2774,7 @@
     <item quantity="one">%d reference</item>
     <item quantity="other">%d referencer</item>
   </plurals>
-  <string name="semantic_search_results_last_updated_label">Sidste opdatering %s</string>
+  <string name="semantic_search_results_last_updated_label">Sidst opdateret %s</string>
   <string name="semantic_search_results_feedback_title">Fandt du det, du ledte efter?</string>
   <string name="semantic_search_results_feedback_thumb_up_content_description">Tommelfingeren op</string>
   <string name="semantic_search_results_feedback_thumb_down_content_description">Tommelfingeren nedad</string>

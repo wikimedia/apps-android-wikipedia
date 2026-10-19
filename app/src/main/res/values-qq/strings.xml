@@ -2044,9 +2044,9 @@
   <string name="yir_community_editors_supporting">Supporting text of the community Year in Review volunteer editors slide.</string>
   <string name="yir_community_edits_headline">Headline of the community Year in Review slide that shows how many edits were made.</string>
   <string name="yir_community_edits_supporting">Supporting text of the community Year in Review edits slide.</string>
-  <string name="yir_community_global_reach_headline">Headline of the community Year in Review slide about Wikipedia\'s global reach.</string>
   <string name="yir_community_global_reach_title">Title of the community Year in Review slide about Wikipedia\'s global reach.</string>
   <string name="yir_community_global_reach_subtitle">Subtitle of the community Year in Review slide about Wikipedia\'s global reach.</string>
+  <string name="yir_community_global_reach_headline">Headline of the community Year in Review slide about Wikipedia\'s global reach.</string>
   <string name="yir_community_global_reach_supporting">Supporting text of the community Year in Review global reach slide.</string>
   <string name="yir_community_contribute_headline">Headline of the community Year in Review slide that invites the user to contribute.</string>
   <string name="yir_community_contribute_supporting">Supporting text of the community Year in Review slide that invites the user to contribute.</string>

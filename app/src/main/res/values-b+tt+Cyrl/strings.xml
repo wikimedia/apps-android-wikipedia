@@ -309,7 +309,6 @@
   <string name="editor_select_dialog_dont_show_again">Моны миңа бүтән күрсәтмә. Бу стандартлы көйләнмәне соңрак Көйләнмәләрдә үзгәртергә була.</string>
   <string name="editor_select_dialog_continue">Дәвам итү</string>
   <string name="editor_select_title_settings_screen">Редакторлау ысулы</string>
-  <string name="editor_select_save_btn_settings_screen">Саклау</string>
   <string name="find_next">Киләсене табарга</string>
   <string name="find_previous">Алдагысын табарга</string>
   <string name="find_first_occurence">Бу беренче очрак</string>

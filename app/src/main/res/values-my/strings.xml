@@ -1222,12 +1222,12 @@
   <string name="year_in_review_get_started">စတင်ပါ</string>
   <string name="year_in_review_login_dialog_positive">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
   <string name="year_in_review_login_dialog_negative">လော့ဂ်အင်မဝင်ဘဲ ဆက်သုံးမည်</string>
-  <string name="year_in_review_slide_reading_pattern_morning">မနက်ခင်း</string>
-  <string name="year_in_review_slide_reading_pattern_midday">နေ့လယ်ပိုင်း</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">နေ့လည်ခင်း</string>
-  <string name="year_in_review_slide_reading_pattern_evening">ညနေခင်း</string>
-  <string name="year_in_review_slide_reading_pattern_night">ည</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">ညဉ့်နက်ချိန်</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">မနက်ခင်း</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">နေ့လယ်ပိုင်း</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">နေ့လည်ခင်း</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">ညနေခင်း</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">ည</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">ညဉ့်နက်ချိန်</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">ကျပန်းရွေးချယ်ပါ</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">နေ့စဉ်</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">အပတ်စဉ်</string>

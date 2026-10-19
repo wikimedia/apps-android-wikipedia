@@ -2057,12 +2057,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">הזמן האהוב לקריאה</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">היום האהוב לקריאה</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">החודש שבו קראת הכי הרבה</string>
-  <string name="year_in_review_slide_reading_pattern_morning">בוקר</string>
-  <string name="year_in_review_slide_reading_pattern_midday">צוהריים</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">אחר הצוהריים</string>
-  <string name="year_in_review_slide_reading_pattern_evening">ערב</string>
-  <string name="year_in_review_slide_reading_pattern_night">לילה</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">חצות</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">בוקר</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">צוהריים</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">אחר הצוהריים</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">ערב</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">לילה</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">חצות</string>
   <string name="year_in_review_slide_viewed_articles_times_body">עבור אנשים ברחבי העולם, ויקיפדיה היא התחנה הראשונה כשרוצים לענות על שאלה, לחפש מידע ללימודים או עבודה, או ללמוד עובדה חדשה.</string>
   <string name="year_in_review_reading_list_dialog_title" fuzzy="true">ליצור את רשימת הקריאה שלך עבור הסקירת השנתית של %d?</string>
   <string name="year_in_review_reading_list_dialog_message" fuzzy="true">סקירת השנה של ויקיפדיה תיצור רשימת קריאה של הערכים שבהם בילית את רוב הזמן בשנת %1$d. &lt;a href=\"%2$s\"&gt;מידע נוסף&lt;/a&gt;</string>

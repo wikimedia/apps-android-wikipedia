@@ -331,7 +331,6 @@
   <string name="editor_select_dialog_continue">Davam et</string>
   <string name="editor_select_icon_ve_title">Xarici brauzerdə açın işarəsi</string>
   <string name="editor_select_title_settings_screen">Redaktə seçimi</string>
-  <string name="editor_select_save_btn_settings_screen">Yadda saxla</string>
   <string name="find_next">Növbətini axtar</string>
   <string name="find_previous">Əvvəlkini axtar</string>
   <string name="find_first_occurence">Bu ilk hadisəsidir</string>
@@ -2031,12 +2030,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Oxumaq üçün sevimli vaxtınız</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Oxumaq üçün sevimli gününüz</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Ən çox oxuduğunuz ay</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Səhər</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Günorta</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Günorta</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Axşam</string>
-  <string name="year_in_review_slide_reading_pattern_night">Gecə</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Gecə</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Səhər</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Günorta</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Günorta</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Axşam</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Gecə</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Gecə</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Oxumağa %,d saat sərf etmişik</item>
     <item quantity="other">Oxumağa %,d saat sərf etmişik</item>
