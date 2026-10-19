@@ -380,7 +380,6 @@
   <string name="editor_select_dialog_continue">Kontynuuj</string>
   <string name="editor_select_icon_ve_title">Ikona „Otwórz w zewnętrznej przeglądarce”</string>
   <string name="editor_select_title_settings_screen">Preferencje edycji</string>
-  <string name="editor_select_save_btn_settings_screen">Zapisz</string>
   <string name="find_next">Znajdź następne</string>
   <string name="find_previous">Znajdź poprzednie</string>
   <string name="find_first_occurence">Jest to pierwsze wystąpienie</string>
@@ -2200,6 +2199,7 @@
     <item quantity="many">Łącznie, we wszystkich wersjach językowych, osoby takie jak Ty spędziły na czytaniu Wikipedii szacunkowo %1$,d lat.</item>
     <item quantity="other">Łącznie, we wszystkich wersjach językowych, osoby takie jak Ty spędziły na czytaniu Wikipedii szacunkowo %1$,d roku.</item>
   </plurals>
+  <string name="yir_community_languages_title">Liczba wersji językowych Wikipedii:</string>
   <plurals name="yir_community_languages_headline">
     <item quantity="one">Wikipedia jest już dostępna w ponad %1$d języku</item>
     <item quantity="few">Wikipedia jest już dostępna w ponad %1$d językach</item>
@@ -2215,10 +2215,12 @@
   <string name="yir_community_editors_supporting">Czy wiesz, że za wszystkimi projektami Wikimediów stoi nieodpłatna praca osób z całego świata? To one piszą nowe artykuły i szlifują istniejące teksty.</string>
   <string name="yir_community_edits_headline">Liczba dokonanych edycji:</string>
   <string name="yir_community_edits_supporting">Przez całą dobę osoby z całego świata pracują nad ulepszaniem Wikipedii – aktualizują fakty, fotografują zabytki i poprawiają literówki.</string>
+  <string name="yir_community_global_reach_title">Światowy fenomen:</string>
+  <string name="yir_community_global_reach_subtitle">Wikipedia to jedna z 10 najbardziej uczęszczanych stron w Internecie</string>
   <string name="yir_community_global_reach_headline">Światowy fenomen – Wikipedia to jedna z 10 najbardziej uczęszczanych stron w Internecie</string>
   <string name="yir_community_global_reach_supporting">Wikipedia to fundament wiedzy w Internecie. Korzysta z niej cała społeczność – od osób uczących się i studiujących po modele sztucznej inteligencji.</string>
   <string name="yir_community_contribute_headline">Liczy się każdy wkład.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia istnieje dzięki ludziom takim jak Ty, którzy dzielą się tym, czym mogą. Jeśli cenisz Wikipedię, rozważ wsparcie jej poprzez wpłatę lub edytowanie haseł. Jesteś już częścią społeczności? Zaloguj się, by zobaczyć swoje osiągnięcia.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia istnieje dzięki ludziom takim jak Ty, którzy dzielą się tym, czym mogą. Jeśli cenisz Wikipedię, rozważ wsparcie jej poprzez wpłatę lub edytowanie haseł.\n\nJesteś już częścią społeczności? Zaloguj się, by zobaczyć swoje osiągnięcia.</string>
   <string name="yir_closing_headline">Do zobaczenia na kolejnym czytelniczym szlaku!</string>
   <string name="yir_closing_supporting">Niezależnie od tego, czy wpadasz tu po jedno hasło, czy czytasz całymi godzinami – dziękujemy, że zgłębiasz wiedzę razem z Wikipedią.</string>
   <string name="yir_closing_share_action">Udostępnij podsumowanie</string>
