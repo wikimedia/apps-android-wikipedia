@@ -1717,11 +1717,11 @@
   <string name="year_in_review_login_dialog_negative">Настави без пријављивања</string>
   <string name="year_in_review_slide_reading_patterns_headline">Имате јасне обрасце читања</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Омиљени дан за читање</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Јутро</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Послеподне</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Вече</string>
-  <string name="year_in_review_slide_reading_pattern_night">Ноћ</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Касно увече</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Јутро</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Послеподне</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Вече</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Ноћ</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Касно увече</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Направи</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Не, хвала</string>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Колико често је Википедија уређивана</string>

@@ -331,7 +331,6 @@
   <string name="editor_select_dialog_ve_title">시각 편집</string>
   <string name="editor_select_dialog_source_title">원본 편집</string>
   <string name="editor_select_dialog_continue">계속</string>
-  <string name="editor_select_save_btn_settings_screen">저장</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="find_first_occurence">이것이 처음 항목입니다</string>
@@ -2185,7 +2184,9 @@
   <string name="donation_reminders_settings_report_email_subject">문제 보고 - 기부 알림</string>
   <string name="donation_reminders_settings_report_email_body">기부 알림 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n- [스크린샷 또는 링크]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="donation_reminders_snackbar_modify_button_label">수정</string>
+  <string name="donation_reminders_settings_article_number_selection_label">문서</string>
   <string name="donation_reminders_wrap_up_title">기부 안내는 여기까지입니다.</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">다른 질문 있으신가요? (선택 사항)</string>
   <string name="reading_challenge_widget_name">읽기 도전</string>
   <string name="reading_challenge_onboarding_header">위키백과 25주년을 기념하여 25일 독서 도전에 참여하세요!</string>
   <string name="reading_challenge_onboarding_read_title">25일 동안 문서를 매일 하나씩 읽으세요</string>
@@ -2379,4 +2380,8 @@
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="other">문서 %d가 관련된 모든 컬렉션에서 제거되었습니다.</item>
   </plurals>
+  <string name="semantic_search_results_feedback_title">원하던 것을 찾으셨나요?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">좋아요</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">어려워요</string>
+  <string name="semantic_search_results_feedback_input_hint">더 자세히 알려주세요 (선택 사항)</string>
 </resources>

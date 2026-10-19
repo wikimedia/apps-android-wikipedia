@@ -1985,12 +1985,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Hora favorite pro leger</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Die favorite pro leger</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mense in le qual tu ha legite le plus</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Matino</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Mediedie</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Postmeridie</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Vespere</string>
-  <string name="year_in_review_slide_reading_pattern_night">Nocte</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Tarde in le nocte</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Matino</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Mediedie</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Postmeridie</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Vespere</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Nocte</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Tarde in le nocte</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Nos ha passate %,d hora a leger</item>
     <item quantity="other">Nos ha passate %,d horas a leger</item>

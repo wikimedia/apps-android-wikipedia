@@ -339,7 +339,6 @@
   <string name="editor_select_dialog_source_title">Wikitekstimuokkaus</string>
   <string name="editor_select_dialog_continue">Jatka</string>
   <string name="editor_select_title_settings_screen">Muokkausasetukset</string>
-  <string name="editor_select_save_btn_settings_screen">Tallenna</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
   <string name="find_first_occurence">Tämä on ensimmäinen esiintyminen</string>
@@ -2111,12 +2110,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Suosituin vuorokaudenaika lukea</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Suosituin viikonpäivä lukea</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Kuukausi, jolloin luit eniten</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Aamu</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Keskipäivä</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Iltapäivä</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Ilta</string>
-  <string name="year_in_review_slide_reading_pattern_night">Yö</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Myöhäisilta</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Aamu</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Keskipäivä</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Iltapäivä</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Ilta</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Yö</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Myöhäisilta</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Käytimme %,d tunnin lukemiseen</item>
     <item quantity="other">Käytimme %,d tuntia lukemiseen</item>
@@ -2526,7 +2525,7 @@
     <item quantity="one">%d viite</item>
     <item quantity="other">%d viitettä</item>
   </plurals>
-  <string name="semantic_search_results_last_updated_label">Päivitetty viimeksi %s</string>
+  <string name="semantic_search_results_last_updated_label" fuzzy="true">Päivitetty viimeksi %s</string>
   <string name="semantic_search_results_feedback_title">Löysitkö etsimäsi?</string>
   <string name="semantic_search_results_feedback_input_hint">Kerro tarkemmin (valinnainen)</string>
   <string name="semantic_search_results_feedback_submit_button_text">Lähetä</string>

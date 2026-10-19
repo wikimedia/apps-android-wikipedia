@@ -367,7 +367,6 @@
   <string name="editor_select_dialog_continue">Continuar</string>
   <string name="editor_select_icon_ve_title">Ícone Abrir em navegador externo</string>
   <string name="editor_select_title_settings_screen">Preferências de edição</string>
-  <string name="editor_select_save_btn_settings_screen">Salvar</string>
   <string name="find_next">Encontrar próxima</string>
   <string name="find_previous">Encontrar anterior</string>
   <string name="find_first_occurence">Esta é a primeira ocorrência</string>
@@ -1985,7 +1984,7 @@
   <string name="yir_community_global_reach_headline">O alcance global da Wikipédia: um dos dez sites mais visitados do mundo</string>
   <string name="yir_community_global_reach_supporting">A Wikipédia é a espinha dorsal do conhecimento na internet. De estudantes a chatbots, todos aprendem com ela.</string>
   <string name="yir_community_contribute_headline">Você é importante.</string>
-  <string name="yir_community_contribute_supporting">A Wikipédia existe graças a pessoas reais como você, que contribuem com o que podem para mantê-la viva. Se a Wikipédia é importante para você, considere apoiá-la fazendo uma doação ou editando artigos. Já é colaborador? Faça login ou crie uma conta para ver suas conquistas.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">A Wikipédia existe graças a pessoas reais como você, que contribuem com o que podem para mantê-la viva. Se a Wikipédia é importante para você, considere apoiá-la fazendo uma doação ou editando artigos. Já é colaborador? Faça login ou crie uma conta para ver suas conquistas.</string>
   <string name="yir_closing_headline">Até a próxima aventura</string>
   <string name="yir_closing_supporting">Seja que você tenha vindo para ler um artigo ou cem, obrigado por explorar, ler e manter a curiosidade conosco na Wikipédia.</string>
   <string name="yir_closing_share_action">Compartilhar destaques</string>
@@ -2124,12 +2123,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Hora favorita para ler</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Dia favorito para ler</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mês em que você mais leu</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Manhã</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Meio-dia</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Tarde</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Noite</string>
-  <string name="year_in_review_slide_reading_pattern_night">Noite</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Tarde da noite</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Manhã</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Meio-dia</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Tarde</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Noite</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Noite</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Tarde da noite</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Criar</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Não, obrigado</string>
   <string name="year_in_review_reading_list_title">Resumo do ano %d</string>

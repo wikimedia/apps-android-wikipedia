@@ -348,7 +348,6 @@
   <string name="editor_select_dialog_continue">Lanjutkan</string>
   <string name="editor_select_icon_ve_title">Buka di ikon peramban eksternal</string>
   <string name="editor_select_title_settings_screen">Preferensi suntingan</string>
-  <string name="editor_select_save_btn_settings_screen">Simpan</string>
   <string name="find_next">Cari berikutnya</string>
   <string name="find_previous">Cari sebelumnya</string>
   <string name="find_first_occurence">Ini adalah hasil pertama</string>
@@ -1949,12 +1948,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Waktu favorit untuk membaca</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Hari favorit untuk membaca</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Bulan yang paling banyak Anda baca</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Pagi</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Tengah hari</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Sore</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Sore menjelang malam</string>
-  <string name="year_in_review_slide_reading_pattern_night">Malam</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Larut malam</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Pagi</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Tengah hari</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Sore</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Sore menjelang malam</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Malam</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Larut malam</string>
   <string name="year_in_review_slide_viewed_articles_times_body">Bagi orang-orang di seluruh dunia, Wikipedia adalah tempat pertama yang mereka kunjungi saat ingin mencari jawaban atas suatu pertanyaan, mencari informasi untuk keperluan sekolah atau pekerjaan, atau mempelajari fakta baru.</string>
   <string name="year_in_review_reading_list_dialog_title" fuzzy="true">Buat daftar bacaan Tinjauan Tahunan %d Anda?</string>
   <string name="year_in_review_reading_list_dialog_message" fuzzy="true">Tinjauan Tahunan akan membuat daftar bacaan berisi artikel-artikel yang paling banyak Anda baca pada %1$d. &lt;a href=\"%2$s\"&gt;Pelajari selengkapnya&lt;/a&gt;</string>

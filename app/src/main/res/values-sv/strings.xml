@@ -347,7 +347,6 @@
   <string name="editor_select_dialog_continue">Fortsätt</string>
   <string name="editor_select_icon_ve_title">Ikon för att öppna i extern webbläsare</string>
   <string name="editor_select_title_settings_screen">Redigeringsinställning</string>
-  <string name="editor_select_save_btn_settings_screen">Spara</string>
   <string name="find_next">Sök nästa</string>
   <string name="find_previous">Sök föregående</string>
   <string name="find_first_occurence">Detta är den första förekomsten</string>
@@ -2059,12 +2058,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Favorittidpunkt för att läsa</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Favoritdag för att läsa</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Månaden du läste mest</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Morgonen</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Mitt på dagen</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Eftermiddagen</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Kvällen</string>
-  <string name="year_in_review_slide_reading_pattern_night">Natten</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Sent på natten</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Morgonen</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Mitt på dagen</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Eftermiddagen</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Kvällen</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Natten</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Sent på natten</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Vi tillbringade %,d timme med att läsa</item>
     <item quantity="other">Vi tillbringade %,d timmar med att läsa</item>
