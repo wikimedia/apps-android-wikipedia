@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview.presentation
 
+import android.graphics.Matrix
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,8 +17,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RadialGradientShader
+import androidx.compose.ui.graphics.Shader
+import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -31,26 +36,36 @@ import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.theme.Theme
 
-private val EntryCardBaseGradient = Brush.horizontalGradient(
-    colorStops = arrayOf(
-        0.26f to Color(0xFF010012),
-        0.75f to Color(0xFF00146C),
-        1f to Color(0xFF003489)
-    )
-)
-
-private val EntryCardGlowColor = Color(0xFF07289E)
-
-private val EntryCardBottomGlow = Brush.verticalGradient(
-    colorStops = arrayOf(
-        0.34f to EntryCardGlowColor.copy(alpha = 0f),
-        0.79f to EntryCardGlowColor.copy(alpha = 0.57f),
-        1f to EntryCardGlowColor
-    )
-)
+private val EntryCardGradient = object : ShaderBrush() {
+    override fun createShader(size: Size): Shader {
+        val center = Offset(size.width * 0.5f, size.height * 1.22f)
+        val radiusX = size.width * 4f
+        val radiusY = size.height * 1.6f
+        return RadialGradientShader(
+            center = center,
+            radius = radiusX,
+            colors = listOf(
+                Color(0xFFF2F2F2),
+                Color(0xFF44D3F0),
+                Color(0xFF0099DA),
+                Color(0xFF01427A),
+                Color(0xFF0E2651),
+                Color(0xFF061737)
+            ),
+            colorStops = listOf(0.149f, 0.2548f, 0.3462f, 0.5337f, 0.6298f, 0.7452f)
+        ).apply {
+            setLocalMatrix(Matrix().apply { setScale(1f, radiusY / radiusX, center.x, center.y) })
+        }
+    }
+}
 
 private val RobotoFlexFontFamily = FontFamily(
-    Font(R.font.robotoflex, variationSettings = FontVariation.Settings(FontVariation.width(140f)))
+    Font(
+        R.font.robotoflex,
+        weight = FontWeight.W500,
+        variationSettings = FontVariation.Settings(FontVariation.weight(500), FontVariation.width(150f)
+        )
+    )
 )
 
 @Composable
@@ -65,8 +80,7 @@ fun YearInReviewEntryCard(
             .fillMaxWidth()
             .heightIn(min = 140.dp)
             .clip(RoundedCornerShape(12.dp))
-            .background(EntryCardBaseGradient)
-            .background(EntryCardBottomGlow)
+            .background(EntryCardGradient)
     ) {
         Column(
             modifier = Modifier
@@ -81,8 +95,7 @@ fun YearInReviewEntryCard(
                 textAlign = TextAlign.Center,
                 color = ComposeColors.White,
                 fontFamily = RobotoFlexFontFamily,
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.W700
+                style = MaterialTheme.typography.titleSmall
             )
             Text(
                 modifier = Modifier.padding(top = 8.dp),
