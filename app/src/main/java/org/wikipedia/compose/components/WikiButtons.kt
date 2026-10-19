@@ -30,6 +30,8 @@ fun AppButton(
     enabled: Boolean = true,
     backgroundColor: Color = WikipediaTheme.colors.progressiveColor,
     contentColor: Color = WikipediaTheme.colors.paperColor,
+    disabledContainerColor: Color = WikipediaTheme.colors.inactiveColor,
+    disabledContentColor: Color = WikipediaTheme.colors.paperColor,
     content: @Composable (() -> Unit)
 ) {
     Button(
@@ -39,6 +41,8 @@ fun AppButton(
         colors = ButtonDefaults.buttonColors(
             containerColor = backgroundColor,
             contentColor = contentColor,
+            disabledContainerColor = disabledContainerColor,
+            disabledContentColor = disabledContentColor
         ),
         contentPadding = ButtonDefaults.ContentPadding
     ) {

@@ -335,7 +335,6 @@
   <string name="editor_select_dialog_continue">دوام ورکول</string>
   <string name="editor_select_icon_ve_title">په باندني ښوونگر انځور کې پرانېستل</string>
   <string name="editor_select_title_settings_screen">غوره‌توب سمول</string>
-  <string name="editor_select_save_btn_settings_screen">خوندي‌کول</string>
   <string name="find_next">بل موندل</string>
   <string name="find_previous">پخوانی موندل</string>
   <string name="find_first_occurence">دا لومړۍ پېښه ده</string>
@@ -2082,12 +2081,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">خواپورې لوست وخت</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">خواپورې لوست ورځ</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">ستاسو ډېر لوستې مياشت</string>
-  <string name="year_in_review_slide_reading_pattern_morning">سهار</string>
-  <string name="year_in_review_slide_reading_pattern_midday">غرمه</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">ماسپښين</string>
-  <string name="year_in_review_slide_reading_pattern_evening">ماښام</string>
-  <string name="year_in_review_slide_reading_pattern_night">شپه</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">شپې ناوخته</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">سهار</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">غرمه</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">ماسپښين</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">ماښام</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">شپه</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">شپې ناوخته</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">موږ %,d گړۍ په لوستلو تېره کړه</item>
     <item quantity="other">موږ %,d گړۍ په لوستلو تېرې کړې</item>

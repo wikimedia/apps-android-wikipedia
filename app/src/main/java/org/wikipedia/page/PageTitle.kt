@@ -11,7 +11,7 @@ import org.wikipedia.staticdata.ContributionsNameData
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import java.util.*
+import java.util.Locale
 
 /**
  * Represents certain vital information about a page, including the title, namespace,

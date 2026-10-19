@@ -21,8 +21,8 @@ object YearInReviewRiveContentMapper {
         is YearInReviewPage.Cover -> RiveSlideContent(
             spec = allTemplatesSlideSpec("cover"),
             textProperties = mapOf(
-                "coverTitle" to resources.getString(R.string.yir_intro_headline).uppercase(),
-                "bodyCopy" to resources.getQuantityString(R.plurals.yir_intro_supporting, page.daysSpent, page.daysSpent, YearInReviewConfig.YEAR)
+                "coverTitle" to resources.getString(if (page.isPersonalized) R.string.yir_intro_headline else R.string.yir_community_intro_headline).uppercase(),
+                "bodyCopy" to if (page.isPersonalized) resources.getQuantityString(R.plurals.yir_intro_supporting, page.daysSpent, page.daysSpent, YearInReviewConfig.YEAR) else resources.getString(R.string.yir_community_intro_supporting),
             )
         )
         is YearInReviewPage.ArticlesRead -> RiveSlideContent(
@@ -214,15 +214,64 @@ object YearInReviewRiveContentMapper {
                 "bodyCopy" to resources.getString(if (page.showLoginPrompt) R.string.yir_community_contribute_supporting else R.string.yir_non_contributor_supporting),
             )
         )
-        // The file has no collective artboards yet, so these reuse the personal artboard closest to each insight
         is YearInReviewPage.Collective -> when (page.insight) {
-            YearInReviewCollectiveInsight.HOURS_READ -> RiveSlideContent(allTemplatesSlideSpec("frame3"))
-            YearInReviewCollectiveInsight.LANGUAGES -> RiveSlideContent(allTemplatesSlideSpec("frame2"))
-            YearInReviewCollectiveInsight.ARTICLES -> RiveSlideContent(allTemplatesSlideSpec("frame1"))
-            YearInReviewCollectiveInsight.SAVED_ARTICLES -> RiveSlideContent(allTemplatesListSlideSpec("frame15"))
-            YearInReviewCollectiveInsight.VOLUNTEER_EDITORS -> RiveSlideContent(allTemplatesSlideSpec("frame17"))
-            YearInReviewCollectiveInsight.EDITS -> RiveSlideContent(allTemplatesSlideSpec("frame16"))
-            YearInReviewCollectiveInsight.GLOBAL_REACH -> RiveSlideContent(allTemplatesListSlideSpec("frame14"))
+            YearInReviewCollectiveInsight.HOURS_READ -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame3"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_reading_hours_headline, YearInReviewConfig.YEAR),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.hoursReadEN),
+                    "bodyCopy" to resources.getQuantityString(R.plurals.yir_community_reading_hours_supporting, page.config.yearsReadEN, page.config.yearsReadEN)
+                )
+            )
+            YearInReviewCollectiveInsight.LANGUAGES -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame4"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_languages_title),
+                    "data" to page.config.languages.toString() + "+",
+                    "bodyCopy" to resources.getString(R.string.yir_community_languages_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.ARTICLES -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame17"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_articles_headline),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.articles),
+                    "bodyCopy" to resources.getString(R.string.yir_community_articles_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.SAVED_ARTICLES -> RiveSlideContent(
+                // TODO! Is this frame right?
+                spec = allTemplatesSlideSpec("frame8"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_saved_articles_headline, YearInReviewConfig.YEAR),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.savedArticlesApps),
+                    "bodyCopy" to resources.getString(R.string.yir_community_saved_articles_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.VOLUNTEER_EDITORS -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame16"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_editors_headline),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.editors),
+                    "bodyCopy" to resources.getString(R.string.yir_community_editors_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.EDITS -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame5"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_edits_headline),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.edits),
+                    "bodyCopy" to resources.getString(R.string.yir_community_edits_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.GLOBAL_REACH -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame12"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_global_reach_title),
+                    "data" to resources.getString(R.string.yir_community_global_reach_subtitle).uppercase(),
+                    "bodyCopy" to resources.getString(R.string.yir_community_global_reach_supporting)
+                )
+            )
         }
         is YearInReviewPage.LongestReadGuess,
         is YearInReviewPage.LongestReadReveal,

@@ -1,7 +1,11 @@
 package org.wikipedia.yearinreview.data
 
+import android.location.Geocoder
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.CategoryDao
@@ -23,6 +27,7 @@ import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
+import java.time.LocalDate
 
 interface YearInReviewRepository {
     suspend fun getYearInReview(): YearInReviewSnapshot
@@ -95,9 +100,24 @@ class YearInReviewRepositoryImpl(
         val articlesReadCount = async { historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles) }
         val visitedDaysCount = async { historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis) }
         val peakMonthDeferred = async { historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis) }
+        val longestStreakDeferred = async {
+            YearInReviewReadingStreak.longestOf(historyEntryDao.getDistinctDaysBetween(dateRange.startMillis, dateRange.endMillis).map { LocalDate.parse(it) })
+        }
         val articlesRevisited = async {
             historyEntryWithImageDao.findEntriesVisitedMultipleTimesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
                 .map { it.first.title to it.second }
+        }
+        val biggestReadingDayDeferred = async {
+            historyEntryWithImageDao.getBiggestReadingDayBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles)?.let { biggestDay ->
+                biggestDay to historyEntryWithImageDao.findLongestReadEntriesOnDay(biggestDay.day, dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 3)
+                    .map { it.title }
+            }
+        }
+        val rabbitHoleDeferred = async {
+            YearInReviewRabbitHole.longestOf(historyEntryDao.getArticleLinksBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles))?.let { rabbitHole ->
+                val entriesById = historyEntryWithImageDao.findEntriesByIds(listOf(rabbitHole.startEntryId, rabbitHole.endEntryId)).associateBy { it.id }
+                Triple(entriesById[rabbitHole.startEntryId]?.title, entriesById[rabbitHole.endEntryId]?.title, rabbitHole.articleCount)
+            }
         }
         val topCategoriesDeferred = async { categoryDao.getTopCategoriesByYear(YearInReviewConfig.YEAR, limit = 10) }
 
@@ -118,7 +138,50 @@ class YearInReviewRepositoryImpl(
         val topCategoriesWithSpaces = topCategories.filter { it.title.split(" ").size > 2 }
         val topCategory = topCategoriesWithSpaces.firstOrNull() ?: topCategories.firstOrNull()
 
+        val favoriteTimeOfDayDeferred = async {
+            YearInReviewTimeOfDay.favoriteOf(historyEntryDao.getArticleVisitCountsByHourBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles))
+        }
+
+        val topCountry = async(Dispatchers.IO) {
+            val pagesWithCoordinates = AppDatabase.instance.historyEntryWithImageDao().getEntriesWithCoordinates(256, dateRange.startMillis, dateRange.endMillis)
+                .filter { it.geoLat != null && it.geoLon != null }
+                .distinctBy { it.apiTitle }
+            if (pagesWithCoordinates.size > 2) {
+                try {
+                    val clusters = GeoUtil.LocationClusterer().clusterLocations(
+                        locations = pagesWithCoordinates,
+                        epsilonKm = 500.0,
+                        minPoints = 3
+                    )
+                    val largestCluster = clusters.maxByOrNull { it.locations.size }
+                    if (largestCluster?.centroid != null && largestCluster.locations.size >= 2) {
+                        val largestClusterLatitude = largestCluster.centroid.latitude
+                        val largestClusterLongitude = largestCluster.centroid.longitude
+
+                        val largestClusterBounds = LatLngBounds.Builder()
+                        largestCluster.locations.forEach {
+                            largestClusterBounds.include(LatLng(it.geoLat ?: 0.0, it.geoLon ?: 0.0))
+                        }
+                        val geocoder = Geocoder(WikipediaApp.instance)
+                        val results = geocoder.getFromLocation(largestClusterLatitude, largestClusterLongitude, 2)
+                        if (!results.isNullOrEmpty()) {
+                            return@async Pair(results.first().countryName.orEmpty(), largestCluster.locations.size)
+                        }
+                    }
+                } catch (_: IOException) {
+                    // could be thrown by Geocoder, and safe to ignore.
+                }
+            }
+            Pair(null, 0)
+        }.await()
+
         val peakMonth = peakMonthDeferred.await()
+        val favoriteTimeOfDay = favoriteTimeOfDayDeferred.await()
+        val longestStreak = longestStreakDeferred.await()
+        val biggestReadingDay = biggestReadingDayDeferred.await()
+        val biggestReadingDate = biggestReadingDay?.first?.day?.let { LocalDate.parse(it) }
+        val rabbitHole = rabbitHoleDeferred.await()
+
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
             visitedDaysCount = visitedDaysCount.await(),
@@ -126,6 +189,22 @@ class YearInReviewRepositoryImpl(
             peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,
             articlesRevisited = articlesRevisited.await(),
             topCategory = topCategory?.title,
+            topCountry = topCountry.first,
+            topCountryArticleCount = topCountry.second,
+            favoriteTimeOfDay = favoriteTimeOfDay?.first,
+            favoriteTimeOfDayPercentage = favoriteTimeOfDay?.second ?: 0,
+            longestStreakDays = longestStreak?.days ?: 0,
+            longestStreakStartMonth = longestStreak?.start?.monthValue ?: 0,
+            longestStreakStartDay = longestStreak?.start?.dayOfMonth ?: 0,
+            longestStreakEndMonth = longestStreak?.end?.monthValue ?: 0,
+            longestStreakEndDay = longestStreak?.end?.dayOfMonth ?: 0,
+            biggestReadingDayMonth = biggestReadingDate?.monthValue ?: 0,
+            biggestReadingDayOfMonth = biggestReadingDate?.dayOfMonth ?: 0,
+            biggestReadingDayTimeSpentSec = biggestReadingDay?.first?.timeSpentSec ?: 0,
+            biggestReadingDayArticles = biggestReadingDay?.second.orEmpty(),
+            rabbitHoleStart = rabbitHole?.first,
+            rabbitHoleEnd = rabbitHole?.second,
+            rabbitHoleArticleCount = rabbitHole?.third ?: 0,
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,

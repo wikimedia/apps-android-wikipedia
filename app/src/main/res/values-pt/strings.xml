@@ -1843,11 +1843,11 @@
     <item quantity="one">Editores efetuaram %,d alteração este ano</item>
     <item quantity="other">Editores efetuaram %,d alterações neste ano</item>
   </plurals>
-  <string name="year_in_review_slide_reading_pattern_morning">Manhã</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Meio dia</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Tarde</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Noite</string>
-  <string name="year_in_review_slide_reading_pattern_night">Noite</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Manhã</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Meio dia</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Tarde</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Noite</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Noite</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos escolhidos apenas para si</string>
   <string name="recommended_reading_list_onboarding_card_new">Novo!</string>

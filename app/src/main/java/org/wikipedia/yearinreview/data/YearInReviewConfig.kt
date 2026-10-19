@@ -19,6 +19,7 @@ object YearInReviewConfig {
         contributionsEndDate = LocalDateTime.of(2026, 11, 30, 23, 59),
         languages = 300,
         articles = 65667790,
+        editors = 1234567,
         savedArticlesApps = 46392587,
         viewsApps = 14085467928,
         editsApps = 1936242,

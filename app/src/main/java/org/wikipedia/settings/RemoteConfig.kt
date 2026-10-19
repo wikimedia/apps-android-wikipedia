@@ -53,8 +53,8 @@ object RemoteConfig {
     class RemoteConfigAndroidV1(
         val disableReadingListSync: Boolean? = false,
         val hCaptcha: RemoteConfigHCaptcha? = null,
-        val hybridSearchEnabled: Boolean? = null,
-        val hybridSearchLanguages: List<String>? = null,
+        val semanticSearchEnabledv2: Boolean? = null,
+        val semanticSearchLanguagesv2: List<String>? = null,
         val newArticlesWithinInterestEnabled: Boolean? = null,
         val visualEditorEnabled: Boolean? = null,
         val readAloudLeadSectionEnabled: Boolean? = null,
@@ -87,6 +87,7 @@ object RemoteConfig {
         @Serializable(with = LocalDateTimeSerializer::class) val contributionsEndDate: LocalDateTime? = null,
         val languages: Int = 0,
         val articles: Long = 0,
+        val editors: Long = 0,
         val savedArticlesApps: Long = 0,
         val viewsApps: Long = 0,
         val editsApps: Long = 0,
