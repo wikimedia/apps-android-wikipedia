@@ -2073,6 +2073,13 @@
   <string name="yir_quiz_action">Button label on the Year in Review quiz card.</string>
   <string name="yir_open_tabs_headline">Headline of the Year in Review card that invites the user to revisit their open tabs.</string>
   <string name="yir_share_text">Text used when sharing the Year in Review. %1$d will be replaced by the year, and %2$s will be replaced by a URL.</string>
+  <string name="yir_feature_card_title">Title of the Year in Review shareable feature card.</string>
+  <string name="yir_feature_card_articles_read">Number of articles read by the user, shown on the shareable Year-in-Review card.</string>
+  <string name="yir_feature_card_minutes_read">Number of minutes spent reading by the user, shown on the shareable Year-in-Review card.</string>
+  <string name="yir_feature_card_articles_reread">Number of articles read repeatedly by the user, shown on the shareable Year-in-Review card.</string>
+  <string name="yir_feature_card_longest_rabbit_hole">The longest rabbit hole explored by the user, shown on the shareable Year-in-Review card.</string>
+  <string name="yir_feature_card_top_category">Most interesting category revisited by the user, shown on the shareable Year-in-Review card.</string>
+  <string name="yir_feature_card_created_with">Attribution message, shown on the shareable Year-in-Review card.</string>
   <string name="yir_topic_comment_architecture">Comment shown in the Year in Review top topic slide when the user\'s top topic is \"Architecture\".</string>
   <string name="yir_topic_comment_art">Comment shown in the Year in Review top topic slide when the user\'s top topic is \"Art\".</string>
   <string name="yir_topic_comment_comics_and_anime">Comment shown in the Year in Review top topic slide when the user\'s top topic is \"Comics and anime\".</string>
