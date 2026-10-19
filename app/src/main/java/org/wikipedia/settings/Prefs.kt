@@ -1038,4 +1038,8 @@ object Prefs {
     var semanticSearchIsTestActive
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_is_test_active, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_is_test_active, value)
+
+    var notificationsIsTestActive
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_is_test_active, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_is_test_active, value)
 }

@@ -611,4 +611,11 @@
 
     </PreferenceCategory>
 
+
+    <PreferenceCategory android:title="@string/preference_developer_notifications_experiment_heading">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_notifications_is_test_active"
+            android:title="@string/preference_key_notifications_is_test_active"/>
+    </PreferenceCategory>
+
 </PreferenceScreen>
