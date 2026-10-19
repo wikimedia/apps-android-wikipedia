@@ -31,15 +31,15 @@ class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP
     private val supportedLanguages = RemoteConfig.config.androidv1?.notificationsExperimentLanguages.orEmpty()
 
     fun isNotificationsExperimentEligible(): Boolean {
-        return isTestActive() && isLanguageSupported(WikipediaApp.instance.languageState.appLanguageCode)
+        return isTestActive() && isLanguageSupported(WikipediaApp.instance.languageState.appLanguageCode) && Prefs.isRecommendedReadingListNotificationEnabled
     }
 
     fun isNotificationsExperimentEnabled(): Boolean {
-        return isTestGroupUser() && isNotificationsExperimentEligible() && Prefs.isRecommendedReadingListNotificationEnabled
+        return isTestGroupUser() && isNotificationsExperimentEligible()
     }
 
-    fun shouldSendEvent(group: Int? = null, function: () -> (Unit)) {
-        if (isNotificationsExperimentEligible() && (group == null || group == this.group)) {
+    fun shouldSendEvent(function: () -> Unit) {
+        if (isNotificationsExperimentEligible()) {
             function.invoke()
         }
     }
