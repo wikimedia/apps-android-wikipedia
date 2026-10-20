@@ -11,8 +11,12 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.getValue
 import androidx.core.net.toUri
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -27,6 +31,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
+import kotlin.collections.plus
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -46,6 +51,16 @@ class YearInReviewActivity : BaseActivity() {
             statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
             navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT)
         )
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collectLatest {
+                    if (it is YearInReviewUiState.Error) {
+                        instrument?.submitInteraction(action = "error", actionContext = mapOf("message" to it.error.message.orEmpty()))
+                    }
+                }
+            }
+        }
 
         setContent {
             BaseTheme {
@@ -132,6 +147,7 @@ class YearInReviewActivity : BaseActivity() {
                         viewModel.loadYearInReview()
                     },
                     onRiveError = { throwable ->
+                        submitInteraction(uiState, action = "error", elementId = "rive", actionContext = mapOf("message" to throwable.message.orEmpty()))
                         FeedbackUtil.showError(this, throwable)
                     }
                 )
