@@ -38,14 +38,14 @@ class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP
         return isTestGroupUser() && isNotificationsExperimentEligible()
     }
 
-    fun shouldSendEvent(function: () -> Unit) {
+    fun runIfEligible(function: () -> Unit) {
         if (isNotificationsExperimentEligible()) {
             function.invoke()
         }
     }
 
     fun setExperimentIfEligible(instrument: InstrumentImpl) {
-        shouldSendEvent {
+        runIfEligible {
             instrument.setExperiment(TestKitchenAdapter.getExperiment(this))
         }
     }
