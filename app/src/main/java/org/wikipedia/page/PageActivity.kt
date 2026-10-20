@@ -45,7 +45,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -105,7 +104,6 @@ import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.presentation.YearInReviewDialog
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.time.LocalDate
 import java.util.Locale
@@ -359,7 +357,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         app.resetWikiSite()
         updateNotificationsButton(false)
         Prefs.temporaryWikitext = null
-        YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(this)
     }
 
     override fun onPause() {
@@ -710,7 +707,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     if (campaign != null && campaign == "Android") {
                         var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
                         YearInReviewViewModel.currentCampaignId?.let { campaignId ->
-                            YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
+                            TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+                                .submitInteraction(action = "impression", actionSource = "webpay_processed", actionContext = mapOf("campaign_id" to campaignId))
                             pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_YIR
                         } ?: run {
                             DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
