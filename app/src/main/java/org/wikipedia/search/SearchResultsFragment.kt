@@ -197,7 +197,7 @@ class SearchResultsFragment : Fragment() {
             val isTreatment = semanticSearchAbTest.group == ABTest.GROUP_2
             requireActivity().instrument?.submitInteraction(action,
                 elementId = "search_result",
-                actionSubtype = if (isTreatment) "lexical_result" else null,
+                actionSubtype = "lexical_result",
                 actionContext = if (isTreatment) viewModel.getSemanticEventActionContext(result) else viewModel.getStandardEventActionContext(result)
             )
         }
