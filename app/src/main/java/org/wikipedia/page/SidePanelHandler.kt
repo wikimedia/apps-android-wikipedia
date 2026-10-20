@@ -141,6 +141,16 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         onStartShow()
     }
 
+    fun showToCAfterLoadingOffsets() {
+        bridge.evaluate(JavaScriptActionHandler.getOffsets()) { value ->
+            if (!fragment.isAdded) {
+                return@evaluate
+            }
+            sectionOffsetsCallback.onReceiveValue(value)
+            showToC()
+        }
+    }
+
     fun hide() {
         binding.navigationDrawer.closeDrawers()
         articleTocInteractionEvent?.scrollStop()

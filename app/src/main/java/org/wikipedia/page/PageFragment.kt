@@ -172,6 +172,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private var pageRefreshed = false
     private var errorState = false
     private var scrolledUpForThemeChange = false
+    private var restoreToCAfterRecreate = false
     private var references: PageReferences? = null
     private var avPlayer: AvPlayer? = null
     private var avCallback: AvCallback? = null
@@ -214,6 +215,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageActionsTabLayout.callback = pageActionItemCallback
         savedInstanceState?.let {
             scrolledUpForThemeChange = it.getBoolean(ARG_THEME_CHANGE_SCROLLED, false)
+            restoreToCAfterRecreate = it.getBoolean(ARG_TOC_VISIBLE, false)
         }
         return binding.root
     }
@@ -268,6 +270,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putBoolean(ARG_THEME_CHANGE_SCROLLED, scrolledUpForThemeChange)
+        outState.putBoolean(ARG_TOC_VISIBLE, ::sidePanelHandler.isInitialized && sidePanelHandler.isVisible)
     }
 
     override fun onDestroyView() {
@@ -779,6 +782,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
+            if (restoreToCAfterRecreate) {
+                restoreToCAfterRecreate = false
+                sidePanelHandler.showToCAfterLoadingOffsets()
+            }
 
             JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
                 // Persist the list of topics for this article.
@@ -1520,6 +1527,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     companion object {
         private const val ARG_THEME_CHANGE_SCROLLED = "themeChangeScrolled"
+        private const val ARG_TOC_VISIBLE = "tocVisible"
         private val REFRESH_SPINNER_ADDITIONAL_OFFSET = (16 * DimenUtil.densityScalar).toInt()
     }
 }
