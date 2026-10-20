@@ -40,7 +40,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                         viewModel = viewModel,
                         onItemClick = { searchResult ->
 
-                            SemanticSearchAbTest().shouldSendEvent {
+                            SemanticSearchAbTest().runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
                                     actionSubtype = "semantic_result",
                                     elementId = "search_result",
@@ -62,7 +62,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             )
                         },
                         onCloseClick = {
-                            SemanticSearchAbTest().shouldSendEvent {
+                            SemanticSearchAbTest().runIfEligible {
                                 val isFeedbackVisible = viewModel.feedbackState.value.isVisible
                                 requireActivity().instrument?.submitInteraction("click",
                                     actionSubtype = if (isFeedbackVisible) "cardview_result" else "semantic_result",
@@ -72,7 +72,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             dismiss()
                         },
                         onFeedbackSubmit = { isPositive, feedbackText ->
-                            SemanticSearchAbTest().shouldSendEvent {
+                            SemanticSearchAbTest().runIfEligible {
                                 isPositive?.let {
                                     requireActivity().instrument?.submitInteraction("click",
                                         actionSubtype = "cardview_result",
@@ -93,7 +93,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                         },
                         onLoading = {
                             if (it == LoadingType.Success || it == LoadingType.Empty) {
-                                SemanticSearchAbTest().shouldSendEvent {
+                                SemanticSearchAbTest().runIfEligible {
                                     requireActivity().instrument?.submitInteraction("impression",
                                         actionSubtype = if (it == LoadingType.Empty) "semantic_result_empty" else "semantic_result",
                                         elementId = "search_result",
