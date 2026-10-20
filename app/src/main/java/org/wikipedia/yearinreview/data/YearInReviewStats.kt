@@ -127,8 +127,7 @@ data class YearInReviewEntryStats(
     val articlesReadCount: Int,
     val visitedDaysCount: Int
 ) {
-    val isDataRich get() = articlesReadCount >= YearInReviewReadingStats.MIN_ARTICLES_READ &&
-            visitedDaysCount >= YearInReviewReadingStats.MIN_VISITED_DAYS
+    val isDataRich get() = articlesReadCount >= YearInReviewReadingStats.MIN_ARTICLES_READ
 }
 
 data class YearInReviewRewardData(
