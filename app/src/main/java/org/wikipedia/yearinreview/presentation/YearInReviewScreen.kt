@@ -284,7 +284,6 @@ private fun YearInReviewContent(
                                 YearInReviewSlideDonateButton(
                                     modifier = Modifier
                                         .align(Alignment.BottomCenter)
-                                        .fillMaxWidth()
                                         .padding(16.dp),
                                     onClick = { onDonateClick(page.id) }
                                 )
@@ -518,14 +517,14 @@ private fun YearInReviewBottomBar(
             Icon(
                 modifier = Modifier.size(20.dp),
                 painter = painterResource(R.drawable.ic_share),
-                tint = if (shareEnabled) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.inactiveColor,
+                tint = if (shareEnabled) Color.White else Color.White.copy(alpha = 0.5f),
                 contentDescription = null
             )
             Text(
                 modifier = Modifier.padding(start = 4.dp),
                 text = stringResource(R.string.menu_page_article_share),
                 style = MaterialTheme.typography.labelLarge,
-                color = if (shareEnabled) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.inactiveColor
+                color = if (shareEnabled) Color.White else Color.White.copy(alpha = 0.5f)
             )
         }
         if (showDonateButton) {
@@ -533,14 +532,14 @@ private fun YearInReviewBottomBar(
                 Icon(
                     modifier = Modifier.size(20.dp),
                     painter = painterResource(R.drawable.ic_heart_24),
-                    tint = WikipediaTheme.colors.destructiveColor,
+                    tint = Color.White,
                     contentDescription = null
                 )
                 Text(
                     modifier = Modifier.padding(start = 4.dp),
                     text = stringResource(R.string.year_in_review_donate),
                     style = MaterialTheme.typography.labelLarge,
-                    color = WikipediaTheme.colors.destructiveColor
+                    color = Color.White
                 )
             }
         }
@@ -555,8 +554,8 @@ private fun YearInReviewSlideDonateButton(
     // The slide artwork looks the same in every app theme, so the button uses fixed colors
     AppButton(
         modifier = modifier,
-        backgroundColor = ComposeColors.Blue600,
-        contentColor = ComposeColors.White,
+        backgroundColor = Color.Black,
+        contentColor = Color.White,
         onClick = onClick
     ) {
         Icon(
