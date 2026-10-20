@@ -100,6 +100,12 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.SUPPRESSED
     }
 
+    val topCountryStatus get() = if (!topCountry.isNullOrEmpty()) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
     val hasPeakMonth get() = peakMonthVisitedDays >= MIN_PEAK_MONTH_VISITED_DAYS
 
     companion object {

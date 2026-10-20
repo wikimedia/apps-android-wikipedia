@@ -70,6 +70,13 @@ object YearInReviewFlowDecider {
                     categoryName = readingStats.topCategory.orEmpty()
                 )
             },
+            CandidatePage(status = readingStats.topCountryStatus) {
+                YearInReviewPage.Geography(
+                    isEmptyState = readingStats.topCountryStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    country = readingStats.topCountry.orEmpty(),
+                    articleCount = readingStats.topCountryArticleCount
+                )
+            },
             CandidatePage(status = editingStats.totalEditCountStatus) {
                 YearInReviewPage.TotalEdits(
                     isEmptyState = editingStats.totalEditCountStatus == YearInReviewInsightStatus.EMPTY_STATE,
