@@ -35,7 +35,7 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                         selectedRating = viewModel.selectedRating.collectAsState().value,
                         onRatingClick = viewModel::selectRating,
                         onCloseClick = {
-                            SemanticSearchAbTest().shouldSendEvent {
+                            SemanticSearchAbTest().runIfEligible {
                                 viewModel.instrument.submitInteraction("click",
                                     actionSubtype = "article_result",
                                     elementId = "close_feedback_button"
@@ -44,7 +44,7 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                             dismiss()
                         },
                         onSubmitClick = { isPositive, feedbackText ->
-                            SemanticSearchAbTest().shouldSendEvent {
+                            SemanticSearchAbTest().runIfEligible {
                                 isPositive?.let {
                                     viewModel.instrument.submitInteraction("click",
                                         actionSubtype = "article_result",
@@ -85,7 +85,7 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
         }
 
         fun submitSuppressedEvent(instrument: InstrumentImpl?, actionSubtype: String, suppression: FeedbackSuppression) {
-            SemanticSearchAbTest().shouldSendEvent {
+            SemanticSearchAbTest().runIfEligible {
                 instrument?.submitInteraction("error",
                     actionSubtype = actionSubtype,
                     elementId = "feedback_prompt",
