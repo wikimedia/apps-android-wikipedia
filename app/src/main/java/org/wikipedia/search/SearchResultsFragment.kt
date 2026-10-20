@@ -48,9 +48,6 @@ class SearchResultsFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.searchTermForLogging.collectLatest { query ->
                     if (!query.isNullOrEmpty()) {
-                        requireActivity().instrument?.submitInteraction(
-                            "search_init", actionContext = mapOf("query" to query)
-                        )
                         semanticSearchAbTest.shouldSendEvent {
                             val isFromRecentSearch = viewModel.isFromRecentSearch
                             requireActivity().instrument?.submitInteraction("init",
