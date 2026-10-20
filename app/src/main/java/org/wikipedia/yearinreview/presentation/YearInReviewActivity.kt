@@ -16,12 +16,10 @@ import androidx.lifecycle.lifecycleScope
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.donate.DonateDialog
+import org.wikipedia.extensions.instrument
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -38,6 +36,7 @@ class YearInReviewActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+            .setDefaultActionSource("main")
             .startFunnel("year-in-review")
             .setExperiment(TestKitchenAdapter.getExperiment(YearInReviewEndScreenABTest()))
 
@@ -55,21 +54,26 @@ class YearInReviewActivity : BaseActivity() {
                 YearInReviewScreen(
                     uiState = uiState,
                     onCloseClick = {
+                        instrument?.submitInteraction(action = "click", elementId = "close_button")
                         finish()
                     },
                     onLearnMoreClick = {
+                        instrument?.submitInteraction(action = "click", elementId = "learn_more_button")
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_url).toUri())
                     },
                     onAboutInsightsClick = {
+                        instrument?.submitInteraction(action = "click", elementId = "about_insights_button")
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_faq_url).toUri())
                     },
                     onShareFeedbackClick = {
+                        instrument?.submitInteraction(action = "click", elementId = "share_feedback_button")
                         FeedbackUtil.composeEmail(
                             context = this,
                             subject = getString(R.string.year_in_review_feedback_email_subject)
                         )
                     },
                     onShareClick = { bitmap ->
+                        instrument?.submitInteraction(action = "click", elementId = "share_button")
                         val shareUrl = getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
                         val shareText = String.format(
                             getString(R.string.year_in_review_share_body),
@@ -86,29 +90,30 @@ class YearInReviewActivity : BaseActivity() {
                         )
                     },
                     onDonateClick = { currentSlide ->
-                        EventPlatformClient.submit(
-                            BreadCrumbLogEvent(
-                                screen_name = "year_in_review",
-                                action = "donate_click"
-                            )
-                        )
                         val campaignId = "appmenu_yir_$currentSlide"
                         YearInReviewViewModel.currentCampaignId = campaignId
-                        YearInReviewEvent.submit(
-                            action = "donate_start_click_yir",
-                            slide = currentSlide,
-                            campaignId = campaignId
-                        )
+                        instrument?.submitInteraction(action = "click", elementId = "donate_button", actionContext = mapOf(
+                            "slide" to currentSlide,
+                            "campaign_id" to campaignId
+                        ))
                         ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = campaignId, fromYiR = true))
                     },
                     onEndCardClick = { card ->
                         when (card) {
-                            YearInReviewEndCard.GAMES -> startActivity(GamesHubActivity.newIntent(this))
-                            YearInReviewEndCard.CUSTOMIZE_HOME -> startActivity(PersonalizationActivity.newIntent(this, showInterestsOnly = true))
+                            YearInReviewEndCard.GAMES -> {
+                                instrument?.submitInteraction(action = "click", elementId = "play_game_button")
+                                startActivity(GamesHubActivity.newIntent(this))
+                            }
+                            YearInReviewEndCard.CUSTOMIZE_HOME -> {
+                                instrument?.submitInteraction(action = "click", elementId = "customize_interests_button")
+                                startActivity(PersonalizationActivity.newIntent(this, showInterestsOnly = true))
+                            }
                             YearInReviewEndCard.STORE_DISCOUNT -> {
+                                instrument?.submitInteraction(action = "click", elementId = "visit_store_button")
                                 UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_store_discount_url).toUri())
                             }
                             YearInReviewEndCard.QUIZ -> {
+                                instrument?.submitInteraction(action = "click", elementId = "take_quiz_button")
                                 UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_quiz_url, WikipediaApp.instance.appOrSystemLanguageCode).toUri())
                             }
                         }
@@ -118,6 +123,7 @@ class YearInReviewActivity : BaseActivity() {
                             .isAppearanceLightStatusBars = useDarkIcons
                     },
                     onPageImpression = { page ->
+                        instrument?.submitInteraction(action = "impression", actionContext = mapOf("page" to page.id))
                         if (page is YearInReviewPage.End && YearInReviewEndScreenABTest().isUserEligible()) {
                             YearInReviewEndScreenABTest().maybeSendExposureEvent()
                         }

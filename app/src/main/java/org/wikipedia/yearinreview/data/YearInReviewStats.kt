@@ -108,7 +108,7 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
-    val savedArticlesStatus get() = if (articlesSavedTotal > 0 && articlesSaved.size > 0) {
+    val savedArticlesStatus get() = if (articlesSavedTotal > 0 && articlesSaved.isNotEmpty()) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
