@@ -51,7 +51,7 @@ class SearchResultsFragment : Fragment() {
                         requireActivity().instrument?.submitInteraction(
                             "search_init", actionContext = mapOf("query" to query)
                         )
-                        semanticSearchAbTest.shouldSendEvent {
+                        semanticSearchAbTest.runIfEligible {
                             val isFromRecentSearch = viewModel.isFromRecentSearch
                             requireActivity().instrument?.submitInteraction("init",
                                 actionSubtype = if (isFromRecentSearch) "recent_search" else null,
@@ -121,7 +121,7 @@ class SearchResultsFragment : Fragment() {
                             callback()?.onSearchProgressBar(enabled)
                         },
                         onSemanticSearchClick = { searchTerm, isFirstUse ->
-                            semanticSearchAbTest.shouldSendEvent {
+                            semanticSearchAbTest.runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "enter_semantic_search"
                                 )
@@ -136,7 +136,7 @@ class SearchResultsFragment : Fragment() {
                             }
                         },
                         onSemanticSearchInfoClick = {
-                            semanticSearchAbTest.shouldSendEvent {
+                            semanticSearchAbTest.runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "info_button"
                                 )
@@ -144,7 +144,7 @@ class SearchResultsFragment : Fragment() {
                             callback()?.showSemanticSearchInfoDialog()
                         },
                         onSemanticSearchCloseClick = {
-                            semanticSearchAbTest.shouldSendEvent {
+                            semanticSearchAbTest.runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "close_semantic_button"
                                 )
@@ -193,7 +193,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private fun submitSemanticLexicalResultEvent(action: String, result: SearchResult? = null) {
-        semanticSearchAbTest.shouldSendEvent {
+        semanticSearchAbTest.runIfEligible {
             val isTreatment = semanticSearchAbTest.group == ABTest.GROUP_2
             requireActivity().instrument?.submitInteraction(action,
                 elementId = "search_result",

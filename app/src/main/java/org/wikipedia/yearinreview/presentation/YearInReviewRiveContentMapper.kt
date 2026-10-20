@@ -112,9 +112,9 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesListSlideSpec(artboardName = "frame9"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_articles_read_headline)
-            ) + listRows(page.articles.map { it.title to it.description }),
+            ) + listRows(page.articles.map { StringUtil.fromHtml(it.displayText).toString() to it.description.orEmpty() }),
             numberProperties = listItemCount(page.articles.size),
-            imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
+            imageUrls = listIcons(page.articles.map { it.thumbUrl })
         )
         is YearInReviewPage.Category -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame12"),
@@ -154,9 +154,7 @@ object YearInReviewRiveContentMapper {
                 spec = allTemplatesListSlideSpec("frame14"),
                 textProperties = mapOf(
                     "bodyText" to resources.getString(R.string.yir_places_headline)
-                ) + listRows(page.placeArticleCounts.map { (place, count) ->
-                    place to resources.getQuantityString(R.plurals.yir_places_article_count, count, count)
-                })
+                ) + listRows(listOf(page.country.orEmpty() to resources.getQuantityString(R.plurals.yir_places_article_count, page.articleCount, page.articleCount)))
             )
         }
         is YearInReviewPage.SavedArticles -> if (page.isEmptyState) {
@@ -172,8 +170,8 @@ object YearInReviewRiveContentMapper {
                 spec = allTemplatesListSlideSpec("frame15"),
                 textProperties = mapOf(
                     "bodyText" to resources.getQuantityString(R.plurals.yir_saved_articles_headline, page.savedCount, page.savedCount)
-                ) + listRows(page.articles.map { it.title to getViewCountText(resources, it.viewCount) }),
-                imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
+                ) + listRows(page.articles.map { StringUtil.fromHtml(it.displayText).toString() to it.description.orEmpty() }),
+                imageUrls = listIcons(page.articles.map { it.thumbUrl })
             )
         }
         is YearInReviewPage.TotalEdits -> RiveSlideContent(

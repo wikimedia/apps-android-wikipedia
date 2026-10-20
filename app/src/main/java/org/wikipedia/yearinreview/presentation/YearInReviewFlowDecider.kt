@@ -70,6 +70,20 @@ object YearInReviewFlowDecider {
                     categoryName = readingStats.topCategory.orEmpty()
                 )
             },
+            CandidatePage(status = readingStats.topCountryStatus) {
+                YearInReviewPage.Geography(
+                    isEmptyState = readingStats.topCountryStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    country = readingStats.topCountry.orEmpty(),
+                    articleCount = readingStats.topCountryArticleCount
+                )
+            },
+            CandidatePage(status = readingStats.savedArticlesStatus) {
+                YearInReviewPage.SavedArticles(
+                    isEmptyState = readingStats.savedArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    savedCount = readingStats.articlesSavedTotal,
+                    articles = readingStats.articlesSaved
+                )
+            },
             CandidatePage(status = editingStats.totalEditCountStatus) {
                 YearInReviewPage.TotalEdits(
                     isEmptyState = editingStats.totalEditCountStatus == YearInReviewInsightStatus.EMPTY_STATE,
