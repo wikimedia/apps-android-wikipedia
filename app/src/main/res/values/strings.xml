@@ -2178,6 +2178,13 @@
     <string name="yir_quiz_action">Take the quiz</string>
     <string name="yir_open_tabs_headline">Revisit your open tabs</string>
     <string name="yir_share_text">Here\'s my %1$d Wikipedia Year in Review, from the Wikipedia app: %2$s</string>
+    <string name="yir_feature_card_title">Wikipedia Year in Review %1$d</string>
+    <string name="yir_feature_card_articles_read">Number of articles read:</string>
+    <string name="yir_feature_card_minutes_read">Total minutes read:</string>
+    <string name="yir_feature_card_articles_reread">Articles in my rotation:</string>
+    <string name="yir_feature_card_longest_rabbit_hole">Longest rabbit hole:</string>
+    <string name="yir_feature_card_top_category">Niche category explored:</string>
+    <string name="yir_feature_card_created_with">Created with the Wikipedia App</string>
 
     <string name="yir_topic_comment_architecture">You spent the year appreciating things that were built to last.</string>
     <string name="yir_topic_comment_art">You gravitated toward the beautiful, the bold, and the occasionally baffling.</string>
@@ -2291,6 +2298,10 @@
     <string name="year_in_review_slide_geo_body"><![CDATA[The country that is closest to many articles you\'ve read seems to be: %1$s, based on articles like <b>%2$s</b> and <b>%3$s</b>.]]></string>
     <string name="year_in_review_login_dialog_title">Log in for personalization?</string>
     <string name="year_in_review_login_dialog_body">Logging in gives you access to personalized insights. You can still see collective insights without logging in.</string>
+    <string name="year_in_review_login_dialog_title_nodata">Wikipedia is best with an account</string>
+    <string name="year_in_review_login_dialog_body_nodata">Logging in gives you access to the best parts of the app. Start building next year’s Year in Review by creating an account today.</string>
+    <string name="year_in_review_login_dialog_title_data">Your Year in Review is best with an account</string>
+    <string name="year_in_review_login_dialog_body_data">Log in to see your top topics, articles, longest rabbit hole, and more. You can still see collective insights without logging in.</string>
     <string name="year_in_review_login_dialog_positive">Log in / Join Wikipedia</string>
     <string name="year_in_review_login_dialog_negative">Continue without logging in</string>
     <plurals name="year_in_review_slide_top_articles_headline">

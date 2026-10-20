@@ -23,7 +23,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
@@ -32,7 +31,6 @@ import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.databinding.ActivityCreateAccountBinding
 import org.wikipedia.extensions.getInstrumentActionContext
 import org.wikipedia.extensions.instrument
-import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -214,9 +212,6 @@ class CreateAccountActivity : BaseActivity() {
         }
         binding.createAccountSubmitButton.setOnClickListener {
             instrument?.submitInteraction("click", elementId = "create_account_button")
-            if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
-                YearInReviewEvent.submit(action = "create_account_click", slide = "explore_prompt")
-            }
             validateThenCreateAccount()
         }
         binding.captchaContainer.captchaSubmitButton.setOnClickListener {
@@ -225,9 +220,6 @@ class CreateAccountActivity : BaseActivity() {
         }
         binding.createAccountLoginButton.setOnClickListener {
             instrument?.submitInteraction("click", elementId = "login_button")
-            if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
-                YearInReviewEvent.submit(action = "login_click", slide = "explore_prompt")
-            }
             // This assumes that the CreateAccount activity was launched from the Login activity
             // (since there's currently no other mechanism to invoke CreateAccountActivity),
             // so finishing this activity will implicitly go back to Login.
@@ -255,10 +247,10 @@ class CreateAccountActivity : BaseActivity() {
         userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
             viewModel.verifyUserName(text)
         }
-        binding.footerContainer.hCaptchaDisclaimer.movementMethod = LinkMovementMethodExt({
+        binding.footerContainer.hCaptchaDisclaimer.movementMethod = LinkMovementMethodExt {
             instrument?.submitInteraction("click", elementId = "hcaptcha_disclaimer")
             UriUtil.visitInExternalBrowser(this, it.toUri())
-        })
+        }
     }
 
     private fun addFirstKeystrokeInstrumentation(view: EditText?, elementId: String) {
