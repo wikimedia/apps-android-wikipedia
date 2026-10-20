@@ -108,7 +108,7 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
-    val savedArticlesStatus get() = if (articlesSavedTotal > 0 && articlesSaved.size > 0) {
+    val savedArticlesStatus get() = if (articlesSavedTotal > 0 && articlesSaved.isNotEmpty()) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
@@ -127,8 +127,7 @@ data class YearInReviewEntryStats(
     val articlesReadCount: Int,
     val visitedDaysCount: Int
 ) {
-    val isDataRich get() = articlesReadCount >= YearInReviewReadingStats.MIN_ARTICLES_READ &&
-            visitedDaysCount >= YearInReviewReadingStats.MIN_VISITED_DAYS
+    val isDataRich get() = articlesReadCount >= YearInReviewReadingStats.MIN_ARTICLES_READ
 }
 
 data class YearInReviewRewardData(

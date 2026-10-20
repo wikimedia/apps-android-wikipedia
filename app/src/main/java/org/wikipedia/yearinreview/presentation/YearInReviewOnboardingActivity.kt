@@ -26,11 +26,12 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
+import org.wikipedia.extensions.instrument
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
@@ -51,8 +52,13 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        YearInReviewEvent.submit(action = "impression", slide = "explore_prompt")
         Prefs.yearInReviewVisited = true
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+            .setDefaultActionSource("announcement")
+            .startFunnel("year-in-review")
+
+        instrument?.submitInteraction(action = "impression")
 
         initializeYearInReviewRive(this)
         // The cover's artwork runs under the status bar, and the paper-colored Explore area sits above the navigation bar
@@ -97,13 +103,13 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
-                            YearInReviewEvent.submit(action = "login_click", slide = "explore_prompt")
+                            instrument?.submitInteraction(action = "click", actionSource = "login_dialog", elementId = "login_button")
                             // Closed so that cancelling the login returns to the cover, where Explore asks again
                             showLoginDialog = false
                             loginLauncher.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_YEAR_IN_REVIEW))
                         },
                         onDismissButtonClick = {
-                            YearInReviewEvent.submit(action = "continue_click", slide = "explore_prompt")
+                            instrument?.submitInteraction(action = "click", actionSource = "login_dialog", elementId = "continue_button")
                             proceed()
                         }
                     )
@@ -112,23 +118,24 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                 YearInReviewOnboardingScreen(
                     uiState = uiState,
                     onCloseClick = {
-                        YearInReviewEvent.submit(action = "close_click", slide = "explore_prompt")
+                        instrument?.submitInteraction(action = "click", elementId = "close_button")
                         setResult(RESULT_CANCELED)
                         finish()
                     },
                     onLearnMoreClick = {
-                        YearInReviewEvent.submit(action = "learn_click", slide = "explore_prompt")
+                        instrument?.submitInteraction(action = "click", elementId = "learn_more_button")
                         UriUtil.handleExternalLink(this, getString(R.string.year_in_review_media_wiki_url).toUri())
                     },
                     onAboutInsightsClick = {
-                        YearInReviewEvent.submit(action = "about_insights_click", slide = "explore_prompt")
+                        instrument?.submitInteraction(action = "click", elementId = "about_insights_button")
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_faq_url).toUri())
                     },
                     onShareFeedbackClick = {
+                        instrument?.submitInteraction(action = "click", elementId = "share_feedback_button")
                         FeedbackUtil.composeEmail(this, subject = getString(R.string.year_in_review_feedback_email_subject))
                     },
                     onExploreClick = {
-                        YearInReviewEvent.submit(action = "start_click", slide = "explore_prompt")
+                        instrument?.submitInteraction(action = "click", elementId = "explore_button")
                         if (!AccountUtil.isLoggedIn) {
                             showLoginDialog = true
                         } else {
