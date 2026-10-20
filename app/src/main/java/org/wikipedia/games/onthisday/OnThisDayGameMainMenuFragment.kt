@@ -41,6 +41,11 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
         observeGameState()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun observeGameState() {
         viewModel.gameState.observe(viewLifecycleOwner) { state ->
             when (state) {

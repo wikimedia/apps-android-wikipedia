@@ -12,7 +12,6 @@ import java.io.IOException
 import java.time.LocalDateTime
 
 class LoginClient {
-
     suspend fun loginBlocking(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null,
             emailAuthCode: String? = null, captchaId: String? = null, captchaWord: String? = null): LoginResult {
 

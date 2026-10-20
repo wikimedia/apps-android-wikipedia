@@ -38,7 +38,7 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
                 YearInReviewEvent.submit(action = eventAction, slide = "setting")
                 Prefs.selectedAppIcon = icon.key
                 LauncherController.setIcon(icon)
-                AppShortcuts.setShortcuts(requireContext())
+                AppShortcuts.setShortcuts(requireContext().applicationContext)
                 dismiss()
                 Toast.makeText(requireActivity(), R.string.settings_app_icon_updated, Toast.LENGTH_SHORT).show()
             }

@@ -261,4 +261,13 @@ object StringUtil {
         }
         return null
     }
+
+    fun extractStringFromStyle(style: String, snippet: String?): String? {
+        val searchString = Regex("""<span\s+class=["']$style["']\s*>(.*?)</span>""", RegexOption.DOT_MATCHES_ALL)
+            .find(snippet.orEmpty())
+            ?.groupValues
+            ?.getOrNull(1)
+            ?: return null
+        return fromHtml(searchString).toString()
+    }
 }

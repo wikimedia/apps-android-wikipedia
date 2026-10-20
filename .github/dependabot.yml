@@ -16,10 +16,20 @@ updates:
         patterns:
           - "org.jetbrains.kotlin:*"
           - "org.jetbrains.kotlin.jvm"
+          - "org.jetbrains.kotlin.plugin.*"
           - "com.google.devtools.ksp"
     open-pull-requests-limit: 20
+# Mirrors the repositories declared in settings.gradle.kts.
 registries:
+  maven-central:
+    type: "maven-repository"
+    url: "https://repo.maven.apache.org/maven2"
   maven-google:
     type: "maven-repository"
     url: "https://maven.google.com"
-    replaces-base: true
+  gradle-plugin-portal:
+    type: "maven-repository"
+    url: "https://plugins.gradle.org/m2"
+  jitpack:
+    type: "maven-repository"
+    url: "https://jitpack.io"

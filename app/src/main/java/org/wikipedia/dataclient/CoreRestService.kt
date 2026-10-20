@@ -3,6 +3,7 @@ package org.wikipedia.dataclient
 import org.wikipedia.auth.OAuthProfile
 import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
+import org.wikipedia.dataclient.restbase.Attribution
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Revision
@@ -43,6 +44,11 @@ interface CoreRestService {
 
     @GET("oauth2/resource/profile")
     suspend fun getOAuthProfile(): OAuthProfile
+
+    @GET("attribution/v0-beta/pages/{title}/signals?redirect=true&expand=trust_and_relevance")
+    suspend fun getAttribution(
+        @Path("title") title: String
+    ): Attribution
 
     companion object {
         const val CORE_REST_API_PREFIX = "w/rest.php/"

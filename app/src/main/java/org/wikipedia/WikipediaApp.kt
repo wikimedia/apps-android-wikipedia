@@ -42,6 +42,7 @@ import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.CoilImageServiceLoader
 import org.wikipedia.views.imageservice.ImageService
+import org.wikipedia.yearinreview.data.PrefsYearInReviewStore
 import java.util.UUID
 
 class WikipediaApp : Application() {
@@ -271,7 +272,7 @@ class WikipediaApp : Application() {
         Prefs.tempAccountDialogShown = false
         Prefs.impactLastQueryTime = 0
         Prefs.impactLastResponseBody = emptyMap()
-        Prefs.yearInReviewModelData = emptyMap()
+        PrefsYearInReviewStore.onLoggedOut()
         SharedPreferenceCookieManager.instance.clearAllCookies()
         MainScope().launch {
             AppDatabase.instance.notificationDao().deleteAll()

@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 24
         targetSdk = 37
-        versionCode 50609
+        versionCode 50613
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -210,8 +210,12 @@ dependencies {
     implementation libs.lottie.compose
     implementation libs.media3.exoplayer
 
+    // Use the OpenGL ES variant of MapLibre, since the default variant requires Vulkan, which is
+    // not available on some lower-budget devices, and causes the Play Store to exclude those devices.
     implementation libs.maplibre
-    implementation libs.maplibre.annotation
+    implementation(libs.maplibre.annotation) {
+        exclude group: 'org.maplibre.gl', module: 'android-sdk'
+    }
 
     implementation libs.androidx.room.runtime
     annotationProcessor libs.androidx.room.compiler
@@ -275,6 +279,10 @@ dependencies {
     implementation(libs.coil.network.okhttp)
     implementation(libs.coil.gif)
     implementation(libs.coil.svg)
+
+    // Rive
+    implementation libs.rive.android
+    implementation libs.androidx.startup.runtime
 
     // Compose Library
     def composeBom = platform(libs.composeBom)

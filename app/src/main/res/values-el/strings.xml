@@ -228,6 +228,8 @@
   <string name="email_recommendation_dialog_create_without_email_action">Συνέχεια χωρίς διεύθυνση ηλεκτρονικού ταχυδρομείου</string>
   <string name="email_recommendation_dialog_create_with_email_action">Προσθήκη μιας διεύθυνσης ηλεκτρονικού ταχυδρομείου</string>
   <string name="create_account_button">Δημιουργία λογαριασμού</string>
+  <string name="create_account_encourage_title">Η Wikipedia είναι καλύτερη με έναν λογαριασμό</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Συγχρονίστε τα αποθηκευμένα άρθρα σας</string>
   <string name="create_account_name_unavailable">Το όνομα χρήστη «%s» δεν είναι διαθέσιμο. Παρακαλούμε επίλεξε διαφορετικό όνομα.</string>
   <string name="create_account_ip_block_message">Δυστυχώς, αυτή τη στιγμή η διεύθυνσή IP σας είναι αποκλεισμένη από τη δημιουργία νέων λογαριασμών.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -323,7 +325,6 @@
   <string name="editor_select_dialog_dont_show_again">Να μην μου ξαναεμφανιστεί αυτό. Αυτή η προεπιλογή μπορεί να αλλάξει αργότερα στις Ρυθμίσεις.</string>
   <string name="editor_select_dialog_continue">Συνέχεια</string>
   <string name="editor_select_title_settings_screen">Προτίμηση επεξεργασίας</string>
-  <string name="editor_select_save_btn_settings_screen">Αποθήκευση</string>
   <string name="find_next">Εύρεση επομένου</string>
   <string name="find_previous">Εύρεση προηγουμένου</string>
   <string name="find_first_occurence">Αυτό είναι το πρώτο ταίριασμα</string>
@@ -437,7 +438,7 @@
     <item quantity="other">%d επιλεγμένα</item>
   </plurals>
   <string name="multi_select_items_selected">%d επιλεγμένα</string>
-  <string name="error_message_generic">Ενα σφάλμα συνέβη</string>
+  <string name="error_message_generic">Παρουσιάστηκε ένα σφάλμα</string>
   <string name="view_link_preview_error_button_dismiss">Απόρριψη</string>
   <string name="link_preview_dialog_read_button">Ανάγνωση</string>
   <string name="link_preview_dialog_save_button">Αποθήκευση</string>
@@ -1664,12 +1665,12 @@
   <string name="year_in_review_slide_reading_patterns_headline">Έχετε καθαρά μοτίβα ανάγνωσης</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Αγαπημένη ώρα ανάγνωσης</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Αγαπημένη μέρα ανάγνωσης</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Πρωί</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Μεσημέρι</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Μεσημεροαπόγευμα</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Απόγευμα</string>
-  <string name="year_in_review_slide_reading_pattern_night">Βράδυ</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Αργά βράδυ</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Πρωί</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Μεσημέρι</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Μεσημεροαπόγευμα</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Απόγευμα</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Βράδυ</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Αργά βράδυ</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Δημιουργία</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Όχι ευχαριστώ</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Ξεκινήστε</string>
