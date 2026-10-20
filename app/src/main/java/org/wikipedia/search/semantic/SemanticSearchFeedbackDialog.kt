@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
+import com.google.android.material.snackbar.Snackbar
 import org.wikimedia.testkitchen.instrument.Funnel
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.R
@@ -14,6 +15,7 @@ import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResult
 import org.wikipedia.util.FeedbackUtil
@@ -57,7 +59,9 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                                 }
                             }
                             val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
-                            FeedbackUtil.showMessage(requireActivity(), message)
+                            FeedbackUtil.makeSnackbar(requireActivity(), message, Snackbar.LENGTH_LONG)
+                                .apply { view.setLayoutDirectionByLang(viewModel.languageCode) }
+                                .show()
                             dismiss()
                         }
                     )

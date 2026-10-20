@@ -24,6 +24,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.search.semantic.SemanticSearchAbTest
@@ -154,6 +155,7 @@ class SearchResultsFragment : Fragment() {
                                 .setAction(actionButtonText) {
                                     startActivity(SettingsActivity.newIntent(requireContext()))
                                 }
+                                .apply { view.setLayoutDirectionByLang(searchLanguageCode) }
                                 .show()
                         }
                     )
