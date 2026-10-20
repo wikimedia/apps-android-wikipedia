@@ -184,17 +184,17 @@
         <activity android:name="net.openid.appauth.RedirectUriReceiverActivity"
             android:exported="true"
             tools:node="replace">
-            <intent-filter>
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="wikipedia" android:host="oauth" android:path="/callback"/>
+                <data android:scheme="https" android:host="wikipedia.org" android:path="/oauth/callback"/>
             </intent-filter>
-            <intent-filter>
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="wikipedia" android:host="oauth" android:path="/logout"/>
+                <data android:scheme="https" android:host="wikipedia.org" android:path="/oauth/logout"/>
             </intent-filter>
         </activity>
 

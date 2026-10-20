@@ -246,8 +246,8 @@ class OAuthClient(val context: Context) {
     }
 
     companion object {
-        const val CLIENT_ID = "50ad79ffa34f64853c96b729e4aa5d8c"
-        const val REDIRECT_URI = "wikipedia://oauth/callback"
+        const val CLIENT_ID = "1ac0b29f1d768267646e1fb737899343"
+        const val REDIRECT_URI = "https://wikipedia.org/oauth/callback"
         const val AUTHORIZATION_ENDPOINT = "/w/rest.php/oauth2/authorize"
         const val TOKEN_ENDPOINT = "/w/rest.php/oauth2/access_token"
         const val PROFILE_ENDPOINT = "/w/rest.php/oauth2/resource/profile"
