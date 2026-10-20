@@ -17,6 +17,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResultCallback
@@ -86,7 +87,9 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                                 }
                             }
                             val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
-                            FeedbackUtil.makeSnackbar(requireView(), message).show()
+                            FeedbackUtil.makeSnackbar(requireView(), message)
+                                .apply { view.setLayoutDirectionByLang(viewModel.languageCode) }
+                                .show()
                         },
                         onLoading = {
                             if (it == LoadingType.Success || it == LoadingType.Empty) {
