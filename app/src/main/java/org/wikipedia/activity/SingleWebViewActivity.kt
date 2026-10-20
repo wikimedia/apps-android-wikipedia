@@ -188,7 +188,7 @@ class SingleWebViewActivity : BaseActivity() {
                 PAGE_CONTENT_SOURCE_YIR -> {
                     YearInReviewViewModel.currentCampaignId?.let { campaignId ->
                         TestKitchenAdapter.client.getInstrument("apps-year-in-review")
-                            .submitInteraction(action = "article_return_click", actionSource = "webpay_processed", actionContext = mapOf("campaignId" to campaignId))
+                            .submitInteraction(action = "article_return_click", actionSource = "webpay_processed", actionContext = mapOf("campaign_id" to campaignId))
                     }
                 }
                 else -> { }

@@ -49,7 +49,7 @@ class YearInReviewViewModel(
             val yearInReview = YearInReviewPlayground.snapshot ?: repository.getYearInReview()
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
-                isPersonalized = YearInReviewFlowDecider.hasEnoughPersonalizedPages(yearInReview),
+                isPersonalized = yearInReview.isLoggedIn && YearInReviewFlowDecider.hasEnoughPersonalizedPages(yearInReview),
                 pages = YearInReviewPlayground.pages ?: YearInReviewFlowDecider.pages(yearInReview),
                 isDonationEligible = yearInReview.isDonationEligible
             )

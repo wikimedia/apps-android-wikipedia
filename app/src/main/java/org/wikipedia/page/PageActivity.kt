@@ -708,7 +708,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
                         YearInReviewViewModel.currentCampaignId?.let { campaignId ->
                             TestKitchenAdapter.client.getInstrument("apps-year-in-review")
-                                .submitInteraction(action = "impression", actionSource = "webpay_processed", actionContext = mapOf("campaignId" to campaignId))
+                                .submitInteraction(action = "impression", actionSource = "webpay_processed", actionContext = mapOf("campaign_id" to campaignId))
                             pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_YIR
                         } ?: run {
                             DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
