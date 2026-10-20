@@ -57,7 +57,7 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
         private const val DEFAULT_QUOTATION_MARK = "«"
         private val quotationMarkMap = mapOf(
             "ja" to "『",
-            "ar" to "❝",
+            "ar" to "❞",
             "fr" to "«"
         )
 
