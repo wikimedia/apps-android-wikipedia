@@ -21,6 +21,7 @@ sealed interface YearInReviewUiState {
     object Loading : YearInReviewUiState
     data class Content(
         val year: Int,
+        val isPersonalized: Boolean,
         val isDonationEligible: Boolean,
         val pages: List<YearInReviewPage>,
     ) : YearInReviewUiState
@@ -48,6 +49,7 @@ class YearInReviewViewModel(
             val yearInReview = YearInReviewPlayground.snapshot ?: repository.getYearInReview()
             _uiState.value = YearInReviewUiState.Content(
                 year = yearInReview.year,
+                isPersonalized = YearInReviewFlowDecider.hasEnoughPersonalizedPages(yearInReview),
                 pages = YearInReviewPlayground.pages ?: YearInReviewFlowDecider.pages(yearInReview),
                 isDonationEligible = yearInReview.isDonationEligible
             )

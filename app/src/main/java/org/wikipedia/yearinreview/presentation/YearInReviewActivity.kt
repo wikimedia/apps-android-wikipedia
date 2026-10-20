@@ -54,26 +54,26 @@ class YearInReviewActivity : BaseActivity() {
                 YearInReviewScreen(
                     uiState = uiState,
                     onCloseClick = {
-                        instrument?.submitInteraction(action = "click", elementId = "close_button")
+                        submitInteraction(uiState, action = "click", elementId = "close_button")
                         finish()
                     },
                     onLearnMoreClick = {
-                        instrument?.submitInteraction(action = "click", elementId = "learn_more_button")
+                        submitInteraction(uiState, action = "click", elementId = "learn_more_button")
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_url).toUri())
                     },
                     onAboutInsightsClick = {
-                        instrument?.submitInteraction(action = "click", elementId = "about_insights_button")
+                        submitInteraction(uiState, action = "click", elementId = "about_insights_button")
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_faq_url).toUri())
                     },
                     onShareFeedbackClick = {
-                        instrument?.submitInteraction(action = "click", elementId = "share_feedback_button")
+                        submitInteraction(uiState, action = "click", elementId = "share_feedback_button")
                         FeedbackUtil.composeEmail(
                             context = this,
                             subject = getString(R.string.year_in_review_feedback_email_subject)
                         )
                     },
                     onShareClick = { bitmap ->
-                        instrument?.submitInteraction(action = "click", elementId = "share_button")
+                        submitInteraction(uiState, action = "click", elementId = "share_button")
                         val shareUrl = getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
                         val shareText = String.format(
                             getString(R.string.year_in_review_share_body),
@@ -92,7 +92,7 @@ class YearInReviewActivity : BaseActivity() {
                     onDonateClick = { currentSlide ->
                         val campaignId = "appmenu_yir_$currentSlide"
                         YearInReviewViewModel.currentCampaignId = campaignId
-                        instrument?.submitInteraction(action = "click", elementId = "donate_button", actionContext = mapOf(
+                        submitInteraction(uiState, action = "click", elementId = "donate_button", actionContext = mapOf(
                             "slide" to currentSlide,
                             "campaign_id" to campaignId
                         ))
@@ -101,19 +101,19 @@ class YearInReviewActivity : BaseActivity() {
                     onEndCardClick = { card ->
                         when (card) {
                             YearInReviewEndCard.GAMES -> {
-                                instrument?.submitInteraction(action = "click", elementId = "play_game_button")
+                                submitInteraction(uiState, action = "click", elementId = "play_game_button")
                                 startActivity(GamesHubActivity.newIntent(this))
                             }
                             YearInReviewEndCard.CUSTOMIZE_HOME -> {
-                                instrument?.submitInteraction(action = "click", elementId = "customize_interests_button")
+                                submitInteraction(uiState, action = "click", elementId = "customize_interests_button")
                                 startActivity(PersonalizationActivity.newIntent(this, showInterestsOnly = true))
                             }
                             YearInReviewEndCard.STORE_DISCOUNT -> {
-                                instrument?.submitInteraction(action = "click", elementId = "visit_store_button")
+                                submitInteraction(uiState, action = "click", elementId = "visit_store_button")
                                 UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_store_discount_url).toUri())
                             }
                             YearInReviewEndCard.QUIZ -> {
-                                instrument?.submitInteraction(action = "click", elementId = "take_quiz_button")
+                                submitInteraction(uiState, action = "click", elementId = "take_quiz_button")
                                 UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_quiz_url, WikipediaApp.instance.appOrSystemLanguageCode).toUri())
                             }
                         }
@@ -123,7 +123,7 @@ class YearInReviewActivity : BaseActivity() {
                             .isAppearanceLightStatusBars = useDarkIcons
                     },
                     onPageImpression = { page ->
-                        instrument?.submitInteraction(action = "impression", actionContext = mapOf("page" to page.id))
+                        submitInteraction(uiState, action = "impression", actionContext = mapOf("page" to page.id))
                         if (page is YearInReviewPage.End && YearInReviewEndScreenABTest().isUserEligible()) {
                             YearInReviewEndScreenABTest().maybeSendExposureEvent()
                         }
@@ -137,6 +137,13 @@ class YearInReviewActivity : BaseActivity() {
                 )
             }
         }
+    }
+
+    private fun submitInteraction(uiState: YearInReviewUiState, action: String, elementId: String? = null, actionContext: Map<String, Any> = emptyMap()) {
+        if (uiState !is YearInReviewUiState.Content) {
+            return
+        }
+        instrument?.submitInteraction(action = action, elementId = elementId, actionContext = actionContext.plus("personalized" to uiState.isPersonalized))
     }
 
     companion object {
