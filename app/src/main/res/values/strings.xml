@@ -2178,6 +2178,13 @@
     <string name="yir_quiz_action">Take the quiz</string>
     <string name="yir_open_tabs_headline">Revisit your open tabs</string>
     <string name="yir_share_text">Here\'s my %1$d Wikipedia Year in Review, from the Wikipedia app: %2$s</string>
+    <string name="yir_feature_card_title">Wikipedia Year in Review %1$d</string>
+    <string name="yir_feature_card_articles_read">Number of articles read:</string>
+    <string name="yir_feature_card_minutes_read">Total minutes read:</string>
+    <string name="yir_feature_card_articles_reread">Articles in my rotation:</string>
+    <string name="yir_feature_card_longest_rabbit_hole">Longest rabbit hole:</string>
+    <string name="yir_feature_card_top_category">Niche category explored:</string>
+    <string name="yir_feature_card_created_with">Created with the Wikipedia App</string>
 
     <string name="yir_topic_comment_architecture">You spent the year appreciating things that were built to last.</string>
     <string name="yir_topic_comment_art">You gravitated toward the beautiful, the bold, and the occasionally baffling.</string>

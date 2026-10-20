@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview.presentation
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.icu.text.NumberFormat
 import androidx.annotation.RawRes
@@ -108,13 +109,14 @@ data class RiveSlideFont(
 )
 
 // Registered once for the whole screen; a slide should never register its own, otherwise the pager unregisters them for other slides
+@SuppressLint("ResourceType")
 val YearInReviewRiveFonts = listOf(
     // If we want to use the system serif font:
     // RiveSlideFont(RiveFontSource.SystemFamily("serif"), registrationKey = "SerifFont-6815481"),
-    RiveSlideFont(RiveFontSource.RawResource(R.raw.ebgaramond_regular), registrationKey = "SerifFont-6815481"),
+    RiveSlideFont(RiveFontSource.RawResource(R.font.ebgaramond_regular), registrationKey = "SerifFont-6815481"),
     // Static instances of the variable Roboto Flex at weights 400 and 700, since Rive can't pick a weight from a variable font
-    RiveSlideFont(RiveFontSource.RawResource(R.raw.robotoflex_regular), registrationKey = "SanSerifFont-Regular-6847910"),
-    RiveSlideFont(RiveFontSource.RawResource(R.raw.robotoflex_bold), registrationKey = "SanSerifFont-6815482")
+    RiveSlideFont(RiveFontSource.RawResource(R.font.robotoflex_regular), registrationKey = "SanSerifFont-Regular-6847910"),
+    RiveSlideFont(RiveFontSource.RawResource(R.font.robotoflex_bold), registrationKey = "SanSerifFont-6815482")
 )
 
 private const val MAX_RIVE_TEXT_SCALE = 1.5f
