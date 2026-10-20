@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview.presentation
 
 import android.graphics.Bitmap
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -284,7 +285,6 @@ private fun YearInReviewContent(
                                 YearInReviewSlideDonateButton(
                                     modifier = Modifier
                                         .align(Alignment.BottomCenter)
-                                        .fillMaxWidth()
                                         .padding(16.dp),
                                     onClick = { onDonateClick(page.id) }
                                 )
@@ -337,11 +337,12 @@ private fun YearInReviewProgressTracker(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
     indicatorHeight: Dp = 32.dp,
-    indicatorWidth: Dp = 3.dp
+    indicatorWidth: Dp = 4.dp
 ) {
     if (pagerState.pageCount <= 1) {
         return
     }
+    val indicatorShape = RoundedCornerShape(2.dp)
 
     BoxWithConstraints(
         modifier = modifier.width(indicatorWidth)
@@ -362,8 +363,8 @@ private fun YearInReviewProgressTracker(
                 }
                 .width(indicatorWidth)
                 .height(indicatorHeight)
-                .clip(RoundedCornerShape(2.dp))
-                .background(ComposeColors.White.copy(alpha = 0.8f))
+                .background(Color.White, indicatorShape)
+                .border(0.5.dp, Color.Black, indicatorShape)
         )
     }
 }
@@ -518,14 +519,14 @@ private fun YearInReviewBottomBar(
             Icon(
                 modifier = Modifier.size(20.dp),
                 painter = painterResource(R.drawable.ic_share),
-                tint = if (shareEnabled) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.inactiveColor,
+                tint = if (shareEnabled) Color.White else Color.White.copy(alpha = 0.5f),
                 contentDescription = null
             )
             Text(
                 modifier = Modifier.padding(start = 4.dp),
                 text = stringResource(R.string.menu_page_article_share),
                 style = MaterialTheme.typography.labelLarge,
-                color = if (shareEnabled) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.inactiveColor
+                color = if (shareEnabled) Color.White else Color.White.copy(alpha = 0.5f)
             )
         }
         if (showDonateButton) {
@@ -533,14 +534,14 @@ private fun YearInReviewBottomBar(
                 Icon(
                     modifier = Modifier.size(20.dp),
                     painter = painterResource(R.drawable.ic_heart_24),
-                    tint = WikipediaTheme.colors.destructiveColor,
+                    tint = Color.White,
                     contentDescription = null
                 )
                 Text(
                     modifier = Modifier.padding(start = 4.dp),
                     text = stringResource(R.string.year_in_review_donate),
                     style = MaterialTheme.typography.labelLarge,
-                    color = WikipediaTheme.colors.destructiveColor
+                    color = Color.White
                 )
             }
         }
@@ -555,8 +556,8 @@ private fun YearInReviewSlideDonateButton(
     // The slide artwork looks the same in every app theme, so the button uses fixed colors
     AppButton(
         modifier = modifier,
-        backgroundColor = ComposeColors.Blue600,
-        contentColor = ComposeColors.White,
+        backgroundColor = Color.Black,
+        contentColor = Color.White,
         onClick = onClick
     ) {
         Icon(
