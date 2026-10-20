@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview.presentation
 
 import android.graphics.Bitmap
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -336,11 +337,12 @@ private fun YearInReviewProgressTracker(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
     indicatorHeight: Dp = 32.dp,
-    indicatorWidth: Dp = 3.dp
+    indicatorWidth: Dp = 4.dp
 ) {
     if (pagerState.pageCount <= 1) {
         return
     }
+    val indicatorShape = RoundedCornerShape(2.dp)
 
     BoxWithConstraints(
         modifier = modifier.width(indicatorWidth)
@@ -361,8 +363,8 @@ private fun YearInReviewProgressTracker(
                 }
                 .width(indicatorWidth)
                 .height(indicatorHeight)
-                .clip(RoundedCornerShape(2.dp))
-                .background(ComposeColors.White.copy(alpha = 0.8f))
+                .background(Color.White, indicatorShape)
+                .border(0.5.dp, Color.Black, indicatorShape)
         )
     }
 }
