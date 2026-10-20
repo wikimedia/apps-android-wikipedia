@@ -77,6 +77,13 @@ object YearInReviewFlowDecider {
                     articleCount = readingStats.topCountryArticleCount
                 )
             },
+            CandidatePage(status = readingStats.savedArticlesStatus) {
+                YearInReviewPage.SavedArticles(
+                    isEmptyState = readingStats.savedArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    savedCount = readingStats.articlesSavedTotal,
+                    articles = readingStats.articlesSaved
+                )
+            },
             CandidatePage(status = editingStats.totalEditCountStatus) {
                 YearInReviewPage.TotalEdits(
                     isEmptyState = editingStats.totalEditCountStatus == YearInReviewInsightStatus.EMPTY_STATE,

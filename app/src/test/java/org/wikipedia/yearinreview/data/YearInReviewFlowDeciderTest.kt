@@ -32,6 +32,7 @@ class YearInReviewFlowDeciderTest {
             YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], totalArticles = 0, sampleArticles = emptyList()),
             YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
             YearInReviewPage.Geography(isEmptyState = true, country = "", articleCount = 0),
+            YearInReviewPage.SavedArticles(isEmptyState = true, savedCount = 0, articles = emptyList()),
             YearInReviewPage.TotalEdits(isEmptyState = true, editCount = 0),
             YearInReviewPage.YouMatter(showLoginPrompt = false),
             YearInReviewPage.End(isDonor = false)
