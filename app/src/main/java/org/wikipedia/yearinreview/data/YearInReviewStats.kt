@@ -42,6 +42,8 @@ data class YearInReviewReadingStats(
     val peakMonth: Int,
     val peakMonthVisitedDays: Int,
     val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
+    val articlesSavedTotal: Int = 0,
+    val articlesSaved: List<PageTitle> = emptyList(),
     val topCategory: String? = null,
     val topCountry: String? = null,
     val topCountryArticleCount: Int = 0,
@@ -98,6 +100,18 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val topCountryStatus get() = if (!topCountry.isNullOrEmpty()) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
+    val savedArticlesStatus get() = if (articlesSavedTotal > 0 && articlesSaved.size > 0) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
     }
 
     val hasPeakMonth get() = peakMonthVisitedDays >= MIN_PEAK_MONTH_VISITED_DAYS

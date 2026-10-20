@@ -18,6 +18,8 @@ import org.wikipedia.dataclient.restbase.PageViews
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
@@ -40,6 +42,7 @@ class YearInReviewRepositoryImpl(
     private val historyEntryWithImageDao: HistoryEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
     private val pageTopicDao: PageTopicDao = AppDatabase.instance.pageTopicDao(),
     private val categoryDao: CategoryDao = AppDatabase.instance.categoryDao(),
+    private val readingListPageDao: ReadingListPageDao = AppDatabase.instance.readingListPageDao(),
     private val cache: YearInReviewCache = PrefsYearInReviewStore,
     private val donationEligibility: YearInReviewDonationEligibility = YearInReviewDonationEligibility()
 ) : YearInReviewRepository {
@@ -121,6 +124,14 @@ class YearInReviewRepositoryImpl(
         }
         val topCategoriesDeferred = async { categoryDao.getTopCategoriesByYear(YearInReviewConfig.YEAR, limit = 10) }
 
+        val articlesSavedTotal = async {
+            readingListPageDao.getDistinctSavedPagesCountBetween(dateRange.startMillis, dateRange.endMillis, ReadingListPage.STATUS_QUEUE_FOR_DELETE)
+        }
+        val articlesSaved = async {
+            readingListPageDao.getRandomDistinctSavedPagesBetween(dateRange.startMillis, dateRange.endMillis, ReadingListPage.STATUS_QUEUE_FOR_DELETE, limit = 3)
+                .map { ReadingListPage.toPageTitle(it) }
+        }
+
         // The sample articles query depends on the top topic, so the topic queries run in sequence here,
         // while the queries above keep running in parallel.
         val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis).take(4)
@@ -188,6 +199,8 @@ class YearInReviewRepositoryImpl(
             peakMonth = peakMonth?.month ?: 0,
             peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,
             articlesRevisited = articlesRevisited.await(),
+            articlesSavedTotal = articlesSavedTotal.await(),
+            articlesSaved = articlesSaved.await(),
             topCategory = topCategory?.title,
             topCountry = topCountry.first,
             topCountryArticleCount = topCountry.second,
