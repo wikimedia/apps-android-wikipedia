@@ -54,6 +54,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
@@ -373,13 +374,16 @@ private fun UpdatesFrequencyView(
     }
     ListItem(
         modifier = modifier
-            .clickable(
-                onClick = {
+            .padding(bottom = 16.dp)
+            .apply {
+                if (NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+                    return@apply
+                }
+                clickable {
                     RecommendedReadingListEvent.submit("updates_click", "discover_settings")
                     showDialog = true
                 }
-            )
-            .padding(bottom = 16.dp),
+            },
         colors = ListItemDefaults.colors(
             containerColor = WikipediaTheme.colors.paperColor
         ),
