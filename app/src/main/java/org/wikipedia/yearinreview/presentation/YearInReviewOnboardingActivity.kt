@@ -94,9 +94,10 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
                 var showLoginDialog by rememberSaveable { mutableStateOf(false) }
                 if (showLoginDialog) {
+                    val isDataRich = uiState is UiState.Success && uiState.data.second.isDataRich
                     WikipediaAlertDialog(
-                        title = stringResource(R.string.year_in_review_login_dialog_title),
-                        message = stringResource(R.string.year_in_review_login_dialog_body),
+                        title = stringResource(if (isDataRich) R.string.year_in_review_login_dialog_title_data else R.string.year_in_review_login_dialog_title_nodata),
+                        message = stringResource(if (isDataRich) R.string.year_in_review_login_dialog_body_data else R.string.year_in_review_login_dialog_body_nodata),
                         confirmButtonText = stringResource(R.string.year_in_review_login_dialog_positive),
                         dismissButtonText = stringResource(R.string.year_in_review_login_dialog_negative),
                         onDismissRequest = {
