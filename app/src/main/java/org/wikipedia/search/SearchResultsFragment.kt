@@ -48,9 +48,6 @@ class SearchResultsFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.searchTermForLogging.collectLatest { query ->
                     if (!query.isNullOrEmpty()) {
-                        requireActivity().instrument?.submitInteraction(
-                            "search_init", actionContext = mapOf("query" to query)
-                        )
                         semanticSearchAbTest.runIfEligible {
                             val isFromRecentSearch = viewModel.isFromRecentSearch
                             requireActivity().instrument?.submitInteraction("init",
@@ -197,7 +194,7 @@ class SearchResultsFragment : Fragment() {
             val isTreatment = semanticSearchAbTest.group == ABTest.GROUP_2
             requireActivity().instrument?.submitInteraction(action,
                 elementId = "search_result",
-                actionSubtype = if (isTreatment) "lexical_result" else null,
+                actionSubtype = "lexical_result",
                 actionContext = if (isTreatment) viewModel.getSemanticEventActionContext(result) else viewModel.getStandardEventActionContext(result)
             )
         }
