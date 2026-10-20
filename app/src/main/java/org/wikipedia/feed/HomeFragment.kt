@@ -212,7 +212,10 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
 
     override fun onResume() {
         super.onResume()
-        (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
+        val isSelectedTab = (parentFragment as? MainFragment)?.currentFragment == this
+        if (isSelectedTab) {
+            (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
+        }
         viewModel.updateTabCount()
         viewModel.updateSelectedLanguageIfNeeded()
         instrument.stopFunnel()
