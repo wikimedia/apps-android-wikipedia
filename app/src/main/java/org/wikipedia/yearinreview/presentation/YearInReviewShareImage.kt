@@ -19,9 +19,9 @@ import org.wikipedia.R
 import kotlin.math.roundToInt
 
 object YearInReviewShareImage {
-    private const val WORDMARK_WIDTH_RATIO = 0.4f
+    private const val WORDMARK_WIDTH_RATIO = 0.3f
     private const val TEXT_SIZE_RATIO = 0.035f
-    private const val VERTICAL_MARGIN_RATIO = 0.04f
+    private const val VERTICAL_MARGIN_RATIO = 0.02f
     private const val HORIZONTAL_MARGIN_RATIO = 0.08f
 
     // Luminance at which black and white have equal contrast against the background
