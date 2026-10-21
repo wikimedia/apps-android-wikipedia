@@ -55,6 +55,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 // Update our channel name, if needed.
                 L.d("channel=" + ReleaseUtil.getChannel(context))
                 startPollTask(context)
+
+                // persist discover notification experiment alarm after reboot
+                if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) {
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                }
             }
             ACTION_POLL == intent.action -> {
                 if (!AccountUtil.isLoggedIn) {
