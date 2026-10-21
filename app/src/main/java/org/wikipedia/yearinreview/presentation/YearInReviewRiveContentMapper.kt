@@ -143,7 +143,7 @@ object YearInReviewRiveContentMapper {
         }
         is YearInReviewPage.Geography -> if (page.isEmptyState) {
             RiveSlideContent(
-                spec = allTemplatesListSlideSpec("frame14-empty"),
+                spec = allTemplatesSlideSpec("frame14-empty"),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_places_empty_headline),
                     "bodyText" to resources.getString(R.string.yir_places_empty_supporting, YearInReviewConfig.YEAR)
@@ -151,10 +151,13 @@ object YearInReviewRiveContentMapper {
             )
         } else {
             RiveSlideContent(
-                spec = allTemplatesListSlideSpec("frame14"),
+                spec = allTemplatesSlideSpec("frame14"),
                 textProperties = mapOf(
-                    "bodyText" to resources.getString(R.string.yir_places_headline)
-                ) + listRows(listOf(page.country.orEmpty() to resources.getQuantityString(R.plurals.yir_places_article_count, page.articleCount, page.articleCount)))
+                    "bodyText" to resources.getString(R.string.yir_places_headline),
+                    "flagTitle" to page.country.orEmpty(),
+                    "flagSubtitle" to resources.getQuantityString(R.plurals.yir_places_article_count, page.articleCount, page.articleCount),
+                    "data" to ""
+                )
             )
         }
         is YearInReviewPage.SavedArticles -> if (page.isEmptyState) {
@@ -282,14 +285,19 @@ object YearInReviewRiveContentMapper {
 private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
     name = "GlobalProperties",
     textSizes = mapOf(
-        "coverGlyphsFontSize" to 40f,
-        "coverGlyphsLineHeight" to 42f,
-        "dataNumberFontSize" to 72f,
-        "dataNumbersLineHeight" to 76f,
-        "headlineFontSize" to 24f,
-        "headlineLineHeight" to 25.44f,
-        "bodyCopyFontSize" to 16f,
-        "bodyCopyLineHeight" to 20f
+        // TODO: determine proper values for all of these:
+        // "glyphKerningEM" to 1f,
+        // "textkerningEM" to 1f,
+        // "dataTextFontSize" to 1f,
+        // "dataTextLineHeight" to 1f,
+        // "coverGlyphsFontSize" to 40f,
+        // "coverGlyphsLineHeight" to 42f,
+        // "dataNumberFontSize" to 72f,
+        // "dataNumbersLineHeight" to 76f,
+        // "headlineFontSize" to 24f,
+        // "headlineLineHeight" to 25.44f,
+        // "bodyCopyFontSize" to 16f,
+        // "bodyCopyLineHeight" to 20f
     )
 )
 
