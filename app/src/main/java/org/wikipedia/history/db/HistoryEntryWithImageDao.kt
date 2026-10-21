@@ -136,6 +136,24 @@ interface HistoryEntryWithImageDao {
     @RewriteQueriesToDropUnusedColumns
     suspend fun getEntriesByIds(ids: List<Long>): List<HistoryEntryWithImage>
 
+    // One row per mainspace article (its most recent visit in the range), in random order, excluding the given titles.
+    @Query("""
+        SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec
+        FROM HistoryEntry
+        LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, MAX(timestamp) AS max_timestamp FROM HistoryEntry
+            WHERE timestamp BETWEEN :startMillis AND :endMillis
+            AND namespace = '' AND apiTitle NOT IN (:excludedTitles)
+            GROUP BY lang, namespace, apiTitle
+        ) LatestEntries ON HistoryEntry.lang = LatestEntries.lang AND HistoryEntry.namespace = LatestEntries.namespace AND HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp
+        ORDER BY RANDOM()
+        LIMIT :limit
+    """
+    )
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getRandomArticleEntriesBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<HistoryEntryWithImage>
+
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
@@ -166,6 +184,10 @@ interface HistoryEntryWithImageDao {
 
     suspend fun findEntriesByIds(ids: List<Long>): List<HistoryEntry> {
         return getEntriesByIds(ids).map { toHistoryEntry(it) }
+    }
+
+    suspend fun findRandomArticleEntriesBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<HistoryEntry> {
+        return getRandomArticleEntriesBetween(startMillis, endMillis, excludedTitles, limit).map { toHistoryEntry(it) }
     }
 
     suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {

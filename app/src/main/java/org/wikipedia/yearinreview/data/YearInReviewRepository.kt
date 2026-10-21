@@ -119,7 +119,17 @@ class YearInReviewRepositoryImpl(
         val rabbitHoleDeferred = async {
             YearInReviewRabbitHole.longestOf(historyEntryDao.getArticleLinksBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles))?.let { rabbitHole ->
                 val entriesById = historyEntryWithImageDao.findEntriesByIds(listOf(rabbitHole.startEntryId, rabbitHole.endEntryId)).associateBy { it.id }
-                Triple(entriesById[rabbitHole.startEntryId]?.title, entriesById[rabbitHole.endEntryId]?.title, rabbitHole.articleCount)
+                val start = entriesById[rabbitHole.startEntryId]
+                val end = entriesById[rabbitHole.endEntryId]
+                val fakes = historyEntryWithImageDao.findRandomArticleEntriesBetween(dateRange.startMillis, dateRange.endMillis,
+                    mainPageTitles + listOfNotNull(start?.apiTitle, end?.apiTitle), limit = 2)
+                RabbitHoleTitles(
+                    start = start?.title,
+                    end = end?.title,
+                    fakeStart = fakes.getOrNull(0)?.title,
+                    fakeEnd = fakes.getOrNull(1)?.title,
+                    articleCount = rabbitHole.articleCount
+                )
             }
         }
         val topCategoriesDeferred = async { categoryDao.getTopCategoriesByYear(YearInReviewConfig.YEAR, limit = 10) }
@@ -216,9 +226,11 @@ class YearInReviewRepositoryImpl(
             biggestReadingDayOfMonth = biggestReadingDate?.dayOfMonth ?: 0,
             biggestReadingDayTimeSpentSec = biggestReadingDay?.first?.timeSpentSec ?: 0,
             biggestReadingDayArticles = biggestReadingDay?.second.orEmpty(),
-            rabbitHoleStart = rabbitHole?.first,
-            rabbitHoleEnd = rabbitHole?.second,
-            rabbitHoleArticleCount = rabbitHole?.third ?: 0,
+            rabbitHoleStart = rabbitHole?.start,
+            rabbitHoleEnd = rabbitHole?.end,
+            rabbitHoleFakeStart = rabbitHole?.fakeStart,
+            rabbitHoleFakeEnd = rabbitHole?.fakeEnd,
+            rabbitHoleArticleCount = rabbitHole?.articleCount ?: 0,
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,
@@ -315,4 +327,12 @@ class YearInReviewRepositoryImpl(
             mostViewedArticles = mostViewedPagesToViews
         )
     }
+
+    private data class RabbitHoleTitles(
+        val start: PageTitle?,
+        val end: PageTitle?,
+        val fakeStart: PageTitle?,
+        val fakeEnd: PageTitle?,
+        val articleCount: Int
+    )
 }
