@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview.presentation
 
 import android.content.res.Resources
 import org.wikipedia.R
+import org.wikipedia.staticdata.CountryFlags
 import org.wikipedia.topics.ArticleTopic
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
@@ -112,9 +113,9 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesListSlideSpec(artboardName = "frame9"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_articles_read_headline)
-            ) + listRows(page.articles.map { it.title to it.description }),
+            ) + listRows(page.articles.map { StringUtil.fromHtml(it.displayText).toString() to it.description.orEmpty() }),
             numberProperties = listItemCount(page.articles.size),
-            imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
+            imageUrls = listIcons(page.articles.map { it.thumbUrl })
         )
         is YearInReviewPage.Category -> RiveSlideContent(
             spec = allTemplatesSlideSpec("frame12"),
@@ -143,20 +144,23 @@ object YearInReviewRiveContentMapper {
         }
         is YearInReviewPage.Geography -> if (page.isEmptyState) {
             RiveSlideContent(
-                spec = allTemplatesListSlideSpec("frame14-empty"),
+                spec = allTemplatesSlideSpec("frame14-empty"),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_places_empty_headline),
-                    "bodyText" to resources.getString(R.string.yir_places_empty_supporting, YearInReviewConfig.YEAR)
+                    "bodyCopy" to resources.getString(R.string.yir_places_empty_supporting, YearInReviewConfig.YEAR)
                 )
             )
         } else {
             RiveSlideContent(
-                spec = allTemplatesListSlideSpec("frame14"),
+                spec = allTemplatesSlideSpec("frame14"),
                 textProperties = mapOf(
-                    "bodyText" to resources.getString(R.string.yir_places_headline)
-                ) + listRows(page.placeArticleCounts.map { (place, count) ->
-                    place to resources.getQuantityString(R.plurals.yir_places_article_count, count, count)
-                })
+                    "bodyCopy" to resources.getString(R.string.yir_places_headline),
+                    "flagTitle" to page.countryName.orEmpty(),
+                    "flagSubtitle" to resources.getQuantityString(R.plurals.yir_places_article_count, page.articleCount, page.articleCount)
+                ),
+                imageUrls = mapOf(
+                    "topicIcon" to CountryFlags.urlFor(page.countryCode.orEmpty()).orEmpty()
+                )
             )
         }
         is YearInReviewPage.SavedArticles -> if (page.isEmptyState) {
@@ -172,8 +176,8 @@ object YearInReviewRiveContentMapper {
                 spec = allTemplatesListSlideSpec("frame15"),
                 textProperties = mapOf(
                     "bodyText" to resources.getQuantityString(R.plurals.yir_saved_articles_headline, page.savedCount, page.savedCount)
-                ) + listRows(page.articles.map { it.title to getViewCountText(resources, it.viewCount) }),
-                imageUrls = listIcons(page.articles.map { it.thumbnailUrl })
+                ) + listRows(page.articles.map { StringUtil.fromHtml(it.displayText).toString() to it.description.orEmpty() }),
+                imageUrls = listIcons(page.articles.map { it.thumbUrl })
             )
         }
         is YearInReviewPage.TotalEdits -> RiveSlideContent(
@@ -214,9 +218,73 @@ object YearInReviewRiveContentMapper {
                 "bodyCopy" to resources.getString(if (page.showLoginPrompt) R.string.yir_community_contribute_supporting else R.string.yir_non_contributor_supporting),
             )
         )
+        is YearInReviewPage.LongestReadGuess -> RiveSlideContent(
+            spec = allTemplatesInteractionSlideSpec("frame10a", viewModelName = "Interaction1"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_most_time_article_headline),
+                "articleTitleTop" to StringUtil.fromHtml(page.article?.displayText).toString(),
+                "subTitleTop" to page.article?.description.orEmpty(),
+                "articleTitleBot" to StringUtil.fromHtml(page.fakeArticle?.displayText).toString(),
+                "subTitleBot" to page.fakeArticle?.description.orEmpty()
+            ),
+            imageUrls = mapOf(
+                "thumbnailTop" to page.article?.thumbUrl,
+                "thumbnailBot" to page.fakeArticle?.thumbUrl
+            )
+        )
+        is YearInReviewPage.LongestReadReveal -> RiveSlideContent(
+            spec = allTemplatesInteractionSlideSpec("frame10b", viewModelName = "Interaction1"),
+            textProperties = mapOf(
+                "headline" to resources.getQuantityString(R.plurals.yir_most_time_article_supporting, page.minutesSpent, page.minutesSpent, YearInReviewConfig.YEAR),
+                "resultTitle" to StringUtil.fromHtml(page.article?.displayText).toString(),
+                "resultSubTitle" to page.article?.description.orEmpty()
+            ),
+            imageUrls = mapOf(
+                "resultThumbnail" to page.article?.thumbUrl
+            )
+        )
+        is YearInReviewPage.RabbitHoleGuess -> RiveSlideContent(
+            spec = allTemplatesInteractionSlideSpec("frame11a", viewModelName = "Interaction2"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_rabbit_hole_headline),
+                "articleTitleTopT" to StringUtil.fromHtml(page.articleStart?.displayText).toString(),
+                "articleTitleTopB" to StringUtil.fromHtml(page.articleEnd?.displayText).toString(),
+                "articleTitleBotT" to StringUtil.fromHtml(page.fakeArticleStart?.displayText).toString(),
+                "articleTitleBotB" to StringUtil.fromHtml(page.fakeArticleEnd?.displayText).toString()
+            ),
+            booleanProperties = mapOf(
+                "noImgTopT" to page.articleStart?.thumbUrl.isNullOrEmpty(),
+                "noImgTopB" to page.articleEnd?.thumbUrl.isNullOrEmpty(),
+                "noImgBotT" to page.fakeArticleStart?.thumbUrl.isNullOrEmpty(),
+                "noImgBotB" to page.fakeArticleEnd?.thumbUrl.isNullOrEmpty()
+            ),
+            imageUrls = mapOf(
+                "thumbnailTopT" to page.articleStart?.thumbUrl,
+                "thumbnailTopB" to page.articleEnd?.thumbUrl,
+                "thumbnailBotT" to page.fakeArticleStart?.thumbUrl,
+                "thumbnailBotB" to page.fakeArticleEnd?.thumbUrl
+            )
+        )
+        is YearInReviewPage.RabbitHoleReveal -> RiveSlideContent(
+            spec = allTemplatesInteractionSlideSpec("frame11b", viewModelName = "Interaction2"),
+            textProperties = mapOf(
+                "headline" to resources.getQuantityString(R.plurals.yir_rabbit_hole_depth_headline, page.numLinks, page.numLinks),
+                "bodyText" to resources.getString(R.string.yir_rabbit_hole_depth_supporting),
+                "resultTitleTop" to StringUtil.fromHtml(page.articleStart?.displayText).toString(),
+                "resultTitleBot" to StringUtil.fromHtml(page.articleEnd?.displayText).toString()
+            ),
+            booleanProperties = mapOf(
+                "resultNoImgT" to page.articleStart?.thumbUrl.isNullOrEmpty(),
+                "resultNoImgB" to page.articleEnd?.thumbUrl.isNullOrEmpty()
+            ),
+            imageUrls = mapOf(
+                "resultThumbnailTop" to page.articleStart?.thumbUrl,
+                "resultThumbnailBot" to page.articleEnd?.thumbUrl
+            )
+        )
         is YearInReviewPage.Collective -> when (page.insight) {
             YearInReviewCollectiveInsight.HOURS_READ -> RiveSlideContent(
-                spec = allTemplatesSlideSpec("frame3"),
+                spec = allTemplatesSlideSpec("frame3", dataNumberFontSize = 40f),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_community_reading_hours_headline, YearInReviewConfig.YEAR),
                     "data" to NumberFormat.getNumberInstance().format(page.config.hoursReadEN),
@@ -232,7 +300,7 @@ object YearInReviewRiveContentMapper {
                 )
             )
             YearInReviewCollectiveInsight.ARTICLES -> RiveSlideContent(
-                spec = allTemplatesSlideSpec("frame17"),
+                spec = allTemplatesSlideSpec("frame17", dataNumberFontSize = 40f),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_community_articles_headline),
                     "data" to NumberFormat.getNumberInstance().format(page.config.articles),
@@ -249,7 +317,7 @@ object YearInReviewRiveContentMapper {
                 )
             )
             YearInReviewCollectiveInsight.VOLUNTEER_EDITORS -> RiveSlideContent(
-                spec = allTemplatesSlideSpec("frame16"),
+                spec = allTemplatesSlideSpec("frame16", dataNumberFontSize = 40f),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_community_editors_headline),
                     "data" to NumberFormat.getNumberInstance().format(page.config.editors),
@@ -273,39 +341,41 @@ object YearInReviewRiveContentMapper {
                 )
             )
         }
-        is YearInReviewPage.LongestReadGuess,
-        is YearInReviewPage.LongestReadReveal,
-        is YearInReviewPage.RabbitHoleGuess,
-        is YearInReviewPage.RabbitHoleReveal,
         is YearInReviewPage.End -> null
     }
 }
 
-private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
+private fun allTemplatesGlobalProperties(dataNumberFontSize: Float = 64f) = RiveGlobalViewModel(
     name = "GlobalProperties",
     textSizes = mapOf(
+        // TODO: determine proper values for all of these:
+        // "glyphKerningEM" to 1f,
+        // "textkerningEM" to 1f,
+        "dataTextFontSize" to 20f,
+        "dataTextLineHeight" to 22f,
         "coverGlyphsFontSize" to 40f,
         "coverGlyphsLineHeight" to 42f,
-        "dataNumberFontSize" to 72f,
-        "dataNumbersLineHeight" to 76f,
+        "dataNumberFontSize" to dataNumberFontSize,
+        "dataNumbersLineHeight" to dataNumberFontSize + 2f,
         "headlineFontSize" to 24f,
         "headlineLineHeight" to 25.44f,
-        "bodyCopyFontSize" to 16f,
+        "bodyCopyFontSize" to 18f,
         "bodyCopyLineHeight" to 20f
     )
 )
 
-// In all_templates.riv, each artboard has a same-named view model instance holding sample text
+// In the Rive file, each artboard has a same-named view model instance holding sample text
 fun allTemplatesSlideSpec(
     artboardName: String,
     viewModelName: String = "DataTemplate",
-    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName)
+    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName),
+    dataNumberFontSize: Float = 64f
 ) = RiveSlideSpec(
-    resourceId = R.raw.all_templates_v4,
+    resourceId = R.raw.year_in_review,
     artboardName = artboardName,
     viewModelName = viewModelName,
     instanceType = instanceType,
-    globalViewModel = AllTemplatesGlobalProperties,
+    globalViewModel = allTemplatesGlobalProperties(dataNumberFontSize),
     isTopBarUiIconsWhite = "isUIWhite"
 )
 
@@ -313,6 +383,10 @@ fun allTemplatesSlideSpec(
 // The List view model's layoutDir is passed down to each card, where it sets the card's layout direction.
 private fun allTemplatesListSlideSpec(artboardName: String) =
     allTemplatesSlideSpec(artboardName, viewModelName = "List").copy(layoutDirectionEnum = "layoutDir")
+
+// Artboards of the guessing game. The guess artboards fire frameComplete after the user taps an answer and the exit animation ends.
+private fun allTemplatesInteractionSlideSpec(artboardName: String, viewModelName: String) =
+    allTemplatesSlideSpec(artboardName, viewModelName).copy(frameCompleteTrigger = "frameComplete")
 
 // Fills the List view model's numbered rows. Rows without an item are cleared, so the instance's sample text doesn't show.
 private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String, String> {

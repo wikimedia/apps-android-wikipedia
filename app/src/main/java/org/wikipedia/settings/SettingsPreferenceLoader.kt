@@ -13,7 +13,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.donate.DonateUtil
@@ -87,25 +86,24 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
         findPreference(R.string.preference_key_year_in_review_is_enabled).let {
             it.isVisible = YearInReviewViewModel.isAccessible
-            if (it.isVisible) {
-                YearInReviewEvent.submit(action = "impression", slide = "setting")
-            }
             it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+                val instrument = TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+                    .setDefaultActionSource("settings")
                 if (newValue as Boolean) {
-                    YearInReviewEvent.submit(action = "yir_on_click", slide = "setting")
+                    instrument.submitInteraction(action = "click", elementId = "switch_on")
                     return@OnPreferenceChangeListener true
                 }
-                YearInReviewEvent.submit(action = "yir_off_click", slide = "setting")
+                instrument.submitInteraction(action = "click", elementId = "switch_off")
                 MaterialAlertDialogBuilder(activity)
                     .setTitle(R.string.year_in_review_disable_title)
                     .setMessage(R.string.year_in_review_setting_subtitle)
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
-                        YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
+                        instrument.submitInteraction(action = "click", elementId = "switch_off_confirm")
                         PrefsYearInReviewStore.clearAll()
                         (preference as SwitchPreferenceCompat).isChecked = false
                     }
                     .setNegativeButton(R.string.year_in_review_disable_negative_button) { _, _ ->
-                        YearInReviewEvent.submit(action = "yir_off_cancel_click", slide = "setting")
+                        instrument.submitInteraction(action = "click", elementId = "switch_off_cancel")
                     }
                     .show()
                 false
@@ -213,7 +211,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         findPreference(R.string.preference_key_semantic_search_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
             val isEnable = newValue as Boolean
             val semanticSearchAbTest = SemanticSearchAbTest()
-            semanticSearchAbTest.shouldSendEvent {
+            semanticSearchAbTest.runIfEligible {
                 TestKitchenAdapter.client.getInstrument("apps-search")
                     .setExperiment(TestKitchenAdapter.getExperiment(semanticSearchAbTest))
                     .submitInteraction(

@@ -444,7 +444,7 @@ fun SemanticSearchResultsContent(
                 val searchResult = items[index]
                 SemanticSearchResultCard(
                     languageCode = viewModel.languageCode,
-                    prefixQuotationMark = SemanticSearchAbTest.getQuotationMark(viewModel.languageCode),
+                    prefixQuotationMark = SemanticSearchResultsViewModel.getQuotationMark(viewModel.languageCode),
                     showLastUpdatedTime = viewModel.languageCode == "ar",
                     searchResult = searchResult,
                     onItemClick = { onItemClick(searchResult) }

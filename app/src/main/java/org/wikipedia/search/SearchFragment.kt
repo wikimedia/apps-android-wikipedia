@@ -134,9 +134,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             PlacesEvent.logImpression("search_view")
         }
 
-        requireActivity().instrument?.submitInteraction("search_impression", actionSource = invokeSource.value)
-
-        SemanticSearchAbTest().shouldSendEvent {
+        SemanticSearchAbTest().runIfEligible {
             requireActivity().instrument?.submitInteraction("impression",
                 actionSubtype = invokeSource.value
             )

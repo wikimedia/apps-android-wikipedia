@@ -5,8 +5,6 @@ import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.yearinreview.data.YearInReviewConfig
-import org.wikipedia.yearinreview.presentation.YearInReviewArticle
-import org.wikipedia.yearinreview.presentation.YearInReviewArticleViewCount
 import org.wikipedia.yearinreview.presentation.YearInReviewPage
 
 // Fixed decks that skip the flow decider, so every slide can be seen before its data is built.
@@ -59,44 +57,56 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.BiggestReadingDay(date = "September 30", minutesSpent = 423),
         YearInReviewPage.BiggestReadingDayArticles(
             articles = listOf(
-                YearInReviewArticle(
-                    title = "Association football",
+                PageTitle(
+                    text = "Association football",
+                    wiki = WikiSite.preview(),
+                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Football_in_Bloomington%2C_Indiana%2C_1995.jpg/120px-Football_in_Bloomington%2C_Indiana%2C_1995.jpg",
                     description = "Team sport played with a ball",
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Football_in_Bloomington%2C_Indiana%2C_1995.jpg/120px-Football_in_Bloomington%2C_Indiana%2C_1995.jpg"
+                    displayText = "Association football"
                 ),
-                YearInReviewArticle(
-                    title = "Computer",
+                PageTitle(
+                    text = "Computer",
+                    wiki = WikiSite.preview(),
+                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/ENIAC-changing_a_tube_%28cropped%29.jpg/120px-ENIAC-changing_a_tube_%28cropped%29.jpg",
                     description = "Programmable machine that processes data",
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/ENIAC-changing_a_tube_%28cropped%29.jpg/120px-ENIAC-changing_a_tube_%28cropped%29.jpg"
+                    displayText = "Computer"
                 ),
-                YearInReviewArticle(
-                    title = "Amazon rainforest",
+                PageTitle(
+                    text = "Amazon rainforest",
+                    wiki = WikiSite.preview(),
+                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Amazon17_%285641020319%29.jpg/120px-Amazon17_%285641020319%29.jpg",
                     description = "Large rainforest in South America",
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Amazon17_%285641020319%29.jpg/120px-Amazon17_%285641020319%29.jpg"
+                    displayText = "Amazon rainforest"
                 )
             ).takeRandomCount()
         ),
         YearInReviewPage.Category(categoryName = "LIGHTHOUSES IN SCOTLAND"),
         YearInReviewPage.RevisitedArticles(isEmptyState = false, articles = sampleArticles.map { it to 5 }),
-        YearInReviewPage.Geography(isEmptyState = false, placeArticleCounts = mapOf("Brazil" to 12)),
+        YearInReviewPage.Geography(isEmptyState = false, countryCode = "BR", countryName = "Brazil", articleCount = 12),
         YearInReviewPage.SavedArticles(
             isEmptyState = false,
             savedCount = 26,
             articles = listOf(
-                YearInReviewArticleViewCount(
-                    title = "Mount Everest",
-                    viewCount = 230,
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg/120px-Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg"
+                PageTitle(
+                    text = "Mount Everest",
+                    wiki = WikiSite.preview(),
+                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg/120px-Mt._Everest_from_Gokyo_Ri_November_5%2C_2012.jpg",
+                    description = "Highest mountain in the world",
+                    displayText = "Mount Everest"
                 ),
-                YearInReviewArticleViewCount(
-                    title = "Black hole",
-                    viewCount = 200,
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Black_hole_-_Messier_87_crop_max_res.jpg/120px-Black_hole_-_Messier_87_crop_max_res.jpg"
+                PageTitle(
+                    text = "Black hole",
+                    wiki = WikiSite.preview(),
+                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Black_hole_-_Messier_87_crop_max_res.jpg/120px-Black_hole_-_Messier_87_crop_max_res.jpg",
+                    description = "Region of space having a gravitational field so intense that no matter or radiation can escape",
+                    displayText = "Black hole"
                 ),
-                YearInReviewArticleViewCount(
-                    title = "Sourdough",
-                    viewCount = 185,
-                    thumbnailUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Home_made_sour_dough_bread.jpg/120px-Home_made_sour_dough_bread.jpg"
+                PageTitle(
+                    text = "Sourdough",
+                    wiki = WikiSite.preview(),
+                    thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Home_made_sour_dough_bread.jpg/120px-Home_made_sour_dough_bread.jpg",
+                    description = "Type of bread",
+                    displayText = "Sourdough"
                 )
             )
         ),
@@ -115,7 +125,7 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.ReadingPattern(isEmptyState = true, favoriteTime = "", favoriteTimePercentage = 0),
         YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all.first(), totalArticles = 0, sampleArticles = emptyList()),
         YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
-        YearInReviewPage.Geography(isEmptyState = true, placeArticleCounts = emptyMap()),
+        YearInReviewPage.Geography(isEmptyState = true, countryCode = null, countryName = null, articleCount = 0),
         YearInReviewPage.SavedArticles(isEmptyState = true, savedCount = 0, articles = emptyList()),
         YearInReviewPage.TotalEdits(isEmptyState = true, editCount = 0),
         YearInReviewPage.End(isDonor = false)
