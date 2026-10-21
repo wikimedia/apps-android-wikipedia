@@ -220,7 +220,7 @@ object YearInReviewRiveContentMapper {
         )
         is YearInReviewPage.Collective -> when (page.insight) {
             YearInReviewCollectiveInsight.HOURS_READ -> RiveSlideContent(
-                spec = allTemplatesSlideSpec("frame3"),
+                spec = allTemplatesSlideSpec("frame3", dataNumberFontSize = 40f),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_community_reading_hours_headline, YearInReviewConfig.YEAR),
                     "data" to NumberFormat.getNumberInstance().format(page.config.hoursReadEN),
@@ -236,7 +236,7 @@ object YearInReviewRiveContentMapper {
                 )
             )
             YearInReviewCollectiveInsight.ARTICLES -> RiveSlideContent(
-                spec = allTemplatesSlideSpec("frame17"),
+                spec = allTemplatesSlideSpec("frame17", dataNumberFontSize = 40f),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_community_articles_headline),
                     "data" to NumberFormat.getNumberInstance().format(page.config.articles),
@@ -253,7 +253,7 @@ object YearInReviewRiveContentMapper {
                 )
             )
             YearInReviewCollectiveInsight.VOLUNTEER_EDITORS -> RiveSlideContent(
-                spec = allTemplatesSlideSpec("frame16"),
+                spec = allTemplatesSlideSpec("frame16", dataNumberFontSize = 40f),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_community_editors_headline),
                     "data" to NumberFormat.getNumberInstance().format(page.config.editors),
@@ -285,7 +285,7 @@ object YearInReviewRiveContentMapper {
     }
 }
 
-private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
+private fun allTemplatesGlobalProperties(dataNumberFontSize: Float = 64f) = RiveGlobalViewModel(
     name = "GlobalProperties",
     textSizes = mapOf(
         // TODO: determine proper values for all of these:
@@ -295,8 +295,8 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
         "dataTextLineHeight" to 22f,
         "coverGlyphsFontSize" to 40f,
         "coverGlyphsLineHeight" to 42f,
-        "dataNumberFontSize" to 64f,
-        "dataNumbersLineHeight" to 62f,
+        "dataNumberFontSize" to dataNumberFontSize,
+        "dataNumbersLineHeight" to dataNumberFontSize + 2f,
         "headlineFontSize" to 24f,
         "headlineLineHeight" to 25.44f,
         "bodyCopyFontSize" to 18f,
@@ -308,13 +308,14 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
 fun allTemplatesSlideSpec(
     artboardName: String,
     viewModelName: String = "DataTemplate",
-    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName)
+    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName),
+    dataNumberFontSize: Float = 64f
 ) = RiveSlideSpec(
     resourceId = R.raw.year_in_review,
     artboardName = artboardName,
     viewModelName = viewModelName,
     instanceType = instanceType,
-    globalViewModel = AllTemplatesGlobalProperties,
+    globalViewModel = allTemplatesGlobalProperties(dataNumberFontSize),
     isTopBarUiIconsWhite = "isUIWhite"
 )
 
