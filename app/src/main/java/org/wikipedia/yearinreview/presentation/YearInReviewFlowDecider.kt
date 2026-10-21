@@ -25,7 +25,7 @@ object YearInReviewFlowDecider {
         } else {
             YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it, snapshot.remoteConfig) } + listOfNotNull(youMatterPage(snapshot))
         }
-        return listOf(YearInReviewPage.Cover(isPersonalized = isPersonalized, daysSpent = snapshot.readingStats.visitedDaysCount)) + flowPages + YearInReviewPage.End(isDonor = snapshot.rewardData.isContributor)
+        return flowPages + YearInReviewPage.End(isDonor = snapshot.rewardData.isContributor)
     }
 
     private fun personalizedCandidates(snapshot: YearInReviewSnapshot): List<CandidatePage> {
@@ -68,6 +68,20 @@ object YearInReviewFlowDecider {
             CandidatePage(status = readingStats.topCategoryStatus) {
                 YearInReviewPage.Category(
                     categoryName = readingStats.topCategory.orEmpty()
+                )
+            },
+            CandidatePage(status = readingStats.topCountryStatus) {
+                YearInReviewPage.Geography(
+                    isEmptyState = readingStats.topCountryStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    country = readingStats.topCountry.orEmpty(),
+                    articleCount = readingStats.topCountryArticleCount
+                )
+            },
+            CandidatePage(status = readingStats.savedArticlesStatus) {
+                YearInReviewPage.SavedArticles(
+                    isEmptyState = readingStats.savedArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    savedCount = readingStats.articlesSavedTotal,
+                    articles = readingStats.articlesSaved
                 )
             },
             CandidatePage(status = editingStats.totalEditCountStatus) {

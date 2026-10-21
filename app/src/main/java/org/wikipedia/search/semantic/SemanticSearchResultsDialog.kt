@@ -17,6 +17,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResultCallback
@@ -39,7 +40,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                         viewModel = viewModel,
                         onItemClick = { searchResult ->
 
-                            SemanticSearchAbTest().shouldSendEvent {
+                            SemanticSearchAbTest().runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
                                     actionSubtype = "semantic_result",
                                     elementId = "search_result",
@@ -61,7 +62,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             )
                         },
                         onCloseClick = {
-                            SemanticSearchAbTest().shouldSendEvent {
+                            SemanticSearchAbTest().runIfEligible {
                                 val isFeedbackVisible = viewModel.feedbackState.value.isVisible
                                 requireActivity().instrument?.submitInteraction("click",
                                     actionSubtype = if (isFeedbackVisible) "cardview_result" else "semantic_result",
@@ -71,7 +72,7 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                             dismiss()
                         },
                         onFeedbackSubmit = { isPositive, feedbackText ->
-                            SemanticSearchAbTest().shouldSendEvent {
+                            SemanticSearchAbTest().runIfEligible {
                                 isPositive?.let {
                                     requireActivity().instrument?.submitInteraction("click",
                                         actionSubtype = "cardview_result",
@@ -86,11 +87,13 @@ class SemanticSearchResultsDialog : ExtendedBottomSheetDialogFragment() {
                                 }
                             }
                             val message = requireContext().getString(viewModel.languageCode, R.string.semantic_search_results_feedback_submitted_message)
-                            FeedbackUtil.makeSnackbar(requireView(), message).show()
+                            FeedbackUtil.makeSnackbar(requireView(), message)
+                                .apply { view.setLayoutDirectionByLang(viewModel.languageCode) }
+                                .show()
                         },
                         onLoading = {
                             if (it == LoadingType.Success || it == LoadingType.Empty) {
-                                SemanticSearchAbTest().shouldSendEvent {
+                                SemanticSearchAbTest().runIfEligible {
                                     requireActivity().instrument?.submitInteraction("impression",
                                         actionSubtype = if (it == LoadingType.Empty) "semantic_result_empty" else "semantic_result",
                                         elementId = "search_result",
