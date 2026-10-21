@@ -116,6 +116,9 @@ class YearInReviewRepositoryImpl(
                     .map { it.title }
             }
         }
+        val longestReadArticlesDeferred = async {
+            historyEntryWithImageDao.findLongestReadEntriesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 2)
+        }
         val rabbitHoleDeferred = async {
             YearInReviewRabbitHole.longestOf(historyEntryDao.getArticleLinksBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles))?.let { rabbitHole ->
                 val entriesById = historyEntryWithImageDao.findEntriesByIds(listOf(rabbitHole.startEntryId, rabbitHole.endEntryId)).associateBy { it.id }
@@ -202,6 +205,7 @@ class YearInReviewRepositoryImpl(
         val biggestReadingDay = biggestReadingDayDeferred.await()
         val biggestReadingDate = biggestReadingDay?.first?.day?.let { LocalDate.parse(it) }
         val rabbitHole = rabbitHoleDeferred.await()
+        val longestReadArticles = longestReadArticlesDeferred.await()
 
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
@@ -226,6 +230,8 @@ class YearInReviewRepositoryImpl(
             biggestReadingDayOfMonth = biggestReadingDate?.dayOfMonth ?: 0,
             biggestReadingDayTimeSpentSec = biggestReadingDay?.first?.timeSpentSec ?: 0,
             biggestReadingDayArticles = biggestReadingDay?.second.orEmpty(),
+            longestReadArticles = longestReadArticles.map { it.first.title },
+            longestReadArticleMinutes = (longestReadArticles.firstOrNull()?.second ?: 0) / 60,
             rabbitHoleStart = rabbitHole?.start,
             rabbitHoleEnd = rabbitHole?.end,
             rabbitHoleFakeStart = rabbitHole?.fakeStart,
