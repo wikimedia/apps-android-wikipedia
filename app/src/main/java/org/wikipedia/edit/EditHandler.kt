@@ -81,13 +81,13 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
         }
     }
 
-    fun startEditingSection(sectionID: Int, highlightText: String?) {
+    fun startEditingSection(sectionID: Int, highlightText: String?, highlightTextBefore: String? = null, highlightTextAfter: String? = null) {
         currentPage?.let {
             if (sectionID < 0 || sectionID >= it.sections.size) {
                 L.w("Attempting to edit a mismatched section ID.")
                 return
             }
-            fragment.onRequestEditSection(it.sections[sectionID].id, it.sections[sectionID].anchor, it.title, highlightText)
+            fragment.onRequestEditSection(it.sections[sectionID].id, it.sections[sectionID].anchor, it.title, highlightText, highlightTextBefore, highlightTextAfter)
         }
     }
 
