@@ -82,7 +82,7 @@ object YearInReviewPlaygroundPreview {
         ),
         YearInReviewPage.Category(categoryName = "LIGHTHOUSES IN SCOTLAND"),
         YearInReviewPage.RevisitedArticles(isEmptyState = false, articles = sampleArticles.map { it to 5 }),
-        YearInReviewPage.Geography(isEmptyState = false, country = "Brazil", articleCount = 12),
+        YearInReviewPage.Geography(isEmptyState = false, countryCode = "BR", countryName = "Brazil", articleCount = 12),
         YearInReviewPage.SavedArticles(
             isEmptyState = false,
             savedCount = 26,
@@ -125,7 +125,7 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.ReadingPattern(isEmptyState = true, favoriteTime = "", favoriteTimePercentage = 0),
         YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all.first(), totalArticles = 0, sampleArticles = emptyList()),
         YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
-        YearInReviewPage.Geography(isEmptyState = true, country = null, articleCount = 0),
+        YearInReviewPage.Geography(isEmptyState = true, countryCode = null, countryName = null, articleCount = 0),
         YearInReviewPage.SavedArticles(isEmptyState = true, savedCount = 0, articles = emptyList()),
         YearInReviewPage.TotalEdits(isEmptyState = true, editCount = 0),
         YearInReviewPage.End(isDonor = false)

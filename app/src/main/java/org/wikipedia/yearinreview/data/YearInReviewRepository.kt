@@ -116,10 +116,23 @@ class YearInReviewRepositoryImpl(
                     .map { it.title }
             }
         }
+        val longestReadArticlesDeferred = async {
+            historyEntryWithImageDao.findLongestReadEntriesBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles, limit = 2)
+        }
         val rabbitHoleDeferred = async {
             YearInReviewRabbitHole.longestOf(historyEntryDao.getArticleLinksBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles))?.let { rabbitHole ->
                 val entriesById = historyEntryWithImageDao.findEntriesByIds(listOf(rabbitHole.startEntryId, rabbitHole.endEntryId)).associateBy { it.id }
-                Triple(entriesById[rabbitHole.startEntryId]?.title, entriesById[rabbitHole.endEntryId]?.title, rabbitHole.articleCount)
+                val start = entriesById[rabbitHole.startEntryId]
+                val end = entriesById[rabbitHole.endEntryId]
+                val fakes = historyEntryWithImageDao.findRandomArticleEntriesBetween(dateRange.startMillis, dateRange.endMillis,
+                    mainPageTitles + listOfNotNull(start?.apiTitle, end?.apiTitle), limit = 2)
+                RabbitHoleTitles(
+                    start = start?.title,
+                    end = end?.title,
+                    fakeStart = fakes.getOrNull(0)?.title,
+                    fakeEnd = fakes.getOrNull(1)?.title,
+                    articleCount = rabbitHole.articleCount
+                )
             }
         }
         val topCategoriesDeferred = async { categoryDao.getTopCategoriesByYear(YearInReviewConfig.YEAR, limit = 10) }
@@ -176,14 +189,14 @@ class YearInReviewRepositoryImpl(
                         val geocoder = Geocoder(WikipediaApp.instance)
                         val results = geocoder.getFromLocation(largestClusterLatitude, largestClusterLongitude, 2)
                         if (!results.isNullOrEmpty()) {
-                            return@async Pair(results.first().countryName.orEmpty(), largestCluster.locations.size)
+                            return@async Triple(results.first().countryCode.orEmpty(), results.first().countryName.orEmpty(), largestCluster.locations.size)
                         }
                     }
                 } catch (_: IOException) {
                     // could be thrown by Geocoder, and safe to ignore.
                 }
             }
-            Pair(null, 0)
+            Triple(null, null, 0)
         }.await()
 
         val peakMonth = peakMonthDeferred.await()
@@ -192,6 +205,7 @@ class YearInReviewRepositoryImpl(
         val biggestReadingDay = biggestReadingDayDeferred.await()
         val biggestReadingDate = biggestReadingDay?.first?.day?.let { LocalDate.parse(it) }
         val rabbitHole = rabbitHoleDeferred.await()
+        val longestReadArticles = longestReadArticlesDeferred.await()
 
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
@@ -202,8 +216,9 @@ class YearInReviewRepositoryImpl(
             articlesSavedTotal = articlesSavedTotal.await(),
             articlesSaved = articlesSaved.await(),
             topCategory = topCategory?.title,
-            topCountry = topCountry.first,
-            topCountryArticleCount = topCountry.second,
+            topCountryCode = topCountry.first,
+            topCountryName = topCountry.second,
+            topCountryArticleCount = topCountry.third,
             favoriteTimeOfDay = favoriteTimeOfDay?.first,
             favoriteTimeOfDayPercentage = favoriteTimeOfDay?.second ?: 0,
             longestStreakDays = longestStreak?.days ?: 0,
@@ -215,9 +230,13 @@ class YearInReviewRepositoryImpl(
             biggestReadingDayOfMonth = biggestReadingDate?.dayOfMonth ?: 0,
             biggestReadingDayTimeSpentSec = biggestReadingDay?.first?.timeSpentSec ?: 0,
             biggestReadingDayArticles = biggestReadingDay?.second.orEmpty(),
-            rabbitHoleStart = rabbitHole?.first,
-            rabbitHoleEnd = rabbitHole?.second,
-            rabbitHoleArticleCount = rabbitHole?.third ?: 0,
+            longestReadArticles = longestReadArticles.map { it.first.title },
+            longestReadArticleMinutes = (longestReadArticles.firstOrNull()?.second ?: 0) / 60,
+            rabbitHoleStart = rabbitHole?.start,
+            rabbitHoleEnd = rabbitHole?.end,
+            rabbitHoleFakeStart = rabbitHole?.fakeStart,
+            rabbitHoleFakeEnd = rabbitHole?.fakeEnd,
+            rabbitHoleArticleCount = rabbitHole?.articleCount ?: 0,
             topTopic = topTopic,
             topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,
@@ -314,4 +333,12 @@ class YearInReviewRepositoryImpl(
             mostViewedArticles = mostViewedPagesToViews
         )
     }
+
+    private data class RabbitHoleTitles(
+        val start: PageTitle?,
+        val end: PageTitle?,
+        val fakeStart: PageTitle?,
+        val fakeEnd: PageTitle?,
+        val articleCount: Int
+    )
 }

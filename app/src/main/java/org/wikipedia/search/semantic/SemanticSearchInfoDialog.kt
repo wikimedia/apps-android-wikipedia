@@ -50,6 +50,15 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+        if (savedInstanceState == null) {
+            SemanticSearchAbTest().runIfEligible {
+                requireActivity().instrument?.submitInteraction("impression",
+                    actionSubtype = "feature_info",
+                    elementId = "feature_info"
+                )
+            }
+        }
+
         return ComposeView(requireContext()).apply {
             setContent {
                 SemanticSearchInfoDialogContent(
