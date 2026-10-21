@@ -128,7 +128,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            onNavigateTo(NavTab.EDITS)
+            binding.root.post {
+                if (isAdded) {
+                    onNavigateTo(NavTab.EDITS)
+                }
+            }
         }
     }
 
