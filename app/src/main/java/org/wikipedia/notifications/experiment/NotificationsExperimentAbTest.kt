@@ -9,7 +9,6 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationM
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.log.L
 
 class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP_SIZE_2) {
     override fun getGroupName(): String {
