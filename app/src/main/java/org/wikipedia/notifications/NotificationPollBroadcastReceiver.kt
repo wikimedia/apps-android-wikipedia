@@ -28,6 +28,7 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
@@ -84,7 +85,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
 
             ACTION_RECOMMENDED_READING_LIST == intent.action -> {
-                if (Prefs.recommendedReadingListUpdateFrequency == RecommendedReadingListUpdateFrequency.MONTHLY) {
+                if (Prefs.recommendedReadingListUpdateFrequency == RecommendedReadingListUpdateFrequency.MONTHLY ||
+                    NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 }
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
