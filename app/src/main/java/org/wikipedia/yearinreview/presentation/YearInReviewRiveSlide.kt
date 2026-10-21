@@ -16,14 +16,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.sp
 import androidx.startup.AppInitializer
@@ -56,6 +59,8 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.log.L
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
 
 data class RiveSlideSpec(
     @param:RawRes val resourceId: Int,
@@ -65,7 +70,9 @@ data class RiveSlideSpec(
     val globalViewModel: RiveGlobalViewModel? = null,
     val fit: RiveSlideFit = RiveSlideFit.Layout,
     val isTopBarUiIconsWhite: String? = null,
-    val layoutDirectionEnum: String? = null
+    val layoutDirectionEnum: String? = null,
+    val frameCompleteTrigger: String? = null,
+    val shareFrameTime: Duration? = 7.seconds
 )
 
 // A view model whose values every artboard in the file can read; left null when the app doesn't set them
@@ -89,7 +96,7 @@ sealed interface RiveInstanceType {
     data class Named(val name: String) : RiveInstanceType
 }
 
-private fun ViewModelSource.instanceSource(instanceType: RiveInstanceType) = when (instanceType) {
+fun ViewModelSource.instanceSource(instanceType: RiveInstanceType) = when (instanceType) {
     RiveInstanceType.Default -> defaultInstance()
     RiveInstanceType.Blank -> blankInstance()
     is RiveInstanceType.Named -> namedInstance(instanceType.name)
@@ -207,8 +214,9 @@ fun YearInReviewRiveSlide(
     playing: Boolean,
     modifier: Modifier = Modifier,
     slideId: String? = null,
-    screenshotGetters: MutableMap<String, GetBitmapFun>? = null,
+    screenshotGetters: MutableMap<String, RiveSlideScreenshotFun>? = null,
     onUseWhiteTopBarIconsChange: (Boolean) -> Unit = {},
+    onFrameComplete: () -> Unit = {},
     onRiveLoaded: () -> Unit = {},
     onRiveError: (Throwable) -> Unit
 ) {
@@ -220,6 +228,7 @@ fun YearInReviewRiveSlide(
             spec = content.spec,
             textProperties = content.textProperties,
             numberProperties = content.numberProperties,
+            booleanProperties = content.booleanProperties,
             imageUrls = content.imageUrls,
             accessibilityDescription = content.accessibilityDescription,
             playing = playing,
@@ -228,6 +237,7 @@ fun YearInReviewRiveSlide(
             slideId = slideId,
             screenshotGetters = screenshotGetters,
             onUseWhiteTopBarIconsChange = onUseWhiteTopBarIconsChange,
+            onFrameComplete = onFrameComplete,
             onRiveLoaded = onRiveLoaded
         )
     }
@@ -239,14 +249,16 @@ private fun YearInReviewRiveArtboard(
     spec: RiveSlideSpec,
     textProperties: Map<String, String>,
     numberProperties: Map<String, Int>,
+    booleanProperties: Map<String, Boolean>,
     imageUrls: Map<String, String?>,
     accessibilityDescription: String,
     playing: Boolean,
     modifier: Modifier,
     onRiveError: (Throwable) -> Unit,
     slideId: String?,
-    screenshotGetters: MutableMap<String, GetBitmapFun>?,
+    screenshotGetters: MutableMap<String, RiveSlideScreenshotFun>?,
     onUseWhiteTopBarIconsChange: (Boolean) -> Unit,
+    onFrameComplete: () -> Unit,
     onRiveLoaded: () -> Unit
 ) {
     // loading the artboard and state machine from the rive file
@@ -280,8 +292,31 @@ private fun YearInReviewRiveArtboard(
                     emptyMap()
                 }
             }
+            val textSizes = rememberScaledRiveTextSizes(spec.globalViewModel?.textSizes.orEmpty())
+            val density = LocalDensity.current.density
+            val fit = remember(spec.fit, density) {
+                when (spec.fit) {
+                    RiveSlideFit.Layout -> Fit.Layout(scaleFactor = density)
+                    RiveSlideFit.Contain -> Fit.Contain()
+                }
+            }
+            val snapshotSource by rememberUpdatedState(RiveSlideSnapshotSource(
+                riveFile = riveFile,
+                spec = spec,
+                textProperties = textProperties,
+                numberProperties = numberProperties,
+                images = imageResults.filterValues { it is Result.Success }.mapValues { (it.value as Result.Success).value },
+                textSizes = textSizes,
+                isRtl = layoutDirection == LayoutDirection.Rtl,
+                fit = fit
+            ))
+            var slideSize by remember { mutableStateOf(IntSize.Zero) }
             val onBitmapAvailable: ((GetBitmapFun) -> Unit)? = if (slideId != null && screenshotGetters != null) {
-                { screenshotGetters[slideId] = it }
+                { getBitmap ->
+                    screenshotGetters[slideId] = spec.shareFrameTime?.let { time ->
+                        { renderRiveSlideSnapshot(snapshotSource, slideSize.width, slideSize.height, time) }
+                    } ?: { getBitmap() }
+                }
             } else {
                 null
             }
@@ -304,6 +339,11 @@ private fun YearInReviewRiveArtboard(
                     instance.setNumber(property, value.toFloat())
                 }
             }
+            LaunchedEffect(instance, booleanProperties) {
+                booleanProperties.forEach { (property, value) ->
+                    instance.setBoolean(property, value)
+                }
+            }
             LaunchedEffect(instance, spec.layoutDirectionEnum, layoutDirection) {
                 val propertyName = spec.layoutDirectionEnum ?: return@LaunchedEffect
                 instance.setEnum(propertyName, if (layoutDirection == LayoutDirection.Rtl) "Right to Left" else "Left to Right")
@@ -317,6 +357,11 @@ private fun YearInReviewRiveArtboard(
                 val propertyName = spec.isTopBarUiIconsWhite ?: return@LaunchedEffect
                 instance.getBooleanFlow(propertyName).collect { currentOnUseWhiteTopBarIconsChange(it) }
             }
+            val currentOnFrameComplete by rememberUpdatedState(onFrameComplete)
+            LaunchedEffect(instance, spec.frameCompleteTrigger) {
+                val propertyName = spec.frameCompleteTrigger ?: return@LaunchedEffect
+                instance.getTriggerFlow(propertyName).collect { currentOnFrameComplete() }
+            }
             LaunchedEffect(instance, imageResults) {
                 imageResults.forEach { (property, imageResult) ->
                     when (imageResult) {
@@ -326,17 +371,9 @@ private fun YearInReviewRiveArtboard(
                     }
                 }
             }
-            val textSizes = rememberScaledRiveTextSizes(spec.globalViewModel?.textSizes.orEmpty())
             LaunchedEffect(globalInstance, textSizes) {
                 textSizes.forEach { (property, value) ->
                     globalInstance?.setNumber(property, value)
-                }
-            }
-            val density = LocalDensity.current.density
-            val fit = remember(spec.fit, density) {
-                when (spec.fit) {
-                    RiveSlideFit.Layout -> Fit.Layout(scaleFactor = density)
-                    RiveSlideFit.Contain -> Fit.Contain()
                 }
             }
             @OptIn(ExperimentalRiveGlobalViewModels::class)
@@ -351,6 +388,7 @@ private fun YearInReviewRiveArtboard(
                 onBitmapAvailable = onBitmapAvailable,
                 modifier = modifier
                     .fillMaxSize()
+                    .onSizeChanged { slideSize = it }
                     .clearAndSetSemantics {
                         contentDescription = accessibilityDescription
                     },
