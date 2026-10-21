@@ -42,6 +42,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
@@ -62,6 +63,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import app.rive.GetBitmapFun
 import app.rive.Result
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.AppButton
@@ -177,6 +179,7 @@ private fun YearInReviewContent(
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
+    val coroutineScope = rememberCoroutineScope()
     val currentOnPageImpression by rememberUpdatedState(onPageImpression)
     LaunchedEffect(pagerState, pages) {
         snapshotFlow { pagerState.settledPage }.collect { position ->
@@ -281,6 +284,11 @@ private fun YearInReviewContent(
                                 slideId = page.id,
                                 screenshotGetters = screenshotGetters,
                                 onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
+                                onFrameComplete = {
+                                    if (pagerState.currentPage == position && position < pages.lastIndex) {
+                                        coroutineScope.launch { pagerState.animateScrollToPage(position + 1) }
+                                    }
+                                },
                                 onRiveError = onRiveError
                             )
                             if (page is YearInReviewPage.YouMatter && showDonateButton) {
