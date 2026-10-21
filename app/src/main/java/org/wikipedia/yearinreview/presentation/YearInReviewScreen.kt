@@ -179,6 +179,7 @@ private fun YearInReviewContent(
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
+    val coroutineScope = rememberCoroutineScope()
     val currentOnPageImpression by rememberUpdatedState(onPageImpression)
     LaunchedEffect(pagerState, pages) {
         snapshotFlow { pagerState.settledPage }.collect { position ->
@@ -197,7 +198,6 @@ private fun YearInReviewContent(
         onStatusBarIconColorChange(useDarkStatusBarIcons)
     }
     val screenshotGetters = remember { mutableStateMapOf<String, RiveSlideScreenshotFun>() }
-    val coroutineScope = rememberCoroutineScope()
     val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
     val resources = LocalResources.current
     val context = LocalContext.current
@@ -286,6 +286,11 @@ private fun YearInReviewContent(
                                 slideId = page.id,
                                 screenshotGetters = screenshotGetters,
                                 onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
+                                onFrameComplete = {
+                                    if (pagerState.currentPage == position && position < pages.lastIndex) {
+                                        coroutineScope.launch { pagerState.animateScrollToPage(position + 1) }
+                                    }
+                                },
                                 onRiveError = onRiveError
                             )
                             if (page is YearInReviewPage.YouMatter && showDonateButton) {

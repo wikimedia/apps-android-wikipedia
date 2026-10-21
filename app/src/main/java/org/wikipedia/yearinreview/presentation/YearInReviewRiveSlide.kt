@@ -71,6 +71,7 @@ data class RiveSlideSpec(
     val fit: RiveSlideFit = RiveSlideFit.Layout,
     val isTopBarUiIconsWhite: String? = null,
     val layoutDirectionEnum: String? = null,
+    val frameCompleteTrigger: String? = null,
     val shareFrameTime: Duration? = 7.seconds
 )
 
@@ -215,6 +216,7 @@ fun YearInReviewRiveSlide(
     slideId: String? = null,
     screenshotGetters: MutableMap<String, RiveSlideScreenshotFun>? = null,
     onUseWhiteTopBarIconsChange: (Boolean) -> Unit = {},
+    onFrameComplete: () -> Unit = {},
     onRiveLoaded: () -> Unit = {},
     onRiveError: (Throwable) -> Unit
 ) {
@@ -226,6 +228,7 @@ fun YearInReviewRiveSlide(
             spec = content.spec,
             textProperties = content.textProperties,
             numberProperties = content.numberProperties,
+            booleanProperties = content.booleanProperties,
             imageUrls = content.imageUrls,
             accessibilityDescription = content.accessibilityDescription,
             playing = playing,
@@ -234,6 +237,7 @@ fun YearInReviewRiveSlide(
             slideId = slideId,
             screenshotGetters = screenshotGetters,
             onUseWhiteTopBarIconsChange = onUseWhiteTopBarIconsChange,
+            onFrameComplete = onFrameComplete,
             onRiveLoaded = onRiveLoaded
         )
     }
@@ -245,6 +249,7 @@ private fun YearInReviewRiveArtboard(
     spec: RiveSlideSpec,
     textProperties: Map<String, String>,
     numberProperties: Map<String, Int>,
+    booleanProperties: Map<String, Boolean>,
     imageUrls: Map<String, String?>,
     accessibilityDescription: String,
     playing: Boolean,
@@ -253,6 +258,7 @@ private fun YearInReviewRiveArtboard(
     slideId: String?,
     screenshotGetters: MutableMap<String, RiveSlideScreenshotFun>?,
     onUseWhiteTopBarIconsChange: (Boolean) -> Unit,
+    onFrameComplete: () -> Unit,
     onRiveLoaded: () -> Unit
 ) {
     // loading the artboard and state machine from the rive file
@@ -333,6 +339,11 @@ private fun YearInReviewRiveArtboard(
                     instance.setNumber(property, value.toFloat())
                 }
             }
+            LaunchedEffect(instance, booleanProperties) {
+                booleanProperties.forEach { (property, value) ->
+                    instance.setBoolean(property, value)
+                }
+            }
             LaunchedEffect(instance, spec.layoutDirectionEnum, layoutDirection) {
                 val propertyName = spec.layoutDirectionEnum ?: return@LaunchedEffect
                 instance.setEnum(propertyName, if (layoutDirection == LayoutDirection.Rtl) "Right to Left" else "Left to Right")
@@ -345,6 +356,11 @@ private fun YearInReviewRiveArtboard(
             LaunchedEffect(instance, spec.isTopBarUiIconsWhite) {
                 val propertyName = spec.isTopBarUiIconsWhite ?: return@LaunchedEffect
                 instance.getBooleanFlow(propertyName).collect { currentOnUseWhiteTopBarIconsChange(it) }
+            }
+            val currentOnFrameComplete by rememberUpdatedState(onFrameComplete)
+            LaunchedEffect(instance, spec.frameCompleteTrigger) {
+                val propertyName = spec.frameCompleteTrigger ?: return@LaunchedEffect
+                instance.getTriggerFlow(propertyName).collect { currentOnFrameComplete() }
             }
             LaunchedEffect(instance, imageResults) {
                 imageResults.forEach { (property, imageResult) ->
