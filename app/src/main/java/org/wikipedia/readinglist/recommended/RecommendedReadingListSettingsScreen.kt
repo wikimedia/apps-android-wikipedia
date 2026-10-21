@@ -374,16 +374,17 @@ private fun UpdatesFrequencyView(
     }
     ListItem(
         modifier = modifier
-            .padding(bottom = 16.dp)
-            .apply {
+            .then(
                 if (NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
-                    return@apply
+                    Modifier
+                } else {
+                    Modifier.clickable {
+                        RecommendedReadingListEvent.submit("updates_click", "discover_settings")
+                        showDialog = true
+                    }
                 }
-                clickable {
-                    RecommendedReadingListEvent.submit("updates_click", "discover_settings")
-                    showDialog = true
-                }
-            },
+            )
+            .padding(bottom = 16.dp),
         colors = ListItemDefaults.colors(
             containerColor = WikipediaTheme.colors.paperColor
         ),

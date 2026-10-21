@@ -1,9 +1,11 @@
 package org.wikipedia.notifications.experiment
 
+import android.content.Context
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
+import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.ReleaseUtil
@@ -48,5 +50,17 @@ class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP
         runIfEligible {
             instrument.setExperiment(TestKitchenAdapter.getExperiment(this))
         }
+    }
+
+    // An alarm scheduled before the experiment started still uses the user's previous frequency,
+    // so move it to the weekly schedule the first time an eligible user enters the app.
+    // TODO: once the experiment ends, reschedule again for users with isNotificationsExperimentNotificationRescheduled
+    //  set, so their alarm goes back to their own recommendedReadingListUpdateFrequency.
+    fun maybeRescheduleRecommendedReadingListNotification(context: Context) {
+        if (Prefs.isNotificationsExperimentNotificationRescheduled || !isNotificationsExperimentEligible()) {
+            return
+        }
+        RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+        Prefs.isNotificationsExperimentNotificationRescheduled = true
     }
 }

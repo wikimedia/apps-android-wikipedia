@@ -1046,4 +1046,8 @@ object Prefs {
     var notificationsIsTestActive
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_is_test_active, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_is_test_active, value)
+
+    var isNotificationsExperimentNotificationRescheduled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, value)
 }
