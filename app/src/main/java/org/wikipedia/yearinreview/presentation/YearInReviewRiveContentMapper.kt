@@ -156,7 +156,7 @@ object YearInReviewRiveContentMapper {
                     "bodyText" to resources.getString(R.string.yir_places_headline),
                     "flagTitle" to page.country.orEmpty(),
                     "flagSubtitle" to resources.getQuantityString(R.plurals.yir_places_article_count, page.articleCount, page.articleCount),
-                    "data" to ""
+                    "data" to "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/500px-Flag_of_Germany.svg.png"
                 )
             )
         }
@@ -290,14 +290,14 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
         // "textkerningEM" to 1f,
         // "dataTextFontSize" to 1f,
         // "dataTextLineHeight" to 1f,
-        // "coverGlyphsFontSize" to 40f,
-        // "coverGlyphsLineHeight" to 42f,
-        // "dataNumberFontSize" to 72f,
-        // "dataNumbersLineHeight" to 76f,
-        // "headlineFontSize" to 24f,
-        // "headlineLineHeight" to 25.44f,
-        // "bodyCopyFontSize" to 16f,
-        // "bodyCopyLineHeight" to 20f
+        "coverGlyphsFontSize" to 40f,
+        "coverGlyphsLineHeight" to 42f,
+        "dataNumberFontSize" to 64f,
+        "dataNumbersLineHeight" to 62f,
+        "headlineFontSize" to 24f,
+        "headlineLineHeight" to 25.44f,
+        "bodyCopyFontSize" to 18f,
+        "bodyCopyLineHeight" to 20f
     )
 )
 
