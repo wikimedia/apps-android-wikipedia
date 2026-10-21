@@ -293,13 +293,13 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
     )
 )
 
-// In all_templates.riv, each artboard has a same-named view model instance holding sample text
+// In the Rive file, each artboard has a same-named view model instance holding sample text
 fun allTemplatesSlideSpec(
     artboardName: String,
     viewModelName: String = "DataTemplate",
     instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName)
 ) = RiveSlideSpec(
-    resourceId = R.raw.all_templates_v4,
+    resourceId = R.raw.year_in_review,
     artboardName = artboardName,
     viewModelName = viewModelName,
     instanceType = instanceType,
