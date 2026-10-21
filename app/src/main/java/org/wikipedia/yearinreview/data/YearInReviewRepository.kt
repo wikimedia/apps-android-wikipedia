@@ -176,14 +176,14 @@ class YearInReviewRepositoryImpl(
                         val geocoder = Geocoder(WikipediaApp.instance)
                         val results = geocoder.getFromLocation(largestClusterLatitude, largestClusterLongitude, 2)
                         if (!results.isNullOrEmpty()) {
-                            return@async Pair(results.first().countryName.orEmpty(), largestCluster.locations.size)
+                            return@async Triple(results.first().countryCode.orEmpty(), results.first().countryName.orEmpty(), largestCluster.locations.size)
                         }
                     }
                 } catch (_: IOException) {
                     // could be thrown by Geocoder, and safe to ignore.
                 }
             }
-            Pair(null, 0)
+            Triple(null, null, 0)
         }.await()
 
         val peakMonth = peakMonthDeferred.await()
@@ -202,8 +202,9 @@ class YearInReviewRepositoryImpl(
             articlesSavedTotal = articlesSavedTotal.await(),
             articlesSaved = articlesSaved.await(),
             topCategory = topCategory?.title,
-            topCountry = topCountry.first,
-            topCountryArticleCount = topCountry.second,
+            topCountryCode = topCountry.first,
+            topCountryName = topCountry.second,
+            topCountryArticleCount = topCountry.third,
             favoriteTimeOfDay = favoriteTimeOfDay?.first,
             favoriteTimeOfDayPercentage = favoriteTimeOfDay?.second ?: 0,
             longestStreakDays = longestStreak?.days ?: 0,

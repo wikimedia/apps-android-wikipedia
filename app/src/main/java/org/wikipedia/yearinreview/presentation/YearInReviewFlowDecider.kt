@@ -73,7 +73,8 @@ object YearInReviewFlowDecider {
             CandidatePage(status = readingStats.topCountryStatus) {
                 YearInReviewPage.Geography(
                     isEmptyState = readingStats.topCountryStatus == YearInReviewInsightStatus.EMPTY_STATE,
-                    country = readingStats.topCountry.orEmpty(),
+                    countryCode = readingStats.topCountryCode.orEmpty(),
+                    countryName = readingStats.topCountryName.orEmpty(),
                     articleCount = readingStats.topCountryArticleCount
                 )
             },

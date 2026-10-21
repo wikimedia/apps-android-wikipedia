@@ -45,7 +45,8 @@ data class YearInReviewReadingStats(
     val articlesSavedTotal: Int = 0,
     val articlesSaved: List<PageTitle> = emptyList(),
     val topCategory: String? = null,
-    val topCountry: String? = null,
+    val topCountryCode: String? = null,
+    val topCountryName: String? = null,
     val topCountryArticleCount: Int = 0,
     val favoriteTimeOfDay: YearInReviewTimeOfDay? = null,
     val favoriteTimeOfDayPercentage: Int = 0,
@@ -102,7 +103,7 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.SUPPRESSED
     }
 
-    val topCountryStatus get() = if (!topCountry.isNullOrEmpty()) {
+    val topCountryStatus get() = if (!topCountryCode.isNullOrEmpty()) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE

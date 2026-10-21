@@ -84,7 +84,7 @@ sealed interface YearInReviewPage {
         override val id get() = if (isEmptyState) "revisited_articles_empty" else "revisited_articles"
     }
 
-    data class Geography(val isEmptyState: Boolean, val country: String?, val articleCount: Int) : YearInReviewPage {
+    data class Geography(val isEmptyState: Boolean, val countryCode: String?, val countryName: String?, val articleCount: Int) : YearInReviewPage {
         override val id get() = if (isEmptyState) "geography_empty" else "geography"
     }
 

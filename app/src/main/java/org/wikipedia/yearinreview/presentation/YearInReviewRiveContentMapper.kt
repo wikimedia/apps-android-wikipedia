@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview.presentation
 
 import android.content.res.Resources
 import org.wikipedia.R
+import org.wikipedia.staticdata.CountryFlags
 import org.wikipedia.topics.ArticleTopic
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
@@ -146,17 +147,19 @@ object YearInReviewRiveContentMapper {
                 spec = allTemplatesSlideSpec("frame14-empty"),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_places_empty_headline),
-                    "bodyText" to resources.getString(R.string.yir_places_empty_supporting, YearInReviewConfig.YEAR)
+                    "bodyCopy" to resources.getString(R.string.yir_places_empty_supporting, YearInReviewConfig.YEAR)
                 )
             )
         } else {
             RiveSlideContent(
                 spec = allTemplatesSlideSpec("frame14"),
                 textProperties = mapOf(
-                    "bodyText" to resources.getString(R.string.yir_places_headline),
-                    "flagTitle" to page.country.orEmpty(),
-                    "flagSubtitle" to resources.getQuantityString(R.plurals.yir_places_article_count, page.articleCount, page.articleCount),
-                    "data" to "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/500px-Flag_of_Germany.svg.png"
+                    "bodyCopy" to resources.getString(R.string.yir_places_headline),
+                    "flagTitle" to page.countryName.orEmpty(),
+                    "flagSubtitle" to resources.getQuantityString(R.plurals.yir_places_article_count, page.articleCount, page.articleCount)
+                ),
+                imageUrls = mapOf(
+                    "topicIcon" to CountryFlags.urlFor(page.countryCode.orEmpty()).orEmpty()
                 )
             )
         }
@@ -288,8 +291,8 @@ private val AllTemplatesGlobalProperties = RiveGlobalViewModel(
         // TODO: determine proper values for all of these:
         // "glyphKerningEM" to 1f,
         // "textkerningEM" to 1f,
-        // "dataTextFontSize" to 1f,
-        // "dataTextLineHeight" to 1f,
+        "dataTextFontSize" to 20f,
+        "dataTextLineHeight" to 22f,
         "coverGlyphsFontSize" to 40f,
         "coverGlyphsLineHeight" to 42f,
         "dataNumberFontSize" to 64f,
