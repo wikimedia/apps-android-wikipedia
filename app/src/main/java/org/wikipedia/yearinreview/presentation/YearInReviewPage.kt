@@ -60,19 +60,19 @@ sealed interface YearInReviewPage {
         override val id = "biggest_reading_day_articles"
     }
 
-    data object LongestReadGuess : YearInReviewPage {
+    data class LongestReadGuess(val article: PageTitle? = null, val fakeArticle: PageTitle? = null, val minutesSpent: Int = 0) : YearInReviewPage {
         override val id = "longest_read_guess"
     }
 
-    data object LongestReadReveal : YearInReviewPage {
+    data class LongestReadReveal(val article: PageTitle? = null, val minutesSpent: Int = 0) : YearInReviewPage {
         override val id = "longest_read_reveal"
     }
 
-    data object RabbitHoleGuess : YearInReviewPage {
+    data class RabbitHoleGuess(val articleStart: PageTitle? = null, val articleEnd: PageTitle? = null, val fakeArticleStart: PageTitle? = null, val fakeArticleEnd: PageTitle? = null, val numLinks: Int = 0) : YearInReviewPage {
         override val id = "rabbit_hole_guess"
     }
 
-    data object RabbitHoleReveal : YearInReviewPage {
+    data class RabbitHoleReveal(val articleStart: PageTitle? = null, val articleEnd: PageTitle? = null, val numLinks: Int = 0) : YearInReviewPage {
         override val id = "rabbit_hole_reveal"
     }
 

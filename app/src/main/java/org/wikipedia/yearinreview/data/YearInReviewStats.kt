@@ -59,8 +59,12 @@ data class YearInReviewReadingStats(
     val biggestReadingDayOfMonth: Int = 0,
     val biggestReadingDayTimeSpentSec: Int = 0,
     val biggestReadingDayArticles: List<PageTitle> = emptyList(),
+    val longestReadArticles: List<PageTitle> = emptyList(),
+    val longestReadArticleMinutes: Int = 0,
     val rabbitHoleStart: PageTitle? = null,
     val rabbitHoleEnd: PageTitle? = null,
+    val rabbitHoleFakeStart: PageTitle? = null,
+    val rabbitHoleFakeEnd: PageTitle? = null,
     val rabbitHoleArticleCount: Int = 0,
     val topTopic: ArticleTopic? = null,
     val topTopicTotalArticles: Int = 0,
@@ -95,6 +99,18 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
+    }
+
+    val longestReadArticleStatus get() = if (longestReadArticles.size > 1 && longestReadArticleMinutes > 10) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val rabbitHoleStatus get() = if (rabbitHoleStart != null && rabbitHoleEnd != null && rabbitHoleArticleCount >= 3 && rabbitHoleFakeStart != null && rabbitHoleFakeEnd != null) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
     }
 
     val topCategoryStatus get() = if (!topCategory.isNullOrEmpty()) {

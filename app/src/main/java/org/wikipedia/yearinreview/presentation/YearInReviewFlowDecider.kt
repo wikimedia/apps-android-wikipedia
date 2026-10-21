@@ -59,6 +59,35 @@ object YearInReviewFlowDecider {
                     topicArticleCounts = readingStats.topicArticleCountMap
                 )
             },
+            CandidatePage(status = readingStats.longestReadArticleStatus) {
+                YearInReviewPage.LongestReadGuess(
+                    article = readingStats.longestReadArticles.firstOrNull(),
+                    fakeArticle = readingStats.longestReadArticles.getOrNull(1),
+                    minutesSpent = readingStats.longestReadArticleMinutes
+                )
+            },
+            CandidatePage(status = readingStats.longestReadArticleStatus) {
+                YearInReviewPage.LongestReadReveal(
+                    article = readingStats.longestReadArticles.firstOrNull(),
+                    minutesSpent = readingStats.longestReadArticleMinutes
+                )
+            },
+            CandidatePage(status = readingStats.rabbitHoleStatus) {
+                YearInReviewPage.RabbitHoleGuess(
+                    articleStart = readingStats.rabbitHoleStart,
+                    articleEnd = readingStats.rabbitHoleEnd,
+                    fakeArticleStart = readingStats.rabbitHoleFakeStart,
+                    fakeArticleEnd = readingStats.rabbitHoleFakeEnd,
+                    numLinks = readingStats.rabbitHoleArticleCount
+                )
+            },
+            CandidatePage(status = readingStats.rabbitHoleStatus) {
+                YearInReviewPage.RabbitHoleReveal(
+                    articleStart = readingStats.rabbitHoleStart,
+                    articleEnd = readingStats.rabbitHoleEnd,
+                    numLinks = readingStats.rabbitHoleArticleCount
+                )
+            },
             CandidatePage(status = readingStats.articlesRevisitedStatus) {
                 YearInReviewPage.RevisitedArticles(
                     isEmptyState = readingStats.articlesRevisitedStatus == YearInReviewInsightStatus.EMPTY_STATE,

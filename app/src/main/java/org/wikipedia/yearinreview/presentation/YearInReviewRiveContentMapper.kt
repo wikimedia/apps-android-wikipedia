@@ -218,6 +218,58 @@ object YearInReviewRiveContentMapper {
                 "bodyCopy" to resources.getString(if (page.showLoginPrompt) R.string.yir_community_contribute_supporting else R.string.yir_non_contributor_supporting),
             )
         )
+        is YearInReviewPage.LongestReadGuess -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(artboardName = "frame10a"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_most_time_article_headline),
+                "articleTitleTop" to StringUtil.fromHtml(page.article?.displayText).toString(),
+                "subtitleTop" to page.article?.description.orEmpty(),
+                "thumbnailTop" to page.article?.thumbUrl.orEmpty(),
+                "articleTitleBot" to StringUtil.fromHtml(page.fakeArticle?.displayText).toString(),
+                "subtitleBot" to page.fakeArticle?.description.orEmpty(),
+                "thumbnailBot" to page.fakeArticle?.thumbUrl.orEmpty()
+            )
+        )
+        is YearInReviewPage.LongestReadReveal -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(artboardName = "frame10b"),
+            textProperties = mapOf(
+                "headline" to resources.getQuantityString(R.plurals.yir_most_time_article_supporting, page.minutesSpent, page.minutesSpent, YearInReviewConfig.YEAR),
+                "resultTitle" to StringUtil.fromHtml(page.article?.displayText).toString(),
+                "resultSubtitle" to page.article?.description.orEmpty(),
+                "resultThumbnail" to page.article?.thumbUrl.orEmpty()
+            )
+        )
+        is YearInReviewPage.RabbitHoleGuess -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(artboardName = "frame11a"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_rabbit_hole_headline),
+                "articleTitleTopT" to StringUtil.fromHtml(page.articleStart?.displayText).toString(),
+                "thumbnailTopT" to page.articleStart?.thumbUrl.orEmpty(),
+                "noImgTopT" to page.articleStart?.thumbUrl.isNullOrEmpty().toString(),
+                "articleTitleTopB" to StringUtil.fromHtml(page.articleEnd?.displayText).toString(),
+                "thumbnailTopB" to page.articleEnd?.thumbUrl.orEmpty(),
+                "noImgTopB" to page.articleEnd?.thumbUrl.isNullOrEmpty().toString(),
+                "articleTitleBotT" to StringUtil.fromHtml(page.fakeArticleStart?.displayText).toString(),
+                "thumbnailBotT" to page.fakeArticleStart?.thumbUrl.orEmpty(),
+                "noImgBotT" to page.fakeArticleStart?.thumbUrl.isNullOrEmpty().toString(),
+                "articleTitleBotB" to StringUtil.fromHtml(page.fakeArticleEnd?.displayText).toString(),
+                "thumbnailBotB" to page.fakeArticleEnd?.thumbUrl.orEmpty(),
+                "noImgBotB" to page.fakeArticleEnd?.thumbUrl.isNullOrEmpty().toString()
+            )
+        )
+        is YearInReviewPage.RabbitHoleReveal -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(artboardName = "frame11b"),
+            textProperties = mapOf(
+                "headline" to resources.getQuantityString(R.plurals.yir_rabbit_hole_depth_headline, page.numLinks, page.numLinks),
+                "bodyText" to resources.getString(R.string.yir_rabbit_hole_depth_supporting),
+                "resultTitleTop" to StringUtil.fromHtml(page.articleStart?.displayText).toString(),
+                "resultThumbnailTop" to page.articleStart?.thumbUrl.orEmpty(),
+                "resultNoImgT" to page.articleStart?.thumbUrl.isNullOrEmpty().toString(),
+                "resultTitleBot" to StringUtil.fromHtml(page.articleEnd?.displayText).toString(),
+                "resultThumbnailBot" to page.articleEnd?.thumbUrl.orEmpty(),
+                "resultNoImgB" to page.articleEnd?.thumbUrl.isNullOrEmpty().toString(),
+            )
+        )
         is YearInReviewPage.Collective -> when (page.insight) {
             YearInReviewCollectiveInsight.HOURS_READ -> RiveSlideContent(
                 spec = allTemplatesSlideSpec("frame3", dataNumberFontSize = 40f),
@@ -277,8 +329,6 @@ object YearInReviewRiveContentMapper {
                 )
             )
         }
-        is YearInReviewPage.LongestReadGuess,
-        is YearInReviewPage.LongestReadReveal,
         is YearInReviewPage.RabbitHoleGuess,
         is YearInReviewPage.RabbitHoleReveal,
         is YearInReviewPage.End -> null
