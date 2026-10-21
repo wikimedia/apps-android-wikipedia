@@ -10,6 +10,8 @@ import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.settings.Prefs
@@ -21,12 +23,31 @@ import java.time.temporal.TemporalAdjusters
 
 object RecommendedReadingListNotificationManager {
 
+    private val NOTIFICATION_EXP_SEND_DAY = DayOfWeek.MONDAY
+    private val NOTIFICATION_EXP_SEND_TIME = LocalTime.of(18, 0)
+
     fun scheduleRecommendedReadingListNotification(context: Context) {
-        // Always cancel before scheduling a new one
-        cancelRecommendedReadingListNotification(context)
-        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             .setAction(NotificationPollBroadcastReceiver.ACTION_RECOMMENDED_READING_LIST)
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+        if (NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+            alarmManager.setAndAllowWhileIdle(
+                AlarmManager.RTC_WAKEUP,
+                getDurationUntilNextSend().toMillis() + System.currentTimeMillis(),
+                PendingIntent.getBroadcast(
+                    context,
+                    0,
+                    intent,
+                    PendingIntent.FLAG_IMMUTABLE
+                )
+            )
+            return
+        }
+
+        // Always cancel before scheduling a new one
+        cancelRecommendedReadingListNotification(context)
+
         val durationUntilNextUpdate = timeUntilNextUpdate(Prefs.recommendedReadingListUpdateFrequency)
         val triggerUpdateMillis = System.currentTimeMillis() + durationUntilNextUpdate.toMillis()
         val nextUpdateIntervalInMillis = when (Prefs.recommendedReadingListUpdateFrequency) {
@@ -99,5 +120,19 @@ object RecommendedReadingListNotificationManager {
                 Duration.between(now, startOfNextMonth)
             }
         }
+    }
+
+    private fun getDurationUntilNextSend(): Duration {
+        val currentLocalDateTime = LocalDateTime.now()
+        var notificationDateTime = currentLocalDateTime
+            .with(TemporalAdjusters
+                .nextOrSame(NOTIFICATION_EXP_SEND_DAY))
+                .toLocalDate()
+                .atTime(NOTIFICATION_EXP_SEND_TIME)
+
+        // Handle Monday duration - if currentLocalDateTime is after 6pm, push the notification to the next Monday
+        if (!notificationDateTime.isAfter(currentLocalDateTime)) notificationDateTime = notificationDateTime.plusWeeks(1)
+
+        return Duration.between(currentLocalDateTime, notificationDateTime)
     }
 }
