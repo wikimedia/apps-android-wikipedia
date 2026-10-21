@@ -71,7 +71,8 @@ object RemoteConfig {
         @SerialName("imghost") val imgHost: String = "",
         @SerialName("reportapi") val reportApi: String = "",
         val sentry: Boolean = false,
-        val siteKey: String = ""
+        val siteKey: String = "",
+        val editSiteKey: String = ""
     )
 
     // TODO: remove this comment once remote config yir date names are confirmed
