@@ -52,10 +52,7 @@ class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP
         }
     }
 
-    // An alarm scheduled before the experiment started still uses the user's previous frequency,
-    // so move it to the weekly schedule the first time an eligible user enters the app.
-    // TODO: once the experiment ends, reschedule again for users with isNotificationsExperimentNotificationRescheduled
-    //  set, so their alarm goes back to their own recommendedReadingListUpdateFrequency.
+    // TODO: reschedule for the experiment (to weekly), and make sure reschedule again when the experiment is ended.
     fun maybeRescheduleRecommendedReadingListNotification(context: Context) {
         if (Prefs.isNotificationsExperimentNotificationRescheduled || !isNotificationsExperimentEligible()) {
             return
