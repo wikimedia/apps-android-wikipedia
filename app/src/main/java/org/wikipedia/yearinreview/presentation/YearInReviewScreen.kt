@@ -51,6 +51,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -196,6 +197,7 @@ private fun YearInReviewContent(
     val screenshotGetters = remember { mutableStateMapOf<String, GetBitmapFun>() }
     val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
     val resources = LocalResources.current
+    val context = LocalContext.current
     val riveContents = remember(pages) {
         pages.associate { page -> page.id to YearInReviewRiveContentMapper.map(page, resources) }
     }
@@ -226,7 +228,7 @@ private fun YearInReviewContent(
                     if (page != null) {
                         try {
                             screenshotGetters[page.id]?.invoke()?.let { bitmap ->
-                                onShareClick(bitmap)
+                                onShareClick(YearInReviewShareImage.decorate(context, bitmap))
                             }
                         } catch (exception: Exception) {
                             onRiveError(exception)
