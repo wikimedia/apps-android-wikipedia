@@ -42,6 +42,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
@@ -51,6 +52,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -59,8 +61,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import app.rive.GetBitmapFun
 import app.rive.Result
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.AppButton
@@ -176,6 +179,7 @@ private fun YearInReviewContent(
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
+    val coroutineScope = rememberCoroutineScope()
     val currentOnPageImpression by rememberUpdatedState(onPageImpression)
     LaunchedEffect(pagerState, pages) {
         snapshotFlow { pagerState.settledPage }.collect { position ->
@@ -193,9 +197,10 @@ private fun YearInReviewContent(
     LaunchedEffect(useDarkStatusBarIcons) {
         onStatusBarIconColorChange(useDarkStatusBarIcons)
     }
-    val screenshotGetters = remember { mutableStateMapOf<String, GetBitmapFun>() }
+    val screenshotGetters = remember { mutableStateMapOf<String, RiveSlideScreenshotFun>() }
     val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
     val resources = LocalResources.current
+    val context = LocalContext.current
     val riveContents = remember(pages) {
         pages.associate { page -> page.id to YearInReviewRiveContentMapper.map(page, resources) }
     }
@@ -222,14 +227,16 @@ private fun YearInReviewContent(
                     screenshotGetters.containsKey(page.id)
                 } == true,
                 onShareClick = {
-                    val page = pages.getOrNull(pagerState.currentPage)
-                    if (page != null) {
-                        try {
-                            screenshotGetters[page.id]?.invoke()?.let { bitmap ->
-                                onShareClick(bitmap)
+                    val getScreenshot = pages.getOrNull(pagerState.currentPage)?.let { screenshotGetters[it.id] }
+                    if (getScreenshot != null) {
+                        coroutineScope.launch {
+                            try {
+                                onShareClick(YearInReviewShareImage.decorate(context, getScreenshot()))
+                            } catch (cancellationException: CancellationException) {
+                                throw cancellationException
+                            } catch (exception: Exception) {
+                                onRiveError(exception)
                             }
-                        } catch (exception: Exception) {
-                            onRiveError(exception)
                         }
                     }
                 },
@@ -279,6 +286,11 @@ private fun YearInReviewContent(
                                 slideId = page.id,
                                 screenshotGetters = screenshotGetters,
                                 onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
+                                onFrameComplete = {
+                                    if (pagerState.currentPage == position && position < pages.lastIndex) {
+                                        coroutineScope.launch { pagerState.animateScrollToPage(position + 1) }
+                                    }
+                                },
                                 onRiveError = onRiveError
                             )
                             if (page is YearInReviewPage.YouMatter && showDonateButton) {
