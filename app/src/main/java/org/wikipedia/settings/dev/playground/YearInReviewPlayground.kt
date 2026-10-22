@@ -5,6 +5,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.yearinreview.data.YearInReviewAvailability
@@ -14,6 +15,7 @@ import org.wikipedia.yearinreview.data.YearInReviewEntryStats
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import org.wikipedia.yearinreview.data.YearInReviewRewardData
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
+import org.wikipedia.yearinreview.data.YearInReviewTimeOfDay
 import org.wikipedia.yearinreview.presentation.YearInReviewPage
 import java.time.Clock
 import java.time.LocalDate
@@ -45,10 +47,34 @@ enum class YearInReviewPlaygroundData(
             peakMonth = 12,
             peakMonthVisitedDays = 20,
             articlesRevisited = YearInReviewPlaygroundPreview.sampleArticles.map { it to 5 },
+            articlesSavedTotal = 10,
+            articlesSaved = YearInReviewPlaygroundPreview.sampleArticles,
             topCategory = "Fungi of Europe",
+            topCountryCode = "RU",
+            topCountryName = "Russia",
+            topCountryArticleCount = 123,
+            favoriteTimeOfDay = YearInReviewTimeOfDay.MORNING,
+            favoriteTimeOfDayPercentage = 60,
+            longestStreakDays = 40,
+            longestStreakStartMonth = 5,
+            longestStreakStartDay = 16,
+            longestStreakEndMonth = 6,
+            longestStreakEndDay = 30,
+            biggestReadingDayMonth = 10,
+            biggestReadingDayOfMonth = 25,
+            biggestReadingDayTimeSpentSec = 123456,
+            biggestReadingDayArticles = YearInReviewPlaygroundPreview.sampleArticles,
+            longestReadArticles = YearInReviewPlaygroundPreview.sampleArticles,
+            longestReadArticleMinutes = 123,
+            rabbitHoleStart = YearInReviewPlaygroundPreview.sampleArticles.first(),
+            rabbitHoleEnd = YearInReviewPlaygroundPreview.sampleArticles.last(),
+            rabbitHoleFakeStart = YearInReviewPlaygroundPreview.sampleArticles.first(),
+            rabbitHoleFakeEnd = YearInReviewPlaygroundPreview.sampleArticles.last(),
+            rabbitHoleArticleCount = YearInReviewPlaygroundPreview.sampleArticles.size,
             topTopic = YearInReviewPlaygroundPreview.sampleTopTopic,
             topTopicTotalArticles = 123,
-            topTopicSampleArticles = YearInReviewPlaygroundPreview.sampleTopTopicArticles
+            topTopicSampleArticles = YearInReviewPlaygroundPreview.sampleTopTopicArticles,
+            topicArticleCountMap = ArticleTopics.all.take(3).associate { it.topicId to (5..10).random() }
         ),
         editingStats = YearInReviewEditingStats(
             totalEditCount = 10,

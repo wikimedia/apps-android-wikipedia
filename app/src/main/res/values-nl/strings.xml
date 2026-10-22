@@ -2074,12 +2074,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Favoriete tijd om te lezen</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Favoriete dag om te lezen</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Maand waarin u het meest hebt gelezen</string>
-  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Ochtend</string>
-  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Vroeg in de middag</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Middag</string>
-  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Avond</string>
-  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Nacht</string>
-  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Laat in de nacht</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Ochtend</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Vroeg in de middag</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Middag</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Avond</string>
+  <string name="year_in_review_slide_reading_pattern_night">Nacht</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Laat in de nacht</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">We hebben %,d uur besteed aan lezen</item>
     <item quantity="other">We hebben %,d uur besteed aan lezen</item>

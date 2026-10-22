@@ -92,7 +92,6 @@ import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
 import org.wikipedia.widgets.SearchWidgetInstallDialog
-import org.wikipedia.yearinreview.presentation.YearInReviewDialog
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.io.File
 import java.time.LocalDate
@@ -129,7 +128,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            onNavigateTo(NavTab.EDITS)
+            binding.root.post {
+                if (isAdded) {
+                    onNavigateTo(NavTab.EDITS)
+                }
+            }
         }
     }
 
@@ -233,7 +236,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
         binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown || shouldShowYearInReviewDot)
-        YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(requireActivity())
     }
 
     override fun onDestroyView() {

@@ -151,5 +151,14 @@ class SemanticSearchResultsViewModel(savedStateHandle: SavedStateHandle) : ViewM
 
     companion object {
         private const val FEEDBACK_DISPLAY_DELAY_MILLIS = 3000L
+        private val quotationMarks = mapOf(
+            "ja" to "『",
+            "ar" to "❞",
+            "fr" to "«"
+        )
+
+        fun getQuotationMark(languageCode: String): String {
+            return quotationMarks[languageCode] ?: "«"
+        }
     }
 }

@@ -1866,6 +1866,8 @@
   <string name="yir_community_recap_headline">Eise Joresréckbléck</string>
   <string name="yir_community_recap_action">Elo entdecken</string>
   <string name="yir_quiz_headline">Wat fir eng Wikipedia sidd Dir?</string>
+  <string name="yir_feature_card_title">Wikipedia-Joresréckbléck %1$d</string>
+  <string name="yir_feature_card_created_with">Mat der Wikipedia-App generéiert</string>
   <string name="year_in_review_learn_more">Méi gewuer ginn</string>
   <string name="year_in_review_share_feedback">Feedback deelen</string>
   <string name="year_in_review_feedback_email_subject">Feedback fir de Joresréckbléck</string>
@@ -1912,6 +1914,8 @@
   <string name="year_in_review_slide_app_icon_donor">Donateur</string>
   <string name="year_in_review_slide_app_icon_editor">Editeur</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">Donateur an Editeur</string>
+  <string name="year_in_review_login_dialog_title_nodata">Wikipedia ass am beschte mat engem Benotzerkont</string>
+  <string name="year_in_review_login_dialog_title_data">Äre Joresréckbléck ass am beschte mat engem Kont</string>
   <string name="year_in_review_login_dialog_positive">Aloggen / Bei Wikipedia matmaachen</string>
   <string name="year_in_review_login_dialog_negative">Virufueren ouni anzeloggen</string>
   <plurals name="year_in_review_slide_top_articles_headline">

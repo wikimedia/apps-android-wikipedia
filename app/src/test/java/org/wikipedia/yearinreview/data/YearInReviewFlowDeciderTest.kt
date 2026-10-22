@@ -27,11 +27,12 @@ class YearInReviewFlowDeciderTest {
     @Test
     fun `logged-in user with 2 personalized pages gets personalized slides in order`() {
         val expected = listOf(
-            YearInReviewPage.Cover(daysSpent = 2),
             YearInReviewPage.ArticlesRead(isEmptyState = false, count = 3, percentile = "", averageCount = YearInReviewConfig.fallbackConfig.averageArticlesReadPerYear),
             YearInReviewPage.Visits(days = 2, peakMonth = MonthVisitedDays(month = 1, visitedDays = 2)),
             YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], totalArticles = 0, sampleArticles = emptyList()),
             YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
+            YearInReviewPage.Geography(isEmptyState = true, countryCode = "", countryName = "", articleCount = 0),
+            YearInReviewPage.SavedArticles(isEmptyState = true, savedCount = 0, articles = emptyList()),
             YearInReviewPage.TotalEdits(isEmptyState = true, editCount = 0),
             YearInReviewPage.YouMatter(showLoginPrompt = false),
             YearInReviewPage.End(isDonor = false)
@@ -48,13 +49,13 @@ class YearInReviewFlowDeciderTest {
 
     @Test
     fun `logged-in user with 1 personalized page gets collective slides`() {
-        val expected = listOf(YearInReviewPage.Cover(isPersonalized = false, daysSpent = 1)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End(isDonor = false)
+        val expected = collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End(isDonor = false)
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = onePersonalizedPageStats)))
     }
 
     @Test
     fun `logged-out user with 2 personalized pages gets collective slides with a login prompt`() {
-        val expected = listOf(YearInReviewPage.Cover(isPersonalized = false, daysSpent = 2)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = true) + YearInReviewPage.End(isDonor = false)
+        val expected = collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = true) + YearInReviewPage.End(isDonor = false)
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(isLoggedIn = false, readingStats = twoPersonalizedPagesStats)))
     }
 
@@ -66,7 +67,7 @@ class YearInReviewFlowDeciderTest {
 
     @Test
     fun `contributor with collective slides gets you matter slide`() {
-        val expected = listOf(YearInReviewPage.Cover(isPersonalized = false, daysSpent = 1)) + collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End(isDonor = true)
+        val expected = collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End(isDonor = true)
         assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = onePersonalizedPageStats, rewardData = contributorRewardData)))
     }
 
