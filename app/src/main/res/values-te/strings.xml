@@ -803,7 +803,7 @@
   <string name="suggested_edits_add_caption_button">వ్యాఖ్య చేర్చు</string>
   <string name="suggested_edits_edit_caption_button">వ్యాఖ్యను సవరించు</string>
   <string name="suggested_edits_review_image_caption">బొమ్మ వ్యాఖ్యను సమీక్షించు</string>
-  <string name="suggested_edits_my_contributions">నా మార్పులు</string>
+  <string name="suggested_edits_my_contributions">నా తోడ్పాట్లు</string>
   <string name="suggested_edits_no_description">ఈ దస్త్రానికి వివరణ లేదు</string>
   <string name="suggested_edits_license_notice">వివరణ చేర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వినియోగ నియమాలకూ&lt;/a&gt;, మీ రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; లైసెన్సు కింద వెనక్కి తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు.</string>
   <string name="suggested_edits_image_caption_license_notice">బొమ్మకు వ్యాఖ్యను చేర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వినియోగ నియమాలకూ&lt;/a&gt;, మీ రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; లైసెన్సు కింద వెనక్కి తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు.</string>

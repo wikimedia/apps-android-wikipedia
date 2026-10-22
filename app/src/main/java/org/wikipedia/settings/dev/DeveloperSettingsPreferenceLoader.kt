@@ -190,7 +190,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preference_key_announcement_shown_dialogs).summary = activity.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.announcementShownDialogs.size)
         findPreference(R.string.preference_key_announcement_shown_dialogs).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             Prefs.resetAnnouncementShownDialogs()
-            loadPreferences()
+            it.summary = activity.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.announcementShownDialogs.size)
             true
         }
         findPreference(R.string.preference_key_suggested_edits_reactivation_test).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, _: Any? ->
@@ -328,6 +328,18 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
 
         addABTestPreferences()
+
+        if (Prefs.isDeveloperSettingsNewestFirst) {
+            reverseCategoryOrder()
+        }
+    }
+
+    private fun reverseCategoryOrder() {
+        val screen = fragment.preferenceScreen
+        val categories = (0 until screen.preferenceCount).map { screen.getPreference(it) }
+        categories.forEachIndexed { index, category ->
+            category.order = categories.lastIndex - index
+        }
     }
 
     private fun addABTestPreferences() {

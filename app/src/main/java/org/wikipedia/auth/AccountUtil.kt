@@ -26,6 +26,11 @@ object AccountUtil {
     private const val CENTRALAUTH_USER_COOKIE_NAME = "centralauth_User"
     private const val TEMP_ACCOUNT_EXPIRY_DAYS = 90
 
+    private val accountCacheLock = Any()
+    private var cachedAccount: Account? = null
+    private var isAccountCached = false
+    private var listenedAccountManager: AccountManager? = null
+
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
             response?.onResult(bundleOf(AccountManager.KEY_ACCOUNT_NAME to result.userName,
@@ -78,6 +83,7 @@ object AccountUtil {
         val account = account()
         if (account != null) {
             accountManager().removeAccountExplicitly(account)
+            invalidateAccountCache()
         }
     }
 
@@ -85,12 +91,34 @@ object AccountUtil {
         return account == account()
     }
 
+    // Looking up the account is a synchronous IPC call to the system, so the result is cached and
+    // invalidated whenever the account is added or removed, by the app or externally.
     fun account(): Account? {
-        return try {
-            accountManager().getAccountsByType(accountType()).firstOrNull()
-        } catch (e: SecurityException) {
-            logRemoteErrorIfProd(e)
-            null
+        synchronized(accountCacheLock) {
+            if (isAccountCached) {
+                return cachedAccount
+            }
+            val accountManager = accountManager()
+            if (accountManager !== listenedAccountManager) {
+                accountManager.addOnAccountsUpdatedListener({ invalidateAccountCache() }, null, false)
+                listenedAccountManager = accountManager
+            }
+            return try {
+                accountManager.getAccountsByType(accountType()).firstOrNull().also {
+                    cachedAccount = it
+                    isAccountCached = true
+                }
+            } catch (e: SecurityException) {
+                logRemoteErrorIfProd(e)
+                null
+            }
+        }
+    }
+
+    fun invalidateAccountCache() {
+        synchronized(accountCacheLock) {
+            isAccountCached = false
+            cachedAccount = null
         }
     }
 
@@ -138,7 +166,9 @@ object AccountUtil {
         if (account == null || account.name.isEmpty() || account.name != userName) {
             removeAccount()
             account = Account(userName, accountType())
-            return accountManager().addAccountExplicitly(account, password, null)
+            return accountManager().addAccountExplicitly(account, password, null).also {
+                invalidateAccountCache()
+            }
         }
         return true
     }
