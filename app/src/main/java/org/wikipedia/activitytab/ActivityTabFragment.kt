@@ -46,6 +46,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.timeline.ActivitySource
 import org.wikipedia.activitytab.timeline.TimelineItem
 import org.wikipedia.analytics.eventplatform.ActivityTabEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.compose.components.HtmlText
@@ -138,6 +139,16 @@ class ActivityTabFragment : Fragment() {
                 }
             }
         }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.yearInReviewEntryState.collectLatest {
+                    if (it is UiState.Success) {
+                        TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+                            .submitInteraction(action = "impression", actionSource = "activity_tab_entry_point", actionContext = mapOf("personalized" to it.data))
+                    }
+                }
+            }
+        }
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -158,7 +169,9 @@ class ActivityTabFragment : Fragment() {
                             },
                             yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
                             onYirGetStartedClick = {
-                                ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "yir_click")
+                                TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+                                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started",
+                                        actionContext = mapOf("personalized" to ((yearInReviewEntryState as? UiState.Success)?.data ?: false)))
                                 startActivity(YearInReviewOnboardingActivity.newIntent(requireContext()))
                             }
                         )
@@ -263,7 +276,9 @@ class ActivityTabFragment : Fragment() {
             onTimelineItemClick = { handleTimelineItemClick(it) },
             yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
             onYirGetStartedClick = {
-                ActivityTabEvent.submit(activeInterface = "activity_tab", action = "yir_click")
+                TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started",
+                        actionContext = mapOf("personalized" to ((yearInReviewEntryState as? UiState.Success)?.data ?: false)))
                 startActivity(YearInReviewOnboardingActivity.newIntent(requireContext()))
             }
         )
