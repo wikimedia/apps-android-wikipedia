@@ -314,7 +314,7 @@
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Śledź artykuły, które Cię interesują. Kliknij menu i wybierz opcję &lt;b&gt;Dodaj do listy obserwowanych&lt;/b&gt;, aby widzieć zmiany w artykule.</string>
   <string name="settings_item_preferences">Ustawienia</string>
   <string name="settings_activity_title">Ustawienia</string>
-  <string name="about_description">O aplikacji Wikipedia</string>
+  <string name="about_description">O aplikacji Wikipedii</string>
   <string name="privacy_policy_description">Polityka prywatności</string>
   <string name="terms_of_use_description">Warunki użytkowania</string>
   <string name="legal_safety_contacts_description">Kontakt prawny i dotyczący bezpieczeństwa</string>
@@ -1309,7 +1309,7 @@
   <string name="edit_published_view">Podgląd</string>
   <string name="activity_tab_logged_out_title">Zaloguj się lub utwórz konto, aby wyświetlić swoją aktywność w aplikacji Wikipedii</string>
   <string name="activity_tab_user_reading">Twoje statystyki czytania na koncie %s</string>
-  <string name="activity_tab_on_wikipedia_android">w aplikacji Wikipedia na Androida</string>
+  <string name="activity_tab_on_wikipedia_android">w aplikacji Wikipedii na Androida</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$d godz. %2$d min</string>
   <string name="activity_tab_weekly_time_spent">Czas spędzony na czytaniu w tym tygodniu</string>
   <string name="activity_tab_monthly_articles_read">Artykuły przeczytane w tym miesiącu</string>
@@ -1405,7 +1405,7 @@
   <string name="activity_tab_onboarding_engage_message">Przeglądaj statystyki gier, zapisanych artykułów i innych aktywności, które pozwalają na głębsze poznanie Wikipedii.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Pełna kontrola</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Wybieraj, które moduły mają być widoczne. Twoje dane osobiste nie opuszczają Twojego urządzenia, a historię przeglądania możesz wyczyścić w dowolnym momencie.</string>
-  <string name="edits_screen_what_is_title">Edytowanie w aplikacji Wikipedia</string>
+  <string name="edits_screen_what_is_title">Edytowanie w aplikacji Wikipedii</string>
   <string name="edits_screen_what_is_body">Nie wiesz, od czego zacząć? Wypróbuj „Sugerowane edycje” – funkcję, która ułatwia wnieść niewielki, ale niezwykle ważny wkład w Wikipedię. Możesz też przejść bezpośrednio do interesującego Cię artykułu i wprowadzić zmiany za pomocą wikikodu.</string>
   <string name="activity_tab_snackbar_label">Statystyki gry są wyświetlane w Twoim głównym języku</string>
   <string name="file_page_activity_title">Strona pliku</string>
@@ -2037,7 +2037,7 @@
   <string name="on_this_day_game_report_email_subject">Zgłoszenie problemu – gry Wikipedii</string>
   <string name="on_this_day_game_report_email_body">Problem dotyczy funkcji gier Wikipedii:\n- [Opisz szczegółowo problem]\n\nOczekuję, że funkcja będzie działać w następujący sposób:\n- [Opisz proponowane rozwiązanie]</string>
   <string name="on_this_day_game_notification_undo">Cofnij</string>
-  <string name="on_this_day_game_share_link_message">Gram w „Co było pierwsze?”, codzienną grę z ciekawostkami w aplikacji Wikipedia na Androida. Dołącz do mnie: %s</string>
+  <string name="on_this_day_game_share_link_message">Gram w „Co było pierwsze?”, codzienną grę z ciekawostkami w aplikacji Wikipedii na Androida. Dołącz do mnie: %s</string>
   <string name="on_this_day_game_share_screen_title">Mój dzisiejszy wynik\nw „Co było pierwsze?”\nto %1$d/%2$d.</string>
   <string name="on_this_day_game_share_screen_subtitle">Wśród tematów znalazły się:</string>
   <string name="on_this_day_game_archive_calendar_title">Wybierz grę według daty, aby w nią zagrać.</string>
@@ -2245,7 +2245,14 @@
   <string name="yir_quiz_supporting">Wyrusz w podróż po dziejach Wikipedii – od czasów modemów telefonicznych po współczesność.</string>
   <string name="yir_quiz_action">Rozwiąż quiz</string>
   <string name="yir_open_tabs_headline">Wróć do otwartych kart</string>
-  <string name="yir_share_text">Oto moje podsumowanie roku %1$d w aplikacji Wikipedia: %2$s</string>
+  <string name="yir_share_text">Oto moje podsumowanie roku %1$d w aplikacji Wikipedii: %2$s</string>
+  <string name="yir_feature_card_title">Podsumowanie roku %1$d w Wikipedii</string>
+  <string name="yir_feature_card_articles_read">Liczba przeczytanych artykułów:</string>
+  <string name="yir_feature_card_minutes_read">Minuty spędzone na czytaniu:</string>
+  <string name="yir_feature_card_articles_reread">Artykuły, do których wracam:</string>
+  <string name="yir_feature_card_longest_rabbit_hole">Najbardziej wciągający temat:</string>
+  <string name="yir_feature_card_top_category">Odkryta nisza:</string>
+  <string name="yir_feature_card_created_with">Stworzono za pomocą aplikacji Wikipedii</string>
   <string name="yir_topic_comment_architecture">Ten rok upłynął Ci na podziwianiu konstrukcji, które wytrzymują próbę czasu.</string>
   <string name="yir_topic_comment_art">Ciągnęło Cię do tego, co piękne, odważne i niekiedy całkowicie enigmatyczne.</string>
   <string name="yir_topic_comment_comics_and_anime">Strona po stronie wciągał Cię świat mangi, komiksu i anime.</string>
@@ -2345,7 +2352,7 @@
   <string name="year_in_review_globe_icon">Ikona globusa</string>
   <string name="settings_app_icon_title">Ikona aplikacji</string>
   <string name="settings_app_icon_subtitle">Nagroda dla wikipedystów</string>
-  <string name="settings_app_icon_preference_subtitle">Masz dostęp do specjalnej ikony upamiętniającej Twój wkład w aplikację Wikipedia w roku %d. Będzie ona dostępna do następnego podsumowania roku.</string>
+  <string name="settings_app_icon_preference_subtitle">Masz dostęp do specjalnej ikony upamiętniającej Twój wkład w aplikację Wikipedii w roku %d. Będzie ona dostępna do następnego podsumowania roku.</string>
   <string name="settings_app_icon_updated">Zaktualizowano ikonę aplikacji.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Odblokowano nową ikonę aplikacji na ekranie głównym</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Odblokuj nagrodę dla wikipedystów na przyszły rok!</string>
