@@ -238,5 +238,4 @@
     <string name="preference_key_semantic_search_override_supported_language" translatable="false">semanticSearchOverrideSupportedLanguage</string>
     <string name="preference_key_semantic_search_is_test_active" translatable="false">semanticSearchIsTestActive</string>
     <string name="preference_key_semantic_search_settings_category" translatable="false">semanticSearchSettingsCategory</string>
-    <string name="preference_key_notifications_is_test_active" translatable="false">notificationsIsTestActive</string>
 </resources>
