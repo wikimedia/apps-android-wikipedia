@@ -28,6 +28,7 @@
     <string name="preference_key_login_groups" translatable="false">groups</string>
     <string name="preference_key_last_background_login_date_time" translatable="false">lastBackgroundLoginDateTime</string>
     <string name="preference_key_show_developer_settings" translatable="false">showDeveloperSettings</string>
+    <string name="preference_key_developer_settings_newest_first" translatable="false">developerSettingsNewestFirst</string>
     <string name="preference_key_last_run_time_format" translatable="false">%s-lastrun</string>
     <string name="preference_key_tabs" translatable="false">tabs</string>
     <string name="preference_key_customize_home_feed" translatable="false">customizeHomeFeed</string>

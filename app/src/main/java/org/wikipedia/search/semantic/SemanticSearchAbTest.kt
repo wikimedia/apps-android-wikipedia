@@ -41,28 +41,15 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
         return isSemanticSearchEligible(languageCode) && isTestGroupUser() && Prefs.isSemanticSearchEnabled
     }
 
-    fun shouldSendEvent(group: Int? = null, function: () -> (Unit)) {
-        if (WikipediaApp.instance.languageState.appLanguageCodes.any { isSemanticSearchEligible(it) } && (group == null || group == this.group)) {
+    fun runIfEligible(function: () -> Unit) {
+        if (WikipediaApp.instance.languageState.appLanguageCodes.any { isSemanticSearchEligible(it) }) {
             function.invoke()
         }
     }
 
     fun setExperimentIfEligible(instrument: InstrumentImpl) {
-        shouldSendEvent {
+        runIfEligible {
             instrument.setExperiment(TestKitchenAdapter.getExperiment(this))
-        }
-    }
-
-    companion object {
-        private const val DEFAULT_QUOTATION_MARK = "«"
-        private val quotationMarkMap = mapOf(
-            "ja" to "『",
-            "ar" to "❞",
-            "fr" to "«"
-        )
-
-        fun getQuotationMark(languageCode: String): String {
-            return quotationMarkMap[languageCode] ?: DEFAULT_QUOTATION_MARK
         }
     }
 }

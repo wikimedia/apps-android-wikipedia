@@ -5,18 +5,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.topics.ArticleTopic
 
-data class YearInReviewArticle(
-    val title: String,
-    val description: String,
-    val thumbnailUrl: String?
-)
-
-data class YearInReviewArticleViewCount(
-    val title: String,
-    val viewCount: Long,
-    val thumbnailUrl: String?
-)
-
 // Declared in the order the collective flow shows them. Values come from the remote config.
 enum class YearInReviewCollectiveInsight {
     HOURS_READ,
@@ -68,23 +56,23 @@ sealed interface YearInReviewPage {
         override val id = "biggest_reading_day"
     }
 
-    data class BiggestReadingDayArticles(val articles: List<YearInReviewArticle>) : YearInReviewPage {
+    data class BiggestReadingDayArticles(val articles: List<PageTitle>) : YearInReviewPage {
         override val id = "biggest_reading_day_articles"
     }
 
-    data object LongestReadGuess : YearInReviewPage {
+    data class LongestReadGuess(val article: PageTitle? = null, val fakeArticle: PageTitle? = null, val minutesSpent: Int = 0) : YearInReviewPage {
         override val id = "longest_read_guess"
     }
 
-    data object LongestReadReveal : YearInReviewPage {
+    data class LongestReadReveal(val article: PageTitle? = null, val minutesSpent: Int = 0) : YearInReviewPage {
         override val id = "longest_read_reveal"
     }
 
-    data object RabbitHoleGuess : YearInReviewPage {
+    data class RabbitHoleGuess(val articleStart: PageTitle? = null, val articleEnd: PageTitle? = null, val fakeArticleStart: PageTitle? = null, val fakeArticleEnd: PageTitle? = null, val numLinks: Int = 0) : YearInReviewPage {
         override val id = "rabbit_hole_guess"
     }
 
-    data object RabbitHoleReveal : YearInReviewPage {
+    data class RabbitHoleReveal(val articleStart: PageTitle? = null, val articleEnd: PageTitle? = null, val numLinks: Int = 0) : YearInReviewPage {
         override val id = "rabbit_hole_reveal"
     }
 
@@ -96,11 +84,11 @@ sealed interface YearInReviewPage {
         override val id get() = if (isEmptyState) "revisited_articles_empty" else "revisited_articles"
     }
 
-    data class Geography(val isEmptyState: Boolean, val placeArticleCounts: Map<String, Int>) : YearInReviewPage {
+    data class Geography(val isEmptyState: Boolean, val countryCode: String?, val countryName: String?, val articleCount: Int) : YearInReviewPage {
         override val id get() = if (isEmptyState) "geography_empty" else "geography"
     }
 
-    data class SavedArticles(val isEmptyState: Boolean, val savedCount: Int, val articles: List<YearInReviewArticleViewCount>) : YearInReviewPage {
+    data class SavedArticles(val isEmptyState: Boolean, val savedCount: Int, val articles: List<PageTitle>) : YearInReviewPage {
         override val id get() = if (isEmptyState) "saved_articles_empty" else "saved_articles"
     }
 

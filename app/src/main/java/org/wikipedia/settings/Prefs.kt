@@ -99,6 +99,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_developer_settings, isDevRelease)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_developer_settings, enabled)
 
+    var isDeveloperSettingsNewestFirst
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_developer_settings_newest_first, false)
+        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_developer_settings_newest_first, enabled)
+
     var mruLanguageCodeList
         get() = StringUtil.csvToList(PrefsIoUtil.getString(R.string.preference_key_language_mru, null).orEmpty())
         set(value) = PrefsIoUtil.setString(R.string.preference_key_language_mru, StringUtil.listToCsv(value))

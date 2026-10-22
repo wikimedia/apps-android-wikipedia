@@ -50,11 +50,20 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+        if (savedInstanceState == null) {
+            SemanticSearchAbTest().runIfEligible {
+                requireActivity().instrument?.submitInteraction("impression",
+                    actionSubtype = "feature_info",
+                    elementId = "feature_info"
+                )
+            }
+        }
+
         return ComposeView(requireContext()).apply {
             setContent {
                 SemanticSearchInfoDialogContent(
                     onCloseClick = {
-                        SemanticSearchAbTest().shouldSendEvent {
+                        SemanticSearchAbTest().runIfEligible {
                             requireActivity().instrument?.submitInteraction("click",
                                 actionSubtype = "feature_info",
                                 elementId = "close_info_button"
@@ -63,7 +72,7 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
                         dismiss()
                     },
                     onLearnMoreClick = {
-                        SemanticSearchAbTest().shouldSendEvent {
+                        SemanticSearchAbTest().runIfEligible {
                             requireActivity().instrument?.submitInteraction("click",
                                 actionSubtype = "feature_info",
                                 elementId = "learn_more_button"
@@ -154,7 +163,7 @@ private fun SemanticSearchInfoDialogContent(
                                 .padding(vertical = 16.dp),
                             searchResult = searchResult,
                             languageCode = languageCode,
-                            prefixQuotationMark = SemanticSearchAbTest.getQuotationMark(languageCode),
+                            prefixQuotationMark = SemanticSearchResultsViewModel.getQuotationMark(languageCode),
                             showLastUpdatedTime = languageCode == "ar",
                             showReadInArticleText = false
                         )

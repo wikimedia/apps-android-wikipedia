@@ -2045,6 +2045,8 @@
   <string name="yir_community_editors_supporting">Tudtad, hogy minden Wikimédia-projekt önkéntesek munkájával készül? A szerkesztők új szócikkeket írnak, és javítják a már meglévőket.</string>
   <string name="yir_community_edits_headline">Szerkesztések:</string>
   <string name="yir_community_edits_supporting">A világ minden táján önkéntesek dolgoznak nap mint nap, óráról órára a Wikipédia fejlesztésén: frissítik a szócikkek adatait, történelmi nevezetességeket fényképeznek, és kijavítják az elírásokat.</string>
+  <string name="yir_community_global_reach_title">A Wikipédia globális elérése:</string>
+  <string name="yir_community_global_reach_subtitle">A világ tíz leglátogatottabb weboldalának egyike</string>
   <string name="yir_community_global_reach_headline">A Wikipédia globális elérése: a világ tíz leglátogatottabb weboldalának egyike</string>
   <string name="yir_community_global_reach_supporting">A Wikipédia az internet tudásának egyik alappillére. A diákoktól a csevegőrobotokig mindenki tanul belőle.</string>
   <string name="yir_community_contribute_headline">Számítasz.</string>
@@ -2072,6 +2074,13 @@
   <string name="yir_quiz_action">Kvíz kitöltése</string>
   <string name="yir_open_tabs_headline">Térj vissza a megnyitott lapjaidhoz</string>
   <string name="yir_share_text">Íme a %1$d évre szóló Wikipédia Éves összefoglalóm a Wikipédia alkalmazásból: %2$s</string>
+  <string name="yir_feature_card_title">Wikipédia Éves összefoglaló – %1$d</string>
+  <string name="yir_feature_card_articles_read">Elolvasott szócikkek száma:</string>
+  <string name="yir_feature_card_minutes_read">Olvasással töltött percek összesen:</string>
+  <string name="yir_feature_card_articles_reread">Szócikkek, amelyekhez újra és újra visszatértem:</string>
+  <string name="yir_feature_card_longest_rabbit_hole">A téma, amelybe a legmélyebben beleástam magam:</string>
+  <string name="yir_feature_card_top_category">Különleges kategória, amelyet felfedeztem:</string>
+  <string name="yir_feature_card_created_with">A Wikipédia alkalmazással készült</string>
   <string name="yir_topic_comment_architecture">Az év során azok a dolgok vonzottak, amelyeket hosszú távra terveztek.</string>
   <string name="yir_topic_comment_art">A szép, a merész és időnként a meghökkentő dolgok vonzottak.</string>
   <string name="yir_topic_comment_comics_and_anime">Kockáról kockára egyre mélyebbre ástad magad a képregények és animék világában.</string>
