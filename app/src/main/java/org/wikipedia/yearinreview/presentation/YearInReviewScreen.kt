@@ -98,12 +98,12 @@ fun Modifier.placeholderBackground() = background(
 fun YearInReviewScreen(
     uiState: YearInReviewUiState,
     modifier: Modifier = Modifier,
-    onCloseClick: () -> Unit = {},
+    onCloseClick: (YearInReviewPage?) -> Unit = {},
     onLearnMoreClick: () -> Unit = {},
     onAboutInsightsClick: () -> Unit = {},
     onShareFeedbackClick: () -> Unit = {},
-    onShareClick: (Bitmap) -> Unit = {},
-    onDonateClick: (String) -> Unit = { _ -> },
+    onShareClick: (YearInReviewPage, Bitmap) -> Unit = { _, _ -> },
+    onDonateClick: (YearInReviewPage) -> Unit = { _ -> },
     onEndCardClick: (YearInReviewEndCard) -> Unit = {},
     onShareHighlightsClick: (Bitmap) -> Unit = {},
     onRetryClick: () -> Unit = {},
@@ -158,7 +158,7 @@ fun YearInReviewScreen(
                     caught = uiState.error,
                     errorClickEvents = WikiErrorClickEvents(
                         retryClickListener = onRetryClick,
-                        backClickListener = onCloseClick
+                        backClickListener = { onCloseClick(null) }
                     )
                 )
             }
@@ -174,12 +174,12 @@ private fun YearInReviewContent(
     showDonateButton: Boolean,
     canShareHighlights: Boolean,
     modifier: Modifier = Modifier,
-    onCloseClick: () -> Unit,
+    onCloseClick: (YearInReviewPage) -> Unit,
     onLearnMoreClick: () -> Unit,
     onAboutInsightsClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
-    onShareClick: (Bitmap) -> Unit,
-    onDonateClick: (String) -> Unit,
+    onShareClick: (YearInReviewPage, Bitmap) -> Unit,
+    onDonateClick: (YearInReviewPage) -> Unit,
     onEndCardClick: (YearInReviewEndCard) -> Unit,
     onShareHighlightsClick: (Bitmap) -> Unit,
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
@@ -240,7 +240,9 @@ private fun YearInReviewContent(
                     if (getScreenshot != null) {
                         coroutineScope.launch {
                             try {
-                                onShareClick(YearInReviewShareImage.decorate(context, getScreenshot()))
+                                pages.getOrNull(pagerState.currentPage)?.let { page ->
+                                    onShareClick(page, YearInReviewShareImage.decorate(context, getScreenshot()))
+                                }
                             } catch (cancellationException: CancellationException) {
                                 throw cancellationException
                             } catch (exception: Exception) {
@@ -251,7 +253,7 @@ private fun YearInReviewContent(
                 },
                 onDonateClick = {
                     pages.getOrNull(pagerState.currentPage)?.let {
-                        onDonateClick(it.id)
+                        onDonateClick(it)
                     }
                 }
             )
@@ -309,7 +311,7 @@ private fun YearInReviewContent(
                                     modifier = Modifier
                                         .align(Alignment.BottomCenter)
                                         .padding(16.dp),
-                                    onClick = { onDonateClick(page.id) }
+                                    onClick = { onDonateClick(page) }
                                 )
                             }
                         }
@@ -349,7 +351,11 @@ private fun YearInReviewContent(
 
             YearInReviewTopBar(
                 iconColor = if (useDarkStatusBarIcons) ComposeColors.Black else ComposeColors.White,
-                onCloseClick = onCloseClick,
+                onCloseClick = {
+                    pages.getOrNull(pagerState.currentPage)?.let {
+                        onCloseClick(it)
+                    }
+                },
                 onLearnMoreClick = onLearnMoreClick,
                 onShareFeedbackClick = onShareFeedbackClick,
                 onAboutInsightsClick = onAboutInsightsClick
