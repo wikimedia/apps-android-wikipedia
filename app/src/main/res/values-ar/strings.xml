@@ -2286,12 +2286,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">الوقت المفضل للقراءة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">اليوم المفضل للقراءة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">الشهر الذي قرأت فيه أكثر</string>
-  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">صباح</string>
-  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">منتصف النهار</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">بعد الظهر</string>
-  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">مساء</string>
-  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">ليلة</string>
-  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">في وقت متأخر من الليل</string>
+  <string name="year_in_review_slide_reading_pattern_morning">الصباح</string>
+  <string name="year_in_review_slide_reading_pattern_midday">منتصف النهار</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">فترة ما بعد الظهر</string>
+  <string name="year_in_review_slide_reading_pattern_evening">أمسيات</string>
+  <string name="year_in_review_slide_reading_pattern_night">ليالٍ</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">ليالٍ متأخرة</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="zero">لم نمضِ أي ساعة في القراءة</item>
     <item quantity="one">أمضينا ساعة واحدة في القراءة</item>
