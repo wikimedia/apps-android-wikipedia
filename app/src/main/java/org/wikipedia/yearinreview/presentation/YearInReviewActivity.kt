@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview.presentation
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.SystemBarStyle
@@ -89,20 +90,7 @@ class YearInReviewActivity : BaseActivity() {
                     },
                     onShareClick = { bitmap ->
                         submitInteraction(uiState, action = "click", elementId = "share_button")
-                        val shareUrl = getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
-                        val shareText = String.format(
-                            getString(R.string.year_in_review_share_body),
-                            shareUrl,
-                            getString(R.string.year_in_review_hashtag)
-                        )
-                        ShareUtil.shareImage(
-                            coroutineScope = lifecycleScope,
-                            context = this,
-                            bmp = bitmap,
-                            imageFileName = YearInReviewViewModel.YIR_TAG,
-                            subject = getString(R.string.year_in_review_share_subject),
-                            text = shareText
-                        )
+                        shareImage(bitmap)
                     },
                     onDonateClick = { currentSlide ->
                         val campaignId = "appmenu_yir_$currentSlide"
@@ -133,8 +121,9 @@ class YearInReviewActivity : BaseActivity() {
                             }
                         }
                     },
-                    onShareHighlightsClick = {
-                        // TODO
+                    onShareHighlightsClick = { bitmap ->
+                        submitInteraction(uiState, action = "click", elementId = "share_highlights_button")
+                        shareImage(bitmap)
                     },
                     onStatusBarIconColorChange = { useDarkIcons ->
                         WindowCompat.getInsetsController(window, window.decorView)
@@ -156,6 +145,23 @@ class YearInReviewActivity : BaseActivity() {
                 )
             }
         }
+    }
+
+    private fun shareImage(bitmap: Bitmap) {
+        val shareUrl = getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
+        val shareText = String.format(
+            getString(R.string.year_in_review_share_body),
+            shareUrl,
+            getString(R.string.year_in_review_hashtag)
+        )
+        ShareUtil.shareImage(
+            coroutineScope = lifecycleScope,
+            context = this,
+            bmp = bitmap,
+            imageFileName = YearInReviewViewModel.YIR_TAG,
+            subject = getString(R.string.year_in_review_share_subject),
+            text = shareText
+        )
     }
 
     private fun submitInteraction(uiState: YearInReviewUiState, action: String, elementId: String? = null, actionContext: Map<String, Any> = emptyMap()) {

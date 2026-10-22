@@ -98,6 +98,7 @@ fun YearInReviewEndSlide(
     modifier: Modifier = Modifier,
     isDonor: Boolean = false,
     isTestGroupUser: Boolean = true,
+    canShareHighlights: Boolean = true,
     onCardActionClick: (YearInReviewEndCard) -> Unit = {},
     onShareHighlightsClick: () -> Unit = {}
 ) {
@@ -162,25 +163,26 @@ fun YearInReviewEndSlide(
                 style = MaterialTheme.typography.bodyLarge.copy(fontFamily = FontFamily.Serif, lineHeight = 20.sp, fontSize = 15.sp)
             )
             Spacer(modifier = Modifier.height(24.dp))
-
-            Button(
-                modifier = Modifier.padding(bottom = 24.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = WikipediaTheme.colors.progressiveColor,
-                    contentColor = ComposeColors.White
-                ),
-                onClick = onShareHighlightsClick
-            ) {
-                Icon(
-                    modifier = Modifier.size(20.dp),
-                    painter = painterResource(R.drawable.ic_share),
-                    contentDescription = null
-                )
-                Text(
-                    modifier = Modifier.padding(start = 4.dp),
-                    text = stringResource(R.string.yir_closing_share_action),
-                    style = MaterialTheme.typography.labelLarge
-                )
+            if (canShareHighlights) {
+                Button(
+                    modifier = Modifier.padding(bottom = 24.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = WikipediaTheme.colors.progressiveColor,
+                        contentColor = ComposeColors.White
+                    ),
+                    onClick = onShareHighlightsClick
+                ) {
+                    Icon(
+                        modifier = Modifier.size(20.dp),
+                        painter = painterResource(R.drawable.ic_share),
+                        contentDescription = null
+                    )
+                    Text(
+                        modifier = Modifier.padding(start = 4.dp),
+                        text = stringResource(R.string.yir_closing_share_action),
+                        style = MaterialTheme.typography.labelLarge
+                    )
+                }
             }
             Spacer(modifier = Modifier.weight(1f))
             YearInReviewEndCardPager(

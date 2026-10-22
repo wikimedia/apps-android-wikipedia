@@ -73,6 +73,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
+import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import kotlin.math.roundToInt
 
 private val YearInReviewCardCornerRadius = 28.dp
@@ -104,7 +105,7 @@ fun YearInReviewScreen(
     onShareClick: (Bitmap) -> Unit = {},
     onDonateClick: (String) -> Unit = { _ -> },
     onEndCardClick: (YearInReviewEndCard) -> Unit = {},
-    onShareHighlightsClick: () -> Unit = {},
+    onShareHighlightsClick: (Bitmap) -> Unit = {},
     onRetryClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
     onPageImpression: (YearInReviewPage) -> Unit = {},
@@ -128,7 +129,9 @@ fun YearInReviewScreen(
                 modifier = modifier,
                 year = uiState.year,
                 pages = uiState.pages,
+                readingStats = uiState.readingStats,
                 showDonateButton = uiState.isDonationEligible,
+                canShareHighlights = uiState.canShareHighlights,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
                 onAboutInsightsClick = onAboutInsightsClick,
@@ -167,7 +170,9 @@ fun YearInReviewScreen(
 private fun YearInReviewContent(
     year: Int,
     pages: List<YearInReviewPage>,
+    readingStats: YearInReviewReadingStats,
     showDonateButton: Boolean,
+    canShareHighlights: Boolean,
     modifier: Modifier = Modifier,
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
@@ -176,7 +181,7 @@ private fun YearInReviewContent(
     onShareClick: (Bitmap) -> Unit,
     onDonateClick: (String) -> Unit,
     onEndCardClick: (YearInReviewEndCard) -> Unit,
-    onShareHighlightsClick: () -> Unit = {},
+    onShareHighlightsClick: (Bitmap) -> Unit,
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
     onPageImpression: (YearInReviewPage) -> Unit,
     onRiveError: (Throwable) -> Unit
@@ -200,6 +205,7 @@ private fun YearInReviewContent(
     LaunchedEffect(useDarkStatusBarIcons) {
         onStatusBarIconColorChange(useDarkStatusBarIcons)
     }
+    var isRenderingShareCard by remember { mutableStateOf(false) }
     val screenshotGetters = remember { mutableStateMapOf<String, RiveSlideScreenshotFun>() }
     val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
     val resources = LocalResources.current
@@ -274,8 +280,9 @@ private fun YearInReviewContent(
                         YearInReviewEndSlide(
                             isDonor = page.isDonor,
                             isTestGroupUser = YearInReviewEndScreenABTest().isUserEligible() && YearInReviewEndScreenABTest().isTestGroupUser(),
+                            canShareHighlights = canShareHighlights,
                             onCardActionClick = onEndCardClick,
-                            onShareHighlightsClick = onShareHighlightsClick
+                            onShareHighlightsClick = { isRenderingShareCard = true }
                         )
                     }
                     // A custom slide, such as an interactive one, gets its own branch above this one
@@ -323,6 +330,21 @@ private fun YearInReviewContent(
                         }
                     }
                 }
+            }
+
+            if (isRenderingShareCard) {
+                YearInReviewShareCardRenderer(
+                    year = year,
+                    readingStats = readingStats,
+                    onRendered = { bitmap ->
+                        isRenderingShareCard = false
+                        onShareHighlightsClick(bitmap)
+                    },
+                    onError = { throwable ->
+                        isRenderingShareCard = false
+                        onRiveError(throwable)
+                    }
+                )
             }
 
             YearInReviewTopBar(
