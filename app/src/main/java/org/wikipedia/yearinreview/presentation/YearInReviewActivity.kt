@@ -133,6 +133,9 @@ class YearInReviewActivity : BaseActivity() {
                             }
                         }
                     },
+                    onShareHighlightsClick = {
+                        // TODO
+                    },
                     onStatusBarIconColorChange = { useDarkIcons ->
                         WindowCompat.getInsetsController(window, window.decorView)
                             .isAppearanceLightStatusBars = useDarkIcons

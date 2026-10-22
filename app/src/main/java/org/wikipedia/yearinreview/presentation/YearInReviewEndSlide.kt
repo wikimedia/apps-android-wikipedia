@@ -26,6 +26,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -57,6 +58,7 @@ import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 
 private const val STORE_DISCOUNT_PERCENT = 15
@@ -96,7 +98,8 @@ fun YearInReviewEndSlide(
     modifier: Modifier = Modifier,
     isDonor: Boolean = false,
     isTestGroupUser: Boolean = true,
-    onCardActionClick: (YearInReviewEndCard) -> Unit = {}
+    onCardActionClick: (YearInReviewEndCard) -> Unit = {},
+    onShareHighlightsClick: () -> Unit = {}
 ) {
     val cards = buildList {
         if (isDonor) {
@@ -159,6 +162,26 @@ fun YearInReviewEndSlide(
                 style = MaterialTheme.typography.bodyLarge.copy(fontFamily = FontFamily.Serif, lineHeight = 20.sp, fontSize = 15.sp)
             )
             Spacer(modifier = Modifier.height(24.dp))
+
+            Button(
+                modifier = Modifier.padding(bottom = 24.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = WikipediaTheme.colors.progressiveColor,
+                    contentColor = ComposeColors.White
+                ),
+                onClick = onShareHighlightsClick
+            ) {
+                Icon(
+                    modifier = Modifier.size(20.dp),
+                    painter = painterResource(R.drawable.ic_share),
+                    contentDescription = null
+                )
+                Text(
+                    modifier = Modifier.padding(start = 4.dp),
+                    text = stringResource(R.string.yir_closing_share_action),
+                    style = MaterialTheme.typography.labelLarge
+                )
+            }
             Spacer(modifier = Modifier.weight(1f))
             YearInReviewEndCardPager(
                 cards = cards,

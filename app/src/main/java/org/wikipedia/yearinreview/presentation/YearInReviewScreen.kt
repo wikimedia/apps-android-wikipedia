@@ -104,6 +104,7 @@ fun YearInReviewScreen(
     onShareClick: (Bitmap) -> Unit = {},
     onDonateClick: (String) -> Unit = { _ -> },
     onEndCardClick: (YearInReviewEndCard) -> Unit = {},
+    onShareHighlightsClick: () -> Unit = {},
     onRetryClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
     onPageImpression: (YearInReviewPage) -> Unit = {},
@@ -135,6 +136,7 @@ fun YearInReviewScreen(
                 onShareClick = onShareClick,
                 onDonateClick = onDonateClick,
                 onEndCardClick = onEndCardClick,
+                onShareHighlightsClick = onShareHighlightsClick,
                 onStatusBarIconColorChange = onStatusBarIconColorChange,
                 onPageImpression = onPageImpression,
                 onRiveError = onRiveError
@@ -174,6 +176,7 @@ private fun YearInReviewContent(
     onShareClick: (Bitmap) -> Unit,
     onDonateClick: (String) -> Unit,
     onEndCardClick: (YearInReviewEndCard) -> Unit,
+    onShareHighlightsClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
     onPageImpression: (YearInReviewPage) -> Unit,
     onRiveError: (Throwable) -> Unit
@@ -271,7 +274,8 @@ private fun YearInReviewContent(
                         YearInReviewEndSlide(
                             isDonor = page.isDonor,
                             isTestGroupUser = YearInReviewEndScreenABTest().isUserEligible() && YearInReviewEndScreenABTest().isTestGroupUser(),
-                            onCardActionClick = onEndCardClick
+                            onCardActionClick = onEndCardClick,
+                            onShareHighlightsClick = onShareHighlightsClick
                         )
                     }
                     // A custom slide, such as an interactive one, gets its own branch above this one
