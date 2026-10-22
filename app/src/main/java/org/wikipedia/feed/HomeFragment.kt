@@ -74,6 +74,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.performance.TrackJankState
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
@@ -152,6 +153,8 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 val communityContentState by viewModel.communityState.collectAsState()
                 var swipeToExplorePromptShown by remember { mutableStateOf(Prefs.isHomeSwipeToExplorePromptShown) }
                 var showReadAloudSurveyDialog by remember { mutableStateOf(false) }
+
+                TrackJankState("HomeTab") { selectedTab.name }
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(

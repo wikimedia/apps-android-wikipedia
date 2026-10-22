@@ -18,6 +18,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.feed.model.Card
+import org.wikipedia.performance.TrackScrollJank
 
 @Composable
 fun ForYouModulePager(
@@ -28,6 +29,7 @@ fun ForYouModulePager(
     content: @Composable (page: Int) -> Unit,
 ) {
     var pagerBounds: Rect? = remember { null }
+    TrackScrollJank(pagerState, "ForYouModulePager", scrollingValue = module.moduleKey())
     Box(
         modifier = modifier
             .onGloballyPositioned { coordinates ->

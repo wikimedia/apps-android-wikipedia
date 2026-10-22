@@ -164,6 +164,10 @@ ksp {
 
 apply from: '../gradle/src/ktlint.gradle'
 
+configurations {
+    devReleaseImplementation
+}
+
 dependencies {
 
     // To keep the Maven Central dependencies up-to-date
@@ -206,6 +210,7 @@ dependencies {
     implementation libs.paging.compose
     implementation libs.lottie.compose
     implementation libs.media3.exoplayer
+    implementation libs.metrics.performance
 
     // Use the OpenGL ES variant of MapLibre, since the default variant requires Vulkan, which is
     // not available on some lower-budget devices, and causes the Play Store to exclude those devices.
@@ -286,6 +291,9 @@ dependencies {
     implementation(composeBom)
     implementation(libs.compose.material3)
     implementation(libs.compose.ui)
+    // Adds composable names to system traces; limited to the profileable dev release build, since
+    // Robolectric cannot instantiate one of its manifest receivers.
+    devReleaseImplementation(libs.compose.runtime.tracing)
     implementation(libs.compose.ui.tooling.preview)
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.compose.activity)

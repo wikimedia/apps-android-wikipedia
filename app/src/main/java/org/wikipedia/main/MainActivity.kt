@@ -30,6 +30,7 @@ import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.performance.JankStatsReporter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
@@ -46,6 +47,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private var statusBarInsets = Insets.NONE
     private var navBarInsets = Insets.NONE
     private var controlNavTabInFragment = false
+    private var jankStatsReporter: JankStatsReporter? = null
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val fragment = fragment.currentFragment
         if (fragment is HomeFragment) {
@@ -95,11 +97,21 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.mainToolbar.navigationIcon = null
+
+        if (Prefs.isJankStatsEnabled) {
+            jankStatsReporter = JankStatsReporter(window, "MainActivity")
+        }
     }
 
     override fun onResume() {
         super.onResume()
         invalidateOptionsMenu()
+        jankStatsReporter?.startTracking()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        jankStatsReporter?.stopTrackingAndLogSummary()
     }
 
     override fun createFragment(): MainFragment {

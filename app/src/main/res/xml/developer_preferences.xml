@@ -70,6 +70,11 @@
             android:entryValues="@array/preference_values_retrofit_log"
             android:summary="%s" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_jank_stats_enabled"
+            android:title="@string/preferences_developer_jank_stats_title"
+            android:summary="@string/preferences_developer_jank_stats_summary" />
+
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="@string/preference_key_session_timeout"

@@ -43,6 +43,7 @@
     <string name="preference_key_page_last_shown" translatable="false">pageLastShown</string>
     <string name="preference_key_feed_hidden_cards" translatable="false">feedHiddenCards</string>
     <string name="preference_key_memory_leak_test" translatable="false">memoryLeakTest</string>
+    <string name="preference_key_jank_stats_enabled" translatable="false">jankStatsEnabled</string>
     <string name="preference_key_description_edit_tutorial_enabled" translatable="false">descriptionEditTutorialEnabled</string>
     <string name="preference_key_last_description_edit_time" translatable="false">lastDescriptionEditTime</string>
     <string name="preference_key_total_anon_descriptions_edited" translatable="false">totalAnonDescriptionsEdited</string>

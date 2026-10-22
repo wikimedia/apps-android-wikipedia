@@ -71,6 +71,8 @@ import org.wikipedia.feed.random.RandomModule
 import org.wikipedia.feed.readaloud.ReadAloudLeadSectionModule
 import org.wikipedia.feed.wikigames.GamesModule
 import org.wikipedia.page.PageTitle
+import org.wikipedia.performance.TrackJankState
+import org.wikipedia.performance.TrackScrollJank
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
 
@@ -144,6 +146,10 @@ fun ForYouContentTab(
             CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
                 val listState = rememberLazyListState()
                 val modules = state.modules
+                TrackScrollJank(listState, "ForYouFeed")
+                TrackJankState("ForYouModule") {
+                    modules.getOrNull(listState.firstVisibleItemIndex)?.moduleKey() ?: "END_OF_FEED"
+                }
 
                 LaunchedEffect(listState, modules.size) {
                     snapshotFlow {

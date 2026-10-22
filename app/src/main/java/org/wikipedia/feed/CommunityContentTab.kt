@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -39,8 +40,13 @@ import org.wikipedia.feed.news.NewsModule
 import org.wikipedia.feed.onthisday.OnThisDayModule
 import org.wikipedia.feed.topread.TopReadModule
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.performance.TrackJankState
+import org.wikipedia.performance.TrackScrollJank
 import org.wikipedia.util.L10nUtil
 import java.time.LocalDate
+
+// Strips the age or date from item keys, e.g. "top-read-2" or "dyk-2026-10-22".
+private val ITEM_KEY_SUFFIX_REGEX = "-\\d.*$".toRegex()
 
 @Composable
 fun CommunityContentTab(
@@ -78,11 +84,18 @@ fun CommunityContentTab(
         else -> {
             val layoutDirection = if (L10nUtil.isLangRTL(wikiSite.languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
             CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
+                val listState = rememberLazyListState()
+                TrackScrollJank(listState, "CommunityFeed")
+                TrackJankState("CommunityModule") {
+                    (listState.layoutInfo.visibleItemsInfo.firstOrNull()?.key as? String)?.replace(ITEM_KEY_SUFFIX_REGEX, "")
+                }
+
                 LazyColumn(
+                    state = listState,
                     modifier = modifier.fillMaxSize(),
                     contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
                 ) {
-                    item {
+                    item(key = "disclaimer") {
                         CommunityDisclaimer(
                             modifier = Modifier
                                 .padding(horizontal = 16.dp)
