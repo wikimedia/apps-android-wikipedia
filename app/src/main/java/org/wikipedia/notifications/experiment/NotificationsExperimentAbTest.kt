@@ -19,7 +19,7 @@ class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP
     }
 
     private fun isTestActive(): Boolean {
-        return Prefs.notificationsIsTestActive || RemoteConfig.config.androidv1?.notificationsExperimentEnabled ?: false
+        return Prefs.notificationsIsTestActive || RemoteConfig.config.androidv1?.notificationsExperimentEnabledv1 ?: false
     }
 
     private fun isTestGroupUser(): Boolean {
@@ -30,7 +30,7 @@ class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP
         return ReleaseUtil.isPreBetaRelease || supportedLanguages.any { it.equals(languageCode, true) }
     }
 
-    private val supportedLanguages = RemoteConfig.config.androidv1?.notificationsExperimentLanguages.orEmpty()
+    private val supportedLanguages = RemoteConfig.config.androidv1?.notificationsExperimentLanguagesv1.orEmpty()
 
     fun isNotificationsExperimentEligible(): Boolean {
         // Users who already entered the experiment stay in it even if they later switch to an unsupported language.

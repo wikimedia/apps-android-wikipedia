@@ -42,8 +42,11 @@ data class YearInReviewReadingStats(
     val peakMonth: Int,
     val peakMonthVisitedDays: Int,
     val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
+    val articlesSavedTotal: Int = 0,
+    val articlesSaved: List<PageTitle> = emptyList(),
     val topCategory: String? = null,
-    val topCountry: String? = null,
+    val topCountryCode: String? = null,
+    val topCountryName: String? = null,
     val topCountryArticleCount: Int = 0,
     val favoriteTimeOfDay: YearInReviewTimeOfDay? = null,
     val favoriteTimeOfDayPercentage: Int = 0,
@@ -56,8 +59,12 @@ data class YearInReviewReadingStats(
     val biggestReadingDayOfMonth: Int = 0,
     val biggestReadingDayTimeSpentSec: Int = 0,
     val biggestReadingDayArticles: List<PageTitle> = emptyList(),
+    val longestReadArticles: List<PageTitle> = emptyList(),
+    val longestReadArticleMinutes: Int = 0,
     val rabbitHoleStart: PageTitle? = null,
     val rabbitHoleEnd: PageTitle? = null,
+    val rabbitHoleFakeStart: PageTitle? = null,
+    val rabbitHoleFakeEnd: PageTitle? = null,
     val rabbitHoleArticleCount: Int = 0,
     val topTopic: ArticleTopic? = null,
     val topTopicTotalArticles: Int = 0,
@@ -94,10 +101,34 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
+    val longestReadArticleStatus get() = if (longestReadArticles.size > 1 && longestReadArticleMinutes > 10) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val rabbitHoleStatus get() = if (rabbitHoleStart != null && rabbitHoleEnd != null && rabbitHoleArticleCount >= 3 && rabbitHoleFakeStart != null && rabbitHoleFakeEnd != null) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
     val topCategoryStatus get() = if (!topCategory.isNullOrEmpty()) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val topCountryStatus get() = if (!topCountryCode.isNullOrEmpty()) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
+    val savedArticlesStatus get() = if (articlesSavedTotal > 0 && articlesSaved.isNotEmpty()) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
     }
 
     val hasPeakMonth get() = peakMonthVisitedDays >= MIN_PEAK_MONTH_VISITED_DAYS
@@ -113,8 +144,7 @@ data class YearInReviewEntryStats(
     val articlesReadCount: Int,
     val visitedDaysCount: Int
 ) {
-    val isDataRich get() = articlesReadCount >= YearInReviewReadingStats.MIN_ARTICLES_READ &&
-            visitedDaysCount >= YearInReviewReadingStats.MIN_VISITED_DAYS
+    val isDataRich get() = articlesReadCount >= YearInReviewReadingStats.MIN_ARTICLES_READ
 }
 
 data class YearInReviewRewardData(

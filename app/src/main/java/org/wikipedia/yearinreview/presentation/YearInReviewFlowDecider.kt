@@ -59,6 +59,35 @@ object YearInReviewFlowDecider {
                     topicArticleCounts = readingStats.topicArticleCountMap
                 )
             },
+            CandidatePage(status = readingStats.longestReadArticleStatus) {
+                YearInReviewPage.LongestReadGuess(
+                    article = readingStats.longestReadArticles.firstOrNull(),
+                    fakeArticle = readingStats.longestReadArticles.getOrNull(1),
+                    minutesSpent = readingStats.longestReadArticleMinutes
+                )
+            },
+            CandidatePage(status = readingStats.longestReadArticleStatus) {
+                YearInReviewPage.LongestReadReveal(
+                    article = readingStats.longestReadArticles.firstOrNull(),
+                    minutesSpent = readingStats.longestReadArticleMinutes
+                )
+            },
+            CandidatePage(status = readingStats.rabbitHoleStatus) {
+                YearInReviewPage.RabbitHoleGuess(
+                    articleStart = readingStats.rabbitHoleStart,
+                    articleEnd = readingStats.rabbitHoleEnd,
+                    fakeArticleStart = readingStats.rabbitHoleFakeStart,
+                    fakeArticleEnd = readingStats.rabbitHoleFakeEnd,
+                    numLinks = readingStats.rabbitHoleArticleCount
+                )
+            },
+            CandidatePage(status = readingStats.rabbitHoleStatus) {
+                YearInReviewPage.RabbitHoleReveal(
+                    articleStart = readingStats.rabbitHoleStart,
+                    articleEnd = readingStats.rabbitHoleEnd,
+                    numLinks = readingStats.rabbitHoleArticleCount
+                )
+            },
             CandidatePage(status = readingStats.articlesRevisitedStatus) {
                 YearInReviewPage.RevisitedArticles(
                     isEmptyState = readingStats.articlesRevisitedStatus == YearInReviewInsightStatus.EMPTY_STATE,
@@ -68,6 +97,21 @@ object YearInReviewFlowDecider {
             CandidatePage(status = readingStats.topCategoryStatus) {
                 YearInReviewPage.Category(
                     categoryName = readingStats.topCategory.orEmpty()
+                )
+            },
+            CandidatePage(status = readingStats.topCountryStatus) {
+                YearInReviewPage.Geography(
+                    isEmptyState = readingStats.topCountryStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    countryCode = readingStats.topCountryCode.orEmpty(),
+                    countryName = readingStats.topCountryName.orEmpty(),
+                    articleCount = readingStats.topCountryArticleCount
+                )
+            },
+            CandidatePage(status = readingStats.savedArticlesStatus) {
+                YearInReviewPage.SavedArticles(
+                    isEmptyState = readingStats.savedArticlesStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    savedCount = readingStats.articlesSavedTotal,
+                    articles = readingStats.articlesSaved
                 )
             },
             CandidatePage(status = editingStats.totalEditCountStatus) {
