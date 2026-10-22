@@ -1649,6 +1649,7 @@
   <string name="year_in_review_slide_geo_body">جیڑھا ملک تساں پڑھے ڳئے ٻہوں سارے مضموناں دے سبھ توں نیڑے ہے اوہ لڳدا ہے: %1$s، &lt;b&gt;%2$s&lt;/b&gt; تے &lt;b&gt;%3$s&lt;/b&gt; جیہے مضموناں دی بنیاد تے۔</string>
   <string name="year_in_review_login_dialog_title">ذاتی بݨاوݨ کیتے لاگ ان کرو؟</string>
   <string name="year_in_review_login_dialog_body">لاگ ان کرݨ نال تہاکوں ذاتی بصیرتاں تک رسائی ملدی ہے۔ تساں لاگ ان کیتے بغیر وی اجتماعی بصیرتاں ݙیکھ سڳدے ہو۔</string>
+  <string name="year_in_review_login_dialog_title_nodata">کھاتے نال وکیپیڈیا چنڳی اے</string>
   <string name="year_in_review_login_dialog_positive">لاگ ان کرو / وکیپیڈیا نال جڑو</string>
   <string name="year_in_review_login_dialog_negative">لاگ ان کیتے بغیر جاری رکھو</string>
   <plurals name="year_in_review_slide_top_articles_headline">
