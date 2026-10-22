@@ -227,8 +227,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment() {
                             startActivity(
                                 LoginActivity.newIntent(
                                     context = requireContext(),
-                                    source = LoginActivity.SOURCE_ON_THIS_DAY_GAME_RESULT,
-                                    createAccountFirst = false
+                                    source = LoginActivity.SOURCE_ON_THIS_DAY_GAME_RESULT
                                 )
                             )
                         }

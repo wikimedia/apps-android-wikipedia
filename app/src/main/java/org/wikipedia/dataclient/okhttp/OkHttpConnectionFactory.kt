@@ -21,6 +21,13 @@ object OkHttpConnectionFactory {
     private val NET_CACHE = Cache(File(WikipediaApp.instance.cacheDir, CACHE_DIR_NAME), NET_CACHE_SIZE)
     val client = createClient()
 
+    // For OAuth token requests, which must bypass OAuthInterceptor (since it uses them to refresh
+    // tokens), UnsuccessfulResponseInterceptor (since OAuth errors are returned in the body of an
+    // unsuccessful response), and logging (since the response body contains tokens).
+    val oauthTokenClient = client.newBuilder()
+        .apply { interceptors().retainAll { it is CommonHeaderRequestInterceptor } }
+        .build()
+
     private fun createClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
                 .cookieJar(SharedPreferenceCookieManager.instance)
@@ -31,9 +38,10 @@ object OkHttpConnectionFactory {
                 .addInterceptor(CommonHeaderRequestInterceptor())
                 .addInterceptor(DefaultMaxStaleRequestInterceptor())
                 .addInterceptor(OfflineCacheInterceptor())
+                .addInterceptor(OAuthInterceptor())
                 .addInterceptor(TestStubInterceptor())
                 .addInterceptor(TitleEncodeInterceptor())
-                .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.retrofitLogLevel))
+                .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.retrofitLogLevel).apply { redactHeader("Authorization") })
 
         return builder.build()
     }
