@@ -136,8 +136,8 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
 
     override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
         if (isGranted) {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
             viewModel.toggleNotification(true)
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
         } else {
             viewModel.toggleNotification(false)
         }
@@ -148,14 +148,14 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
                 ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED -> {
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
                     viewModel.toggleNotification(true)
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
                 }
                 else -> requestPermissionLauncher.launch(permission)
             }
         } else {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
             viewModel.toggleNotification(true)
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
         }
     }
 

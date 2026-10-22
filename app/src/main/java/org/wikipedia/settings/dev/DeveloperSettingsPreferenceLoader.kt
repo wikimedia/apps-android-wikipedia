@@ -27,6 +27,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -344,7 +345,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             NewWithinInterestABTest(),
             ReadAloudLeadSectionABTest(),
             SemanticSearchAbTest(),
-            YearInReviewEndScreenABTest()
+            YearInReviewEndScreenABTest(),
+            NotificationsExperimentAbTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey
