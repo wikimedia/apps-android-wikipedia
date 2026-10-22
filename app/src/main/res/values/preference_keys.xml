@@ -29,6 +29,7 @@
     <string name="preference_key_login_force_email_auth" translatable="false">loginForceEmailAuth</string>
     <string name="preference_key_last_background_login_date_time" translatable="false">lastBackgroundLoginDateTime</string>
     <string name="preference_key_show_developer_settings" translatable="false">showDeveloperSettings</string>
+    <string name="preference_key_developer_settings_newest_first" translatable="false">developerSettingsNewestFirst</string>
     <string name="preference_key_last_run_time_format" translatable="false">%s-lastrun</string>
     <string name="preference_key_tabs" translatable="false">tabs</string>
     <string name="preference_key_customize_home_feed" translatable="false">customizeHomeFeed</string>
@@ -181,12 +182,15 @@
     <string name="preference_key_impact_last_response_body" translatable="false">impactLastResponseBody</string>
     <string name="preference_key_default_places_location_latlng" translatable="false">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history" translatable="false">deleteLocalDonationHistory</string>
-    <string name="preference_key_playground_category" translatable="false">categoryPlayground</string>
     <string name="preference_key_otd_is_archive_game_playing" translatable="false">isArchiveGamePlaying</string>
     <string name="preference_key_otd_sound_on" translatable="false">isOtdSoundOn</string>
     <string name="preference_key_year_in_review_is_enabled" translatable="false">isYearInReviewEnabled</string>
-    <string name="preference_key_year_in_review_visited" translatable="false">yearInReviewVisited</string>
+    <string name="preference_key_year_in_review_visited" translatable="false">yearInReviewVisited2026</string>
+    <string name="preference_key_yir_activity_tab_dot_seen_year" translatable="false">yearInReviewActivityTabDotSeenYear</string>
     <string name="preference_key_yir_survey_state" translatable="false">yirSurveyState</string>
+    <string name="preference_key_yir_playground" translatable="false">yirPlayground</string>
+    <string name="preference_key_yir_playground_data" translatable="false">yirPlaygroundData</string>
+    <string name="preference_key_yir_playground_entry_point" translatable="false">yirPlaygroundEntryPoint</string>
     <string name="preference_key_selected_app_icon" translatable="false">selectedAppIcon</string>
     <string name="preference_category_recommended_reading_list" translatable="false">recommendedReadingListSettings</string>
     <string name="preference_key_recommended_reading_list_enabled" translatable="false">recommendedReadingListEnabled</string>
@@ -208,7 +212,7 @@
     <string name="preference_category_donations" translatable="false">donations</string>
     <string name="preference_key_activity_tab_modules" translatable="false">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown" translatable="false">activityTabOnboardingShown</string>
-    <string name="preference_key_yir_model_data" translatable="false">yirModelData</string>
+    <string name="preference_key_yir_cached_stats" translatable="false">yirCachedStats</string>
     <string name="preference_key_game_stats_snackbar_shown" translatable="false">gameStatsSnackbarShown</string>
     <string name="preference_key_reading_challenge_streak" translatable="false">readingChallengeStreak</string>
     <string name="preference_key_reading_challenge_enrolled" translatable="false">readingChallengeEnrolled</string>
@@ -229,4 +233,9 @@
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>
     <string name="preference_key_reading_lists_update_tooltip_shown" translatable="false">readingListsUpdateTooltipShown</string>
+    <string name="preference_key_semantic_search_enabled" translatable="false">semanticSearchEnabled</string>
+    <string name="preference_key_semantic_search_first_use" translatable="false">semanticSearchFirstUse</string>
+    <string name="preference_key_semantic_search_override_supported_language" translatable="false">semanticSearchOverrideSupportedLanguage</string>
+    <string name="preference_key_semantic_search_is_test_active" translatable="false">semanticSearchIsTestActive</string>
+    <string name="preference_key_semantic_search_settings_category" translatable="false">semanticSearchSettingsCategory</string>
 </resources>

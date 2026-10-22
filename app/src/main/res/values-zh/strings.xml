@@ -382,7 +382,6 @@
   <string name="editor_select_dialog_continue">继续</string>
   <string name="editor_select_icon_ve_title">在外部浏览器图标中打开</string>
   <string name="editor_select_title_settings_screen">编辑参数设置</string>
-  <string name="editor_select_save_btn_settings_screen">保存</string>
   <string name="find_next">查找下一个</string>
   <string name="find_previous">查找上一个</string>
   <string name="find_first_occurence">这是首次出现</string>
@@ -1942,7 +1941,6 @@
   <string name="year_in_review_get_started_headline">探索您的维基百科年度回顾</string>
   <string name="year_in_review_get_started_bodytext">查看有关您在维基百科应用程序上所阅读的条目和所作编辑的深入分析。</string>
   <string name="year_in_review_get_started_info">您的阅读历史记录受到保护。阅读分析数据基于您设备本地存储的数据计算得出。</string>
-  <string name="year_in_review_get_started_later">您可以稍后在“更多”菜单中查看您的年度回顾。</string>
   <string name="year_in_review_survey_title">帮助改进年度回顾</string>
   <string name="year_in_review_survey_subtitle">您对该功能满意吗？</string>
   <string name="year_in_review_reading_list_survey_title">帮助改进%d年度回顾收藏。</string>
@@ -2047,12 +2045,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">最喜欢的阅读时间</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">最喜欢阅读的日子</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">你阅读最多次的月份</string>
-  <string name="year_in_review_slide_reading_pattern_morning">早晨</string>
-  <string name="year_in_review_slide_reading_pattern_midday">中午</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">下午</string>
-  <string name="year_in_review_slide_reading_pattern_evening">傍晚</string>
-  <string name="year_in_review_slide_reading_pattern_night">晚间</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">早晨</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">中午</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">下午</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">傍晚</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">晚间</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">深夜</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">我们用了 %,d 小时阅读</item>
     <item quantity="other">我们用了 %,d 小时阅读</item>

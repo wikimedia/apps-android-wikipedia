@@ -87,11 +87,6 @@ object LanguageUtil {
         }
     }
 
-    fun isChineseVariant(langCode: String): Boolean {
-        return langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) &&
-                langCode != AppLanguageLookUpTable.CHINESE_YUE_LANGUAGE_CODE
-    }
-
     fun startsWithArticle(text: String, language: String): Boolean {
         val first = text.split(" ".toRegex()).toTypedArray()[0].lowercase(Locale.getDefault()).trim()
 

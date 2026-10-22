@@ -334,7 +334,6 @@
   <string name="editor_select_dialog_continue">Pokračovať</string>
   <string name="editor_select_icon_ve_title">Ikona otvorenia v externom prehliadači</string>
   <string name="editor_select_title_settings_screen">Predvoľba úprav</string>
-  <string name="editor_select_save_btn_settings_screen">Uložiť</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
   <string name="find_first_occurence">Toto je prvý výskyt</string>
@@ -2022,6 +2021,11 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Pozrite si svoje série, skóre a ďalšie</string>
   <string name="wikipedia_games_title">Hry Wikipédie</string>
   <string name="wikipedia_games_subtitle">Denné vedomostné hry založené na obsahu Wikipédie.</string>
+  <string name="yir_community_languages_title">Jazyky, v ktorých je Wikipédia dostupná:</string>
+  <string name="yir_community_global_reach_title">Globálny dosah Wikipédie:</string>
+  <string name="yir_community_global_reach_subtitle">Jedna z desiatich najnavštevovanejších webových stránok na svete</string>
+  <string name="yir_community_contribute_supporting">Wikipédia existuje vďaka skutočným ľuďom, ako ste vy, ktorí prispievajú, ako môžu, aby udržala svoju prosperitu. Ak je pre vás Wikipédia cenná, zvážte jej podporu darovaním alebo úpravami. \n\nUž ste prispievateľom? Prihláste sa alebo si vytvorte účet a pozrite si svoje úspechy.</string>
+  <string name="yir_store_discount_action">Navštíviť obchod</string>
   <string name="year_in_review_learn_more">Ďalšie informácie</string>
   <string name="year_in_review_get_started">Začať</string>
   <string name="year_in_review_topbar_w_icon">Ikona W Wikipédie</string>
@@ -2035,7 +2039,6 @@
   <string name="year_in_review_get_started_headline">Objavte svoj Rok v skratke na Wikipédii</string>
   <string name="year_in_review_get_started_bodytext">Pozrite si prehľady o tom, ktoré články ste čítali v aplikácii Wikipédia a aké úpravy ste urobili.</string>
   <string name="year_in_review_get_started_info">Vaša história čítania zostáva chránená. Prehľady o čítaní sa počítajú z údajov uložených lokálne vo vašom zariadení.</string>
-  <string name="year_in_review_get_started_later">K svojmu Roku v skratke sa dostanete neskôr v ponuke Viac.</string>
   <string name="year_in_review_survey_title">Pomôžte vylepšiť Rok v skratke</string>
   <string name="year_in_review_survey_subtitle">Ste s touto funkciou spokojní?</string>
   <string name="year_in_review_reading_list_survey_title">Pomôžte vylepšiť zbierku Rok v skratke %d.</string>
@@ -2187,7 +2190,7 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Obľúbený deň na čítanie</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mesiac, v ktorom ste čítali najviac</string>
   <string name="year_in_review_slide_reading_pattern_morning">Ráno</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Napoludnie</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Poludnie</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">Popoludní</string>
   <string name="year_in_review_slide_reading_pattern_evening">Večer</string>
   <string name="year_in_review_slide_reading_pattern_night">V noci</string>
@@ -2706,4 +2709,5 @@
     <item quantity="many">Zrušením uloženia týchto článkov sa odstránia zo všetkých súvisiacich zbierok.</item>
     <item quantity="other">Zrušením uloženia týchto článkov sa odstránia zo všetkých súvisiacich zbierok.</item>
   </plurals>
+  <string name="semantic_search_results_last_updated_label">Naposledy aktualizované %s</string>
 </resources>

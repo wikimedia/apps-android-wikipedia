@@ -1,0 +1,492 @@
+package org.wikipedia.yearinreview.presentation
+
+import android.content.res.Resources
+import org.wikipedia.R
+import org.wikipedia.staticdata.CountryFlags
+import org.wikipedia.topics.ArticleTopic
+import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.StringUtil
+import org.wikipedia.yearinreview.data.YearInReviewConfig
+import org.wikipedia.yearinreview.data.YearInReviewReadingStats
+import java.text.NumberFormat
+import java.time.Month
+import java.time.format.TextStyle
+import java.util.concurrent.TimeUnit
+
+/**
+ * Maps each page to its Rive content, or null when the page doesn't use Rive.
+ * A custom Rive slide still returns its content here, so its file gets loaded, and gets its own branch in the pager.
+ */
+object YearInReviewRiveContentMapper {
+    fun map(page: YearInReviewPage, resources: Resources): RiveSlideContent? = when (page) {
+        is YearInReviewPage.Cover -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("cover"),
+            textProperties = mapOf(
+                "coverTitle" to resources.getString(if (page.isPersonalized) R.string.yir_intro_headline else R.string.yir_community_intro_headline).uppercase(),
+                "bodyCopy" to if (page.isPersonalized) resources.getQuantityString(R.plurals.yir_intro_supporting, page.daysSpent, page.daysSpent, YearInReviewConfig.YEAR) else resources.getString(R.string.yir_community_intro_supporting),
+            )
+        )
+        is YearInReviewPage.ArticlesRead -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame1-empty" else "frame1"),
+            textProperties = mapOf(
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_article_count_empty_headline else R.string.yir_article_count_headline),
+                "data" to formatNumber(resources, page.count.toLong()),
+                "bodyCopy" to when {
+                    page.isEmptyState -> resources.getString(R.string.yir_article_count_empty_supporting)
+                    page.percentile.toDoubleOrNull()?.let { it > 0 && it <= 50 } == true ->
+                        resources.getQuantityString(R.plurals.yir_article_count_supporting_top, page.averageCount, page.percentile, page.averageCount)
+                    else -> resources.getString(R.string.yir_article_count_supporting)
+                }
+            )
+        )
+        is YearInReviewPage.Visits -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame2", instanceType = RiveInstanceType.Blank),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
+                "data" to page.days.toString(),
+                "bodyCopy" to page.peakMonth?.let {
+                    resources.getQuantityString(
+                        R.plurals.yir_days_visited_supporting,
+                        it.visitedDays,
+                        Month.of(it.month).getDisplayName(TextStyle.FULL_STANDALONE, resources.configuration.locales[0]),
+                        it.visitedDays
+                    )
+                }.orEmpty()
+            )
+        )
+        is YearInReviewPage.TimeSpent -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame3"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_minutes_read_headline),
+                "data" to page.duration.toString(),
+                "bodyCopy" to resources.getString(R.string.yir_minutes_read_supporting, getTimeSpentComment(resources, page.duration))
+            )
+        )
+        is YearInReviewPage.ReadingStreak -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame4-empty" else "frame4"),
+            textProperties = mapOf(
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_streak_empty_headline else R.string.yir_reading_streak_headline),
+                "data" to page.longestStreak.toString(),
+                "bodyCopy" to if (page.isEmptyState) resources.getQuantityString(R.plurals.yir_reading_streak_empty_supporting, YearInReviewReadingStats.MIN_ARTICLES_READ, YearInReviewReadingStats.MIN_ARTICLES_READ)
+                else resources.getString(R.string.yir_reading_streak_supporting, page.streakStartDate, page.streakEndDate)
+            )
+        )
+        is YearInReviewPage.ReadingPattern -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame5-empty" else "frame5"),
+            textProperties = mapOf(
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_time_empty_headline else R.string.yir_reading_time_headline),
+                "data" to page.favoriteTime,
+                "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_reading_time_empty_supporting)
+                else resources.getQuantityString(R.plurals.yir_reading_time_supporting, page.favoriteTimePercentage, page.favoriteTimePercentage)
+            )
+        )
+        is YearInReviewPage.TopTopic -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame6-empty" else "frame6"),
+            textProperties = mapOf(
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_top_topic_empty_headline else R.string.yir_top_topic_headline, YearInReviewConfig.YEAR),
+                "data" to if (page.isEmptyState) "" else resources.getString(page.topic.msgKey).uppercase(),
+                "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
+                else resources.getQuantityString(R.plurals.yir_top_topic_supporting, page.totalArticles,
+                    page.sampleArticles.first(), page.sampleArticles.last(), page.totalArticles, getTopicComment(resources, page.topic))
+            ),
+            imageUrls = if (page.isEmptyState) emptyMap() else mapOf("topicIcon" to page.topic.thumbnailUrl)
+        )
+        is YearInReviewPage.OtherTopTopics -> RiveSlideContent(
+            spec = allTemplatesListSlideSpec(artboardName = "frame7"),
+            textProperties = mapOf(
+                "bodyText" to resources.getString(R.string.yir_runner_up_topics_headline, YearInReviewConfig.YEAR)
+            ) + listRows(page.topicArticleCounts.map { (topicId, count) ->
+                resources.getString(ArticleTopics.all.find { it.topicId == topicId }?.msgKey ?: 0) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
+            }),
+            numberProperties = listItemCount(page.topicArticleCounts.size),
+            imageUrls = listIcons(page.topicArticleCounts.map { ArticleTopics.all.find { topic -> topic.topicId == it.key }?.thumbnailUrl ?: "" })
+        )
+        is YearInReviewPage.BiggestReadingDay -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame8"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_biggest_reading_day_headline),
+                "data" to page.date,
+                "bodyCopy" to resources.getQuantityString(R.plurals.yir_biggest_reading_day_supporting, page.minutesSpent, page.minutesSpent)
+            )
+        )
+        is YearInReviewPage.BiggestReadingDayArticles -> RiveSlideContent(
+            spec = allTemplatesListSlideSpec(artboardName = "frame9"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_articles_read_headline)
+            ) + listRows(page.articles.map { StringUtil.fromHtml(it.displayText).toString() to it.description.orEmpty() }),
+            numberProperties = listItemCount(page.articles.size),
+            imageUrls = listIcons(page.articles.map { it.thumbUrl })
+        )
+        is YearInReviewPage.Category -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame12"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_niche_category_headline),
+                "data" to StringUtil.removeNamespace(page.categoryName).uppercase(),
+                "bodyCopy" to resources.getString(R.string.yir_niche_category_supporting)
+            )
+        )
+        is YearInReviewPage.RevisitedArticles -> if (page.isEmptyState) {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame13-empty"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_reread_articles_empty_headline),
+                    "bodyText" to resources.getString(R.string.yir_reread_articles_empty_supporting)
+                )
+            )
+        } else {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame13"),
+                textProperties = mapOf(
+                    "bodyText" to resources.getString(R.string.yir_reread_articles_headline)
+                ) + listRows(page.articles.map { StringUtil.fromHtml(it.first.displayText).toString() to resources.getQuantityString(R.plurals.yir_reread_articles_visits_count, it.second, it.second) }),
+                imageUrls = listIcons(page.articles.map { it.first.thumbUrl })
+            )
+        }
+        is YearInReviewPage.Geography -> if (page.isEmptyState) {
+            RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame14-empty"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_places_empty_headline),
+                    "bodyCopy" to resources.getString(R.string.yir_places_empty_supporting, YearInReviewConfig.YEAR)
+                )
+            )
+        } else {
+            RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame14"),
+                textProperties = mapOf(
+                    "bodyCopy" to resources.getString(R.string.yir_places_headline),
+                    "flagTitle" to page.countryName.orEmpty(),
+                    "flagSubtitle" to resources.getQuantityString(R.plurals.yir_places_article_count, page.articleCount, page.articleCount)
+                ),
+                imageUrls = mapOf(
+                    "topicIcon" to CountryFlags.urlFor(page.countryCode.orEmpty()).orEmpty()
+                )
+            )
+        }
+        is YearInReviewPage.SavedArticles -> if (page.isEmptyState) {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame15-empty"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_saved_articles_empty_headline),
+                    "bodyText" to resources.getString(R.string.yir_saved_articles_empty_supporting)
+                )
+            )
+        } else {
+            RiveSlideContent(
+                spec = allTemplatesListSlideSpec("frame15"),
+                textProperties = mapOf(
+                    "bodyText" to resources.getQuantityString(R.plurals.yir_saved_articles_headline, page.savedCount, page.savedCount)
+                ) + listRows(page.articles.map { StringUtil.fromHtml(it.displayText).toString() to it.description.orEmpty() }),
+                imageUrls = listIcons(page.articles.map { it.thumbUrl })
+            )
+        }
+        is YearInReviewPage.TotalEdits -> RiveSlideContent(
+            spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame16-empty" else "frame16"),
+            textProperties = mapOf(
+                "headline" to resources.getString(if (page.isEmptyState) R.string.yir_edits_empty_headline else R.string.yir_edits_headline),
+                "data" to if (page.isEmptyState) "" else page.editCount.toString(),
+                "bodyCopy" to resources.getString(if (page.isEmptyState) R.string.yir_edits_empty_supporting else R.string.yir_edits_supporting)
+            )
+        )
+        is YearInReviewPage.EditedArticleViews -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("frame17"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_edit_views_headline),
+                "data" to formatNumber(resources, page.viewCount),
+                "bodyCopy" to resources.getString(R.string.yir_edit_views_supporting, YearInReviewConfig.YEAR)
+            )
+        )
+        is YearInReviewPage.MostViewedEditedArticles -> RiveSlideContent(
+            spec = allTemplatesListSlideSpec("frame18"),
+            textProperties = mapOf(
+                "bodyText" to resources.getString(R.string.yir_most_viewed_edited_articles_headline)
+            ) + listRows(page.articles.map { StringUtil.fromHtml(it.first.displayText).toString() to getViewCountText(resources, it.second) }),
+            imageUrls = listIcons(page.articles.map { it.first.thumbUrl })
+        )
+        is YearInReviewPage.ThankYou -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("end"),
+            textProperties = mapOf(
+                "coverTitle" to resources.getString(R.string.yir_contributor_thanks_headline).uppercase(),
+                "bodyCopy" to resources.getString(R.string.yir_contributor_thanks_supporting, getDonorEditorString(resources, page.isDonor, page.isEditor)),
+                "data" to ""
+            )
+        )
+        is YearInReviewPage.YouMatter -> RiveSlideContent(
+            spec = allTemplatesSlideSpec("end"),
+            textProperties = mapOf(
+                "coverTitle" to resources.getString(R.string.yir_non_contributor_headline).uppercase(),
+                "bodyCopy" to resources.getString(if (page.showLoginPrompt) R.string.yir_community_contribute_supporting else R.string.yir_non_contributor_supporting),
+            )
+        )
+        is YearInReviewPage.LongestReadGuess -> RiveSlideContent(
+            spec = allTemplatesInteractionSlideSpec("frame10a", viewModelName = "Interaction1"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_most_time_article_headline),
+                "articleTitleTop" to StringUtil.fromHtml(page.article?.displayText).toString(),
+                "subTitleTop" to page.article?.description.orEmpty(),
+                "articleTitleBot" to StringUtil.fromHtml(page.fakeArticle?.displayText).toString(),
+                "subTitleBot" to page.fakeArticle?.description.orEmpty()
+            ),
+            imageUrls = mapOf(
+                "thumbnailTop" to page.article?.thumbUrl,
+                "thumbnailBot" to page.fakeArticle?.thumbUrl
+            )
+        )
+        is YearInReviewPage.LongestReadReveal -> RiveSlideContent(
+            spec = allTemplatesInteractionSlideSpec("frame10b", viewModelName = "Interaction1"),
+            textProperties = mapOf(
+                "headline" to resources.getQuantityString(R.plurals.yir_most_time_article_supporting, page.minutesSpent, page.minutesSpent, YearInReviewConfig.YEAR),
+                "resultTitle" to StringUtil.fromHtml(page.article?.displayText).toString(),
+                "resultSubTitle" to page.article?.description.orEmpty()
+            ),
+            imageUrls = mapOf(
+                "resultThumbnail" to page.article?.thumbUrl
+            )
+        )
+        is YearInReviewPage.RabbitHoleGuess -> RiveSlideContent(
+            spec = allTemplatesInteractionSlideSpec("frame11a", viewModelName = "Interaction2"),
+            textProperties = mapOf(
+                "headline" to resources.getString(R.string.yir_rabbit_hole_headline),
+                "articleTitleTopT" to StringUtil.fromHtml(page.articleStart?.displayText).toString(),
+                "articleTitleTopB" to StringUtil.fromHtml(page.articleEnd?.displayText).toString(),
+                "articleTitleBotT" to StringUtil.fromHtml(page.fakeArticleStart?.displayText).toString(),
+                "articleTitleBotB" to StringUtil.fromHtml(page.fakeArticleEnd?.displayText).toString()
+            ),
+            booleanProperties = mapOf(
+                "noImgTopT" to page.articleStart?.thumbUrl.isNullOrEmpty(),
+                "noImgTopB" to page.articleEnd?.thumbUrl.isNullOrEmpty(),
+                "noImgBotT" to page.fakeArticleStart?.thumbUrl.isNullOrEmpty(),
+                "noImgBotB" to page.fakeArticleEnd?.thumbUrl.isNullOrEmpty()
+            ),
+            imageUrls = mapOf(
+                "thumbnailTopT" to page.articleStart?.thumbUrl,
+                "thumbnailTopB" to page.articleEnd?.thumbUrl,
+                "thumbnailBotT" to page.fakeArticleStart?.thumbUrl,
+                "thumbnailBotB" to page.fakeArticleEnd?.thumbUrl
+            )
+        )
+        is YearInReviewPage.RabbitHoleReveal -> RiveSlideContent(
+            spec = allTemplatesInteractionSlideSpec("frame11b", viewModelName = "Interaction2"),
+            textProperties = mapOf(
+                "headline" to resources.getQuantityString(R.plurals.yir_rabbit_hole_depth_headline, page.numLinks, page.numLinks),
+                "bodyText" to resources.getString(R.string.yir_rabbit_hole_depth_supporting),
+                "resultTitleTop" to StringUtil.fromHtml(page.articleStart?.displayText).toString(),
+                "resultTitleBot" to StringUtil.fromHtml(page.articleEnd?.displayText).toString()
+            ),
+            booleanProperties = mapOf(
+                "resultNoImgT" to page.articleStart?.thumbUrl.isNullOrEmpty(),
+                "resultNoImgB" to page.articleEnd?.thumbUrl.isNullOrEmpty()
+            ),
+            imageUrls = mapOf(
+                "resultThumbnailTop" to page.articleStart?.thumbUrl,
+                "resultThumbnailBot" to page.articleEnd?.thumbUrl
+            )
+        )
+        is YearInReviewPage.Collective -> when (page.insight) {
+            YearInReviewCollectiveInsight.HOURS_READ -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame3", dataNumberFontSize = 40f),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_reading_hours_headline, YearInReviewConfig.YEAR),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.hoursReadEN),
+                    "bodyCopy" to resources.getQuantityString(R.plurals.yir_community_reading_hours_supporting, page.config.yearsReadEN, page.config.yearsReadEN)
+                )
+            )
+            YearInReviewCollectiveInsight.LANGUAGES -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame4"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_languages_title),
+                    "data" to page.config.languages.toString() + "+",
+                    "bodyCopy" to resources.getString(R.string.yir_community_languages_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.ARTICLES -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame17", dataNumberFontSize = 40f),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_articles_headline),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.articles),
+                    "bodyCopy" to resources.getString(R.string.yir_community_articles_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.SAVED_ARTICLES -> RiveSlideContent(
+                // TODO! Is this frame right?
+                spec = allTemplatesSlideSpec("frame8"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_saved_articles_headline, YearInReviewConfig.YEAR),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.savedArticlesApps),
+                    "bodyCopy" to resources.getString(R.string.yir_community_saved_articles_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.VOLUNTEER_EDITORS -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame16", dataNumberFontSize = 40f),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_editors_headline),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.editors),
+                    "bodyCopy" to resources.getString(R.string.yir_community_editors_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.EDITS -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame5"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_edits_headline),
+                    "data" to NumberFormat.getNumberInstance().format(page.config.edits),
+                    "bodyCopy" to resources.getString(R.string.yir_community_edits_supporting)
+                )
+            )
+            YearInReviewCollectiveInsight.GLOBAL_REACH -> RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame12"),
+                textProperties = mapOf(
+                    "headline" to resources.getString(R.string.yir_community_global_reach_title),
+                    "data" to resources.getString(R.string.yir_community_global_reach_subtitle).uppercase(),
+                    "bodyCopy" to resources.getString(R.string.yir_community_global_reach_supporting)
+                )
+            )
+        }
+        is YearInReviewPage.End -> null
+    }
+}
+
+private fun allTemplatesGlobalProperties(dataNumberFontSize: Float = 64f) = RiveGlobalViewModel(
+    name = "GlobalProperties",
+    textSizes = mapOf(
+        // TODO: determine proper values for all of these:
+        // "glyphKerningEM" to 1f,
+        // "textkerningEM" to 1f,
+        "dataTextFontSize" to 20f,
+        "dataTextLineHeight" to 22f,
+        "coverGlyphsFontSize" to 40f,
+        "coverGlyphsLineHeight" to 42f,
+        "dataNumberFontSize" to dataNumberFontSize,
+        "dataNumbersLineHeight" to dataNumberFontSize + 2f,
+        "headlineFontSize" to 24f,
+        "headlineLineHeight" to 25.44f,
+        "bodyCopyFontSize" to 18f,
+        "bodyCopyLineHeight" to 20f
+    )
+)
+
+// In the Rive file, each artboard has a same-named view model instance holding sample text
+fun allTemplatesSlideSpec(
+    artboardName: String,
+    viewModelName: String = "DataTemplate",
+    instanceType: RiveInstanceType = RiveInstanceType.Named(artboardName),
+    dataNumberFontSize: Float = 64f
+) = RiveSlideSpec(
+    resourceId = R.raw.year_in_review,
+    artboardName = artboardName,
+    viewModelName = viewModelName,
+    instanceType = instanceType,
+    globalViewModel = allTemplatesGlobalProperties(dataNumberFontSize),
+    isTopBarUiIconsWhite = "isUIWhite"
+)
+
+// Artboards that show up to three articles or topics, each with an icon, title and subtitle.
+// The List view model's layoutDir is passed down to each card, where it sets the card's layout direction.
+private fun allTemplatesListSlideSpec(artboardName: String) =
+    allTemplatesSlideSpec(artboardName, viewModelName = "List").copy(layoutDirectionEnum = "layoutDir")
+
+// Artboards of the guessing game. The guess artboards fire frameComplete after the user taps an answer and the exit animation ends.
+private fun allTemplatesInteractionSlideSpec(artboardName: String, viewModelName: String) =
+    allTemplatesSlideSpec(artboardName, viewModelName).copy(frameCompleteTrigger = "frameComplete")
+
+// Fills the List view model's numbered rows. Rows without an item are cleared, so the instance's sample text doesn't show.
+private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String, String> {
+    return (1..LIST_ROW_COUNT).flatMap { row ->
+        val (title, subtitle) = titlesAndSubtitles.getOrNull(row - 1) ?: ("" to "")
+        listOf("articleTitle$row" to title, "subTitle$row" to subtitle)
+    }.toMap()
+}
+
+// Rows without an image are cleared, so the instance's sample picture doesn't show
+private fun listIcons(imageUrls: List<String?>): Map<String, String?> {
+    return (1..LIST_ROW_COUNT).associate { row -> "icon$row" to imageUrls.getOrNull(row - 1) }
+}
+
+// frame7 and frame9 have this property so far.
+private fun listItemCount(itemCount: Int): Map<String, Int> {
+    return mapOf("numOfListItems" to itemCount.coerceAtMost(LIST_ROW_COUNT))
+}
+
+private const val LIST_ROW_COUNT = 3
+
+// "1,234 views"
+private fun getViewCountText(resources: Resources, viewCount: Long): String {
+    return resources.getQuantityString(R.plurals.yir_article_view_count, viewCount.coerceAtMost(Int.MAX_VALUE.toLong()).toInt(), formatNumber(resources, viewCount))
+}
+
+// With the locale's own digits and separators, e.g. 1,234 in English and १,२३४ in Nepali
+private fun formatNumber(resources: Resources, number: Long): String {
+    return NumberFormat.getInstance(resources.configuration.locales[0]).format(number)
+}
+
+private fun getTimeSpentComment(resources: Resources, minutes: Long): String {
+    return when {
+        minutes >= 2800 -> resources.getQuantityString(R.plurals.yir_time_spent_comment_2800, TimeUnit.MINUTES.toDays(minutes).toInt())
+        minutes >= 1441 -> resources.getString(R.string.yir_time_spent_comment_1441)
+        minutes >= 540 -> resources.getString(R.string.yir_time_spent_comment_540)
+        minutes >= 121 -> resources.getString(R.string.yir_time_spent_comment_121)
+        minutes >= 93 -> resources.getString(R.string.yir_time_spent_comment_93)
+        minutes >= 31 -> resources.getString(R.string.yir_time_spent_comment_31)
+        minutes >= 19 -> resources.getString(R.string.yir_time_spent_comment_19)
+        minutes >= 13 -> resources.getString(R.string.yir_time_spent_comment_13)
+        minutes >= 9 -> resources.getString(R.string.yir_time_spent_comment_9)
+        minutes >= 1 -> resources.getString(R.string.yir_time_spent_comment_1)
+        else -> ""
+    }
+}
+
+private fun getTopicComment(resources: Resources, topic: ArticleTopic): String {
+    // Listed explicitly, so the strings survive resource shrinking
+    val resId = when (topic.topicId) {
+        "architecture" -> R.string.yir_topic_comment_architecture
+        "art" -> R.string.yir_topic_comment_art
+        "comics-and-anime" -> R.string.yir_topic_comment_comics_and_anime
+        "entertainment" -> R.string.yir_topic_comment_entertainment
+        "fashion" -> R.string.yir_topic_comment_fashion
+        "literature" -> R.string.yir_topic_comment_literature
+        "music" -> R.string.yir_topic_comment_music
+        "performing-arts" -> R.string.yir_topic_comment_performing_arts
+        "sports" -> R.string.yir_topic_comment_sports
+        "tv-and-film" -> R.string.yir_topic_comment_tv_and_film
+        "video-games" -> R.string.yir_topic_comment_video_games
+        "biography" -> R.string.yir_topic_comment_biography
+        "women" -> R.string.yir_topic_comment_women
+        "business-and-economics" -> R.string.yir_topic_comment_business_and_economics
+        "education" -> R.string.yir_topic_comment_education
+        "food-and-drink" -> R.string.yir_topic_comment_food_and_drink
+        "history" -> R.string.yir_topic_comment_history
+        "military-and-warfare" -> R.string.yir_topic_comment_military_and_warfare
+        "philosophy-and-religion" -> R.string.yir_topic_comment_philosophy_and_religion
+        "politics-and-government" -> R.string.yir_topic_comment_politics_and_government
+        "society" -> R.string.yir_topic_comment_society
+        "transportation" -> R.string.yir_topic_comment_transportation
+        "biology" -> R.string.yir_topic_comment_biology
+        "chemistry" -> R.string.yir_topic_comment_chemistry
+        "computers-and-internet" -> R.string.yir_topic_comment_computers_and_internet
+        "earth-and-environment" -> R.string.yir_topic_comment_earth_and_environment
+        "engineering" -> R.string.yir_topic_comment_engineering
+        "general-science" -> R.string.yir_topic_comment_general_science
+        "mathematics" -> R.string.yir_topic_comment_mathematics
+        "medicine-and-health" -> R.string.yir_topic_comment_medicine_and_health
+        "physics" -> R.string.yir_topic_comment_physics
+        "technology" -> R.string.yir_topic_comment_technology
+        "africa" -> R.string.yir_topic_comment_africa
+        "asia" -> R.string.yir_topic_comment_asia
+        "central-america" -> R.string.yir_topic_comment_central_america
+        "europe" -> R.string.yir_topic_comment_europe
+        "north-america" -> R.string.yir_topic_comment_north_america
+        "oceania" -> R.string.yir_topic_comment_oceania
+        "south-america" -> R.string.yir_topic_comment_south_america
+        else -> null
+    }
+    return resId?.let { resources.getString(it) }.orEmpty()
+}
+
+private fun getDonorEditorString(resources: Resources, isDonor: Boolean, isEditor: Boolean): String {
+    return if (isDonor && isEditor) {
+        resources.getString(R.string.year_in_review_slide_app_icon_donor_and_editor)
+    } else if (isDonor) {
+        resources.getString(R.string.year_in_review_slide_app_icon_donor)
+    } else {
+        resources.getString(R.string.year_in_review_slide_app_icon_editor)
+    }
+}

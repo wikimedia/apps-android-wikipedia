@@ -217,6 +217,11 @@
   <string name="create_account_button">گڼون جوړول</string>
   <string name="create_account_encourage_title">ويکي‌پېډيا له گڼون سره غوره ده</string>
   <string name="create_account_encourage_year_in_review_title_zero">په کال بياکتنه کې د خپلو لوستلو ورځې سره يوځای وگورئ</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">د کال بياکتنې کې ستاسو %1$d لوست ورځ  سره يوځای وگورئ</item>
+    <item quantity="other">د کال بياکتنې کې ستاسو %1$d لوست ورځې سره يوځای وگورئ</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">په کال کې يو ځل، ستاسو لوست ورځې بېرته راځي، د دې ليدلو لپاره چې کال تاسو چېرته بيايي، چمتو ياست.</string>
   <string name="create_account_encourage_saved_articles_title_zero">خپلې خوندي شوې ليکنې همغږې کړئ</string>
   <plurals name="create_account_encourage_saved_articles_title">
     <item quantity="one">خپله %1$d خوندي شوې ليکنه همغږې کړئ</item>
@@ -224,7 +229,13 @@
   </plurals>
   <string name="create_account_encourage_saved_articles_description">خپل ويکي‌پېډيا گڼون ته ننوځئ؛ ترڅو ستاسو خوندي شوې ليکنې په ټولو سولگرونو کې همغږې شي.</string>
   <string name="create_account_encourage_activity_title_zero">د کارندتيا سره خپلې وروستۍ لوستنې بيا وگورئ</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">د خپلې وروستۍ %1$d لوستنې د کارنديا بياليدنه وکړئ</item>
+    <item quantity="other">د خپلو وروستيو %1$d لوستنو د کارنديا بياليدنه وکړئ</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">د کارندتيا ريښکه کې خپل لوست وخت، سپړل‌شوې سکالوگانې او ستاسو د ونډو لاسرسی وگورئ.</string>
   <string name="create_account_encourage_edits_title">د خپل سمونونو لپاره امتياز ترلاسه کړئ</string>
+  <string name="create_account_encourage_edits_description">د ويکي‌رسنۍ پروژو کې د ونډو ترسره کولو سره، ستاسو گڼون ته د باور ورکولو سره يو داسې ريکارډ جوړ کړئ چې تاسو پرې ووياړئ.</string>
   <string name="create_account_name_unavailable">\"%s\" کارن‌نوم د لاسرسي وړ نه دی.\nمهرباني وکړئ يو بل نوم غوره کړئ.</string>
   <string name="create_account_ip_block_message">بښنې سره، اوسمهال ستاسو په وېب‌‌پتې د نوي گڼون جوړولو بنديز لگول شوی.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -324,7 +335,6 @@
   <string name="editor_select_dialog_continue">دوام ورکول</string>
   <string name="editor_select_icon_ve_title">په باندني ښوونگر انځور کې پرانېستل</string>
   <string name="editor_select_title_settings_screen">غوره‌توب سمول</string>
-  <string name="editor_select_save_btn_settings_screen">خوندي‌کول</string>
   <string name="find_next">بل موندل</string>
   <string name="find_previous">پخوانی موندل</string>
   <string name="find_first_occurence">دا لومړۍ پېښه ده</string>
@@ -1904,6 +1914,44 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">خپله لړۍ، نومرې او نور وگورئ</string>
   <string name="wikipedia_games_title">د ويکي‌پېډيا لوبې</string>
   <string name="wikipedia_games_subtitle">د ويکي‌پېډيا منځپانگې پر بنسټ ورځنۍ ټولواله پوهنيزې لوبې.</string>
+  <string name="yir_intro_headline">ستاسو د ويکي‌پېډيا د کال بياکتنه دا ده</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">په %2$d کې ستاسو د باوري ويکي‌پېډيا کاريال کې د %1$d ورځې برخه اخيستلو لپاره مننه.</item>
+    <item quantity="other">په %2$d کې ستاسو د باوري ويکي‌پېډيا کاريال کې د %1$d ورځو برخه اخيستلو لپاره مننه.</item>
+  </plurals>
+  <string name="yir_article_count_headline">ستاسو د ليکنو ټولټال شمېر:</string>
+  <string name="yir_article_count_empty_headline">تاسو د موندلو لپاره په ميلونونو ليکنې لرئ</string>
+  <string name="yir_article_count_empty_supporting">يوازې په تمه اوسئ؛ تر هغه چې تاسو په ويکي‌‌پېډيا کې د زده کړې لپاره ټول څه ومومئ.</string>
+  <string name="yir_days_visited_headline">هغه ورځې چې تاسو په %1$d کې له ويکي‌پېډيا څخه ليدنه کړې:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">ستاسو کارندتيا په %1$s کې لوړه شوه، کله چې تاسو %2$d ورځ ولوستل.</item>
+    <item quantity="other">ستاسو کارندتيا په %1$s کې لوړه شوه، کله چې تاسو %2$d ورځې ولوستل.</item>
+  </plurals>
+  <string name="yir_minutes_read_headline">ستاسو په لوست تېرې کړې ټولټال دقيقې:</string>
+  <string name="yir_minutes_read_supporting" fuzzy="true">%1$s وخت لکه د باد تېرېږي کله چې انسان په يوه سکالو کې ورک شي.</string>
+  <string name="yir_reading_streak_headline">ستاسو د لوست ورځو تر ټولو اوږده لړۍ:</string>
+  <string name="yir_reading_streak_supporting" fuzzy="true">له %1$s څخه تر %2$s پورې، تاسو په رښتيا هره ورځ د لوست روږدي کېږئ.</string>
+  <string name="yir_reading_streak_empty_headline">۰ لوست لړئ... تر دې مهاله</string>
+  <string name="yir_reading_time_headline">د پلټنې لپاره خواپورې وخت:</string>
+  <string name="yir_reading_time_empty_headline">تاسو نږدې هر وخت لوست کوئ</string>
+  <string name="yir_reading_time_empty_supporting">د ويکي‌پېډيا د مخونو سپړلو لپاره کومه ټاکلې ورځ يا وخت نشته.</string>
+  <string name="yir_top_topic_headline">ستاسو د %1$d غوره سکالو:</string>
+  <string name="yir_top_topic_empty_headline">په %1$d کې ستاسو #1 سکالو...داټولې سکالوگانې دي</string>
+  <string name="yir_top_topic_empty_supporting">د دومره ډېرو لېوالتياوو سره، هېڅ داسې سکالو نشته چې ستاسو د لوست روږدتياوې څرگندې کړي.</string>
+  <string name="yir_runner_up_topics_headline">او په %1$d کې ستاسو د دوهمې درجې سکالو دا ده:</string>
+  <string name="yir_biggest_reading_day_headline">ترټولو لويه لوست ورځ:</string>
+  <string name="yir_articles_read_headline">د هغو ليکنو خوند چې تاسو يې لولئ:</string>
+  <string name="yir_most_time_article_headline">تاسو ډېر وخت په کومو څيزونو تېر کړ؟</string>
+  <string name="yir_rabbit_hole_headline">ستاسو د ډوبېدو تر ټولو ژوره يې کومه سکالو وه؟</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">%1$d تړونی ډېر اغېزمنوونکی دی</item>
+    <item quantity="other">%1$d تړوني ډېر اغېزمنوونکي دي</item>
+  </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">بل به په کومه سکالو کې داسې ډوب شئ؟</string>
+  <string name="yir_niche_category_headline">د ځانگړو لېوالتياوو اړوند وغږېږئ، لکه:</string>
+  <string name="yir_niche_category_supporting">هر لامل چې و؛ خو کله چې خبره دې وېشنيزې ته راغله، تاسو خپل ټول پام ورواړاوه!</string>
+  <string name="yir_reread_articles_headline">ستاسو تاوېدون کې ځينې ليکنې:</string>
+  <string name="yir_reread_articles_empty_headline">تاسو بيالوستونکي نه ياست</string>
   <string name="year_in_review_learn_more">نور زده‌کول</string>
   <string name="year_in_review_get_started">پيلول</string>
   <string name="year_in_review_topbar_w_icon">ويکيپېډيا W نښه</string>
@@ -1917,7 +1965,6 @@
   <string name="year_in_review_get_started_headline">د خپل ويکيپېډيا کال بياکتنه وپلټئ</string>
   <string name="year_in_review_get_started_bodytext">د ويکي‌پېډيا کاريال کې ستاسو لوستو ليکنو او ترسره کړو سمونونو په اړه پوه‌ليدونه وگورئ.</string>
   <string name="year_in_review_get_started_info">ستاسو لوست پېښليک خوندي ساتل کېږي. د لوستلو ليدلوري ستاسو په وسيله کې په ځايي ډول زېرمه شوو اومتوکو په کارولو سره شمېرل کېږي.</string>
-  <string name="year_in_review_get_started_later">تاسو وروسته د خپلې کال بياکتنې ته په نور غوره‌نۍ کې لاسرسی موندلی شئ.</string>
   <string name="year_in_review_survey_title">د کال بياکتنې ښه‌والي کې مرسته کول</string>
   <string name="year_in_review_survey_subtitle">ايا تاسو له دې ځانگړنې خوښ ياست؟</string>
   <string name="year_in_review_reading_list_survey_title">د کال بياکتنې %d ټولگې ښه کولو کې مرسته وکړئ.</string>
@@ -2034,12 +2081,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">خواپورې لوست وخت</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">خواپورې لوست ورځ</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">ستاسو ډېر لوستې مياشت</string>
-  <string name="year_in_review_slide_reading_pattern_morning">سهار</string>
-  <string name="year_in_review_slide_reading_pattern_midday">غرمه</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">ماسپښين</string>
-  <string name="year_in_review_slide_reading_pattern_evening">ماښام</string>
-  <string name="year_in_review_slide_reading_pattern_night">شپه</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">شپې ناوخته</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">سهار</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">غرمه</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">ماسپښين</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">ماښام</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">شپه</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">شپې ناوخته</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">موږ %,d گړۍ په لوستلو تېره کړه</item>
     <item quantity="other">موږ %,d گړۍ په لوستلو تېرې کړې</item>
@@ -2415,6 +2462,7 @@
   <string name="home_feed_new_within_interest_card_heading">ستاسو خواپورو کې نوې</string>
   <string name="home_feed_new_within_interest_title">ستاسو خواپورو کې نوې ليکنه</string>
   <string name="home_feed_new_within_interest_subtitle">دې وروستيو کې جوړې شوې ليکنې د هغه ليکنو په څېر چې تاسو يې څارئ</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">د ليکنې سريزه واورئ</string>
   <string name="home_feed_settings_because_you_read_subtitle">وړانديزونه ستاسو د پېښليک د وروستيو ليکنې پربنسټ دي</string>
   <string name="home_feed_settings_continue_reading_title">لوستلو ته دوام ورکول</string>
   <string name="home_feed_settings_continue_reading_subtitle">بېرته هغه ليکنو ته ورشئ؛ چې پای ته رسولې مو نه دي</string>
@@ -2457,6 +2505,23 @@
   <string name="home_feed_settings_games_title">لوبې</string>
   <string name="home_feed_settings_games_subtitle">د ويکي‌پېډيا منځنپانگې پربنسټ ورځنۍ لوبې</string>
   <string name="home_feed_settings_discover_title">سپارښتنې موندل</string>
+  <string name="read_aloud_card_play">غږول</string>
+  <string name="read_aloud_card_pause">درول‌</string>
+  <string name="read_aloud_card_retry">بيا هڅه‌کول</string>
+  <string name="read_aloud_card_error">د دې ليکنې غږ شتون نلري.</string>
+  <string name="read_aloud_card_keep_listening">غوږ نيسئ؟</string>
+  <string name="read_aloud_lead_section_tooltip_text">نوې ازمېښتي ځانگړنه: د \"ستاسو لپاره\" برخه کې د ليکنې سريزې واورئ</string>
+  <string name="read_aloud_lead_section_survey_title">تاسو د ويکي‌پېډيا اورېدو سره څومره لېوالتيا لرئ؟</string>
+  <string name="read_aloud_lead_section_survey_choice1">د ليکنې سريزې</string>
+  <string name="read_aloud_lead_section_survey_choice2">د يوې ليکنې څو برخې</string>
+  <string name="read_aloud_lead_section_survey_choice3">بشپړې ليکنې</string>
+  <string name="read_aloud_lead_section_survey_choice4">د يوې سکالو په اړه د بېلابېلو ليکنو څخه څو لنډې لاسته راوړنې</string>
+  <string name="read_aloud_lead_section_survey_choice5">نور:</string>
+  <string name="read_aloud_lead_section_beta_label">ازمېښتي</string>
+  <string name="read_aloud_lead_section_report_subject">د ستونزې راپور - د ليکنې سريزې واورئ</string>
+  <string name="read_aloud_lead_section_report_body">زه د \"ليکنې د سريزو اورېدلو\" ځانگړنې ستونزې سره مخ شوی يم:\n- [ځانگړې ستونزه څرگندول]\n\nهغه چلن چې زه يې ليدل غواړم دا دی:\n- [وړانديز شوی حل څرگندول]</string>
+  <string name="read_aloud_lead_section_about_experiment">د دې ازمېښت په‌اړه</string>
+  <string name="read_aloud_lead_section_report_issue">د يوې ستونزې راپور ورکړئ</string>
   <string name="home_feed_settings_discover_subtitle">ستاسو له موندلې ټولگې نه ليکنې</string>
   <string name="home_feed_discover_cta_title">له موندلو</string>
   <string name="home_feed_discover_cta_description">د نويو سکالوگانو په اړه زده کړئ، چې يوازې ستاسو لپاره غوره شوې دي. د ورځنيو، اوونيزو يآ مياشتنيو هم‌مهالېدنو ترمنځ يې خوښ کړئ.</string>

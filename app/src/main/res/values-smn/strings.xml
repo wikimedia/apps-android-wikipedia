@@ -658,12 +658,12 @@
     <item quantity="two">%,d staavvâl lasettum</item>
     <item quantity="other">%,d stavâlid lasettum</item>
   </plurals>
-  <string name="year_in_review_slide_reading_pattern_morning">Iiđeed</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Koskâpeivi</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Eehidpeivi</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Eehid</string>
-  <string name="year_in_review_slide_reading_pattern_night">Ijjâ</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Maŋesijjâ</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Iiđeed</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Koskâpeivi</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Eehidpeivi</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Eehid</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Ijjâ</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Maŋesijjâ</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Uusâ artikkâl</string>
   <string name="recommended_reading_list_page_snackbar_day">Peivi</string>
   <string name="recommended_reading_list_page_snackbar_week">Okko</string>

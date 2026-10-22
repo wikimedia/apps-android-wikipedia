@@ -1,7 +1,6 @@
 package org.wikipedia.settings.dev
 
 import android.content.DialogInterface
-import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -35,17 +34,19 @@ import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.IntPreference
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
 import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
+import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
-import org.wikipedia.yearinreview.YearInReviewSurveyState
+import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
+import org.wikipedia.yearinreview.data.YearInReviewSurveyState
 import java.util.Date
 import java.util.concurrent.TimeUnit
 
@@ -188,7 +189,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preference_key_announcement_shown_dialogs).summary = activity.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.announcementShownDialogs.size)
         findPreference(R.string.preference_key_announcement_shown_dialogs).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             Prefs.resetAnnouncementShownDialogs()
-            loadPreferences()
+            it.summary = activity.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.announcementShownDialogs.size)
             true
         }
         findPreference(R.string.preference_key_suggested_edits_reactivation_test).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, _: Any? ->
@@ -228,10 +229,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Prefs.otdNotificationState = OnThisDayGameNotificationState.NO_INTERACTED
             OnThisDayGameNotificationManager.cancelDailyGameNotification(activity)
             FeedbackUtil.showMessage(activity, "Notification state reset.")
-            true
-        }
-        findPreference(R.string.preference_key_playground_category).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
             true
         }
         (findPreference(R.string.preference_key_recommended_reading_list_notification_simulator) as ListPreference).apply {
@@ -297,6 +294,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
             true
         }
+        findPreference(R.string.preference_key_yir_playground).apply {
+            isVisible = ReleaseUtil.isPreProdRelease
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager, YearInReviewPlaygroundDialog())
+                true
+            }
+        }
         findPreference(R.string.preference_key_reading_challenge_widgets).apply {
             isVisible = ReleaseUtil.isPreProdRelease
             onPreferenceClickListener = Preference.OnPreferenceClickListener {
@@ -321,7 +325,20 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                 true
             }
         }
+
         addABTestPreferences()
+
+        if (Prefs.isDeveloperSettingsNewestFirst) {
+            reverseCategoryOrder()
+        }
+    }
+
+    private fun reverseCategoryOrder() {
+        val screen = fragment.preferenceScreen
+        val categories = (0 until screen.preferenceCount).map { screen.getPreference(it) }
+        categories.forEachIndexed { index, category ->
+            category.order = categories.lastIndex - index
+        }
     }
 
     private fun addABTestPreferences() {
@@ -337,7 +354,9 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         listOf(
             DonationReminderAbTest(),
             NewWithinInterestABTest(),
-            ReadAloudLeadSectionABTest()
+            ReadAloudLeadSectionABTest(),
+            SemanticSearchAbTest(),
+            YearInReviewEndScreenABTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey

@@ -386,13 +386,10 @@
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
-            android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
+            android:name=".yearinreview.presentation.YearInReviewOnboardingActivity"/>
 
         <activity
-            android:name=".yearinreview.YearInReviewOnboardingActivity"/>
-
-        <activity
-            android:name=".yearinreview.YearInReviewActivity"/>
+            android:name=".yearinreview.presentation.YearInReviewActivity"/>
       
         <activity
             android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"
@@ -419,6 +416,8 @@
         <activity android:name=".feed.personalization.PersonalizationActivity"/>
 
         <activity android:name=".settings.homefeed.HomeFeedSettingsActivity"/>
+
+        <activity android:name=".settings.VisualEditorSettingsActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"

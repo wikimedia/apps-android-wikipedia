@@ -17,7 +17,9 @@ interface RecommendedPageDao {
     @Query("SELECT * FROM RecommendedPage WHERE status = 0 ORDER BY timestamp DESC")
     fun getNewRecommendedPagesFlow(): Flow<List<RecommendedPage>>
 
-    @Query("SELECT * FROM RecommendedPage WHERE status = 1 AND apiTitle NOT IN (:list) ORDER BY RANDOM() LIMIT :limit")
+    @Query("SELECT * FROM RecommendedPage WHERE id IN (" +
+            "SELECT MIN(id) FROM RecommendedPage WHERE status = 1 AND apiTitle NOT IN (:list) GROUP BY lang, apiTitle" +
+            ") ORDER BY RANDOM() LIMIT :limit")
     suspend fun getExpiredRecommendedPages(limit: Int, list: List<String>): List<RecommendedPage>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -368,7 +368,6 @@
   <string name="editor_select_dialog_continue">Doorgaan</string>
   <string name="editor_select_icon_ve_title">Openen in een externe browser (pictogram)</string>
   <string name="editor_select_title_settings_screen">Bewerkingsvoorkeur</string>
-  <string name="editor_select_save_btn_settings_screen">Opslaan</string>
   <string name="find_next">Volgende zoeken</string>
   <string name="find_previous">Vorige zoeken</string>
   <string name="find_first_occurence">Dit is het eerste resultaat</string>
@@ -1959,7 +1958,6 @@
   <string name="year_in_review_get_started_headline">Verken uw jaaroverzicht van Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Bekijk inzichten in welke pagina\'s u in de Wikipedia-app hebt gelezen en de bewerkingen die u hebt aangebracht.</string>
   <string name="year_in_review_get_started_info">Uw leesgeschiedenis blijft beschermd. De leesinzichten worden berekend op basis van lokaal op uw apparaat opgeslagen gegevens.</string>
-  <string name="year_in_review_get_started_later">U kunt uw Jaaroverzicht later via het menu Meer bekijken.</string>
   <string name="year_in_review_survey_title">Help het Jaaroverzicht te verbeteren</string>
   <string name="year_in_review_survey_subtitle">Bent u tevreden over deze functie?</string>
   <string name="year_in_review_reading_list_survey_title">Help mee de verzameling Jaaroverzicht %d te verbeteren.</string>

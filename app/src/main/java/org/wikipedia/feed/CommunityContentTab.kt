@@ -152,7 +152,7 @@ fun CommunityContentTab(
                                                 menuKey = "top-read-${card.age}-$index",
                                                 overflowMenuState = overflowMenuState,
                                                 onDismiss = { onAction(HomeAction.PageOverflowDismiss) },
-                                                items = overflowMenuState?.items.orEmpty()
+                                                onItemClick = { item, entry -> onAction(HomeAction.PageOverflowItemClick(card, item, entry)) }
                                             )
                                         },
                                         onHideCardClick = { onAction(HomeAction.HideCommunityCard(card)) },
@@ -206,7 +206,7 @@ fun CommunityContentTab(
                                                 menuKey = "on-this-day-${card.age}-$eventIndex-$itemIndex",
                                                 overflowMenuState = overflowMenuState,
                                                 onDismiss = { onAction(HomeAction.PageOverflowDismiss) },
-                                                items = overflowMenuState?.items.orEmpty()
+                                                onItemClick = { item, entry -> onAction(HomeAction.PageOverflowItemClick(card, item, entry)) }
                                             )
                                         },
                                         onHideCardClick = { onAction(HomeAction.HideCommunityCard(card)) },
@@ -259,7 +259,7 @@ fun CommunityContentTab(
                                                 menuKey = "dyk-${card.date}-$index",
                                                 overflowMenuState = overflowMenuState,
                                                 onDismiss = { onAction(HomeAction.PageOverflowDismiss) },
-                                                items = overflowMenuState?.items.orEmpty()
+                                                onItemClick = { item, entry -> onAction(HomeAction.PageOverflowItemClick(card, item, entry)) }
                                             )
                                         },
                                         onPageOverflowClick = { pageSummary, index ->
