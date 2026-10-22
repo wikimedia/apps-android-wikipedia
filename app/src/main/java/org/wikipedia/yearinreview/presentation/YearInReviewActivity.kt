@@ -68,8 +68,10 @@ class YearInReviewActivity : BaseActivity() {
 
                 YearInReviewScreen(
                     uiState = uiState,
-                    onCloseClick = {
-                        submitInteraction(uiState, action = "click", elementId = "close_button")
+                    onCloseClick = { page ->
+                        if (page != null) {
+                            submitInteraction(uiState, action = "click", elementId = "close_button", actionContext = mapOf("page" to page.id))
+                        }
                         finish()
                     },
                     onLearnMoreClick = {
@@ -87,8 +89,8 @@ class YearInReviewActivity : BaseActivity() {
                             subject = getString(R.string.year_in_review_feedback_email_subject)
                         )
                     },
-                    onShareClick = { bitmap ->
-                        submitInteraction(uiState, action = "click", elementId = "share_button")
+                    onShareClick = { page, bitmap ->
+                        submitInteraction(uiState, action = "click", elementId = "share_button", actionContext = mapOf("page" to page.id))
                         val shareUrl = getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
                         val shareText = String.format(
                             getString(R.string.year_in_review_share_body),
@@ -104,11 +106,11 @@ class YearInReviewActivity : BaseActivity() {
                             text = shareText
                         )
                     },
-                    onDonateClick = { currentSlide ->
-                        val campaignId = "appmenu_yir_$currentSlide"
+                    onDonateClick = { page ->
+                        val campaignId = "appmenu_yir_${page.id}"
                         YearInReviewViewModel.currentCampaignId = campaignId
                         submitInteraction(uiState, action = "click", elementId = "donate_button", actionContext = mapOf(
-                            "slide" to currentSlide,
+                            "page" to page.id,
                             "campaign_id" to campaignId
                         ))
                         ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = campaignId, fromYiR = true))

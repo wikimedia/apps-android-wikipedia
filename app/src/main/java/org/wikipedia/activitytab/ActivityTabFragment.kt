@@ -140,7 +140,7 @@ class ActivityTabFragment : Fragment() {
             }
         }
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.yearInReviewEntryState.collectLatest {
                     if (it is UiState.Success) {
                         TestKitchenAdapter.client.getInstrument("apps-year-in-review")
