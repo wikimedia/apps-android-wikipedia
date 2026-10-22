@@ -8,4 +8,9 @@
         app:showAsAction="always"
         app:iconTint="?attr/primary_color">
     </item>
+    <item
+        android:id="@+id/menu_sort_newest_first"
+        android:title="@string/preferences_developer_sort_newest_first"
+        android:checkable="true"
+        app:showAsAction="never" />
 </menu>

@@ -15,6 +15,7 @@ import androidx.lifecycle.Lifecycle
 import org.wikipedia.R
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.settings.PreferenceLoaderFragment
+import org.wikipedia.settings.Prefs
 
 class DeveloperSettingsFragment : PreferenceLoaderFragment(), MenuProvider {
 
@@ -32,12 +33,20 @@ class DeveloperSettingsFragment : PreferenceLoaderFragment(), MenuProvider {
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.menu_developer_settings, menu)
+        menu.findItem(R.id.menu_sort_newest_first).isChecked = Prefs.isDeveloperSettingsNewestFirst
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_search -> {
                 (requireActivity() as AppCompatActivity).startSupportActionMode(searchActionModeCallback)
+                true
+            }
+            R.id.menu_sort_newest_first -> {
+                Prefs.isDeveloperSettingsNewestFirst = !Prefs.isDeveloperSettingsNewestFirst
+                menuItem.isChecked = Prefs.isDeveloperSettingsNewestFirst
+                DeveloperSettingsPreferenceLoader(this).filterPreferences()
+                listView.scrollToPosition(0)
                 true
             }
             else -> false
