@@ -213,6 +213,8 @@ fun YearInReviewRiveSlide(
     content: RiveSlideContent,
     playing: Boolean,
     modifier: Modifier = Modifier,
+    // Changing this restarts the slide's animation from the beginning
+    restartKey: Int = 0,
     slideId: String? = null,
     screenshotGetters: MutableMap<String, RiveSlideScreenshotFun>? = null,
     onUseWhiteTopBarIconsChange: (Boolean) -> Unit = {},
@@ -232,6 +234,7 @@ fun YearInReviewRiveSlide(
             imageUrls = content.imageUrls,
             accessibilityDescription = content.accessibilityDescription,
             playing = playing,
+            restartKey = restartKey,
             modifier = modifier,
             onRiveError = onRiveError,
             slideId = slideId,
@@ -253,6 +256,7 @@ private fun YearInReviewRiveArtboard(
     imageUrls: Map<String, String?>,
     accessibilityDescription: String,
     playing: Boolean,
+    restartKey: Int,
     modifier: Modifier,
     onRiveError: (Throwable) -> Unit,
     slideId: String?,
@@ -261,23 +265,27 @@ private fun YearInReviewRiveArtboard(
     onFrameComplete: () -> Unit,
     onRiveLoaded: () -> Unit
 ) {
-    // loading the artboard and state machine from the rive file
-    val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
-    val stateMachineResult = artboardResult.andThen { artboard ->
-        // Each slide artboard has one state machine, so its default is used rather than looking it up by name
-        rememberStateMachineResult(artboard)
+    // Rive can't rewind a state machine, so restarting the slide recreates everything that holds its animation state
+    val riveResult = key(restartKey) {
+        // loading the artboard and state machine from the rive file
+        val artboardResult = rememberArtboardResult(file = riveFile, artboardName = spec.artboardName)
+        val stateMachineResult = artboardResult.andThen { artboard ->
+            // Each slide artboard has one state machine, so its default is used rather than looking it up by name
+            rememberStateMachineResult(artboard)
+        }
+        // creating ViewModel instance based on the spec
+        val viewModelSource = ViewModelSource.Named(spec.viewModelName)
+        val instanceSource = viewModelSource.instanceSource(spec.instanceType)
+        val instanceResult = rememberViewModelInstanceResult(file = riveFile, source = instanceSource)
+        val globalInstanceResult = rememberGlobalViewModelInstanceResult(riveFile, spec.globalViewModel)
+        artboardResult.zip(stateMachineResult).zip(instanceResult).zip(globalInstanceResult)
     }
-    // creating ViewModel instance based on the spec
-    val viewModelSource = ViewModelSource.Named(spec.viewModelName)
-    val instanceSource = viewModelSource.instanceSource(spec.instanceType)
-    val instanceResult = rememberViewModelInstanceResult(file = riveFile, source = instanceSource)
-    val globalInstanceResult = rememberGlobalViewModelInstanceResult(riveFile, spec.globalViewModel)
     val imageResults = rememberRiveImages(riveFile.riveWorker, imageUrls)
     // waits for the images too, so the slide's animation never starts with the designer's sample pictures
     val imagesLoading = imageResults.values.any { it is Result.Loading }
     val layoutDirection = LocalLayoutDirection.current
 
-    when (val result = artboardResult.zip(stateMachineResult).zip(instanceResult).zip(globalInstanceResult)) {
+    when (val result = riveResult) {
         is Result.Loading -> RiveLoadingIndicator(modifier)
         is Result.Success if imagesLoading -> RiveLoadingIndicator(modifier)
         is Result.Error -> RiveFailure(result.throwable, onRiveError)

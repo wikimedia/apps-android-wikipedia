@@ -194,6 +194,23 @@ private fun YearInReviewContent(
             pages.getOrNull(position)?.let { currentOnPageImpression(it) }
         }
     }
+    // Slides are restarted once they're off screen, so that scrolling back to one plays it from the beginning
+    val restartKeysByPageId = remember { mutableStateMapOf<String, Int>() }
+    LaunchedEffect(pagerState, pages) {
+        val playedPageIds = mutableSetOf<String>()
+        launch {
+            snapshotFlow { pagerState.currentPage }.collect { position ->
+                pages.getOrNull(position)?.let { playedPageIds += it.id }
+            }
+        }
+        snapshotFlow { pagerState.settledPage }.collect { position ->
+            val settledPageId = pages.getOrNull(position)?.id
+            playedPageIds.filter { it != settledPageId }.forEach { pageId ->
+                restartKeysByPageId[pageId] = (restartKeysByPageId[pageId] ?: 0) + 1
+                playedPageIds -= pageId
+            }
+        }
+    }
     val useWhiteTopBarIconsByPageId = remember { mutableStateMapOf<String, Boolean>() }
     val useDarkStatusBarIcons by remember(pages) {
         derivedStateOf {
@@ -296,6 +313,7 @@ private fun YearInReviewContent(
                                 riveFileResult = riveFiles[content.spec.resourceId] ?: Result.Loading,
                                 content = content,
                                 playing = pagerState.currentPage == position,
+                                restartKey = restartKeysByPageId[page.id] ?: 0,
                                 slideId = page.id,
                                 screenshotGetters = screenshotGetters,
                                 onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
