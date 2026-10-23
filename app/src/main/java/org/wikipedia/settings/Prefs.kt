@@ -1050,4 +1050,8 @@ object Prefs {
     var notificationsIsTestActive
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_is_test_active, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_is_test_active, value)
+
+    var notificationsWeeklyMostReadScheduled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_weekly_most_read_scheduled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_weekly_most_read_scheduled, value)
 }
