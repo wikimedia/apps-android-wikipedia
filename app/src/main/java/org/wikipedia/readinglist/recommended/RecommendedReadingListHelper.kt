@@ -8,6 +8,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.NewRecommendedReadingListEvent
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.settings.Prefs
@@ -73,7 +74,7 @@ object RecommendedReadingListHelper {
         }
 
         // Step 1: get titles from the source by number of articles
-        val titles = when (Prefs.recommendedReadingListSource) {
+        var titles = when (Prefs.recommendedReadingListSource) {
             RecommendedReadingListSource.INTERESTS -> {
                 Prefs.recommendedReadingListInterests.shuffled().take(numberOfArticles)
             }
@@ -93,6 +94,12 @@ object RecommendedReadingListHelper {
                 }
             }
         }.distinctBy { it.prefixedText }
+
+        // Notifications experiment: Add seed article to the list of titles
+        val notificationSource = if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) Prefs.notificationsV1Exp1Source else null
+        notificationSource?.let { seed ->
+            titles = (listOf(seed.title) + titles).distinctBy { it.prefixedText }.take(numberOfArticles)
+        }
 
         // If no titles are found, return an empty list
         if (titles.isEmpty()) {
@@ -176,6 +183,7 @@ object RecommendedReadingListHelper {
         }
         Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
+        saveNotificationsV1Exp1Source(titles, notificationSource?.title)
         return finalList.shuffled().take(Prefs.recommendedReadingListArticlesNumber)
     }
 
@@ -207,6 +215,17 @@ object RecommendedReadingListHelper {
             }.take(takeSize)
         return firstRecommendedPage
     }
+
+    private fun saveNotificationsV1Exp1Source(titles: List<PageTitle>, previousTitle: PageTitle?) {
+        if (!NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) {
+            return
+        }
+        // Prevent reuse of the same article notification
+        val nextTitle = titles.firstOrNull { it.prefixedText != previousTitle?.prefixedText } ?: titles.firstOrNull()
+        Prefs.notificationsV1Exp1Source = nextTitle?.let {
+            NotificationsV1Exp1Source(it, Prefs.recommendedReadingListSource)
+        }
+    }
 }
 
 @Serializable
@@ -214,4 +233,10 @@ class SourceWithOffset(
     val title: String,
     val language: String,
     var offset: Int
+)
+
+@Serializable
+class NotificationsV1Exp1Source(
+    val title: PageTitle,
+    val source: RecommendedReadingListSource
 )

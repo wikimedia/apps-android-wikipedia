@@ -2922,4 +2922,9 @@
     <string name="preference_summary_semantic_search_jump_to_passage">Jump straight to the relevant passage</string>
     <string name="semantic_search_snackbar_message">Module hidden. You can make it visible again via Settings</string>
     <string name="semantic_search_snackbar_action_label">Modify</string>
+
+    <!-- Notifications V1 -->
+    <string name="notifications_v1_exp1_interests_title">Because you\'re interested in %s</string>
+    <string name="notifications_v1_exp1_saved_or_history_title">Because you read about %s</string>
+    <string name="notifications_v1_exp1_message">We’ve created a new reading list for you based on this and other interests.</string>
 </resources>

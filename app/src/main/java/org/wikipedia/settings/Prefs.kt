@@ -32,6 +32,7 @@ import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.readinglist.recommended.NotificationsV1Exp1Source
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.recommended.SourceWithOffset
@@ -1050,4 +1051,8 @@ object Prefs {
     var isNotificationsExperimentNotificationRescheduled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, value)
+
+    var notificationsV1Exp1Source
+        get() = JsonUtil.decodeFromString<NotificationsV1Exp1Source>(PrefsIoUtil.getString(R.string.preference_key_notifications_v1_exp1_source, null))
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_notifications_v1_exp1_source, value?.let { JsonUtil.encodeToString(it) })
 }

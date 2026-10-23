@@ -14,6 +14,7 @@ import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.StringUtil
 import java.time.DayOfWeek
 import java.time.Duration
 import java.time.LocalDateTime
@@ -68,15 +69,23 @@ object RecommendedReadingListNotificationManager {
             RecommendedReadingListUpdateFrequency.WEEKLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_weekly)
             RecommendedReadingListUpdateFrequency.MONTHLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_monthly)
         }
+
+        val experimentSource = if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) Prefs.notificationsV1Exp1Source else null
+        val (title, text) = if (experimentSource != null) {
+            getNotificationsV1Exp1TitleAndText(context, experimentSource)
+        } else {
+            context.getString(R.string.recommended_reading_list_notification_title, frequency) to
+                    context.getString(R.string.recommended_reading_list_notification_subtitle)
+        }
         Prefs.resetRecommendedReadingList = true
         RecommendedReadingListEvent.submit("impression", "rrl_notification")
         NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, 1, notificationCategory = NotificationCategory.RECOMMENDED_READING_LISTS),
             id = 1,
-            title = context.getString(R.string.recommended_reading_list_notification_title, frequency),
-            text = context.getString(R.string.recommended_reading_list_notification_subtitle),
-            longText = null,
+            title = title,
+            text = text,
+            longText = if (experimentSource != null) text else null,
             lang = null,
             icon = null,
             color = R.color.blue600,
@@ -87,6 +96,20 @@ object RecommendedReadingListNotificationManager {
                 notificationCategory = NotificationCategory.RECOMMENDED_READING_LISTS
             )
         )
+    }
+
+    private fun getNotificationsV1Exp1TitleAndText(context: Context, experimentSource: NotificationsV1Exp1Source): Pair<String, String> {
+        val articleTitle = StringUtil.fromHtml(experimentSource.title.displayText).toString()
+        return when (experimentSource.source) {
+            RecommendedReadingListSource.INTERESTS, RecommendedReadingListSource.READING_LIST -> {
+                context.getString(R.string.notifications_v1_exp1_interests_title, articleTitle) to
+                        context.getString(R.string.notifications_v1_exp1_message)
+            }
+            else -> {
+                context.getString(R.string.notifications_v1_exp1_saved_or_history_title, articleTitle) to
+                        context.getString(R.string.notifications_v1_exp1_message)
+            }
+        }
     }
 
     fun cancelRecommendedReadingListNotification(context: Context) {
