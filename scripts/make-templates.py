@@ -6,6 +6,7 @@ import os
 import json
 import codecs
 import requests
+from time import sleep
 from jinja2 import Environment, FileSystemLoader
 from constants import HEADERS as headers
 
@@ -136,6 +137,7 @@ def populate_aliases(wikis):
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=siteinfo&format=json&siprop=namespaces"
         data = json.loads(requests.get(url, headers=headers).text)
+        sleep(1)
         # according to https://www.mediawiki.org/wiki/Manual:Namespace
         # -1 seems to be the ID for Special Pages
         wiki.props[u"special_alias"] = data[u"query"][u"namespaces"][u"-1"][u"*"]
@@ -157,6 +159,7 @@ def populate_main_pages(wikis):
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=siteinfo&format=json&siprop=general|specialpagealiases"
         data = json.loads(requests.get(url, headers=headers).text)
+        sleep(1)
         wiki.props[u"main_page_name"] = data[u"query"][u"general"][u"mainpage"]
         for specialPage in data[u"query"][u"specialpagealiases"]:
             if specialPage[u"realname"] == "Contributions":
