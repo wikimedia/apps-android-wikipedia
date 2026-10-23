@@ -47,12 +47,12 @@ fun showNotificationsExpTimerPickerDialog(context: Context, onChanged: () -> Uni
         BaseTheme {
             DevSettingsTimePicker(
                 onCancel = {
-                    Prefs.notificationsV1CustomTriggerTime = 0L
+                    Prefs.notificationsV1Exp1CustomTriggerTime = 0L
                     onChanged()
                     dialog.dismiss()
                 },
                 onSave = { timeInMillis ->
-                    Prefs.notificationsV1CustomTriggerTime = timeInMillis
+                    Prefs.notificationsV1Exp1CustomTriggerTime = timeInMillis
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                     Toast.makeText(context, "Scheduled for ${Date(timeInMillis)}", Toast.LENGTH_SHORT).show()
                     onChanged()

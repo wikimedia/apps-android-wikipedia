@@ -329,7 +329,17 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             }
         }
 
-        findPreference(R.string.preference_key_notifications_v1_custom_trigger_time).apply {
+        findPreference(R.string.preference_key_notifications_v1_exp1_send_count).apply {
+            summary = Prefs.notificationsV1Exp1SendCount.toString()
+            onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
+                Prefs.notificationsV1Exp1SendCount = 0
+                pref.summary = Prefs.notificationsV1Exp1SendCount.toString()
+                Toast.makeText(activity, "Notifications experiment send count reset", Toast.LENGTH_SHORT).show()
+                true
+            }
+        }
+
+        findPreference(R.string.preference_key_notifications_v1_exp1_custom_trigger_time).apply {
             summary = customNotificationTriggerTimeSummary()
             onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
                 showNotificationsExpTimerPickerDialog(activity) {
@@ -343,7 +353,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     }
 
     private fun customNotificationTriggerTimeSummary(): String {
-        val millis = Prefs.notificationsV1CustomTriggerTime
+        val millis = Prefs.notificationsV1Exp1CustomTriggerTime
         if (millis == 0L) {
             return "Unset"
         }

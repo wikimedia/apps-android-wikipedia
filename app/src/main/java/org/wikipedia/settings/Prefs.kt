@@ -1060,7 +1060,7 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_notifications_v1_exp1_send_count, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_notifications_v1_exp1_send_count, value)
 
-    var notificationsV1CustomTriggerTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_v1_custom_trigger_time, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_v1_custom_trigger_time, value)
+    var notificationsV1Exp1CustomTriggerTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_v1_exp1_custom_trigger_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_v1_exp1_custom_trigger_time, value)
 }

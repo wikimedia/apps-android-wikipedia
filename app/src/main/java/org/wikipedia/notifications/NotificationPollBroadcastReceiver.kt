@@ -32,7 +32,6 @@ import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
-import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.DeviceUtil
@@ -90,11 +89,15 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
 
             ACTION_RECOMMENDED_READING_LIST == intent.action -> {
-                if (Prefs.recommendedReadingListUpdateFrequency == RecommendedReadingListUpdateFrequency.MONTHLY ||
-                    NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+                val isExperimentSend = NotificationsExperimentAbTest().isNotificationsExperimentEligible()
+                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
+                if (isExperimentSend) {
+                    Prefs.notificationsV1Exp1SendCount++
+                }
+                // re-arm notifications
+                if (Prefs.isRecommendedReadingListNotificationEnabled) {
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 }
-                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
         }
     }
