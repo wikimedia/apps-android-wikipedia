@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -54,6 +56,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
@@ -229,10 +232,13 @@ private fun EnabledState(
                 articlesNumber = articlesNumber,
                 onArticleNumberChanged = onArticleNumberChanged
             )
-            UpdatesFrequencyView(
-                selectedFrequency = selectedFrequency,
-                onUpdateFrequency = onUpdateFrequency
-            )
+            if (!NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+                UpdatesFrequencyView(
+                    selectedFrequency = selectedFrequency,
+                    onUpdateFrequency = onUpdateFrequency
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
         }
 
         SettingsSection {
@@ -378,8 +384,7 @@ private fun UpdatesFrequencyView(
                     RecommendedReadingListEvent.submit("updates_click", "discover_settings")
                     showDialog = true
                 }
-            )
-            .padding(bottom = 16.dp),
+            ),
         colors = ListItemDefaults.colors(
             containerColor = WikipediaTheme.colors.paperColor
         ),

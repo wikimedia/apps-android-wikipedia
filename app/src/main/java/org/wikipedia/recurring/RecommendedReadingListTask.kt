@@ -7,7 +7,7 @@ import java.time.LocalDate
 import java.util.Date
 import java.util.concurrent.TimeUnit
 
-class RecommendedReadingListTask() : RecurringTask() {
+class RecommendedReadingListTask : RecurringTask() {
     override val name = "generateRecommendedReadingListTask"
 
     override fun shouldRun(lastRun: Date): Boolean {
