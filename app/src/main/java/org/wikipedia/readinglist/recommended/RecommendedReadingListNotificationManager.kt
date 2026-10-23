@@ -33,6 +33,9 @@ object RecommendedReadingListNotificationManager {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         if (NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+
+            // setAndAllowWhileIdle: fire once at the experiment's send time (even during Doze), instead of a repeating alarm that drifts.
+            // This is a one-shot alarm, so it must be re-armed after each notification is sent (see NotificationPollBroadcastReceiver).
             alarmManager.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
                 getNotificationsV1Exp1DurationUntilSend().toMillis() + System.currentTimeMillis(),
