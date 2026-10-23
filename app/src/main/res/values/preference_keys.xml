@@ -241,4 +241,5 @@
     <string name="preference_key_notifications_experiment_notification_rescheduled" translatable="false">notificationsExperimentNotificationRescheduled</string>
     <string name="preference_key_notifications_v1_exp1_source" translatable="false">notificationsV1Exp1Source</string>
     <string name="preference_key_notifications_v1_exp1_send_count" translatable="false">notificationsV1Exp1SendCount</string>
+    <string name="preference_key_notifications_v1_custom_trigger_time" translatable="false">notificationsV1CustomTriggerTime</string>
 </resources>

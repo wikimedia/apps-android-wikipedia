@@ -1,6 +1,7 @@
 package org.wikipedia.settings.dev
 
 import android.content.DialogInterface
+import android.text.format.DateUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -28,6 +29,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
+import org.wikipedia.notifications.experiment.showNotificationsExpTimerPickerDialog
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -327,7 +329,26 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             }
         }
 
+        findPreference(R.string.preference_key_notifications_v1_custom_trigger_time).apply {
+            summary = customNotificationTriggerTimeSummary()
+            onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
+                showNotificationsExpTimerPickerDialog(activity) {
+                    pref.summary = customNotificationTriggerTimeSummary()
+                }
+                true
+            }
+        }
+
         addABTestPreferences()
+    }
+
+    private fun customNotificationTriggerTimeSummary(): String {
+        val millis = Prefs.notificationsV1CustomTriggerTime
+        if (millis == 0L) {
+            return "Unset"
+        }
+        val formatted = DateUtils.formatDateTime(activity, millis, DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_TIME)
+        return if (millis < System.currentTimeMillis()) "$formatted (passed)" else formatted
     }
 
     private fun addABTestPreferences() {

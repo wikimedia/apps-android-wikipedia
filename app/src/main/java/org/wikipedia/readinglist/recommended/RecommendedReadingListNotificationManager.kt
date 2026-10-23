@@ -14,6 +14,7 @@ import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import java.time.DayOfWeek
 import java.time.Duration
@@ -145,6 +146,11 @@ object RecommendedReadingListNotificationManager {
     }
 
     private fun getNotificationsV1Exp1DurationUntilSend(): Duration {
+        // Dev-only override: if a custom trigger time is set and still in the future, use it.
+        val customTriggerMillis = Prefs.notificationsV1CustomTriggerTime
+        if (ReleaseUtil.isDevRelease && customTriggerMillis > System.currentTimeMillis()) {
+            return Duration.ofMillis(customTriggerMillis - System.currentTimeMillis())
+        }
         val currentLocalDateTime = LocalDateTime.now()
         var notificationDateTime = currentLocalDateTime
             .with(TemporalAdjusters
