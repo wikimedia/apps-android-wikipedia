@@ -170,7 +170,7 @@ class ActivityTabFragment : Fragment() {
                             yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
                             onYirGetStartedClick = {
                                 TestKitchenAdapter.client.getInstrument("apps-year-in-review")
-                                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started",
+                                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started_button",
                                         actionContext = mapOf("personalized" to ((yearInReviewEntryState as? UiState.Success)?.data ?: false)))
                                 startActivity(YearInReviewOnboardingActivity.newIntent(requireContext()))
                             }
@@ -277,7 +277,7 @@ class ActivityTabFragment : Fragment() {
             yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
             onYirGetStartedClick = {
                 TestKitchenAdapter.client.getInstrument("apps-year-in-review")
-                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started",
+                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started_button",
                         actionContext = mapOf("personalized" to ((yearInReviewEntryState as? UiState.Success)?.data ?: false)))
                 startActivity(YearInReviewOnboardingActivity.newIntent(requireContext()))
             }
