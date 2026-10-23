@@ -2923,4 +2923,8 @@
     <string name="preference_summary_semantic_search_jump_to_passage">Jump straight to the relevant passage</string>
     <string name="semantic_search_snackbar_message">Module hidden. You can make it visible again via Settings</string>
     <string name="semantic_search_snackbar_action_label">Modify</string>
+
+    <!-- Notifications V1 -->
+    <string name="notifications_weekly_most_read_channel_title">Weekly Most Read</string>
+    <string name="notifications_weekly_most_read_channel_description">Notifications for the weekly most read articles</string>
 </resources>
