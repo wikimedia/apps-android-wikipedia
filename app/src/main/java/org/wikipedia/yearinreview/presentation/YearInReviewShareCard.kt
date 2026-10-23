@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
@@ -44,6 +45,7 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CompletableDeferred
 import org.wikipedia.R
@@ -133,14 +135,15 @@ fun YearInReviewShareCard(
             )
             Image(
                 modifier = Modifier
-                    .align(Alignment.End)
+                    .align(Alignment.CenterHorizontally)
+                    .padding(top = 16.dp)
                     .width(250.dp),
                 painter = painterResource(R.drawable.crossword_sharecard),
                 contentDescription = null
             )
-            ShareCardDivider()
+            ShareCardDivider(modifier = Modifier.offset(y = (-6).dp).zIndex(-1f))
             Row(
-                modifier = Modifier.padding(top = 8.dp, bottom = 10.dp)
+                modifier = Modifier.padding(bottom = 10.dp)
             ) {
                 ShareCardNumberStat(
                     modifier = Modifier.weight(1f),
@@ -277,9 +280,11 @@ fun YearInReviewShareCardRenderer(
 }
 
 @Composable
-private fun ShareCardDivider() {
+private fun ShareCardDivider(
+    modifier: Modifier = Modifier
+) {
     Canvas(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(1.dp)
     ) {
