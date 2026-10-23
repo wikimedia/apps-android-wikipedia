@@ -2656,4 +2656,6 @@
   <string name="preference_summary_semantic_search_jump_to_passage">Semantic Search settings screen preference summary</string>
   <string name="semantic_search_snackbar_message">Snackbar message for modifying semantic search settings after being disabled</string>
   <string name="semantic_search_snackbar_action_label">Snackbar action label for modifying semantic search settings after being disabled</string>
+  <string name="notifications_weekly_most_read_channel_title">Channel title for the most read articles notification</string>
+  <string name="notifications_weekly_most_read_channel_description">Channel description for the most read articles notification</string>
 </resources>
