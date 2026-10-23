@@ -28,12 +28,13 @@ object RecommendedReadingListNotificationManager {
     private val NOTIFICATION_EXP_SEND_TIME = LocalTime.of(18, 0)
 
     fun scheduleRecommendedReadingListNotification(context: Context) {
+        // Always cancel before scheduling a new one
+        cancelRecommendedReadingListNotification(context)
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             .setAction(NotificationPollBroadcastReceiver.ACTION_RECOMMENDED_READING_LIST)
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         if (NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
-
             // setAndAllowWhileIdle: fire once at the experiment's send time (even during Doze), instead of a repeating alarm that drifts.
             // This is a one-shot alarm, so it must be re-armed after each notification is sent (see NotificationPollBroadcastReceiver).
             alarmManager.setAndAllowWhileIdle(
@@ -48,9 +49,6 @@ object RecommendedReadingListNotificationManager {
             )
             return
         }
-
-        // Always cancel before scheduling a new one
-        cancelRecommendedReadingListNotification(context)
 
         val durationUntilNextUpdate = timeUntilNextUpdate(Prefs.recommendedReadingListUpdateFrequency)
         val triggerUpdateMillis = System.currentTimeMillis() + durationUntilNextUpdate.toMillis()
