@@ -152,7 +152,7 @@ object RecommendedReadingListNotificationManager {
             .toLocalDate()
             .atTime(NOTIFICATION_EXP_SEND_TIME)
 
-        //If today is the send day and the send time has already passed, schedule for next week instead.
+        // If today is the send day and the send time has already passed, schedule for next week instead.
         if (!notificationDateTime.isAfter(currentLocalDateTime)) notificationDateTime = notificationDateTime.plusWeeks(1)
 
         return Duration.between(currentLocalDateTime, notificationDateTime)
