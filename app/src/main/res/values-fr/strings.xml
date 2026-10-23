@@ -53,6 +53,7 @@
 * McDutchie
 * Melimeli
 * MuratTheTurkish
+* NClara
 * Naheulf
 * NemesisIII
 * Niridya
@@ -2509,9 +2510,9 @@
   <string name="home_feed_games_module_cta_prompt_title">Envie de jouer à d’autres jeux ?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Rendez-vous sur la centrale des jeux</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Centrale des jeux</string>
-  <string name="semantic_search_entry_point_card_message">Posez votre question et trouvez la réponse, provenant directement d’articles.</string>
+  <string name="semantic_search_entry_point_card_message">Effectuez une recherche dans les articles et accédez directement au passage pertinent.</string>
   <string name="semantic_search_entry_point_card_text_button">Essayer maintenant</string>
-  <string name="semantic_search_info_dialog_title">Quelle est cette fonctionnalité?</string>
+  <string name="semantic_search_info_dialog_title">Quelle est cette fonctionnalité ?</string>
   <string name="semantic_search_info_dialog_message">Trouvez des réponses à vos questions dans les articles Wikipédia et accédez directement au passage concerné.\n\nLes passages sont issus d\'articles recherchés, rédigés et édités par des contributeurs, et s\'appuient tous sur des sources citées que vous pouvez vérifier.</string>
   <string name="semantic_search_info_dialog_button_text">En savoir plus</string>
   <string name="semantic_search_info_btn_content_description">Icône info recherche sémantique</string>

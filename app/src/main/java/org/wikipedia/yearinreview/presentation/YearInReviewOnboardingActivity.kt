@@ -58,8 +58,6 @@ class YearInReviewOnboardingActivity : BaseActivity() {
             .setDefaultActionSource("announcement")
             .startFunnel("year-in-review")
 
-        instrument?.submitInteraction(action = "impression")
-
         initializeYearInReviewRive(this)
         // The cover's artwork runs under the status bar, and the paper-colored Explore area sits above the navigation bar
         val navigationBarStyle = if (WikipediaApp.instance.currentTheme.isDark) {
@@ -73,8 +71,11 @@ class YearInReviewOnboardingActivity : BaseActivity() {
         )
 
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collectLatest {
+                    if (it is UiState.Success && it.data.first) {
+                        instrument?.submitInteraction(action = "impression", actionContext = mapOf("personalized" to it.data.second.isDataRich))
+                    }
                     if (it is UiState.Error && it.error is MwNotLoggedInException) {
                         AccountUtil.bailWithLogout()
                     }
