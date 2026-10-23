@@ -34,7 +34,7 @@ object RecommendedReadingListNotificationManager {
         if (NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
             alarmManager.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                getDurationUntilNextSend().toMillis() + System.currentTimeMillis(),
+                getNotificationsV1Exp1DurationUntilSend().toMillis() + System.currentTimeMillis(),
                 PendingIntent.getBroadcast(
                     context,
                     0,
@@ -124,7 +124,7 @@ object RecommendedReadingListNotificationManager {
         return when (frequency) {
             RecommendedReadingListUpdateFrequency.DAILY -> {
                 val startOfNextDay = LocalDateTime.of(now.toLocalDate().plusDays(1), LocalTime.MIDNIGHT)
-                return Duration.between(now, startOfNextDay)
+                Duration.between(now, startOfNextDay)
             }
             RecommendedReadingListUpdateFrequency.WEEKLY -> {
                 val startOfNextWeek = now
@@ -144,15 +144,15 @@ object RecommendedReadingListNotificationManager {
         }
     }
 
-    private fun getDurationUntilNextSend(): Duration {
+    private fun getNotificationsV1Exp1DurationUntilSend(): Duration {
         val currentLocalDateTime = LocalDateTime.now()
         var notificationDateTime = currentLocalDateTime
             .with(TemporalAdjusters
-                .nextOrSame(NOTIFICATION_EXP_SEND_DAY))
-                .toLocalDate()
-                .atTime(NOTIFICATION_EXP_SEND_TIME)
+            .nextOrSame(NOTIFICATION_EXP_SEND_DAY))
+            .toLocalDate()
+            .atTime(NOTIFICATION_EXP_SEND_TIME)
 
-        // Handle Monday duration - if currentLocalDateTime is after 6pm, push the notification to the next Monday
+        //If today is the send day and the send time has already passed, schedule for next week instead.
         if (!notificationDateTime.isAfter(currentLocalDateTime)) notificationDateTime = notificationDateTime.plusWeeks(1)
 
         return Duration.between(currentLocalDateTime, notificationDateTime)
