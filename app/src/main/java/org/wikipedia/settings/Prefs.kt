@@ -1055,4 +1055,8 @@ object Prefs {
     var notificationsV1Exp1Source
         get() = JsonUtil.decodeFromString<NotificationsV1Exp1Source>(PrefsIoUtil.getString(R.string.preference_key_notifications_v1_exp1_source, null))
         set(value) = PrefsIoUtil.setString(R.string.preference_key_notifications_v1_exp1_source, value?.let { JsonUtil.encodeToString(it) })
+
+    var notificationsV1Exp1SendCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_notifications_v1_exp1_send_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_notifications_v1_exp1_send_count, value)
 }

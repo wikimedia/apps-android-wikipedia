@@ -35,7 +35,8 @@ class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP
     fun isNotificationsExperimentEligible(): Boolean {
         // Users who already entered the experiment stay in it even if they later switch to an unsupported language.
         val isLanguageEligible = Prefs.isNotificationsExperimentNotificationRescheduled || isLanguageSupported(WikipediaApp.instance.languageState.appLanguageCode)
-        return isTestActive() && isLanguageEligible && Prefs.isRecommendedReadingListNotificationEnabled
+        val hasSendsRemaining = Prefs.notificationsV1Exp1SendCount < MAX_SENDS
+        return isTestActive() && isLanguageEligible && Prefs.isRecommendedReadingListNotificationEnabled && hasSendsRemaining
     }
 
     fun isNotificationsExperimentEnabled(): Boolean {
@@ -61,5 +62,9 @@ class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP
         }
         RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
         Prefs.isNotificationsExperimentNotificationRescheduled = true
+    }
+
+    companion object {
+        private const val MAX_SENDS = 3
     }
 }
