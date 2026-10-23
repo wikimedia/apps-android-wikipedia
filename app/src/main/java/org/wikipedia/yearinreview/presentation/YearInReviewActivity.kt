@@ -31,6 +31,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 import kotlin.collections.plus
 
@@ -152,9 +153,9 @@ class YearInReviewActivity : BaseActivity() {
     private fun shareImage(bitmap: Bitmap) {
         val shareUrl = getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
         val shareText = String.format(
-            getString(R.string.year_in_review_share_body),
-            shareUrl,
-            getString(R.string.year_in_review_hashtag)
+            getString(R.string.yir_share_text),
+            YearInReviewConfig.YEAR,
+            shareUrl
         )
         ShareUtil.shareImage(
             coroutineScope = lifecycleScope,
