@@ -6,6 +6,7 @@ import lxml
 import lxml.builder as lb
 import json
 import requests
+from time import sleep
 from constants import HEADERS as headers
 
 QUERY_SITEMATRIX = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
@@ -77,6 +78,7 @@ for key, value in data[u"sitematrix"].items():
     unique_device_response = json.loads(requests.get('https://wikimedia.org/api/rest_v1/metrics/unique-devices/' +
                                                      wikipedia_url.replace('https://', '') + '/all-sites/monthly/' +
                                                      date.strftime('%Y%m01') + '/' + date.strftime('%Y%m01'), headers=headers).text)
+    sleep(1)
     rank = 0
     if u"items" in unique_device_response:
         if len(unique_device_response[u"items"]) > 0:

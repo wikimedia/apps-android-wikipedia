@@ -102,6 +102,7 @@ class YearInReviewRepositoryImpl(
 
         val articlesReadCount = async { historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles) }
         val visitedDaysCount = async { historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis) }
+        val totalTimeSpentSec = async { historyEntryWithImageDao.getTimeSpentBetween(dateRange.startMillis, dateRange.endMillis) }
         val peakMonthDeferred = async { historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis) }
         val longestStreakDeferred = async {
             YearInReviewReadingStreak.longestOf(historyEntryDao.getDistinctDaysBetween(dateRange.startMillis, dateRange.endMillis).map { LocalDate.parse(it) })
@@ -210,6 +211,7 @@ class YearInReviewRepositoryImpl(
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
             visitedDaysCount = visitedDaysCount.await(),
+            totalTimeSpentSec = totalTimeSpentSec.await(),
             peakMonth = peakMonth?.month ?: 0,
             peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,
             articlesRevisited = articlesRevisited.await(),

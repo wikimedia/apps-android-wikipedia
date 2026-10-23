@@ -14,6 +14,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.yearinreview.data.YearInReviewAvailability
 import org.wikipedia.yearinreview.data.YearInReviewConfig
 import org.wikipedia.yearinreview.data.YearInReviewDonationEligibility
+import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import org.wikipedia.yearinreview.data.YearInReviewRepository
 import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
 
@@ -23,7 +24,9 @@ sealed interface YearInReviewUiState {
         val year: Int,
         val isPersonalized: Boolean,
         val isDonationEligible: Boolean,
+        val canShareHighlights: Boolean,
         val pages: List<YearInReviewPage>,
+        val readingStats: YearInReviewReadingStats
     ) : YearInReviewUiState
     data class Error(val error: Throwable) : YearInReviewUiState
 }
@@ -51,7 +54,9 @@ class YearInReviewViewModel(
                 year = yearInReview.year,
                 isPersonalized = yearInReview.isLoggedIn && YearInReviewFlowDecider.hasEnoughPersonalizedPages(yearInReview),
                 pages = YearInReviewPlayground.pages ?: YearInReviewFlowDecider.pages(yearInReview),
-                isDonationEligible = yearInReview.isDonationEligible
+                isDonationEligible = yearInReview.isDonationEligible,
+                canShareHighlights = YearInReviewFlowDecider.canShareHighlights(yearInReview),
+                readingStats = yearInReview.readingStats
             )
         }
     }
