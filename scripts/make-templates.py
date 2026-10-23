@@ -164,7 +164,7 @@ def populate_main_pages(wikis):
         for specialPage in data[u"query"][u"specialpagealiases"]:
             if specialPage[u"realname"] == "Contributions":
                 wiki.props[u"contribs_page_name"] = next(
-                    (alias for alias in specialPage[u"aliases"] if alias != "Contributions"),
+                    (alias for alias in specialPage[u"aliases"] if alias not in ("Contributions", "Contribs")),
                     "Contributions")
     return wikis
 
