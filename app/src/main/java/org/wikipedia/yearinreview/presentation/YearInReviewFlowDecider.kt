@@ -4,6 +4,7 @@ import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.yearinreview.data.YearInReviewInsightStatus
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
+import kotlin.time.Duration.Companion.minutes
 
 object YearInReviewFlowDecider {
     private const val MIN_PERSONALIZED_PAGES = 2
@@ -14,6 +15,26 @@ object YearInReviewFlowDecider {
     fun hasEnoughPersonalizedPages(snapshot: YearInReviewSnapshot): Boolean {
         val candidates = personalizedCandidates(snapshot)
         return hasEnoughPersonalizedPages(candidates)
+    }
+
+    fun canShareHighlights(snapshot: YearInReviewSnapshot): Boolean {
+        var totalHighlights = 0
+        if (snapshot.readingStats.articlesReadCount > 2) {
+            totalHighlights++
+        }
+        if (snapshot.readingStats.totalTimeSpentSec.minutes > 10.minutes) {
+            totalHighlights++
+        }
+        if (snapshot.readingStats.rabbitHoleStart != null && snapshot.readingStats.rabbitHoleEnd != null) {
+            totalHighlights++
+        }
+        if (snapshot.readingStats.articlesRevisited.size > 1) {
+            totalHighlights++
+        }
+        if (!snapshot.readingStats.topCategory.isNullOrEmpty()) {
+            totalHighlights++
+        }
+        return totalHighlights >= 2
     }
 
     fun pages(snapshot: YearInReviewSnapshot): List<YearInReviewPage> {
