@@ -58,6 +58,8 @@ object RemoteConfig {
         val newArticlesWithinInterestEnabled: Boolean? = null,
         val visualEditorEnabled: Boolean? = null,
         val readAloudLeadSectionEnabled: Boolean? = null,
+        val notificationsExperimentEnabledv2: Boolean? = null,
+        val notificationsExperimentLanguagesv2: List<String>? = null,
         val yirMinAppVersion: Int? = null
     )
 
