@@ -24,8 +24,8 @@ import java.time.temporal.TemporalAdjusters
 
 object RecommendedReadingListNotificationManager {
 
-    private val NOTIFICATION_EXP_SEND_DAY = DayOfWeek.MONDAY
-    private val NOTIFICATION_EXP_SEND_TIME = LocalTime.of(18, 0)
+    private val NOTIFICATIONS_EXPERIMENT_SEND_DAY = DayOfWeek.MONDAY
+    private val NOTIFICATIONS_EXPERIMENT_SEND_TIME = LocalTime.of(18, 0)
 
     fun scheduleRecommendedReadingListNotification(context: Context) {
         // Always cancel before scheduling a new one
@@ -39,7 +39,7 @@ object RecommendedReadingListNotificationManager {
             // This is a one-shot alarm, so it must be re-armed after each notification is sent (see NotificationPollBroadcastReceiver).
             alarmManager.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                getNotificationsV1Exp1DurationUntilSend().toMillis() + System.currentTimeMillis(),
+                getNotificationsExperimentDurationUntilSend().toMillis() + System.currentTimeMillis(),
                 PendingIntent.getBroadcast(
                     context,
                     0,
@@ -72,9 +72,9 @@ object RecommendedReadingListNotificationManager {
             RecommendedReadingListUpdateFrequency.MONTHLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_monthly)
         }
 
-        val experimentSource = if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) Prefs.notificationsV1Exp1Source else null
+        val experimentSource = if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) Prefs.notificationsExperimentDiscoverSource else null
         val (title, text) = if (experimentSource != null) {
-            getNotificationsV1Exp1TitleAndText(context, experimentSource)
+            getNotificationsExperimentTitleAndText(context, experimentSource)
         } else {
             context.getString(R.string.recommended_reading_list_notification_title, frequency) to
                     context.getString(R.string.recommended_reading_list_notification_subtitle)
@@ -100,16 +100,16 @@ object RecommendedReadingListNotificationManager {
         )
     }
 
-    private fun getNotificationsV1Exp1TitleAndText(context: Context, experimentSource: NotificationsV1Exp1Source): Pair<String, String> {
+    private fun getNotificationsExperimentTitleAndText(context: Context, experimentSource: NotificationsExperimentDiscoverSource): Pair<String, String> {
         val articleTitle = StringUtil.fromHtml(experimentSource.title.displayText).toString()
         return when (experimentSource.source) {
             RecommendedReadingListSource.INTERESTS, RecommendedReadingListSource.READING_LIST -> {
-                context.getString(R.string.notifications_v1_exp1_interests_title, articleTitle) to
-                        context.getString(R.string.notifications_v1_exp1_message)
+                context.getString(R.string.notifications_experiment_discover_interests_title, articleTitle) to
+                        context.getString(R.string.notifications_experiment_discover_message)
             }
             else -> {
-                context.getString(R.string.notifications_v1_exp1_saved_or_history_title, articleTitle) to
-                        context.getString(R.string.notifications_v1_exp1_message)
+                context.getString(R.string.notifications_experiment_discover_saved_or_history_title, articleTitle) to
+                        context.getString(R.string.notifications_experiment_discover_message)
             }
         }
     }
@@ -146,18 +146,18 @@ object RecommendedReadingListNotificationManager {
         }
     }
 
-    private fun getNotificationsV1Exp1DurationUntilSend(): Duration {
+    private fun getNotificationsExperimentDurationUntilSend(): Duration {
         // Dev-only override: if a custom trigger time is set and still in the future, use it.
-        val customTriggerMillis = Prefs.notificationsV1Exp1CustomTriggerTime
+        val customTriggerMillis = Prefs.notificationsExperimentDiscoverTriggerTimeOverride
         if (ReleaseUtil.isDevRelease && customTriggerMillis > System.currentTimeMillis()) {
             return Duration.ofMillis(customTriggerMillis - System.currentTimeMillis())
         }
         val currentLocalDateTime = LocalDateTime.now()
         var notificationDateTime = currentLocalDateTime
             .with(TemporalAdjusters
-            .nextOrSame(NOTIFICATION_EXP_SEND_DAY))
+            .nextOrSame(NOTIFICATIONS_EXPERIMENT_SEND_DAY))
             .toLocalDate()
-            .atTime(NOTIFICATION_EXP_SEND_TIME)
+            .atTime(NOTIFICATIONS_EXPERIMENT_SEND_TIME)
 
         // If today is the send day and the send time has already passed, schedule for next week instead.
         if (!notificationDateTime.isAfter(currentLocalDateTime)) notificationDateTime = notificationDateTime.plusWeeks(1)

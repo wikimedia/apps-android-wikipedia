@@ -36,7 +36,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.Date
 
-fun showNotificationsExpTimerPickerDialog(context: Context, onChanged: () -> Unit = {}) {
+fun showNotificationsExperimentTimePickerDialog(context: Context, onChanged: () -> Unit = {}) {
     val composeView = ComposeView(context)
 
     val dialog = MaterialAlertDialogBuilder(context)
@@ -47,12 +47,12 @@ fun showNotificationsExpTimerPickerDialog(context: Context, onChanged: () -> Uni
         BaseTheme {
             DevSettingsTimePicker(
                 onCancel = {
-                    Prefs.notificationsV1Exp1CustomTriggerTime = 0L
+                    Prefs.notificationsExperimentDiscoverTriggerTimeOverride = 0L
                     onChanged()
                     dialog.dismiss()
                 },
                 onSave = { timeInMillis ->
-                    Prefs.notificationsV1Exp1CustomTriggerTime = timeInMillis
+                    Prefs.notificationsExperimentDiscoverTriggerTimeOverride = timeInMillis
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                     Toast.makeText(context, "Scheduled for ${Date(timeInMillis)}", Toast.LENGTH_SHORT).show()
                     onChanged()

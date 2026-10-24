@@ -32,7 +32,7 @@ import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
-import org.wikipedia.readinglist.recommended.NotificationsV1Exp1Source
+import org.wikipedia.readinglist.recommended.NotificationsExperimentDiscoverSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.recommended.SourceWithOffset
@@ -1056,15 +1056,15 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, value)
 
-    var notificationsV1Exp1Source
-        get() = JsonUtil.decodeFromString<NotificationsV1Exp1Source>(PrefsIoUtil.getString(R.string.preference_key_notifications_v1_exp1_source, null))
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_notifications_v1_exp1_source, value?.let { JsonUtil.encodeToString(it) })
+    var notificationsExperimentDiscoverSource
+        get() = JsonUtil.decodeFromString<NotificationsExperimentDiscoverSource>(PrefsIoUtil.getString(R.string.preference_key_notifications_experiment_discover_source, null))
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_notifications_experiment_discover_source, value?.let { JsonUtil.encodeToString(it) })
 
-    var notificationsV1Exp1SendCount
-        get() = PrefsIoUtil.getInt(R.string.preference_key_notifications_v1_exp1_send_count, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_notifications_v1_exp1_send_count, value)
+    var notificationsExperimentDiscoverSendCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_notifications_experiment_discover_send_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_notifications_experiment_discover_send_count, value)
 
-    var notificationsV1Exp1CustomTriggerTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_v1_exp1_custom_trigger_time, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_v1_exp1_custom_trigger_time, value)
+    var notificationsExperimentDiscoverTriggerTimeOverride
+        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_discover_trigger_time_override, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_discover_trigger_time_override, value)
 }

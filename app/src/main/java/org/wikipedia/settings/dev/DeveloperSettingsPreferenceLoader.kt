@@ -29,7 +29,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
-import org.wikipedia.notifications.experiment.showNotificationsExpTimerPickerDialog
+import org.wikipedia.notifications.experiment.showNotificationsExperimentTimePickerDialog
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -329,20 +329,20 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             }
         }
 
-        findPreference(R.string.preference_key_notifications_v1_exp1_send_count).apply {
-            summary = Prefs.notificationsV1Exp1SendCount.toString()
+        findPreference(R.string.preference_key_notifications_experiment_discover_send_count).apply {
+            summary = Prefs.notificationsExperimentDiscoverSendCount.toString()
             onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
-                Prefs.notificationsV1Exp1SendCount = 0
-                pref.summary = Prefs.notificationsV1Exp1SendCount.toString()
+                Prefs.notificationsExperimentDiscoverSendCount = 0
+                pref.summary = Prefs.notificationsExperimentDiscoverSendCount.toString()
                 Toast.makeText(activity, "Notifications experiment send count reset", Toast.LENGTH_SHORT).show()
                 true
             }
         }
 
-        findPreference(R.string.preference_key_notifications_v1_exp1_custom_trigger_time).apply {
+        findPreference(R.string.preference_key_notifications_experiment_discover_trigger_time_override).apply {
             summary = customNotificationTriggerTimeSummary()
             onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
-                showNotificationsExpTimerPickerDialog(activity) {
+                showNotificationsExperimentTimePickerDialog(activity) {
                     pref.summary = customNotificationTriggerTimeSummary()
                 }
                 true
@@ -365,7 +365,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     }
 
     private fun customNotificationTriggerTimeSummary(): String {
-        val millis = Prefs.notificationsV1Exp1CustomTriggerTime
+        val millis = Prefs.notificationsExperimentDiscoverTriggerTimeOverride
         if (millis == 0L) {
             return "Unset"
         }

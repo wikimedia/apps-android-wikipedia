@@ -622,12 +622,12 @@
             android:title="@string/preference_key_notifications_experiment_notification_rescheduled"/>
 
         <Preference
-            android:key="@string/preference_key_notifications_v1_exp1_send_count"
-            android:title="@string/preference_key_notifications_v1_exp1_send_count"/>
+            android:key="@string/preference_key_notifications_experiment_discover_send_count"
+            android:title="@string/preference_key_notifications_experiment_discover_send_count"/>
 
         <Preference
-            android:key="@string/preference_key_notifications_v1_exp1_custom_trigger_time"
-            android:title="@string/preference_key_notifications_v1_exp1_custom_trigger_time"/>
+            android:key="@string/preference_key_notifications_experiment_discover_trigger_time_override"
+            android:title="@string/preference_key_notifications_experiment_discover_trigger_time_override"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

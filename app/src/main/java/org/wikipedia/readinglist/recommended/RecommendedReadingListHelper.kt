@@ -96,7 +96,7 @@ object RecommendedReadingListHelper {
         }.distinctBy { it.prefixedText }
 
         // Notifications experiment: Add seed article to the list of titles
-        val notificationSource = if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) Prefs.notificationsV1Exp1Source else null
+        val notificationSource = if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) Prefs.notificationsExperimentDiscoverSource else null
         notificationSource?.let { seed ->
             titles = (listOf(seed.title) + titles).distinctBy { it.prefixedText }.take(numberOfArticles)
         }
@@ -183,7 +183,7 @@ object RecommendedReadingListHelper {
         }
         Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
-        saveNotificationsV1Exp1Source(titles, notificationSource?.title)
+        saveNotificationsExperimentDiscoverSource(titles, notificationSource?.title)
         return finalList.shuffled().take(Prefs.recommendedReadingListArticlesNumber)
     }
 
@@ -216,14 +216,14 @@ object RecommendedReadingListHelper {
         return firstRecommendedPage
     }
 
-    private fun saveNotificationsV1Exp1Source(titles: List<PageTitle>, previousTitle: PageTitle?) {
+    private fun saveNotificationsExperimentDiscoverSource(titles: List<PageTitle>, previousTitle: PageTitle?) {
         if (!NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) {
             return
         }
         // Prevent reuse of the same article notification
         val nextTitle = titles.firstOrNull { it.prefixedText != previousTitle?.prefixedText } ?: titles.firstOrNull()
-        Prefs.notificationsV1Exp1Source = nextTitle?.let {
-            NotificationsV1Exp1Source(it, Prefs.recommendedReadingListSource)
+        Prefs.notificationsExperimentDiscoverSource = nextTitle?.let {
+            NotificationsExperimentDiscoverSource(it, Prefs.recommendedReadingListSource)
         }
     }
 }
@@ -236,7 +236,7 @@ class SourceWithOffset(
 )
 
 @Serializable
-class NotificationsV1Exp1Source(
+class NotificationsExperimentDiscoverSource(
     val title: PageTitle,
     val source: RecommendedReadingListSource
 )

@@ -92,7 +92,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 val isExperimentSend = NotificationsExperimentAbTest().isNotificationsExperimentEligible()
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
                 if (isExperimentSend) {
-                    Prefs.notificationsV1Exp1SendCount++
+                    Prefs.notificationsExperimentDiscoverSendCount++
                 }
                 // re-arm notifications
                 if (Prefs.isRecommendedReadingListNotificationEnabled) {
