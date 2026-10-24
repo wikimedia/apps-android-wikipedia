@@ -1064,7 +1064,7 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_notifications_experiment_discover_send_count, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_notifications_experiment_discover_send_count, value)
 
-    var notificationsExperimentDiscoverTriggerTimeOverride
-        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_discover_trigger_time_override, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_discover_trigger_time_override, value)
+    var notificationsExperimentDiscoverDevTriggerTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, value)
 }

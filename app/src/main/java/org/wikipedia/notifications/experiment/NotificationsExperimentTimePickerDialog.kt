@@ -47,12 +47,12 @@ fun showNotificationsExperimentTimePickerDialog(context: Context, onChanged: () 
         BaseTheme {
             DevSettingsTimePicker(
                 onCancel = {
-                    Prefs.notificationsExperimentDiscoverTriggerTimeOverride = 0L
+                    Prefs.notificationsExperimentDiscoverDevTriggerTime = 0L
                     onChanged()
                     dialog.dismiss()
                 },
                 onSave = { timeInMillis ->
-                    Prefs.notificationsExperimentDiscoverTriggerTimeOverride = timeInMillis
+                    Prefs.notificationsExperimentDiscoverDevTriggerTime = timeInMillis
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                     Toast.makeText(context, "Scheduled for ${Date(timeInMillis)}", Toast.LENGTH_SHORT).show()
                     onChanged()

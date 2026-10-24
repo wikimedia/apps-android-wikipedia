@@ -148,7 +148,7 @@ object RecommendedReadingListNotificationManager {
 
     private fun getNotificationsExperimentDurationUntilSend(): Duration {
         // Dev-only override: if a custom trigger time is set and still in the future, use it.
-        val customTriggerMillis = Prefs.notificationsExperimentDiscoverTriggerTimeOverride
+        val customTriggerMillis = Prefs.notificationsExperimentDiscoverDevTriggerTime
         if (ReleaseUtil.isDevRelease && customTriggerMillis > System.currentTimeMillis()) {
             return Duration.ofMillis(customTriggerMillis - System.currentTimeMillis())
         }

@@ -340,11 +340,11 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             }
         }
 
-        findPreference(R.string.preference_key_notifications_experiment_discover_trigger_time_override).apply {
-            summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverTriggerTimeOverride)
+        findPreference(R.string.preference_key_notifications_experiment_discover_dev_trigger_time).apply {
+            summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
             onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
                 showNotificationsExperimentTimePickerDialog(activity) {
-                    pref.summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverTriggerTimeOverride)
+                    pref.summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
                 }
                 true
             }
