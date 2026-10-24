@@ -1,7 +1,6 @@
 package org.wikipedia.settings.dev
 
 import android.content.DialogInterface
-import android.text.format.DateUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
