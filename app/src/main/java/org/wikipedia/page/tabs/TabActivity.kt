@@ -90,6 +90,29 @@ class TabActivity : BaseActivity() {
                 openNewTab()
                 true
             }
+            R.id.menu_close_other_tabs -> {
+                if (app.tabList.count() > 1) {
+                    MaterialAlertDialogBuilder(this).run {
+                        setMessage(R.string.close_other_tabs_confirm)
+                        setPositiveButton(R.string.close_other_tabs_confirm_yes) { _, _ ->
+                            L.d("All other tabs removed.")
+                            val otherTabs = app.tabList.subList(0, app.tabList.lastIndex.coerceAtLeast(1)).toMutableList()
+                            val activeTab = app.tabList.last()
+                            app.tabList.clear()
+                            app.tabList.add(activeTab)
+                            binding.tabCountsView.updateTabCount(false)
+                            // Note that the tabRecyclerView expects items in displayed (last-to-first) order
+                            binding.tabRecyclerView.adapter?.notifyItemRangeRemoved(1, otherTabs.size)
+                            setResult(RESULT_LOAD_FROM_BACKSTACK)
+                            showUndoOtherSnackbar(otherTabs)
+                            cancelled = false
+                        }
+                        setNegativeButton(R.string.close_other_tabs_confirm_no, null)
+                            .show()
+                    }
+                }
+                true
+            }
             R.id.menu_close_all_tabs -> {
                 if (app.tabList.isNotEmpty()) {
                     MaterialAlertDialogBuilder(this).run {
@@ -166,6 +189,18 @@ class TabActivity : BaseActivity() {
                 app.tabList.addAll(appTabs)
                 appTabs.clear()
                 binding.tabRecyclerView.adapter?.notifyItemRangeInserted(0, app.tabList.size)
+                binding.tabCountsView.updateTabCount(false)
+            }
+            show()
+        }
+    }
+
+    private fun showUndoOtherSnackbar(otherTabs: MutableList<Tab>) {
+        FeedbackUtil.makeSnackbar(this, getString(R.string.other_tab_items_closed)).run {
+            setAction(R.string.reading_list_item_delete_undo) {
+                app.tabList.addAll(0, otherTabs)
+                binding.tabRecyclerView.adapter?.notifyItemRangeInserted(1, otherTabs.size)
+                otherTabs.clear()
                 binding.tabCountsView.updateTabCount(false)
             }
             show()
