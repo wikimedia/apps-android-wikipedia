@@ -35,6 +35,7 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
             }
             _uiState.value = _uiState.value.copy(
                 isRecommendedReadingListEnabled = enabled,
+                updateFrequency = Prefs.recommendedReadingListUpdateFrequency,
                 isRecommendedReadingListNotificationEnabled = Prefs.isRecommendedReadingListNotificationEnabled
             )
         }
@@ -55,7 +56,8 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
 
     fun toggleNotification(enabled: Boolean) {
         Prefs.isRecommendedReadingListNotificationEnabled = enabled
-        val frequencyForEvent = when (_uiState.value.updateFrequency) {
+        val updateFrequency = Prefs.recommendedReadingListUpdateFrequency
+        val frequencyForEvent = when (updateFrequency) {
             RecommendedReadingListUpdateFrequency.DAILY -> "daily"
             RecommendedReadingListUpdateFrequency.WEEKLY -> "weekly"
             RecommendedReadingListUpdateFrequency.MONTHLY -> "monthly"
@@ -70,7 +72,10 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
                     "frequency" to frequencyForEvent
                 )
             )
-        _uiState.value = _uiState.value.copy(isRecommendedReadingListNotificationEnabled = enabled)
+        _uiState.value = _uiState.value.copy(
+            updateFrequency = updateFrequency,
+            isRecommendedReadingListNotificationEnabled = enabled
+        )
     }
 
     fun updateRecommendedReadingListSource(source: RecommendedReadingListSource) {
