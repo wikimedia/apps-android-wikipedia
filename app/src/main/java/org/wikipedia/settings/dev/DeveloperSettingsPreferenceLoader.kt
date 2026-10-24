@@ -45,6 +45,7 @@ import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
 import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
@@ -340,10 +341,10 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
 
         findPreference(R.string.preference_key_notifications_experiment_discover_trigger_time_override).apply {
-            summary = customNotificationTriggerTimeSummary()
+            summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverTriggerTimeOverride)
             onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
                 showNotificationsExperimentTimePickerDialog(activity) {
-                    pref.summary = customNotificationTriggerTimeSummary()
+                    pref.summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverTriggerTimeOverride)
                 }
                 true
             }
@@ -364,12 +365,11 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
     }
 
-    private fun customNotificationTriggerTimeSummary(): String {
-        val millis = Prefs.notificationsExperimentDiscoverTriggerTimeOverride
+    private fun getTimestampSummary(millis: Long): String {
         if (millis == 0L) {
             return "Unset"
         }
-        val formatted = DateUtils.formatDateTime(activity, millis, DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_TIME)
+        val formatted = DateUtil.getDateAndTime(activity, Date(millis))
         return if (millis < System.currentTimeMillis()) "$formatted (passed)" else formatted
     }
 
