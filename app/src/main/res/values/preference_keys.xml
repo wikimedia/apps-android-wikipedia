@@ -240,4 +240,7 @@
     <string name="preference_key_semantic_search_settings_category" translatable="false">semanticSearchSettingsCategory</string>
     <string name="preference_key_notifications_is_test_active" translatable="false">notificationsIsTestActive</string>
     <string name="preference_key_notifications_experiment_notification_rescheduled" translatable="false">notificationsExperimentNotificationRescheduled</string>
+    <string name="preference_key_notifications_experiment_discover_source" translatable="false">notificationsExperimentDiscoverSource</string>
+    <string name="preference_key_notifications_experiment_discover_send_count" translatable="false">notificationsExperimentDiscoverSendCount</string>
+    <string name="preference_key_notifications_experiment_discover_dev_trigger_time" translatable="false">notificationsExperimentDiscoverDevTriggerTime</string>
 </resources>
