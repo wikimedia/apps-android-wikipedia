@@ -56,7 +56,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 startPollTask(context)
 
                 // persist discover notification experiment alarm after reboot
-                if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) {
+                if (Prefs.isRecommendedReadingListNotificationEnabled) {
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 }
             }
