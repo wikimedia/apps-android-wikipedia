@@ -622,10 +622,6 @@
             android:title="@string/preference_key_notifications_experiment_notification_rescheduled"/>
 
         <Preference
-            android:key="@string/preference_key_notifications_experiment_discover_send_count"
-            android:title="@string/preference_key_notifications_experiment_discover_send_count"/>
-
-        <Preference
             android:key="@string/preference_key_notifications_experiment_discover_dev_trigger_time"
             android:title="@string/preference_key_notifications_experiment_discover_dev_trigger_time"/>
     </PreferenceCategory>

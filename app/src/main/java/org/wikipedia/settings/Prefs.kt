@@ -1060,10 +1060,6 @@ object Prefs {
         get() = JsonUtil.decodeFromString<NotificationsExperimentDiscoverSource>(PrefsIoUtil.getString(R.string.preference_key_notifications_experiment_discover_source, null))
         set(value) = PrefsIoUtil.setString(R.string.preference_key_notifications_experiment_discover_source, value?.let { JsonUtil.encodeToString(it) })
 
-    var notificationsExperimentDiscoverSendCount
-        get() = PrefsIoUtil.getInt(R.string.preference_key_notifications_experiment_discover_send_count, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_notifications_experiment_discover_send_count, value)
-
     var notificationsExperimentDiscoverDevTriggerTime
         get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, value)

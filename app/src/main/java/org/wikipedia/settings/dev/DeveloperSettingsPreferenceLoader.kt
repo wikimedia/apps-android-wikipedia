@@ -329,16 +329,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             }
         }
 
-        findPreference(R.string.preference_key_notifications_experiment_discover_send_count).apply {
-            summary = Prefs.notificationsExperimentDiscoverSendCount.toString()
-            onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
-                Prefs.notificationsExperimentDiscoverSendCount = 0
-                pref.summary = Prefs.notificationsExperimentDiscoverSendCount.toString()
-                Toast.makeText(activity, "Notifications experiment send count reset", Toast.LENGTH_SHORT).show()
-                true
-            }
-        }
-
         findPreference(R.string.preference_key_notifications_experiment_discover_dev_trigger_time).apply {
             summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
             onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
