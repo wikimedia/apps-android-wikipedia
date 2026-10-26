@@ -18,6 +18,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -108,7 +109,7 @@ class YearInReviewActivity : BaseActivity() {
                         when (card) {
                             YearInReviewEndCard.GAMES -> {
                                 submitInteraction(uiState, action = "click", elementId = "play_game_button")
-                                startActivity(GamesHubActivity.newIntent(this))
+                                startActivity(GamesHubActivity.newIntent(this, Constants.InvokeSource.YEAR_IN_REVIEW))
                             }
                             YearInReviewEndCard.CUSTOMIZE_HOME -> {
                                 submitInteraction(uiState, action = "click", elementId = "customize_interests_button")
