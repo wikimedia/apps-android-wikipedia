@@ -116,6 +116,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_remote_config, "").orEmpty().ifEmpty { "{}" }
         set(json) = PrefsIoUtil.setString(R.string.preference_key_remote_config, json)
 
+    var remoteConfigAppVersionCode
+        get() = PrefsIoUtil.getInt(R.string.preference_key_remote_config_app_version_code, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_remote_config_app_version_code, value)
+
     var tabs
         get() = JsonUtil.decodeFromString<List<Tab>>(PrefsIoUtil.getString(R.string.preference_key_tabs, null))
             ?: emptyList()

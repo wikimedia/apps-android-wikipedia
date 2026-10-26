@@ -39,6 +39,7 @@ data class YearInReviewEditingStats(
 data class YearInReviewReadingStats(
     val articlesReadCount: Int,
     val visitedDaysCount: Int,
+    val totalTimeSpentSec: Long = 0,
     val peakMonth: Int,
     val peakMonthVisitedDays: Int,
     val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
