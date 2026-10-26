@@ -2658,6 +2658,6 @@
   <string name="semantic_search_snackbar_message">Snackbar message for modifying semantic search settings after being disabled</string>
   <string name="semantic_search_snackbar_action_label">Snackbar action label for modifying semantic search settings after being disabled</string>
   <string name="notifications_experiment_discover_interests_title">Title message telling the user that a new recommended reading list is ready, based on an article marked as an interest. %s will be replaced by the title of an article marked as interest</string>
-  <string name="notifications_experiment_discover_saved_or_history_title">>Title message telling the user that a new recommended reading list is ready, based on a saved or read article. %s will be replaced by the title of an article the user has read or saved</string>
+  <string name="notifications_experiment_discover_saved_or_history_title">Title message telling the user that a new recommended reading list is ready, based on a saved or read article. %s will be replaced by the title of an article the user has read or saved</string>
   <string name="notifications_experiment_discover_message">Notification message informing the user a new reading list is ready</string>
 </resources>

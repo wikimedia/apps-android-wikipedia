@@ -94,6 +94,7 @@ object RecommendedReadingListHelper {
                 }
             }
         }.distinctBy { it.prefixedText }
+        val sourceTitles = titles
 
         // Notifications experiment: Add seed article to the list of titles
         val notificationSource = if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) Prefs.notificationsExperimentDiscoverSource else null
@@ -183,7 +184,7 @@ object RecommendedReadingListHelper {
         }
         Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
-        saveNotificationsExperimentDiscoverSource(titles, notificationSource?.title)
+        saveNotificationsExperimentDiscoverSource(sourceTitles, notificationSource?.title)
         return finalList.shuffled().take(Prefs.recommendedReadingListArticlesNumber)
     }
 
