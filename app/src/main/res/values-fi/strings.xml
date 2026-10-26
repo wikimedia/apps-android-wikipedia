@@ -242,11 +242,21 @@
   <string name="email_recommendation_dialog_create_with_email_action">Lisää sähköpostiosoite</string>
   <string name="create_account_button">Luo käyttäjätunnus</string>
   <string name="create_account_encourage_title">Wikipedia on parempi käyttäjätunnuksen kanssa</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Näytä lukemiseen käyttämäsi päivät vuosikatsauksessa</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">Näytä lukemiseen käyttämäsi %1$d päivä vuosikatsauksessa</item>
+    <item quantity="other">Näytä lukemiseen käyttämäsi %1$d päivää vuosikatsauksessa</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">Näet kerran vuodessa lukemiseen käyttämäsi päivät, ja voit halutessasi jakaa tiedon.</string>
   <string name="create_account_encourage_saved_articles_title_zero">Synkronoi tallennetut artikkelisi</string>
   <plurals name="create_account_encourage_saved_articles_title">
     <item quantity="one">Synkronoi %1$d tallennettu artikkelisi</item>
     <item quantity="other">Synkronoi %1$d tallennettua artikkelisia</item>
   </plurals>
+  <string name="create_account_encourage_saved_articles_description">Synkronoi tallentamasi artikkelit eri laitteiden välillä kirjautumalla Wikipediaan.</string>
+  <string name="create_account_encourage_activity_title_zero">Näytä hiljattain lukemasi artikkelit Aktiviteetti-osiossa</string>
+  <string name="create_account_encourage_edits_title">Ota muokkauksesi nimiisi</string>
+  <string name="create_account_encourage_edits_description">Luo muokkaushistoria, josta voit olla ylpeä, ottamalla eri Wikimedia-projekteissa tekemäsi muokkaukset omiin nimiisi.</string>
   <string name="create_account_name_unavailable">Käyttäjänimi ”%s” ei ole käytettävissä. Valitse toinen nimi.</string>
   <string name="create_account_ip_block_message">IP-osoitteesi on tällä hetkellä estetty luomasta uusia käyttäjätunnuksia.</string>
   <string name="create_account_ip_block_help_url">https://fi.wikipedia.org/wiki/Wikipedia:Esto</string>
@@ -336,8 +346,12 @@
   <string name="edit_notices_tooltip">Katso artikkelin muokkausilmoitukset painamalla tätä nappia.</string>
   <string name="editor_select_dialog_title">Valitse muokkaustapasi</string>
   <string name="editor_select_dialog_ve_title">Visuaalinen muokkaus</string>
+  <string name="editor_select_dialog_ve_subtitle">Voit muokata sisältöä suoraan näkemälläsi sivulla. Se avautuu selaimeesi.</string>
   <string name="editor_select_dialog_source_title">Wikitekstimuokkaus</string>
+  <string name="editor_select_dialog_source_subtitle">Tee muokkauksia merkintäkielellä. Pysyt sovelluksessa.</string>
+  <string name="editor_select_dialog_dont_show_again">Älä näytä tätä enää. Tätä oletusasetustaa voi muuttaa myöhemmin asetuksissa.</string>
   <string name="editor_select_dialog_continue">Jatka</string>
+  <string name="editor_select_icon_ve_title">Ulkoisessa selaimessa avaamisen kuvake</string>
   <string name="editor_select_title_settings_screen">Muokkausasetukset</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
@@ -610,7 +624,9 @@
   <string name="saved_list_empty_title">Ei vielä tallennettuja artikkeleita</string>
   <string name="reading_lists_empty_message">Lisää artikkeleita kokoelmaan, jotta voit tarkastella niitä myöhemmin. Voit lukea kokoelmassa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
   <string name="reading_lists_search_empty_articles_title">Tallennettuja artikeleita ei löytynyt</string>
+  <string name="reading_lists_search_empty_articles_message">”%s” ei esiinny tallentamissasi artikkeleissa.</string>
   <string name="reading_lists_search_empty_collections_title">Kokoelmia ei löytynyt</string>
+  <string name="reading_lists_search_empty_collections_message">”%s” ei esiinny kokoelmissasi.</string>
   <string name="reading_list_empty">Tässä kokoelmassa ei ole artikkeleita.</string>
   <string name="reading_list_article_offline">Saatavilla ilman verkkoyhteyttä</string>
   <string name="reading_list_article_make_offline">Tee tämä artikkeli käytettäväksi offline-tilassa</string>
@@ -1762,8 +1778,12 @@
   <string name="patroller_saved_message_body_vandalism">Hei, {{{username}}}, olen kumonnut yhden tai useamman [{{{diffLink}}}|viimeaikaisista muokkauksistasi], koska ne eivät vaikuttaneet kovin rakentavilta. Jos olen mielestäsi väärässä tai jos sinulla on jotakin kysyttävää, voit jättää viestin [[User talk:{{{senderUserName}}}|keskustelusivulleni]]. Muistathan, että toistuvasta vandalismista voi seurata käyttörajoituksia.</string>
   <string name="patroller_saved_message_body_editing_tests">Hei, {{{username}}}, mukavaa, että olet kiinnostunut Wikipediasta ja haluat oppia muokkaamaan sitä. Tekemäsi muokkaustesti onnistui, mutta kannattaa silti muistaa, että tämän projektin tavoitteena on saada aikaan kattava ja luotettava tietosanakirja, jota kuka tahansa voi käyttää. Muokkauksesi vaikutti haitallisesti artikkelin sisältöön, joten se on poistettu.\nJos haluat oppia muokkaamaan Wikipediaa, voit käyttää [[Wikipedia:Sandbox|hiekkalaatikkoa]] milloin tahansa. Jos kommenttisi koskivat tiettyä artikkelia, oikea paikka niille on kyseisen artikkelin keskustelusivu.</string>
   <string name="patroller_saved_message_body_npov">Hei {{{username}}}, jotkut tekemistäsi lisäyksistä eivät vastaa Wikipedian [[Wikipedia:NPOV|neutraali näkökulma]] -ehtoa. Tästä syystä jotain sisältöäsi on muokattu tai poistettu. Ole hyvä ja muokkaa kappaleita tai osioita, joissa ilmenee osittaista puolueellisuutta neutraalimmalla ja objektiivisemmalla tekstillä, jota voitaisiin olettaa tietosanakirjalta.</string>
+  <string name="patroller_saved_message_body_final_warning">Tämä on viimeinen varoituksesi, sillä olet tehnyt useita haitallisia muutoksia. Jos vielä kerran vandalisoit Wikipediaa, muokkausoikeutesi estetään.</string>
+  <string name="patroller_saved_message_body_copy_vio">Hiljattain tekemässäsi muokkauksessa on ilmeisesti ilman lupaa käytettyä tekijänoikeuksien alaista materiaalia. Varmistathan, että kaikki sisältö noudattaa [[Wikipedia:Tekijänoikeudet|tekijänoikeuksia]], jottei mitään tarvitsisi poistaa.</string>
   <string name="patroller_saved_message_body_edit_summary">Hei {{{username}}}, vaikuttaa siltä, että poistit sisältöä jättämättä muokkauksen yhteenvetoa. Jätäthän muokkauksen yhteenvedon kun lisäät sisältöä Wikipediaan tai poistat sitä.</string>
   <string name="patroller_saved_message_body_do_not_censor">Hei {{{username}}}, näyttää siltä, että poistit sisältöä keskustelematta asiasta artikkelin keskustelusivulla. Huomioithan, että Wikipedia ei ole sensuroitu ja sisältöä ei tulisi poistaa vain siksi, että se on kiistanalaista. Jos uskot tiedon olevan väärin, yritä saavuttaa yhteisymmärrys sen poistamisesta artikkelin keskustelusivulla.</string>
+  <string name="talk_warn_learn_more_label">Lisätietoja viestien paikkamerkkiteksteistä</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Käytä alla olevaa esimerkkiviestiä viestiesi mukauttamiseen, lähettämiseen ja tallentamiseen.</string>
   <string name="talk_templates_menu_edit_title">Muokkaa</string>
   <string name="data_opt_in_accept">Hyväksy</string>
   <string name="data_opt_in_reject">Hylkää</string>
@@ -1811,6 +1831,8 @@
   <string name="places_empty_message_snackbar">Lähistöllä ei ole artikkeleita. Kokeile loitontaa ja siirtää karttaa.</string>
   <string name="survey_dialog_title">Auta parantamaan tätä ominaisuutta</string>
   <string name="survey_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
+  <string name="home_feed_survey_title">Auta parantamaan etusivua</string>
+  <string name="home_feed_survey_message">Oletko tyytyväinen Yhteisö- ja Sinulle-syötteisiin?</string>
   <string name="survey_dialog_option_satisfied">Tyytyväinen</string>
   <string name="survey_dialog_option_neutral">Neutraali</string>
   <string name="survey_dialog_option_unsatisfied">Tyytymätön</string>
@@ -1891,6 +1913,7 @@
   <string name="on_this_day_game_sound_on">Laita äänet päälle</string>
   <string name="on_this_day_game_sound_off">Laita äänet pois</string>
   <string name="on_this_day_game_more_label">Lisää</string>
+  <string name="on_this_day_game_card_progress_label">Olet kysymyksessä %d. Jatka arvaamalla, mikä tapahtui ensin tänä päivänä historiassa.</string>
   <string name="on_this_day_game_card_progress_short_label">Olet kysymyksessä %d.</string>
   <string name="on_this_day_game_explore_feed_card_score_message">Sait %1$d/%2$d pistettä tämän päivän pelissä. Seuraava peli avautuu %3$s kuluttua</string>
   <string name="on_this_day_game_explore_feed_card_score_short_message">Sait %1$d/%2$d pistettä tämän päivän pelissä.</string>
@@ -1902,71 +1925,156 @@
   <string name="wikipedia_games_subtitle">Wikipedian sisältöön pohjautua päivittäinen tietovisa.</string>
   <string name="yir_intro_headline">Wikipedian vuosikatsauksesi on valmistunut</string>
   <string name="yir_article_count_headline">Lukemasi artikkelit yhteensä:</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="one">Olet Wikipedian %1$s%% ahkerimman lukijan joukossa maailmanlaajuisesti. Keskimääräinen käyttäjä lukee %2$d artikkelia vuodessa.</item>
+    <item quantity="other">Olet Wikipedian %1$s%% ahkerimman lukijan joukossa maailmanlaajuisesti. Keskimääräinen käyttäjä lukee %2$d artikkelia vuodessa.</item>
+  </plurals>
   <string name="yir_article_count_supporting">Olet tutkiskellut asioita ahkerasti tänä vuonna. Jokainen artikkeli kasvatti tietojasi.</string>
   <string name="yir_article_count_empty_headline">Miljoonat artikkelit odottavat sinua</string>
   <string name="yir_article_count_empty_supporting">Odotahan, kunnes sinulle selviää, mitä kaikkea Wikipediasta voi oppia.</string>
   <string name="yir_days_visited_headline">Vierailit Wikipediassa vuonna %1$d näin monena päivänä:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">Olit aktiivisimmillasi %1$sssa, kun luit %2$d päivänä.</item>
+    <item quantity="other">Olit aktiivisimmillasi %1$sssa, kun luit %2$d eri päivänä.</item>
+  </plurals>
   <string name="yir_minutes_read_headline">Lukemiseen käytetyt minuutit yhteensä:</string>
+  <string name="yir_minutes_read_supporting">%1$s Aika lentää noidankehässä.</string>
   <string name="yir_reading_streak_headline">Pisin lukuputkesi päivinä:</string>
-  <string name="yir_reading_streak_supporting" fuzzy="true">Olet lukenut %1$s–%2$s välisenä aikana joka päivä. Hyvä putki.</string>
+  <string name="yir_reading_streak_supporting">Olet lukenut %1$s–%2$s välisenä aikana joka päivä. Hyvä putki.</string>
   <string name="yir_reading_streak_empty_headline">0 lukuputkea... toistaiseksi</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">Putki muodostuu vasta, kun olet lukenut %1$d peräkkäisenä päivänä. Kannattaisiko aloittaa nyt?</item>
+    <item quantity="other">Putki muodostuu vasta, kun olet lukenut %1$d peräkkäisenä päivänä. Kannattaisiko aloittaa nyt?</item>
+  </plurals>
   <string name="yir_reading_time_headline">Suosimasi lukuajankohta:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">Luit %1$d %% tähän aikaan päivästä. Oliko se sattumaa… vai ei?</item>
+    <item quantity="other">Luit %1$d %% tähän aikaan päivästä. Oliko se sattumaa… vai ei?</item>
+  </plurals>
   <string name="yir_reading_time_empty_headline">Luit vähän milloin sattuu</string>
   <string name="yir_reading_time_empty_supporting">Ei ole mitään tiettyä päivää tai kellonaikaa, joina mieluiten selailet Wikipediaa.</string>
   <string name="yir_top_topic_headline">Suosikkiaiheesi vuonna %1$d:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">Artikkelista %1$s artikkeliin %2$s... %3$d lukemistasi artikkeleista liittyi tähän aiheeseen. %4$s</item>
+    <item quantity="other">Artikkelista %1$s artikkeliin %2$s... %3$d lukemistasi artikkeleista liittyi tähän aiheeseen. %4$s</item>
+  </plurals>
   <string name="yir_top_topic_empty_headline">Ykkösaiheesi vuonna %1$d oli… ne kaikki</string>
+  <string name="yir_top_topic_empty_supporting">Olet kiinnostunut niin monista aiheista, että mikään tietty aihe ei määrittele lukutottumuksiasi.</string>
   <string name="yir_runner_up_topics_headline">Muita suosikkiaiheitasi vuonna %1$d:</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d artikkeli</item>
+    <item quantity="other">%1$d artikkelia</item>
+  </plurals>
   <string name="yir_biggest_reading_day_headline">Paras lukupäiväsi:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">Vietit yhteensä %1$d minuutin Wikipediassa. Voisiko sitä jo sanoa tuottavuudeksi?</item>
+    <item quantity="other">Vietit yhteensä %1$d minuuttia Wikipediassa. Voisiko sitä jo sanoa tuottavuudeksi?</item>
+  </plurals>
   <string name="yir_articles_read_headline">Nopea vilkaisu lukemiisi artikkeleihin:</string>
   <string name="yir_most_time_article_headline">Mihin käytit eniten aikaa?</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">Vietit yhteensä %1$d minuutin tämän artikkelin parissa vuonna %2$d!</item>
+    <item quantity="other">Vietit yhteensä %1$d minuuttia tämän artikkelin parissa vuonna %2$d!</item>
+  </plurals>
+  <string name="yir_rabbit_hole_headline">Miten syvään poteroon kaivauduit?</string>
   <plurals name="yir_rabbit_hole_depth_headline">
     <item quantity="one">%1$d linkin päähän siirtyminen tekee vaikutuksen.</item>
     <item quantity="other">%1$d linkin päähän siirtyminen tekee vaikutuksen.</item>
   </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">Mihin poteroon putoat seuraavaksi?</string>
   <string name="yir_niche_category_headline">Olitpa kiinnostunut erikoisesta aiheesta:</string>
   <string name="yir_niche_category_supporting">Jostakin syystä paneuduit tähän luokkaan täysillä!</string>
   <string name="yir_reread_articles_headline">Joitakin artikkeleja, joiden pariin olet palannut uudelleen:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d vierailu</item>
+    <item quantity="other">%1$d vierailua</item>
+  </plurals>
   <string name="yir_reread_articles_empty_headline">Et lue samoja tekstejä moneen kertaan</string>
+  <string name="yir_reread_articles_empty_supporting">Sinä et vilkaise samaa artikkelia kahteen kertaan. Etsit uutta ja uusia potroita, joihin pudota.</string>
   <string name="yir_places_headline">Lukemisesi johdatti sinut tänne:</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">%1$d artikkelin perusteella</item>
+    <item quantity="other">%1$d artikkelin perusteella</item>
+  </plurals>
   <string name="yir_places_empty_headline">Lukeminen kuljetti sinut ympäri maailmaa</string>
   <string name="yir_places_empty_supporting">Reissasit vuonna %1$d pitkin Wikipediaa. Katso Paikat-toiminnosta, mihin suunnata, kun lähdet liikkeelle.</string>
-  <string name="yir_saved_articles_headline" fuzzy="true">Myöhemmin luettaviksi tallentamasi artikkelit:</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Myöhemmin luettavaksi tallentamasi artikkeli: %1$d</item>
+    <item quantity="other">Myöhemmin luettaviksi tallentamasi artikkelit: %1$d</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s katselukerta</item>
+    <item quantity="other">%1$s katselukertaa</item>
+  </plurals>
   <string name="yir_saved_articles_empty_headline">Olet tallentanut 0 artikkelia</string>
   <string name="yir_saved_articles_empty_supporting">Olet tallentanut 0 artikkelia. Paikanna artikkelin kirjanmerkkikuvake ja napsauta sitä, niin voit lukea mitä tahansa… myöhemmin.</string>
   <string name="yir_edits_headline">Tekemäsi muokkaukset:</string>
+  <string name="yir_edits_supporting">Muokkasitpa sitten Wikipediaa, Wikimedia Commonsia tai Wikidataa: kiitos, että olet auttanut muita pääsemään tiedon lähteelle.</string>
   <string name="yir_edits_empty_headline">Olet tehnyt tähän mennessä 0 muokkausta</string>
   <string name="yir_edits_empty_supporting">Et ole vielä muokannut mitään, mutta tilanne on helposti korjattavissa. Nyt on hyvä hetki liittyä Wikipediaa laativaan yhteisöön.</string>
   <string name="yir_edit_views_headline">Muokkaustesi saamat katselukerrat:</string>
+  <string name="yir_edit_views_supporting">Lukijat eri puolilla maailmaa näkivät vuonna %1$d tekemäsi muokkaukset.</string>
   <string name="yir_most_viewed_edited_articles_headline">Muokkaustesi jälkeen eniten katsotut artikkelit:</string>
   <string name="yir_contributor_thanks_headline">Kiitos!</string>
+  <string name="yir_contributor_thanks_supporting">Olet %1$s ja autat Wikipediaa pysymään luotettavana ja mainoksettomana tiedonlähteenä ja kaikkien saatavilla. Suurkiitos tuestasi Wikipedialle!</string>
   <string name="yir_non_contributor_headline">Panoksellasi on väliä.</string>
+  <string name="yir_non_contributor_supporting">Wikipedia on olemassa ja menestyy kaltaistesi vapaaehtoisten ansiosta, jotka osallistuvat parhaansa mukaan. Jos arvostat Wikipediaa, toivomme, että tuet sitä lahjoittamalla tai muokkaamalla.</string>
   <string name="yir_community_intro_headline">Vuosikatsauksemme on valmistunut</string>
+  <string name="yir_community_intro_supporting">Vuosiyhteenvetoasi varten ei ollut tällä kertaa riittävästi toimintaa, mutta voit silti katsoa, mitä kaikkea maailmalla luettiin.</string>
   <string name="yir_community_reading_hours_headline">Wikipediaa lukien viettämämme tunnit vuonna %1$d:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">Kaltaisesi lukijat Wikipedian eri kieliversioissa ovat viettäneet yhteensä keskimäärin %1$,d vuoden Wikipediaa lukien.</item>
+    <item quantity="other">Kaltaisesi lukijat Wikipedian eri kieliversioissa ovat viettäneet yhteensä keskimäärin %1$,d Wikipediaa lukien.</item>
+  </plurals>
+  <string name="yir_community_languages_title">Wikipedian kielet:</string>
   <plurals name="yir_community_languages_headline">
     <item quantity="one">Kielet, joilla Wikipedia on saatavilla: yli %1$d</item>
     <item quantity="other">Kielet, joilla Wikipedia on saatavilla: yli %1$d</item>
   </plurals>
+  <string name="yir_community_languages_supporting">Vapaaehtoiset yhteisöt eri puolilla maailmaa kirjoittavat ja ylläpitävät Wikipediaa – erinomainen todiste siitä, että tietoa kerrytetään useammalla kuin yhdellä kielellä.</string>
   <string name="yir_community_articles_headline">Wikipedian artikkelimäärä:</string>
+  <string name="yir_community_articles_supporting">Wikipediaa ylläpitävät ihmiset – eri puolilla maailmaa toimivat vapaaehtoiset, jotka luovat ja tarkistavat sisältöä luotettavien lähteiden avulla.</string>
   <string name="yir_community_saved_articles_headline">Vuonna %1$d tallennetut artikkelit:</string>
+  <string name="yir_community_saved_articles_supporting">Lukijat tallensivat tuhansittain artikkeleja kirjanmerkkeihinsä, jotta voisivat lukea ne ensimmäistä, toista tai vaikkapa sadatta kertaa.</string>
   <string name="yir_community_editors_headline">Vapaaehtoisia muokkaajia:</string>
+  <string name="yir_community_editors_supporting">Tiesitkö, että kaikki Wikimedian projektit hoituvat vapaaehtoisvoimin? Muokkaajat kirjoittavat uusia artikkeleja ja parantavat olemassa olevia.</string>
   <string name="yir_community_edits_headline">Tekemiesi muokkausten määrä:</string>
   <string name="yir_community_edits_supporting">Joka päivä kaikkina aikoina vapaaehtoiset eri puolilla maailmaa pyrkivät kehittämään Wikipediaa päivittämällä artikkelien tietoja, kuvaamalla historiallisia maamerkkejä ja korjaamalla kirjoitusvirheitä.</string>
+  <string name="yir_community_global_reach_title">Wikipedian maailmanlaajuinen kattavuus:</string>
+  <string name="yir_community_global_reach_subtitle">Maailman kymmenen käytetyimmän sivuston joukossa</string>
   <string name="yir_community_global_reach_headline">Wikipedian maailmanlaajuinen tavoittavuus: olemme maailman kymmenen suosituimman sivuston joukossa</string>
+  <string name="yir_community_global_reach_supporting">Wikipedia on internetissä olevan tiedon selkäranka. Kaikki saavat sen kautta tietoa – opiskelijoista aina chatbotteihin.</string>
   <string name="yir_community_contribute_headline">Panoksellasi on väliä.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia on olemassa ja menestyy kaltaistesi vapaaehtoisten ansiosta, jotka osallistuvat parhaansa mukaan. Jos arvostat Wikipediaa, toivomme, että tuet sitä lahjoittamalla tai muokkaamalla.\n\nTuetko meitä jo? Näytä saavutuksesi kirjautumalla sisään tai luomalla tili.</string>
   <string name="yir_closing_headline">Seuraavaa noidankehää odotellessa</string>
+  <string name="yir_closing_supporting">Tulitpa Wikipediaan yhden tai vaikkapa sadan artikkelin vuoksi, kiitos, että selaat, luet ja tutkit sisältöämme.</string>
   <string name="yir_closing_share_action">Jaa kohokohdat</string>
   <string name="yir_store_discount_headline">Pieni kiitollisuudenosoitus</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">Koska autat pitämään tiedon maksuttomana, saat %1$d %% alennusta Wikipedia-kaupasta. Alennus hyvitetään kassalla suoraan, joten mitään koodia ei tarvita.</item>
+    <item quantity="other">Koska autat pitämään tiedon maksuttomana, saat %1$d %% alennusta Wikipedia-kaupasta. Alennus hyvitetään kassalla suoraan, joten mitään koodia ei tarvita.</item>
+  </plurals>
+  <string name="yir_store_discount_action">Vieraile kaupassa</string>
   <string name="yir_games_headline">Oletko valmis uuteen haasteeseen?</string>
+  <string name="yir_games_supporting">Testaa Wikipediasta saamiasi tietoja nopeilla tietovisoilla.</string>
   <string name="yir_games_action">Aloita pelaaminen</string>
   <string name="yir_customize_home_headline">Mukauta aloitusnäyttöä</string>
+  <string name="yir_customize_home_supporting">Valitse itseäsi kiinnostavat aiheet, niin saat niihin liittyviä suosituksia.</string>
   <string name="yir_customize_home_action">Mukauta kiinnostuksenkohteesi</string>
   <string name="yir_community_recap_headline">Vuosikatsauksemme</string>
+  <string name="yir_community_recap_supporting">Katso taas, kuinka paljon maailmalla luettiin, muokattiin ja selattiin yhdessä.</string>
   <string name="yir_community_recap_action">Tutustu nyt</string>
   <string name="yir_quiz_headline">Mikä Wikipedia olet?</string>
   <string name="yir_quiz_supporting">Tutustu Wikipedian historiaan puhelinmodeemiajoista aina nykypäivään.</string>
   <string name="yir_quiz_action">Tee testi</string>
   <string name="yir_open_tabs_headline">Käy uudelleen avoimilla välilehdillä</string>
   <string name="yir_share_text">Tämä on vuoden %1$d vuosikatsaukseni Wikipediasta Wikipedia-sovelluksesta lähetettynä: %2$s</string>
+  <string name="yir_feature_card_title">Wikipedian vuosikatsaus %1$d</string>
+  <string name="yir_feature_card_articles_read">Luettujen artikkelien määrä:</string>
+  <string name="yir_feature_card_minutes_read">Lukuminuutteja yhteensä:</string>
+  <string name="yir_feature_card_longest_rabbit_hole">Pisin kujanjuoksu:</string>
+  <string name="yir_feature_card_top_category">Erikoisia luokkia, joihin olet tutustunut:</string>
+  <string name="yir_feature_card_created_with">Luotu Wikipedia-sovelluksella</string>
   <string name="yir_topic_comment_architecture">Arvostit tänä vuonna asioita, jotka on luotu kestämään.</string>
   <string name="yir_topic_comment_art">Kauneus, rohkeus ja toisinaan myös outous vetivät sinua puoleensa.</string>
   <string name="yir_topic_comment_comics_and_anime">Uppouduit ruutu ruudulta yhä syvemmälle sarjakuvien ja animen maailmaan.</string>
@@ -2013,7 +2121,10 @@
     <item quantity="other">Se on kauemmin kuin %1$d kokonaista päivää.</item>
   </plurals>
   <string name="year_in_review_learn_more">Lisätietoja</string>
+  <string name="year_in_review_share_feedback">Anna palautetta</string>
+  <string name="year_in_review_feedback_email_subject">Vuosiyhteenvedon palaute</string>
   <string name="year_in_review_get_started">Aloita</string>
+  <string name="year_in_review_announcement_explore">Tutustu</string>
   <string name="year_in_review_topbar_w_icon">Wikipedian W-kuvake</string>
   <string name="year_in_review_navigate_left">Mene vasemmalle</string>
   <string name="year_in_review_close">Sulje</string>
@@ -2025,6 +2136,12 @@
   <string name="year_in_review_get_started_headline">Tutustu Wikipedia-vuoteesi</string>
   <string name="year_in_review_get_started_bodytext">Tutustu kohokohtiin lukemastasi ja muokkaamastasi sisällöstä Wikipedia-sovelluksessa.</string>
   <string name="year_in_review_get_started_info">Lukuhistoria säilytetään suojattuna. Kohokohdat muodostetaan laitteellesi tallennettujen tietojen perusteella.</string>
+  <string name="year_in_review_get_started_later_activity">Voit avata vuosikatsauksesi myöhemmin Aktiviteetti-osiosta.</string>
+  <string name="year_in_review_entry_card_title_collective">Vuosikatsauksemme on valmistunut</string>
+  <string name="year_in_review_entry_card_title_personalized">Vuosikatsauksesi on valmistunut</string>
+  <string name="year_in_review_entry_card_subtitle">Palauta vuosi Wikipediassa mieleesi.</string>
+  <string name="year_in_review_entry_card_subtitle_collective">Palauta vuoden tapahtumat mieleesi Wikipediassa.</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">Vuosiyhteenvetoasi varten ei ollut tällä kertaa riittävästi toimintaa, mutta voit silti katsoa, mitä kaikkea maailmalla luettiin yhdessä.</string>
   <string name="year_in_review_survey_title">Auta parantamaan vuosikatsausta</string>
   <string name="year_in_review_survey_subtitle">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="year_in_review_reading_list_survey_title">Auta parantamaan vuosikatsaus %d -kokoelmaa.</string>
@@ -2059,6 +2176,9 @@
   <string name="year_in_review_slide_geo_headline">Lukemasi artikkelit ovat lähimpänä maata %s</string>
   <string name="year_in_review_slide_geo_body">Maa, joka on lähimpänä useisiin lukemiisi artikkeleihin näyttäisi olevan: %1$s, perustuen artikkeleihin, kuten &lt;b&gt;%2$s&lt;/b&gt; ja &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">Kirjaudu sisään personointia varten?</string>
+  <string name="year_in_review_login_dialog_title_nodata">Wikipedia on parempi käyttäjätunnusta käyttämällä</string>
+  <string name="year_in_review_login_dialog_body_nodata">Kirjautumalla voit hyödyntää sovelluksen parhaita ominaisuuksia. Aloita ensi vuoden vuosikatsauksesi luominen luomalla tili tänään.</string>
+  <string name="year_in_review_login_dialog_title_data">Vuosikatsaus toimii paremmin käyttäjätunnuksilla</string>
   <string name="year_in_review_login_dialog_positive">Kirjaudu sisään / Liity Wikipediaan</string>
   <string name="year_in_review_login_dialog_negative">Jatka kirjautumatta</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -2332,6 +2452,16 @@
   <string name="donation_reminders_settings_update_reminder_button">Päivitä muistutusta</string>
   <string name="donation_reminders_beta_label">Beeta</string>
   <string name="donation_reminders_wrap_up_share_feedback_button">Anna palautetta</string>
+  <string name="donation_reminders_wrap_up_survey_title">Nopea kysymys lahjoitusmuistutuksista</string>
+  <string name="donation_reminders_wrap_up_survey_message">Pitäisikö luettujen artikkelien määrään perustuvista lahjoitusmuistutuksista tehdä pysyvä ominaisuus?</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">Säilytä</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">Poista</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">En osaa päättää</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">Oliko muuta? (valinnainen)</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">Kiitos palautteestasi. Vastauksesi auttaa meitä päättämään, mitä kannattaa kehittää seuraavaksi.</string>
+  <string name="donation_reminders_eoe_title">Kokeilu päättyy tähän</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Lahjoita kuukausittain</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">Millä tavoin haluat lahjoittaa kuukausittain?</string>
   <string name="reading_challenge_widget_name">Lukuhaaste</string>
   <string name="reading_challenge_onboarding_header">Juhlista 25-vuotiasta Wikipediaa osallistumalla 25 päivän lukuhaasteeseen!</string>
   <string name="reading_challenge_onboarding_read_title">Lue yksi artikkeli päivässä 25 päivän ajan</string>
@@ -2492,6 +2622,16 @@
   <string name="read_aloud_card_play">Toista</string>
   <string name="read_aloud_card_pause">Tauko</string>
   <string name="read_aloud_card_retry">Yritä uudelleen</string>
+  <string name="read_aloud_card_keep_listening">Jatkatko kuuntelua?</string>
+  <string name="read_aloud_lead_section_tooltip_text">Uusi beetaominaisuus: voit kuunnella Sinulle-osion artikkelien esittelyjä</string>
+  <string name="read_aloud_lead_section_survey_title">Millä tavoin haluaisit kuunnella Wikipediaa?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Artikkelien esittelyt</string>
+  <string name="read_aloud_lead_section_survey_choice2">Pari osiota artikkelista</string>
+  <string name="read_aloud_lead_section_survey_choice3">Koko artikkelit</string>
+  <string name="read_aloud_lead_section_survey_choice4">Useita lyhyitä otteita tiettyyn aiheeseen liittyvistä artikkeleista</string>
+  <string name="read_aloud_lead_section_survey_choice5">Muu:</string>
+  <string name="read_aloud_lead_section_beta_label">Beeta</string>
+  <string name="read_aloud_lead_section_report_issue">Ilmoita ongelmasta</string>
   <string name="home_feed_discover_see_all_button">Selaa suosituksia</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Siinä kaikki tältä päivältä!</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">Tule takaisin huomenna löytääksesi uusia, sinulle räätälöityjä artikkeleita.</string>
@@ -2525,8 +2665,10 @@
     <item quantity="one">%d viite</item>
     <item quantity="other">%d viitettä</item>
   </plurals>
-  <string name="semantic_search_results_last_updated_label" fuzzy="true">Päivitetty viimeksi %s</string>
+  <string name="semantic_search_results_last_updated_label">Päivitetty viimeksi %s</string>
   <string name="semantic_search_results_feedback_title">Löysitkö etsimäsi?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">Peukku ylös</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">Peukku alas</string>
   <string name="semantic_search_results_feedback_input_hint">Kerro tarkemmin (valinnainen)</string>
   <string name="semantic_search_results_feedback_submit_button_text">Lähetä</string>
   <string name="semantic_search_results_feedback_submitted_message">Kiitos palautteesta</string>
@@ -2534,6 +2676,7 @@
   <string name="semantic_search_feedback_dialog_close_button_content_description">Sulje semanttisen haun palaute</string>
   <string name="preference_heading_semantic_search">Hae</string>
   <string name="preference_title_semantic_search_within_articles">Etsi artikkeleista</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">Siirry suoraan kyseiseen kohtaan</string>
   <string name="semantic_search_snackbar_message">Moduuli piilotettu. Voit tuoda sen takaisin näkyviin asetuksista.</string>
   <string name="semantic_search_snackbar_action_label">Muokkaa</string>
 </resources>
