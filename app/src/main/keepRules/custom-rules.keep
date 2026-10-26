@@ -1,7 +1,16 @@
 
--dontwarn com.google.re2j.Matcher
--dontwarn com.google.re2j.Pattern
-
-# TODO: remove after reading challenge widget is removed
+# Callbacks for Reading Challenge widget
 -keep class * implements androidx.glance.appwidget.action.ActionCallback { public <init>(); }
 
+# Accessed via reflection in OnThisDayGameArchiveCalendarHelper
+-keepclassmembers class com.google.android.material.datepicker.MaterialDatePicker {
+    com.google.android.material.datepicker.MaterialCalendar calendar;
+}
+
+# Class names are used as analytics values
+-keepnames class * extends org.wikipedia.feed.model.Card
+-keepnames class * extends androidx.fragment.app.Fragment
+-keepnames class * extends java.lang.Throwable
+
+# Parcelables can outlive an app update in widget options and PendingIntents
+-keepnames class * implements android.os.Parcelable
