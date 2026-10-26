@@ -10,7 +10,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.ReleaseUtil
 
-class NotificationsExperimentAbTest : ABTest("notifications-experiment-1", GROUP_SIZE_2) {
+class NotificationsExperimentAbTest : ABTest("discover-notifications-test-1", GROUP_SIZE_2) {
     override fun getGroupName(): String {
         return when (group) {
             GROUP_2 -> "treatment"

@@ -170,7 +170,7 @@ class ActivityTabFragment : Fragment() {
                             yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
                             onYirGetStartedClick = {
                                 TestKitchenAdapter.client.getInstrument("apps-year-in-review")
-                                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started",
+                                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started_button",
                                         actionContext = mapOf("personalized" to ((yearInReviewEntryState as? UiState.Success)?.data ?: false)))
                                 startActivity(YearInReviewOnboardingActivity.newIntent(requireContext()))
                             }
@@ -266,7 +266,7 @@ class ActivityTabFragment : Fragment() {
                     wikiSite = WikipediaApp.instance.wikiSite
                 ))
             },
-            onGameStatsClick = { startActivity(GamesHubActivity.newIntent(requireContext())) },
+            onGameStatsClick = { startActivity(GamesHubActivity.newIntent(requireContext(), Constants.InvokeSource.ACTIVITY_TAB)) },
             onGamesRetry = { viewModel.loadWikiGamesStats() },
             onDonationClick = {
                 ActivityTabEvent.submit(activeInterface = "activity_tab", action = "last_donation_click",
@@ -277,7 +277,7 @@ class ActivityTabFragment : Fragment() {
             yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
             onYirGetStartedClick = {
                 TestKitchenAdapter.client.getInstrument("apps-year-in-review")
-                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started",
+                    .submitInteraction(action = "click", actionSource = "activity_tab_entry_point", elementId = "get_started_button",
                         actionContext = mapOf("personalized" to ((yearInReviewEntryState as? UiState.Success)?.data ?: false)))
                 startActivity(YearInReviewOnboardingActivity.newIntent(requireContext()))
             }
