@@ -103,11 +103,11 @@ object RecommendedReadingListNotificationManager {
     private fun getNotificationsExperimentTitleAndText(context: Context, experimentSource: NotificationsExperimentDiscoverSource): Pair<String, String> {
         val articleTitle = StringUtil.fromHtml(experimentSource.title.displayText).toString()
         return when (experimentSource.source) {
-            RecommendedReadingListSource.INTERESTS, RecommendedReadingListSource.READING_LIST -> {
+            RecommendedReadingListSource.INTERESTS -> {
                 context.getString(R.string.notifications_experiment_discover_interests_title, articleTitle) to
                         context.getString(R.string.notifications_experiment_discover_message)
             }
-            else -> {
+            RecommendedReadingListSource.READING_LIST, RecommendedReadingListSource.HISTORY -> {
                 context.getString(R.string.notifications_experiment_discover_saved_or_history_title, articleTitle) to
                         context.getString(R.string.notifications_experiment_discover_message)
             }
