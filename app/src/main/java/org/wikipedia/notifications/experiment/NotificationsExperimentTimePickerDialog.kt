@@ -2,6 +2,7 @@ package org.wikipedia.notifications.experiment
 
 import android.content.Context
 import android.icu.util.Calendar
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -43,6 +44,11 @@ fun showNotificationsExperimentTimePickerDialog(context: Context, onChanged: () 
         .setView(composeView)
         .show()
 
+    dialog.window?.apply {
+        clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM)
+        setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+    }
+
     composeView.setContent {
         BaseTheme {
             DevSettingsTimePicker(
@@ -83,7 +89,8 @@ fun DevSettingsTimePicker(
     ) {
         MaterialTheme(
             colorScheme = MaterialTheme.colorScheme.copy(
-                primary = WikipediaTheme.colors.progressiveColor
+                primary = WikipediaTheme.colors.progressiveColor,
+                onSurface = WikipediaTheme.colors.primaryColor
             )
         ) {
             TimeInput(
