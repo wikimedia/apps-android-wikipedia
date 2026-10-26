@@ -2154,6 +2154,7 @@
   <string name="year_in_review_entry_card_title_collective">Megérkezett az Éves összefoglalónk</string>
   <string name="year_in_review_entry_card_title_personalized">Megérkezett az Éves összefoglalód</string>
   <string name="year_in_review_entry_card_subtitle">Fedezd fel újra az éved a Wikipédián.</string>
+  <string name="year_in_review_entry_card_subtitle_collective">Fedezd fel újra az évet a Wikipédián.</string>
   <string name="year_in_review_entry_card_data_low_subtitle">Ezúttal nem volt elegendő aktivitás a saját Éves összefoglalód elkészítéséhez, de így is felfedezheted, mit fedezett fel együtt a világ.</string>
   <string name="year_in_review_survey_title">Segíts fejleszteni az Éves összefoglalót</string>
   <string name="year_in_review_survey_subtitle">Elégedett vagy ezzel a funkcióval?</string>
@@ -2191,6 +2192,10 @@
   <string name="year_in_review_slide_geo_body">Az általad olvasott számos szócikk alapján a leginkább kapcsolódó ország: %1$s — például olyan szócikkek alapján, mint &lt;b&gt;%2$s&lt;/b&gt; és &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">Bejelentkezel a személyre szabáshoz?</string>
   <string name="year_in_review_login_dialog_body">A bejelentkezés hozzáférést biztosít a személyre szabott betekintésekhez. Bejelentkezés nélkül is megtekintheted az összesített betekintéseket.</string>
+  <string name="year_in_review_login_dialog_title_nodata">A Wikipédia fiókkal a legjobb</string>
+  <string name="year_in_review_login_dialog_body_nodata">A bejelentkezéssel hozzáférhetsz az alkalmazás legjobb funkcióihoz. Hozz létre egy fiókot még ma, és kezdd el összeállítani a jövő évi Éves összefoglalódat.</string>
+  <string name="year_in_review_login_dialog_title_data">Az Éves összefoglalód fiókkal a legjobb</string>
+  <string name="year_in_review_login_dialog_body_data">Jelentkezz be, hogy lásd a legnépszerűbb témáidat, szócikkeidet, azt a témát, amelybe a legmélyebben beleástad magad, és még sok mást. A közösségi összegzést bejelentkezés nélkül is megnézheted.</string>
   <string name="year_in_review_login_dialog_positive">Bejelentkezés / Regisztrálás a Wikipédiába</string>
   <string name="year_in_review_login_dialog_negative">Folytatás bejelentkezés nélkül</string>
   <plurals name="year_in_review_slide_top_articles_headline">

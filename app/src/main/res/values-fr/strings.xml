@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Aaribaud
+* Allylly
 * Alno
 * Bananax47
 * Bbernrd
@@ -2537,7 +2538,7 @@
   <string name="semantic_search_results_feedback_submit_button_text">Envoyer</string>
   <string name="semantic_search_results_feedback_submitted_message">Merci pour votre retour</string>
   <string name="semantic_search_feedback_dialog_title">Commentaires</string>
-  <string name="semantic_search_feedback_dialog_close_button_content_description">Fermer le retour sémantique</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">Fermer le retour de recherche sémantique</string>
   <string name="semantic_search_snackbar_message">Module masqué. Vous pouvez le rendre de nouveau visible dans les paramètres</string>
   <string name="semantic_search_snackbar_action_label">Modifier</string>
 </resources>
