@@ -266,7 +266,7 @@ class ActivityTabFragment : Fragment() {
                     wikiSite = WikipediaApp.instance.wikiSite
                 ))
             },
-            onGameStatsClick = { startActivity(GamesHubActivity.newIntent(requireContext())) },
+            onGameStatsClick = { startActivity(GamesHubActivity.newIntent(requireContext(), Constants.InvokeSource.ACTIVITY_TAB)) },
             onGamesRetry = { viewModel.loadWikiGamesStats() },
             onDonationClick = {
                 ActivityTabEvent.submit(activeInterface = "activity_tab", action = "last_donation_click",
