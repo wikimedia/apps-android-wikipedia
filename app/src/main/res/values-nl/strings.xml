@@ -194,8 +194,8 @@
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wachtwoord</string>
   <string name="account_creation_password_hint">Wachtwoord</string>
-  <string name="login_2fa_hint">Code voor tweetraps-authenticatie</string>
-  <string name="login_2fa_other_workflow_error_msg">Tweetrapsauthenticatie vereist! Meld u aan vanuit het hoofdscherm en voer de code van uw tweetrapsauthenticatie-token in.</string>
+  <string name="login_2fa_hint">Code voor tweetrapsauthenticatie</string>
+  <string name="login_2fa_other_workflow_error_msg">Tweetrapsauthenticatie vereist! Meld u aan vanuit het hoofdscherm en voer de code van uw tweetrapsauthenticatietoken in.</string>
   <string name="login_email_auth_hint">E-mailverificatiecode</string>
   <string name="login_email_auth_other_workflow_error_msg">E-mailverificatie vereist! Meld u aan vanuit het hoofdscherm en voer uw e-mailverificatiecode in.</string>
   <string name="login_background_error_msg">Opnieuw aanmelden lukt niet. Ga terug naar het hoofdscherm en meld u handmatig aan.</string>
@@ -311,7 +311,10 @@
   <string name="legal_safety_contacts_description">Juridische en veiligheidscontacten</string>
   <string name="about_wikipedia_url">https://nl.wikipedia.org/wiki/Help:Unieke_van_Wikipedia</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
@@ -1156,6 +1159,7 @@
     <item quantity="one">U heeft %d label toegevoegd</item>
     <item quantity="other">U heeft %d labels toegevoegd</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gisteren</string>
   <string name="suggested_edits_encourage_account_creation_title">Wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="suggested_edits_encourage_account_creation_message">“Voorgestelde bewerkingen” is een nieuwe manier om Wikipedia vanuit Android te bewerken. Hiermee kunt u een kleine maar belangrijke bijdrage leveren aan Wikipedia. Ons doel is het bewerken voor iedereen makkelijker en toegankelijker te maken! Meld u aan of schrijf u in bij Wikipedia om aan de slag te gaan.</string>
@@ -1804,6 +1808,7 @@
   <string name="patroller_saved_message_body_edit_summary">Hallo {{{username}}}, het lijkt erop dat u inhoud van Wikipedia hebt verwijderd zonder een bewerkingssamenvatting achter te laten. Laat een bewerkingssamenvatting achter wanneer u inhoud aan Wikipedia toevoegt of verwijdert.</string>
   <string name="patroller_saved_message_body_do_not_censor">Hallo {{{username}}}, het lijkt erop dat u inhoud hebt verwijderd zonder dat eerst op de overlegpagina te bespreken. Houd er rekening mee dat Wikipedia niet wordt gecensureerd en dat inhoud niet mag worden verwijderd alleen omdat deze controversieel is. Als u vindt dat de informatie onjuist is, probeer dan overeenstemming te bereiken op de overlegpagina van de pagina.</string>
   <string name="talk_warn_learn_more_label">Meer informatie over tijdelijke aanduidingen voor berichten</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">Gebruik een voorbeeldbericht hieronder om uw berichten aan te passen, te verzenden en op te slaan.</string>
   <string name="patroller_saved_message_body_art_imp">Hallo {{{gebruikersnaam}}}. Uw pagina is een mooi begin! Om het nog beter te maken, kunt u overwegen om meer verwijzingen naar betrouwbare bronnen toe te voegen. Dit helpt de informatie te verifiëren en verbetert de kwaliteit van de pagina. Bekijk de richtlijnen van Wikipedia over [[Wikipedia:Betrouwbare_bronnen|betrouwbare bronnen]] voor meer details.</string>
   <string name="talk_templates_menu_edit_title">Bewerken</string>
@@ -1945,8 +1950,221 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Bekijk uw reeksen, scores en meer</string>
   <string name="wikipedia_games_title">Wikipedia-spellen</string>
   <string name="wikipedia_games_subtitle">Dagelijkse spellen gebaseerd op Wikipedia-inhoud.</string>
+  <string name="yir_intro_headline">Uw Wikipedia-jaaroverzicht is er</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">Bedankt dat u in %2$d %1$d dag aan uw vertrouwde Wikipedia-app heeft besteed.</item>
+    <item quantity="other">Bedankt dat u in %2$d %1$d dagen aan uw vertrouwde Wikipedia-app heeft besteed.</item>
+  </plurals>
+  <string name="yir_article_count_headline">Uw totale aantal artikelen:</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="one">Daarmee staat u in de top %1$s%% van Wikipedia-lezers wereldwijd. De gemiddelde persoon leest %2$d artikel per jaar.</item>
+    <item quantity="other">Daarmee staat u in de top %1$s%% van Wikipedia-lezers wereldwijd. De gemiddelde persoon leest %2$d artikelen per jaar.</item>
+  </plurals>
+  <string name="yir_article_count_supporting">U heeft het hele jaar verkend. Elk artikel voegde iets toe aan wat u weet.</string>
+  <string name="yir_article_count_empty_headline">U heeft miljoenen artikelen te ontdekken</string>
+  <string name="yir_article_count_empty_supporting">Wacht maar tot u ontdekt hoeveel er op Wikipedia te leren valt.</string>
+  <string name="yir_days_visited_headline">Dagen dat u Wikipedia in %1$d bezocht:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">Uw activiteit bereikte een piek in %1$s, toen u op %2$d dag las.</item>
+    <item quantity="other">Uw activiteit bereikte een piek in %1$s, toen u op %2$d verschillende dagen las.</item>
+  </plurals>
+  <string name="yir_minutes_read_headline">Totaal aantal minuten besteed aan lezen:</string>
+  <string name="yir_minutes_read_supporting">%1$s De tijd vliegt als u in een konijnenhol valt.</string>
+  <string name="yir_reading_streak_headline">Dagen in uw langste leesreeks:</string>
+  <string name="yir_reading_streak_supporting">Van %1$s–%2$s kwam u echt in de flow van elke dag lezen.</string>
+  <string name="yir_reading_streak_empty_headline">0 leesreeksen… voorlopig</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">Het is pas een reeks als u het %1$d dag achter elkaar heeft gedaan. Waarom niet nu beginnen?</item>
+    <item quantity="other">Het is pas een reeks als u het %1$d dagen achter elkaar heeft gedaan. Waarom niet nu beginnen?</item>
+  </plurals>
+  <string name="yir_reading_time_headline">Favoriet tijdstip om te verkennen:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">%1$d%% van uw verkenningen vond plaats op dit tijdstip van de dag. Toeval of… niet?</item>
+    <item quantity="other">%1$d%% van uw verkenningen vond plaats op dit tijdstip van de dag. Toeval of… niet?</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">U leest eigenlijk op elk moment</string>
+  <string name="yir_reading_time_empty_supporting">Er is geen vaste dag of tijd waarop u besluit de pagina\'s van Wikipedia te verkennen.</string>
+  <string name="yir_top_topic_headline">Uw belangrijkste onderwerp van %1$d:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">Van %1$s tot %2$s was %3$d van uw artikelen aan dit thema verbonden. %4$s</item>
+    <item quantity="other">Van %1$s tot %2$s waren %3$d van uw artikelen aan dit thema verbonden. %4$s</item>
+  </plurals>
+  <string name="yir_top_topic_empty_headline">Uw nummer 1-onderwerp van %1$d is… allemaal</string>
+  <string name="yir_top_topic_empty_supporting">Met zoveel interesses is er geen enkel onderwerp dat uw leesgewoonten bepaalde.</string>
+  <string name="yir_runner_up_topics_headline">En uw tweede plaatsen voor %1$d:</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d artikel</item>
+    <item quantity="other">%1$d artikelen</item>
+  </plurals>
+  <string name="yir_biggest_reading_day_headline">Grootste leesdag:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">U heeft in totaal %1$d minuut op Wikipedia doorgebracht. Hoe productief is dat?</item>
+    <item quantity="other">U heeft in totaal %1$d minuten op Wikipedia doorgebracht. Hoe productief is dat?</item>
+  </plurals>
+  <string name="yir_articles_read_headline">Een voorproefje van de artikelen die u heeft gelezen:</string>
+  <string name="yir_most_time_article_headline">Waaraan besteedde u de meeste tijd?</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">U heeft in %2$d in totaal %1$d minuut aan dit artikel besteed!</item>
+    <item quantity="other">U heeft in %2$d in totaal %1$d minuten aan dit artikel besteed!</item>
+  </plurals>
+  <string name="yir_rabbit_hole_headline">Welk van uw konijnenholen was het diepst?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">%1$d koppeling diep is indrukwekkend.</item>
+    <item quantity="other">%1$d koppelingen diep is indrukwekkend.</item>
+  </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">In welk konijnenhol valt u als volgende?</string>
+  <string name="yir_niche_category_headline">Over niche-interesses gesproken, zoals:</string>
+  <string name="yir_niche_category_supporting">Om de een of andere reden ging u bij deze categorie helemaal los!</string>
+  <string name="yir_reread_articles_headline">Enkele artikelen in uw rotatie:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d bezoeken</item>
+    <item quantity="other">%1$d bezoeken</item>
+  </plurals>
+  <string name="yir_reread_articles_empty_headline">U bent geen herlezer</string>
+  <string name="yir_reread_articles_empty_supporting">Zoveel voor het twee keer bekijken van een artikel. U geeft de voorkeur aan iets nieuws en aan het vallen in nieuwe konijnenholen.</string>
+  <string name="yir_places_headline">Uw leesgedrag bracht u vrijwel naar:</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">Op basis van %1$d artikel</item>
+    <item quantity="other">Op basis van %1$d artikelen</item>
+  </plurals>
+  <string name="yir_places_empty_headline">Uw leesgedrag bracht u over de hele kaart</string>
+  <string name="yir_places_empty_supporting">In %1$d reisde u over heel Wikipedia. Bekijk de functie Plaatsen voor ideeën over waar u heen kunt als u onderweg bent.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Artikel dat u voor later heeft opgeslagen: %1$d</item>
+    <item quantity="other">Artikelen die u voor later heeft opgeslagen: %1$d</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s weergave</item>
+    <item quantity="other">%1$s weergaven</item>
+  </plurals>
+  <string name="yir_saved_articles_empty_headline">U heeft 0 artikelen opgeslagen</string>
+  <string name="yir_saved_articles_empty_supporting">U heeft momenteel 0 artikelen opgeslagen. Zoek het bladwijzerpictogram op een artikel, zodat u zich later ergens in kunt verdiepen.</string>
+  <string name="yir_edits_headline">Bewerkingen die u maakte:</string>
+  <string name="yir_edits_supporting">Of u nu bijdraagt aan Wikipedia, Wikimedia Commons of Wikidata, bedankt dat u ieders toegang tot menselijke kennis verbetert.</string>
+  <string name="yir_edits_empty_headline">U heeft tot nu toe 0 bewerkingen gemaakt</string>
+  <string name="yir_edits_empty_supporting">U heeft nog geen bewerkingen gemaakt, maar het is gemakkelijk om te leren hoe. Dit is een goed moment om lid te worden van de gemeenschap die Wikipedia bouwt.</string>
+  <string name="yir_edit_views_headline">Weergaven die uw bewerkingen ontvingen:</string>
+  <string name="yir_edit_views_supporting">In %1$d zagen lezers van over de hele wereld de wijzigingen die u maakte.</string>
+  <string name="yir_most_viewed_edited_articles_headline">De meest bekeken artikelen sinds uw bewerking:</string>
+  <string name="yir_contributor_thanks_headline">Bedankt!</string>
+  <string name="yir_contributor_thanks_supporting">Als %1$s houden uw bijdragen Wikipedia advertentievrij, betrouwbaar en voor iedereen beschikbaar. We kunnen u niet genoeg bedanken voor uw steun aan Wikipedia!</string>
+  <string name="yir_non_contributor_headline">U doet ertoe.</string>
+  <string name="yir_non_contributor_supporting">Wikipedia bestaat dankzij echte mensen zoals u, die bijdragen wat ze kunnen om het te laten floreren. Als Wikipedia waardevol voor u is, overweeg dan die te steunen door te doneren of te bewerken.</string>
+  <string name="yir_community_intro_headline">Ons jaaroverzicht is er</string>
+  <string name="yir_community_intro_supporting">Er was deze keer niet genoeg activiteit om uw eigen jaaroverzicht te genereren, maar u kunt wel verkennen wat de wereld samen heeft ontdekt.</string>
+  <string name="yir_community_reading_hours_headline">Uren die we in %1$d aan het lezen van Wikipedia hebben besteed:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">Gezamenlijk, in alle talen, besteedden lezers zoals u naar schatting %1$,d jaar aan het lezen van Wikipedia.</item>
+    <item quantity="other">Gezamenlijk, in alle talen, besteedden lezers zoals u naar schatting %1$,d jaar aan het lezen van Wikipedia.</item>
+  </plurals>
+  <string name="yir_community_languages_title">Talen waarin Wikipedia beschikbaar is:</string>
+  <plurals name="yir_community_languages_headline">
+    <item quantity="one">Talen waarin Wikipedia beschikbaar is: meer dan %1$d</item>
+    <item quantity="other">Talen waarin Wikipedia beschikbaar is: meer dan %1$d</item>
+  </plurals>
+  <string name="yir_community_languages_supporting">Wikipedia wordt geschreven en onderhouden door vrijwilligersgemeenschappen van over de hele wereld — het bewijs dat menselijke kennis veel meer dan één taal spreekt.</string>
+  <string name="yir_community_articles_headline">Artikelen op Wikipedia:</string>
+  <string name="yir_community_articles_supporting">Wikipedia wordt nog steeds gebouwd door mensen — vrijwilligers van over de hele wereld die betrouwbare bronnen gebruiken om alle inhoud ervan te maken en samen te stellen.</string>
+  <string name="yir_community_saved_articles_headline">Artikelen opgeslagen in %1$d:</string>
+  <string name="yir_community_saved_articles_supporting">Lezers hebben duizenden en duizenden artikelen opgeslagen om voor de eerste, derde of honderdste keer te lezen.</string>
+  <string name="yir_community_editors_headline">Vrijwillige bewerkers:</string>
+  <string name="yir_community_editors_supporting">Wist u dat alle Wikimedia-projecten door vrijwilligers worden gemaakt? Bewerkers dragen nieuwe artikelen bij en verbeteren bestaande artikelen.</string>
+  <string name="yir_community_edits_headline">Gemaakte bewerkingen:</string>
+  <string name="yir_community_edits_supporting">Elk uur van elke dag werken vrijwilligers over de hele wereld aan het verbeteren van Wikipedia door feiten in artikelen bij te werken, historische bezienswaardigheden te fotograferen en typefouten te herstellen.</string>
+  <string name="yir_community_global_reach_title">Het wereldwijde bereik van Wikipedia:</string>
+  <string name="yir_community_global_reach_subtitle">Een van de tien meest bezochte websites ter wereld</string>
+  <string name="yir_community_global_reach_headline">Het wereldwijde bereik van Wikipedia: een van de tien meest bezochte websites ter wereld</string>
+  <string name="yir_community_global_reach_supporting">Wikipedia is de ruggengraat van de kennis op het internet. Van studenten tot chatbots, iedereen leert ervan.</string>
+  <string name="yir_community_contribute_headline">U doet ertoe.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia bestaat dankzij echte mensen zoals u, die bijdragen wat ze kunnen om het te laten floreren. Als Wikipedia waardevol voor u is, overweeg dan die te steunen door te doneren of te bewerken.\n\nAl een bijdrager? Meld u aan of maak een account aan om uw prestaties te zien.</string>
+  <string name="yir_closing_headline">Tot het volgende konijnenhol</string>
+  <string name="yir_closing_supporting">Of u nu voor één artikel of honderd kwam, bedankt dat u samen met ons op Wikipedia heeft verkend, gelezen en nieuwsgierig bent gebleven.</string>
+  <string name="yir_closing_share_action">Hoogtepunten delen</string>
+  <string name="yir_store_discount_headline">Een klein bedankje</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">Omdat u helpt kennis vrij te houden, geven we u %1$d%% korting in de Wikipedia-winkel. Geen code nodig, die wordt bij het afrekenen toegepast.</item>
+    <item quantity="other">Omdat u helpt kennis vrij te houden, geven we u %1$d%% korting in de Wikipedia-winkel. Geen code nodig, die wordt bij het afrekenen toegepast.</item>
+  </plurals>
+  <string name="yir_store_discount_action">Bezoek de winkel</string>
+  <string name="yir_games_headline">Klaar voor een nieuwe uitdaging?</string>
+  <string name="yir_games_supporting">Test uw Wikipedia-brein met snelle spellen die zijn geïnspireerd op de kennis van de wereld.</string>
+  <string name="yir_games_action">Begin met spelen</string>
+  <string name="yir_customize_home_headline">Maak Start van uzelf</string>
+  <string name="yir_customize_home_supporting">Kies de onderwerpen die u fascineren en ontvang aanbevelingen die op uw interesses zijn afgestemd.</string>
+  <string name="yir_customize_home_action">Interesses aanpassen</string>
+  <string name="yir_community_recap_headline">Ons jaaroverzicht</string>
+  <string name="yir_community_recap_supporting">Herontdek hoeveel de wereld samen heeft gelezen, bewerkt en verkend.</string>
+  <string name="yir_community_recap_action">Nu verkennen</string>
+  <string name="yir_quiz_headline">Welke Wikipedia bent u?</string>
+  <string name="yir_quiz_supporting">Van de inbeltijd tot nu, reis door de geschiedenis van Wikipedia.</string>
+  <string name="yir_quiz_action">Doe de quiz</string>
+  <string name="yir_open_tabs_headline">Bekijk uw open tabbladen opnieuw</string>
+  <string name="yir_share_text">Hier is mijn Wikipedia-jaaroverzicht van %1$d, uit de Wikipedia-app: %2$s</string>
+  <string name="yir_feature_card_title">Wikipedia-jaaroverzicht %1$d</string>
+  <string name="yir_feature_card_articles_read">Aantal gelezen artikelen:</string>
+  <string name="yir_feature_card_minutes_read">Totaal aantal gelezen minuten:</string>
+  <string name="yir_feature_card_articles_reread">Artikelen in mijn rotatie:</string>
+  <string name="yir_feature_card_longest_rabbit_hole">Langste konijnenhol:</string>
+  <string name="yir_feature_card_top_category">Verkende nichecategorie:</string>
+  <string name="yir_feature_card_created_with">Gemaakt met de Wikipedia-app</string>
+  <string name="yir_topic_comment_architecture">U besteedde het jaar aan het waarderen van dingen die gebouwd zijn om te blijven.</string>
+  <string name="yir_topic_comment_art">U voelde zich aangetrokken tot het mooie, het gedurfde en het af en toe verbijsterende.</string>
+  <string name="yir_topic_comment_comics_and_anime">Plaatje voor plaatje verdiepte u zich in de werelden van strips en anime.</string>
+  <string name="yir_topic_comment_entertainment">U kon dit jaar niet wegblijven van de wereld van entertainment.</string>
+  <string name="yir_topic_comment_fashion">U klikte vaker dan de meesten door naar de wereld van stijl.</string>
+  <string name="yir_topic_comment_literature">Uw leesgedrag had dit jaar een literaire inslag.</string>
+  <string name="yir_topic_comment_music">Uw nieuwsgierigheid had dit jaar een soundtrack.</string>
+  <string name="yir_topic_comment_performing_arts">U voelde zich op de een of andere manier tot het podium aangetrokken.</string>
+  <string name="yir_topic_comment_sports">U hield dit jaar de stand bij in de wereld van de sport.</string>
+  <string name="yir_topic_comment_tv_and_film">Uw leesgedrag deed dit jaar ook dienst als kijklijst.</string>
+  <string name="yir_topic_comment_video_games">U bracht uw kennis van videogames naar een hoger niveau.</string>
+  <string name="yir_topic_comment_biography">U besteedde het jaar aan het leren kennen van de verhalen van andere mensen.</string>
+  <string name="yir_topic_comment_women">U besteedde het jaar aan het leren kennen van de verhalen van andere mensen.</string>
+  <string name="yir_topic_comment_business_and_economics">U hield in de gaten hoe de wereld zakendoet.</string>
+  <string name="yir_topic_comment_education">Leren over leren was dit jaar een beetje uw ding.</string>
+  <string name="yir_topic_comment_food_and_drink">Uw nieuwsgierigheid had dit jaar wel wat trek.</string>
+  <string name="yir_topic_comment_history">U bent duidelijk gefascineerd door het verleden.</string>
+  <string name="yir_topic_comment_military_and_warfare">U verdiepte zich in de geschiedenis van conflict en defensie.</string>
+  <string name="yir_topic_comment_philosophy_and_religion">U besteedde dit jaar tijd aan de grote vragen.</string>
+  <string name="yir_topic_comment_politics_and_government">U hield bij hoe de wereld wordt bestuurd.</string>
+  <string name="yir_topic_comment_society">U was nieuwsgierig naar de manier waarop mensen leven en zich organiseren.</string>
+  <string name="yir_topic_comment_transportation">U verdiepte zich in hoe de wereld zich van de ene naar de andere plek verplaatst.</string>
+  <string name="yir_topic_comment_biology">U verkende de wetenschap van levende wezens.</string>
+  <string name="yir_topic_comment_chemistry">U mengde dit jaar een beetje scheikunde door uw leesgedrag.</string>
+  <string name="yir_topic_comment_computers_and_internet">U besteedde echt tijd aan het begrijpen van de techniek achter uw scherm.</string>
+  <string name="yir_topic_comment_earth_and_environment">U hield uw leesgedrag letterlijk met beide benen op de grond.</string>
+  <string name="yir_topic_comment_engineering">U vond het leuk om te leren hoe dingen worden gebouwd en hoe ze werken.</string>
+  <string name="yir_topic_comment_general_science">Uw nieuwsgierigheid strekte zich breed uit over de wetenschappen.</string>
+  <string name="yir_topic_comment_mathematics">U gaf getallen dit jaar de aandacht die ze verdienen.</string>
+  <string name="yir_topic_comment_medicine_and_health">U besteedde tijd aan het leren hoe het lichaam werkt.</string>
+  <string name="yir_topic_comment_physics">U verdiepte zich in de regels die het universum besturen.</string>
+  <string name="yir_topic_comment_technology">U bleef op de hoogte van hoe dingen veranderen.</string>
+  <string name="yir_topic_comment_africa">Uw leesgedrag bracht u dit jaar door heel Afrika.</string>
+  <string name="yir_topic_comment_asia">Uw leesgedrag bracht u dit jaar door heel Azië.</string>
+  <string name="yir_topic_comment_central_america">Uw leesgedrag bracht u dit jaar door Midden-Amerika.</string>
+  <string name="yir_topic_comment_europe">Uw leesgedrag bracht u dit jaar door heel Europa.</string>
+  <string name="yir_topic_comment_north_america">Uw leesgedrag hield u dicht bij huis in Noord-Amerika (of verkende het van veraf).</string>
+  <string name="yir_topic_comment_oceania">Uw leesgedrag bracht u dit jaar naar Oceanië.</string>
+  <string name="yir_topic_comment_south_america">Uw leesgedrag bracht u dit jaar door heel Zuid-Amerika.</string>
+  <string name="yir_time_spent_comment_1">Dat is langer dan het hart van een kolibrie nodig heeft om 1200 keer te kloppen.</string>
+  <string name="yir_time_spent_comment_9">Dat is langer dan zonlicht nodig heeft om van de zon naar de aarde te reizen.</string>
+  <string name="yir_time_spent_comment_13">Dat is langer dan het duurt om een ei hard te koken.</string>
+  <string name="yir_time_spent_comment_19">Dat is langer dan de gemiddelde tijd die mensen nodig hebben om in slaap te vallen.</string>
+  <string name="yir_time_spent_comment_31">Dat is langer dan een aflevering van een komedieserie, inclusief alle reclames.</string>
+  <string name="yir_time_spent_comment_93">Dat is langer dan het internationale ruimtestation nodig heeft om één keer om de aarde te draaien.</string>
+  <string name="yir_time_spent_comment_121">Dat is langer dan het huidige wereldrecord op de marathon.</string>
+  <string name="yir_time_spent_comment_540">Dat is langer dan een volledige nachtrust.</string>
+  <string name="yir_time_spent_comment_1441">Dat is langer dan een honingbijkoningin nodig heeft om wel 2000 eieren te leggen.</string>
+  <plurals name="yir_time_spent_comment_2800">
+    <item quantity="one">Dat is langer dan %1$d hele dag.</item>
+    <item quantity="other">Dat is langer dan %1$d hele dagen.</item>
+  </plurals>
   <string name="year_in_review_learn_more">Meer lezen</string>
+  <string name="year_in_review_about_your_insights">Over uw inzichten</string>
+  <string name="year_in_review_share_feedback">Terugkoppeling delen</string>
+  <string name="year_in_review_feedback_email_subject">Terugkoppeling over het jaaroverzicht</string>
   <string name="year_in_review_get_started">Aan de slag</string>
+  <string name="year_in_review_announcement_explore">Verkennen</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia W-pictogram</string>
   <string name="year_in_review_navigate_left">Naar links navigeren</string>
   <string name="year_in_review_close">Sluiten</string>
@@ -1958,6 +2176,12 @@
   <string name="year_in_review_get_started_headline">Verken uw jaaroverzicht van Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Bekijk inzichten in welke pagina\'s u in de Wikipedia-app hebt gelezen en de bewerkingen die u hebt aangebracht.</string>
   <string name="year_in_review_get_started_info">Uw leesgeschiedenis blijft beschermd. De leesinzichten worden berekend op basis van lokaal op uw apparaat opgeslagen gegevens.</string>
+  <string name="year_in_review_get_started_later_activity">U kunt uw jaaroverzicht later openen bij Activiteit.</string>
+  <string name="year_in_review_entry_card_title_collective">Ons jaaroverzicht is er</string>
+  <string name="year_in_review_entry_card_title_personalized">Uw jaaroverzicht is er</string>
+  <string name="year_in_review_entry_card_subtitle">Herontdek uw jaar op Wikipedia.</string>
+  <string name="year_in_review_entry_card_subtitle_collective">Herontdek het jaar op Wikipedia.</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">Er was deze keer niet genoeg activiteit om uw eigen jaaroverzicht te genereren, maar u kunt wel verkennen wat de wereld samen heeft ontdekt.</string>
   <string name="year_in_review_survey_title">Help het Jaaroverzicht te verbeteren</string>
   <string name="year_in_review_survey_subtitle">Bent u tevreden over deze functie?</string>
   <string name="year_in_review_reading_list_survey_title">Help mee de verzameling Jaaroverzicht %d te verbeteren.</string>
@@ -1994,6 +2218,10 @@
   <string name="year_in_review_slide_geo_body">Het land dat het dichtst bij veel pagina\'s die u hebt gelezen ligt, lijkt %1$s te zijn, gebaseerd op pagina\'s als &lt;b&gt;%2$s&lt;/b&gt; en &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">Aanmelden voor personalisering?</string>
   <string name="year_in_review_login_dialog_body">Door u aan te melden krijgt u toegang tot gepersonaliseerde inzichten. De collectieve inzichten kunt u ook bekijken zonder u aan te melden.</string>
+  <string name="year_in_review_login_dialog_title_nodata">Wikipedia is op zijn best met een account</string>
+  <string name="year_in_review_login_dialog_body_nodata">Door u aan te melden krijgt u toegang tot de beste onderdelen van de app. Begin vandaag aan het jaaroverzicht van volgend jaar door een account aan te maken.</string>
+  <string name="year_in_review_login_dialog_title_data">Uw jaaroverzicht is op zijn best met een account</string>
+  <string name="year_in_review_login_dialog_body_data">Meld u aan om uw belangrijkste onderwerpen, artikelen, langste konijnenhol en meer te zien. U kunt ook zonder aanmelden de collectieve inzichten bekijken.</string>
   <string name="year_in_review_login_dialog_positive">Aanmelden / Inschrijven bij Wikipedia</string>
   <string name="year_in_review_login_dialog_negative">Doorgaan zonder aan te melden</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -2457,6 +2685,8 @@
   <string name="home_feed_new_within_interest_card_heading">Nieuw in uw interessegebied</string>
   <string name="home_feed_new_within_interest_title">Nieuwe pagina\'s die aansluiten bij uw interesses</string>
   <string name="home_feed_new_within_interest_subtitle">Recent aangemaakte pagina\'s binnen de onderwerpen die u volgt</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Luister naar artikelintro\'s</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Gegenereerde audio voor artikelintroducties binnen onderwerpgebieden die u volgt</string>
   <string name="home_feed_settings_because_you_read_subtitle">Suggesties gebaseerd op een recente pagina uit uw geschiedenis.</string>
   <string name="home_feed_settings_continue_reading_title">Verder lezen</string>
   <string name="home_feed_settings_continue_reading_subtitle">Verder gaan met pagina\'s die u niet hebt uitgelezen.</string>
@@ -2499,6 +2729,25 @@
   <string name="home_feed_settings_games_title">Spellen</string>
   <string name="home_feed_settings_games_subtitle">Dagelijkse spelletjes gebaseerd op Wikipedia-inhoud</string>
   <string name="home_feed_settings_discover_title">Ontdek aanbevelingen</string>
+  <string name="read_aloud_card_play">Afspelen</string>
+  <string name="read_aloud_card_pause">Pauzeren</string>
+  <string name="read_aloud_card_retry">Opnieuw proberen</string>
+  <string name="read_aloud_card_error">Audio is niet beschikbaar voor dit artikel.</string>
+  <string name="read_aloud_card_keep_listening">Blijven luisteren?</string>
+  <string name="read_aloud_card_audio_date">Deze audio is gegenereerd met &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;een tekst-naar-spraakmodel&lt;/a&gt;, op basis van artikelinhoud van %s.</string>
+  <string name="read_aloud_card_audio_attribution">Deze audio is gegenereerd met &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;een tekst-naar-spraakmodel&lt;/a&gt;.</string>
+  <string name="read_aloud_lead_section_tooltip_text">Nieuwe bètafunctie: luister naar artikelintro\'s in \"Voor jou\"</string>
+  <string name="read_aloud_lead_section_survey_title">Hoe zou u Wikipedia willen beluisteren?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Artikelintroducties</string>
+  <string name="read_aloud_lead_section_survey_choice2">Een paar secties van een artikel</string>
+  <string name="read_aloud_lead_section_survey_choice3">Volledige artikelen</string>
+  <string name="read_aloud_lead_section_survey_choice4">Meerdere korte fragmenten uit verschillende artikelen over een onderwerp</string>
+  <string name="read_aloud_lead_section_survey_choice5">Anders:</string>
+  <string name="read_aloud_lead_section_beta_label">Bèta</string>
+  <string name="read_aloud_lead_section_report_subject">Probleemrapport - Luister naar artikelintro\'s</string>
+  <string name="read_aloud_lead_section_report_body">Ik ben een probleem tegengekomen met de functie \"Luister naar artikelintro\'s\":\n- [Beschrijf het specifieke probleem]\n\nHet gedrag dat ik zou willen zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
+  <string name="read_aloud_lead_section_about_experiment">Over dit experiment</string>
+  <string name="read_aloud_lead_section_report_issue">Een probleem melden</string>
   <string name="home_feed_settings_discover_subtitle">Pagina\'s uit uw Ontdekken-verzameling</string>
   <string name="home_feed_discover_cta_title">Uit Ontdekken</string>
   <string name="home_feed_discover_cta_description">Leer over nieuwe onderwerpen, speciaal voor u uitgekozen. Kies tussen dagelijkse, wekelijkse of maandelijkse berichten.</string>
@@ -2546,4 +2795,37 @@
     <item quantity="one">Door niet langer op te slaan, wordt deze pagina verwijderd uit alle bijbehorende verzamelingen.</item>
     <item quantity="other">Door niet langer op te slaan, worden deze pagina\'s verwijderd uit alle bijbehorende verzamelingen.</item>
   </plurals>
+  <string name="semantic_search_entry_point_card_message">Zoek binnen artikelen en spring rechtstreeks naar de relevante passage</string>
+  <string name="semantic_search_entry_point_card_text_button">Probeer het nu</string>
+  <string name="semantic_search_info_dialog_title">Wat is deze functie?</string>
+  <string name="semantic_search_info_dialog_message">Vind antwoorden op uw vragen in Wikipedia-artikelen en spring rechtstreeks naar de relevante passage. \n\nPassages zijn afkomstig uit artikelen die mensen hebben onderzocht, geschreven en bewerkt, elk ondersteund door aangehaalde bronnen die u kunt controleren.</string>
+  <string name="semantic_search_info_dialog_button_text">Meer informatie</string>
+  <string name="semantic_search_info_btn_content_description">Pictogramknop met informatie over semantisch zoeken</string>
+  <string name="semantic_search_close_btn_content_description">Pictogramknop om semantisch zoeken uit te schakelen en te sluiten</string>
+  <string name="semantic_search_beta_label">Bèta</string>
+  <string name="semantic_search_no_results_message">Geen resultaten voor deze zoekopdracht</string>
+  <string name="semantic_search_results_close_button_content_description">De resultaten van het semantisch zoeken sluiten</string>
+  <string name="semantic_search_results_read_in_article_label">Lezen in artikel</string>
+  <plurals name="semantic_search_result_contributors">
+    <item quantity="one">%d bijdrager</item>
+    <item quantity="other">%d bijdragers</item>
+  </plurals>
+  <plurals name="semantic_search_result_references">
+    <item quantity="one">%d referentie</item>
+    <item quantity="other">%d referenties</item>
+  </plurals>
+  <string name="semantic_search_results_last_updated_label">Laatst bijgewerkt %s</string>
+  <string name="semantic_search_results_feedback_title">Heeft u gevonden wat u zocht?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">Duim omhoog</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">Duim omlaag</string>
+  <string name="semantic_search_results_feedback_input_hint">Vertel ons meer (optioneel)</string>
+  <string name="semantic_search_results_feedback_submit_button_text">Versturen</string>
+  <string name="semantic_search_results_feedback_submitted_message">Bedankt voor uw terugkoppeling</string>
+  <string name="semantic_search_feedback_dialog_title">Terugkoppeling</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">De terugkoppeling over het semantisch zoeken sluiten</string>
+  <string name="preference_heading_semantic_search">Zoeken</string>
+  <string name="preference_title_semantic_search_within_articles">Zoeken binnen artikelen</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">Spring rechtstreeks naar de relevante passage</string>
+  <string name="semantic_search_snackbar_message">Module verborgen. U kunt die via Instellingen weer zichtbaar maken</string>
+  <string name="semantic_search_snackbar_action_label">Wijzigen</string>
 </resources>
