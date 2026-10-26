@@ -56,7 +56,7 @@ composeActivity = "1.13.0"
 composeViewModel = "2.11.0"
 uiGraphics = "1.12.0"
 lottieCompose = "6.7.1"
-datastorePreferences = "1.2.1"
+datastorePreferences = "1.3.0"
 
 
 [libraries]
