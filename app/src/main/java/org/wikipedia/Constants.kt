@@ -114,7 +114,8 @@ object Constants {
         ACTIVITY_TAB("activityTab"),
         GAMES_HUB("gamesHub"),
         FEED_INTEREST_SELECTION("feedInterestSelection"),
-        DID_YOU_KNOW("didYouKnow")
+        DID_YOU_KNOW("didYouKnow"),
+        YEAR_IN_REVIEW("yearInReview")
     }
 
     enum class ImageEditType(name: String) {
