@@ -2,6 +2,7 @@
 <!-- Authors:
 * Chrisportelli
 * Fenakhay
+* JiodoJ
 * Leli Forte
 * Macofe
 -->
@@ -115,4 +116,5 @@
   <string name="cc_logo">Liċenzja Creative Commons</string>
   <string name="captcha_image">Stampa captcha</string>
   <string name="gallery_fair_use_license">Użu ġust</string>
+  <string name="yir_community_languages_title">Lingwi li-Wikipedija hija disponibbli bihom:</string>
 </resources>
