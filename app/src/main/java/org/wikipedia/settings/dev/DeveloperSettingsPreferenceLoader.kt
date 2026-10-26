@@ -20,7 +20,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
@@ -353,7 +352,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         screen.addPreference(category)
         listOf(
             DonationReminderAbTest(),
-            NewWithinInterestABTest(),
             ReadAloudLeadSectionABTest(),
             SemanticSearchAbTest(),
             YearInReviewEndScreenABTest()
