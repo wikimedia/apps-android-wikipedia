@@ -57,7 +57,9 @@ object YearInReviewShareImage {
             .setAlignment(Layout.Alignment.ALIGN_CENTER)
             .build()
         val top = bitmap.height - (bitmap.height * VERTICAL_MARGIN_RATIO).roundToInt() - layout.height
-        paint.color = contentColorFor(bitmap, Rect(horizontalMargin, top, bitmap.width - horizontalMargin, top + layout.height))
+        val textLeft = horizontalMargin + (0 until layout.lineCount).minOf { layout.getLineLeft(it) }.toInt()
+        val textRight = horizontalMargin + (0 until layout.lineCount).maxOf { layout.getLineRight(it) }.roundToInt()
+        paint.color = contentColorFor(bitmap, Rect(textLeft, top, textRight, top + layout.height))
         canvas.withTranslation(horizontalMargin.toFloat(), top.toFloat()) {
             layout.draw(this)
         }
