@@ -32,6 +32,7 @@ import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.readinglist.recommended.NotificationsExperimentDiscoverSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.recommended.SourceWithOffset
@@ -1058,4 +1059,12 @@ object Prefs {
     var isNotificationsExperimentNotificationRescheduled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, value)
+
+    var notificationsExperimentDiscoverSource
+        get() = JsonUtil.decodeFromString<NotificationsExperimentDiscoverSource>(PrefsIoUtil.getString(R.string.preference_key_notifications_experiment_discover_source, null))
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_notifications_experiment_discover_source, value?.let { JsonUtil.encodeToString(it) })
+
+    var notificationsExperimentDiscoverDevTriggerTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, value)
 }

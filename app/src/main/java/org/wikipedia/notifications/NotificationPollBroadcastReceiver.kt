@@ -31,7 +31,6 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
-import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.DeviceUtil
@@ -54,6 +53,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 // Update our channel name, if needed.
                 L.d("channel=" + ReleaseUtil.getChannel(context))
                 startPollTask(context)
+
+                // persist discover notification experiment alarm after reboot
+                if (Prefs.isRecommendedReadingListNotificationEnabled) {
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                }
             }
             ACTION_POLL == intent.action -> {
                 if (!AccountUtil.isLoggedIn) {
@@ -84,10 +88,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
 
             ACTION_RECOMMENDED_READING_LIST == intent.action -> {
-                if (Prefs.recommendedReadingListUpdateFrequency == RecommendedReadingListUpdateFrequency.MONTHLY) {
+                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
+                // re-arm notifications
+                if (Prefs.isRecommendedReadingListNotificationEnabled) {
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 }
-                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
         }
     }
