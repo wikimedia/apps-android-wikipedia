@@ -58,8 +58,6 @@ class YearInReviewOnboardingActivity : BaseActivity() {
             .setDefaultActionSource("announcement")
             .startFunnel("year-in-review")
 
-        instrument?.submitInteraction(action = "impression")
-
         initializeYearInReviewRive(this)
         // The cover's artwork runs under the status bar, and the paper-colored Explore area sits above the navigation bar
         val navigationBarStyle = if (WikipediaApp.instance.currentTheme.isDark) {
@@ -73,8 +71,11 @@ class YearInReviewOnboardingActivity : BaseActivity() {
         )
 
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collectLatest {
+                    if (it is UiState.Success && it.data.first) {
+                        submitInteraction(it.data.second.isDataRich, action = "impression")
+                    }
                     if (it is UiState.Error && it.error is MwNotLoggedInException) {
                         AccountUtil.bailWithLogout()
                     }
@@ -85,6 +86,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
         setContent {
             BaseTheme {
                 val uiState = viewModel.uiState.collectAsState().value
+                val isDataRich = uiState is UiState.Success && uiState.data.second.isDataRich
                 // The error is shown on the paper color, where the cover's light status bar icons would disappear
                 val isError = uiState is UiState.Error
                 LaunchedEffect(isError) {
@@ -94,7 +96,6 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
                 var showLoginDialog by rememberSaveable { mutableStateOf(false) }
                 if (showLoginDialog) {
-                    val isDataRich = uiState is UiState.Success && uiState.data.second.isDataRich
                     WikipediaAlertDialog(
                         title = stringResource(if (isDataRich) R.string.year_in_review_login_dialog_title_data else R.string.year_in_review_login_dialog_title_nodata),
                         message = stringResource(if (isDataRich) R.string.year_in_review_login_dialog_body_data else R.string.year_in_review_login_dialog_body_nodata),
@@ -104,13 +105,13 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
-                            instrument?.submitInteraction(action = "click", actionSource = "login_dialog", elementId = "login_button")
+                            submitInteraction(isDataRich, action = "click", actionSource = "login_dialog", elementId = "login_button")
                             // Closed so that cancelling the login returns to the cover, where Explore asks again
                             showLoginDialog = false
                             loginLauncher.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_YEAR_IN_REVIEW))
                         },
                         onDismissButtonClick = {
-                            instrument?.submitInteraction(action = "click", actionSource = "login_dialog", elementId = "continue_button")
+                            submitInteraction(isDataRich, action = "click", actionSource = "login_dialog", elementId = "continue_button")
                             proceed()
                         }
                     )
@@ -119,24 +120,24 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                 YearInReviewOnboardingScreen(
                     uiState = uiState,
                     onCloseClick = {
-                        instrument?.submitInteraction(action = "click", elementId = "close_button")
+                        submitInteraction(isDataRich, action = "click", elementId = "close_button")
                         setResult(RESULT_CANCELED)
                         finish()
                     },
                     onLearnMoreClick = {
-                        instrument?.submitInteraction(action = "click", elementId = "learn_more_button")
+                        submitInteraction(isDataRich, action = "click", elementId = "learn_more_button")
                         UriUtil.handleExternalLink(this, getString(R.string.year_in_review_media_wiki_url).toUri())
                     },
                     onAboutInsightsClick = {
-                        instrument?.submitInteraction(action = "click", elementId = "about_insights_button")
+                        submitInteraction(isDataRich, action = "click", elementId = "about_insights_button")
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_media_wiki_faq_url).toUri())
                     },
                     onShareFeedbackClick = {
-                        instrument?.submitInteraction(action = "click", elementId = "share_feedback_button")
+                        submitInteraction(isDataRich, action = "click", elementId = "share_feedback_button")
                         FeedbackUtil.composeEmail(this, subject = getString(R.string.year_in_review_feedback_email_subject))
                     },
                     onExploreClick = {
-                        instrument?.submitInteraction(action = "click", elementId = "explore_button")
+                        submitInteraction(isDataRich, action = "click", elementId = "explore_button")
                         if (!AccountUtil.isLoggedIn) {
                             showLoginDialog = true
                         } else {
@@ -151,6 +152,10 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                 }
             }
         }
+    }
+
+    private fun submitInteraction(isDataRich: Boolean, action: String, actionSource: String? = null, elementId: String? = null, actionContext: Map<String, Any> = emptyMap()) {
+        instrument?.submitInteraction(action = action, actionSource = actionSource, elementId = elementId, actionContext = actionContext.plus("personalized" to isDataRich))
     }
 
     private fun proceed() {

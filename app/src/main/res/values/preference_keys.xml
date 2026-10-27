@@ -3,6 +3,7 @@
     <string name="preference_key_language" translatable="false">content_language</string>
     <string name="preference_key_cookie_map" translatable="false">cookie_map</string>
     <string name="preference_key_remote_config" translatable="false">remote_config</string>
+    <string name="preference_key_remote_config_app_version_code" translatable="false">remoteConfigAppVersionCode</string>
     <string name="preference_key_reading_app_install_id" translatable="false">readingAppInstallID</string>
     <string name="preference_key_text_size_multiplier" translatable="false">textSizeMultiplier</string>
     <string name="preference_key_editing_text_size_multiplier" translatable="false">editingTextSizeMultiplier</string>

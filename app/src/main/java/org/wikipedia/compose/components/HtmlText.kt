@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -65,12 +66,15 @@ fun HtmlText(
     textAlign: TextAlign = TextAlign.Start,
     autoSize: TextAutoSize? = null
 ) {
-    val annotatedString = AnnotatedString.composeFromHtml(
-        htmlString = text,
-        linkStyles = linkStyle,
-        linkInteractionListener = linkInteractionListener,
-        highlightStyle = highlightStyle
-    )
+    val currentLinkInteractionListener by rememberUpdatedState(linkInteractionListener)
+    val annotatedString = remember(text, linkStyle, highlightStyle) {
+        AnnotatedString.composeFromHtml(
+            htmlString = text,
+            linkStyles = linkStyle,
+            linkInteractionListener = { currentLinkInteractionListener.onClick(it) },
+            highlightStyle = highlightStyle
+        )
+    }
     var layoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
 
     Text(

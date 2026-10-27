@@ -73,6 +73,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
+import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import kotlin.math.roundToInt
 
 private val YearInReviewCardCornerRadius = 28.dp
@@ -97,13 +98,14 @@ fun Modifier.placeholderBackground() = background(
 fun YearInReviewScreen(
     uiState: YearInReviewUiState,
     modifier: Modifier = Modifier,
-    onCloseClick: () -> Unit = {},
+    onCloseClick: (YearInReviewPage?) -> Unit = {},
     onLearnMoreClick: () -> Unit = {},
     onAboutInsightsClick: () -> Unit = {},
     onShareFeedbackClick: () -> Unit = {},
-    onShareClick: (Bitmap) -> Unit = {},
-    onDonateClick: (String) -> Unit = { _ -> },
+    onShareClick: (YearInReviewPage, Bitmap) -> Unit = { _, _ -> },
+    onDonateClick: (YearInReviewPage) -> Unit = { _ -> },
     onEndCardClick: (YearInReviewEndCard) -> Unit = {},
+    onShareHighlightsClick: (Bitmap) -> Unit = {},
     onRetryClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
     onPageImpression: (YearInReviewPage) -> Unit = {},
@@ -127,7 +129,9 @@ fun YearInReviewScreen(
                 modifier = modifier,
                 year = uiState.year,
                 pages = uiState.pages,
+                readingStats = uiState.readingStats,
                 showDonateButton = uiState.isDonationEligible,
+                canShareHighlights = uiState.canShareHighlights,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
                 onAboutInsightsClick = onAboutInsightsClick,
@@ -135,6 +139,7 @@ fun YearInReviewScreen(
                 onShareClick = onShareClick,
                 onDonateClick = onDonateClick,
                 onEndCardClick = onEndCardClick,
+                onShareHighlightsClick = onShareHighlightsClick,
                 onStatusBarIconColorChange = onStatusBarIconColorChange,
                 onPageImpression = onPageImpression,
                 onRiveError = onRiveError
@@ -153,7 +158,7 @@ fun YearInReviewScreen(
                     caught = uiState.error,
                     errorClickEvents = WikiErrorClickEvents(
                         retryClickListener = onRetryClick,
-                        backClickListener = onCloseClick
+                        backClickListener = { onCloseClick(null) }
                     )
                 )
             }
@@ -165,15 +170,18 @@ fun YearInReviewScreen(
 private fun YearInReviewContent(
     year: Int,
     pages: List<YearInReviewPage>,
+    readingStats: YearInReviewReadingStats,
     showDonateButton: Boolean,
+    canShareHighlights: Boolean,
     modifier: Modifier = Modifier,
-    onCloseClick: () -> Unit,
+    onCloseClick: (YearInReviewPage) -> Unit,
     onLearnMoreClick: () -> Unit,
     onAboutInsightsClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
-    onShareClick: (Bitmap) -> Unit,
-    onDonateClick: (String) -> Unit,
+    onShareClick: (YearInReviewPage, Bitmap) -> Unit,
+    onDonateClick: (YearInReviewPage) -> Unit,
     onEndCardClick: (YearInReviewEndCard) -> Unit,
+    onShareHighlightsClick: (Bitmap) -> Unit,
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
     onPageImpression: (YearInReviewPage) -> Unit,
     onRiveError: (Throwable) -> Unit
@@ -184,6 +192,23 @@ private fun YearInReviewContent(
     LaunchedEffect(pagerState, pages) {
         snapshotFlow { pagerState.settledPage }.collect { position ->
             pages.getOrNull(position)?.let { currentOnPageImpression(it) }
+        }
+    }
+    // Slides are restarted once they're off screen, so that scrolling back to one plays it from the beginning
+    val restartKeysByPageId = remember { mutableStateMapOf<String, Int>() }
+    LaunchedEffect(pagerState, pages) {
+        val playedPageIds = mutableSetOf<String>()
+        launch {
+            snapshotFlow { pagerState.currentPage }.collect { position ->
+                pages.getOrNull(position)?.let { playedPageIds += it.id }
+            }
+        }
+        snapshotFlow { pagerState.settledPage }.collect { position ->
+            val settledPageId = pages.getOrNull(position)?.id
+            playedPageIds.filter { it != settledPageId }.forEach { pageId ->
+                restartKeysByPageId[pageId] = (restartKeysByPageId[pageId] ?: 0) + 1
+                playedPageIds -= pageId
+            }
         }
     }
     val useWhiteTopBarIconsByPageId = remember { mutableStateMapOf<String, Boolean>() }
@@ -197,6 +222,7 @@ private fun YearInReviewContent(
     LaunchedEffect(useDarkStatusBarIcons) {
         onStatusBarIconColorChange(useDarkStatusBarIcons)
     }
+    var isRenderingShareCard by remember { mutableStateOf(false) }
     val screenshotGetters = remember { mutableStateMapOf<String, RiveSlideScreenshotFun>() }
     val riveWorker = rememberYearInReviewRiveWorker(onRiveError)
     val resources = LocalResources.current
@@ -231,7 +257,9 @@ private fun YearInReviewContent(
                     if (getScreenshot != null) {
                         coroutineScope.launch {
                             try {
-                                onShareClick(YearInReviewShareImage.decorate(context, getScreenshot()))
+                                pages.getOrNull(pagerState.currentPage)?.let { page ->
+                                    onShareClick(page, YearInReviewShareImage.decorate(context, getScreenshot()))
+                                }
                             } catch (cancellationException: CancellationException) {
                                 throw cancellationException
                             } catch (exception: Exception) {
@@ -242,7 +270,7 @@ private fun YearInReviewContent(
                 },
                 onDonateClick = {
                     pages.getOrNull(pagerState.currentPage)?.let {
-                        onDonateClick(it.id)
+                        onDonateClick(it)
                     }
                 }
             )
@@ -271,7 +299,9 @@ private fun YearInReviewContent(
                         YearInReviewEndSlide(
                             isDonor = page.isDonor,
                             isTestGroupUser = YearInReviewEndScreenABTest().isUserEligible() && YearInReviewEndScreenABTest().isTestGroupUser(),
-                            onCardActionClick = onEndCardClick
+                            canShareHighlights = canShareHighlights,
+                            onCardActionClick = onEndCardClick,
+                            onShareHighlightsClick = { isRenderingShareCard = true }
                         )
                     }
                     // A custom slide, such as an interactive one, gets its own branch above this one
@@ -283,6 +313,7 @@ private fun YearInReviewContent(
                                 riveFileResult = riveFiles[content.spec.resourceId] ?: Result.Loading,
                                 content = content,
                                 playing = pagerState.currentPage == position,
+                                restartKey = restartKeysByPageId[page.id] ?: 0,
                                 slideId = page.id,
                                 screenshotGetters = screenshotGetters,
                                 onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
@@ -298,7 +329,7 @@ private fun YearInReviewContent(
                                     modifier = Modifier
                                         .align(Alignment.BottomCenter)
                                         .padding(16.dp),
-                                    onClick = { onDonateClick(page.id) }
+                                    onClick = { onDonateClick(page) }
                                 )
                             }
                         }
@@ -321,9 +352,28 @@ private fun YearInReviewContent(
                 }
             }
 
+            if (isRenderingShareCard) {
+                YearInReviewShareCardRenderer(
+                    year = year,
+                    readingStats = readingStats,
+                    onRendered = { bitmap ->
+                        isRenderingShareCard = false
+                        onShareHighlightsClick(bitmap)
+                    },
+                    onError = { throwable ->
+                        isRenderingShareCard = false
+                        onRiveError(throwable)
+                    }
+                )
+            }
+
             YearInReviewTopBar(
                 iconColor = if (useDarkStatusBarIcons) ComposeColors.Black else ComposeColors.White,
-                onCloseClick = onCloseClick,
+                onCloseClick = {
+                    pages.getOrNull(pagerState.currentPage)?.let {
+                        onCloseClick(it)
+                    }
+                },
                 onLearnMoreClick = onLearnMoreClick,
                 onShareFeedbackClick = onShareFeedbackClick,
                 onAboutInsightsClick = onAboutInsightsClick

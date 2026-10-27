@@ -44,6 +44,7 @@ enum class YearInReviewPlaygroundData(
         readingStats = YearInReviewReadingStats(
             articlesReadCount = 120,
             visitedDaysCount = 45,
+            totalTimeSpentSec = 98765,
             peakMonth = 12,
             peakMonthVisitedDays = 20,
             articlesRevisited = YearInReviewPlaygroundPreview.sampleArticles.map { it to 5 },
