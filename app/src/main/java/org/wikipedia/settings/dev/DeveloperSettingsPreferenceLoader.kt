@@ -20,7 +20,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
@@ -353,7 +352,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         screen.addPreference(category)
         listOf(
             DonationReminderAbTest(),
-            NewWithinInterestABTest(),
             ReadAloudLeadSectionABTest(),
             SemanticSearchAbTest(),
             YearInReviewEndScreenABTest()
@@ -452,8 +450,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     private class TestException(message: String?) : RuntimeException(message)
 
     companion object {
-        private const val TEXT_OF_TEST_READING_LIST = "Test collection"
-        private const val TEXT_OF_READING_LIST = "Collection"
+        private const val TEXT_OF_TEST_READING_LIST = "Test reading list"
+        private const val TEXT_OF_READING_LIST = "Reading list"
         private val TEST_HISTORY_TITLES = listOf(
             "Albert Einstein", "Mount Everest", "Photosynthesis", "Roman Empire",
             "Jazz", "Antarctica", "Leonardo da Vinci", "Coffee",
