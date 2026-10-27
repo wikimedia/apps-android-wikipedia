@@ -37,6 +37,7 @@ class OAuthLoginTest {
 
     @Before
     fun setUp() {
+        AccountUtil.invalidateAccountCache()
         server.start()
         // WorkManager isn't available in unit tests.
         mockkObject(PollNotificationWorker.Companion)
