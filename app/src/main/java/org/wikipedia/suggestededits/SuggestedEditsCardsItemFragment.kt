@@ -109,7 +109,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.cardItemContainer.visibility = GONE
     }
 
-    private fun updateContents(pair: Pair<PageSummaryForEdit?, PageSummaryForEdit?>) {
+    private fun updateContents(pair: Pair<PageSummaryForEdit, PageSummaryForEdit?>) {
         sourceSummaryForEdit = pair.first
         targetSummaryForEdit = pair.second
         binding.cardItemErrorView.visibility = GONE
@@ -151,7 +151,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.viewArticleSubtitleContainer.visibility = VISIBLE
 
         val descriptionText = addedContribution.ifEmpty {
-            sourceSummaryForEdit!!.description!!.ifEmpty { getString(R.string.suggested_edits_no_description) }
+            sourceSummaryForEdit?.description.orEmpty().ifEmpty { getString(R.string.suggested_edits_no_description) }
         }
 
         binding.viewArticleSubtitle.text = StringUtil.removeHTMLTags(descriptionText).trim()
@@ -165,8 +165,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         }
 
         binding.viewImageDate.setDetailText(DateUtil.getTimeAndDateString(requireContext(), sourceSummaryForEdit?.timestamp.orEmpty()))
-        binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
-        binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
+        binding.viewImageSource.setDetailText(sourceSummaryForEdit?.metadata?.credit())
+        binding.viewImageLicense.setDetailText(sourceSummaryForEdit?.metadata?.licenseShortName())
 
         binding.viewArticleImage.loadImage(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl().toUri())
         binding.viewArticleExtract.visibility = GONE
