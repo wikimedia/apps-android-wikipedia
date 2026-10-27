@@ -116,6 +116,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_remote_config, "").orEmpty().ifEmpty { "{}" }
         set(json) = PrefsIoUtil.setString(R.string.preference_key_remote_config, json)
 
+    var remoteConfigAppVersionCode
+        get() = PrefsIoUtil.getInt(R.string.preference_key_remote_config_app_version_code, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_remote_config_app_version_code, value)
+
     var tabs
         get() = JsonUtil.decodeFromString<List<Tab>>(PrefsIoUtil.getString(R.string.preference_key_tabs, null))
             ?: emptyList()
@@ -516,10 +520,6 @@ object Prefs {
         get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, null))
             ?: emptyMap()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_event_platform_stored_stream_configs, JsonUtil.encodeToString(value))
-
-    var localClassName
-        get() = PrefsIoUtil.getString(R.string.preference_key_crash_report_local_class_name, "")
-        set(className) = PrefsIoUtil.setString(R.string.preference_key_crash_report_local_class_name, className)
 
     var autoShowEditNotices
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_auto_show_edit_notices, true)
@@ -1026,10 +1026,6 @@ object Prefs {
     var readAloudLeadSectionOverrideConfig
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_override_config, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_override_config, value)
-
-    var isReadingListsUpdateTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_update_tooltip_shown, value)
 
     var isSemanticSearchEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_enabled, true)

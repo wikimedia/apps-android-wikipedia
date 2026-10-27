@@ -3,6 +3,7 @@
     <string name="preference_key_language" translatable="false">content_language</string>
     <string name="preference_key_cookie_map" translatable="false">cookie_map</string>
     <string name="preference_key_remote_config" translatable="false">remote_config</string>
+    <string name="preference_key_remote_config_app_version_code" translatable="false">remoteConfigAppVersionCode</string>
     <string name="preference_key_reading_app_install_id" translatable="false">readingAppInstallID</string>
     <string name="preference_key_text_size_multiplier" translatable="false">textSizeMultiplier</string>
     <string name="preference_key_editing_text_size_multiplier" translatable="false">editingTextSizeMultiplier</string>
@@ -232,7 +233,6 @@
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>
-    <string name="preference_key_reading_lists_update_tooltip_shown" translatable="false">readingListsUpdateTooltipShown</string>
     <string name="preference_key_semantic_search_enabled" translatable="false">semanticSearchEnabled</string>
     <string name="preference_key_semantic_search_first_use" translatable="false">semanticSearchFirstUse</string>
     <string name="preference_key_semantic_search_override_supported_language" translatable="false">semanticSearchOverrideSupportedLanguage</string>

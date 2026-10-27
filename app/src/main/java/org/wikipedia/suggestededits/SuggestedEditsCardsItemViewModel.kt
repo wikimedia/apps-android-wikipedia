@@ -23,7 +23,7 @@ class SuggestedEditsCardsItemViewModel : ViewModel() {
         _uiState.value = Resource.Error(throwable)
     }
 
-    private val _uiState = MutableStateFlow(Resource<Pair<PageSummaryForEdit?, PageSummaryForEdit?>>())
+    private val _uiState = MutableStateFlow(Resource<Pair<PageSummaryForEdit, PageSummaryForEdit?>>())
     val uiState = _uiState.asStateFlow()
 
     fun findNextSuggestedEditsItem(action: DescriptionEditActivity.Action, fromLangCode: String, toLangCode: String) {
@@ -154,7 +154,8 @@ class SuggestedEditsCardsItemViewModel : ViewModel() {
                     )
                 }
             }
-            _uiState.value = Resource.Success(sourceSummaryForEdit to targetSummaryForEdit)
+            val source = sourceSummaryForEdit ?: throw EditingSuggestionsProvider.ListEmptyException()
+            _uiState.value = Resource.Success(source to targetSummaryForEdit)
         }
     }
 }
