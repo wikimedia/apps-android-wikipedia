@@ -16,6 +16,7 @@ import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.net.toUri
@@ -31,8 +32,11 @@ import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikimedia.testkitchen.instrument.Funnel
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -41,7 +45,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -75,6 +78,10 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.search.semantic.SemanticSearchArticleFeedbackViewModel
+import org.wikipedia.search.semantic.SemanticSearchArticleFeedbackViewModel.SemanticSearchFeedback
+import org.wikipedia.search.semantic.SemanticSearchFeedbackDialog
+import org.wikipedia.search.semantic.SemanticSearchFeedbackDialog.FeedbackSuppression
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.staticdata.MainPageNameData
@@ -97,10 +104,10 @@ import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.YearInReviewDialog
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.time.LocalDate
 import java.util.Locale
+import kotlin.time.Duration.Companion.milliseconds
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
 
@@ -118,6 +125,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
+    private val semanticSearchFeedbackViewModel: SemanticSearchArticleFeedbackViewModel by viewModels()
+    private var semanticSearchFeedbackJob: Job? = null
 
     private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
@@ -348,7 +357,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         app.resetWikiSite()
         updateNotificationsButton(false)
         Prefs.temporaryWikitext = null
-        YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(this)
     }
 
     override fun onPause() {
@@ -380,6 +388,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onDestroy() {
         Prefs.hasVisitedArticlePage = true
+        if (isFinishing) {
+            cancelSemanticSearchFeedback(FeedbackSuppression.LEFT_ARTICLE)
+        } else if (!isChangingConfigurations) {
+            // The view model is discarded along with this activity, so the pending prompt can't be resumed.
+            cancelSemanticSearchFeedback(FeedbackSuppression.SCREEN_COVERED)
+        }
         super.onDestroy()
     }
 
@@ -439,6 +453,56 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         lifecycleScope.launch {
             ReadingChallengeWidgetRepository(this@PageActivity).updateOnArticleRead(LocalDate.now())
         }
+        scheduleSemanticSearchFeedback()
+    }
+
+    private fun scheduleSemanticSearchFeedback() {
+        val pendingFeedback = semanticSearchFeedbackViewModel.semanticSearchFeedback ?: return
+        if (pageFragment.title != pendingFeedback.title) {
+            cancelSemanticSearchFeedback(FeedbackSuppression.LEFT_ARTICLE)
+            return
+        }
+        if (semanticSearchFeedbackJob != null) {
+            return
+        }
+        val delayMillis = semanticSearchFeedbackViewModel.startCountdown()
+        semanticSearchFeedbackJob = lifecycleScope.launch {
+            delay(delayMillis.milliseconds)
+            val suppression = when {
+                pageFragment.title != pendingFeedback.title -> FeedbackSuppression.LEFT_ARTICLE
+                !lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) ||
+                        ExclusiveBottomSheetPresenter.getCurrentBottomSheet(supportFragmentManager) != null ||
+                        ExclusiveBottomSheetPresenter.getCurrentBottomSheet(pageFragment.childFragmentManager) != null -> FeedbackSuppression.SCREEN_COVERED
+                isCabOpen || pageFragment.sidePanelHandler.isVisible -> FeedbackSuppression.STARTED_ACTIVITY
+                else -> null
+            }
+            if (suppression == null) {
+                ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                    SemanticSearchFeedbackDialog.newInstance(pendingFeedback.title.wikiSite.languageCode,
+                        pendingFeedback.searchId, pendingFeedback.funnel))
+            } else {
+                submitSemanticSearchFeedbackSuppressed(pendingFeedback, suppression)
+            }
+            semanticSearchFeedbackViewModel.clear()
+            semanticSearchFeedbackJob = null
+        }
+    }
+
+    private fun cancelSemanticSearchFeedback(suppression: FeedbackSuppression? = null) {
+        val pendingFeedback = semanticSearchFeedbackViewModel.semanticSearchFeedback
+        if (pendingFeedback != null && suppression != null) {
+            submitSemanticSearchFeedbackSuppressed(pendingFeedback, suppression)
+        }
+        semanticSearchFeedbackJob?.cancel()
+        semanticSearchFeedbackJob = null
+        semanticSearchFeedbackViewModel.clear()
+    }
+
+    private fun submitSemanticSearchFeedbackSuppressed(pendingFeedback: SemanticSearchFeedback, suppression: FeedbackSuppression) {
+        SemanticSearchFeedbackDialog.submitSuppressedEvent(
+            instrument = SemanticSearchFeedbackDialog.newInstrument(pendingFeedback.funnel, pendingFeedback.title.wikiSite),
+            actionSubtype = "article_result", suppression
+        )
     }
 
     override fun onPageDismissBottomSheet() {
@@ -480,6 +544,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadError(title: PageTitle) {
         supportActionBar?.title = title.displayText
         removeTransitionAnimState()
+        cancelSemanticSearchFeedback()
     }
 
     override fun onPageLoadErrorBackPressed() {
@@ -508,7 +573,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             }
         }
         if (Prefs.editorModeChoiceShowDialog && isVisualEditorEnabled) {
-            showEditorChoiceDialog(this, isSettingsScreen = false) { editorChoice, dontShowAgain ->
+            showEditorChoiceDialog(this) { editorChoice, dontShowAgain ->
                 Prefs.editorModeChoice = editorChoice
                 Prefs.editorModeChoiceShowDialog = !dontShowAgain
                 launchEditor()
@@ -642,7 +707,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     if (campaign != null && campaign == "Android") {
                         var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
                         YearInReviewViewModel.currentCampaignId?.let { campaignId ->
-                            YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
+                            TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+                                .submitInteraction(action = "impression", actionSource = "webpay_processed", actionContext = mapOf("campaign_id" to campaignId))
                             pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_YIR
                         } ?: run {
                             DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
@@ -662,10 +728,17 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     ACTION_LOAD_IN_CURRENT_TAB_SQUASH == intent.action) && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
             val historyEntry = intent.parcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
+            cancelSemanticSearchFeedback(FeedbackSuppression.LEFT_ARTICLE)
+            if (title != null && intent.getBooleanExtra(EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK, false)) {
+                semanticSearchFeedbackViewModel.setup(title,
+                    intent.getStringExtra(EXTRA_SEMANTIC_SEARCH_ID),
+                    intent.getSerializableExtra(EXTRA_SEMANTIC_SEARCH_FUNNEL) as Funnel?)
+            }
+            val highlightText = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
             when (intent.action) {
                 ACTION_LOAD_IN_NEW_TAB -> loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
-                ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB)
-                ACTION_LOAD_IN_CURRENT_TAB_SQUASH -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB_SQUASH)
+                ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB, highlightText)
+                ACTION_LOAD_IN_CURRENT_TAB_SQUASH -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB_SQUASH, highlightText)
             }
             intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)?.let {
                 showDescriptionEditRevertDialog(it)
@@ -695,8 +768,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
      * @param entry HistoryEntry associated with this page.
      * @param position Whether to open this page in the current tab, a new background tab, or new
      * foreground tab.
+     * @param highlightText Text to highlight and scroll to once the page loads, only for the current tab.
      */
-    private fun loadPage(pageTitle: PageTitle?, entry: HistoryEntry?, position: TabPosition) {
+    private fun loadPage(pageTitle: PageTitle?, entry: HistoryEntry?, position: TabPosition, highlightText: String? = null) {
         if (isDestroyed || pageTitle == null || entry == null) {
             return
         }
@@ -721,11 +795,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             hideLinkPreview()
             onPageCloseActionMode()
             when (position) {
-                TabPosition.CURRENT_TAB -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = false)
-                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = true)
+                TabPosition.CURRENT_TAB -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = false, highlightText = highlightText)
+                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = true, highlightText = highlightText)
                 TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(pageTitle, entry)
                 TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
                 else -> pageFragment.openFromExistingTab(pageTitle, entry)
+            }
+            // Reusing an already-loaded page does not trigger onPageLoadComplete().
+            if (pageFragment.page != null && !pageFragment.isLoading) {
+                scheduleSemanticSearchFeedback()
             }
         }
     }
@@ -922,6 +1000,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         const val ACTION_CREATE_NEW_TAB = "org.wikipedia.create_new_tab"
         const val ACTION_RESUME_READING = "org.wikipedia.resume_reading"
         const val EXTRA_HISTORYENTRY = "org.wikipedia.history.historyentry"
+        const val EXTRA_SHOW_SEMANTIC_SEARCH_FEEDBACK = "org.wikipedia.search.semantic.show_feedback"
+        const val EXTRA_SEMANTIC_SEARCH_ID = "org.wikipedia.search.semantic.search_id"
+        const val EXTRA_SEMANTIC_SEARCH_FUNNEL = "org.wikipedia.search.semantic.funnel"
+        const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.page.highlight_text"
 
         fun newIntent(context: Context): Intent {
             return Intent(ACTION_RESUME_READING).setClass(context, PageActivity::class.java)

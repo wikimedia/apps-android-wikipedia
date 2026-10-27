@@ -348,7 +348,6 @@
   <string name="editor_select_dialog_ve_title">ویرایش دیداری</string>
   <string name="editor_select_dialog_source_title">ویرایش مبدأ</string>
   <string name="editor_select_title_settings_screen">ترجیحات ویرایش</string>
-  <string name="editor_select_save_btn_settings_screen">ذخیره</string>
   <string name="find_next">یافتن بعدی</string>
   <string name="find_previous">یافتن قبلی</string>
   <string name="find_first_occurence">این نخستین مورد است</string>
@@ -1944,12 +1943,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">زمان مورد علاقه برای مطالعه</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">روز مورد علاقه برای مطالعه</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">ماهی که بیشتر مطالعه کردی</string>
-  <string name="year_in_review_slide_reading_pattern_morning">صبح</string>
-  <string name="year_in_review_slide_reading_pattern_midday">ظهر</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">بعد از ظهر</string>
-  <string name="year_in_review_slide_reading_pattern_evening">عصر</string>
-  <string name="year_in_review_slide_reading_pattern_night">شب</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">نیمه شب</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">صبح</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">ظهر</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">بعد از ظهر</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">عصر</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">شب</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">نیمه شب</string>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
     <item quantity="one">ویکی‌پدیا %,d مقاله داشت</item>
     <item quantity="other">ویکی‌پدیا %,d مقاله داشت</item>

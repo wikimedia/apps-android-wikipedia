@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Aaribaud
+* Allylly
 * Alno
 * Bananax47
 * Bbernrd
@@ -53,6 +54,7 @@
 * McDutchie
 * Melimeli
 * MuratTheTurkish
+* NClara
 * Naheulf
 * NemesisIII
 * Niridya
@@ -1975,7 +1977,6 @@
   <string name="year_in_review_get_started_headline">Explorez votre bilan Wikipédia de l’année</string>
   <string name="year_in_review_get_started_bodytext">Consultez une présentation des articles que vous lisez sur l’application Wikipédia et des modifications que vous avez apportées.</string>
   <string name="year_in_review_get_started_info">Votre historique de lecture est protégé. La présentation de vos lectures est réalisée à partir des données stockées localement sur votre appareil.</string>
-  <string name="year_in_review_get_started_later">Vous pourrez accéder par la suite à votre rétrospective annuelle depuis le menu Plus.</string>
   <string name="year_in_review_survey_title">Aidez-nous à améliorer le bilan de l’année</string>
   <string name="year_in_review_survey_subtitle">Êtes-vous satisfait de cette fonctionnalité ?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Aidez à améliorer la liste de lecture %d de la rétrospective annuelle</string>
@@ -2092,12 +2093,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Moment préféré pour lire</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Jour préféré pour lire</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mois où vous avez le plus lu</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Matin</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Midi</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Après-midi</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Soir</string>
-  <string name="year_in_review_slide_reading_pattern_night">Nuit</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Tard dans la nuit</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Matin</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Midi</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Après-midi</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Soir</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Nuit</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Tard dans la nuit</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Nous avons passé %,d heure à lire</item>
     <item quantity="other">Nous avons passé %,d heures à lire</item>
@@ -2510,4 +2511,34 @@
   <string name="home_feed_games_module_cta_prompt_title">Envie de jouer à d’autres jeux ?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Rendez-vous sur la centrale des jeux</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Centrale des jeux</string>
+  <string name="semantic_search_entry_point_card_message">Effectuez une recherche dans les articles et accédez directement au passage pertinent.</string>
+  <string name="semantic_search_entry_point_card_text_button">Essayer maintenant</string>
+  <string name="semantic_search_info_dialog_title">Quelle est cette fonctionnalité ?</string>
+  <string name="semantic_search_info_dialog_message">Trouvez des réponses à vos questions dans les articles Wikipédia et accédez directement au passage concerné.\n\nLes passages sont issus d\'articles recherchés, rédigés et édités par des contributeurs, et s\'appuient tous sur des sources citées que vous pouvez vérifier.</string>
+  <string name="semantic_search_info_dialog_button_text">En savoir plus</string>
+  <string name="semantic_search_info_btn_content_description">Icône info recherche sémantique</string>
+  <string name="semantic_search_close_btn_content_description">Bouton de désactivation et de fermeture de la recherche sémantique</string>
+  <string name="semantic_search_beta_label">Bêta</string>
+  <string name="semantic_search_no_results_message">Aucun résultat pour cette recherche</string>
+  <string name="semantic_search_results_close_button_content_description">Fermer les résultats de recherche sémantique</string>
+  <string name="semantic_search_results_read_in_article_label">Lire dans l’article</string>
+  <plurals name="semantic_search_result_contributors">
+    <item quantity="one">%d le collaborateur</item>
+    <item quantity="other">%d le collaborateurs</item>
+  </plurals>
+  <plurals name="semantic_search_result_references">
+    <item quantity="one">%d référence</item>
+    <item quantity="other">%d références</item>
+  </plurals>
+  <string name="semantic_search_results_last_updated_label">Dernière mise à jour %s</string>
+  <string name="semantic_search_results_feedback_title">Avez-vous trouvé ce que vous cherchiez ?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">Pouce levé</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">Pouces vers le bas</string>
+  <string name="semantic_search_results_feedback_input_hint">Dites-nous en plus (facultatif)</string>
+  <string name="semantic_search_results_feedback_submit_button_text">Envoyer</string>
+  <string name="semantic_search_results_feedback_submitted_message">Merci pour votre retour</string>
+  <string name="semantic_search_feedback_dialog_title">Commentaires</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">Fermer le retour de recherche sémantique</string>
+  <string name="semantic_search_snackbar_message">Module masqué. Vous pouvez le rendre de nouveau visible dans les paramètres</string>
+  <string name="semantic_search_snackbar_action_label">Modifier</string>
 </resources>

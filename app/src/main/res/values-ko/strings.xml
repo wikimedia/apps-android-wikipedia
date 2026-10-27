@@ -331,7 +331,6 @@
   <string name="editor_select_dialog_ve_title">시각 편집</string>
   <string name="editor_select_dialog_source_title">원본 편집</string>
   <string name="editor_select_dialog_continue">계속</string>
-  <string name="editor_select_save_btn_settings_screen">저장</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="find_first_occurence">이것이 처음 항목입니다</string>
@@ -599,11 +598,15 @@
   <string name="saved_list_empty_title">아직 저장된 문서가 없습니다</string>
   <string name="reading_lists_empty_message">나중에 오프라인 상태이더라도 읽을 수 있도록 문서를 모음집에 추가합니다.</string>
   <string name="reading_lists_search_empty_articles_title">저장된 문서가 없습니다</string>
+  <string name="reading_lists_search_empty_articles_message">저장된 문서에서 “%s”을(를) 찾을 수 없습니다.</string>
+  <string name="reading_lists_search_empty_collections_title">모음집이 없습니다</string>
+  <string name="reading_lists_search_empty_collections_message">모음집에서 “%s”을(를) 찾을 수 없습니다.</string>
   <string name="reading_list_empty">이 모음집에 추가한 문서가 없습니다.</string>
   <string name="reading_list_article_offline">오프라인에서 읽을 수 있음</string>
   <string name="reading_list_article_make_offline">이 글을 오프라인에서 읽을 수 있게 하기</string>
   <string name="reading_list_add_to_other_list">다른 모음집에 추가하기</string>
   <string name="reading_list_move_to_other_list">다른 모음집으로 이동</string>
+  <string name="reading_list_add_to_collection">모음집에 추가</string>
   <string name="reading_list_move_from_to_other_list">%s에서 다른 모음집으로 이동</string>
   <string name="reading_list_remove_from_list">%s에서 제거하기</string>
   <string name="reading_list_remove_from_lists">모음집에서 제거하기</string>
@@ -1855,7 +1858,20 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">연승 기록, 점수 등을 확인하세요</string>
   <string name="wikipedia_games_title">위키백과 게임</string>
   <string name="wikipedia_games_subtitle">위키백과 콘텐츠를 기반으로 한 일일 퀴즈 게임입니다.</string>
+  <string name="yir_article_count_headline">총 문서 수:</string>
+  <string name="yir_community_languages_title">위키백과에서 사용할 수 있는 언어는 다음과 같습니다:</string>
+  <string name="yir_community_articles_headline">위키백과 문서 수:</string>
+  <string name="yir_time_spent_comment_1">이것은 벌새의 심장이 1200번 뛰는 데 걸리는 시간보다 더 깁니다.</string>
+  <string name="yir_time_spent_comment_9">이것은 태양에서 지구까지 햇빛이 도달하는 데 걸리는 시간보다 더 깁니다.</string>
+  <string name="yir_time_spent_comment_13">이것은 계란을 완숙으로 삶는 데 걸리는 시간보다 더 깁니다.</string>
+  <string name="yir_time_spent_comment_19">이것은 사람들이 잠드는 데 걸리는 평균 시간보다 더 깁니다.</string>
+  <string name="yir_time_spent_comment_31">이것은 시트콤 에피소드와 광고를 모두 포함해도 이보다 더 깁니다.</string>
+  <string name="yir_time_spent_comment_93">이것은 국제우주정거장이 지구를 한 바퀴 도는 데 걸리는 시간보다 더 깁니다.</string>
+  <string name="yir_time_spent_comment_121">이것은 현재 마라톤 세계 기록보다 더 깁니다.</string>
+  <string name="yir_time_spent_comment_540">이것은 밤새도록 자는 것보다 더 깁니다.</string>
+  <string name="yir_time_spent_comment_1441">이것은 여왕벌이 최대 2000개의 알을 낳는 데 걸리는 시간보다 더 깁니다.</string>
   <string name="year_in_review_learn_more">더 알아보기</string>
+  <string name="year_in_review_share_feedback">피드백 공유하기</string>
   <string name="year_in_review_get_started">시작하기</string>
   <string name="year_in_review_topbar_w_icon">위키백과 W 아이콘</string>
   <string name="year_in_review_navigate_left">왼쪽으로 이동</string>
@@ -1868,7 +1884,6 @@
   <string name="year_in_review_get_started_headline">당신의 위키백과 연말 결산을 살펴보세요</string>
   <string name="year_in_review_get_started_bodytext">위키백과 앱에서 어떤 문서를 읽었는지, 어떤 편집을 했는지에 대한 분석 정보를 확인하세요.</string>
   <string name="year_in_review_get_started_info">읽기 기록은 안전하게 보호됩니다. 읽기 분석 정보는 기기에 저장된 데이터를 사용하여 계산됩니다.</string>
-  <string name="year_in_review_get_started_later">연말 결산은 나중에 더보기 메뉴에서 확인하실 수 있습니다.</string>
   <string name="year_in_review_survey_title">연말 결산 개선에 도움을 주세요</string>
   <string name="year_in_review_survey_subtitle">이 기능에 만족하시나요?</string>
   <string name="year_in_review_reading_list_survey_title">%d년도 연말 결산 모음집을 개선하는데 도움을 주세요</string>
@@ -2177,6 +2192,9 @@
   <string name="donation_reminders_settings_report_email_subject">문제 보고 - 기부 알림</string>
   <string name="donation_reminders_settings_report_email_body">기부 알림 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n- [스크린샷 또는 링크]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="donation_reminders_snackbar_modify_button_label">수정</string>
+  <string name="donation_reminders_settings_article_number_selection_label">문서</string>
+  <string name="donation_reminders_wrap_up_title">기부 안내는 여기까지입니다.</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">다른 질문 있으신가요? (선택 사항)</string>
   <string name="reading_challenge_widget_name">읽기 도전</string>
   <string name="reading_challenge_onboarding_header">위키백과 25주년을 기념하여 25일 독서 도전에 참여하세요!</string>
   <string name="reading_challenge_onboarding_read_title">25일 동안 문서를 매일 하나씩 읽으세요</string>
@@ -2339,6 +2357,11 @@
   <string name="home_feed_settings_games_title">게임</string>
   <string name="home_feed_settings_games_subtitle">위키백과 콘텐츠를 기반으로 한 일일 게임</string>
   <string name="home_feed_settings_discover_title">추천 발견</string>
+  <string name="read_aloud_card_play">재생</string>
+  <string name="read_aloud_card_pause">일시 정지</string>
+  <string name="read_aloud_card_retry">다시 시도</string>
+  <string name="read_aloud_card_error">이 문서는 오디오가 제공되지 않습니다.</string>
+  <string name="read_aloud_card_keep_listening">계속 들으시겠어요?</string>
   <string name="home_feed_settings_discover_subtitle">모음집 발견에서의 문서</string>
   <string name="home_feed_discover_cta_title">발견으로부터</string>
   <string name="home_feed_discover_cta_description">엄선된 새로운 주제들을 알아보세요. 매일, 매주 또는 매월 업데이트 중에서 선택하세요.</string>
@@ -2370,4 +2393,8 @@
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="other">문서 %d가 관련된 모든 컬렉션에서 제거되었습니다.</item>
   </plurals>
+  <string name="semantic_search_results_feedback_title">원하던 것을 찾으셨나요?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">좋아요</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">어려워요</string>
+  <string name="semantic_search_results_feedback_input_hint">더 자세히 알려주세요 (선택 사항)</string>
 </resources>

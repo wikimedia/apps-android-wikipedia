@@ -1624,12 +1624,12 @@
   <string name="year_in_review_login_dialog_negative">ਦਾਖ਼ਲ ਹੋਏ ਬਿਨਾਂ ਜਾਰੀ ਰੱਖੋ</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">ਪੜ੍ਹਨ ਦਾ ਮਨਪਸੰਦ ਸਮਾਂ</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">ਪੜ੍ਹਨ ਦਾ ਮਨਪਸੰਦ ਦਿਨ</string>
-  <string name="year_in_review_slide_reading_pattern_morning">ਸਵੇਰੇ</string>
-  <string name="year_in_review_slide_reading_pattern_midday">ਦੁਪਹਿਰੇ</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">ਦੁਪਹਿਰ</string>
-  <string name="year_in_review_slide_reading_pattern_evening">ਸ਼ਾਮ</string>
-  <string name="year_in_review_slide_reading_pattern_night">ਰਾਤ.</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">ਦੇਰ ਰਾਤ</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">ਸਵੇਰੇ</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">ਦੁਪਹਿਰੇ</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">ਦੁਪਹਿਰ</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">ਸ਼ਾਮ</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">ਰਾਤ.</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">ਦੇਰ ਰਾਤ</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">ਬਣਾਓ</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">ਨਹੀਂ ਧੰਨਵਾਦ</string>
   <string name="year_in_review_reading_list_title">ਸਮੀਖਿਆ %d ਵਿੱਚ ਸਾਲ</string>

@@ -1,6 +1,7 @@
 package org.wikipedia.util
 
 import android.app.Activity
+import android.app.ActivityManager
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.res.Configuration
@@ -129,4 +130,8 @@ object DeviceUtil {
     val isPinWidgetSupported: Boolean
         get() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
                 AppWidgetManager.getInstance(WikipediaApp.instance)?.isRequestPinAppWidgetSupported == true
+
+    val isOpenGlEs3Supported: Boolean by lazy {
+        ((WikipediaApp.instance.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?)?.deviceConfigurationInfo?.reqGlEsVersion ?: 0) >= 0x30000
+    }
 }

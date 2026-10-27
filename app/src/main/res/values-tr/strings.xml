@@ -1924,7 +1924,6 @@
   <string name="year_in_review_get_started_headline">Vikipedi Yıl Değerlendirmenizi keşfedin</string>
   <string name="year_in_review_get_started_bodytext">Vikipedi uygulamasında hangi maddeleri okuduğunuz ve yaptığınız düzenlemeler hakkında içgörüleri görün.</string>
   <string name="year_in_review_get_started_info">Okuma geçmişiniz korunur. Okuma içgörüleri, cihazınızda yerel olarak depolanan veriler kullanılarak hesaplanır.</string>
-  <string name="year_in_review_get_started_later">Yıl Değerlendirmenize daha sonra Daha fazla menüsünden erişebilirsiniz.</string>
   <string name="year_in_review_survey_title">Yıl Değerlendirmesini iyileştirmeye yardımcı olun</string>
   <string name="year_in_review_survey_subtitle">Bu özellikten memnun musunuz?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">%d Yıl Değerlendirmesi okuma listesinin iyileştirilmesine yardımcı olun.</string>
@@ -2041,12 +2040,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">En sevdiğiniz okuma zamanı</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">En sevdiğiniz okuma günü</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">En çok okuduğunuz ay</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Sabah</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Öğle</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Öğleden sonra</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Akşam</string>
-  <string name="year_in_review_slide_reading_pattern_night">Gece</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Gece geç</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Sabah</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Öğle</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Öğleden sonra</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Akşam</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Gece</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Gece geç</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">%,d saat okuyarak geçirdik</item>
     <item quantity="other">%,d saat okuyarak geçirdik</item>

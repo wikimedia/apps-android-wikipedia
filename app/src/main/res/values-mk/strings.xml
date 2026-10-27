@@ -332,7 +332,6 @@
   <string name="editor_select_dialog_continue">Продолжи</string>
   <string name="editor_select_icon_ve_title">Икона за отворање во надворешен прелистувач</string>
   <string name="editor_select_title_settings_screen">Нагодување на уредувањето</string>
-  <string name="editor_select_save_btn_settings_screen">Зачувај</string>
   <string name="find_next">Најди следно</string>
   <string name="find_previous">Најди претходно</string>
   <string name="find_first_occurence">Ова е првото јавување</string>
@@ -1068,7 +1067,7 @@
   <string name="suggested_edits_gate_message">%s, ќе мора да извршите барем три уредувања непосредно во статија за да можете да ја користите оваа можност.</string>
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>
-  <string name="suggested_edits_edit_streak_label_text">Последователни уредувања</string>
+  <string name="suggested_edits_edit_streak_label_text">Низа уредувања</string>
   <string name="suggested_edits_views_label_text">Посети</string>
   <string name="suggested_edits_quality_label_text">Квалитет на уредувањата</string>
   <string name="suggested_edits_quality_perfect_text">Совршен</string>
@@ -1200,7 +1199,7 @@
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Последен дар&lt;/b&gt; во прилог</string>
   <string name="activity_tab_total_edits_all_projects">Вкупно уредувања низ проектите</string>
   <string name="activity_tab_game_stats">Статистика за игри</string>
-  <string name="activity_tab_game_stats_best_streak">Најдобра тура</string>
+  <string name="activity_tab_game_stats_best_streak">Најдобра низа</string>
   <string name="activity_tab_play_wiki_games">Играјте Викиигри</string>
   <string name="activity_tab_report_email_subject">Пријава на проблем — Јазиче за активности</string>
   <string name="activity_tab_report_email_body">Наидов на проблем со функцијата Јазиче за активности:\n- [Опишете го конкретниот проблем]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
@@ -1234,7 +1233,7 @@
     <item quantity="one">%d ден</item>
     <item quantity="other">%d дена</item>
   </plurals>
-  <string name="activity_tab_impact_best_streak">Најдобра тура</string>
+  <string name="activity_tab_impact_best_streak">Најдобра низа</string>
   <string name="activity_tab_impact_last_edited">Последно уредување</string>
   <string name="activity_tab_impact_suggested_edits_title">0 уредувања на статии во последно време</string>
   <string name="activity_tab_impact_suggested_edits_message">Изгледа дека немате направено уредување овој месец. Проширете го слободното знаење уредувајќи на теми што највеќе ве интересираат.</string>
@@ -1863,7 +1862,7 @@
     <item quantity="other">Одиграни игри</item>
   </plurals>
   <string name="on_this_day_game_stats_average_score">Просечно бодови</string>
-  <string name="on_this_day_game_stats_streak">Тековна седенка</string>
+  <string name="on_this_day_game_stats_streak">Тековна низа</string>
   <string name="on_this_day_game_result_subtitle">Статии на кои се однесува денешната игра</string>
   <string name="on_this_day_game_completed_message">Благодариме што играте. Имаме нова игра „Што се случило попрво?“ секој ден во тековникот „Почетна“.</string>
   <string name="on_this_day_game_menu_notifications">Известувања во играта</string>
@@ -1912,8 +1911,221 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Погледајте ги вашите тури, резултати и друго</string>
   <string name="wikipedia_games_title">Википедиини игри</string>
   <string name="wikipedia_games_subtitle">Дневни квизови засновани на содржини на Википедија.</string>
+  <string name="yir_intro_headline">Пристигна вашиот Преглед на годината на Википедија</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">Ви благодариме што проведовте %1$d ден со нашиот прилог за Википедија во %2$d г.</item>
+    <item quantity="other">Ви благодариме што проведовте %1$d дена со нашиот прилог за Википедија во %2$d г.</item>
+  </plurals>
+  <string name="yir_article_count_headline">Вкупно прочитани статии:</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="one">Ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$d статија годишно.</item>
+    <item quantity="other">Ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$d статии годишно.</item>
+  </plurals>
+  <string name="yir_article_count_supporting">Истражувавте цела година. Секоја статија додаде на вашите знаења.</string>
+  <string name="yir_article_count_empty_headline">Имате милиони статии за откривање</string>
+  <string name="yir_article_count_empty_supporting">Само почекајте да дознаете што сè може да се научи на Википедија.</string>
+  <string name="yir_days_visited_headline">Денови во кои ја посетивте Википедија во %1$d година:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">Вашата активност достигна врв во %1$s, кога читавте %2$d ден.</item>
+    <item quantity="other">Вашата активност достигна врв во %1$s, кога читавте %2$d дена.</item>
+  </plurals>
+  <string name="yir_minutes_read_headline">Вкупно минути проведени во читање:</string>
+  <string name="yir_minutes_read_supporting">%1$s Времето лета кога ќе се вовлечете во нешто.</string>
+  <string name="yir_reading_streak_headline">Денови во вашата најдолга читачка низа:</string>
+  <string name="yir_reading_streak_supporting">Од %1$s до %2$s навистина влеговте во фазон, читајќи секој ден.</string>
+  <string name="yir_reading_streak_empty_headline">0 низи на читање… досега</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">Не е низа додека не исполните %1$d последователен ден. Зошто не почнете сега?</item>
+    <item quantity="other">Не е низа додека не исполните %1$d последователни денови. Зошто не почнете сега?</item>
+  </plurals>
+  <string name="yir_reading_time_headline">Омилено време за истражување:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">%1$d%% од вашето истражување се одвиваше во ова време од денот. Случајност или…не?</item>
+    <item quantity="other">%1$d%% од вашето истражување се одвиваше во ова време од денот. Случајност или…не?</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">Читате практично во било кое време</string>
+  <string name="yir_reading_time_empty_supporting">Нема одреден ден или време кога решавате да истражувате страници на Википедија.</string>
+  <string name="yir_top_topic_headline">Вашата најзастапена тема за %1$d година:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">Од %1$s до %2$s, %3$d од вашите статии се поврзани со оваа тема. %4$s</item>
+    <item quantity="other">Од %1$s до %2$s, %3$d од вашите статии се поврзани со оваа тема. %4$s</item>
+  </plurals>
+  <string name="yir_top_topic_empty_headline">Вашата тема број 1 во %1$d година е… сите</string>
+  <string name="yir_top_topic_empty_supporting">Со толкав број интереси, нема ниедна тема што ги опишува вашите навики на читање.</string>
+  <string name="yir_runner_up_topics_headline">Останати пласмани за %1$d година:</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d статија</item>
+    <item quantity="other">%1$d статии</item>
+  </plurals>
+  <string name="yir_biggest_reading_day_headline">Најчитачки ден:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">Проведовте вкупно %1$d минута на Википедија. Нели сте продуктивни?</item>
+    <item quantity="other">Проведовте вкупно %1$d минути на Википедија. Нели сте продуктивни?</item>
+  </plurals>
+  <string name="yir_articles_read_headline">Малку од статиите што ги читавте:</string>
+  <string name="yir_most_time_article_headline">На што проведовте највеќе време?</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">Проведовте вкупно %1$d минута на оваа статија во текот на %2$d година!</item>
+    <item quantity="other">Проведовте вкупно %1$d минути на оваа статија во текот на %2$d година!</item>
+  </plurals>
+  <string name="yir_rabbit_hole_headline">Во што највеќе се вовлековте?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">Продревте %1$d врска. Импресивно.</item>
+    <item quantity="other">Продревте %1$d врски. Импресивно.</item>
+  </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">Во што ќе се вовлечете следно?</string>
+  <string name="yir_niche_category_headline">Ве интересираат посебни работи, како на пример:</string>
+  <string name="yir_niche_category_supporting">Од некаква причина, целосно се вложивте на оваа категорија!</string>
+  <string name="yir_reread_articles_headline">Некои статии на кои се навраќавте:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d посета</item>
+    <item quantity="other">%1$d посети</item>
+  </plurals>
+  <string name="yir_reread_articles_empty_headline">Не сте пречитувач</string>
+  <string name="yir_reread_articles_empty_supporting">Не се навраќате на статии. Претпочитате новини и нови вовлекувања.</string>
+  <string name="yir_places_headline">Вашето читање практично ве одведе до:</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">Според %1$d статија</item>
+    <item quantity="other">Според %1$d статии</item>
+  </plurals>
+  <string name="yir_places_empty_headline">Вашето читање ве поведе насекаде низ картата</string>
+  <string name="yir_places_empty_supporting">Во %1$d година пропатувавте низ целата Википедија. Погледајте ја функцијата Места за да добиете идеи каде да одите кога сте во движење.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Статија што ја зачувавте за подоцна: %1$d</item>
+    <item quantity="other">Статии што ги зачувавте за подоцна: %1$d</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s посета</item>
+    <item quantity="other">%1$s посети</item>
+  </plurals>
+  <string name="yir_saved_articles_empty_headline">Имате 0 зачувани статии</string>
+  <string name="yir_saved_articles_empty_supporting">Моментално имате 0 зачувани статии. Побарајте ја иконката за одбележувач на статијата, за да можете да прочитате другите подоцна.</string>
+  <string name="yir_edits_headline">Уредувања што ги направивте:</string>
+  <string name="yir_edits_supporting">Без разлика дали учествувате на Википедија, Ризницата, или на Википодатоци, ви благодариме што го подобрувате пристапот на сите до човековото знаење.</string>
+  <string name="yir_edits_empty_headline">Досега сте направиле 0 уредувања</string>
+  <string name="yir_edits_empty_supporting">Засега немате направено ниедно уредување, но лесно ќе научите како. Сега е вистинско време да се придружите на заедницата што ја гради Википедија.</string>
+  <string name="yir_edit_views_headline">Посети на вашите уредувања:</string>
+  <string name="yir_edit_views_supporting">Во %1$d година читателите широм светот ги видоа промените што ги направивте.</string>
+  <string name="yir_most_viewed_edited_articles_headline">Најгледани статии од вашето уредување наваму:</string>
+  <string name="yir_contributor_thanks_headline">Ви благодариме!</string>
+  <string name="yir_contributor_thanks_supporting">Како %1$s, вашите уредувања овозможуваат Википедија да остане без реклами, од одверба и достапна за сите. Бескрајно сме ви благодарни за вашата поддршка на Википедија!</string>
+  <string name="yir_non_contributor_headline">Вие сте важни.</string>
+  <string name="yir_non_contributor_supporting">Википедија постои благодарение на вистински луѓе како вас, кои придонесуваат колку што можат за да продолжиме да напредуваме. Ако Википедија ви е значајна, ве замолуваме да ја поддржите со паричен прилог или со уредување.</string>
+  <string name="yir_community_intro_headline">Пристигна нашиот Преглед на годината</string>
+  <string name="yir_community_intro_supporting">Овојпат немаше доволно активност за д асе создаде ваш Преглед на годината, но сепак можете да истражите што заедно открил светот.</string>
+  <string name="yir_community_reading_hours_headline">Часови поминати во читање на Википедија во %1$d година:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">Збирно, на сите јазици, читателите како вас провеле приближно %1$,d година во читање на Википедија.</item>
+    <item quantity="other">Збирно, на сите јазици, читателите како вас провеле приближно %1$,d години во читање на Википедија.</item>
+  </plurals>
+  <string name="yir_community_languages_title">Јазици на кои е достапна Википедија:</string>
+  <plurals name="yir_community_languages_headline">
+    <item quantity="one">Јазици на кои е достапна Википедија: преку %1$d</item>
+    <item quantity="other">Јазици на кои е достапна Википедија: преку %1$d</item>
+  </plurals>
+  <string name="yir_community_languages_supporting">Википедија се пишува и одржува од доброволни заедници од целиот свет — доказ дека човековото знаење говори многу повеќе од еден јазик.</string>
+  <string name="yir_community_articles_headline">Статии на Википедија:</string>
+  <string name="yir_community_articles_supporting">Википедија и понатаму ја градат живи луѓе — доброволци од целиот свет кои користат меродавни извори во создавањето и одржувањето на сета нејзина содржина.</string>
+  <string name="yir_community_saved_articles_headline">Статии зачувани во %1$d година:</string>
+  <string name="yir_community_saved_articles_supporting">Читателите обележиле илјадници и илјадници статии за да ги читат по прв, трет или стоти пат.</string>
+  <string name="yir_community_editors_headline">Доброволни уредници:</string>
+  <string name="yir_community_editors_supporting">Дали сте знаеле дека сите Викимедиини проекти се дело на доброволци? Уредниците учествуваат со нови статии и ги подобруваат постоечките.</string>
+  <string name="yir_community_edits_headline">Направени уредувања:</string>
+  <string name="yir_community_edits_supporting">Секој час, секој ден, доброволците ширум светот работат на подобрување на Википедија со тоа што внесуваат нови и исправени сознанија во статиите, фотографираат историски споменици и исправаат печатни грешки.</string>
+  <string name="yir_community_global_reach_title">Глобален досег на Википедија:</string>
+  <string name="yir_community_global_reach_subtitle">Едно од десетте најпосетувани мрежни места на светот</string>
+  <string name="yir_community_global_reach_headline">Глобалниот досег на Википедија: едно од десетте најпосетувани мрежни места на светот</string>
+  <string name="yir_community_global_reach_supporting">Википедија е темел на знаењето на семрежјето. Сите учат од неа, од учениците до виртуелните соговорници.</string>
+  <string name="yir_community_contribute_headline">Вие сте важни.</string>
+  <string name="yir_community_contribute_supporting">Википедија постои благодарение на вистински луѓе како вас кои придонесуваат колку што можат за таа да напредува. Ако Википедија има вредност за вас, поддржете ја со парична уплата или уредување.\n\nВеќе учествувате? Најавете се или направете сметка за да ги видите вашите достигнувања.</string>
+  <string name="yir_closing_headline">До следното вовлекување</string>
+  <string name="yir_closing_supporting">Било да дојдвте поради една статија или сто, ви благодариме што истражувате, читате и останувате љуботицни со нас на Википедија.</string>
+  <string name="yir_closing_share_action">Сподели најважни моменти</string>
+  <string name="yir_store_discount_headline">Мала благодарност</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">Бидејќи ја помагате слободата на знаењето, ви даваме попуст од %1$d%% во Википедиината продавница. Не ви треба код, попустот ќе се примени при наплата.</item>
+    <item quantity="other">Бидејќи ја помагате слободата на знаењето, ви даваме попуст од %1$d%% во Википедиината продавница. Не ви треба код, попустот ќе се примени при наплата.</item>
+  </plurals>
+  <string name="yir_store_discount_action">Посетете ја продавницата</string>
+  <string name="yir_games_headline">Подготвени за друг предизвик?</string>
+  <string name="yir_games_supporting">Проверете го вашето знаење стекнато на Википедија низ брзите игри поттикнати од светското знаење.</string>
+  <string name="yir_games_action">Започни игра</string>
+  <string name="yir_customize_home_headline">Прилагодете си ја Почетната</string>
+  <string name="yir_customize_home_supporting">Изаберете теми што ве пленат и добивајте препораки прилагодени на вашите интереси.</string>
+  <string name="yir_customize_home_action">Прилагоди интереси</string>
+  <string name="yir_community_recap_headline">Нашиот Преглед на годината</string>
+  <string name="yir_community_recap_supporting">Откријте колку прочитал, уредил и истражил светот заедно.</string>
+  <string name="yir_community_recap_action">Истражете сега</string>
+  <string name="yir_quiz_headline">Која Википедија сте вие?</string>
+  <string name="yir_quiz_supporting">Од времето на бирачки пристап (dial-up) до денес, пропатувајте низ историјата на Википедија.</string>
+  <string name="yir_quiz_action">Одговорете на квизот</string>
+  <string name="yir_open_tabs_headline">Навратете се на отворените јазичиња</string>
+  <string name="yir_share_text">Еве го мојот Преглед на годината %1$d на Википедија, од Википедииниот прилог: %2$s</string>
+  <string name="yir_feature_card_title">Преглед на годината %1$d на Википедија</string>
+  <string name="yir_feature_card_articles_read">Број на прочитани статии:</string>
+  <string name="yir_feature_card_minutes_read">Вкупно минути проведени во читање:</string>
+  <string name="yir_feature_card_articles_reread">Статии на кои се навраќам:</string>
+  <string name="yir_feature_card_longest_rabbit_hole">Најдолго вовлекување:</string>
+  <string name="yir_feature_card_top_category">Посебно истражена категорија:</string>
+  <string name="yir_feature_card_created_with">Направено со прилогот на Википедија</string>
+  <string name="yir_topic_comment_architecture">Ја проведовте годината ценејќи ги работите направени да траат.</string>
+  <string name="yir_topic_comment_art">Ве привлекуваа убавината, смелоста и понекогаш она што збунува.</string>
+  <string name="yir_topic_comment_comics_and_anime">Дел по дел се нурнавте во светот на стриповите и аниме.</string>
+  <string name="yir_topic_comment_entertainment">Годинава не можевте да се одвоите од светот на забавата.</string>
+  <string name="yir_topic_comment_fashion">Повеќе од највеќето луѓе го посетувавте светот на стилот.</string>
+  <string name="yir_topic_comment_literature">Годинава вашето читање има книжевна црта.</string>
+  <string name="yir_topic_comment_music">Годинава вашата љубопитност беше во знакот на музиката.</string>
+  <string name="yir_topic_comment_performing_arts">Ве привлекуваше сценската уметност.</string>
+  <string name="yir_topic_comment_sports">Годинава внимателно ги следевте спортските случувања.</string>
+  <string name="yir_topic_comment_tv_and_film">Годинава читајќи правевте и список на набљудувања.</string>
+  <string name="yir_topic_comment_video_games">Го надоградивте вашето познавање од видеоигри.</string>
+  <string name="yir_topic_comment_biography">Цела година ги запознававте животните приказни на другите.</string>
+  <string name="yir_topic_comment_women">Цела година ги запознававте животните приказни на разни жени.</string>
+  <string name="yir_topic_comment_business_and_economics">Следевте како светот стопанисува.</string>
+  <string name="yir_topic_comment_education">Оваа година особено ве привлекуваше да учите за самото учење.</string>
+  <string name="yir_topic_comment_food_and_drink">Годинава вашето љубопитство имаше апетит.</string>
+  <string name="yir_topic_comment_history">Очигледно ве плени минатото.</string>
+  <string name="yir_topic_comment_military_and_warfare">Навлеговте во историјата на судирите и одбраната.</string>
+  <string name="yir_topic_comment_philosophy_and_religion">Годинава се позанимававте со значајните прашања.</string>
+  <string name="yir_topic_comment_politics_and_government">Следевте како се управува светот.</string>
+  <string name="yir_topic_comment_society">Се интересиравте како луѓето живеат и се организираат.</string>
+  <string name="yir_topic_comment_transportation">Истражувавте како се движи светот од едно место до друго.</string>
+  <string name="yir_topic_comment_biology">Ја истражувавте науката за живите суштества.</string>
+  <string name="yir_topic_comment_chemistry">Годинава читавте за хемијата.</string>
+  <string name="yir_topic_comment_computers_and_internet">Годинава посветивте доста време за ги разберете технологиите што стојат зад вашиот екран.</string>
+  <string name="yir_topic_comment_earth_and_environment">Читавте приземно — во буквална смисла на зборот.</string>
+  <string name="yir_topic_comment_engineering">Сакавте да учите како нештата се изградени и како работат.</string>
+  <string name="yir_topic_comment_general_science">Ваша љубопитност опфати широк круг на научни области.</string>
+  <string name="yir_topic_comment_mathematics">Годинава се занимававте со бројки.</string>
+  <string name="yir_topic_comment_medicine_and_health">Проведовте време учејќи како работи човечкото тело.</string>
+  <string name="yir_topic_comment_physics">Се интересиравте за законите на вселената.</string>
+  <string name="yir_topic_comment_technology">Следевте како се менуваат нештата.</string>
+  <string name="yir_topic_comment_africa">Оваа година читајќи ја пропатувавте Африка.</string>
+  <string name="yir_topic_comment_asia">Оваа година читајќи ја пропатувавте Азија.</string>
+  <string name="yir_topic_comment_central_america">Оваа година читајќи ја пропатувавте Средна Америка.</string>
+  <string name="yir_topic_comment_europe">Оваа година читајќи ја пропатувавте Европа.</string>
+  <string name="yir_topic_comment_north_america">Оваа година читајќи ја пропатувавте Северна Америка.</string>
+  <string name="yir_topic_comment_oceania">Оваа година читајќи ја пропатувавте Океанија.</string>
+  <string name="yir_topic_comment_south_america">Оваа година читајќи ја пропатувавте Јужна Америка.</string>
+  <string name="yir_time_spent_comment_1">То е подолго отколку што му е потребно на срцето на колибрито да отчука 1.200 пати.</string>
+  <string name="yir_time_spent_comment_9">Тоа е подолго отколку што на сончевата светлина ѝ е потребно да допатува до Земјата.</string>
+  <string name="yir_time_spent_comment_13">Тоа е подолго отколку што е е потребно да се свари тврдо варено јајце.</string>
+  <string name="yir_time_spent_comment_19">Тоа е подолго од просечното време што име е потребно на луѓето за да заспијат.</string>
+  <string name="yir_time_spent_comment_31">Тоа е подолго од една епизода на ТВ-серија, сосе реклами.</string>
+  <string name="yir_time_spent_comment_93">Тоа е подолго отколку што ѝ е потребно на Меѓународната вселенска станица да ја обиколи Земјата.</string>
+  <string name="yir_time_spent_comment_121">Тоа е подолго од тековниот светски рекорд во маратон.</string>
+  <string name="yir_time_spent_comment_540">Тоа е подолго од еден целоноќен сон.</string>
+  <string name="yir_time_spent_comment_1441">Тоа е подолго отколку што ѝ треба на матицата да положи 2.000 пчелини јајца.</string>
+  <plurals name="yir_time_spent_comment_2800">
+    <item quantity="one">Тоа е подолго отколку %1$d цел ден.</item>
+    <item quantity="other">Тоа е подолго отколку цели %1$d денови.</item>
+  </plurals>
   <string name="year_in_review_learn_more">Дознајте повеќе</string>
+  <string name="year_in_review_about_your_insights">За вашите сознанија</string>
+  <string name="year_in_review_share_feedback">Дајте мислење</string>
+  <string name="year_in_review_feedback_email_subject">Мислење за Преглед на годината</string>
   <string name="year_in_review_get_started">Започнете</string>
+  <string name="year_in_review_announcement_explore">Истражи</string>
   <string name="year_in_review_topbar_w_icon">Икона W на Википедија</string>
   <string name="year_in_review_navigate_left">Оди лево</string>
   <string name="year_in_review_close">Затвори</string>
@@ -1925,7 +2137,12 @@
   <string name="year_in_review_get_started_headline">Истражете го вашиот Преглед на годината на Википедија</string>
   <string name="year_in_review_get_started_bodytext">Добијте сознанија за тоа кои статии ги читате на прилогот на Википедија и кои уредувања ги правите.</string>
   <string name="year_in_review_get_started_info">Вашата историја на читање е заштитена. Сознанијата за читањето се пресметуваат со месно складирани податоци на вашиот уред.</string>
-  <string name="year_in_review_get_started_later">Можете да го отворите вашиот Преглед на годината во менито Повеќе.</string>
+  <string name="year_in_review_get_started_later_activity">Прегледот на годината можете да го погледате подоцна во Активности.</string>
+  <string name="year_in_review_entry_card_title_collective">Пристигна нашиот Преглед на годината</string>
+  <string name="year_in_review_entry_card_title_personalized">Пристигна вашиот Преглед на годината</string>
+  <string name="year_in_review_entry_card_subtitle">Навратете се на вашата година на Википедија.</string>
+  <string name="year_in_review_entry_card_subtitle_collective">Навратете се на годината на Википедија.</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">Овојпат немаше доволно активност за д асе создаде ваш Преглед на годината, но сепак можете да истражите што заедно открил светот.</string>
   <string name="year_in_review_survey_title">Помогнете ни да го подобриме Прегледот на годината</string>
   <string name="year_in_review_survey_subtitle">Дали сте задоволни од оваа функција?</string>
   <string name="year_in_review_reading_list_survey_title">Помогнете да се подобри збирката на Преглед на годината %d од прегледот на годината.</string>
@@ -1962,6 +2179,10 @@
   <string name="year_in_review_slide_geo_body">Земјата најблиску до многу статии што ги прочитавте е: %1$s, судејќи по статии како &lt;b&gt;%2$s&lt;/b&gt; и &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">Се најавувате за лични прилагодувања?</string>
   <string name="year_in_review_login_dialog_body">Најавувањето ви дава пристап до лично прилагодени сознанија. Збирните сознанија можете да ги гледате и без најава.</string>
+  <string name="year_in_review_login_dialog_title_nodata">Википедија е подобра со сметка</string>
+  <string name="year_in_review_login_dialog_body_nodata">Најавата ви дава пристап до најдобрите делови на прилогот. Започнете да го градите прегледот на следната година со тоа што ќе направите сметка денес.</string>
+  <string name="year_in_review_login_dialog_title_data">Вашиот Преглед на годината најдобро оди со сметка</string>
+  <string name="year_in_review_login_dialog_body_data">Најавете се за да ги видите вашите теми, статии, најдолго истражувачко талкање и друго. Збирните сознанија можете да ги гледате и без да се најавите.</string>
   <string name="year_in_review_login_dialog_positive">Најавете се / Зачленете се на Википедија</string>
   <string name="year_in_review_login_dialog_negative">Продолжи без најава</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -2535,4 +2756,37 @@
     <item quantity="one">Со одзачувување на оваа статија истата ќе ја отстраните од сите поврзани збирки.</item>
     <item quantity="other">Со одзачувување на овие статии истатите ќе ги отстраните од сите поврзани збирки.</item>
   </plurals>
+  <string name="semantic_search_entry_point_card_message">Пребарајте во статии и прејдете право на релевантниот пасус</string>
+  <string name="semantic_search_entry_point_card_text_button">Пробајте го сега</string>
+  <string name="semantic_search_info_dialog_title">Каква е оваа функција?</string>
+  <string name="semantic_search_info_dialog_message">Пронајдете одговори на вашите прашања во статии на Википедија и прејдете право на релевантниот пасус. \n\nПасусите се извлекуваат од статии што луѓето ги пребарувале, напишале или уредиле, секој поткрепен со извори што можете да ги проверите.</string>
+  <string name="semantic_search_info_dialog_button_text">Дознајте повеќе</string>
+  <string name="semantic_search_info_btn_content_description">Копче со информациска иконка за семантичко пребарување</string>
+  <string name="semantic_search_close_btn_content_description">Копче со иконка за оневозможување и затворање на семантичкото пребарување</string>
+  <string name="semantic_search_beta_label">Бета</string>
+  <string name="semantic_search_no_results_message">Ова пребарување не даде ништо</string>
+  <string name="semantic_search_results_close_button_content_description">Затвори го исходот од семантичкото пребарување</string>
+  <string name="semantic_search_results_read_in_article_label">Прочитајте во статија</string>
+  <plurals name="semantic_search_result_contributors">
+    <item quantity="one">%d учесник</item>
+    <item quantity="other">%d учесници</item>
+  </plurals>
+  <plurals name="semantic_search_result_references">
+    <item quantity="one">%d навод</item>
+    <item quantity="other">%d наводи</item>
+  </plurals>
+  <string name="semantic_search_results_last_updated_label">Последна измена %s</string>
+  <string name="semantic_search_results_feedback_title">Дали го најдовте она што го барате?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">Палец нагоре</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">Палец надолу</string>
+  <string name="semantic_search_results_feedback_input_hint">Кажете ни повеќе (незадол.)</string>
+  <string name="semantic_search_results_feedback_submit_button_text">Поднеси</string>
+  <string name="semantic_search_results_feedback_submitted_message">Ви благодариме за искажаното мислење</string>
+  <string name="semantic_search_feedback_dialog_title">Мислења</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">Затвори мислења за семантичко пребарување</string>
+  <string name="preference_heading_semantic_search">Пребарување</string>
+  <string name="preference_title_semantic_search_within_articles">Пребарување во статии</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">Прејди право на релевантниот пасус</string>
+  <string name="semantic_search_snackbar_message">Модулот е скриен. Можете да го направите повторно видлив во Поставките</string>
+  <string name="semantic_search_snackbar_action_label">Измени</string>
 </resources>

@@ -656,13 +656,13 @@
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
   <string name="reading_list_item_deleted">تمت إزالة %s من المجموعة</string>
   <string name="reading_list_item_deleted_from_list">أُزيلت %1$s من %2$s</string>
-  <plurals name="reading_list_articles_deleted" fuzzy="true">
-    <item quantity="zero">...</item>
-    <item quantity="one">%d مقالة أزيلت من القائمة</item>
-    <item quantity="two">...</item>
-    <item quantity="few">...</item>
-    <item quantity="many">...</item>
-    <item quantity="other">%d مقالة أزيلة من القائمة</item>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="zero">لا مقالات أزيلت من المجموعة</item>
+    <item quantity="one">%d مقالة أزيلت من المجموعة</item>
+    <item quantity="two">مقالتان أزيلتا من المجموعتين</item>
+    <item quantity="few"/>
+    <item quantity="many">مقالات كثيرة أزيلت من المجموعة</item>
+    <item quantity="other">%d مقالة أزيلت من المجموعة</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="zero">%1$d مقالة أُزيلت من  %2$s\n</item>
@@ -672,13 +672,13 @@
     <item quantity="many">%1$d مقالة أُزيلت من  %2$s\n</item>
     <item quantity="other">%1$d مقالة أُزيلت من  %2$s\n</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message" fuzzy="true">
-    <item quantity="zero">%d قائمة محذوفة\n</item>
-    <item quantity="one">قائمة محذوفة\n</item>
-    <item quantity="two">قائمتان محذوفتان\n</item>
-    <item quantity="few">%d قوائم محذوفة\n</item>
-    <item quantity="many">%d قائمة محذوفة\n</item>
-    <item quantity="other">%d قائمة محذوفة\n</item>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="zero">%d مجموعة محذوفة\n</item>
+    <item quantity="one">مجموعة محذوفة\n</item>
+    <item quantity="two">مجموعتان محذوفتان\n</item>
+    <item quantity="few">%d مجموعات محذوفة\n</item>
+    <item quantity="many">%d مجموعات محذوفة\n</item>
+    <item quantity="other">%d مجموعة محذوفة\n</item>
   </plurals>
   <string name="reading_lists_default_list_delete_message">لا يمكن حذف المجموعة الافتراضية ( %s ).</string>
   <string name="reading_lists_default_plus_one_list_delete_message">تم حذف %1$s . لا يمكن حذف المجموعة الافتراضية ( %2$s ).</string>
@@ -717,13 +717,13 @@
   <string name="reading_list_articles_moved_to_named">نُقلت %1$d مقالات إلى %2$s</string>
   <string name="reading_list_delete_confirm">هل أنت متأكد من أنك تريد حذف %s؟</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">هل تريد حذف المجموعة (المجموعات) المحددة؟</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
-    <item quantity="zero">هل أنت متأكد أنك تريد حذف القائمة\n</item>
-    <item quantity="one">هل أنت متأكد أنك تريد حذف %d قائمة\n</item>
-    <item quantity="two">هل أنت متأكد أنك تريد حذف %d قائمتين\n</item>
-    <item quantity="few">هل أنت متأكد أنك تريد حذف %d قوائم\n</item>
-    <item quantity="many">هل أنت متأكد أنك تريد حذف %d قائمة\n</item>
-    <item quantity="other">هل أنت متأكد أنك تريد حذف %d قائمة\n</item>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="zero">هل أنت متأكد أنك تريد حذف المجموعة\n</item>
+    <item quantity="one">هل أنت متأكد أنك تريد حذف %d مجموعة\n</item>
+    <item quantity="two">هل أنت متأكد أنك تريد حذف %d مجموعتين\n</item>
+    <item quantity="few">هل أنت متأكد أنك تريد حذف %d مجموعة\n</item>
+    <item quantity="many">هل أنت متأكد أنك تريد حذف %d مجموعة\n</item>
+    <item quantity="other">هل أنت متأكد أنك تريد حذف %d مجموعة\n</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">سجل الدخول لتمكين المزامنة</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">قم بتسجيل الدخول للسماح بحفظ مجموعاتك في حسابك.</string>
@@ -779,21 +779,21 @@
   <string name="reading_lists_import_failure_message">فشل استيراد المجموعات</string>
   <string name="reading_lists_export_select_lists_message">حدد المجموعة (المجموعات) المراد تصديرها</string>
   <string name="reading_lists_export_completed_message">تم تصدير المجموعة (المجموعات)</string>
-  <plurals name="reading_list_export_failed_message" fuzzy="true">
-    <item quantity="zero">لا قوائم قراءة تم تصديرها</item>
-    <item quantity="one">فشل تصدير قائمة القراءة</item>
-    <item quantity="two">فشل تصدير قائمتي القراءة</item>
-    <item quantity="few">فشل تصدير قوائم القراءة</item>
-    <item quantity="many">فشل تصدير قوائم القراءة</item>
-    <item quantity="other">فشل تصدير قوائم القراءة</item>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="zero">لا مجموعات تم تصديرها</item>
+    <item quantity="one">فشل تصدير المجموعة</item>
+    <item quantity="two">فشل تصدير المجموعتين</item>
+    <item quantity="few">فشل تصدير المجموعات</item>
+    <item quantity="many">فشل تصدير المجموعات</item>
+    <item quantity="other">فشل تصدير المجموعات</item>
   </plurals>
-  <plurals name="reading_list_import_success_message" fuzzy="true">
-    <item quantity="zero">لا قوائم قراءة تم استيرادها</item>
-    <item quantity="one">قائمة القراءة المستوردة</item>
-    <item quantity="two">قائمتا قراءة تم استيرادهما</item>
-    <item quantity="few">قوائم قراءة قليلة تم استيرادها</item>
-    <item quantity="many">قوائم قراءة كثيرة تم استيرادها</item>
-    <item quantity="other">قوائم القراءة تم استيرادها</item>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="zero">لا مجموعات تم استيرادها</item>
+    <item quantity="one">المجموعة المستوردة</item>
+    <item quantity="two">المجموعتان تم استيرادهما</item>
+    <item quantity="few">مجموعات قليلة تم استيرادها</item>
+    <item quantity="many">مجموعات كثيرة تم استيرادها</item>
+    <item quantity="other">المجموعات تم استيرادها</item>
   </plurals>
   <string name="reading_lists_preview_header_title">مجموعة مشتركة</string>
   <string name="reading_lists_preview_save_button">حفظ</string>
@@ -838,29 +838,29 @@
     <item quantity="many">%1$d مقالة</item>
     <item quantity="other">%1$d مقالة متبقية</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
-    <item quantity="zero">لا قوائم</item>
-    <item quantity="one">مزامنة قائمة القراءة</item>
-    <item quantity="two">مزامنة قائمتي القراءة</item>
-    <item quantity="few">مزامنة قوائم القراءة</item>
-    <item quantity="many">مزامنة قوائم القراءة</item>
-    <item quantity="other">مزامنة قوائم المراقبة</item>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="zero">لا مجموعات</item>
+    <item quantity="one">مزامنة المجموعة </item>
+    <item quantity="two">مزامنة المجموعتين</item>
+    <item quantity="few">مزامنة المجموعات </item>
+    <item quantity="many">مزامنة المجموعات</item>
+    <item quantity="other">مزامنة المجموعات</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
-    <item quantity="zero">لا قوائم</item>
-    <item quantity="one">مزامنة %1$d قائمة…</item>
-    <item quantity="two">مزامنة قائمتين</item>
-    <item quantity="few">مزامنة قوائم المراقبة</item>
-    <item quantity="many">مزامنة %1$d قائمة…</item>
-    <item quantity="other">مزامنة %1$d قوائم…</item>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="zero">لا مجموعات</item>
+    <item quantity="one">مزامنة %1$d مجموعة…</item>
+    <item quantity="two">مزامنة مجموعتين</item>
+    <item quantity="few">مزامنة المجموعات</item>
+    <item quantity="many">مزامنة %1$d مجموعة…</item>
+    <item quantity="other">مزامنة %1$d مجموعات…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
-    <item quantity="zero">لا مقالة</item>
-    <item quantity="one">%1$d مقالة متبقية</item>
-    <item quantity="two">مقالتان متيقيتان</item>
-    <item quantity="few">%1$d مقالة</item>
-    <item quantity="many">%1$d مقالة</item>
-    <item quantity="other">%1$d مقالة متبقية</item>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="zero">لا مجموعة</item>
+    <item quantity="one">%1$d مجموعة متبقية</item>
+    <item quantity="two">مجموعتان متيقيتان</item>
+    <item quantity="few">%1$d مجموعة</item>
+    <item quantity="many">%1$d مجموعة</item>
+    <item quantity="other">%1$d مجموعة متبقية</item>
   </plurals>
   <string name="notification_echo_channel_description">إخطارات ويكيبيديا</string>
   <string name="notifications_activity_title">الإشعارات</string>
@@ -1085,7 +1085,7 @@
   <string name="description_edit_success_saved_image_tags_snackbar">نُشر وسم الصورة!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">استمتعت بذلك؟ ساعدنا في إضافة المزيد.</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
-  <string name="description_edit_success_done">تم</string>
+  <string name="description_edit_success_done">نفذ</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>
   <string name="description_edit_success_article_edit_hint">يُمكنك أيضًا تحرير المقالات في التطبيق. حاول إصلاح خطأ إملائي وجمل صغيرة بالضغط على أيقونة ^1 في المرّة القادمة.</string>
   <string name="description_edit_tutorial_title_descriptions">أوصاف المقالات</string>
@@ -1906,7 +1906,7 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;الحساب من:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;عدد التحرير:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">أغلق</string>
-  <string name="patroller_tasks_filters_title">المرشحات</string>
+  <string name="patroller_tasks_filters_title">مرشحات</string>
   <string name="patroller_tasks_filters_reset">إعادة ضبط</string>
   <string name="patroller_tasks_filters_wiki_filter_header">ويكي</string>
   <string name="patroller_tasks_filters_all_text">الكل</string>
@@ -2158,7 +2158,6 @@
   <string name="year_in_review_get_started_headline">استكشف مراجعة العام على ويكيبيديا</string>
   <string name="year_in_review_get_started_bodytext">اطلع على رؤى حول المقالات التي تقرأها على تطبيق ويكيبيديا والتعديلات التي أجريتها.</string>
   <string name="year_in_review_get_started_info">سجل قراءتك محمي. تُحسب إحصاءات القراءة باستخدام البيانات المخزنة محليًا على جهازك.</string>
-  <string name="year_in_review_get_started_later">يمكنك الوصول إلى \"مراجعة العام\" لاحقًا في قائمة \"المزيد\".</string>
   <string name="year_in_review_survey_title">ساعد في تحسين مراجعة العام</string>
   <string name="year_in_review_survey_subtitle">هل أنت راض عن هذه الميزة؟</string>
   <string name="year_in_review_reading_list_survey_title">ساعد في تحسين مجموعة \"مراجعة العام %d .</string>
@@ -2287,12 +2286,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">الوقت المفضل للقراءة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">اليوم المفضل للقراءة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">الشهر الذي قرأت فيه أكثر</string>
-  <string name="year_in_review_slide_reading_pattern_morning">صباح</string>
+  <string name="year_in_review_slide_reading_pattern_morning">الصباح</string>
   <string name="year_in_review_slide_reading_pattern_midday">منتصف النهار</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">بعد الظهر</string>
-  <string name="year_in_review_slide_reading_pattern_evening">مساء</string>
-  <string name="year_in_review_slide_reading_pattern_night">ليلة</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">في وقت متأخر من الليل</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">فترة ما بعد الظهر</string>
+  <string name="year_in_review_slide_reading_pattern_evening">أمسيات</string>
+  <string name="year_in_review_slide_reading_pattern_night">ليالٍ</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">ليالٍ متأخرة</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="zero">لم نمضِ أي ساعة في القراءة</item>
     <item quantity="one">أمضينا ساعة واحدة في القراءة</item>
@@ -2433,8 +2432,8 @@
   <string name="donation_reminders_settings_title">كيف نذكرك؟</string>
   <string name="donation_reminders_settings_option_title">تذكيرات التبرع</string>
   <string name="donation_reminders_settings_thank_you_message">كرمكم يُسهم في ازدهار ويكيبيديا. أنشئوا تذكيرًا بالتبرعات بناءً على عدد المقالات التي تقرأونها.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">تذهب التبرعات إلى مؤسسة ويكيميديا والشركات التابعة لها، المضيفين الفخورين لويكيبيديا ومشاريع المعرفة المجانية الأخرى.</string>
-  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">عندما أقرأ</string>
+  <string name="donation_reminders_settings_donation_info">تذهب التبرعات إلى مؤسسة ويكيميديا والشركات التابعة لها، وهي الجهة المضيفة الفخورة لموقع ويكيبيديا ومواقعها الشقيقة.</string>
+  <string name="donation_reminders_settings_article_frequency_label">كلما قرأت</string>
   <string name="donation_reminders_settings_amount_label">ذكّرني بالتبرع</string>
   <string name="donation_reminders_settings_confirm_btn_label">تأكيد التذكير</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">حول هذه التجربة</string>
@@ -2443,8 +2442,8 @@
   <string name="donation_reminders_settings_warning_max_amount">الحد الأقصى المسموح به %s</string>
   <string name="donation_reminders_settings_option_custom">مُخصَّص…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">شكرًا لك! سنذكرك بالتبرع %1$s عند قراءة %2$s أثناء إجراء هذه التجربة.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title" fuzzy="true">لقد قرأت %1$s آخر</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">لقد قرأت %1$s منذ أن تعهدت %2$s !</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">لقد قرأتَ %1$s أخرى!</string>
   <string name="donation_reminders_prompt_message">لقد فعّلتَ تذكيرًا بالتبرعات على %1$s للتبرع %3$s كل %2$s تقرأها. هل أنت مستعدٌّ للوفاء بتعهدك بدعم ويكيبيديا؟</string>
   <string name="donation_reminders_prompt_positive_button">تبرع الآن</string>
   <string name="donation_reminders_prompt_negative_button">ليس الآن</string>
@@ -2538,4 +2537,42 @@
   <string name="home_feed_settings_modules_title">الوحدات</string>
   <string name="home_feed_did_you_know_title">هل تعلم؟</string>
   <string name="home_feed_did_you_know_subtitle">حقائق مثيرة للاهتمام من مقالات اختارها محررون متطوعون</string>
+  <string name="semantic_search_entry_point_card_message">ابحث داخل المقالات وانتقل مباشرةً إلى المقطع ذي الصلة</string>
+  <string name="semantic_search_entry_point_card_text_button">جرّبه الآن</string>
+  <string name="semantic_search_info_dialog_title">ما هذه الميزة؟</string>
+  <string name="semantic_search_info_dialog_message">اعثر على إجابات لأسئلتك داخل مقالات ويكيبيديا، وانتقل مباشرةً إلى المقطع ذي الصلة.\n\nتُستخلص المقاطع من مقالات أعدّها أشخاص بالبحث والكتابة والتحرير، ويستند كل مقطع منها إلى مصادر مُستشهد بها يمكنك التحقق منها.</string>
+  <string name="semantic_search_info_dialog_button_text">المزيد من المعلومات</string>
+  <string name="semantic_search_info_btn_content_description">تُستخلص هذه الأجزاء من مقالات بحثها أشخاص وكتبوها وحرروها، وكل مقال منها مدعوم بمصادر موثوقة يمكنك التحقق منها.</string>
+  <string name="semantic_search_close_btn_content_description">زر تعطيل وإغلاق أيقونة البحث الدلالي</string>
+  <string name="semantic_search_beta_label">النسخة التجريبية</string>
+  <string name="semantic_search_no_results_message">لا توجد نتائج لهذا البحث</string>
+  <string name="semantic_search_results_close_button_content_description">إغلاق نتائج البحث الدلالي</string>
+  <string name="semantic_search_results_read_in_article_label">اقرأ في المقالة</string>
+  <plurals name="semantic_search_result_contributors">
+    <item quantity="zero">%d المساهمون</item>
+    <item quantity="one">%d المساهمون</item>
+    <item quantity="two">%d المساهمون</item>
+    <item quantity="few">%d المساهمون</item>
+    <item quantity="many">%d المساهمون</item>
+    <item quantity="other">%d المساهمون</item>
+  </plurals>
+  <plurals name="semantic_search_result_references">
+    <item quantity="zero">%d المراجع</item>
+    <item quantity="one">%d المراجع</item>
+    <item quantity="two">%d المراجع</item>
+    <item quantity="few">%d المراجع</item>
+    <item quantity="many">%d المراجع</item>
+    <item quantity="other">%d المراجع</item>
+  </plurals>
+  <string name="semantic_search_results_last_updated_label">آخر تحديث%s</string>
+  <string name="semantic_search_results_feedback_title">هل وجدت ما كنت تبحث عنه؟</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">ممتاز</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">اعترض</string>
+  <string name="semantic_search_results_feedback_input_hint">أخبرنا المزيد (اختياري)</string>
+  <string name="semantic_search_results_feedback_submit_button_text">إرسال</string>
+  <string name="semantic_search_results_feedback_submitted_message">شكراً على ملاحظاتك</string>
+  <string name="semantic_search_feedback_dialog_title">ملاحظات</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">إغلاق ملاحظات البحث الدلالي</string>
+  <string name="semantic_search_snackbar_message">الوحدة مخفية يمكنك إظهارها مرة أخرى من الإعدادات</string>
+  <string name="semantic_search_snackbar_action_label">تعديل</string>
 </resources>

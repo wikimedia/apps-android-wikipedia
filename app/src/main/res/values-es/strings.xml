@@ -405,7 +405,6 @@
   <string name="editor_select_dialog_ve_subtitle">Haga cambios directamente en la página que vea. Se abre en su navegador.</string>
   <string name="editor_select_dialog_continue">Continuar</string>
   <string name="editor_select_title_settings_screen">Preferencias de edición</string>
-  <string name="editor_select_save_btn_settings_screen">Guardar</string>
   <string name="find_next">Buscar siguiente</string>
   <string name="find_previous">Buscar anterior</string>
   <string name="find_first_occurence">Esta es la primera ocurrencia</string>
@@ -1989,7 +1988,6 @@
   <string name="year_in_review_get_started_headline">Explora tu Wikipedia: Resumen del año</string>
   <string name="year_in_review_get_started_bodytext">Consulta información sobre los artículos que leíste en la aplicación Wikipedia y las ediciones que realizaste.</string>
   <string name="year_in_review_get_started_info">Tu historial de lectura está protegido. La información de lectura se calcula con datos almacenados localmente en tu dispositivo.</string>
-  <string name="year_in_review_get_started_later">Podrás acceder a tu Resumen Anual más tarde en el menú Más.</string>
   <string name="year_in_review_survey_title">Ayude a mejorar Resumen del año</string>
   <string name="year_in_review_survey_subtitle">¿Estás satisfecho con esta función?</string>
   <string name="year_in_review_reading_list_survey_title">Ayude a mejorar la colección de Resumen del año %d.</string>
@@ -2057,12 +2055,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Tiempo favorito para leer</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Día favorito para leer</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mes en el que más leíste</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Por la mañana</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Mediodía</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Por la tarde</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Por la noche</string>
-  <string name="year_in_review_slide_reading_pattern_night">Por la noche</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Tarde en la noche</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Por la mañana</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Mediodía</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Por la tarde</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Por la noche</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Por la noche</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Tarde en la noche</string>
   <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
     <item quantity="one">Pasaste %,d minuto</item>
     <item quantity="other">Pasaste %,d minutos</item>

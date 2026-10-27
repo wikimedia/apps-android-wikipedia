@@ -2018,7 +2018,6 @@
   <string name="year_in_review_get_started_headline">Ознайомтеся зі своїм оглядом року у Вікіпедії</string>
   <string name="year_in_review_get_started_bodytext">Переглядайте статистику того, які статті ви читали в програмці Вікіпедії, а також редагування, які ви зробили.</string>
   <string name="year_in_review_get_started_info">Ваша історія читання захищена. Статистика читання розраховується на основі даних, що зберігаються локально на вашому пристрої.</string>
-  <string name="year_in_review_get_started_later">Ви можете переглянути свій огляд року пізніше у меню «Більше».</string>
   <string name="year_in_review_survey_title">Допоможіть покращити Огляд року</string>
   <string name="year_in_review_survey_subtitle">Ви задоволені цією функцією?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Допоможіть поліпшити список читання Огляду року %d.</string>
@@ -2169,12 +2168,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Улюблений час для читання</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Улюблений день для читання</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Місяць, коли ви найбільше читали</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Ранок</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Полудень</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Після обіду</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Вечір</string>
-  <string name="year_in_review_slide_reading_pattern_night">Ніч</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Пізній вечір</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Ранок</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Полудень</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Після обіду</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Вечір</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Ніч</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Пізній вечір</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Ми провели за читанням %,d годину</item>
     <item quantity="few">Ми провели за читанням %,d години</item>

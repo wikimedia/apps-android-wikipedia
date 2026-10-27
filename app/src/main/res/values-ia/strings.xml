@@ -1869,7 +1869,6 @@
   <string name="year_in_review_get_started_headline">Explorar tu summario del anno de Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Vider analyses sur le articulos que tu ha legite in le application Wikipedia e sur le modificationes que tu ha apportate.</string>
   <string name="year_in_review_get_started_info">Tu historia de lectura se mantene protegite. Le analyses de lectura se calcula a base de datos immagazinate localmente sur tu apparato.</string>
-  <string name="year_in_review_get_started_later">Tu pote acceder a tu Summario del anno plus tarde in le menu Plus.</string>
   <string name="year_in_review_survey_title">Adjuta a meliorar le Summario del anno</string>
   <string name="year_in_review_survey_subtitle">Es tu satisfacite de iste function?</string>
   <string name="year_in_review_reading_list_survey_title" fuzzy="true">Adjuta a meliorar le lista de lectura del Summario del anno %d.</string>
@@ -1986,12 +1985,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Hora favorite pro leger</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Die favorite pro leger</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mense in le qual tu ha legite le plus</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Matino</string>
-  <string name="year_in_review_slide_reading_pattern_midday">Mediedie</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Postmeridie</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Vespere</string>
-  <string name="year_in_review_slide_reading_pattern_night">Nocte</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Tarde in le nocte</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Matino</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Mediedie</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Postmeridie</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Vespere</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Nocte</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Tarde in le nocte</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">Nos ha passate %,d hora a leger</item>
     <item quantity="other">Nos ha passate %,d horas a leger</item>

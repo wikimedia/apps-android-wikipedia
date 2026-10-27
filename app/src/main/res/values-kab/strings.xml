@@ -252,7 +252,6 @@
   <string name="edit_summary_tag_other_hint">Iberdan-nniḍen n usnerni n usebter</string>
   <string name="edit_conflict_title">Ẓreg tillas</string>
   <string name="editor_select_dialog_continue">Kemmel</string>
-  <string name="editor_select_save_btn_settings_screen">Sekles</string>
   <string name="find_next">Nadi ar zdat</string>
   <string name="find_previous">Nadi ar deffir</string>
   <string name="find_first_occurence">Tagi d timeḍriwt tamezwarut</string>
@@ -354,7 +353,7 @@
   <string name="link_preview_dialog_saved_button">Yettwasekles</string>
   <string name="link_preview_dialog_share_button">Bḍu</string>
   <string name="error_page_does_not_exist">Asebter-agi ulac-it</string>
-  <string name="view_wiki_error_message_offline">Ur izmir ara ad yeqqen ar Internet.</string>
+  <string name="view_wiki_error_message_offline">Ulamek ara yeqqen ar Internet</string>
   <string name="view_wiki_error_message_timeout">D awezɣi ad yeqqen ɣer Wikipedia. Senqed tuqqna-k ɣer uẓeṭṭa, neɣ ɛreḍ tikkelt-nniḍen umebɛed</string>
   <string name="reference_title">Tamsisɣelt %s</string>
   <string name="reference_list_title">Timsisɣal</string>

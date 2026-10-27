@@ -1742,8 +1742,8 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Oblíbený čas na čtení</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Oblíbený den na čtení</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Měsíc, ve kterém jste četli nejvíce</string>
-  <string name="year_in_review_slide_reading_pattern_morning">ráno</string>
-  <string name="year_in_review_slide_reading_pattern_evening">večer</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">ráno</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">večer</string>
   <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
     <item quantity="one">Strávili jste %,d minutu</item>
     <item quantity="few">Strávili jste %,d minuty</item>

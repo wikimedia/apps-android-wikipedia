@@ -1911,7 +1911,6 @@
   <string name="year_in_review_get_started_headline">探索您的維基百科年度回顧</string>
   <string name="year_in_review_get_started_bodytext">查看您在維基百科應用程式上閱讀過條目以及所做過編輯的分析。</string>
   <string name="year_in_review_get_started_info">您的閱讀歷史記錄會受到保護。閱讀分析是基於您裝置上所儲存資料計算。</string>
-  <string name="year_in_review_get_started_later">您可以稍後在更多選單中取得您的年度回顧。</string>
   <string name="year_in_review_survey_title">協助改善年度回顧</string>
   <string name="year_in_review_survey_subtitle">您滿意這個功能嗎？</string>
   <string name="year_in_review_reading_list_survey_title">協助改善 %d 年度回顧集錦。</string>
@@ -2028,12 +2027,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">最喜歡的閱讀時間</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">最喜歡的閱讀日子</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">您閱讀最多次的月份</string>
-  <string name="year_in_review_slide_reading_pattern_morning">早晨</string>
-  <string name="year_in_review_slide_reading_pattern_midday">中午</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">下午</string>
-  <string name="year_in_review_slide_reading_pattern_evening">傍晚</string>
-  <string name="year_in_review_slide_reading_pattern_night">晚間</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">早晨</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">中午</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">下午</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">傍晚</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">晚間</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">深夜</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">我們用了 %,d 小時閱讀</item>
     <item quantity="other">我們用了 %,d 小時閱讀</item>
