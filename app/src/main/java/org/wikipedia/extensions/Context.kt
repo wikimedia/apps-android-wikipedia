@@ -42,13 +42,11 @@ fun Context.getStrings(title: PageTitle, strings: IntArray): SparseArray<String>
     strings.forEach {
         localizedStrings.put(it, targetResources.getString(it))
     }
-    config.setLocale(systemLocale)
-    // reset to current configuration
-    createConfigurationContext(config)
     return localizedStrings
 }
 
-// To be used only for plural strings and strings requiring arguments
+// Prefer getString(languageCode, ...) for a single string; use this for plurals, or to resolve many
+// strings without creating a configuration context for each one.
 fun Context.getResources(languageCode: String): Resources {
     val config = Configuration(resources.configuration)
     val targetLocale = Locale(languageCode)
@@ -57,11 +55,7 @@ fun Context.getResources(languageCode: String): Resources {
         return resources
     }
     setDesiredLocale(config, targetLocale)
-    val targetResources = createConfigurationContext(config).resources
-    config.setLocale(systemLocale)
-    // reset to current configuration
-    createConfigurationContext(config)
-    return targetResources
+    return createConfigurationContext(config).resources
 }
 
 val Context.instrument get(): InstrumentImpl? {
