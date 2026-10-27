@@ -15,7 +15,6 @@ import org.wikipedia.compose.components.ToggleListScreen
 import org.wikipedia.compose.components.ToggleSettingItem
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.extensions.instrument
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 
 enum class ForYouModuleType(
@@ -25,10 +24,6 @@ enum class ForYouModuleType(
     READ_ALOUD_LEAD_SECTION(
         title = R.string.home_feed_settings_read_aloud_lead_section_title,
         subtitle = R.string.home_feed_settings_read_aloud_lead_section_subtitle
-    ),
-    NEW_WITHIN_INTEREST(
-        title = R.string.home_feed_new_within_interest_title,
-        subtitle = R.string.home_feed_new_within_interest_subtitle
     ),
     BASED_ON_INTEREST(
         title = R.string.home_feed_settings_based_on_interest_title,
@@ -66,9 +61,6 @@ enum class ForYouModuleType(
             .filter {
                 when (it) {
                     READ_ALOUD_LEAD_SECTION -> ReadAloudLeadSectionABTest().let { test ->
-                        test.isTestActive() && test.isTestGroupUser()
-                    }
-                    NEW_WITHIN_INTEREST -> NewWithinInterestABTest().let { test ->
                         test.isTestActive() && test.isTestGroupUser()
                     }
                     else -> true
