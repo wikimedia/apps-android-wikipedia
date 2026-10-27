@@ -70,7 +70,7 @@ class WikipediaApp : Application() {
     private var defaultWikiSite: WikiSite? = null
 
     val connectionStateMonitor = ConnectionStateMonitor()
-    val tabList = mutableListOf<Tab>()
+    val tabList by lazy { mutableListOf<Tab>().also { initTabs(it) } }
 
     var currentTheme = Theme.fallback
         set(value) {
@@ -161,7 +161,6 @@ class WikipediaApp : Application() {
 
         currentTheme = unmarshalTheme(Prefs.currentThemeId)
 
-        initTabs()
         enableWebViewDebugging()
         registerActivityLifecycleCallbacks(activityLifecycleHandler)
         registerComponentCallbacks(activityLifecycleHandler)
@@ -222,7 +221,7 @@ class WikipediaApp : Application() {
     fun commitTabState() {
         if (tabList.isEmpty()) {
             Prefs.clearTabs()
-            initTabs()
+            initTabs(tabList)
         } else {
             Prefs.tabs = tabList
         }
@@ -292,12 +291,12 @@ class WikipediaApp : Application() {
         return result
     }
 
-    private fun initTabs() {
+    private fun initTabs(tabs: MutableList<Tab>) {
         if (Prefs.hasTabs) {
-            tabList.addAll(Prefs.tabs)
+            tabs.addAll(Prefs.tabs)
         }
-        if (tabList.isEmpty()) {
-            tabList.add(Tab())
+        if (tabs.isEmpty()) {
+            tabs.add(Tab())
         }
     }
 

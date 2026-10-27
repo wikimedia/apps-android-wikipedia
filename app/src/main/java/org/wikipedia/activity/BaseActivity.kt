@@ -171,8 +171,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         maybeShowLoggedOutInBackgroundDialog()
         maybeShowAnnouncement(this)
 
-        Prefs.localClassName = localClassName
-
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
