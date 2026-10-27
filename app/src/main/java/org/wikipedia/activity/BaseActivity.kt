@@ -139,6 +139,11 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         else -> null
                     }
                     TestKitchenAdapter.client.getInstrument("apps-open")
+                        .also { instrument ->
+                            if (notificationCategory == NotificationCategory.RECOMMENDED_READING_LISTS) {
+                                NotificationsExperimentAbTest().setExperimentIfEligible(instrument)
+                            }
+                        }
                         .submitInteraction(
                             action = "app_open",
                             actionSource = "notification",

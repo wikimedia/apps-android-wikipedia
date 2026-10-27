@@ -81,6 +81,7 @@ object RecommendedReadingListNotificationManager {
         }
         Prefs.resetRecommendedReadingList = true
         RecommendedReadingListEvent.submit("impression", "rrl_notification")
+        NotificationsExperimentAbTest().maybeSendExposureEventIfEligible()
         NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, 1, notificationCategory = NotificationCategory.RECOMMENDED_READING_LISTS),
