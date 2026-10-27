@@ -1928,9 +1928,9 @@
     <item quantity="other">ستاسو کارندتيا په %1$s کې لوړه شوه، کله چې تاسو %2$d ورځې ولوستل.</item>
   </plurals>
   <string name="yir_minutes_read_headline">ستاسو په لوست تېرې کړې ټولټال دقيقې:</string>
-  <string name="yir_minutes_read_supporting" fuzzy="true">%1$s وخت لکه د باد تېرېږي کله چې انسان په يوه سکالو کې ورک شي.</string>
+  <string name="yir_minutes_read_supporting">%1$s وخت لکه د باد تېرېږي کله چې انسان په يوه سکالو کې ورک شي.</string>
   <string name="yir_reading_streak_headline">ستاسو د لوست ورځو تر ټولو اوږده لړۍ:</string>
-  <string name="yir_reading_streak_supporting" fuzzy="true">له %1$s څخه تر %2$s پورې، تاسو په رښتيا هره ورځ د لوست روږدي کېږئ.</string>
+  <string name="yir_reading_streak_supporting">له %1$s څخه تر %2$s پورې، تاسو په رښتيا هره ورځ د لوست روږدي کېږئ.</string>
   <string name="yir_reading_streak_empty_headline">۰ لوست لړئ... تر دې مهاله</string>
   <string name="yir_reading_time_headline">د پلټنې لپاره خواپورې وخت:</string>
   <string name="yir_reading_time_empty_headline">تاسو نږدې هر وخت لوست کوئ</string>
@@ -2081,12 +2081,12 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">خواپورې لوست وخت</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">خواپورې لوست ورځ</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">ستاسو ډېر لوستې مياشت</string>
-  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">سهار</string>
-  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">غرمه</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">ماسپښين</string>
-  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">ماښام</string>
-  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">شپه</string>
-  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">شپې ناوخته</string>
+  <string name="year_in_review_slide_reading_pattern_morning">سهارونه</string>
+  <string name="year_in_review_slide_reading_pattern_midday">غرمې</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">ماسپښينې</string>
+  <string name="year_in_review_slide_reading_pattern_evening">ماښامونه</string>
+  <string name="year_in_review_slide_reading_pattern_night">شپې</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">ناوخته شپې</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">موږ %,d گړۍ په لوستلو تېره کړه</item>
     <item quantity="other">موږ %,d گړۍ په لوستلو تېرې کړې</item>
@@ -2569,4 +2569,35 @@
     <item quantity="one">ناخوندي‌کول به دا ليکنه له ټولو اړوند ټولگو څخه لرې کړي.</item>
     <item quantity="other">ناخوندي‌کول به دا ليکنې له ټولو اړوند ټولگو څخه لرې کړي.</item>
   </plurals>
+  <string name="semantic_search_entry_point_card_text_button">اوسيې هڅه وکړئ</string>
+  <string name="semantic_search_info_dialog_title">دا ځانگړنه څه ده؟</string>
+  <string name="semantic_search_info_dialog_button_text">نور زده کړئ</string>
+  <string name="semantic_search_info_btn_content_description">د ماناپوهنيزه لټون مالوماتو انځورن تڼۍ</string>
+  <string name="semantic_search_close_btn_content_description">د ماناپوهنيزه لټون ناچارنولو او تړلو انځورن تڼۍ</string>
+  <string name="semantic_search_beta_label">ازمېښتي</string>
+  <string name="semantic_search_no_results_message">دې لټون لپاره هېڅ پايلې نشته</string>
+  <string name="semantic_search_results_close_button_content_description">د ماناپوهنيزه لټون پايلې وتړئ</string>
+  <string name="semantic_search_results_read_in_article_label">په ليکنه کې يې ولولئ</string>
+  <plurals name="semantic_search_result_contributors">
+    <item quantity="one">%d ونډه‌وال</item>
+    <item quantity="other">%d ونډه‌وال</item>
+  </plurals>
+  <plurals name="semantic_search_result_references">
+    <item quantity="one">%d سرچينه</item>
+    <item quantity="other">%d سرچينې</item>
+  </plurals>
+  <string name="semantic_search_results_last_updated_label">وروستۍ هممهالېدنه %s</string>
+  <string name="semantic_search_results_feedback_title">هغه څه مو وموندل چې په لټه کې يې واست؟</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">ملاتړ گوته</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">نه ملاتړ گوته</string>
+  <string name="semantic_search_results_feedback_input_hint">نور راته وواياست (اختياري)</string>
+  <string name="semantic_search_results_feedback_submit_button_text">سپارل</string>
+  <string name="semantic_search_results_feedback_submitted_message">له غبرگون مو مننه</string>
+  <string name="semantic_search_feedback_dialog_title">غبرگون</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">د ماناپوهنيزه لټون غبرگون وتړئ</string>
+  <string name="preference_heading_semantic_search">پلټل</string>
+  <string name="preference_title_semantic_search_within_articles">د ليکنونه دننه يې وپلټئ</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">نېغ په نېغه اړوند برخې ته ورشئ</string>
+  <string name="semantic_search_snackbar_message">چلنوال پټ شوی. تاسو کولی شئ دا د اوڼنو له لارې بيا ښکاره کړئ</string>
+  <string name="semantic_search_snackbar_action_label">بدلول</string>
 </resources>

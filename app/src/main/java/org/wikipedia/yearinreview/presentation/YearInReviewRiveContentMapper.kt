@@ -139,6 +139,7 @@ object YearInReviewRiveContentMapper {
                 textProperties = mapOf(
                     "bodyText" to resources.getString(R.string.yir_reread_articles_headline)
                 ) + listRows(page.articles.map { StringUtil.fromHtml(it.first.displayText).toString() to resources.getQuantityString(R.plurals.yir_reread_articles_visits_count, it.second, it.second) }),
+                numberProperties = listItemCount(page.articles.size),
                 imageUrls = listIcons(page.articles.map { it.first.thumbUrl })
             )
         }
@@ -177,6 +178,7 @@ object YearInReviewRiveContentMapper {
                 textProperties = mapOf(
                     "bodyText" to resources.getQuantityString(R.plurals.yir_saved_articles_headline, page.savedCount, page.savedCount)
                 ) + listRows(page.articles.map { StringUtil.fromHtml(it.displayText).toString() to it.description.orEmpty() }),
+                numberProperties = listItemCount(page.articles.size),
                 imageUrls = listIcons(page.articles.map { it.thumbUrl })
             )
         }
@@ -201,6 +203,7 @@ object YearInReviewRiveContentMapper {
             textProperties = mapOf(
                 "bodyText" to resources.getString(R.string.yir_most_viewed_edited_articles_headline)
             ) + listRows(page.articles.map { StringUtil.fromHtml(it.first.displayText).toString() to getViewCountText(resources, it.second) }),
+            numberProperties = listItemCount(page.articles.size),
             imageUrls = listIcons(page.articles.map { it.first.thumbUrl })
         )
         is YearInReviewPage.ThankYou -> RiveSlideContent(
@@ -308,7 +311,6 @@ object YearInReviewRiveContentMapper {
                 )
             )
             YearInReviewCollectiveInsight.SAVED_ARTICLES -> RiveSlideContent(
-                // TODO! Is this frame right?
                 spec = allTemplatesSlideSpec("frame8"),
                 textProperties = mapOf(
                     "headline" to resources.getString(R.string.yir_community_saved_articles_headline, YearInReviewConfig.YEAR),
