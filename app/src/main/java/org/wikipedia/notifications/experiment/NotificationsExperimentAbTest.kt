@@ -48,6 +48,12 @@ class NotificationsExperimentAbTest : ABTest("discover-notifications-test-1", GR
         }
     }
 
+    fun maybeSendExposureEventIfEligible() {
+        runIfEligible {
+            maybeSendExposureEvent()
+        }
+    }
+
     fun setExperimentIfEligible(instrument: InstrumentImpl) {
         runIfEligible {
             instrument.setExperiment(TestKitchenAdapter.getExperiment(this))
