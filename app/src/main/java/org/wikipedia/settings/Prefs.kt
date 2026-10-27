@@ -520,10 +520,6 @@ object Prefs {
             ?: emptyMap()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_event_platform_stored_stream_configs, JsonUtil.encodeToString(value))
 
-    var localClassName
-        get() = PrefsIoUtil.getString(R.string.preference_key_crash_report_local_class_name, "")
-        set(className) = PrefsIoUtil.setString(R.string.preference_key_crash_report_local_class_name, className)
-
     var autoShowEditNotices
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_auto_show_edit_notices, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_auto_show_edit_notices, value)
