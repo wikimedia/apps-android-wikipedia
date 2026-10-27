@@ -43,7 +43,6 @@ import org.wikipedia.feed.model.DiscoverEnablePromptCard
 import org.wikipedia.feed.model.EmptyCommunityCard
 import org.wikipedia.feed.model.EmptyForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
-import org.wikipedia.feed.model.NewWithinInterestCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestLocationPromptCard
 import org.wikipedia.feed.model.RandomCard
@@ -69,7 +68,6 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
@@ -300,11 +298,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             }
             is HomeAction.PageClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_open", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
-                if (action.card is NewWithinInterestCard) {
-                    ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(action.historyEntry))
-                } else {
-                    (parentFragment as? MainFragment)?.onFeedSelectPage(action.historyEntry, false)
-                }
+                (parentFragment as? MainFragment)?.onFeedSelectPage(action.historyEntry, false)
             }
             is HomeAction.PageBookmarkClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
