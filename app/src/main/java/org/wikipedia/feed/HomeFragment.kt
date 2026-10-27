@@ -473,7 +473,7 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             }
             HomeAction.GoToGamesHubClick -> {
                 instrument.submitInteraction("click", actionSource = GamesModulePromptCard::class.java.simpleName, elementId = "go_to_games_hub")
-                requireActivity().startActivity(GamesHubActivity.newIntent(requireContext()))
+                requireActivity().startActivity(GamesHubActivity.newIntent(requireContext(), InvokeSource.FEED))
             }
             HomeAction.ReadAloudPlayClick -> {
                 instrument.submitInteraction("click", actionSource = ReadAloudLeadSectionCard::class.java.simpleName, elementId = "play_pause")
