@@ -41,7 +41,6 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.mutableStateSetOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
@@ -132,7 +131,7 @@ fun YearInReviewScreen(
                 pages = uiState.pages,
                 readingStats = uiState.readingStats,
                 showDonateButton = uiState.isDonationEligible,
-                canShareHighlights = uiState.canShareHighlights,
+                canShareHighlights = uiState.isPersonalized && uiState.canShareHighlights,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
                 onAboutInsightsClick = onAboutInsightsClick,
@@ -195,9 +194,7 @@ private fun YearInReviewContent(
             pages.getOrNull(position)?.let { currentOnPageImpression(it) }
         }
     }
-    // Pages showing their reveal content in place of their guess content
-    val revealedPageIds = remember { mutableStateSetOf<String>() }
-    // Slides are restarted once they're off screen, so that scrolling back to one plays it from the beginning, with its guess content again
+    // Slides are restarted once they're off screen, so that scrolling back to one plays it from the beginning
     val restartKeysByPageId = remember { mutableStateMapOf<String, Int>() }
     LaunchedEffect(pagerState, pages) {
         val playedPageIds = mutableSetOf<String>()
@@ -210,7 +207,6 @@ private fun YearInReviewContent(
             val settledPageId = pages.getOrNull(position)?.id
             playedPageIds.filter { it != settledPageId }.forEach { pageId ->
                 restartKeysByPageId[pageId] = (restartKeysByPageId[pageId] ?: 0) + 1
-                revealedPageIds -= pageId
                 playedPageIds -= pageId
             }
         }
@@ -313,20 +309,14 @@ private fun YearInReviewContent(
                         Box(
                             modifier = Modifier.fillMaxSize()
                         ) {
-                            val shownContent = content.revealContent?.takeIf { page.id in revealedPageIds } ?: content
                             YearInReviewRiveSlide(
-                                riveFileResult = riveFiles[shownContent.spec.resourceId] ?: Result.Loading,
-                                content = shownContent,
+                                riveFileResult = riveFiles[content.spec.resourceId] ?: Result.Loading,
+                                content = content,
                                 playing = pagerState.currentPage == position,
                                 restartKey = restartKeysByPageId[page.id] ?: 0,
                                 slideId = page.id,
                                 screenshotGetters = screenshotGetters,
                                 onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
-                                onFrameComplete = {
-                                    if (content.revealContent != null && pagerState.currentPage == position) {
-                                        revealedPageIds += page.id
-                                    }
-                                },
                                 onRiveError = onRiveError
                             )
                             if (page is YearInReviewPage.YouMatter && showDonateButton) {
