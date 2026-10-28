@@ -156,9 +156,9 @@ object RecommendedReadingListNotificationManager {
     }
 
     private fun getNotificationsExperimentTriggerMillis(fromFiredAlarm: Boolean): Long {
-        // Dev-only override: if a custom trigger time is set and still in the future, use it.
+        // Dev settings override: if a custom trigger time is set and still in the future, use it.
         val customTriggerMillis = Prefs.notificationsExperimentDiscoverDevTriggerTime
-        if (ReleaseUtil.isDevRelease && customTriggerMillis > System.currentTimeMillis()) {
+        if (customTriggerMillis > System.currentTimeMillis()) {
             return customTriggerMillis
         }
         return getNotificationsExperimentNextSendTime(ZonedDateTime.now(), fromFiredAlarm).toInstant().toEpochMilli()
