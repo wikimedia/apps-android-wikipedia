@@ -14,7 +14,6 @@ import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import java.time.DayOfWeek
 import java.time.Duration
