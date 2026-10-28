@@ -20,6 +20,7 @@ import java.time.DayOfWeek
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.LocalTime
+import java.time.ZonedDateTime
 import java.time.temporal.TemporalAdjusters
 
 object RecommendedReadingListNotificationManager {
@@ -27,7 +28,12 @@ object RecommendedReadingListNotificationManager {
     private val NOTIFICATIONS_EXPERIMENT_SEND_DAY = DayOfWeek.MONDAY
     private val NOTIFICATIONS_EXPERIMENT_SEND_TIME = LocalTime.of(18, 0)
 
-    fun scheduleRecommendedReadingListNotification(context: Context) {
+    /**
+     * @param fromFiredAlarm true when re-arming from the alarm that just fired, so that no second
+     * notification is scheduled for the same day if the alarm fired before the local send time
+     * (e.g. after a DST change or when the user moved to a different time zone).
+     */
+    fun scheduleRecommendedReadingListNotification(context: Context, fromFiredAlarm: Boolean = false) {
         // Always cancel before scheduling a new one
         cancelRecommendedReadingListNotification(context)
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
@@ -39,7 +45,7 @@ object RecommendedReadingListNotificationManager {
             // This is a one-shot alarm, so it must be re-armed after each notification is sent (see NotificationPollBroadcastReceiver).
             alarmManager.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                getNotificationsExperimentDurationUntilSend().toMillis() + System.currentTimeMillis(),
+                getNotificationsExperimentTriggerMillis(fromFiredAlarm),
                 PendingIntent.getBroadcast(
                     context,
                     0,
@@ -81,8 +87,7 @@ object RecommendedReadingListNotificationManager {
         }
         Prefs.resetRecommendedReadingList = true
         RecommendedReadingListEvent.submit("impression", "rrl_notification")
-        NotificationsExperimentAbTest().maybeSendExposureEventIfEligible()
-        NotificationPresenter.showNotification(
+        val isNotificationPosted = NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, 1, notificationCategory = NotificationCategory.RECOMMENDED_READING_LISTS),
             id = 1,
@@ -99,6 +104,9 @@ object RecommendedReadingListNotificationManager {
                 notificationCategory = NotificationCategory.RECOMMENDED_READING_LISTS
             )
         )
+        if (isNotificationPosted) {
+            NotificationsExperimentAbTest().maybeSendExposureEventIfEligible()
+        }
     }
 
     private fun getNotificationsExperimentTitleAndText(context: Context, experimentSource: NotificationsExperimentDiscoverSource): Pair<String, String> {
@@ -147,22 +155,22 @@ object RecommendedReadingListNotificationManager {
         }
     }
 
-    private fun getNotificationsExperimentDurationUntilSend(): Duration {
+    private fun getNotificationsExperimentTriggerMillis(fromFiredAlarm: Boolean): Long {
         // Dev-only override: if a custom trigger time is set and still in the future, use it.
         val customTriggerMillis = Prefs.notificationsExperimentDiscoverDevTriggerTime
         if (ReleaseUtil.isDevRelease && customTriggerMillis > System.currentTimeMillis()) {
-            return Duration.ofMillis(customTriggerMillis - System.currentTimeMillis())
+            return customTriggerMillis
         }
-        val currentLocalDateTime = LocalDateTime.now()
-        var notificationDateTime = currentLocalDateTime
-            .with(TemporalAdjusters
-            .nextOrSame(NOTIFICATIONS_EXPERIMENT_SEND_DAY))
-            .toLocalDate()
-            .atTime(NOTIFICATIONS_EXPERIMENT_SEND_TIME)
+        return getNotificationsExperimentNextSendTime(ZonedDateTime.now(), fromFiredAlarm).toInstant().toEpochMilli()
+    }
 
-        // If today is the send day and the send time has already passed, schedule for next week instead.
-        if (!notificationDateTime.isAfter(currentLocalDateTime)) notificationDateTime = notificationDateTime.plusWeeks(1)
-
-        return Duration.between(currentLocalDateTime, notificationDateTime)
+    // Zoned (rather than local) date-times keep the send time at the local send time across DST changes.
+    internal fun getNotificationsExperimentNextSendTime(now: ZonedDateTime, fromFiredAlarm: Boolean): ZonedDateTime {
+        val sendTime = now
+            .with(TemporalAdjusters.nextOrSame(NOTIFICATIONS_EXPERIMENT_SEND_DAY))
+            .with(NOTIFICATIONS_EXPERIMENT_SEND_TIME)
+        // Move to next week if today's send time has passed, or if the alarm that just fired already covered today's send.
+        val isTodaySendHandled = fromFiredAlarm && sendTime.toLocalDate() == now.toLocalDate()
+        return if (!sendTime.isAfter(now) || isTodaySendHandled) sendTime.plusWeeks(1) else sendTime
     }
 }

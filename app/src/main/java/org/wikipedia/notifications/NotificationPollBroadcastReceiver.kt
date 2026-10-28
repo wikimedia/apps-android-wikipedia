@@ -88,11 +88,14 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
 
             ACTION_RECOMMENDED_READING_LIST == intent.action -> {
-                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
-                // re-arm notifications
-                if (Prefs.isRecommendedReadingListNotificationEnabled) {
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                if (!Prefs.isRecommendedReadingListNotificationEnabled) {
+                    // Cancel the notification when it is disabled from Discover settings.
+                    RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(context)
+                    return
                 }
+                // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
+                RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context, fromFiredAlarm = true)
+                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
         }
     }
