@@ -67,6 +67,14 @@ object RecommendedReadingListHelper {
         // Check if amount of new articles to see if we really need to generate a new list
         val existingRecommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages().distinctBy { it.lang to it.apiTitle }
         if (existingRecommendedPages.size >= numberOfArticles) {
+            // Notifications experiment: the cached list skips the seed save at the end of generation,
+            // so seed here if there isn't one yet (e.g. users enrolled before their first experiment notification).
+            if (Prefs.notificationsExperimentDiscoverSource == null && NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) {
+                saveNotificationsExperimentDiscoverSource(
+                    getTitlesFromSource(Prefs.recommendedReadingListSource, 1),
+                    previousTitle = null
+                )
+            }
             return existingRecommendedPages.take(numberOfArticles)
         } else {
             // If the number of articles is less than the number of new articles, adjust the number of articles
@@ -74,26 +82,7 @@ object RecommendedReadingListHelper {
         }
 
         // Step 1: get titles from the source by number of articles
-        var titles = when (Prefs.recommendedReadingListSource) {
-            RecommendedReadingListSource.INTERESTS -> {
-                Prefs.recommendedReadingListInterests.shuffled().take(numberOfArticles)
-            }
-            RecommendedReadingListSource.READING_LIST -> {
-                AppDatabase.instance.readingListPageDao().getPagesByRandom(numberOfArticles).map {
-                    PageTitle(it.apiTitle, it.wiki).apply {
-                        namespace = it.namespace.name
-                        displayText = it.displayTitle
-                        description = it.description
-                        thumbUrl = it.thumbUrl
-                    }
-                }
-            }
-            RecommendedReadingListSource.HISTORY -> {
-                AppDatabase.instance.historyEntryDao().getHistoryEntriesByRandom(numberOfArticles).map {
-                    it.title
-                }
-            }
-        }.distinctBy { it.prefixedText }
+        var titles = getTitlesFromSource(Prefs.recommendedReadingListSource, numberOfArticles)
         val sourceTitles = titles
 
         // Notifications experiment: Add seed article to the list of titles
@@ -215,6 +204,29 @@ object RecommendedReadingListHelper {
                             .findIfAny(apiTitle = title.prefixedText, wiki = wikiSite) == 0
             }.take(takeSize)
         return firstRecommendedPage
+    }
+
+    private suspend fun getTitlesFromSource(source: RecommendedReadingListSource, numberOfArticles: Int): List<PageTitle> {
+        return when (source) {
+            RecommendedReadingListSource.INTERESTS -> {
+                Prefs.recommendedReadingListInterests.shuffled().take(numberOfArticles)
+            }
+            RecommendedReadingListSource.READING_LIST -> {
+                AppDatabase.instance.readingListPageDao().getPagesByRandom(numberOfArticles).map {
+                    PageTitle(it.apiTitle, it.wiki).apply {
+                        namespace = it.namespace.name
+                        displayText = it.displayTitle
+                        description = it.description
+                        thumbUrl = it.thumbUrl
+                    }
+                }
+            }
+            RecommendedReadingListSource.HISTORY -> {
+                AppDatabase.instance.historyEntryDao().getHistoryEntriesByRandom(numberOfArticles).map {
+                    it.title
+                }
+            }
+        }.distinctBy { it.prefixedText }
     }
 
     private fun saveNotificationsExperimentDiscoverSource(titles: List<PageTitle>, previousTitle: PageTitle?) {
