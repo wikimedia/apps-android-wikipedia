@@ -225,24 +225,27 @@ fun YearInReviewRiveSlide(
     when (riveFileResult) {
         Result.Loading -> RiveLoadingIndicator(modifier)
         is Result.Error -> RiveFailure(riveFileResult.throwable, onRiveError)
-        is Result.Success -> YearInReviewRiveArtboard(
-            riveFile = riveFileResult.value,
-            spec = content.spec,
-            textProperties = content.textProperties,
-            numberProperties = content.numberProperties,
-            booleanProperties = content.booleanProperties,
-            imageUrls = content.imageUrls,
-            accessibilityDescription = content.accessibilityDescription,
-            playing = playing,
-            restartKey = restartKey,
-            modifier = modifier,
-            onRiveError = onRiveError,
-            slideId = slideId,
-            screenshotGetters = screenshotGetters,
-            onUseWhiteTopBarIconsChange = onUseWhiteTopBarIconsChange,
-            onFrameComplete = onFrameComplete,
-            onRiveLoaded = onRiveLoaded
-        )
+        // A different spec, such as a reveal artboard replacing a guess artboard, starts over with a fresh artboard and view model instance
+        is Result.Success -> key(content.spec) {
+            YearInReviewRiveArtboard(
+                riveFile = riveFileResult.value,
+                spec = content.spec,
+                textProperties = content.textProperties,
+                numberProperties = content.numberProperties,
+                booleanProperties = content.booleanProperties,
+                imageUrls = content.imageUrls,
+                accessibilityDescription = content.accessibilityDescription,
+                playing = playing,
+                restartKey = restartKey,
+                modifier = modifier,
+                onRiveError = onRiveError,
+                slideId = slideId,
+                screenshotGetters = screenshotGetters,
+                onUseWhiteTopBarIconsChange = onUseWhiteTopBarIconsChange,
+                onFrameComplete = onFrameComplete,
+                onRiveLoaded = onRiveLoaded
+            )
+        }
     }
 }
 

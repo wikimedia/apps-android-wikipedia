@@ -222,7 +222,7 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.LongestReadGuess -> RiveSlideContent(
-            spec = allTemplatesInteractionSlideSpec("frame10a", viewModelName = "Interaction1"),
+            spec = allTemplatesGuessSlideSpec("frame10a", viewModelName = "Interaction1"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_most_time_article_headline),
                 "articleTitleTop" to StringUtil.fromHtml(page.article?.displayText).toString(),
@@ -233,21 +233,21 @@ object YearInReviewRiveContentMapper {
             imageUrls = mapOf(
                 "thumbnailTop" to page.article?.thumbUrl,
                 "thumbnailBot" to page.fakeArticle?.thumbUrl
-            )
-        )
-        is YearInReviewPage.LongestReadReveal -> RiveSlideContent(
-            spec = allTemplatesInteractionSlideSpec("frame10b", viewModelName = "Interaction1"),
-            textProperties = mapOf(
-                "headline" to resources.getQuantityString(R.plurals.yir_most_time_article_supporting, page.minutesSpent, page.minutesSpent, YearInReviewConfig.YEAR),
-                "resultTitle" to StringUtil.fromHtml(page.article?.displayText).toString(),
-                "resultSubTitle" to page.article?.description.orEmpty()
             ),
-            imageUrls = mapOf(
-                "resultThumbnail" to page.article?.thumbUrl
+            revealContent = RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame10b", viewModelName = "Interaction1"),
+                textProperties = mapOf(
+                    "headline" to resources.getQuantityString(R.plurals.yir_most_time_article_supporting, page.minutesSpent, page.minutesSpent, YearInReviewConfig.YEAR),
+                    "resultTitle" to StringUtil.fromHtml(page.article?.displayText).toString(),
+                    "resultSubTitle" to page.article?.description.orEmpty()
+                ),
+                imageUrls = mapOf(
+                    "resultThumbnail" to page.article?.thumbUrl
+                )
             )
         )
         is YearInReviewPage.RabbitHoleGuess -> RiveSlideContent(
-            spec = allTemplatesInteractionSlideSpec("frame11a", viewModelName = "Interaction2"),
+            spec = allTemplatesGuessSlideSpec("frame11a", viewModelName = "Interaction2"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_rabbit_hole_headline),
                 "articleTitleTopT" to StringUtil.fromHtml(page.articleStart?.displayText).toString(),
@@ -266,23 +266,23 @@ object YearInReviewRiveContentMapper {
                 "thumbnailTopB" to page.articleEnd?.thumbUrl,
                 "thumbnailBotT" to page.fakeArticleStart?.thumbUrl,
                 "thumbnailBotB" to page.fakeArticleEnd?.thumbUrl
-            )
-        )
-        is YearInReviewPage.RabbitHoleReveal -> RiveSlideContent(
-            spec = allTemplatesInteractionSlideSpec("frame11b", viewModelName = "Interaction2"),
-            textProperties = mapOf(
-                "headline" to resources.getQuantityString(R.plurals.yir_rabbit_hole_depth_headline, page.numLinks, page.numLinks),
-                "bodyText" to resources.getString(R.string.yir_rabbit_hole_depth_supporting),
-                "resultTitleTop" to StringUtil.fromHtml(page.articleStart?.displayText).toString(),
-                "resultTitleBot" to StringUtil.fromHtml(page.articleEnd?.displayText).toString()
             ),
-            booleanProperties = mapOf(
-                "resultNoImgT" to page.articleStart?.thumbUrl.isNullOrEmpty(),
-                "resultNoImgB" to page.articleEnd?.thumbUrl.isNullOrEmpty()
-            ),
-            imageUrls = mapOf(
-                "resultThumbnailTop" to page.articleStart?.thumbUrl,
-                "resultThumbnailBot" to page.articleEnd?.thumbUrl
+            revealContent = RiveSlideContent(
+                spec = allTemplatesSlideSpec("frame11b", viewModelName = "Interaction2"),
+                textProperties = mapOf(
+                    "headline" to resources.getQuantityString(R.plurals.yir_rabbit_hole_depth_headline, page.numLinks, page.numLinks),
+                    "bodyText" to resources.getString(R.string.yir_rabbit_hole_depth_supporting),
+                    "resultTitleTop" to StringUtil.fromHtml(page.articleStart?.displayText).toString(),
+                    "resultTitleBot" to StringUtil.fromHtml(page.articleEnd?.displayText).toString()
+                ),
+                booleanProperties = mapOf(
+                    "resultNoImgT" to page.articleStart?.thumbUrl.isNullOrEmpty(),
+                    "resultNoImgB" to page.articleEnd?.thumbUrl.isNullOrEmpty()
+                ),
+                imageUrls = mapOf(
+                    "resultThumbnailTop" to page.articleStart?.thumbUrl,
+                    "resultThumbnailBot" to page.articleEnd?.thumbUrl
+                )
             )
         )
         is YearInReviewPage.Collective -> when (page.insight) {
@@ -386,8 +386,9 @@ fun allTemplatesSlideSpec(
 private fun allTemplatesListSlideSpec(artboardName: String) =
     allTemplatesSlideSpec(artboardName, viewModelName = "List").copy(layoutDirectionEnum = "layoutDir")
 
-// Artboards of the guessing game. The guess artboards fire frameComplete after the user taps an answer and the exit animation ends.
-private fun allTemplatesInteractionSlideSpec(artboardName: String, viewModelName: String) =
+// Guess artboards of the guessing game. They fire frameComplete after the user taps an answer and the exit animation ends,
+// and then the slide shows its reveal artboard in place of the guess artboard.
+private fun allTemplatesGuessSlideSpec(artboardName: String, viewModelName: String) =
     allTemplatesSlideSpec(artboardName, viewModelName).copy(frameCompleteTrigger = "frameComplete")
 
 // Fills the List view model's numbered rows. Rows without an item are cleared, so the instance's sample text doesn't show.
