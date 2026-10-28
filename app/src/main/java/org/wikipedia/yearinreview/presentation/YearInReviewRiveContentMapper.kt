@@ -234,6 +234,12 @@ object YearInReviewRiveContentMapper {
                 "thumbnailTop" to page.article?.thumbUrl,
                 "thumbnailBot" to page.fakeArticle?.thumbUrl
             ),
+            accessibilityActions = listOf(page.article, page.fakeArticle).map { article ->
+                RiveAccessibilityAction(
+                    label = resources.getString(R.string.yir_guess_article_choose_action, StringUtil.fromHtml(article?.displayText).toString()),
+                    tappedBooleanProperty = GUESS_ANSWER_TAPPED_PROPERTY
+                )
+            },
             revealContent = RiveSlideContent(
                 spec = allTemplatesSlideSpec("frame10b", viewModelName = "Interaction1"),
                 textProperties = mapOf(
@@ -267,6 +273,15 @@ object YearInReviewRiveContentMapper {
                 "thumbnailBotT" to page.fakeArticleStart?.thumbUrl,
                 "thumbnailBotB" to page.fakeArticleEnd?.thumbUrl
             ),
+            accessibilityActions = listOf(
+                page.articleStart to page.articleEnd,
+                page.fakeArticleStart to page.fakeArticleEnd
+            ).map { (start, end) ->
+                RiveAccessibilityAction(
+                    label = resources.getString(R.string.yir_guess_article_choose_action, StringUtil.fromHtml(start?.displayText).toString()),
+                    tappedBooleanProperty = GUESS_ANSWER_TAPPED_PROPERTY
+                )
+            },
             revealContent = RiveSlideContent(
                 spec = allTemplatesSlideSpec("frame11b", viewModelName = "Interaction2"),
                 textProperties = mapOf(
@@ -390,6 +405,9 @@ private fun allTemplatesListSlideSpec(artboardName: String) =
 // and then the slide shows its reveal artboard in place of the guess artboard.
 private fun allTemplatesGuessSlideSpec(artboardName: String, viewModelName: String) =
     allTemplatesSlideSpec(artboardName, viewModelName).copy(frameCompleteTrigger = "frameComplete")
+
+// Set to true by tapping either answer of a guess artboard. The artboards have no separate property per answer.
+private const val GUESS_ANSWER_TAPPED_PROPERTY = "articleTapped"
 
 // Fills the List view model's numbered rows. Rows without an item are cleared, so the instance's sample text doesn't show.
 private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String, String> {
