@@ -6,6 +6,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -15,6 +16,11 @@ import org.wikipedia.test.TestOAuthUtil.profile
 @RunWith(RobolectricTestRunner::class)
 class AccountUtilTest {
     private val accountManager = AccountManager.get(WikipediaApp.instance)
+
+    @Before
+    fun setUp() {
+        AccountUtil.invalidateAccountCache()
+    }
 
     @Test
     fun testOAuthAccountStoresStateInsteadOfPassword() {
