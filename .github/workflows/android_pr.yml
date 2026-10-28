@@ -14,7 +14,7 @@ jobs:
     - uses: actions/setup-java@v6
       with:
         distribution: 'temurin'
-        java-version: '17'
+        java-version: '25'
         cache: 'gradle'
     - uses: gradle/gradle-build-action@v3
     - name: Check for missing qq strings
