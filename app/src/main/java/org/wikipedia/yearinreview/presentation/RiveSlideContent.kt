@@ -10,5 +10,7 @@ data class RiveSlideContent(
     val numberProperties: Map<String, Int> = emptyMap(),
     val booleanProperties: Map<String, Boolean> = emptyMap(),
     val imageUrls: Map<String, String?> = emptyMap(),
-    val accessibilityDescription: String = textProperties.values.filter { it.isNotBlank() }.joinToString("\n")
+    val accessibilityDescription: String = textProperties.values.filter { it.isNotBlank() }.joinToString("\n"),
+    // Replaces this content on the same slide once the spec's frameCompleteTrigger fires
+    val revealContent: RiveSlideContent? = null
 )
