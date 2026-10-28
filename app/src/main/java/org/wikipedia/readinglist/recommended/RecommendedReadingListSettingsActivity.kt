@@ -107,7 +107,9 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         }
                         RecommendedReadingListEvent.submit("update_${frequencyForEvent}_click", "discover_settings")
                         viewModel.updateFrequency(it)
-                        requestPermissionAndScheduleRecommendedReadingNotification()
+                        if (Prefs.isRecommendedReadingListNotificationEnabled) {
+                            requestPermissionAndScheduleRecommendedReadingNotification()
+                        }
                     },
                     onArticleNumberChanged = {
                         RecommendedReadingListEvent.submit("article_count_click", "discover_settings", countSaved = it)
