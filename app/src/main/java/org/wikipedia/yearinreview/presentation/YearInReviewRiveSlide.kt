@@ -24,8 +24,10 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.customActions
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.sp
@@ -447,6 +449,12 @@ private fun YearInReviewRiveArtboard(
                     .onSizeChanged { slideSize = it }
                     .clearAndSetSemantics {
                         contentDescription = shown.content.accessibilityDescription
+                        customActions = shown.content.accessibilityActions.map { action ->
+                            CustomAccessibilityAction(action.label) {
+                                shown.instance.setBoolean(action.tappedBooleanProperty, true)
+                                true
+                            }
+                        }
                     },
                 globalViewModelInstances = globalViewModelInstances
             )
