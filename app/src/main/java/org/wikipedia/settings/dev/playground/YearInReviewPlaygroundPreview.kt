@@ -39,7 +39,7 @@ object YearInReviewPlaygroundPreview {
         )
     )
 
-    // this excludes LongestReadGuess, LongestReadReveal, RabbitHoleGuess, and RabbitHoleReveal which are not included in the template
+    // this excludes LongestReadGuess and RabbitHoleGuess which are not included in the template
     val allSlides get() = listOf(
         YearInReviewPage.ArticlesRead(isEmptyState = false, count = 120, percentile = "5", averageCount = averageArticlesReadPerYear),
         YearInReviewPage.Visits(days = 45, peakMonth = MonthVisitedDays(month = 9, visitedDays = 20)),

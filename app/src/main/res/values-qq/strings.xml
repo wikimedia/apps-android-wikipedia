@@ -1976,6 +1976,7 @@
   </plurals>
   <string name="yir_articles_read_headline">Headline of the Year in Review slide that lists a sample of articles the user read.</string>
   <string name="yir_most_time_article_headline">Headline of the Year in Review slide that asks the user to guess which article they spent the most time on.</string>
+  <string name="yir_guess_article_choose_action">Accessibility action, read by screen readers, that picks one of the articles offered on the Year in Review slide that asks the user to guess between one article and another. %s will be replaced by the title of the article.</string>
   <plurals name="yir_most_time_article_supporting">
     <item quantity="one">Supporting text of the Year in Review slide that reveals the article the user spent the most time on. %1$d will be replaced by the number of minutes, and %2$d will be replaced by the year.</item>
     <item quantity="other">Supporting text of the Year in Review slide that reveals the article the user spent the most time on. %1$d will be replaced by the number of minutes, and %2$d will be replaced by the year.</item>

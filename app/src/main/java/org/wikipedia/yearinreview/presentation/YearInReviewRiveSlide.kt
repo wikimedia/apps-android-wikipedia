@@ -24,21 +24,26 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.customActions
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.sp
 import androidx.startup.AppInitializer
+import app.rive.Artboard
 import app.rive.ExperimentalRiveGlobalViewModels
 import app.rive.Fit
 import app.rive.GetBitmapFun
+import app.rive.ImageAsset
 import app.rive.Result
 import app.rive.Rive
 import app.rive.RiveFile
 import app.rive.RiveFileSource
 import app.rive.RiveLog
 import app.rive.RivePointerInputMode
+import app.rive.StateMachine
 import app.rive.ViewModelInstance
 import app.rive.ViewModelSource
 import app.rive.core.RiveWorker
@@ -213,12 +218,11 @@ fun YearInReviewRiveSlide(
     content: RiveSlideContent,
     playing: Boolean,
     modifier: Modifier = Modifier,
-    // Changing this restarts the slide's animation from the beginning
+    // Changing this restarts the slide's animation from the beginning, back on its guess content if it had a reveal
     restartKey: Int = 0,
     slideId: String? = null,
     screenshotGetters: MutableMap<String, RiveSlideScreenshotFun>? = null,
     onUseWhiteTopBarIconsChange: (Boolean) -> Unit = {},
-    onFrameComplete: () -> Unit = {},
     onRiveLoaded: () -> Unit = {},
     onRiveError: (Throwable) -> Unit
 ) {
@@ -227,12 +231,7 @@ fun YearInReviewRiveSlide(
         is Result.Error -> RiveFailure(riveFileResult.throwable, onRiveError)
         is Result.Success -> YearInReviewRiveArtboard(
             riveFile = riveFileResult.value,
-            spec = content.spec,
-            textProperties = content.textProperties,
-            numberProperties = content.numberProperties,
-            booleanProperties = content.booleanProperties,
-            imageUrls = content.imageUrls,
-            accessibilityDescription = content.accessibilityDescription,
+            content = content,
             playing = playing,
             restartKey = restartKey,
             modifier = modifier,
@@ -240,31 +239,29 @@ fun YearInReviewRiveSlide(
             slideId = slideId,
             screenshotGetters = screenshotGetters,
             onUseWhiteTopBarIconsChange = onUseWhiteTopBarIconsChange,
-            onFrameComplete = onFrameComplete,
             onRiveLoaded = onRiveLoaded
         )
     }
 }
 
+// The Rive objects of one RiveSlideContent, with its properties and images already set on its view model instances
+private class PreparedRiveContent(
+    val content: RiveSlideContent,
+    val artboard: Artboard,
+    val stateMachine: StateMachine,
+    val instance: ViewModelInstance,
+    val globalInstance: ViewModelInstance?,
+    val images: Map<String, ImageAsset?>,
+    val textSizes: Map<String, Float>
+)
+
 @Composable
-private fun YearInReviewRiveArtboard(
+private fun rememberPreparedRiveContent(
     riveFile: RiveFile,
-    spec: RiveSlideSpec,
-    textProperties: Map<String, String>,
-    numberProperties: Map<String, Int>,
-    booleanProperties: Map<String, Boolean>,
-    imageUrls: Map<String, String?>,
-    accessibilityDescription: String,
-    playing: Boolean,
-    restartKey: Int,
-    modifier: Modifier,
-    onRiveError: (Throwable) -> Unit,
-    slideId: String?,
-    screenshotGetters: MutableMap<String, RiveSlideScreenshotFun>?,
-    onUseWhiteTopBarIconsChange: (Boolean) -> Unit,
-    onFrameComplete: () -> Unit,
-    onRiveLoaded: () -> Unit
-) {
+    content: RiveSlideContent,
+    restartKey: Int
+): Result<PreparedRiveContent> {
+    val spec = content.spec
     // Rive can't rewind a state machine, so restarting the slide recreates everything that holds its animation state
     val riveResult = key(restartKey) {
         // loading the artboard and state machine from the rive file
@@ -280,27 +277,104 @@ private fun YearInReviewRiveArtboard(
         val globalInstanceResult = rememberGlobalViewModelInstanceResult(riveFile, spec.globalViewModel)
         artboardResult.zip(stateMachineResult).zip(instanceResult).zip(globalInstanceResult)
     }
-    val imageResults = rememberRiveImages(riveFile.riveWorker, imageUrls)
-    // waits for the images too, so the slide's animation never starts with the designer's sample pictures
-    val imagesLoading = imageResults.values.any { it is Result.Loading }
+    val imageResults = rememberRiveImages(riveFile.riveWorker, content.imageUrls)
+    val textSizes = rememberScaledRiveTextSizes(spec.globalViewModel?.textSizes.orEmpty())
     val layoutDirection = LocalLayoutDirection.current
 
-    when (val result = riveResult) {
+    val (artboardStateMachineAndInstance, globalInstance) = when (riveResult) {
+        Result.Loading -> return Result.Loading
+        is Result.Error -> return riveResult
+        is Result.Success -> riveResult.value
+    }
+    val (artboardAndStateMachine, instance) = artboardStateMachineAndInstance
+    val (artboard, stateMachine) = artboardAndStateMachine
+    // setting the provided text properties on the ViewModel instance
+    LaunchedEffect(instance, content.textProperties) {
+        content.textProperties.forEach { (property, value) ->
+            instance.setString(property, value)
+        }
+    }
+    // Rive numbers are always floats
+    LaunchedEffect(instance, content.numberProperties) {
+        content.numberProperties.forEach { (property, value) ->
+            instance.setNumber(property, value.toFloat())
+        }
+    }
+    LaunchedEffect(instance, content.booleanProperties) {
+        content.booleanProperties.forEach { (property, value) ->
+            instance.setBoolean(property, value)
+        }
+    }
+    LaunchedEffect(instance, spec.layoutDirectionEnum, layoutDirection) {
+        val propertyName = spec.layoutDirectionEnum ?: return@LaunchedEffect
+        instance.setEnum(propertyName, if (layoutDirection == LayoutDirection.Rtl) "Right to Left" else "Left to Right")
+    }
+    LaunchedEffect(instance, imageResults) {
+        imageResults.forEach { (property, imageResult) ->
+            when (imageResult) {
+                is Result.Success -> instance.setImage(property, imageResult.value)
+                is Result.Error -> L.w(imageResult.throwable)
+                Result.Loading -> Unit
+            }
+        }
+    }
+    LaunchedEffect(globalInstance, textSizes) {
+        textSizes.forEach { (property, value) ->
+            globalInstance?.setNumber(property, value)
+        }
+    }
+    // waits for the images too, so the slide's animation never starts with the designer's sample pictures
+    if (imageResults.values.any { it is Result.Loading }) {
+        return Result.Loading
+    }
+    return Result.Success(PreparedRiveContent(
+        content = content,
+        artboard = artboard,
+        stateMachine = stateMachine,
+        instance = instance,
+        globalInstance = globalInstance,
+        images = imageResults.filterValues { it is Result.Success }.mapValues { (it.value as Result.Success).value },
+        textSizes = textSizes
+    ))
+}
+
+@Composable
+private fun YearInReviewRiveArtboard(
+    riveFile: RiveFile,
+    content: RiveSlideContent,
+    playing: Boolean,
+    restartKey: Int,
+    modifier: Modifier,
+    onRiveError: (Throwable) -> Unit,
+    slideId: String?,
+    screenshotGetters: MutableMap<String, RiveSlideScreenshotFun>?,
+    onUseWhiteTopBarIconsChange: (Boolean) -> Unit,
+    onRiveLoaded: () -> Unit
+) {
+    val guessResult = rememberPreparedRiveContent(riveFile, content, restartKey)
+    // Prepared up front, so the Rive view can switch to it without going blank while it loads
+    val revealResult = content.revealContent?.let { rememberPreparedRiveContent(riveFile, it, restartKey) }
+    var isRevealed by key(restartKey) { remember { mutableStateOf(false) } }
+    val layoutDirection = LocalLayoutDirection.current
+
+    when (guessResult) {
         is Result.Loading -> RiveLoadingIndicator(modifier)
-        is Result.Success if imagesLoading -> RiveLoadingIndicator(modifier)
-        is Result.Error -> RiveFailure(result.throwable, onRiveError)
+        is Result.Error -> RiveFailure(guessResult.throwable, onRiveError)
         is Result.Success -> {
-            val (artboardStateMachineAndInstance, globalInstance) = result.value
-            val (artboardAndStateMachines, instance) = artboardStateMachineAndInstance
-            val (artboard, stateMachine) = artboardAndStateMachines
-            val globalViewModelInstances = remember(spec.globalViewModel, globalInstance) {
-                if (spec.globalViewModel != null && globalInstance != null) {
-                    mapOf(spec.globalViewModel.name to globalInstance)
+            val guess = guessResult.value
+            // Stays on the guess content until the reveal content is ready
+            val shown = (revealResult as? Result.Success)?.value?.takeIf { isRevealed } ?: guess
+            if (isRevealed && revealResult is Result.Error) {
+                RiveFailure(revealResult.throwable, onRiveError)
+            }
+            val spec = shown.content.spec
+            val globalViewModelInstances = remember(spec.globalViewModel, shown.globalInstance) {
+                if (spec.globalViewModel != null && shown.globalInstance != null) {
+                    mapOf(spec.globalViewModel.name to shown.globalInstance)
                 } else {
                     emptyMap()
                 }
             }
-            val textSizes = rememberScaledRiveTextSizes(spec.globalViewModel?.textSizes.orEmpty())
             val density = LocalDensity.current.density
             val fit = remember(spec.fit, density) {
                 when (spec.fit) {
@@ -311,86 +385,62 @@ private fun YearInReviewRiveArtboard(
             val snapshotSource by rememberUpdatedState(RiveSlideSnapshotSource(
                 riveFile = riveFile,
                 spec = spec,
-                textProperties = textProperties,
-                numberProperties = numberProperties,
-                images = imageResults.filterValues { it is Result.Success }.mapValues { (it.value as Result.Success).value },
-                textSizes = textSizes,
+                textProperties = shown.content.textProperties,
+                numberProperties = shown.content.numberProperties,
+                images = shown.images,
+                textSizes = shown.textSizes,
                 isRtl = layoutDirection == LayoutDirection.Rtl,
                 fit = fit
             ))
             var slideSize by remember { mutableStateOf(IntSize.Zero) }
+            // Rive calls this once per surface, and the surface stays the same when the reveal content replaces the guess content
             val onBitmapAvailable: ((GetBitmapFun) -> Unit)? = if (slideId != null && screenshotGetters != null) {
                 { getBitmap ->
-                    screenshotGetters[slideId] = spec.shareFrameTime?.let { time ->
-                        { renderRiveSlideSnapshot(snapshotSource, slideSize.width, slideSize.height, time) }
-                    } ?: { getBitmap() }
+                    screenshotGetters[slideId] = {
+                        snapshotSource.spec.shareFrameTime?.let { time ->
+                            renderRiveSlideSnapshot(snapshotSource, slideSize.width, slideSize.height, time)
+                        } ?: getBitmap()
+                    }
                 }
             } else {
                 null
             }
-            DisposableEffect(slideId, screenshotGetters, riveFile, artboard, stateMachine, instance) {
+            DisposableEffect(slideId, screenshotGetters, riveFile, guess.artboard, guess.stateMachine, guess.instance) {
                 onDispose {
                     if (slideId != null) {
                         screenshotGetters?.remove(slideId)
                     }
                 }
             }
-            // setting the provided text properties on the ViewModel instance
-            LaunchedEffect(instance, textProperties) {
-                textProperties.forEach { (property, value) ->
-                    instance.setString(property, value)
-                }
-            }
-            // Rive numbers are always floats
-            LaunchedEffect(instance, numberProperties) {
-                numberProperties.forEach { (property, value) ->
-                    instance.setNumber(property, value.toFloat())
-                }
-            }
-            LaunchedEffect(instance, booleanProperties) {
-                booleanProperties.forEach { (property, value) ->
-                    instance.setBoolean(property, value)
-                }
-            }
-            LaunchedEffect(instance, spec.layoutDirectionEnum, layoutDirection) {
-                val propertyName = spec.layoutDirectionEnum ?: return@LaunchedEffect
-                instance.setEnum(propertyName, if (layoutDirection == LayoutDirection.Rtl) "Right to Left" else "Left to Right")
-            }
             val currentOnRiveLoaded by rememberUpdatedState(onRiveLoaded)
-            LaunchedEffect(artboard, instance) {
+            LaunchedEffect(guess.artboard, guess.instance) {
                 currentOnRiveLoaded()
             }
             val currentOnUseWhiteTopBarIconsChange by rememberUpdatedState(onUseWhiteTopBarIconsChange)
-            LaunchedEffect(instance, spec.isTopBarUiIconsWhite) {
+            LaunchedEffect(shown.instance, spec.isTopBarUiIconsWhite) {
                 val propertyName = spec.isTopBarUiIconsWhite ?: return@LaunchedEffect
-                instance.getBooleanFlow(propertyName).collect { currentOnUseWhiteTopBarIconsChange(it) }
+                shown.instance.getBooleanFlow(propertyName).collect { currentOnUseWhiteTopBarIconsChange(it) }
             }
-            val currentOnFrameComplete by rememberUpdatedState(onFrameComplete)
-            LaunchedEffect(instance, spec.frameCompleteTrigger) {
-                val propertyName = spec.frameCompleteTrigger ?: return@LaunchedEffect
-                instance.getTriggerFlow(propertyName).collect { currentOnFrameComplete() }
-            }
-            LaunchedEffect(instance, imageResults) {
-                imageResults.forEach { (property, imageResult) ->
-                    when (imageResult) {
-                        is Result.Success -> instance.setImage(property, imageResult.value)
-                        is Result.Error -> L.w(imageResult.throwable)
-                        Result.Loading -> Unit
+            val currentPlaying by rememberUpdatedState(playing)
+            LaunchedEffect(guess.instance, content.spec.frameCompleteTrigger, content.revealContent) {
+                val propertyName = content.spec.frameCompleteTrigger ?: return@LaunchedEffect
+                if (content.revealContent == null) {
+                    return@LaunchedEffect
+                }
+                guess.instance.getTriggerFlow(propertyName).collect {
+                    if (currentPlaying) {
+                        isRevealed = true
                     }
                 }
             }
-            LaunchedEffect(globalInstance, textSizes) {
-                textSizes.forEach { (property, value) ->
-                    globalInstance?.setNumber(property, value)
-                }
-            }
+            // Handing the same Rive view different objects keeps its last frame on screen until the new objects draw
             @OptIn(ExperimentalRiveGlobalViewModels::class)
             Rive(
                 file = riveFile,
                 playing = playing,
-                artboard = artboard,
-                stateMachine = stateMachine,
-                viewModelInstance = instance,
+                artboard = shown.artboard,
+                stateMachine = shown.stateMachine,
+                viewModelInstance = shown.instance,
                 fit = fit,
                 pointerInputMode = RivePointerInputMode.Observe,
                 onBitmapAvailable = onBitmapAvailable,
@@ -398,7 +448,13 @@ private fun YearInReviewRiveArtboard(
                     .fillMaxSize()
                     .onSizeChanged { slideSize = it }
                     .clearAndSetSemantics {
-                        contentDescription = accessibilityDescription
+                        contentDescription = shown.content.accessibilityDescription
+                        customActions = shown.content.accessibilityActions.map { action ->
+                            CustomAccessibilityAction(action.label) {
+                                shown.instance.setBoolean(action.tappedBooleanProperty, true)
+                                true
+                            }
+                        }
                     },
                 globalViewModelInstances = globalViewModelInstances
             )
