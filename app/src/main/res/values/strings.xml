@@ -2081,6 +2081,7 @@
     </plurals>
     <string name="yir_articles_read_headline">A taste of the articles you read:</string>
     <string name="yir_most_time_article_headline">On which did you spend the most time?</string>
+    <string name="yir_guess_article_choose_action">Choose %s</string>
     <plurals name="yir_most_time_article_supporting">
         <item quantity="one">You spent a total of %1$d minute on this article throughout %2$d!</item>
         <item quantity="other">You spent a total of %1$d minutes on this article throughout %2$d!</item>
