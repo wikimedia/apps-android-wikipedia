@@ -107,7 +107,9 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         }
                         RecommendedReadingListEvent.submit("update_${frequencyForEvent}_click", "discover_settings")
                         viewModel.updateFrequency(it)
-                        requestPermissionAndScheduleRecommendedReadingNotification()
+                        if (Prefs.isRecommendedReadingListNotificationEnabled) {
+                            requestPermissionAndScheduleRecommendedReadingNotification()
+                        }
                     },
                     onArticleNumberChanged = {
                         RecommendedReadingListEvent.submit("article_count_click", "discover_settings", countSaved = it)
@@ -136,8 +138,8 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
 
     override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
         if (isGranted) {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
             viewModel.toggleNotification(true)
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
         } else {
             viewModel.toggleNotification(false)
         }
@@ -148,14 +150,14 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
                 ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED -> {
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
                     viewModel.toggleNotification(true)
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
                 }
                 else -> requestPermissionLauncher.launch(permission)
             }
         } else {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
             viewModel.toggleNotification(true)
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
         }
     }
 

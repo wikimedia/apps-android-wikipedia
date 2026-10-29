@@ -131,7 +131,7 @@ fun YearInReviewScreen(
                 pages = uiState.pages,
                 readingStats = uiState.readingStats,
                 showDonateButton = uiState.isDonationEligible,
-                canShareHighlights = uiState.canShareHighlights,
+                canShareHighlights = uiState.isPersonalized && uiState.canShareHighlights,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
                 onAboutInsightsClick = onAboutInsightsClick,
@@ -317,11 +317,6 @@ private fun YearInReviewContent(
                                 slideId = page.id,
                                 screenshotGetters = screenshotGetters,
                                 onUseWhiteTopBarIconsChange = { useWhiteTopBarIconsByPageId[page.id] = it },
-                                onFrameComplete = {
-                                    if (pagerState.currentPage == position && position < pages.lastIndex) {
-                                        coroutineScope.launch { pagerState.animateScrollToPage(position + 1) }
-                                    }
-                                },
                                 onRiveError = onRiveError
                             )
                             if (page is YearInReviewPage.YouMatter && showDonateButton) {

@@ -55,9 +55,10 @@ object RemoteConfig {
         val hCaptcha: RemoteConfigHCaptcha? = null,
         val semanticSearchEnabledv2: Boolean? = null,
         val semanticSearchLanguagesv2: List<String>? = null,
-        val newArticlesWithinInterestEnabled: Boolean? = null,
         val visualEditorEnabled: Boolean? = null,
         val readAloudLeadSectionEnabled: Boolean? = null,
+        val notificationsExperimentEnabledv1: Boolean? = null,
+        val notificationsExperimentLanguagesv1: List<String>? = null,
         val yirMinAppVersion: Int? = null
     )
 

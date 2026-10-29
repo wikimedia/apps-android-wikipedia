@@ -20,13 +20,14 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
+import org.wikipedia.notifications.experiment.showNotificationsExperimentTimePickerDialog
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -42,6 +43,7 @@ import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
 import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
@@ -326,6 +328,16 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             }
         }
 
+        findPreference(R.string.preference_key_notifications_experiment_discover_dev_trigger_time).apply {
+            summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
+            onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
+                showNotificationsExperimentTimePickerDialog(activity) {
+                    pref.summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
+                }
+                true
+            }
+        }
+
         addABTestPreferences()
 
         if (Prefs.isDeveloperSettingsNewestFirst) {
@@ -341,6 +353,14 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
     }
 
+    private fun getTimestampSummary(millis: Long): String {
+        if (millis == 0L) {
+            return "Unset"
+        }
+        val formatted = DateUtil.getDateAndTime(activity, Date(millis))
+        return if (millis < System.currentTimeMillis()) "$formatted (passed)" else formatted
+    }
+
     private fun addABTestPreferences() {
         val screen = fragment.preferenceScreen
         if (screen.findPreference<PreferenceCategory>(AB_TEST_CATEGORY_KEY) != null) {
@@ -353,10 +373,10 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         screen.addPreference(category)
         listOf(
             DonationReminderAbTest(),
-            NewWithinInterestABTest(),
             ReadAloudLeadSectionABTest(),
             SemanticSearchAbTest(),
-            YearInReviewEndScreenABTest()
+            YearInReviewEndScreenABTest(),
+            NotificationsExperimentAbTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey
@@ -452,8 +472,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     private class TestException(message: String?) : RuntimeException(message)
 
     companion object {
-        private const val TEXT_OF_TEST_READING_LIST = "Test collection"
-        private const val TEXT_OF_READING_LIST = "Collection"
+        private const val TEXT_OF_TEST_READING_LIST = "Test reading list"
+        private const val TEXT_OF_READING_LIST = "Reading list"
         private val TEST_HISTORY_TITLES = listOf(
             "Albert Einstein", "Mount Everest", "Photosynthesis", "Roman Empire",
             "Jazz", "Antarctica", "Leonardo da Vinci", "Coffee",
