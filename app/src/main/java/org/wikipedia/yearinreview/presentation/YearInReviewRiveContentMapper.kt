@@ -12,6 +12,7 @@ import java.text.NumberFormat
 import java.time.Month
 import java.time.format.TextStyle
 import java.util.concurrent.TimeUnit
+import kotlin.time.Duration.Companion.seconds
 
 /**
  * Maps each page to its Rive content, or null when the page doesn't use Rive.
@@ -58,8 +59,8 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec("frame3"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_minutes_read_headline),
-                "data" to page.duration.toString(),
-                "bodyCopy" to resources.getString(R.string.yir_minutes_read_supporting, getTimeSpentComment(resources, page.duration))
+                "data" to page.duration.seconds.inWholeMinutes.toString(),
+                "bodyCopy" to resources.getString(R.string.yir_minutes_read_supporting, getTimeSpentComment(resources, page.duration.seconds.inWholeMinutes))
             )
         )
         is YearInReviewPage.ReadingStreak -> RiveSlideContent(
@@ -441,7 +442,7 @@ private fun formatNumber(resources: Resources, number: Long): String {
 
 private fun getTimeSpentComment(resources: Resources, minutes: Long): String {
     return when {
-        minutes >= 2800 -> resources.getQuantityString(R.plurals.yir_time_spent_comment_2800, TimeUnit.MINUTES.toDays(minutes).toInt())
+        minutes >= 2800 -> resources.getQuantityString(R.plurals.yir_time_spent_comment_2800, TimeUnit.MINUTES.toDays(minutes).toInt(), TimeUnit.MINUTES.toDays(minutes).toInt())
         minutes >= 1441 -> resources.getString(R.string.yir_time_spent_comment_1441)
         minutes >= 540 -> resources.getString(R.string.yir_time_spent_comment_540)
         minutes >= 121 -> resources.getString(R.string.yir_time_spent_comment_121)
