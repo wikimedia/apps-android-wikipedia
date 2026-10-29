@@ -54,6 +54,7 @@ class UserInfo : BlockInfo() {
     class Options {
         @SerialName("watchdefault") private val watchDefault: JsonElement? = null
         @SerialName("centralnotice-display-campaign-type-fundraising") private val fundraisingOptIn: JsonElement? = null
+        @SerialName("wikimedia-donor") private val wikimediaDonor: String? = null
 
         val watchEditedPagesByDefault get() = isExplicitOne(watchDefault)
         val optedInToFundraising get() = isExplicitOne(fundraisingOptIn)
