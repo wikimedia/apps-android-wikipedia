@@ -21,7 +21,7 @@
   <string name="search_back_button_content_description">နောက်ကို ပြန်လားပါ</string>
   <string name="search_clear_query_content_description">မီးမြန်းမှုကို ရှင်းလင်းပါ။</string>
   <string name="search_icon_content_description">ရှာဖွီပါ</string>
-  <string name="filter_hint_filter_my_lists_and_articles">မိမိဧ့စာရင်းတိ စစ်ထုတ်ပါ</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">မိမိဧ့စာရင်းတိ စစ်ထုတ်ပါ</string>
   <string name="nav_item_suggested_edits">တည်းဖြတ်မှုများ</string>
   <string name="nav_item_activity">လှုပ်ရှားမှု</string>
   <string name="nav_item_more">ပိုလို့</string>
@@ -88,16 +88,16 @@
   <string name="menu_page_watched">စောင့်ကြည့်ပြီးဗျာလ်</string>
   <string name="edit_section_find_in_page">စာမျက်နှာမှာ ရှာဖွီပါ</string>
   <string name="menu_page_font_and_theme">ဖောင့်နန့် အသွင်အပြင်</string>
-  <string name="menu_page_add_to_list">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <string name="menu_page_add_to_list" fuzzy="true">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
   <string name="menu_page_add_to_default_list">သိမ်းပါ</string>
-  <string name="feed_card_add_to_list">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <string name="feed_card_add_to_list" fuzzy="true">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
   <string name="feed_card_add_to_default_list">သိမ်းပါ</string>
   <string name="menu_page_share">လင့်ခ်ကို မျှဝီပါ</string>
   <string name="menu_article_share">ဆောင်းပါးကို မျှဝီပါ</string>
   <string name="menu_page_article_share">မျှဝီ</string>
   <string name="menu_page_open_a_new_tab">tab အသစ် ဖွင့်ပါ</string>
   <string name="menu_page_new_tab">tab အသစ်</string>
-  <string name="menu_page_reading_lists">စုစည်းမှုတိ</string>
+  <string name="menu_page_reading_lists" fuzzy="true">စုစည်းမှုတိ</string>
   <string name="menu_page_recently_viewed">တနားက ကြည့်ခပါရေ</string>
   <string name="menu_page_archive">စုစီးမှု</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
@@ -140,9 +140,9 @@
   <string name="menu_show_toc">မာတိကာ</string>
   <string name="search_no_results_found">ရလဒ်ရှာမတွိပါ</string>
   <string name="search_reading_list_no_results">\"%s\" ထဲမှာ ရလဒ်မတွိ့ပါ</string>
-  <string name="search_reading_lists_no_results">စုစည်းမှုတိမာ ရလဒ်တိ မတွိ့ပါ</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">စုစည်းမှုတိမာ ရလဒ်တိ မတွိ့ပါ</string>
   <string name="search_all_articles_no_results">ဆောင်းပါးအားနုံးမာ ရလဒ်တိ မတွိ့ပါ</string>
-  <string name="search_collections_no_results">စုစည်းမှုတိမာ ရလဒ်တိ မတွိ့ပါ</string>
+  <string name="search_collections_no_results" fuzzy="true">စုစည်းမှုတိမာ ရလဒ်တိ မတွိ့ပါ</string>
   <string name="search_history_no_results">ရာဇဝင်ထဲမှာ ရလဒ်မတွိ့ပါ</string>
   <string name="edit_section_captcha_message">အလိုအလိုပီးပို့နီရေ မေးလ်တိရန်က ကာကွယ်ဖို့ အောက်က စာလုံးတိကို လိုက်ရိုက်ကြည့်ပါ။</string>
   <string name="edit_section_captcha_request_an_account_message">ရုပ်ပုံကို မတွိ့ရပါသိလား? &lt;a href=\"https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုဖို့\"&gt;အကောင့်တစ်ခု တောင်းဆိုဖို့&lt;/a&gt;</string>
@@ -243,12 +243,12 @@
   <string name="preferences_heading_syncing">တစ်ထပ်တည်းကျစီခြင်း</string>
   <string name="preferences_heading_data_usage">ဒေတာ အသုံးပြုမှု</string>
   <string name="preferences_heading_experimental">စမ်းသပ်လိ့လာဆဲ</string>
-  <string name="preference_title_sync_reading_lists_from_account">စုစည်းမှု စင့်ခ်လုပ်ခြင်း</string>
-  <string name="preference_title_download_reading_list_articles">စုစည်းမှုဆောင်းပါးတိကို ဒေါင်းလုဒ်လုပ်ပါ</string>
-  <string name="preference_summary_sync_reading_lists">သင့်ဧ့ Wikipedia အကောင့်မာ သိမ်းဆည်းခြင်းအနိန်နန့် မတူညီရေ device တိမာ collection တိကို sync လုပ်ပါ</string>
-  <string name="preference_summary_sync_reading_lists_from_account">သင့်ဧ့ Wikipedia အကောင့် \"%s\" မာ သိမ်းဆည်းခြင်းအနိန်နန့် မတူညီသော စက်၀န်တိတစ်လျှောက် စုစည်းမှုတိကို ထပ်တူပြုပါ</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" မှ ထပ်တူပြုထားသော စုစည်းမှုတိကို ဖယ်ယှားဖို့လား။</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ယင်းစွာရေ အယင်က ထပ်တူပြုထားရေ စုစည်းမှုအားလုံးကို အဝီးထိန်းသိုလှောင်မှုမှ လုံးဝဖျက်ပစ်ပါလိမ့်မေ။ သင့်အကောင့် \"%s\" မှ ထပ်တူပြုထားရေ စုစည်းမှုအားနုံးကို ဖယ်ယှားလိုပါလား။</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">စုစည်းမှု စင့်ခ်လုပ်ခြင်း</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">စုစည်းမှုဆောင်းပါးတိကို ဒေါင်းလုဒ်လုပ်ပါ</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">သင့်ဧ့ Wikipedia အကောင့်မာ သိမ်းဆည်းခြင်းအနိန်နန့် မတူညီရေ device တိမာ collection တိကို sync လုပ်ပါ</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">သင့်ဧ့ Wikipedia အကောင့် \"%s\" မာ သိမ်းဆည်းခြင်းအနိန်နန့် မတူညီသော စက်၀န်တိတစ်လျှောက် စုစည်းမှုတိကို ထပ်တူပြုပါ</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">\"%s\" မှ ထပ်တူပြုထားသော စုစည်းမှုတိကို ဖယ်ယှားဖို့လား။</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">ယင်းစွာရေ အယင်က ထပ်တူပြုထားရေ စုစည်းမှုအားလုံးကို အဝီးထိန်းသိုလှောင်မှုမှ လုံးဝဖျက်ပစ်ပါလိမ့်မေ။ သင့်အကောင့် \"%s\" မှ ထပ်တူပြုထားရေ စုစည်းမှုအားနုံးကို ဖယ်ယှားလိုပါလား။</string>
   <string name="preference_title_auto_upload_crash_reports">ပျက်မှု အစီရင်ခံချက်တိကို ပို့ရန်</string>
   <string name="preference_summary_auto_upload_crash_reports">တတိယဝန်ဆောင်မှုလုပ်ငန်းပသို့ အက်ပ်မှ ပျက်မှု အစီရင်ခံချက်တိကို အလိုအလျောက် ပီးပို့စီခြင်းဖြင့် သင့်အစီရင်ခံချက်ကို လွယ်ကူ‌ကေမြန်စွာ ကြည့်ရှုပြင်ဆင်နိုင်စီဖို့ ခွင့်ပြုပါ။</string>
   <string name="editing_error_spamblacklist">ပိတ်ပင်ထားရေ ဒိုမိန်းတိ (%s) ယင်းမဟုတ် ချိတ်ဆက်ထားမှု ဟိ့နီရေ။ ကျေးဇူးပြုပနာ ယင်းတိကို ဖယ်ရှားပြီး ပြန်ကြိုးစားပါ။</string>
@@ -395,8 +395,8 @@
   <string name="unnamed_tab_closed">Tab ပိတ်ထားရေ။</string>
   <string name="tab_item_closed">%s ပိတ်သိမ်းပြီး။</string>
   <string name="all_tab_items_closed">Tab အားလုံး ပိတ်ထားရေ။</string>
-  <string name="tool_tip_bookmark_icon_title">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
-  <string name="tool_tip_bookmark_icon_text">ဆောင်းပါးကို စုစည်းမှုတခုမာ သိမ်းဆည်းဖို့ bookmark အိုင်ကွန်ကို နှိပ်ပါ။</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">ဆောင်းပါးကို စုစည်းမှုတခုမာ သိမ်းဆည်းဖို့ bookmark အိုင်ကွန်ကို နှိပ်ပါ။</string>
   <string name="page_view_in_browser">စာမျက်နှာကို ဘရောက်ဇာတွင် ကြေ့ရန်</string>
   <string name="tool_tip_toc_title">အယင့်အယင်ရရှိနိုင်ရေ မာတိကာစာမျက်နှာ</string>
   <string name="tool_tip_toc_text">မာတိကာကိုဖွင့်ရန်ဘယ်ဘက်ပသို့ အဂုပွတ်ဆွဲပြီး ဆောင်းပါးဧ့ ကွဲပြားခြားနားရေ ကဏ္ဍတိကိုလျင်မြန်စွာခုန်ရန် ဒေ scroller ခလုတ်ကိုနှိပ်ပြီးဆွဲယူပါ။</string>
@@ -409,9 +409,9 @@
   <string name="button_continue_to_talk_page">ဆွေးနွီးမှုစာမျက်နှာကို ဖွင့်ပါ</string>
   <string name="button_continue_to_disambiguation">တူရေစာမျက်နှာတိကို ကြေ့ပါ</string>
   <string name="link_preview_disambiguation_description">ဒေခေါင်းစိုင်စွာ စာမျက်နှာတစ်ခုထက်ပိုပနာ ဆက်နွီနီရေ:</string>
-  <string name="button_add_to_reading_list">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <string name="button_add_to_reading_list" fuzzy="true">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
   <string name="page_offline_notice_cannot_load_while_offline">အင်တာနက်မဟိချိန်မာ ဆောင်းပါးတိးကို ဖတ်ရှုဖို့ မဖြစ်နိုင်ပါ။</string>
-  <string name="page_offline_notice_add_to_reading_list">အရိပ်အမြွက်- ဆောင်းပါးကို စုစည်းမှုထဲကို ထည့်ပြီး သင်အွန်လိုင်းပြန်ရောက်စွာနန့် ဒေါင်းလုဒ်လုပ်လားပါဖို့။</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">အရိပ်အမြွက်- ဆောင်းပါးကို စုစည်းမှုထဲကို ထည့်ပြီး သင်အွန်လိုင်းပြန်ရောက်စွာနန့် ဒေါင်းလုဒ်လုပ်လားပါဖို့။</string>
   <string name="page_offline_notice_last_date">သင်စွာ %s တွင်သိမ်းထားရေ ဒေဆောင်းပါးဧ့ အော့ဖ်လိုင်းဗားယှင်းကို ဖတ်ရှုနီခြင်းဖြစ်ပါရေ။</string>
   <string name="redirected_from_snackbar">%s က ပြန်ညွှန်းထားရေ</string>
   <string name="button_get_directions">လမ်းညွှန်ချက် ရယူပါ</string>
@@ -522,17 +522,17 @@
   <string name="editing_monospace_font_label">monospace ဖောင့်ကိုသုံးပါ</string>
   <string name="editing_typing_suggestions">စာရိုက်အကြံပြုချက်တိကို ပြပါ</string>
   <string name="nav_item_saved">သိမ်းပါ</string>
-  <string name="reading_list_save_to">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
-  <string name="reading_list_move_to">စုစည်းမှုထဲသို့ ရွှိ့ပါ</string>
+  <string name="reading_list_save_to" fuzzy="true">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <string name="reading_list_move_to" fuzzy="true">စုစည်းမှုထဲသို့ ရွှိ့ပါ</string>
   <string name="reading_list_create_new">အသစ်ဖန်တီးပါ</string>
-  <string name="reading_list_title_exists">\"%s\" စုစည်းမှု ဟိနီပြီးဖြစ်တေ။</string>
+  <string name="reading_list_title_exists" fuzzy="true">\"%s\" စုစည်းမှု ဟိနီပြီးဖြစ်တေ။</string>
   <string name="reading_list_article_added_to_named">%1$sမှ%2$sသို့ ထည့်ပြီး</string>
-  <string name="reading_list_article_added_to_default_list">%s ကို သိမ်းဆည်းပြီးပါယာ။ စုစည်းမှုထဲ ထည့်ချင်ပါလား။</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s ကို သိမ်းဆည်းပြီးပါယာ။ စုစည်းမှုထဲ ထည့်ချင်ပါလား။</string>
   <string name="reading_list_article_moved_to_named">%1$sက%2$sသို့ ထည့်ပြီး</string>
   <string name="reading_list_article_already_exists_message">အားနုန်းကောင်းပါရေ! %1$sမှာ%2$sပါပါရေ</string>
   <string name="reading_list_articles_already_exist_message">အားနုန်းကောင်းပါတယ်! %sမာ ဆောင်းပါးအားနုန်းပါပြီးသားပါ</string>
-  <string name="reading_list_added_view_button">စုစည်းမှုကို ‌‌ကြေ့ရှုပါ</string>
-  <string name="reading_list_add_to_list_button">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <string name="reading_list_added_view_button" fuzzy="true">စုစည်းမှုကို ‌‌ကြေ့ရှုပါ</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 ‌‌‌‌‌‌‌‌ဆောင်းပါး</item>
     <item quantity="other">%d ဆောင်းပါးတိ</item>
@@ -557,24 +557,24 @@
   <string name="reading_list_sort_by_recent_desc">ရက်စွဲပေါင်းထည့်ရေ အစိုင်အတိုင်း (အဟောင်းဆုံး)</string>
   <string name="reading_list_sort_by_created">ရက်စွဲဖန်တီးရေ အစိုင်အတိုင်း (အသစ်ဆုံး)</string>
   <string name="reading_list_sort_by_created_desc">ရက်စွဲဖန်တီးရေ အစိုင်အတိုင်း (အဟောင်းဆုံး)</string>
-  <string name="reading_list_menu_delete">စုစည်းမှုကို ဖျက်ပါ</string>
-  <string name="reading_list_menu_export">စုစည်းမှုကို ထုတ်ယူပါ</string>
+  <string name="reading_list_menu_delete" fuzzy="true">စုစည်းမှုကို ဖျက်ပါ</string>
+  <string name="reading_list_menu_export" fuzzy="true">စုစည်းမှုကို ထုတ်ယူပါ</string>
   <string name="reading_list_menu_select">ရွီးချယ်ပါ</string>
   <string name="reading_list_menu_unselect">မရွီးချယ်တော့ပါ</string>
-  <string name="reading_list_export_write_permission_rationale">သင့်စုဆောင်းမှုကို ထုတ်ယူဖို့အတွက် သင့်စက်ထက်က သိုလှောင်မှုသို့ ရီးသားခွင့်ပြုချက် လိုအပ်ပါရေ။</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">သင့်စုဆောင်းမှုကို ထုတ်ယူဖို့အတွက် သင့်စက်ထက်က သိုလှောင်မှုသို့ ရီးသားခွင့်ပြုချက် လိုအပ်ပါရေ။</string>
   <string name="reading_list_menu_rename">နာမည်/ဖော်ပြချက်ကို တီးဖြတ်ပါ</string>
   <string name="reading_list_action_menu_remove_from_offline">အင်တာနက်မဟိဘဲ ဖတ်ရှုခြင်းမှ ဖယ်ထုတ်ပါ</string>
   <string name="reading_list_action_menu_save_for_offline">အင်တာနက်မဟိပဲ ဖတ်ရှုဖို့ သိမ်းဆည်းခြင်း</string>
   <string name="reading_list_action_menu_remove_all_from_offline">အင်တာနက်မဟိ ဖတ်ရှုခြင်းမှ အားနုန်းကို ဖယ်ထုတ်ပါ</string>
   <string name="reading_list_action_menu_save_all_for_offline">အင်တာနက်မဟိပဲ ဖတ်ရှုဖို့ အားနုန်းကို သိမ်းဆည်းခြင်း</string>
-  <string name="reading_list_action_menu_add_to_another_list">တခြားစုစည်းမှုကို ထည့်သွင်းပါ</string>
-  <string name="reading_list_action_menu_move_to_another_list">တခြားစုစည်းမှုသို့ ရွှိ့ပါ</string>
-  <string name="reading_list_name_sample">အကျွန့်ဧ့ စုစည်းမှု</string>
-  <string name="reading_list_name_hint">ဒေစုစည်းမှုဧ့ နာမည်</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">တခြားစုစည်းမှုကို ထည့်သွင်းပါ</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">တခြားစုစည်းမှုသို့ ရွှိ့ပါ</string>
+  <string name="reading_list_name_sample" fuzzy="true">အကျွန့်ဧ့ စုစည်းမှု</string>
+  <string name="reading_list_name_hint" fuzzy="true">ဒေစုစည်းမှုဧ့ နာမည်</string>
   <string name="reading_list_description_hint">ဖော်ပြချက် (မထည့်လည်းရရေ)</string>
-  <string name="reading_list_item_deleted">%s ကို စုစည်းမှုမှ ဖယ်ယှားလိုက်ပါယာ</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s ကို စုစည်းမှုမှ ဖယ်ယှားလိုက်ပါယာ</string>
   <string name="reading_list_item_deleted_from_list">%1$s ကို %2$s က ဖယ်ယှားခရေ</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d ဆောင်းပါးကို စုစည်းမှုမှ ဖယ်ယှားလိုက်ပါယာ</item>
     <item quantity="other">%d ဆောင်းပါးတိကို စုစည်းမှုမှ ဖယ်ယှားလိုက်ပါယာ</item>
   </plurals>
@@ -582,47 +582,47 @@
     <item quantity="one">%1$d ဆောင်းပါးကို %2$s မှ ဖယ်ယှားလိုက်ပါယာ</item>
     <item quantity="other">%1$d ဆောင်းပါးတိကို %2$s မှ ဖယ်ယှားလိုက်ပါယာ</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">%d စုစည်းမှုကို ဖျက်လိုက်ပါယာ</item>
     <item quantity="other">%d စုစည်းမှုကို ဖျက်လိုက်ပါယာ</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">ပုံသီစုစည်းမှု (%s) ကို ဖျက်လို့မရပါ။</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s ဖျက်လိုက်ပါယာ။ မူရင်း စုစည်းမှု (%2$s) ကို ဖျက်လို့မရပါ။</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">စုစည်းမှုတိကို ဖျက်လိုက်ပါယာ။ ပုံသေစုစည်းမှု (%s) ကို ဖျက်လို့မရပါ။</string>
-  <string name="single_list_json_file_name">%s (ဝီကီးပီးဒီးယား စုစည်းမှု).json</string>
-  <string name="multiple_lists_json_file_name">ဝီကီးပီးဒီးယား စုစည်းမှုတိ (%s နန့် တခြားအရာတိ)။json</string>
-  <string name="reading_list_items_deleted">%d ဆောင်းပါးတိကို စုစည်းမှုမှ ဖယ်ယှားလိုက်ပါယာ</string>
-  <string name="reading_lists_item_deleted">စုစည်းမှုတိက %s ကို ဖယ်ယှားပြီးပါယာ</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">ပုံသီစုစည်းမှု (%s) ကို ဖျက်လို့မရပါ။</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s ဖျက်လိုက်ပါယာ။ မူရင်း စုစည်းမှု (%2$s) ကို ဖျက်လို့မရပါ။</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">စုစည်းမှုတိကို ဖျက်လိုက်ပါယာ။ ပုံသေစုစည်းမှု (%s) ကို ဖျက်လို့မရပါ။</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (ဝီကီးပီးဒီးယား စုစည်းမှု).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">ဝီကီးပီးဒီးယား စုစည်းမှုတိ (%s နန့် တခြားအရာတိ)။json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d ဆောင်းပါးတိကို စုစည်းမှုမှ ဖယ်ယှားလိုက်ပါယာ</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">စုစည်းမှုတိက %s ကို ဖယ်ယှားပြီးပါယာ</string>
   <string name="reading_list_item_delete_undo">မလုပ်ယာ</string>
   <string name="reading_list_deleted">%s ကို ဖျက်လိုက်ပါယာ</string>
   <string name="saved_list_empty_title">သိမ်းဆည်းထားသော ဆောင်းပါးတိ မဟိသိပါ</string>
-  <string name="reading_lists_empty_message">အော့ဖ်လိုင်းဖြစ်နီချိန်မာပင် နောက်မှဖတ်ရှုနိုင်ဖို့ စုစည်းမှုထဲသို့ ဆောင်းပါးတိကို ထည့်ပါ။</string>
+  <string name="reading_lists_empty_message" fuzzy="true">အော့ဖ်လိုင်းဖြစ်နီချိန်မာပင် နောက်မှဖတ်ရှုနိုင်ဖို့ စုစည်းမှုထဲသို့ ဆောင်းပါးတိကို ထည့်ပါ။</string>
   <string name="reading_lists_search_empty_articles_title">သိမ်းဆည်းထားသော ဆောင်းပါးတိ မတွိ့ပါ</string>
   <string name="reading_lists_search_empty_articles_message">သင်သိမ်းဆည်းထားသော ဆောင်းပါးတိမာ “%s” ကို အကျွန်ရို့ ရှာမတွိ့ပါ။</string>
-  <string name="reading_lists_search_empty_collections_title">စုစည်းမှုတိ မတွိ့ပါ</string>
-  <string name="reading_lists_search_empty_collections_message">သင့်စုစည်းမှုတိမာ “%s” ကို အကျွန်ရို့ ရှာမတွိ့ပါ။</string>
-  <string name="reading_list_empty">ဒေစုစည်းမှုမာ သင်ထည့်သွင်းထားသော ဆောင်းပါးတိ မဟိပါ။</string>
+  <string name="reading_lists_search_empty_collections_title" fuzzy="true">စုစည်းမှုတိ မတွိ့ပါ</string>
+  <string name="reading_lists_search_empty_collections_message" fuzzy="true">သင့်စုစည်းမှုတိမာ “%s” ကို အကျွန်ရို့ ရှာမတွိ့ပါ။</string>
+  <string name="reading_list_empty" fuzzy="true">ဒေစုစည်းမှုမာ သင်ထည့်သွင်းထားသော ဆောင်းပါးတိ မဟိပါ။</string>
   <string name="reading_list_article_offline">အော့ဖ်လိုင်း ရဟိနိုင်မှု</string>
   <string name="reading_list_article_make_offline">ဒေဆောင်းပါးကို အော့ဖ်လိုင်း ရဟိနိုင်မှု ဖြစ်စီဖို့</string>
-  <string name="reading_list_add_to_other_list">တခြားစုစည်းမှုထဲသို့ ထည့်ပါ</string>
-  <string name="reading_list_move_to_other_list">တခြာစုစည်းမှုထဲသို့ ရွှိ့ပါ</string>
-  <string name="reading_list_add_to_collection">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
-  <plurals name="reading_list_in_collections">
+  <string name="reading_list_add_to_other_list" fuzzy="true">တခြားစုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">တခြာစုစည်းမှုထဲသို့ ရွှိ့ပါ</string>
+  <string name="reading_list_add_to_collection" fuzzy="true">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <plurals name="reading_list_in_collections" fuzzy="true">
     <item quantity="one">စုစည်းမှု ၁ ခုမာ</item>
     <item quantity="other">စုစည်းမှုတိ %d ခုမာ</item>
   </plurals>
-  <string name="reading_list_move_from_to_other_list">%s မှ တခြားစုစည်းမှုသို့ ရွှိ့ပါ</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">%s မှ တခြားစုစည်းမှုသို့ ရွှိ့ပါ</string>
   <string name="reading_list_remove_from_list">%s မှ ဖယ်ထုတ်ပါ</string>
-  <string name="reading_list_remove_from_lists">စုစည်းမှုတိမှ ဖယ်ရှားပါ</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">စုစည်းမှုတိမှ ဖယ်ရှားပါ</string>
   <string name="reading_list_select_item">ရွီးချယ်ပါ</string>
   <string name="reading_list_confirm_remove_article_from_offline">အော့ဖ်လိုင်းက ဖယ်ထုတ်ပါ</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">ဆောင်းပါးစွာ စုစည်းမှုများစွာမာ ပေါ်လာရေ</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s ကို စုစည်းမှုအားနုံးအတွက် အော့ဖ်လိုင်းမာ ရဟိနိုင်လီဖို့ မဟုတ်ပါ-</string>
-  <string name="reading_lists_sync_reminder_title">စုစည်းမှု စင့်ခ်လုပ်ခြင်းကို ဖွင့်ဖို့လား။</string>
-  <string name="reading_lists_sync_reminder_text">စုစည်းမှုတိမာ သိမ်းဆည်းထားသော ဆောင်းပါးတိကို အဂု သင့်ဝီကီးပီးဒီးယားအကောင့်သို့ ထပ်တူပြုနိုင်ပါယာ။ &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပိုမိုလိ့လာပါ&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">ဆောင်းပါးစွာ စုစည်းမှုများစွာမာ ပေါ်လာရေ</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s ကို စုစည်းမှုအားနုံးအတွက် အော့ဖ်လိုင်းမာ ရဟိနိုင်လီဖို့ မဟုတ်ပါ-</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">စုစည်းမှု စင့်ခ်လုပ်ခြင်းကို ဖွင့်ဖို့လား။</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">စုစည်းမှုတိမာ သိမ်းဆည်းထားသော ဆောင်းပါးတိကို အဂု သင့်ဝီကီးပီးဒီးယားအကောင့်သို့ ထပ်တူပြုနိုင်ပါယာ။ &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပိုမိုလိ့လာပါ&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sync လုပ်ခြင်းကို ဖွင့်ဖို့</string>
-  <string name="reading_list_login_reminder_title">စုစည်းမှုတိကို စင့်ခ်လုပ်ပါ</string>
-  <string name="reading_lists_login_reminder_text">စုစည်းမှုတိကို ဂုချိန်ခါ စက်ဝန်တိမာ ထပ်တူပြုနှိုင်ပါယာ။ သင့်ဝီကီးပီးဒီးယားအကောင့်သို့ ဝင်ရောက်ပြီး သင့်စုစည်းမှုတိကို သိမ်းဆည်းခွင့်ပြုပါ။</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">စုစည်းမှုတိကို စင့်ခ်လုပ်ပါ</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">စုစည်းမှုတိကို ဂုချိန်ခါ စက်ဝန်တိမာ ထပ်တူပြုနှိုင်ပါယာ။ သင့်ဝီကီးပီးဒီးယားအကောင့်သို့ ဝင်ရောက်ပြီး သင့်စုစည်းမှုတိကို သိမ်းဆည်းခွင့်ပြုပါ။</string>
   <string name="reading_lists_login_button">ဝီကီးပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ပါ</string>
   <string name="reading_lists_ignore_button">အဂု မဟုတ်ပါ</string>
   <string name="reading_lists_confirm_remote_delete_yes">လုပ်ပါဖို့</string>
@@ -631,35 +631,35 @@
   <string name="reading_list_articles_added_to_named">%1$d ဆောင်းပါးတိကို %2$s သို့ ပေါင်းထည့်လိုက်တေ</string>
   <string name="reading_list_articles_moved_to_named">%1$dဆောင်းပါးတိကို %2$sသို့ရွှိ့ပြီး</string>
   <string name="reading_list_delete_confirm">ဒေ %s ကို ဖျက်ဖို့ သေချာပါလား။</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">ရွီးချယ်ထားသော စုစည်းမှု(တိ)ကို ဖျက်ဖို့လား။</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">ရွီးချယ်ထားသော စုစည်းမှု(တိ)ကို ဖျက်ဖို့လား။</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="one">%d စုစည်းမှုကို ဖျက်ချင်စွာ သေချာလား။</item>
     <item quantity="other">%d စုစည်းမှုတိကို ဖျက်ချင်စွာ သေချာလား။</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Syn လုပ်နိုင်ဖို့ အကောင့်ထဲဝင်ပါ</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">သင့်စုဆောင်းမှုတိကို သင့်အကောင့်သို့ သိမ်းဆည်းခွင့်ပြုဖို့ အကောင့်ဝင်ပါ။</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">သင့်စုဆောင်းမှုတိကို သင့်အကောင့်သို့ သိမ်းဆည်းခွင့်ပြုဖို့ အကောင့်ဝင်ပါ။</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">မလုပ်ပါယာ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">အကောင့်ဝင်ပါ</string>
-  <string name="reading_list_turned_sync_off_dialog_title">စုစည်းမှု ထပ်တူပြုခြင်းကို ပိတ်ထားရေ</string>
-  <string name="reading_list_turned_sync_off_dialog_text">သင့်အကောင့်အတွက် Collection sync ကို ပိတ်ထားပြီး၊ သင်ဝင်ရောက်ထားသော စက်ပစ္စည်းတိမာ သိမ်းဆည်းထားသော ဆောင်းပါးတိကို အရန်ကူးယူလီဖို့ မဟုတ်ပါ။ ဆက်တင်တိမာ Collection sync ကို ဖွင့်ပါ။</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">စုစည်းမှု ထပ်တူပြုခြင်းကို ပိတ်ထားရေ</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">သင့်အကောင့်အတွက် Collection sync ကို ပိတ်ထားပြီး၊ သင်ဝင်ရောက်ထားသော စက်ပစ္စည်းတိမာ သိမ်းဆည်းထားသော ဆောင်းပါးတိကို အရန်ကူးယူလီဖို့ မဟုတ်ပါ။ ဆက်တင်တိမာ Collection sync ကို ဖွင့်ပါ။</string>
   <string name="reading_list_turned_sync_off_dialog_ok">အိုခေ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">အပြင်အဆင်တိ</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">စုဆောင်းမှု ထပ်တူပြုခြင်းကို ဖွင့်ဖို့လား။</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">စုစည်းမှုတိမာ သိမ်းဆည်းထားသော ဆောင်းပါးတိကို အဂု သင့်ဝီကီးပီးဒီးယားအကောင့်သို့ ထပ်တူပြုနိုင်ပါယာ။ &lt;a href=\"#faq\"&gt;ပိုမိုလိလာပါ&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">စုဆောင်းမှု ထပ်တူပြုခြင်းကို ဖွင့်ဖို့လား။</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">စုစည်းမှုတိမာ သိမ်းဆည်းထားသော ဆောင်းပါးတိကို အဂု သင့်ဝီကီးပီးဒီးယားအကောင့်သို့ ထပ်တူပြုနိုင်ပါယာ။ &lt;a href=\"#faq\"&gt;ပိုမိုလိလာပါ&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ဒေအရာကို ထပ်ပနာ မပြပါကေ့</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sync လုပ်ခြင်းကို ခွင့်ပြုပါ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ရပါရေကျေးဇူးပါ</string>
   <string name="default_reading_list_name">သိမ်းပခပါ</string>
-  <string name="default_reading_list_description">သင်သိမ်းဆည်းထားသော ဆောင်းပါးတိအတွက် မူရင်းစုစည်းမှု</string>
-  <string name="no_user_lists_title">ဆောင်းပါးတိကို စုစည်းမှုတိအဖြစ် စီစိုင်ပါ</string>
-  <string name="no_user_lists_msg">ခရီးလားဖို့နေရာတိ၊ အကြိုက်ဆုံးခေါင်းစိုင်တိနန့် အခြားအရာများစွာအတွက် စုစည်းမှုတိ ဖန်တီးပါ</string>
+  <string name="default_reading_list_description" fuzzy="true">သင်သိမ်းဆည်းထားသော ဆောင်းပါးတိအတွက် မူရင်းစုစည်းမှု</string>
+  <string name="no_user_lists_title" fuzzy="true">ဆောင်းပါးတိကို စုစည်းမှုတိအဖြစ် စီစိုင်ပါ</string>
+  <string name="no_user_lists_msg" fuzzy="true">ခရီးလားဖို့နေရာတိ၊ အကြိုက်ဆုံးခေါင်းစိုင်တိနန့် အခြားအရာများစွာအတွက် စုစည်းမှုတိ ဖန်တီးပါ</string>
   <string name="reading_list_saved_list_rename">%1$s (အသုံးပြုသူ ဖန်တီးခ)</string>
-  <string name="split_reading_list_message">စုစည်းမှုတစ်ခုမာ ဆောင်းပါး %d ပုဒ်အထိရာ ကန့်သတ်ထားရေ။ ‌ဒေကန့်သတ်ချက်ထက် ပိုမိုများပြားသော ဟိပြီးသား စုစည်းမှုတိကို စုစည်းမှုများစွာအဖြစ် ပိုင်းခြားထားရေ။</string>
-  <string name="reading_list_move_article_limit_message">ဒေစုစည်းမှုသို့ ရွှိ့လို့မရပါ။ \"%1$s\" အတွက် စုစည်းမှုတစ်ခုမာ ဆောင်းပါး %2$d ပုဒ်ရာ ကန့်သတ်ထားသော ပမာဏသို့ ရောက်ဟိလားပါယာ။</string>
-  <string name="reading_list_article_limit_message">ဒေစုစည်းမှုထဲသို့ ထည့်လို့မရပါ။ \"%1$s\" အတွက် စုစည်းမှုတစ်ခုမာ ဆောင်းပါး %2$d ပုဒ်ရာ ကန့်သတ်ထားသော အရီအတွက်သို့ ရောက်ဟိလားပါယာ။</string>
-  <string name="reading_lists_limit_message">နောက်ထပ် စုစည်းမှု တစ်ခု ဖန်တီးလို့မရပါ။ အကောင့်တစ်ခုမာ စုစည်းမှု ၁၀၀ ကန့်သတ်ချက်သို့ ရောက်ဟိလားပါယာ။</string>
-  <string name="reading_lists_menu_create_list">စုစည်းမှုအသစ် ဖန်တီးပါ</string>
-  <string name="reading_lists_menu_import_list">စုစည်းမှုကို တင်သွင်းပါ</string>
+  <string name="split_reading_list_message" fuzzy="true">စုစည်းမှုတစ်ခုမာ ဆောင်းပါး %d ပုဒ်အထိရာ ကန့်သတ်ထားရေ။ ‌ဒေကန့်သတ်ချက်ထက် ပိုမိုများပြားသော ဟိပြီးသား စုစည်းမှုတိကို စုစည်းမှုများစွာအဖြစ် ပိုင်းခြားထားရေ။</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">ဒေစုစည်းမှုသို့ ရွှိ့လို့မရပါ။ \"%1$s\" အတွက် စုစည်းမှုတစ်ခုမာ ဆောင်းပါး %2$d ပုဒ်ရာ ကန့်သတ်ထားသော ပမာဏသို့ ရောက်ဟိလားပါယာ။</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">ဒေစုစည်းမှုထဲသို့ ထည့်လို့မရပါ။ \"%1$s\" အတွက် စုစည်းမှုတစ်ခုမာ ဆောင်းပါး %2$d ပုဒ်ရာ ကန့်သတ်ထားသော အရီအတွက်သို့ ရောက်ဟိလားပါယာ။</string>
+  <string name="reading_lists_limit_message" fuzzy="true">နောက်ထပ် စုစည်းမှု တစ်ခု ဖန်တီးလို့မရပါ။ အကောင့်တစ်ခုမာ စုစည်းမှု ၁၀၀ ကန့်သတ်ချက်သို့ ရောက်ဟိလားပါယာ။</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">စုစည်းမှုအသစ် ဖန်တီးပါ</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">စုစည်းမှုကို တင်သွင်းပါ</string>
   <string name="reading_lists_menu_sort_by">အစိုင်လိုက်...</string>
   <string name="reading_lists_refresh_sync_option">sync လုပ်ခြင်းကို ပြန်ပနာဆန်းစစ်ပါ</string>
   <plurals name="reading_list_article_offline_message">
@@ -670,7 +670,7 @@
     <item quantity="one">‌ဒေဆောင်းပါးစွာအင်တာနက်မဟိဘဲ အသုံးပြုနိုင်ဖို့မဟုတ်ပါ။</item>
     <item quantity="other">ဆောင်းပါးတိစွာ အင်တာနက်မဟိဘဲ အသုံးပြုနိုင်ဖို့မဟုတ်ပါ။</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">စုစည်းမှုတိကို စင့်ခ်လုပ်ထားရေ</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">စုစည်းမှုတိကို စင့်ခ်လုပ်ထားရေ</string>
   <string name="reading_list_menu_last_sync">နောက်ဆုံး sync: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">အိုခေ</string>
   <string name="reading_list_delete_dialog_ok_button_text">အိုခေ</string>
@@ -680,31 +680,31 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">မလုပ်ယာ</string>
   <string name="reading_list_split_dialog_ok_button_text">အိုခေ</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">ဖျက်​ပါ​</string>
-  <string name="reading_list_activity_title">စုဆောင်းမှု- %s</string>
-  <string name="reading_list_notification_title">စုစည်းမှု(တိ) တင်ပို့ပြီးပါယာ</string>
-  <string name="reading_list_notification_text">%d Collection(s) ကို \'reading_lists export.json\' အဖြစ် သင့်ဒေါင်းလုဒ်ဖိုင်တွဲသို့ ထုတ်ယူပြီးပါယာ။</string>
-  <string name="reading_list_notification_detailed_text">စုစည်းမှုတိကို \'reading_lists_export.json\' သို့ ထုတ်ယူပြီးပါယာ</string>
+  <string name="reading_list_activity_title" fuzzy="true">စုဆောင်းမှု- %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">စုစည်းမှု(တိ) တင်ပို့ပြီးပါယာ</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d Collection(s) ကို \'reading_lists export.json\' အဖြစ် သင့်ဒေါင်းလုဒ်ဖိုင်တွဲသို့ ထုတ်ယူပြီးပါယာ။</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">စုစည်းမှုတိကို \'reading_lists_export.json\' သို့ ထုတ်ယူပြီးပါယာ</string>
   <string name="reading_lists_action_menu_export_lists">တင်ပို့ပါ</string>
   <string name="reading_lists_import_file_picker_title">တင်သွင်းဖို့ ဖိုင်ကို ရွီးပါ</string>
-  <string name="reading_lists_import_failure_message">စုစည်းမှုတိ တင်သွင်းမှု မအောင်မြင်ပါ</string>
-  <string name="reading_lists_export_select_lists_message">ထုတ်ယူဖို့ စုစည်းမှု(တိ) ကို ရွီးချယ်ပါ</string>
-  <string name="reading_lists_export_completed_message">စုစည်းမှု(တိ) တင်ပို့ပြီးပါယာ</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">စုစည်းမှုတိ တင်သွင်းမှု မအောင်မြင်ပါ</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">ထုတ်ယူဖို့ စုစည်းမှု(တိ) ကို ရွီးချယ်ပါ</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">စုစည်းမှု(တိ) တင်ပို့ပြီးပါယာ</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="one">စုစည်းမှု တင်ပို့မှု မအောင်မြင်ပါ</item>
     <item quantity="other">စုစည်းမှုတိ တင်ပို့မှု မအောင်မြင်ပါ</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">စုစည်းမှု တင်သွင်းပြီး</item>
     <item quantity="other">စုစည်းမှုတိ တင်သွင်းပြီး</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">မျှဝီထားသော စုစည်းမှု</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">မျှဝီထားသော စုစည်းမှု</string>
   <string name="reading_lists_preview_save_button">သိမ်းပါ</string>
-  <string name="reading_lists_preview_save_dialog_title">စုစည်းမှုကို သိမ်းဆည်းပါ</string>
-  <string name="reading_lists_preview_save_dialog_text">စုစည်းမှုကို နာမည်ပီးပြီး သိမ်းဆည်းဖို့ ဆောင်းပါးတိကို ရွီးချယ်ပါ။</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">စုစည်းမှုကို သိမ်းဆည်းပါ</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">စုစည်းမှုကို နာမည်ပီးပြီး သိမ်းဆည်းဖို့ ဆောင်းပါးတိကို ရွီးချယ်ပါ။</string>
   <string name="reading_lists_preview_save_dialog_title_hint">ခေါင်းစီး</string>
   <string name="reading_lists_preview_save_dialog_cancel">မလုပ်ယာ</string>
   <string name="reading_lists_preview_save_dialog_save">သိမ်းပါ</string>
-  <string name="reading_lists_preview_saved_snackbar">စုစည်းမှုကို သိမ်းဆည်းပြီးပါယာ</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">စုစည်းမှုကို သိမ်းဆည်းပြီးပါယာ</string>
   <string name="reading_lists_preview_saved_snackbar_action">ကြေ့ပါ</string>
   <string name="user_option_sync_label">ရွီးချယ်​စ​ရာ​တိ</string>
   <string name="notification_reverted_title">နောက်ပြန်ပြင်ရေ တီးဖြတ်မှု</string>
@@ -713,8 +713,8 @@
   <string name="notification_syncing_pause_button">ရပ်ပါ</string>
   <string name="notification_syncing_resume_button">ခေတ္တရပ်နားရာက ပြန်လုပ်ပါ</string>
   <string name="notification_syncing_cancel_button">မလုပ်ယာ</string>
-  <string name="notification_syncing_reading_list_channel_title">စုစည်းမှုတိကို စင့်ခ်လုပ်ခြင်း</string>
-  <string name="notification_syncing_reading_list_channel_description">စုစည်းမှုတိ စင့်ခ်လုပ်ခြင်း တိုးတက်မှု</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">စုစည်းမှုတိကို စင့်ခ်လုပ်ခြင်း</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">စုစည်းမှုတိ စင့်ခ်လုပ်ခြင်း တိုးတက်မှု</string>
   <string name="notification_many_unread">သင့်မှာသင်မဖတ်ရသိရေ သတိပီးချက် %dခု ဟိပါရေ</string>
   <plurals name="notification_channel_name">
     <item quantity="one">ဆောင်းပါး ဒေါင်းလုဒ်ဆွဲနီရေ</item>
@@ -728,15 +728,15 @@
     <item quantity="one">ဆောင်းပါး %1$d ကျန်ဟိ</item>
     <item quantity="other">ဆောင်းပါးတိ %1$d ကျန်ဟိ</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">စုစည်းမှုကို ထပ်တူပြုခြင်း</item>
     <item quantity="other">စုစည်းမှုတိကို ထပ်တူပြုခြင်း</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">%1$d စုစည်းမှုကို ထပ်တူပြုနီရေ…</item>
     <item quantity="other">%1$d စုစည်းမှုတိကို ထပ်တူပြုနီရေ…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">စုစည်းမှု %1$d ခု ကျန်ဟိပါရေ</item>
     <item quantity="other">စုစည်းမှု %1$d ခု ကျန်ဟိပါရေ</item>
   </plurals>
@@ -1274,8 +1274,8 @@
   <string name="onboarding_maybe_later">နောက်ကြုံမှ</string>
   <string name="onboarding_explore_title">စူးစမ်းဖို့ နည်းလမ်းသစ်တိ</string>
   <string name="onboarding_explore_text">အဆက်မပြတ် အပ်ဒိတ်လုပ်နီရေ Home feed နန့် Wikipedia ဧ့ ယုန်တွင်းထဲကို နစ်မြုပ်လိုက်ပါ။ &lt;br/&gt; သမိုင်းဝင်ဖြစ်ရပ်တိအကြောင်း လိ့လာစွာပင်ဖြစ်ဖြစ်၊ &lt;b&gt;Random&lt;/b&gt; နန့် အံစာလှိမ့်စွာပင်ဖြစ်ဖြစ် - သင့်စိတ်ဝင်စားမှုအလိုက် feed ကို &lt;b&gt;စိတ်ကြိုက်ပြင်ဆင်ပါ&lt;/b&gt;။</string>
-  <string name="onboarding_reading_list_sync_title">ထပ်တူပြုထားသော စုစည်းမှုတိ</string>
-  <string name="onboarding_reading_list_sync_text_v2">အော့ဖ်လိုင်းဖြစ်နီချိန်မာပင် နောက်မှဖတ်လိုသော ဆောင်းပါးတိမှ စုစည်းမှုတိကို သင်ဖန်တီးနိုင်ပါရေ။ &lt;br/&gt;သင့်စုစည်းမှုတိကို ထပ်တူပြုဖို့ သင့်ဝီကီးပီးဒီးယားအကောင့်သို့ ဝင်ရောက်ပါ။ &lt;a href=\"#login\"&gt;ဝီကီးပီးဒီးယားသို့ ဝင်ရောက်ပါ&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">ထပ်တူပြုထားသော စုစည်းမှုတိ</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">အော့ဖ်လိုင်းဖြစ်နီချိန်မာပင် နောက်မှဖတ်လိုသော ဆောင်းပါးတိမှ စုစည်းမှုတိကို သင်ဖန်တီးနိုင်ပါရေ။ &lt;br/&gt;သင့်စုစည်းမှုတိကို ထပ်တူပြုဖို့ သင့်ဝီကီးပီးဒီးယားအကောင့်သို့ ဝင်ရောက်ပါ။ &lt;a href=\"#login\"&gt;ဝီကီးပီးဒီးယားသို့ ဝင်ရောက်ပါ&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">ဒေတာနန့် ကိုယ်ရီးကိုယ်တာ</string>
   <string name="onboarding_data_privacy_text">အခလွတ်ဗဟုသုတလှုပ်ယှားမှုမာ ပါဝင်ဖို့အတွက် ကိုယ်ရီးကိုယ်တာအချက်အလက်တိ ပီးဖို့မလိုအပ်ဟု ကျနော်ရို့ယုံကြည်ပါရေ။ ‌ဒေအက်ပ်အတွက် စုဆောင်းရရှိသော အသုံးပြုမှုဒေတာစွာ နာမည်မဖော်ပါ။&lt;br/&gt;&lt;br/&gt; ကျနော်ရို့ဧ့ &lt;a href=\"#privacy\"&gt;ကိုယ်ရီးကိုယ်တာမူဝါဒ&lt;/a&gt; နန့် &lt;a href=\"#termsOfUse\"&gt;အသုံးပြုမှုစည်းကမ်းချက်တိ&lt;/a&gt; အကြောင်း ပိုမိုလိ့လာပါ။</string>
   <string name="onboarding_analytics_switch_title">အသုံးပြုဒေတာကို ပို့ပါ</string>
@@ -1608,16 +1608,16 @@
   <string name="user_contrib_filter_activity_title">ပံ့ပိုးမှုတိကို စစ်ထုတ်ပါ</string>
   <string name="action_item_view_on_map">မြီပုံထက်မာ ကြေ့ပါ</string>
   <string name="action_item_view_on_map_unavailable">ဒေစာမျက်နှာအတွက် ပထဝီဝင်ကိုဩဒိနိတ်တိ မရဟိနိုင်ပါ</string>
-  <string name="shareable_reading_lists_import_dialog_title">မျှဝီထားရေ စုစည်းမှုကို တင်သွင်းပါ</string>
-  <string name="shareable_reading_lists_import_dialog_content">သင့်အား မျှဝီထားရေ စုစည်းမှုကို ဇာပိုင်နာမည်ပီးလိုပါသလဲ။</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">မျှဝီထားရေ စုစည်းမှုကို တင်သွင်းပါ</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">သင့်အား မျှဝီထားရေ စုစည်းမှုကို ဇာပိုင်နာမည်ပီးလိုပါသလဲ။</string>
   <string name="shareable_reading_lists_new_indicator">*အသစ်*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">စုစည်းမှုကို သင်နန့် မျှဝီထားရေ</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">စုစည်းမှုတစ်ခုကို သင့်နန့် မျှဝီထားကြောင်း အကျွန်ရို့ သတိပြုမိပါရေ။ အက်ပ်မာ ‌ေဒေစုစည်းမှုကို ကြည့်ရှုဖို့ မူရင်းမက်ဆေ့ချ်သို့ ပြန်သွားပြီး လင့်ခ်ကို ထပ်နှိပ်ပါ။</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">စုစည်းမှုကို သင်နန့် မျှဝီထားရေ</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">စုစည်းမှုတစ်ခုကို သင့်နန့် မျှဝီထားကြောင်း အကျွန်ရို့ သတိပြုမိပါရေ။ အက်ပ်မာ ‌ေဒေစုစည်းမှုကို ကြည့်ရှုဖို့ မူရင်းမက်ဆေ့ချ်သို့ ပြန်သွားပြီး လင့်ခ်ကို ထပ်နှိပ်ပါ။</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">နားလည်ရာ</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">စုစည်းမှုကို တင်သွင်းပြီးပါယာ</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">စုစည်းမှုကို တင်သွင်းပြီးပါယာ</string>
   <string name="reading_list_share_menu_label">မျှဝီ...</string>
-  <string name="reading_list_share_menu_tooltip">ဒေစုစည်းမှုကို တခြားသူရို့နန့် မျှဝီပါ</string>
-  <string name="reading_list_share_message_v2">သာလီစွပါ။ အကျွန့်ဧ့ ဝီကီပီးဒီးယား စုစည်းမှုကို မျှဝီပီးချင်ပါရေ။</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">ဒေစုစည်းမှုကို တခြားသူရို့နန့် မျှဝီပါ</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">သာလီစွပါ။ အကျွန့်ဧ့ ဝီကီပီးဒီးယား စုစည်းမှုကို မျှဝီပီးချင်ပါရေ။</string>
   <string name="talk_templates_empty_message">သင့်ကိုယ်ပိုင် မက်ဆေ့ချ်တိကို ဖန်တီးပါ သို့မဟုတ် စတင်ဖို့အတွက် &lt;a href=\"#\"&gt;ဥပမာ မက်ဆေ့ချ်တိ&lt;/a&gt; ကို အသုံးပြုပါ။</string>
   <string name="talk_templates_new_message_title">မက်ဆေ့ချ်အသစ်</string>
   <string name="talk_templates_new_message_subject_hint">ဘာသာရပ်</string>

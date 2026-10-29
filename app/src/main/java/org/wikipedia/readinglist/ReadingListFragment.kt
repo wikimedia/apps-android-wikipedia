@@ -821,15 +821,15 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
                 ContextCompat.checkSelfPermission(requireActivity(), permission) == PackageManager.PERMISSION_GRANTED -> {
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
                     Prefs.isRecommendedReadingListNotificationEnabled = true
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
                     update()
                 }
                 else -> (requireActivity() as ReadingListActivity).requestPermissionLauncher.launch(permission)
             }
         } else {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
             Prefs.isRecommendedReadingListNotificationEnabled = true
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
             update()
         }
     }

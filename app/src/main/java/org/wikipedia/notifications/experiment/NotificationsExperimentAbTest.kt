@@ -44,6 +44,12 @@ class NotificationsExperimentAbTest : ABTest("trending-notifications-test-2", GR
         }
     }
 
+    fun maybeSendExposureEventIfEligible() {
+        runIfEligible {
+            maybeSendExposureEvent()
+        }
+    }
+
     fun setExperimentIfEligible(instrument: InstrumentImpl) {
         runIfEligible {
             instrument.setExperiment(TestKitchenAdapter.getExperiment(this))

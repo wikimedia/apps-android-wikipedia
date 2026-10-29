@@ -1976,6 +1976,7 @@
   </plurals>
   <string name="yir_articles_read_headline">Headline of the Year in Review slide that lists a sample of articles the user read.</string>
   <string name="yir_most_time_article_headline">Headline of the Year in Review slide that asks the user to guess which article they spent the most time on.</string>
+  <string name="yir_guess_article_choose_action">Accessibility action, read by screen readers, that picks one of the articles offered on the Year in Review slide that asks the user to guess between one article and another. %s will be replaced by the title of the article.</string>
   <plurals name="yir_most_time_article_supporting">
     <item quantity="one">Supporting text of the Year in Review slide that reveals the article the user spent the most time on. %1$d will be replaced by the number of minutes, and %2$d will be replaced by the year.</item>
     <item quantity="other">Supporting text of the Year in Review slide that reveals the article the user spent the most time on. %1$d will be replaced by the number of minutes, and %2$d will be replaced by the year.</item>
@@ -2656,4 +2657,7 @@
   <string name="preference_summary_semantic_search_jump_to_passage">Semantic Search settings screen preference summary</string>
   <string name="semantic_search_snackbar_message">Snackbar message for modifying semantic search settings after being disabled</string>
   <string name="semantic_search_snackbar_action_label">Snackbar action label for modifying semantic search settings after being disabled</string>
+  <string name="notifications_experiment_discover_interests_title">Title message telling the user that a new recommended reading list is ready, based on an article marked as an interest. %s will be replaced by the title of an article marked as interest</string>
+  <string name="notifications_experiment_discover_saved_or_history_title">Title message telling the user that a new recommended reading list is ready, based on a saved or read article. %s will be replaced by the title of an article the user has read or saved</string>
+  <string name="notifications_experiment_discover_message">Notification message informing the user a new reading list is ready</string>
 </resources>

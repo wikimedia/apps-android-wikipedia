@@ -32,6 +32,7 @@ import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.readinglist.recommended.NotificationsExperimentDiscoverSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.recommended.SourceWithOffset

@@ -31,7 +31,6 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
-import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.DeviceUtil
@@ -54,6 +53,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 // Update our channel name, if needed.
                 L.d("channel=" + ReleaseUtil.getChannel(context))
                 startPollTask(context)
+
+                // persist discover notification experiment alarm after reboot
+                if (Prefs.isRecommendedReadingListNotificationEnabled) {
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                }
             }
             ACTION_POLL == intent.action -> {
                 if (!AccountUtil.isLoggedIn) {
@@ -84,9 +88,13 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
 
             ACTION_RECOMMENDED_READING_LIST == intent.action -> {
-                if (Prefs.recommendedReadingListUpdateFrequency == RecommendedReadingListUpdateFrequency.MONTHLY) {
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                if (!Prefs.isRecommendedReadingListNotificationEnabled) {
+                    // Cancel the notification when it is disabled from Discover settings.
+                    RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(context)
+                    return
                 }
+                // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
+                RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context, fromFiredAlarm = true)
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
         }

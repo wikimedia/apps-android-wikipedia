@@ -44,6 +44,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
@@ -138,6 +139,11 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         else -> null
                     }
                     TestKitchenAdapter.client.getInstrument("apps-open")
+                        .also { instrument ->
+                            if (notificationCategory == NotificationCategory.RECOMMENDED_READING_LISTS) {
+                                NotificationsExperimentAbTest().setExperimentIfEligible(instrument)
+                            }
+                        }
                         .submitInteraction(
                             action = "app_open",
                             actionSource = "notification",
@@ -162,6 +168,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             Prefs.isReadingListSyncEnabled = true
             ReadingListSyncAdapter.manualSyncWithForce()
         }
+        NotificationsExperimentAbTest().maybeRescheduleRecommendedReadingListNotification(this)
 
         WikipediaApp.instance.connectionStateMonitor.registerCallback(this)
 
