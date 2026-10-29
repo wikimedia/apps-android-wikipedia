@@ -27,7 +27,6 @@ import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
-import org.wikipedia.notifications.experiment.showNotificationsExperimentTimePickerDialog
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
