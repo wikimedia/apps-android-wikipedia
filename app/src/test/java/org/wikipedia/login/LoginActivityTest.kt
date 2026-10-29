@@ -6,6 +6,7 @@ import android.content.Intent
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
@@ -17,6 +18,11 @@ import org.wikipedia.extensions.parcelable
 
 @RunWith(RobolectricTestRunner::class)
 class LoginActivityTest {
+    @Before
+    fun setUp() {
+        AccountUtil.invalidateAccountCache()
+    }
+
     @Test
     fun testAddingAccountFromSystemSettingsIsCanceledWithoutLogin() {
         val response = mockk<AccountAuthenticatorResponse>(relaxed = true)
