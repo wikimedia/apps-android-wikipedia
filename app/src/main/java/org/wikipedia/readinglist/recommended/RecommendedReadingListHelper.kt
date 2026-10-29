@@ -8,7 +8,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.NewRecommendedReadingListEvent
-import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.settings.Prefs
