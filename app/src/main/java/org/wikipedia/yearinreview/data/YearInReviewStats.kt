@@ -84,6 +84,18 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.SUPPRESSED
     }
 
+    val totalReadingStatus get() = if (totalTimeSpentSec in 61..<18000000) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val streakStatus get() = if (longestStreakDays > 1 && longestStreakStartMonth > 0 && longestStreakStartDay > 0 && longestStreakEndMonth > 0 && longestStreakEndDay > 0) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
     val topTopicsStatus get() = if (topTopic != null && topTopicTotalArticles >= 3) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
