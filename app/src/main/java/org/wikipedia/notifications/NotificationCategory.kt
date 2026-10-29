@@ -38,7 +38,7 @@ enum class NotificationCategory(val id: String,
     SYNCING("syncing", R.string.notification_channel_title, R.string.notification_channel_description, android.R.drawable.stat_sys_download, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = GROUP_OTHER),
     RECOMMENDED_READING_LISTS("recommended-reading-lists", R.string.recommended_reading_list_title, R.string.recommended_reading_list_onboarding_card_title, R.drawable.ic_bookmark_white_24dp, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = GROUP_OTHER),
     GAMES("games", R.string.on_this_day_game_feed_entry_card_heading, R.string.on_this_day_game_menu_notifications, R.drawable.ic_dice_24, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = GROUP_OTHER),
-    WEEKLY_MOST_READ("weekly-most-read", R.string.notifications_weekly_most_read_channel_title, R.string.notifications_weekly_most_read_channel_description, R.drawable.ic_baseline_trending_up_24, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = GROUP_OTHER);
+    WEEKLY_MOST_READ("weekly-most-read", R.string.notifications_experiment_weekly_most_read_channel_title, R.string.notifications_experiment_weekly_most_read_channel_description, R.drawable.ic_trending_up_black_24dp, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = GROUP_OTHER);
 
     override fun code(): Int {
         // This enumeration is not marshalled so tying declaration order to presentation order is

@@ -2924,7 +2924,8 @@
     <string name="semantic_search_snackbar_message">Module hidden. You can make it visible again via Settings</string>
     <string name="semantic_search_snackbar_action_label">Modify</string>
 
-    <!-- Notifications V1 -->
-    <string name="notifications_weekly_most_read_channel_title">Weekly Most Read</string>
-    <string name="notifications_weekly_most_read_channel_description">Notifications for the weekly most read articles</string>
+    <string name="notifications_experiment_weekly_most_read_channel_title">Weekly Most Read</string>
+    <string name="notifications_experiment_weekly_most_read_channel_description">Notifications for the weekly most read articles</string>
+    <string name="notifications_experiment_weekly_most_read_notification_title">Trending this week</string>
+    <string name="notifications_experiment_weekly_most_read_notification_description">No. 1 %s. Find out what else everyone\'s reading about.</string>
 </resources>
