@@ -27,7 +27,6 @@ import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
-import org.wikipedia.notifications.experiment.showNotificationsExperimentTimePickerDialog
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -41,6 +40,7 @@ import org.wikipedia.settings.IntPreference
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
 import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundDialog
+import org.wikipedia.settings.dev.playground.showNotificationsExperimentTimePickerDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
@@ -328,11 +328,12 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             }
         }
 
-        findPreference(R.string.preference_key_notifications_experiment_discover_dev_trigger_time).apply {
-            summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
+        findPreference(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time).apply {
+            summary = getTimestampSummary(Prefs.notificationsExperimentWeeklyMostReadDevTriggerTime)
             onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
-                showNotificationsExperimentTimePickerDialog(activity) {
-                    pref.summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
+                showNotificationsExperimentTimePickerDialog(activity) { millis ->
+                    pref.summary = getTimestampSummary(millis)
+                    Prefs.notificationsExperimentWeeklyMostReadDevTriggerTime = millis
                 }
                 true
             }

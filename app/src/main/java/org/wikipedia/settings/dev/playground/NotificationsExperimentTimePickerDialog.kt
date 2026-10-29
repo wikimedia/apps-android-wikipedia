@@ -1,4 +1,4 @@
-package org.wikipedia.notifications.experiment
+package org.wikipedia.settings.dev.playground
 
 import android.content.Context
 import android.icu.util.Calendar
@@ -20,7 +20,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TimeInput
 import androidx.compose.material3.TimePickerDefaults
-import androidx.compose.material3.isPm
 import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -32,12 +31,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
-import org.wikipedia.settings.Prefs
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.Date
 
-fun showNotificationsExperimentTimePickerDialog(context: Context, onChanged: () -> Unit = {}) {
+fun showNotificationsExperimentTimePickerDialog(context: Context, onChanged: (Long) -> Unit = {}) {
     val composeView = ComposeView(context)
 
     val dialog = MaterialAlertDialogBuilder(context)
@@ -53,15 +51,13 @@ fun showNotificationsExperimentTimePickerDialog(context: Context, onChanged: () 
         BaseTheme {
             DevSettingsTimePicker(
                 onCancel = {
-                    Prefs.notificationsExperimentDiscoverDevTriggerTime = 0L
-                    onChanged()
+                    onChanged(0L)
                     dialog.dismiss()
                 },
                 onSave = { timeInMillis ->
-                    Prefs.notificationsExperimentDiscoverDevTriggerTime = timeInMillis
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                     Toast.makeText(context, "Scheduled for ${Date(timeInMillis)}", Toast.LENGTH_SHORT).show()
-                    onChanged()
+                    onChanged(timeInMillis)
                     dialog.dismiss()
                 }
             )
@@ -135,7 +131,7 @@ fun DevSettingsTimePicker(
                 onClick = {
                     val selectedTimeInMilli = timeToMillis(
                         timePickerState.hour,
-                        timePickerState.minute, timePickerState.isPm
+                        timePickerState.minute
                     )
                     onSave(selectedTimeInMilli)
                 },
@@ -153,7 +149,7 @@ fun DevSettingsTimePicker(
     }
 }
 
-fun timeToMillis(hour: Int, minute: Int, isPm: Boolean): Long {
+fun timeToMillis(hour: Int, minute: Int): Long {
     return LocalDateTime.now()
         .withHour(hour)
         .withMinute(minute)

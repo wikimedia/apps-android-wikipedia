@@ -168,7 +168,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             Prefs.isReadingListSyncEnabled = true
             ReadingListSyncAdapter.manualSyncWithForce()
         }
-        NotificationsExperimentAbTest().maybeRescheduleRecommendedReadingListNotification(this)
 
         WikipediaApp.instance.connectionStateMonitor.registerCallback(this)
 
