@@ -1047,7 +1047,11 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_is_test_active, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_is_test_active, value)
 
-    var notificationsWeeklyMostReadScheduled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_weekly_most_read_scheduled, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_weekly_most_read_scheduled, value)
+    var notificationsExperimentWeeklyMostReadScheduled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_experiment_weekly_most_read_scheduled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_experiment_weekly_most_read_scheduled, value)
+
+    var notificationsExperimentWeeklyMostReadDevTriggerTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time, 0L)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time, value)
 }

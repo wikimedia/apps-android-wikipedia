@@ -612,6 +612,13 @@
             android:key="@string/preference_key_notifications_is_test_active"
             android:title="@string/preference_key_notifications_is_test_active"/>
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_notifications_experiment_weekly_most_read_scheduled"
+            android:title="@string/preference_key_notifications_experiment_weekly_most_read_scheduled"/>
+
+        <Preference
+            android:key="@string/preference_key_notifications_experiment_weekly_most_read_dev_trigger_time"
+            android:title="@string/preference_key_notifications_experiment_weekly_most_read_dev_trigger_time"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

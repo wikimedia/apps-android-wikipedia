@@ -239,5 +239,6 @@
     <string name="preference_key_semantic_search_is_test_active" translatable="false">semanticSearchIsTestActive</string>
     <string name="preference_key_semantic_search_settings_category" translatable="false">semanticSearchSettingsCategory</string>
     <string name="preference_key_notifications_is_test_active" translatable="false">notificationsIsTestActive</string>
-    <string name="preference_key_notifications_weekly_most_read_scheduled" translatable="false">notificationsWeeklyMostReadScheduled</string>
+    <string name="preference_key_notifications_experiment_weekly_most_read_scheduled" translatable="false">notificationsExperimentWeeklyMostReadScheduled</string>
+    <string name="preference_key_notifications_experiment_weekly_most_read_dev_trigger_time" translatable="false">notificationsExperimentWeeklyMostReadDevTriggerTime</string>
 </resources>
