@@ -28,9 +28,11 @@ import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.readinglist.recommended.NotificationsExperimentDiscoverSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.recommended.SourceWithOffset
@@ -856,6 +858,9 @@ object Prefs {
 
     var recommendedReadingListUpdateFrequency: RecommendedReadingListUpdateFrequency
         get() = PrefsIoUtil.getString(R.string.preference_key_recommended_reading_list_update_frequency, null)?.let {
+            if (NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+                return@let RecommendedReadingListUpdateFrequency.WEEKLY
+            }
             RecommendedReadingListUpdateFrequency.valueOf(it)
         } ?: RecommendedReadingListUpdateFrequency.WEEKLY
         set(value) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_update_frequency, value.name)
@@ -1034,4 +1039,20 @@ object Prefs {
     var semanticSearchIsTestActive
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_is_test_active, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_is_test_active, value)
+
+    var notificationsIsTestActive
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_is_test_active, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_is_test_active, value)
+
+    var isNotificationsExperimentNotificationRescheduled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_experiment_notification_rescheduled, value)
+
+    var notificationsExperimentDiscoverSource
+        get() = JsonUtil.decodeFromString<NotificationsExperimentDiscoverSource>(PrefsIoUtil.getString(R.string.preference_key_notifications_experiment_discover_source, null))
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_notifications_experiment_discover_source, value?.let { JsonUtil.encodeToString(it) })
+
+    var notificationsExperimentDiscoverDevTriggerTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, value)
 }
