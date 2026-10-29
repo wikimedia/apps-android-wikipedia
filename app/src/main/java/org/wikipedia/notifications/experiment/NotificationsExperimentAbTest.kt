@@ -1,5 +1,9 @@
 package org.wikipedia.notifications.experiment
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.content.ContextCompat
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
@@ -30,8 +34,11 @@ class NotificationsExperimentAbTest : ABTest("trending-notifications-test-2", GR
 
     private val supportedLanguages = RemoteConfig.config.androidv1?.notificationsExperimentLanguagesv2.orEmpty()
 
+    private val hasNotificationPermissionGranted =
+        Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU || ContextCompat.checkSelfPermission(WikipediaApp.instance, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+
     fun isNotificationsExperimentEligible(): Boolean {
-        return isTestActive() && isLanguageSupported(WikipediaApp.instance.languageState.appLanguageCode)
+        return isTestActive() && isLanguageSupported(WikipediaApp.instance.languageState.appLanguageCode) && hasNotificationPermissionGranted
     }
 
     fun isNotificationsExperimentEnabled(): Boolean {
