@@ -78,8 +78,8 @@ object YearInReviewFlowDecider {
                 YearInReviewPage.ReadingStreak(
                     isEmptyState = readingStats.streakStatus == YearInReviewInsightStatus.EMPTY_STATE,
                     longestStreak = readingStats.longestStreakDays,
-                    streakStartDate = DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.longestStreakStartMonth, readingStats.longestStreakStartDay)),
-                    streakEndDate = DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.longestStreakEndMonth, readingStats.longestStreakEndDay))
+                    streakStartDate = if (readingStats.streakStatus != YearInReviewInsightStatus.EMPTY_STATE) DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.longestStreakStartMonth, readingStats.longestStreakStartDay)) else "",
+                    streakEndDate = if (readingStats.streakStatus != YearInReviewInsightStatus.EMPTY_STATE) DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.longestStreakEndMonth, readingStats.longestStreakEndDay)) else ""
                 )
             },
             CandidatePage(status = readingStats.topTopicsStatus) {
