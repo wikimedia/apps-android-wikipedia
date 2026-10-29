@@ -94,7 +94,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     return
                 }
                 // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
-                RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context, fromFiredAlarm = true)
+                RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
         }
