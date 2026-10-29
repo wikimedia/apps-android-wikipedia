@@ -243,7 +243,7 @@
     <item quantity="one">Подивіться, як ваш %1$d день читання складається в одну картину Огляду року</item>
     <item quantity="few">Подивіться, як ваші %1$d дні читання складаються в одну картину Огляду року</item>
     <item quantity="many">Подивіться, як ваші %1$d днів читання складаються в одну картину Огляду року</item>
-    <item quantity="other">Подивіться, як як ваші дні читання складається в одну картину Огляду року</item>
+    <item quantity="other">Подивіться, як ваші %1$d днів читання складаються в одну картину Огляду року</item>
   </plurals>
   <string name="create_account_encourage_year_in_review_description">Раз на рік ваші дні читання повертаються як погляд на те, куди вас привів рік — готовий для поширення.</string>
   <string name="create_account_encourage_saved_articles_title_zero">Синхронізуйте збережені статті</string>
@@ -251,7 +251,7 @@
     <item quantity="one">Синхронізуйте %1$d збережену статтю</item>
     <item quantity="few">Синхронізуйте %1$d збережені статті</item>
     <item quantity="many">Синхронізуйте %1$d збережених статей</item>
-    <item quantity="other">Синхронізуйте збережені статті</item>
+    <item quantity="other">Синхронізуйте %1$d збережених статей</item>
   </plurals>
   <string name="create_account_encourage_saved_articles_description">Увійдіть до свого облікового запису Вікіпедії, щоб дозволити синхронізацію збережених статей на різних пристроях.</string>
   <string name="create_account_encourage_activity_title_zero">Переглядайте нещодавно прочитане на вкладці «Активність»</string>
@@ -259,7 +259,7 @@
     <item quantity="one">Переглядайте %1$d нещодавно прочитане на вкладці «Активність»</item>
     <item quantity="few">Переглядайте %1$d нещодавно прочитані на вкладці «Активність»</item>
     <item quantity="many">Переглядайте %1$d нещодавно прочитаних на вкладці «Активність»</item>
-    <item quantity="other">Переглядайте нещодавно прочитане на вкладці «Активність»</item>
+    <item quantity="other">Переглядайте %1$d нещодавно прочитаних на вкладці «Активність»</item>
   </plurals>
   <string name="create_account_encourage_activity_description">Перегляньте час, витрачений на читання, досліджені теми та охоплення вашого внеску на вкладці «Активність».</string>
   <string name="create_account_encourage_edits_title">Отримайте визнання за свої редагування</string>
@@ -2073,7 +2073,7 @@
     <item quantity="one">Ваш найактивніший місяць — %1$s, ви читали %2$d день.</item>
     <item quantity="few">Ваш найактивніший місяць — %1$s, ви читали %2$d дні.</item>
     <item quantity="many">Ваш найактивніший місяць — %1$s, ви читали %2$d днів.</item>
-    <item quantity="other">Ваш найактивніший місяць — %1$s, ви читали %1$s днів.</item>
+    <item quantity="other">Ваш найактивніший місяць — %1$s, ви читали %2$d днів.</item>
   </plurals>
   <string name="yir_minutes_read_headline">Загальна кількість хвилин, витрачених на читання:</string>
   <string name="yir_minutes_read_supporting">%1$s Час летить, коли ви падаєте у кролячу нору.</string>
