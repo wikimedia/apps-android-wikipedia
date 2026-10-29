@@ -4,6 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.util.DateUtil
 import java.util.Date
 
@@ -58,6 +59,7 @@ class UserInfo : BlockInfo() {
 
         val watchEditedPagesByDefault get() = isExplicitOne(watchDefault)
         val optedInToFundraising get() = isExplicitOne(fundraisingOptIn)
+        val wikimediaDonorStatus get() = JsonUtil.decodeFromString<String>(wikimediaDonor).orEmpty()
 
         private fun isExplicitOne(element: JsonElement?) = element?.toString().orEmpty().replace("\"", "") == "1"
     }

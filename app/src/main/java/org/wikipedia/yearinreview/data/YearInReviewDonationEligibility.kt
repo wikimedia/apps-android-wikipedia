@@ -1,5 +1,7 @@
 package org.wikipedia.yearinreview.data
 
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
@@ -20,5 +22,11 @@ class YearInReviewDonationEligibility(
                 false
             }
         }
+    }
+
+    suspend fun getDonorStatusFromWeb(): Boolean {
+        val userInfo = ServiceFactory.get(WikiSite.forLanguageCode("en")).getUserInfo()
+        val donationStatus = userInfo.query?.userInfo?.options?.wikimediaDonorStatus
+        return !donationStatus.isNullOrEmpty() && donationStatus.toInt() >= 2
     }
 }
