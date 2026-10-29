@@ -35,7 +35,7 @@ class NotificationsExperimentAbTest : ABTest("trending-notifications-test-2", GR
     }
 
     fun isNotificationsExperimentEnabled(): Boolean {
-        return isTestGroupUser() && isNotificationsExperimentEligible() && Prefs.notificationsWeeklyMostReadScheduled
+        return isTestGroupUser() && isNotificationsExperimentEligible()
     }
 
     fun runIfEligible(function: () -> Unit) {
