@@ -28,7 +28,7 @@ jobs:
     - name: Generate templates
       working-directory: scripts
       run: python make-templates.py
-    - uses: peter-evans/create-pull-request@v7
+    - uses: peter-evans/create-pull-request@v8
       with:
         branch: automated/update-static-data
         delete-branch: true
