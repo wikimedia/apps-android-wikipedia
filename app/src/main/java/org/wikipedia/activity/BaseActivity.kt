@@ -136,11 +136,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                     val subType = when (notificationCategory) {
                         NotificationCategory.GAMES -> "game"
                         NotificationCategory.RECOMMENDED_READING_LISTS -> "discover"
+                        NotificationCategory.WEEKLY_MOST_READ -> "weekly_most_read"
                         else -> null
                     }
                     TestKitchenAdapter.client.getInstrument("apps-open")
                         .also { instrument ->
-                            if (notificationCategory == NotificationCategory.RECOMMENDED_READING_LISTS) {
+                            if (notificationCategory == NotificationCategory.WEEKLY_MOST_READ) {
                                 NotificationsExperimentAbTest().setExperimentIfEligible(instrument)
                             }
                         }

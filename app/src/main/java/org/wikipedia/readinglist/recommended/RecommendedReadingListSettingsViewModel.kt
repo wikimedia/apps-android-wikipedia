@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
