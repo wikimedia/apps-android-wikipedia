@@ -7,6 +7,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.baselineprofile)
 }
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
@@ -39,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 24
         targetSdk = 37
-        versionCode 50614
+        versionCode 50615
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -80,6 +81,12 @@ android {
             maybeCreate(name).java.srcDirs += 'src/extra/java'
             maybeCreate(name).kotlin.srcDirs += 'src/extra/java'
             maybeCreate(name).res.srcDirs += 'src/extra/res'
+        }
+
+        // The build types created by the Baseline Profile plugin are release builds, so give them the release-only sources.
+        ['nonMinifiedRelease', 'benchmarkRelease'].forEach { name ->
+            maybeCreate(name).java.srcDirs += 'src/release/java'
+            maybeCreate(name).kotlin.srcDirs += 'src/release/java'
         }
 
         maybeCreate('androidTest').assets.srcDirs += files("$projectDir/schemas".toString())
@@ -160,6 +167,17 @@ android {
 
 ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
+}
+
+// See baselineprofile/README.md for how the Baseline and Startup Profiles are generated and maintained.
+baselineProfile {
+    // Profiles are generated from a single flavor (alpha) and shared by all flavors, since the code is the same.
+    mergeIntoMain = true
+    saveInSrc = true
+    // Generating requires a device, so it must be run explicitly instead of during every release build.
+    automaticGenerationDuringBuild = false
+    // Uses the startup profile to put the classes needed at startup into the primary DEX file.
+    dexLayoutOptimization = true
 }
 
 apply from: '../gradle/src/ktlint.gradle'
@@ -255,6 +273,11 @@ dependencies {
 
     debugImplementation libs.leakcanary.android
     implementation libs.plumber.android
+
+    // Baseline and Startup Profiles: profileinstaller applies the profile on devices that don't
+    // get it from the Play Store, and the baselineprofile module generates the profile.
+    implementation libs.androidx.profileinstaller
+    baselineProfile project(':baselineprofile')
 
     testImplementation libs.junit
     testImplementation libs.mockk
