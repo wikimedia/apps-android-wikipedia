@@ -576,14 +576,14 @@ private fun YearInReviewBottomBar(
             Icon(
                 modifier = Modifier.size(20.dp),
                 painter = painterResource(R.drawable.ic_share),
-                tint = if (shareEnabled) Color.White else Color.White.copy(alpha = 0.5f),
+                tint = if (shareEnabled) Color.White else Color.Transparent,
                 contentDescription = null
             )
             Text(
                 modifier = Modifier.padding(start = 4.dp),
                 text = stringResource(R.string.menu_page_article_share),
                 style = MaterialTheme.typography.labelLarge,
-                color = if (shareEnabled) Color.White else Color.White.copy(alpha = 0.5f)
+                color = if (shareEnabled) Color.White else Color.Transparent
             )
         }
         if (showDonateButton) {
