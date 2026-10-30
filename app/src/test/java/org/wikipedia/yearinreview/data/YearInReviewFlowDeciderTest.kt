@@ -30,6 +30,7 @@ class YearInReviewFlowDeciderTest {
             YearInReviewPage.ArticlesRead(isEmptyState = false, count = 3, percentile = "", averageCount = YearInReviewConfig.fallbackConfig.averageArticlesReadPerYear),
             YearInReviewPage.Visits(days = 2, peakMonth = MonthVisitedDays(month = 1, visitedDays = 2)),
             YearInReviewPage.ReadingStreak(isEmptyState = true, longestStreak = 0, streakStartDate = "", streakEndDate = ""),
+            YearInReviewPage.ReadingPattern(isEmptyState = true, favoriteTime = null, favoriteTimePercentage = 0),
             YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all[0], totalArticles = 0, sampleArticles = emptyList()),
             YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
             YearInReviewPage.Geography(isEmptyState = true, countryCode = "", countryName = "", articleCount = 0),

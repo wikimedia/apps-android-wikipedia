@@ -96,6 +96,12 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
+    val readingPatternStatus get() = if (favoriteTimeOfDay != null && favoriteTimeOfDayPercentage > 0) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
     val topTopicsStatus get() = if (topTopic != null && topTopicTotalArticles >= 3) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
