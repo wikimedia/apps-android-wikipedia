@@ -1,9 +1,12 @@
 package org.wikipedia.notifications.experiment
 
+import android.Manifest
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.asFlow
@@ -42,6 +45,7 @@ object NotificationsExperimentHelper {
     private const val DAYS_IN_WEEK = 7
     private const val MAX_DAYS_TO_CHECK = 14
     private const val MAX_WEEKLY_MOST_READ_ARTICLES = 50
+    private const val NOTIFICATION_ID = 1003
 
     // Copied from the "*" deny list of the wikifeeds most-read endpoint, which is the one applied to English Wikipedia:
     // https://github.com/wikimedia/mediawiki-services-wikifeeds/blob/master/lib/most-read.js
@@ -120,6 +124,15 @@ object NotificationsExperimentHelper {
     }
 
     suspend fun showNotification(context: Context) {
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            return
+        }
+        val abTest = NotificationsExperimentAbTest()
+        if (!abTest.isNotificationsExperimentEnabled()) {
+            // Control users don't get the notification, but are exposed at the moment they would have received it.
+            abTest.maybeSendExposureEventIfEligible()
+            return
+        }
         val languageCode = WikipediaApp.instance.languageState.appLanguageCode
         val articles = getWeeklyMostRead(languageCode)
         val mostReadArticle = articles.firstOrNull() ?: return
@@ -127,8 +140,8 @@ object NotificationsExperimentHelper {
                 context.getString(R.string.notifications_experiment_weekly_most_read_notification_description, StringUtil.fromHtml(mostReadArticle.displayTitle).toString())
         val isNotificationPosted = NotificationPresenter.showNotification(
             context = context,
-            builder = NotificationPresenter.getDefaultBuilder(context, 1, notificationCategory = NotificationCategory.WEEKLY_MOST_READ),
-            id = 1,
+            builder = NotificationPresenter.getDefaultBuilder(context, NOTIFICATION_ID.toLong(), notificationCategory = NotificationCategory.WEEKLY_MOST_READ),
+            id = NOTIFICATION_ID,
             title = title,
             text = text,
             longText = null,
@@ -143,7 +156,7 @@ object NotificationsExperimentHelper {
             )
         )
         if (isNotificationPosted) {
-            NotificationsExperimentAbTest().maybeSendExposureEventIfEligible()
+            abTest.maybeSendExposureEventIfEligible()
         }
     }
 

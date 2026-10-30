@@ -30,6 +30,7 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
+import org.wikipedia.notifications.experiment.WeeklyMostReadNotificationWorker
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
@@ -112,11 +113,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 }
                 // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
                 NotificationsExperimentHelper.scheduleNotification(context, fromFiredAlarm = true)
-                MainScope().launch(CoroutineExceptionHandler { _, throwable ->
-                    L.w(throwable)
-                }) {
-                    NotificationsExperimentHelper.showNotification(context)
-                }
+                WeeklyMostReadNotificationWorker.enqueue(context)
             }
         }
     }
