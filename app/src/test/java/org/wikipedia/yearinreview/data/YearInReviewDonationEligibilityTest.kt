@@ -3,9 +3,19 @@ package org.wikipedia.yearinreview.data
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.donate.DonationResult
+import org.wikipedia.json.JsonUtil
 
 class YearInReviewDonationEligibilityTest {
+
+    private fun donationStatusFromWeb(donorStatus: String?): MwQueryResponse {
+        val options = donorStatus?.let { """"options": {"wikimedia-donor": $it}""" } ?: """"options": {}"""
+        return JsonUtil.json.decodeFromString(
+            """{"batchcomplete": true, "query": {"userinfo": {"id": 1, "name": "Test", $options}}}"""
+        )
+    }
+
     @Test
     fun `donation inside contribution period is eligible`() {
         val eligibility = YearInReviewDonationEligibility {
