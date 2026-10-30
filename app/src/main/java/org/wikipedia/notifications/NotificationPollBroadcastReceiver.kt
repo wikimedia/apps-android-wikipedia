@@ -28,6 +28,8 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
+import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
@@ -57,6 +59,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 // persist discover notification experiment alarm after reboot
                 if (Prefs.isRecommendedReadingListNotificationEnabled) {
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                }
+
+                // persist trending notification experiment alarm after reboot
+                if (Prefs.notificationsExperimentWeeklyMostReadScheduled) {
+                    NotificationsExperimentHelper.scheduleNotification(context, fromFiredAlarm = false)
                 }
             }
             ACTION_POLL == intent.action -> {
@@ -96,6 +103,20 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
                 RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
+            }
+
+            ACTION_WEEKLY_MOST_READ == intent.action -> {
+                if (!NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+                    NotificationsExperimentHelper.cancelNotification(context)
+                    return
+                }
+                // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
+                NotificationsExperimentHelper.scheduleNotification(context, fromFiredAlarm = true)
+                MainScope().launch(CoroutineExceptionHandler { _, throwable ->
+                    L.w(throwable)
+                }) {
+                    NotificationsExperimentHelper.showNotification(context)
+                }
             }
         }
     }
