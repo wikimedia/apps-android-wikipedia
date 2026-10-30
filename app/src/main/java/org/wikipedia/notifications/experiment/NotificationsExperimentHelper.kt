@@ -43,6 +43,63 @@ object NotificationsExperimentHelper {
     private const val MAX_DAYS_TO_CHECK = 14
     private const val MAX_WEEKLY_MOST_READ_ARTICLES = 50
 
+    // Copied from the "*" deny list of the wikifeeds most-read endpoint, which is the one applied to English Wikipedia:
+    // https://github.com/wikimedia/mediawiki-services-wikifeeds/blob/master/lib/most-read.js
+    private val MOST_READ_DENY_LIST = setOf(
+        "-",
+        "wiki.phtml",
+        "Test_card",
+        "Web_scraping",
+        "XHamster",
+        "Java_(programming_language)",
+        "Images/upload/bel.jpg",
+        "Superintelligence:_Paths,_Dangers,_Strategies",
+        "Okto",
+        "Proyecto_40",
+        "AMGTV",
+        "Lali_Espósito",
+        "La7",
+        "Vagina",
+        "کس", // mznwiki
+        "مقعد", // mznwiki
+        "Tobias_Sammet", // dewiki T238942
+        "Avantasia", // dewiki T238942
+        "Edguy", // dewiki T238942
+        "Pornhub", // dewiki T238942
+        "Index", // T327904
+        "Index_(statistics)",
+        "Index,_Washington",
+        "Index_(economics)",
+        "XXX:_Return_of_Xander_Cage",
+        "XXX_(film_series)",
+        "XXX_(2002_film)",
+        "Cookie_(informatique)",
+        "Nigger",
+        "nigger",
+        "YouTube",
+        "Cleopatra",
+        "Outlook.com",
+        "Sex",
+        ".xxx",
+        "XNXX",
+        "XVideos",
+        "XXXX_(beer)",
+        "XXXX",
+        "XXXX_Gold",
+        "XXXX_(album)",
+        "XXXX_Summer_Bright_Lager",
+        "XXXX_Panzer_Corps",
+        "XXX:_State_of_the_Union",
+        "XXXTentacion",
+        "X_(2022_film)",
+        "Super_Bowl_XXX",
+        "Murder_of_XXXTentacion",
+        "ChatGPT",
+        "Magic_cross_piercing",
+        "Ejaculation",
+        "Erection"
+    )
+
     fun scheduleNotification(context: Context, fromFiredAlarm: Boolean) {
         // Always cancel before scheduling a new one
         cancelNotification(context)
@@ -140,7 +197,7 @@ object NotificationsExperimentHelper {
         val rankedTitles = weeklyArticles
             .groupingBy { it.article }
             .fold(0L) { totalViews, entry -> totalViews + entry.views }
-            .filterKeys { it != mainPageTitle && it.substringBefore(':', "") !in nonArticleNamespaces }
+            .filterKeys { it != mainPageTitle && it !in MOST_READ_DENY_LIST && it.substringBefore(':', "") !in nonArticleNamespaces }
             .entries
             .sortedByDescending { it.value }
             .take(MAX_WEEKLY_MOST_READ_ARTICLES)
@@ -153,6 +210,8 @@ object NotificationsExperimentHelper {
         ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = rankedTitles.joinToString("|"))
             .query?.pages.orEmpty()
             .filter { it.pageId > 0 }
+            // Check again after redirects are resolved, in case a redirect points to a denied article.
+            .filterNot { StringUtil.addUnderscores(it.title) in MOST_READ_DENY_LIST }
             .distinctBy { it.pageId }
             // The API returns pages in its own order, with titles normalized and redirects resolved.
             .sortedBy { rankByTitle[StringUtil.addUnderscores(it.redirectFrom ?: it.title)] ?: Int.MAX_VALUE }
