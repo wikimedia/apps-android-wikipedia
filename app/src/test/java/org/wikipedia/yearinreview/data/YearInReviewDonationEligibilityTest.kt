@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview.data
 
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
@@ -22,8 +23,8 @@ class YearInReviewDonationEligibilityTest {
         put("timestamp", timestamp)
     }.toString()
 
-    private fun donationStatusFromWeb(donorStatus: String?): MwQueryResponse {
-        val options = donorStatus?.let { """"options": {"wikimedia-donor": ${JsonPrimitive(it)}}""" } ?: """"options": {}"""
+    private fun donationStatusFromWeb(donorPref: String?): MwQueryResponse {
+        val options = donorPref?.let { """"options": {"wikimedia-donor": ${JsonPrimitive(it)}}""" } ?: """"options": {}"""
         return JsonUtil.json.decodeFromString(
             """{"batchcomplete": true, "query": {"userinfo": {"id": 1, "name": "Test", $options}}}"""
         )
@@ -54,5 +55,59 @@ class YearInReviewDonationEligibilityTest {
         }
 
         assertFalse(eligibility.hasDonatedWithinContributionsDateRange(remoteConfig = null))
+    }
+
+    @Test
+    fun `web pref makes user a donor when there is no local donation`() = runBlocking {
+        val sampleData = donorPref(2)
+        val eligibility = YearInReviewDonationEligibility(
+            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = sampleData) },
+            isLoggedIn = { true }
+        ) { emptyList() }
+
+        assertTrue(eligibility.isDonor(remoteConfig = null))
+    }
+
+    @Test
+    fun `logged out user is not a donor even with a web donor value`() = runBlocking {
+        val sampleData = donorPref(3)
+        val eligibility = YearInReviewDonationEligibility(
+            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = sampleData) },
+            isLoggedIn = { false }
+        ) { emptyList() }
+
+        assertFalse(eligibility.isDonor(remoteConfig = null))
+    }
+
+    @Test
+    fun `contactable value 5 is not a donor`() = runBlocking {
+        val sampleData = donorPref(5)
+        val eligibility = YearInReviewDonationEligibility(
+            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = sampleData) },
+            isLoggedIn = { true }
+        ) { emptyList() }
+
+        assertFalse(eligibility.isDonor(remoteConfig = null))
+    }
+
+    @Test
+    fun `web pref returns blank but local donation exists`() = runBlocking {
+        val sampleData = ""
+        val eligibility = YearInReviewDonationEligibility(
+            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = sampleData) },
+            isLoggedIn = { true }
+        ) { listOf(DonationResult(dateTime = "2026-06-15T12:00:00")) }
+
+        assertTrue(eligibility.isDonor(remoteConfig = null))
+    }
+
+    @Test
+    fun `malformed web pref is not a donor`() = runBlocking {
+        val eligibility = YearInReviewDonationEligibility(
+            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = "{not json") },
+            isLoggedIn = { true }
+        ) { emptyList() }
+
+        assertFalse(eligibility.isDonor(remoteConfig = null))
     }
 }
