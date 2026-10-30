@@ -1,12 +1,20 @@
 package org.wikipedia.yearinreview.data
 
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.log.L
 import java.time.LocalDateTime
 import java.time.format.DateTimeParseException
 
 class YearInReviewDonationEligibility(
+    private val donationStatusFromWebProvider: suspend () -> MwQueryResponse = {
+        ServiceFactory.get(WikiSite.forLanguageCode("en")).getUserInfo() },
+    private val isLoggedIn: () -> Boolean = { AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount },
     private val donationResultsProvider: () -> List<DonationResult> = { Prefs.donationResults }
 ) {
     fun hasDonatedWithinContributionsDateRange(
@@ -20,5 +28,24 @@ class YearInReviewDonationEligibility(
                 false
             }
         }
+    }
+
+    suspend fun getDonorStatusFromWeb(): Boolean {
+        return isLoggedIn() && try {
+            val donationStatus = donationStatusFromWebProvider().query?.userInfo?.options?.wikimediaDonorStatus
+            donationStatus in DONOR_CODES
+        } catch (e: Exception) {
+            L.e(e)
+            false
+        }
+    }
+
+    suspend fun isDonor(remoteConfig: RemoteConfig.RemoteConfigYearInReview?): Boolean {
+        return getDonorStatusFromWeb() || hasDonatedWithinContributionsDateRange(remoteConfig)
+    }
+
+    companion object {
+        // TODO: Update set with appropriate codes
+        private val DONOR_CODES = setOf(1, 2, 3, 4)
     }
 }

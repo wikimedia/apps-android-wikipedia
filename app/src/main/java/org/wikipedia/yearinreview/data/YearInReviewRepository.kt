@@ -53,6 +53,7 @@ class YearInReviewRepositoryImpl(
             L.e("Using fallback remote configuration!")
         }
         val isDonationEligible = !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty())
+        val isDonor = donationEligibility.isDonor(remoteConfig)
 
         val cachedStats = cache.get(year)
         val readingStats = cachedStats?.readingStats ?: getReadingStats(YearInReviewConfig.insightsDateRange(remoteConfig))
@@ -78,7 +79,7 @@ class YearInReviewRepositoryImpl(
             readingStats = readingStats,
             editingStats = editingStats ?: YearInReviewEditingStats(),
             rewardData = YearInReviewRewardData(
-                isDonor = donationEligibility.hasDonatedWithinContributionsDateRange(remoteConfig),
+                isDonor = isDonor,
                 isEditor = (editingStats?.totalEditCount ?: 0) > 0
             )
         )
