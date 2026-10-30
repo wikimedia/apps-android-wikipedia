@@ -12,10 +12,10 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeParseException
 
 class YearInReviewDonationEligibility(
-    private val donationResultsProvider: () -> List<DonationResult> = { Prefs.donationResults },
     private val donationStatusFromWebProvider: suspend () -> MwQueryResponse = {
-        ServiceFactory.get(WikiSite.forLanguageCode("en")).getUserInfo()
-    }
+        ServiceFactory.get(WikiSite.forLanguageCode("en")).getUserInfo()},
+    private val isLoggedIn: () -> Boolean = { AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount },
+    private val donationResultsProvider: () -> List<DonationResult> = { Prefs.donationResults }
 ) {
     fun hasDonatedWithinContributionsDateRange(
         remoteConfig: RemoteConfig.RemoteConfigYearInReview?
@@ -31,7 +31,7 @@ class YearInReviewDonationEligibility(
     }
 
     suspend fun getDonorStatusFromWeb(): Boolean {
-        return AccountUtil.isLoggedIn && try {
+        return isLoggedIn() && try {
             val donationStatus = donationStatusFromWebProvider().query?.userInfo?.options?.wikimediaDonorStatus
             donationStatus in DONOR_CODES
         } catch (e: Exception) {

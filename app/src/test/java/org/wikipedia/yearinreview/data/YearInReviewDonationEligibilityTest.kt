@@ -3,7 +3,10 @@ package org.wikipedia.yearinreview.data
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.donate.DonationResult
+import org.wikipedia.json.JsonUtil
+import org.wikipedia.yearinreview.data.YearInReviewDonationEligibility
 
 class YearInReviewDonationEligibilityTest {
     @Test
