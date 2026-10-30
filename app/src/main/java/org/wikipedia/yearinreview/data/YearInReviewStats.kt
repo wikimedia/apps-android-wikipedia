@@ -102,7 +102,7 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
-    val topTopicsStatus get() = if (topTopic != null && topTopicTotalArticles >= 3) {
+    val topTopicsStatus get() = if (topTopic != null && topTopicTotalArticles >= 3 && articlesReadCount >= 5) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
