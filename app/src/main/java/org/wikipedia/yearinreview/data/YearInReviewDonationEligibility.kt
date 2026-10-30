@@ -46,6 +46,6 @@ class YearInReviewDonationEligibility(
 
     companion object {
         // TODO: Update set with appropriate codes
-        private val DONOR_CODES = setOf(2, 4, 6, 12, 14, 16, 20, 25, 30, 35)
+        private val DONOR_CODES = setOf(1, 2, 3, 4)
     }
 }
