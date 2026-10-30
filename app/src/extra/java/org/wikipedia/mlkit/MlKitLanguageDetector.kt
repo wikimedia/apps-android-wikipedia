@@ -39,4 +39,9 @@ class MlKitLanguageDetector {
                     }
                 }
     }
+
+    fun close() {
+        languageIdentifier?.close()
+        languageIdentifier = null
+    }
 }

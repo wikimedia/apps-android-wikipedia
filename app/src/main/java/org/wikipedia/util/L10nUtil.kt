@@ -60,10 +60,7 @@ object L10nUtil {
             return context.getString(resId, *formatArgs)
         }
         setDesiredLocale(config, targetLocale)
-        val str = context.createConfigurationContext(config).resources.getString(resId, *formatArgs)
-        config.setLocale(systemLocale)
-        context.createConfigurationContext(config)
-        return str
+        return context.createConfigurationContext(config).resources.getString(resId, *formatArgs)
     }
 
     private fun getDesiredLocale(desiredLocale: Locale): Locale {

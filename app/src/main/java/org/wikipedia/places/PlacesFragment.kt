@@ -111,7 +111,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private var mapboxMap: MapLibreMap? = null
     private var symbolManager: SymbolManager? = null
 
-    private val annotationCache = ArrayDeque<NearbyPage>()
+    private val annotationCache = ArrayDeque<PlaceMarker>()
     private var lastCheckedId = R.id.mapViewButton
     private var lastLocation: Location? = null
     private var lastLocationQueried: Location? = null
@@ -363,16 +363,16 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     PlacesEvent.logAction("marker_click", "map_view")
-                    annotationCache.find { it.annotation == symbol }?.let {
+                    annotationCache.find { it.symbol == symbol }?.let {
                         val location = Location("").apply {
                             latitude = symbol.latLng.latitude
                             longitude = symbol.latLng.longitude
                         }
                         resetMagnifiedSymbol()
-                        setMagnifiedSymbol(it.annotation)
-                        viewModel.highlightedPageTitle = it.pageTitle
-                        symbolManager?.update(it.annotation)
-                        showLinkPreview(it.pageTitle, location)
+                        setMagnifiedSymbol(it.symbol)
+                        viewModel.highlightedPageTitle = it.page.pageTitle
+                        symbolManager?.update(it.symbol)
+                        showLinkPreview(it.page.pageTitle, location)
                     }
                     true
                 }
@@ -590,27 +590,27 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         symbolManager?.let { manager ->
 
             pages.filter {
-                annotationCache.find { item -> item.pageId == it.pageId } == null
+                annotationCache.find { item -> item.page.pageId == it.pageId } == null
             }.forEach {
-                it.annotation = manager.create(
+                val symbol = manager.create(
                     SymbolOptions()
                         .withLatLng(LatLng(it.latitude, it.longitude))
                         .withTextFont(MARKER_FONT_STACK)
                         .withIconImage(MARKER_DRAWABLE)
                 )
                 if (viewModel.highlightedPageTitle?.prefixedText.orEmpty() == it.pageTitle.prefixedText) {
-                    setMagnifiedSymbol(it.annotation)
+                    setMagnifiedSymbol(symbol)
                 }
-                annotationCache.addFirst(it)
-                manager.update(it.annotation)
+                annotationCache.addFirst(PlaceMarker(it, symbol))
+                manager.update(symbol)
 
                 queueImageForAnnotation(it)
 
                 if (annotationCache.size > MAX_ANNOTATIONS) {
                     val removed = annotationCache.removeLast()
-                    manager.delete(removed.annotation)
-                    if (!removed.pageTitle.thumbUrl.isNullOrEmpty()) {
-                        mapboxMap?.style?.removeImage(removed.pageTitle.thumbUrl!!)
+                    manager.delete(removed.symbol)
+                    if (!removed.page.pageTitle.thumbUrl.isNullOrEmpty()) {
+                        mapboxMap?.style?.removeImage(removed.page.pageTitle.thumbUrl!!)
                     }
                 }
             }
@@ -686,16 +686,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 if (!isAdded) {
                     return@loadImage
                 }
-                annotationCache.find { it.pageId == page.pageId }?.let {
+                annotationCache.find { it.page.pageId == page.pageId }?.let {
                     val bmp = getMarkerBitmap(bitmap, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint)
-                    it.bitmap = bmp
-
                     mapboxMap?.style?.addImage(url, bmp.toDrawable(resources))
 
-                    it.annotation?.let { annotation ->
-                        annotation.iconImage = url
-                        symbolManager?.update(annotation)
-                    }
+                    it.symbol.iconImage = url
+                    symbolManager?.update(it.symbol)
                 }
             }
         )
@@ -736,6 +732,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
         return false
     }
+
+    private class PlaceMarker(val page: NearbyPage, val symbol: Symbol)
 
     private inner class RecyclerViewAdapter(val nearbyPages: List<NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
         override fun getItemCount(): Int {

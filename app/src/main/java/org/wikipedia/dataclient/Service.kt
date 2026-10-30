@@ -85,7 +85,7 @@ interface Service {
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("gsroffset") gsrOffset: Int?,
-        @Query("cirrusSemanticSearch") isSemantic: Boolean? = null
+        @Query("cirrusSemanticSearch") semanticSearchType: String? = null
     ): Response<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")

@@ -115,7 +115,7 @@ fun NewsItemContent(
                         .align(Alignment.BottomStart)
                         .fillMaxWidth()
                         .padding(32.dp),
-                    text = StringUtil.fromHtml(removeItalicParenthetical(newsItem.story)).toString(),
+                    text = StringUtil.fromHtml(newsItem.story).toString(),
                     color = Color.White,
                     style = MaterialTheme.typography.bodyMedium,
                     maxLines = 8,
@@ -132,7 +132,7 @@ fun NewsItemContent(
                         .padding(16.dp)
                 ) {
                     Text(
-                        text = StringUtil.fromHtml(removeItalicParenthetical(newsItem.story)).toString(),
+                        text = StringUtil.fromHtml(newsItem.story).toString(),
                         color = WikipediaTheme.colors.primaryColor,
                         style = MaterialTheme.typography.bodyMedium,
                         maxLines = 4,
@@ -142,10 +142,6 @@ fun NewsItemContent(
             }
         }
     }
-}
-
-private fun removeItalicParenthetical(text: String): String {
-    return text.replace("<i.*?>(.*?)</i>".toRegex(), "")
 }
 
 @Preview(showBackground = true)

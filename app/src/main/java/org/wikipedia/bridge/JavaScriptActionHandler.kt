@@ -2,6 +2,7 @@ package org.wikipedia.bridge
 
 import android.content.Context
 import kotlinx.serialization.Serializable
+import org.json.JSONObject
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -202,6 +203,16 @@ object JavaScriptActionHandler {
                 "var elements = document.getElementsByTagName('audio');" +
                 "for(i=0; i<elements.length; i++) elements[i].pause();" +
                 "})();"
+    }
+
+    fun jumpToHighlightOrSection(headingId: String?, highlightText: String?, scroll: Boolean = true): String {
+        val highlight = highlightText?.let { JSONObject.quote(it) } ?: "null"
+        val section = headingId?.let { JSONObject.quote(it) } ?: "null"
+        return "pcs.c1.Highlight.jumpToHighlightOrSection($highlight, $section, { scroll: $scroll })"
+    }
+
+    fun clearHighlight(): String {
+        return "pcs.c1.Highlight.clearHighlight()"
     }
 
     @Serializable

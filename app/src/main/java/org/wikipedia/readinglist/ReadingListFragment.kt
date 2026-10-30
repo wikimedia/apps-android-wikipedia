@@ -80,7 +80,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.util.Date
 import java.util.Locale
 
@@ -273,7 +272,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 binding.readingListSwipeRefresh.isVisible = true
                                 binding.readingListSwipeRefresh.isRefreshing = false
                                 update()
-                                YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListCreated = true) }
                                 viewModel.saveReadingList(it.data)
                             }
                             is Resource.Error -> {
@@ -823,15 +821,15 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
                 ContextCompat.checkSelfPermission(requireActivity(), permission) == PackageManager.PERMISSION_GRANTED -> {
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
                     Prefs.isRecommendedReadingListNotificationEnabled = true
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
                     update()
                 }
                 else -> (requireActivity() as ReadingListActivity).requestPermissionLauncher.launch(permission)
             }
         } else {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
             Prefs.isRecommendedReadingListNotificationEnabled = true
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
             update()
         }
     }

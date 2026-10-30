@@ -43,7 +43,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.NewRecommendedReadingListEvent
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.model.BasedOnInterestCard
 import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
@@ -55,7 +54,6 @@ import org.wikipedia.feed.model.FeaturedArticleCard
 import org.wikipedia.feed.model.FeaturedImageCard
 import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.model.GamesModulePromptCard
-import org.wikipedia.feed.model.NewWithinInterestCard
 import org.wikipedia.feed.model.NewsCard
 import org.wikipedia.feed.model.OnThisDayCard
 import org.wikipedia.feed.model.PlacesOfInterestCard
@@ -119,16 +117,6 @@ sealed class ForYouModule {
     ) : ForYouModule() {
         override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModuleType.BASED_ON_INTEREST.name
-    }
-
-    @Serializable
-    data class NewWithinInterest(
-        override val age: Int,
-        override val index: Int,
-        override val cards: List<ForYouCard>
-    ) : ForYouModule() {
-        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModuleType.NEW_WITHIN_INTEREST.name
     }
 
     @Serializable
@@ -701,21 +689,6 @@ class HomeViewModel : ViewModel() {
                 }
             }
 
-            if (NewWithinInterestABTest().isTestActive()) {
-                NewWithinInterestABTest().maybeSendExposureEvent()
-            }
-            val newWithinInterestTopics = if (NewWithinInterestABTest().isTestActive() && NewWithinInterestABTest().isTestGroupUser())
-                AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(4)
-            else emptyList()
-            val newWithinInterestTopicCalls = newWithinInterestTopics.map { topic ->
-                async(Dispatchers.IO) {
-                    val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-                    val titles = InterestSelectionRepository.getNewArticlesWithinTopic(currentWikiSite, articleTopic?.queryTopicId ?: topic.topicId).take(4)
-                    listOf(NewWithinInterestCard(titles, interestTopic = topic))
-                        .filterNot { it.titles.isEmpty() || hiddenCards.contains(it.hideKey) }
-                }
-            }
-
             val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(languageCode).take(5)
             val interestArticleCalls = interestArticles.map { article ->
                 async(Dispatchers.IO) {
@@ -820,13 +793,16 @@ class HomeViewModel : ViewModel() {
 
             // -- Read aloud lead section --
 
-            if (ReadAloudLeadSectionABTest().isTestActive() &&
-                ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
-                ReadAloudLeadSectionABTest().maybeSendExposureEvent()
+            val readAloudLeadSectionTest = ReadAloudLeadSectionABTest()
+            if (readAloudLeadSectionTest.isTestActive() &&
+                ReadAloudArticlesRepository.isSupported(currentWikiSite) &&
+                AppDatabase.instance.topicInterestDao().hasAnyTopics()) {
+                readAloudLeadSectionTest.maybeSendExposureEvent()
             }
+
             val readAloudDeferred = async(Dispatchers.IO) {
-                if (!ReadAloudLeadSectionABTest().isTestActive() ||
-                    !ReadAloudLeadSectionABTest().isTestGroupUser() ||
+                if (!readAloudLeadSectionTest.isTestActive() ||
+                    !readAloudLeadSectionTest.isTestGroupUser() ||
                     !ReadAloudArticlesRepository.isSupported(currentWikiSite)) {
                     return@async emptyList()
                 }
@@ -892,11 +868,6 @@ class HomeViewModel : ViewModel() {
                 if (!hiddenCards.contains(randomCard.hideKey)) {
                     // The index for this module is always 0 because there is always a single instance of this module, per age.
                     modules.add(ForYouModule.Random(age, 0, listOf(randomCard)))
-                }
-            }
-            newWithinInterestTopicCalls.awaitAll().filter { it.isNotEmpty() }.flatten().let { entries ->
-                if (entries.isNotEmpty()) {
-                    modules.add(ForYouModule.NewWithinInterest(age, 0, entries))
                 }
             }
         }

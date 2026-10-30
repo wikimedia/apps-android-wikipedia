@@ -12,7 +12,6 @@ import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.databinding.DialogAppIconBinding
 import org.wikipedia.databinding.ItemAppIconBinding
@@ -34,11 +33,9 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
         }
         binding.appIconRecyclerView.adapter = AppIconAdapter(LauncherIcon.entries).apply {
             onItemClickListener = { icon ->
-                val eventAction = if (icon == LauncherIcon.DEFAULT) "icon_deactivate_click" else "icon_activate_click"
-                YearInReviewEvent.submit(action = eventAction, slide = "setting")
                 Prefs.selectedAppIcon = icon.key
                 LauncherController.setIcon(icon)
-                AppShortcuts.setShortcuts(requireContext())
+                AppShortcuts.setShortcuts(requireContext().applicationContext)
                 dismiss()
                 Toast.makeText(requireActivity(), R.string.settings_app_icon_updated, Toast.LENGTH_SHORT).show()
             }
