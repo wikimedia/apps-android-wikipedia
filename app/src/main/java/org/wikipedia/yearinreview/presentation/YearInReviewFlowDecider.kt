@@ -2,8 +2,10 @@ package org.wikipedia.yearinreview.presentation
 
 import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.DateUtil
 import org.wikipedia.yearinreview.data.YearInReviewInsightStatus
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
+import java.time.LocalDate
 import kotlin.time.Duration.Companion.minutes
 
 object YearInReviewFlowDecider {
@@ -65,6 +67,26 @@ object YearInReviewFlowDecider {
                 YearInReviewPage.Visits(
                     days = readingStats.visitedDaysCount,
                     peakMonth = if (readingStats.hasPeakMonth) MonthVisitedDays(readingStats.peakMonth, readingStats.peakMonthVisitedDays) else null
+                )
+            },
+            CandidatePage(status = readingStats.totalReadingStatus) {
+                YearInReviewPage.TimeSpent(
+                    duration = readingStats.totalTimeSpentSec
+                )
+            },
+            CandidatePage(status = readingStats.streakStatus) {
+                YearInReviewPage.ReadingStreak(
+                    isEmptyState = readingStats.streakStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    longestStreak = readingStats.longestStreakDays,
+                    streakStartDate = if (readingStats.streakStatus != YearInReviewInsightStatus.EMPTY_STATE) DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.longestStreakStartMonth, readingStats.longestStreakStartDay)) else "",
+                    streakEndDate = if (readingStats.streakStatus != YearInReviewInsightStatus.EMPTY_STATE) DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.longestStreakEndMonth, readingStats.longestStreakEndDay)) else ""
+                )
+            },
+            CandidatePage(status = readingStats.readingPatternStatus) {
+                YearInReviewPage.ReadingPattern(
+                    isEmptyState = readingStats.readingPatternStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    favoriteTime = readingStats.favoriteTimeOfDay,
+                    favoriteTimePercentage = readingStats.favoriteTimeOfDayPercentage
                 )
             },
             CandidatePage(status = readingStats.topTopicsStatus) {
