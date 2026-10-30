@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
@@ -89,6 +90,8 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     },
                     onNotificationStateChanged = {
                         RecommendedReadingListEvent.submit(if (it) "notifs_on_click" else "notifs_off_click", "discover_settings")
+                        TestKitchenAdapter.client.getInstrument("apps-notifications")
+                            .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "settings", elementId = if (it) "notification_on" else "notification_off")
                         if (it) {
                             requestPermissionAndScheduleRecommendedReadingNotification()
                         } else {
@@ -104,7 +107,9 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         }
                         RecommendedReadingListEvent.submit("update_${frequencyForEvent}_click", "discover_settings")
                         viewModel.updateFrequency(it)
-                        requestPermissionAndScheduleRecommendedReadingNotification()
+                        if (Prefs.isRecommendedReadingListNotificationEnabled) {
+                            requestPermissionAndScheduleRecommendedReadingNotification()
+                        }
                     },
                     onArticleNumberChanged = {
                         RecommendedReadingListEvent.submit("article_count_click", "discover_settings", countSaved = it)
@@ -133,8 +138,8 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
 
     override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
         if (isGranted) {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
             viewModel.toggleNotification(true)
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
         } else {
             viewModel.toggleNotification(false)
         }
@@ -145,14 +150,14 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
                 ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED -> {
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
                     viewModel.toggleNotification(true)
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
                 }
                 else -> requestPermissionLauncher.launch(permission)
             }
         } else {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
             viewModel.toggleNotification(true)
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
         }
     }
 

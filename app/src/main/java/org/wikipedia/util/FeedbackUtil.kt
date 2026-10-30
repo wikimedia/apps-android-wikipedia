@@ -35,7 +35,6 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.edithistory.EditHistoryListActivity
-import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
@@ -53,9 +52,9 @@ object FeedbackUtil {
 
     fun showError(activity: Activity, e: Throwable, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
         val error = ThrowableUtil.getAppError(activity, e)
-        makeSnackbar(activity, error.error, wikiSite = wikiSite).also {
-            if (error.error.length > 200) {
-                it.duration = Snackbar.LENGTH_INDEFINITE
+        val isIndefinite = error.error.length > 200
+        makeSnackbar(activity, error.error, duration = if (isIndefinite) Snackbar.LENGTH_INDEFINITE else LENGTH_DEFAULT, wikiSite = wikiSite).also {
+            if (isIndefinite) {
                 it.setAction(android.R.string.ok) { _ ->
                     it.dismiss()
                 }
@@ -149,6 +148,10 @@ object FeedbackUtil {
         val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
+        if (duration == Snackbar.LENGTH_INDEFINITE) {
+            // For indefinite snackbars, allow the user to select and copy text.
+            textView.setTextIsSelectable(true)
+        }
         return snackbar
     }
 
@@ -296,7 +299,6 @@ object FeedbackUtil {
         val viewId = when (activity) {
             is MainActivity -> R.id.fragment_main_coordinator
             is PageActivity -> R.id.fragment_page_coordinator
-            is RandomActivity -> R.id.random_coordinator_layout
             is ReadingListActivity -> R.id.fragment_reading_list_coordinator
             is SuggestionsActivity -> R.id.suggestedEditsCardsCoordinator
             is EditHistoryListActivity -> R.id.edit_history_coordinator

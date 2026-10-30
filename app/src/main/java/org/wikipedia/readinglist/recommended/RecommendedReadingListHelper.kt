@@ -1,11 +1,14 @@
 package org.wikipedia.readinglist.recommended
 
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.serialization.Serializable
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.NewRecommendedReadingListEvent
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.settings.Prefs
@@ -15,6 +18,7 @@ object RecommendedReadingListHelper {
 
     private const val SUGGESTION_REQUEST_ITEMS = 50
     private const val MAX_RETRIES = 10
+    private val mutex = Mutex()
 
     suspend fun readyToGenerateList(): Boolean {
         if (!Prefs.isRecommendedReadingListEnabled || Prefs.recommendedReadingListArticlesNumber <= 0) {
@@ -42,6 +46,12 @@ object RecommendedReadingListHelper {
     }
 
     suspend fun generateRecommendedReadingList(shouldExpireOldPages: Boolean = false): List<RecommendedPage> {
+        return mutex.withLock {
+            generateRecommendedReadingListInternal(shouldExpireOldPages)
+        }
+    }
+
+    private suspend fun generateRecommendedReadingListInternal(shouldExpireOldPages: Boolean): List<RecommendedPage> {
         if (!readyToGenerateList()) {
             return emptyList()
         }
@@ -55,8 +65,16 @@ object RecommendedReadingListHelper {
         }
 
         // Check if amount of new articles to see if we really need to generate a new list
-        val existingRecommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
+        val existingRecommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages().distinctBy { it.lang to it.apiTitle }
         if (existingRecommendedPages.size >= numberOfArticles) {
+            // Notifications experiment: the cached list skips the seed save at the end of generation,
+            // so seed here if there isn't one yet (e.g. users enrolled before their first experiment notification).
+            if (Prefs.notificationsExperimentDiscoverSource == null && NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) {
+                saveNotificationsExperimentDiscoverSource(
+                    getTitlesFromSource(Prefs.recommendedReadingListSource, 1),
+                    previousTitle = null
+                )
+            }
             return existingRecommendedPages.take(numberOfArticles)
         } else {
             // If the number of articles is less than the number of new articles, adjust the number of articles
@@ -64,26 +82,14 @@ object RecommendedReadingListHelper {
         }
 
         // Step 1: get titles from the source by number of articles
-        val titles = when (Prefs.recommendedReadingListSource) {
-            RecommendedReadingListSource.INTERESTS -> {
-                Prefs.recommendedReadingListInterests.shuffled().take(numberOfArticles)
-            }
-            RecommendedReadingListSource.READING_LIST -> {
-                AppDatabase.instance.readingListPageDao().getPagesByRandom(numberOfArticles).map {
-                    PageTitle(it.apiTitle, it.wiki).apply {
-                        namespace = it.namespace.name
-                        displayText = it.displayTitle
-                        description = it.description
-                        thumbUrl = it.thumbUrl
-                    }
-                }
-            }
-            RecommendedReadingListSource.HISTORY -> {
-                AppDatabase.instance.historyEntryDao().getHistoryEntriesByRandom(numberOfArticles).map {
-                    it.title
-                }
-            }
-        }.distinctBy { it.prefixedText }
+        var titles = getTitlesFromSource(Prefs.recommendedReadingListSource, numberOfArticles)
+        val sourceTitles = titles
+
+        // Notifications experiment: Add seed article to the list of titles
+        val notificationSource = if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) Prefs.notificationsExperimentDiscoverSource else null
+        notificationSource?.let { seed ->
+            titles = (listOf(seed.title) + titles).distinctBy { it.prefixedText }.take(numberOfArticles)
+        }
 
         // If no titles are found, return an empty list
         if (titles.isEmpty()) {
@@ -114,11 +120,11 @@ object RecommendedReadingListHelper {
         // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
         // and update the offset everytime when re-query the API.
         sourcesWithOffset.forEach { sourceWithOffset ->
-            var recommendedPages = mutableListOf<PageTitle>()
+            val recommendedPages = mutableListOf<PageTitle>()
             var retryCount = 0
             var offset = sourceWithOffset.offset
             while ((recommendedPages.isEmpty() || recommendedPages.size < defaultTakeSize) && retryCount < MAX_RETRIES) {
-                recommendedPages.addAll(getRecommendedPage(sourceWithOffset, offset, defaultTakeSize))
+                recommendedPages.addAll(getRecommendedPage(sourceWithOffset, offset, defaultTakeSize, recommendedPages))
 
                 // Bump the offset if the size of the list does not meet the default take size.
                 if (recommendedPages.isEmpty() || recommendedPages.size < defaultTakeSize) {
@@ -138,7 +144,8 @@ object RecommendedReadingListHelper {
                     apiTitle = it.prefixedText,
                     displayTitle = it.displayText,
                     description = it.description,
-                    thumbUrl = it.thumbUrl
+                    thumbUrl = it.thumbUrl,
+                    extract = it.extract
                 )
 
                 // Insert the recommended page into the database
@@ -150,7 +157,7 @@ object RecommendedReadingListHelper {
         // Update the offset for the sources in the preferences
         Prefs.recommendedReadingListSourceTitlesWithOffset = originalSourceTitlesWithOffset + sourcesWithOffset
 
-        val finalList = (newRecommendedPages + existingRecommendedPages).distinct().toMutableList()
+        val finalList = (newRecommendedPages + existingRecommendedPages).toMutableList()
 
         // Step 5: if the list is empty or nothing new, we can get the expired pages from the database
         if (finalList.size < Prefs.recommendedReadingListArticlesNumber) {
@@ -166,10 +173,11 @@ object RecommendedReadingListHelper {
         }
         Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
+        saveNotificationsExperimentDiscoverSource(sourceTitles, notificationSource?.title)
         return finalList.shuffled().take(Prefs.recommendedReadingListArticlesNumber)
     }
 
-    private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int, takeSize: Int): List<PageTitle> {
+    private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int, takeSize: Int, alreadyPicked: List<PageTitle>): List<PageTitle> {
         val wikiSite = WikiSite.forLanguageCode(sourceWithOffset.language)
         val moreLikeResponse = ServiceFactory.get(wikiSite).searchMoreLike(
             searchTerm = "morelike:${sourceWithOffset.title}",
@@ -186,12 +194,50 @@ object RecommendedReadingListHelper {
                     displayText = page.displayTitle(wikiSite.languageCode)
                     description = page.description
                     thumbUrl = page.thumbUrl()
+                    extract = page.extract
                 }
-            }.filter {
-                AppDatabase.instance.recommendedPageDao()
-                    .findIfAny(apiTitle = it.prefixedText, wiki = wikiSite) == 0
+            }.filter { title ->
+                // Pages picked earlier in this loop are not inserted into the database yet, and search
+                // results can shift between offsets, so the same page may show up again.
+                alreadyPicked.none { it.prefixedText == title.prefixedText } &&
+                        AppDatabase.instance.recommendedPageDao()
+                            .findIfAny(apiTitle = title.prefixedText, wiki = wikiSite) == 0
             }.take(takeSize)
         return firstRecommendedPage
+    }
+
+    private suspend fun getTitlesFromSource(source: RecommendedReadingListSource, numberOfArticles: Int): List<PageTitle> {
+        return when (source) {
+            RecommendedReadingListSource.INTERESTS -> {
+                Prefs.recommendedReadingListInterests.shuffled().take(numberOfArticles)
+            }
+            RecommendedReadingListSource.READING_LIST -> {
+                AppDatabase.instance.readingListPageDao().getPagesByRandom(numberOfArticles).map {
+                    PageTitle(it.apiTitle, it.wiki).apply {
+                        namespace = it.namespace.name
+                        displayText = it.displayTitle
+                        description = it.description
+                        thumbUrl = it.thumbUrl
+                    }
+                }
+            }
+            RecommendedReadingListSource.HISTORY -> {
+                AppDatabase.instance.historyEntryDao().getHistoryEntriesByRandom(numberOfArticles).map {
+                    it.title
+                }
+            }
+        }.distinctBy { it.prefixedText }
+    }
+
+    private fun saveNotificationsExperimentDiscoverSource(titles: List<PageTitle>, previousTitle: PageTitle?) {
+        if (!NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) {
+            return
+        }
+        // Prevent reuse of the same article notification
+        val nextTitle = titles.firstOrNull { it.prefixedText != previousTitle?.prefixedText } ?: titles.firstOrNull()
+        Prefs.notificationsExperimentDiscoverSource = nextTitle?.let {
+            NotificationsExperimentDiscoverSource(it, Prefs.recommendedReadingListSource)
+        }
     }
 }
 
@@ -200,4 +246,10 @@ class SourceWithOffset(
     val title: String,
     val language: String,
     var offset: Int
+)
+
+@Serializable
+class NotificationsExperimentDiscoverSource(
+    val title: PageTitle,
+    val source: RecommendedReadingListSource
 )

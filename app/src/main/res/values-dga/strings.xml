@@ -490,9 +490,9 @@
     <item quantity="one">%d ba iri la aatekele a yi a yoe poɔ</item>
     <item quantity="other">%d ba iri la aatekelehi yi a yoe poɔ</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ba iri la aatekele a yi %s</item>
-    <item quantity="other">%d ba iri la aatekelehi a yi %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d ba iri la aatekele a yi %2$s</item>
+    <item quantity="other">%1$d ba iri la aatekelehi a yi %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d ba sãâ la gane yoe bare</item>
@@ -507,7 +507,7 @@
   <string name="reading_lists_item_deleted">%s iri yi a yoe poɔ</string>
   <string name="reading_list_item_delete_undo">Leɛ iri a toma na bare</string>
   <string name="reading_list_deleted">%s iri barɛɛŋ</string>
-  <string name="saved_list_empty_title">Gampɛle zaa ba biŋ soŋ sɛre</string>
+  <string name="saved_list_empty_title" fuzzy="true">Gampɛle zaa ba biŋ soŋ sɛre</string>
   <string name="reading_lists_empty_message">De atekele paale pɛll na kanne a puoriŋ, ka fõõ gba ba wa be saseɛŋ.</string>
   <string name="reading_list_empty">Fo ba taa atekele na poɛ a pɛll ŋa.</string>
   <string name="reading_list_article_offline">Bebe la saseɛ kpinnaa eŋɛ</string>
@@ -523,7 +523,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ko la be saseɛ kpinnaa poɔ ko pɛll kannaa zaa:</string>
   <string name="reading_lists_sync_reminder_title">Nyige kannoo pɛll tɔraa?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Atekele naŋ biŋ fo kannoo pɛll na baŋ tage gaa la fo wikipiideɛ die daga pampana. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Kannoo pɛll na baŋ tɔre kpɛ la taa e boŋyeni pampana mansiŋ yaga eŋɛ. Yuo fo wikipiideɛ die daga kpɛ a bare sori ko fo pɛll ka o na biŋ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;zanne yɛlɛ yaga&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Eŋ tɔre ka a e boŋyeni</string>
   <string name="reading_list_login_reminder_title">E ka kannoo pɛllɛ kpɛtaa</string>
   <string name="reading_lists_login_reminder_text">Kannoo pɛll na baŋ tɔre kpɛ la taa e boŋyeni pampana mansiŋ yaga eŋɛ. Yuo fo wikipiideɛ die daga kpɛ a bare fo pɛll sori ka o na biŋ.</string>
@@ -566,7 +565,6 @@
   <string name="reading_lists_menu_import_list">de yoe yiniŋ</string>
   <string name="reading_lists_menu_sort_by">ŋmaa ne...</string>
   <string name="reading_lists_refresh_sync_option">Iriferɛse e ka a kpɛtaa</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kpɛ/maale kyɛ kpɛ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">This article will now be available offline.</item>
     <item quantity="other">A atekele ama na be la ba be saseɛŋ pampana.</item>
@@ -780,11 +778,11 @@
   <string name="feed_item_type_main_page">Wikipiideɛ meŋɛ peegyi zu ne bebiri zaa bɔgere kaa iraa</string>
   <string name="feed_item_type_randomizer">Yine bonne iri atekele na kanne</string>
   <string name="feed_item_type_suggested_edits">Yelteɛre na poɔ yelbulo wikipiideɛ poɔ</string>
-  <string name="feed_empty_message">Bone zaa kye a fo weɛre bɔ duoro eŋɛ</string>
+  <string name="feed_empty_message" fuzzy="true">Bone zaa kye a fo weɛre bɔ duoro eŋɛ</string>
   <string name="feed_configure_onboarding_action">Mɛ ka o kpɛ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Tɔɔ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Ŋmaa o</string>
-  <string name="feed_configure_onboarding_text">&lt;kpeɛŋaa&gt;sɛgere iri fo duori peɛre boɔre&lt;/kpeɛŋaa&gt;&lt;br /&gt;&lt;br /&gt;Fo na baŋ kaa iri la pampana bone naŋ na sãã fo duori poɔ, ane meŋ kaa iri fo bɔgere boɔre parɛɛ yi a nimizeɛ naŋ seŋ lɛ ko fo.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;kpeɛŋaa&gt;sɛgere iri fo duori peɛre boɔre&lt;/kpeɛŋaa&gt;&lt;br /&gt;&lt;br /&gt;Fo na baŋ kaa iri la pampana bone naŋ na sãã fo duori poɔ, ane meŋ kaa iri fo bɔgere boɔre parɛɛ yi a nimizeɛ naŋ seŋ lɛ ko fo.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Tɔɔ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ŋmaa o</string>
   <string name="feed_accessibility_card_text">Fo tɔ la a duoro pare baara.</string>

@@ -8,6 +8,7 @@ import org.wikimedia.testkitchen.context.InteractionData
 import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.event.Event
+import org.wikimedia.testkitchen.instrument.ExperimentImpl
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -65,13 +66,22 @@ class TestKitchenClient(
         submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE, instrument, interactionData, pageData, mediawikiData)
     }
 
-    fun submitInteraction(
+    fun submitExperimentExposure(
+        experiment: ExperimentImpl
+    ) {
+        submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE,
+            interactionData = InteractionData(action = "experiment_exposure"),
+            experiment = experiment)
+    }
+
+    private fun submitInteraction(
         schemaName: String,
         streamName: String,
-        instrument: InstrumentImpl,
+        instrument: InstrumentImpl? = null,
         interactionData: InteractionData? = null,
         pageData: PageData? = null,
-        mediawikiData: MediawikiData? = null
+        mediawikiData: MediawikiData? = null,
+        experiment: ExperimentImpl? = null
     ) {
         // If we already have stream configs, then we can pre-validate certain conditions and exclude the event from the queue entirely.
         var streamConfig: StreamConfig? = null
@@ -99,7 +109,8 @@ class TestKitchenClient(
                 performerData = clientDataCallback.getPerformerData()
             ),
             interactionData = interactionData ?: InteractionData(),
-            sample = streamConfig?.sampleConfig
+            sample = streamConfig?.sampleConfig,
+            experiment = experiment
         )
 
         eventProcessor.addToQueue(event)

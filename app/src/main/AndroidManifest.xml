@@ -101,14 +101,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="wikipedia" />
-                <data android:host="*.wikipedia.org" />
-                <!-- Add more deeplink hosts as needed -->
-            </intent-filter>
         </activity-alias>
         <activity-alias
             android:name=".YIR25Icon"
@@ -120,14 +112,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="wikipedia" />
-                <data android:host="*.wikipedia.org" />
-                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity-alias>
 
@@ -155,6 +139,14 @@
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" />
                 <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" />
                 <data android:host="*.wikipedia.org" android:pathPattern="/sr.*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="wikipedia" />
+                <data android:host="*.wikipedia.org" />
+                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity>
         <activity
@@ -196,6 +188,9 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity
+            android:name=".createaccount.CreateAccountEncourageActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".login.ResetPasswordActivity"
             android:theme="@style/AppTheme"
@@ -254,15 +249,13 @@
             android:name=".feed.topread.TopReadArticlesActivity"
             android:theme="@style/AppTheme.ActionBar"/>
 
+        <activity android:name=".feed.didyouknow.DidYouKnowActivity"/>
+
         <activity android:name=".feed.onthisday.OnThisDayActivity"
             android:configChanges="orientation|screenSize"/>
 
-        <activity android:name=".feed.configure.ConfigureActivity"
-            android:label="@string/feed_configure_activity_title"/>
-
         <activity android:name=".random.RandomActivity"
-            android:label="@string/view_random_card_title"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:label="@string/view_random_card_title"/>
 
         <activity android:name=".theme.ThemeFittingRoomActivity"
             android:label="@string/preference_title_app_theme"
@@ -393,13 +386,10 @@
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
-            android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
+            android:name=".yearinreview.presentation.YearInReviewOnboardingActivity"/>
 
         <activity
-            android:name=".yearinreview.YearInReviewOnboardingActivity"/>
-
-        <activity
-            android:name=".yearinreview.YearInReviewActivity"/>
+            android:name=".yearinreview.presentation.YearInReviewActivity"/>
       
         <activity
             android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"
@@ -412,14 +402,22 @@
             android:name=".activitytab.ActivityTabOnboardingActivity" />
 
         <activity
-            android:name=".search.HybridSearchOnboardingActivity" />
-
-        <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"/>
 
         <activity
             android:name=".widgets.readingchallenge.ReadingChallengeOnboardingActivity" />
+
+        <activity android:name=".feed.onboarding.ExploreFeedUpdatePromptActivity"/>
+
+        <activity android:name=".feed.onboarding.ExploreFeedBuildingActivity"/>
+
+        <activity android:name=".feed.personalization.PersonalizationActivity"/>
+
+        <activity android:name=".settings.homefeed.HomeFeedSettingsActivity"/>
+
+        <activity android:name=".settings.VisualEditorSettingsActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"
@@ -460,7 +458,7 @@
         </receiver>
 
         <receiver
-            android:label="@string/reading_challenge_widget_name"
+            android:label="@string/random_article_widget_name"
             android:name=".widgets.readingchallenge.ReadingChallengeWidgetReceiver"
             android:exported="true">
             <intent-filter>

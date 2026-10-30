@@ -31,6 +31,7 @@ import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentWatchlistBinding
 import org.wikipedia.databinding.ViewWatchlistSearchBarBinding
+import org.wikipedia.dataclient.mwapi.MwNotLoggedInException
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
@@ -187,6 +188,11 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     }
 
     private fun onError(t: Throwable) {
+        if (t is MwNotLoggedInException) {
+            requireActivity().finish()
+            AccountUtil.bailWithLogout()
+            return
+        }
         binding.watchlistRefreshView.isRefreshing = false
         binding.watchlistProgressBar.visibility = View.GONE
         binding.watchlistErrorView.setError(t)

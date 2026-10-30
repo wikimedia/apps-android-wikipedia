@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -60,8 +61,11 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
         popupWindowHost = null
     }
 
-    fun show(anchorView: View, callback: Callback) {
+    fun show(anchorView: View, callback: Callback, showCollectionActions: Boolean) {
         this.callback = callback
+
+        binding.readingListsOverflowCreateNewList.isVisible = showCollectionActions
+        binding.readingListsOverflowImportList.isVisible = showCollectionActions
 
         PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true).let {

@@ -47,6 +47,7 @@ class MwQueryPage {
     var convertedFrom: String? = null
     var convertedTo: String? = null
     val watched = false
+    @SerialName("isreviewed") val isReviewed = false
     val lastrevid: Long = 0
 
     val tasktype: String? = null
@@ -140,7 +141,7 @@ class MwQueryPage {
     class PageProps {
 
         @SerialName("wikibase_item") val wikiBaseItem: String = ""
-        private val disambiguation: String? = null
+        public val disambiguation: String? = null
         @SerialName("displaytitle") val displayTitle: String? = null
     }
 

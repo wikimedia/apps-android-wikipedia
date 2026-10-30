@@ -470,14 +470,14 @@
   <plurals name="reading_list_articles_deleted">
     <item quantity="other">เอา %d บทความออกจากรายการแล้ว</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="other">เอา %d บทความออกจาก %s แล้ว</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="other">เอา %1$d บทความออกจาก %2$s แล้ว</item>
   </plurals>
   <string name="reading_list_items_deleted">ลบ %d บทความออกจากรายการแล้ว</string>
   <string name="reading_lists_item_deleted">เอา %s ออกจากรายการแล้ว</string>
   <string name="reading_list_item_delete_undo">เลิกทำ</string>
   <string name="reading_list_deleted">ลบ %s แล้ว</string>
-  <string name="saved_list_empty_title">ยังไม่มีรายการอ่าน</string>
+  <string name="saved_list_empty_title" fuzzy="true">ยังไม่มีรายการอ่าน</string>
   <string name="reading_lists_empty_message">เพิ่มบทความลงในรายการสำหรับอ่านภายหลังได้แม้กระทั่งตอนที่คุณออฟไลน์</string>
   <string name="reading_list_empty">คุณไม่ได้เพิ่มบทความใด ๆ ลงในรายการนี้</string>
   <string name="reading_list_article_offline">ใช้ได้ขณะออฟไลน์</string>
@@ -493,7 +493,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s จะไม่พร้อมใช้งานแบบออฟไลน์อีกต่อไปสำหรับรายการอ่านทั้งหมด:</string>
   <string name="reading_lists_sync_reminder_title">เปิดการซิงค์รายการอ่านหรือไม่</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">คุณสามารถซิงค์บทความที่บันทึกลงในรายการอ่านกับบัญชีวิกิพีเดียของคุณได้แล้วตอนนี้ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">คุณสามารถซิงค์รายการอ่านระหว่างอุปกรณ์ต่าง ๆ ได้แล้วตอนนี้ เข้าสู่ระบบบัญชีวิกิพีเดียของคุณและอนุญาตให้รายการของคุณสามารถบันทึกได้ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">เปิดใช้งานการซิงค์</string>
   <string name="reading_list_login_reminder_title">ซิงค์รายการอ่าน</string>
   <string name="reading_lists_login_reminder_text">คุณสามารถซิงค์รายการอ่านระหว่างอุปกรณ์ต่าง ๆ ได้แล้วตอนนี้ เข้าสู่ระบบบัญชีวิกิพีเดียของคุณและอนุญาตให้รายการของคุณสามารถบันทึกได้</string>
@@ -530,7 +529,6 @@
   <string name="reading_lists_menu_create_list">สร้างรายการใหม่</string>
   <string name="reading_lists_menu_sort_by">เรียงตาม</string>
   <string name="reading_lists_refresh_sync_option">รีเฟรชการซิงค์</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">เข้าสู่ระบบ / สมัครสมาชิก</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">บทความนี้จะใช้ได้ขณะออฟไลน์แล้วตอนนี้</item>
     <item quantity="other">บทความเหล่านี้จะใช้ได้ขณะออฟไลน์แล้วตอนนี้</item>
@@ -578,15 +576,15 @@
     <item quantity="one">เหลือ %1$d บทความ</item>
     <item quantity="other">เหลือ %1$d บทความ</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">กำลังซิงค์รายการอ่าน</item>
     <item quantity="other">กำลังซิงค์รายการอ่าน</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">กำลังซิงค์ %1$d รายการ…</item>
     <item quantity="other">กำลังซิงค์ %1$d รายการ…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">เหลือ %1$d รายการ</item>
     <item quantity="other">เหลือ %1$d รายการ</item>
   </plurals>
@@ -695,11 +693,11 @@
   <string name="feed_item_type_main_page">หน้าหลักของวิกิพีเดียพร้อมเนื้อหาคัดสรรประจำวัน</string>
   <string name="feed_item_type_randomizer">สร้างบทความที่จะอ่านแบบสุ่ม</string>
   <string name="feed_item_type_suggested_edits">คำแนะนำเพื่อเพิ่มเนื้อหาลงในวิกิพีเดีย</string>
-  <string name="feed_empty_message">ไม่มีอะไรเลยบนฟีดสำรวจของคุณ</string>
+  <string name="feed_empty_message" fuzzy="true">ไม่มีอะไรเลยบนฟีดสำรวจของคุณ</string>
   <string name="feed_configure_onboarding_action">ปรับแต่ง</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ตกลง</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ยกเลิก</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;ปรับแต่งฟีดสำรวจของคุณ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;คุณสามารถเลือกสิ่งที่จะแสดงบนฟีดของคุณ และยังสามารถจัดลำดับความสำคัญของชนิดเนื้อหาโปรดของคุณได้แล้วตอนนี้</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;ปรับแต่งฟีดสำรวจของคุณ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;คุณสามารถเลือกสิ่งที่จะแสดงบนฟีดของคุณ และยังสามารถจัดลำดับความสำคัญของชนิดเนื้อหาโปรดของคุณได้แล้วตอนนี้</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ตกลง</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ยกเลิก</string>
   <string name="feed_accessibility_card_text">คุณได้มาถึงส่วนล่างสุดของฟีดแล้ว</string>
@@ -887,9 +885,9 @@
   <string name="onboarding_get_started">เริ่มต้นใช้งาน</string>
   <string name="onboarding_maybe_later">ไว้ทีหลัง</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
-  <string name="onboarding_explore_text">สำรวจเนื้อหาใหม่ ๆ ในวิกิพีเดียด้วยฟีดสำรวจที่ปรับปรุงอย่างต่อเนื่อง &lt;br/&gt; &lt;b&gt;ปรับแต่ง&lt;/b&gt;ฟีดให้ตรงตามความสนใจของคุณ ไม่ว่าจะเป็นเรื่องเกี่ยวกับเหตุการณ์&lt;b&gt;วันนี้ในอดีต&lt;/b&gt; หรือ&lt;b&gt;สุ่ม&lt;/b&gt;เนื้อหาต่าง ๆ</string>
+  <string name="onboarding_explore_text" fuzzy="true">สำรวจเนื้อหาใหม่ ๆ ในวิกิพีเดียด้วยฟีดสำรวจที่ปรับปรุงอย่างต่อเนื่อง &lt;br/&gt; &lt;b&gt;ปรับแต่ง&lt;/b&gt;ฟีดให้ตรงตามความสนใจของคุณ ไม่ว่าจะเป็นเรื่องเกี่ยวกับเหตุการณ์&lt;b&gt;วันนี้ในอดีต&lt;/b&gt; หรือ&lt;b&gt;สุ่ม&lt;/b&gt;เนื้อหาต่าง ๆ</string>
   <string name="onboarding_reading_list_sync_title">รายการอ่านที่มีการซิงค์</string>
-  <string name="onboarding_reading_list_sync_text_v2">คุณสามารถสร้างรายการอ่านจากบทความที่คุณต้องการอ่านในภายหลังแม้กระทั่งเมื่อคุณออฟไลน์ได้ &lt;br/&gt;เข้าสู่ระบบบัญชีวิกิพีเดียของคุณเพื่อซิงค์รายการอ่านของคุณ &lt;a href=\"#login\"&gt;เข้าร่วมวิกิพีเดีย&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">คุณสามารถสร้างรายการอ่านจากบทความที่คุณต้องการอ่านในภายหลังแม้กระทั่งเมื่อคุณออฟไลน์ได้ &lt;br/&gt;เข้าสู่ระบบบัญชีวิกิพีเดียของคุณเพื่อซิงค์รายการอ่านของคุณ &lt;a href=\"#login\"&gt;เข้าร่วมวิกิพีเดีย&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ส่งข้อมูลการใช้งาน</string>
   <string name="onboarding_got_it">เข้าใจแล้ว</string>
   <string name="onboarding_multilingual_secondary_text">เราได้พบภาษาดังต่อไปนี้บนอุปกรณ์ของคุณ:</string>
@@ -923,7 +921,7 @@
     <item quantity="one">ลบภาษาที่เลือกไว้ออกหรือไม่?</item>
     <item quantity="other">ลบภาษาที่เลือกไว้ออกหรือไม่?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">คุณจะเห็นเฉพาะเนื้อหาที่อยู่บนฟีดสำรวจและตัวกรองการค้นหาแบบด่วนสำหรับภาษาวิกิพีเดียที่เหลือเท่านั้น</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">คุณจะเห็นเฉพาะเนื้อหาที่อยู่บนฟีดสำรวจและตัวกรองการค้นหาแบบด่วนสำหรับภาษาวิกิพีเดียที่เหลือเท่านั้น</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ไม่สามารถเอาทุกภาษาออกได้</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">เหลือภาษาของวิกิพีเดียไว้อย่างน้อยหนึ่งภาษาเพื่อให้สามารถใช้ค้นหาและอ่านเนื้อหาได้</string>
   <string name="more_language_options">เพิ่มเติม</string>
@@ -1025,7 +1023,6 @@
   <string name="year_in_review_get_started_headline">สำรวจสรุปรอบปีวิกิพีเดีย</string>
   <string name="year_in_review_get_started_bodytext">ดูข้อมูลเชิงลึกเกี่ยวกับบทความที่คุณอ่านบนแอปวิกิพีเดียและการแก้ไขที่คุณทำ</string>
   <string name="year_in_review_get_started_info">ประวัติการอ่านของคุณถูกเก็บรักษาอย่างดีและข้อมูลเชิงลึกต่าง ๆ ถูกคำนวนและเก็บไว้ในอุปกรณ์ของคุณเท่านั้น</string>
-  <string name="year_in_review_get_started_later">คุณสามารถเข้าถึงสรุปรอบปีนี้ได้ทุกเมื่อในเมนูเพิ่มเติม</string>
   <string name="year_in_review_survey_title">ช่วยเราปรับปรุงสรุปรอบปี</string>
   <string name="year_in_review_survey_subtitle">คุณรู้สึกอย่างไรบ้างกับฟีเจอร์นี้</string>
   <string name="year_in_review_reading_list_survey_title">ช่วยปรับปรุงรายการอ่านของสรุปรอบปี %d</string>

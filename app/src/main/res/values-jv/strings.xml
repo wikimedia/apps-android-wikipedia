@@ -177,6 +177,7 @@
   <string name="about_description">Babagan aplikasi Wikipédia</string>
   <string name="privacy_policy_description">Pranatan bab priangga</string>
   <string name="terms_of_use_description">Bebakuning Pangguna</string>
+  <string name="legal_safety_contacts_description">Sesambung ukum &amp; kaamanan</string>
   <string name="about_wikipedia_url">https://jv.wikipedia.org/wiki/Wikipedia:Bab</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
@@ -342,7 +343,7 @@
   <string name="reading_lists_item_deleted">%s kabusek saka pratélan</string>
   <string name="reading_list_item_delete_undo">Balèkaké</string>
   <string name="reading_list_deleted">%s dibusak</string>
-  <string name="saved_list_empty_title">Durung ana kaca kang kasimpen</string>
+  <string name="saved_list_empty_title" fuzzy="true">Durung ana kaca kang kasimpen</string>
   <string name="reading_lists_empty_message">Wuwuh artikel ing pratélan saperlu kawaca mengko, kapara nalika \'\'offline\'\'.</string>
   <string name="reading_list_empty">Panjenengan ora duwé artikel ing pratélan iki.</string>
   <string name="reading_list_article_offline">Cumepak ing njaban jaringan</string>
@@ -356,7 +357,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s bakal ora ana manèh ing njaban jaringan tumrap kabèh pratélan wacan:</string>
   <string name="reading_lists_sync_reminder_title">Urubaké sinkronisasi pratélan wacan?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikel kang kasimpen ing pratélan wacan saiki bisa kasinkronaké menyang akun Wikipédia panjenengan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Pratélan wacan saiki wis bisa kasinkronake ing manéka piranti. Mlebua ing akun Wikipédiané panjenengan lan idinaké pratélané panjenengan kasimpen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Urubaké sinkronisasi</string>
   <string name="reading_list_login_reminder_title">Sinkronisasi pratélan wacan</string>
   <string name="reading_lists_login_reminder_text">Pratélan wacan saiki wis bisa kasinkronake ing manéka piranti. Mlebua ing akun Wikipédiané panjenengan lan idinaké pratélané panjenengan kasimpen.</string>
@@ -389,7 +389,6 @@
   <string name="reading_lists_menu_create_list">Gawé pratélan anyar</string>
   <string name="reading_lists_menu_sort_by">Urutaké miturut</string>
   <string name="reading_lists_refresh_sync_option">Segeraké sinkronisasi</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Mlebu log / dhaftar</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel iki saiki bakal cumawis nalika ing jaban jaringan.</item>
     <item quantity="other">Artikel-artikel iki saiki bakal cumawis nalika ing jaban jaringan.</item>
@@ -426,15 +425,15 @@
     <item quantity="one">Kari %1$d artikel</item>
     <item quantity="other">Kari %1$d artikel</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Nyinkronkaé Pratélan Wacan</item>
     <item quantity="other">Nyinkronaké Pratélan Wacan</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Nyinkronaké pratélan %1$d…</item>
     <item quantity="other">Nyinkronaké pratélan %1$d…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">Kari %1$d pratélan</item>
     <item quantity="other">Kari %1$d pratélan</item>
   </plurals>
@@ -508,7 +507,7 @@
   <string name="feed_configure_onboarding_action">Larasaké</string>
   <string name="customize_lang_selection_dialog_ok_button_text">YA</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Wurung</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">YA</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Wurung</string>
   <string name="feed_accessibility_card_load_more_button">Mot liyané</string>
@@ -630,7 +629,7 @@
     <item quantity="one">Busak basa kang kapilih?</item>
     <item quantity="other">Busak basa kang kapilih?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Panjenengan mung bakal ndeleng kontèn ing saran Dlajah lan saringan golèkan rikat kanggo basa-basa Wikipédia liyané.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Panjenengan mung bakal ndeleng kontèn ing saran Dlajah lan saringan golèkan rikat kanggo basa-basa Wikipédia liyané.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ora bisa ngilangi kabèh basa</string>
   <string name="more_language_options">liyané</string>
   <string name="add_wikipedia_languages_text">Tambah basa Wikipédia</string>

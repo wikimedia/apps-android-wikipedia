@@ -259,6 +259,7 @@
   <string name="about_description">О апликацији Википедија</string>
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
+  <string name="legal_safety_contacts_description">Правни и сигурносни контакти</string>
   <string name="about_wikipedia_url">https://sr.wikipedia.org/wiki/Википедија:О_нама</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
@@ -295,7 +296,7 @@
   <string name="edit_zoom_in">Увећај</string>
   <string name="edit_zoom_out">Умањи</string>
   <string name="edit_summary_tag_typo">Типографске грешке</string>
-  <string name="edit_summary_tag_grammar">Граматичке грешке</string>
+  <string name="edit_summary_tag_grammar">Поправљена граматика</string>
   <string name="edit_summary_tag_links">Додати линкови</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на које сте побољшали страницу</string>
@@ -400,6 +401,7 @@
   <string name="button_get_directions">Преузми путању</string>
   <string name="error_no_maps_app">Није могуће пронаћи ниједну апликацију која пружа путању.</string>
   <string name="preference_title_customize_explore_feed">Фид „Истражи”</string>
+  <string name="preference_title_customize_home_feed">Фид Почетна</string>
   <string name="preference_title_show_link_previews">Прегледи линкова</string>
   <string name="preference_summary_customize_explore_feed">Прилагођавање фида „Истражи”</string>
   <string name="preference_summary_show_link_previews">Приказује кратки преглед чланака притиском на линкове.</string>
@@ -549,9 +551,9 @@
     <item quantity="one">%d чланак је уклоњен из листе</item>
     <item quantity="other">%d чланака је уклоњено из листе</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d чланак је уклоњен из %s</item>
-    <item quantity="other">%d чланака је уклоњено из %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d чланак је уклоњен из %2$s</item>
+    <item quantity="other">%1$d чланака је уклоњено из %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d листа је обрисана</item>
@@ -565,7 +567,7 @@
   <string name="reading_lists_item_deleted">%s уклоњено са спискова</string>
   <string name="reading_list_item_delete_undo">Опозови</string>
   <string name="reading_list_deleted">Листа „%s” је избрисана</string>
-  <string name="saved_list_empty_title">Још увек нема сачуваних страница</string>
+  <string name="saved_list_empty_title" fuzzy="true">Још увек нема сачуваних страница</string>
   <string name="reading_lists_empty_message">Додајте чланке на листу за читање касније, чак и када сте офлајн.</string>
   <string name="reading_list_empty">На овој листи нема додатих чланака.</string>
   <string name="reading_list_article_offline">Доступно офлајн</string>
@@ -581,7 +583,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Страница „%s” више неће бити доступна офлајн за све листе за читање:</string>
   <string name="reading_lists_sync_reminder_title">Укључити синхронизацију листе за читање?</string>
   <string name="reading_lists_sync_reminder_text">Чланци сачувани на листама за читање сада се могу синхронизовати са вашим налогом на Википедији. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
-  <string name="reading_lists_login_reminder_text_with_link">Листе за читање сада се могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Омогући синхронизацију</string>
   <string name="reading_list_login_reminder_title">Синхронизација листа за читање</string>
   <string name="reading_lists_login_reminder_text">Листе за читање се сада могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа.</string>
@@ -624,7 +625,6 @@
   <string name="reading_lists_menu_import_list">Увези списак</string>
   <string name="reading_lists_menu_sort_by">Сортирај по</string>
   <string name="reading_lists_refresh_sync_option">Освежи синхронизацију</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Пријава/регистрација</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Овај чланак ће сада бити доступан офлајн.</item>
     <item quantity="other">Ови чланаци ће сада бити доступни офлајн.</item>
@@ -838,11 +838,11 @@
   <string name="feed_item_type_randomizer">Генеришите случајне чланке за читање</string>
   <string name="feed_item_type_suggested_edits">Предлози за додавање садржаја на Википедији</string>
   <string name="feed_item_type_places">Чланци у близини на основу Ваше локације</string>
-  <string name="feed_empty_message">Ваш фид „Истражи“ је празан</string>
+  <string name="feed_empty_message">Ваш фид „Почетна“ је празан</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="customize_lang_selection_dialog_ok_button_text">У реду</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Откажи</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодите фид „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Сада можете да изаберете шта желите да се приказује у фиду, као и да дате предност вашем омиљеном типу садржаја.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодите фид „Почетна“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Сада можете да изаберете шта желите да се приказује у фиду, као и да дате предност вашем омиљеном типу садржаја.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">У реду</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="feed_accessibility_card_text">Дошли сте до краја фида.</string>
@@ -1150,17 +1150,19 @@
   <string name="onboarding_get_started">Започните</string>
   <string name="onboarding_maybe_later">Можда касније</string>
   <string name="onboarding_explore_title">Нови начини за истраживање</string>
-  <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи” који се стално ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите фид&lt;/b&gt; својим интересовањима – сазнајте за историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Почетна” који се стално ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите фид&lt;/b&gt; својим интересовањима – сазнајте за историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Спискови за читање са синхронизацијом</string>
-  <string name="onboarding_reading_list_sync_text_v2">Можете да правите листе за читање од чланака које желите да читате касније, чак и када сте офлајн. &lt;br/&gt;Пријавите се на свој налог на Википедији да бисте синхронизовали листе за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији&lt;/a&gt;.</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Можете да правите листе за читање од чланака које желите да читате касније, чак и када сте офлајн. &lt;br/&gt;Пријавите се на свој налог на Википедији да бисте синхронизовали листе за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији&lt;/a&gt;.</string>
   <string name="onboarding_data_privacy_title">Подаци и приватност</string>
-  <string name="onboarding_data_privacy_text">Ми верујемо да не морате одавати личне податке да би учествовали у покрету за слободно знање. Подаци о употреби ове апликације се прикупљају анонимно. Сазнајте више о нашој &lt;a href=\"#privacy\"&gt;политици приватности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условима коришћења&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_text">Ми верујемо да не морате одавати личне податке да би учествовали у покрету за слободно знање. Подаци о употреби ове апликације се прикупљају анонимно. &lt;br/&gt;&lt;br/&gt;Сазнајте више о нашој &lt;a href=\"#privacy\"&gt;политици приватности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условима коришћења&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Шаљи податке о употреби</string>
   <string name="onboarding_got_it">Разумео</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или уреди језике</string>
   <string name="onboarding_welcome_title_v2">Слободна енциклопедија\nна преко 300 језика</string>
   <string name="onboarding_next">Следеће</string>
+  <string name="onboarding_app_languages_primary">Примарни</string>
+  <string name="onboarding_app_languages_add_button">Додај или уреди језике</string>
   <string name="app_shortcuts_random">Случајни</string>
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претражи</string>
@@ -1190,7 +1192,7 @@
     <item quantity="one">Уклонити изабрани језик?</item>
     <item quantity="other">Уклонити изабране језике?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Садржај у фиду „Истражи“ и филтерима за брзу претрагу ће се односити само на преостале језике Википедије.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Садржај у фиду „Почетна“ и филтерима за брзу претрагу ће се односити само на преостале језике Википедије.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Није могуће уклонити све језике</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Задржите бар један језик за претрагу и читање.</string>
   <string name="more_language_options">још</string>
@@ -1663,7 +1665,6 @@
   <string name="games_hub_activity_title">Игрице</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">Сазнајте више</string>
   <string name="games_hub_activity_overflow_learn_more">Сазнајте више</string>
-  <string name="on_this_day_game_entry_dialog_title">Представљамо</string>
   <string name="on_this_day_game_entry_dialog_button">Играј</string>
   <string name="on_this_day_game_dialog_button">Играј</string>
   <string name="on_this_day_game_progress">%1$d од %2$d</string>
@@ -1716,11 +1717,11 @@
   <string name="year_in_review_login_dialog_negative">Настави без пријављивања</string>
   <string name="year_in_review_slide_reading_patterns_headline">Имате јасне обрасце читања</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Омиљени дан за читање</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Јутро</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Послеподне</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Вече</string>
-  <string name="year_in_review_slide_reading_pattern_night">Ноћ</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">Касно увече</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Јутро</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Послеподне</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Вече</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Ноћ</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">Касно увече</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Направи</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Не, хвала</string>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Колико често је Википедија уређивана</string>
@@ -1741,6 +1742,8 @@
   <string name="recommended_reading_list_page_snackbar_week">недеља</string>
   <string name="recommended_reading_list_page_snackbar_month">месец</string>
   <string name="recommended_reading_list_settings_section_header">Предлози</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Искључи</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Не, задржи</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">дневно</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">недељно</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">месечно</string>
@@ -1765,13 +1768,6 @@
   <string name="donation_reminders_experiment_label">ЕКСПЕРИМЕНТ</string>
   <string name="donation_reminders_settings_learn_more_button">Сазнајте више</string>
   <string name="donation_reminders_snackbar_modify_button_label">Измени</string>
-  <string name="hybrid_search_onboarding_learn_more">Сазнајте више</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Бета функције</string>
-  <string name="hybrid_search_beta_tag">Бета</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">РНК vs ДНК</string>
-  <string name="hybrid_search_onboarding_screen_title">Нов начин претраге</string>
-  <string name="hybrid_search_no_results_header">Нема резултата</string>
-  <string name="hybrid_search_who_is_prefix">Ко је %s?</string>
   <string name="reading_challenge_onboarding_learn_more_button">Сазнајте више</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">Не, хвала</string>
   <string name="reading_challenge_onboarding_prompt_login">Пријава / Придружите се Википедији</string>
@@ -1783,4 +1779,12 @@
   <string name="reading_challenge_widget_random_button">Случајно</string>
   <string name="reading_challenge_widget_start_fresh_start_title">Нови почетак.</string>
   <string name="reading_challenge_widget_concluded_complete">Успели сте!</string>
+  <string name="explore_feed_community_tab_label">Заједница</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Опозови</string>
+  <string name="home_feed_settings_continue_reading_title">Настави читање</string>
+  <string name="home_feed_did_you_know_title">Да ли сте знали?</string>
+  <string name="home_feed_settings_empty_dialog_positive">Свеједно настави</string>
+  <string name="home_feed_random_title">Случајно</string>
+  <string name="home_feed_random_shuffle_button">Промешај</string>
+  <string name="home_feed_settings_feed_configuration_languages_title">Језици</string>
 </resources>

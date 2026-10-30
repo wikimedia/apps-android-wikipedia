@@ -12,6 +12,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -64,9 +65,7 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
             // If there are still VERY few items, include a few random articles.
             val maxRandomItems = 6
             if (results.size < maxRandomItems) {
-                for (i in results.size until maxRandomItems) {
-                    val title = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getRandomSummary()
-                        .getPageTitle(WikipediaApp.instance.wikiSite)
+                RandomClient.getRandomPages(WikipediaApp.instance.wikiSite, maxRandomItems - results.size).forEach { title ->
                     if (!results.contains(title)) {
                         results.add(title)
                     }

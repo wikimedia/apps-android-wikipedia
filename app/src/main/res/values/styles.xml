@@ -8,6 +8,7 @@
 
         <item name="toolbarStyle">@style/ToolbarStyle</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
+        <item name="actionBarPopupTheme">@style/ActionBarTheme</item>
 
         <item name="materialButtonStyle">@style/App.Button</item>
 
@@ -95,8 +96,9 @@
     </style>
 
     <style name="AppTheme.Splash">
-        <item name="android:windowBackground">@drawable/splash_bg</item>
-        <item name="android:navigationBarColor">@color/gray700</item>
+        <item name="android:navigationBarColor">@color/splash_background_color</item>
+        <item name="android:statusBarColor">@color/splash_background_color</item>
+        <item name="android:windowBackground">@drawable/splash_background_drawable</item>
     </style>
 
     <style name="AppTheme.ActionBar">
@@ -671,6 +673,26 @@
 
     <style name="App.BottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
         <item name="behavior_peekHeight">@dimen/bottomSheetPeekHeight</item>
+    </style>
+
+    <!-- When gesture navigation is enabled, for sheets where the content draws its own background to the bottom edge of the screen
+    and handles the navigation bar inset itself. -->
+    <style name="App.BottomSheetDialogTheme.EdgeToEdgeContent">
+        <item name="bottomSheetStyle">@style/App.BottomSheetStyle.EdgeToEdgeContent</item>
+    </style>
+
+    <style name="App.BottomSheetStyle.EdgeToEdgeContent">
+        <item name="paddingBottomSystemWindowInsets">false</item>
+    </style>
+
+    <!-- For sheets that should stop below the status bar when fully expanded, instead of extending behind it. -->
+    <style name="App.BottomSheetDialogTheme.BelowStatusBar">
+        <item name="bottomSheetStyle">@style/App.BottomSheetStyle.BelowStatusBar</item>
+    </style>
+
+    <style name="App.BottomSheetStyle.BelowStatusBar">
+        <item name="paddingTopSystemWindowInsets">false</item>
+        <item name="marginTopSystemWindowInsets">true</item>
     </style>
 
     <style name="FloatingActionButtonRounded">

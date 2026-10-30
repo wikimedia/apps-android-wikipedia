@@ -116,6 +116,14 @@ fun ReadingChallengeLargeWidgetContent(
                 expandMascot = true
             )
         }
+        ReadingChallengeState.RandomArticle -> {
+            val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
+            RandomArticleLargeWidget(
+                backgroundColor = combination.backgroundColor,
+                contentColor = combination.contentColor,
+                mascotImageResId = combination.iconResId
+            )
+        }
         ReadingChallengeState.EnrolledNotStarted -> {
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             EnrolledNotStartedLargeWidget(
@@ -451,6 +459,57 @@ fun EnrolledNotStartedLargeWidget(
 }
 
 @Composable
+fun RandomArticleLargeWidget(
+    backgroundColor: Color,
+    contentColor: Color,
+    mascotImageResId: Int,
+    titleBarIcon: Int = R.drawable.ic_w_logo_shadow
+) {
+    val context = LocalContext.current
+    val size = LargeWidgetSize.from(LocalSize.current)
+    BaseWidgetContent(
+        color = backgroundColor
+    ) {
+        Box(
+            modifier = GlanceModifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp, vertical = 12.dp)
+                .clickable(actionRunCallback<RandomArticleWidgetAction>())
+        ) {
+            Row(
+                modifier = GlanceModifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.End
+            ) {
+                Image(
+                    provider = ImageProvider(titleBarIcon),
+                    contentDescription = null,
+                    modifier = GlanceModifier.size(size.titleBarIconSize)
+                )
+            }
+            Column(
+                modifier = GlanceModifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Spacer(modifier = GlanceModifier.defaultWeight())
+                Image(
+                    provider = ImageProvider(mascotImageResId),
+                    contentDescription = null,
+                    modifier = GlanceModifier.size(size.expandedMascotSize)
+                )
+                Spacer(modifier = GlanceModifier.defaultWeight())
+                WidgetButton(
+                    text = context.getString(R.string.view_random_article_card_title),
+                    backgroundColor = contentColor,
+                    contentColor = backgroundColor,
+                    action = actionRunCallback<RandomArticleWidgetAction>()
+                )
+            }
+        }
+    }
+}
+
+@Composable
 fun GeneralLargeWidget(
     modifier: GlanceModifier = GlanceModifier,
     clickAction: Action,
@@ -696,6 +755,22 @@ fun ChallengeConcludedIncompleteLargePreview() {
 fun ChallengeConcludedNoStreakLargePreview() {
     ReadingChallengeLargeWidgetContent(
         state = ReadingChallengeState.ChallengeConcludedNoStreak,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+// RandomArticle: centered mascot + single CTA, whole widget opens the randomizer
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 320, heightDp = 130) // launcher placed below declared minHeight (rare)
+@Preview(widthDp = 320, heightDp = 156) // EXTRA_COMPACT worst-case
+@Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
+@Preview(widthDp = 340, heightDp = 200) // COMPACT
+@Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
+@Preview(widthDp = 368, heightDp = 234) // FULL
+@Composable
+fun RandomArticleLargePreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.RandomArticle,
         enrollmentDate = LocalDate.now()
     )
 }

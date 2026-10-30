@@ -10,7 +10,6 @@ object Constants {
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 55
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
-    const val ACTIVITY_REQUEST_LOGIN = 53
     const val ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62
     const val ACTIVITY_REQUEST_SETTINGS = 41
     const val ACTIVITY_REQUEST_VOICE_SEARCH = 45
@@ -36,6 +35,7 @@ object Constants {
     const val INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel"
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
     const val INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType"
+    const val INTENT_EXTRA_NOTIFICATION_CATEGORY = "notificationCategory"
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
     const val INTENT_EXTRA_SNACKBAR_MESSAGE = "snackbarMessage"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"
@@ -59,7 +59,6 @@ object Constants {
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
-
     enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),
         APP_SHORTCUTS("appShortcuts"),
@@ -113,7 +112,10 @@ object Constants {
         SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
         ON_THIS_DAY_GAME_ACTIVITY("onThisDayGame"),
         ACTIVITY_TAB("activityTab"),
-        GAMES_HUB("gamesHub")
+        GAMES_HUB("gamesHub"),
+        FEED_INTEREST_SELECTION("feedInterestSelection"),
+        DID_YOU_KNOW("didYouKnow"),
+        YEAR_IN_REVIEW("yearInReview")
     }
 
     enum class ImageEditType(name: String) {

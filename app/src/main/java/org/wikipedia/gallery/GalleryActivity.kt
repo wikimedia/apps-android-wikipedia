@@ -615,6 +615,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
         // if we couldn't find an attribution string, then default to unknown
         binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
+        binding.infoContainer.isVisible = true
     }
 
     override fun onProvideAssistContent(outContent: AssistContent) {

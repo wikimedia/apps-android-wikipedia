@@ -493,7 +493,7 @@
   <string name="reading_lists_item_deleted">%s ߛߋ߲߬ߓߐ߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_item_delete_undo">ߊ߬ ߘߐߛߊ߬</string>
   <string name="reading_list_deleted">%s ߓߘߊ߫ ߖߏ߬ߛߌ߬</string>
-  <string name="saved_list_empty_title">ߞߐߜߍ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߬ ߕߍ߫ ߡߎߣߎ߲߬</string>
+  <string name="saved_list_empty_title" fuzzy="true">ߞߐߜߍ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߬ ߕߍ߫ ߡߎߣߎ߲߬</string>
   <string name="reading_lists_empty_message">ߞߎߡߘߊ ߟߊߘߏ߲߬ ߞߐߝߍ߫ ߘߐߘߊߙߊ߲ߠߌ߲ ߛߙߍߘߍ ߘߐ߫߸ ߤߊߟߌ߬ ߣߴߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߬ ߕߍ߫.</string>
   <string name="reading_list_empty">ߦߌߟߡߊ߫ ߛߌ߫ ߟߊߘߏ߲߬ߣߍ߲߬ ߕߴߌ ߓߟߏ߫ ߛߙߍߘߍ ߣߌ߲߬ ߘߐ߫.</string>
   <string name="reading_list_article_offline">ߡߍ߲ ߠߎ߬ ߦߋ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߬</string>
@@ -509,7 +509,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ߕߍ߫ ߣߊ߬ ߡߍ߲߫ ߠߊ߫ ߞߍߟߌ ߘߐ߫ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߓߍ߯ ߦߋ߫:</string>
   <string name="reading_lists_sync_reminder_title">ߞߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߟߊߞߎߣߎ߲߫؟</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">ߞߎߡߘߊ ߡߍ߲ ߠߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫߸ ߏ߬ ߟߎ߬ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߛߍߣߍ߲߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߞߍߟߊ߲ ߘߐ߫ ߡߎ߬ߕߎ߲߬. \nߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߞߵߌ ߟߊ߫ ߛߙߍߘߍ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߟߊߘߌ߬ߢߍ߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߌ߬ߟߵߊ߬ ߟߊ߫</string>
   <string name="reading_list_login_reminder_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫</string>
   <string name="reading_lists_login_reminder_text">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߞߍߟߊ߲ ߘߐ߫ ߛߌߣߍ߲߬. ߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫ ߞߴߌ ߟߊ߫ ߛߙߍߘߍ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߟߊߘߌ߬ߢߍ߬.</string>
@@ -548,7 +547,6 @@
   <string name="reading_lists_menu_import_list">ߟߊ߬ߛߣߍ߬ߟߌ߫ ߛߙߍߘߍ</string>
   <string name="reading_lists_menu_sort_by">ߞߵߊ߬ ߢߊߓߐ߫ ߡߊ߬</string>
   <string name="reading_lists_refresh_sync_option">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ߟߌ ߟߊߛߎߡߊ߫</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ߌ ߜߊ߲߬ߞߎ߲߫/ߖߊ߬ߕߋ߬ߘߊ ߛߌ߲ߘߌ߫</string>
   <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="other">ߞߋߟߋ߲߫=ߞߎߡߘߊ ߣߌ߲߬ ߕߍ߫ ߣߊ߬ ߛߐ߲߬ ߞߍ߫ ߟߊ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲߬ߓߊߟߌߦߊ ߘߐ߫</item>
   </plurals>
@@ -570,7 +568,7 @@
   <string name="reading_lists_action_menu_export_lists">ߟߊ߬ߝߏ߬ߦߌ߬ߟߌ</string>
   <string name="reading_lists_import_file_picker_title">ߞߐߕߐ߮ ߘߏ߫ ߛߎߥߊ߲ߘߌ߫ ߡߍ߲ ߘߌ߫ ߟߊߛߣߍ߫</string>
   <string name="reading_lists_import_failure_message">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߟߊߛߣߍߟߌ ߓߘߊ߫ ߗߌߙߏ߲߫</string>
-  <string name="reading_lists_export_select_lists_message">ߛߙߍߘߍ߫ ߟߊߝߏ߬ߦߌ߬ߕߊ ߘߏ߫ ߟߎ߫ ߓߊߕߐ߬ߡߐ߲߫</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">ߛߙߍߘߍ߫ ߟߊߝߏ߬ߦߌ߬ߕߊ ߘߏ߫ ߟߎ߫ ߓߊߕߐ߬ߡߐ߲߫</string>
   <string name="reading_lists_export_completed_message">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ(ߟߎ߫) ߓߘߊ߫ ߟߊߝߏ߬ߦߌ߫</string>
   <string name="reading_lists_preview_header_title">ߟߊ߬ߖߍ߲߬ߛߍ߲߬ߣߍ߲ ߠߎ߬ ߛߙߍߘߍ</string>
   <string name="reading_lists_preview_save_button">ߊ߬ ߟߊߞߎ߲߬ߘߎ߬</string>
@@ -731,11 +729,11 @@
   <string name="feed_item_type_randomizer">ߓߍ߲߬ߛߋ߲߬ߡߊ߬ ߦߌߟߡߊ ߘߐߞߊ߬ߙߊ߲߬ߕߊ ߟߎ߬ ߟߊߞߊ߬ߝߏ߬ߣߍ߲</string>
   <string name="feed_item_type_suggested_edits">ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߟߎ߬ ߛߊ߫ ߞߊ߬ ߛߋ߫ ߞߣߐߘߐ ߝߙߊ߬ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫</string>
   <string name="feed_item_type_places">ߛߌ߰ߢߐ߲߰ ߞߎߡߘߊ ߡߍ߲ ߠߎ߬ ߓߎ߲ߓߎ߲ߣߍ߲߫ ߦߋ߫ ߘߌ߲߬ߞߌߙߊ ߣߌ߲߬ ߡߊ߬</string>
-  <string name="feed_empty_message">ߝߋ߲߫ ߛߌ߫ ߕߴߌ ߟߊ߫ ߞߊߙߌ߫ ߓߍ߬ߙߍ߲߬ߓߍ߬ߙߍ߲߬ߕߊ ߟߊ߫</string>
+  <string name="feed_empty_message" fuzzy="true">ߝߋ߲߫ ߛߌ߫ ߕߴߌ ߟߊ߫ ߞߊߙߌ߫ ߓߍ߬ߙߍ߲߬ߓߍ߬ߙߍ߲߬ߕߊ ߟߊ߫</string>
   <string name="feed_configure_onboarding_action">ߖߘߍ߬ߕߦߊ߬ߟߌ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ߘߐ߬ߛߊ߬ߟߌ</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;ߌ ߟߊ߫ ߓߍ߬ߙߍ߲߬ߓߍ߬ߙߍ߲߬ߠߌ߲߫ ߞߊߙߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ߌ ߘߌ߫ ߛߋ߫ ߛߎߥߊ߲ߘߟߌ ߞߍ߫ ߟߴߌ ߟߊ߫ ߞߊߙߌ߫ ߓߍ߬ߙߍ߲߬ߓߍ߬ߙߍ߲߬ߕߊ ߘߐ߫ ߡߎ߬ߕߎ߲߫ ߡߍ߲ ߘߌ߫ ߛߋ߫ ߦߌ߬ߘߊ߬ ߟߊ߫߸ ߊ߬ ߣߴߌ ߘߌ߫ ߛߋ߫ ߌ ߘߌߦߊߣߍ߲߫ ߞߣߐߘߐ ߟߎ߬ ߘߐߛߌ߰ ߌ ߤߣߍߞߍ߫ ߢߊ ߡߊ߬.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;ߌ ߟߊ߫ ߓߍ߬ߙߍ߲߬ߓߍ߬ߙߍ߲߬ߠߌ߲߫ ߞߊߙߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ߌ ߘߌ߫ ߛߋ߫ ߛߎߥߊ߲ߘߟߌ ߞߍ߫ ߟߴߌ ߟߊ߫ ߞߊߙߌ߫ ߓߍ߬ߙߍ߲߬ߓߍ߬ߙߍ߲߬ߕߊ ߘߐ߫ ߡߎ߬ߕߎ߲߫ ߡߍ߲ ߘߌ߫ ߛߋ߫ ߦߌ߬ߘߊ߬ ߟߊ߫߸ ߊ߬ ߣߴߌ ߘߌ߫ ߛߋ߫ ߌ ߘߌߦߊߣߍ߲߫ ߞߣߐߘߐ ߟߎ߬ ߘߐߛߌ߰ ߌ ߤߣߍߞߍ߫ ߢߊ ߡߊ߬.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="feed_accessibility_card_text">ߌ ߓߘߊ߫ ߓߊ߲߫ ߛߋ߫ ߟߊ߫ ߞߊߙߌ ߛߋ߲߬ߞߘߐ߬ߟߊ ߘߐ߫.</string>
@@ -1047,11 +1045,11 @@
   <string name="onboarding_get_started">ߟߊ߬ߝߟߐ߬ߟߌ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="onboarding_maybe_later">ߕߎ߬ߡߊ߬ߘߐ߫ ߞߐߝߍ߬</string>
   <string name="onboarding_explore_title">ߛߏ߲߯ߓߊߟߌ ߛߌߟߊ߫ ߞߎߘߊ߫</string>
-  <string name="onboarding_explore_text">ߌ ߛߎߟߎ߲߫ ߥߞߌߔߋߘߌߦߊ ߞߣߐߟߊ ߘߐ߫ ߛߏ߲߯ߓߊߟߌ ߥߎ߲߬ߝߊ߲ ߟߊߞߎߘߦߊߟߌ ߘߐ߫ ߘߊߓߊ߲ߠߌ߲ߓߟߏߡߊ߬. ߥߎ߲߬ߝߊ߲ &lt;b&gt;ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫&lt;/b&gt; ߌ ߢߣߊߣߍ߲߫ ߢߊ ߡߊ߬ - ߣߴߊ߬ ߦߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߠߋ߬ ߘߌ߫ ߞߊ߬ ߓߍ߲߬ ߘߐ߬ߝߐ ߖߊ߲߬ߖߏ߲ ߠߎ߬ ߟߋ߬ ߘߌ߫ &lt;b&gt;ߟߏ߲ ߣߌ߲߬ ߡߊ߬&lt;/b&gt;، ߤߊߡߊ߲߫ ߞߵߌ ߟߊ߫ ߛߎߟߎ߲ߠߌ߲ ߡߊ߬ߙߊ߫ &lt;b&gt;ߓߍ߲߬ߛߋ߲߬ߡߊ&lt;/b&gt; ߘߌ߫.</string>
+  <string name="onboarding_explore_text" fuzzy="true">ߌ ߛߎߟߎ߲߫ ߥߞߌߔߋߘߌߦߊ ߞߣߐߟߊ ߘߐ߫ ߛߏ߲߯ߓߊߟߌ ߥߎ߲߬ߝߊ߲ ߟߊߞߎߘߦߊߟߌ ߘߐ߫ ߘߊߓߊ߲ߠߌ߲ߓߟߏߡߊ߬. ߥߎ߲߬ߝߊ߲ &lt;b&gt;ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫&lt;/b&gt; ߌ ߢߣߊߣߍ߲߫ ߢߊ ߡߊ߬ - ߣߴߊ߬ ߦߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߠߋ߬ ߘߌ߫ ߞߊ߬ ߓߍ߲߬ ߘߐ߬ߝߐ ߖߊ߲߬ߖߏ߲ ߠߎ߬ ߟߋ߬ ߘߌ߫ &lt;b&gt;ߟߏ߲ ߣߌ߲߬ ߡߊ߬&lt;/b&gt;، ߤߊߡߊ߲߫ ߞߵߌ ߟߊ߫ ߛߎߟߎ߲ߠߌ߲ ߡߊ߬ߙߊ߫ &lt;b&gt;ߓߍ߲߬ߛߋ߲߬ߡߊ&lt;/b&gt; ߘߌ߫.</string>
   <string name="onboarding_reading_list_sync_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߡߊ</string>
-  <string name="onboarding_reading_list_sync_text_v2">ߌ ߘߴߛߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߟߎ߬ ߘߌߟߊ߲߫ ߠߊ߫ ߞߎߡߘߊ߫ ߟߎ߫ ߡߊ߬߸ ߌ ߦߋ߫ ߡߍ߲ ߠߎ߬ ߘߐߞߊ߬ߙߊ߲߬ ߞߏ ߘߐ߫ ߞߐߝߍ߬، ߤߊߟߌ߬ ߣߴߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߫ ߕߍ߫. &lt;br/&gt;ߌ ߜߊ߲߬ߞߎ߲߫ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫. &lt;a href=\"#login\"&gt;ߕߘߍ߬ ߥߞߌߔߋߘߌߦߊ ߘߐ߫&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">ߌ ߘߴߛߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߟߎ߬ ߘߌߟߊ߲߫ ߠߊ߫ ߞߎߡߘߊ߫ ߟߎ߫ ߡߊ߬߸ ߌ ߦߋ߫ ߡߍ߲ ߠߎ߬ ߘߐߞߊ߬ߙߊ߲߬ ߞߏ ߘߐ߫ ߞߐߝߍ߬، ߤߊߟߌ߬ ߣߴߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߫ ߕߍ߫. &lt;br/&gt;ߌ ߜߊ߲߬ߞߎ߲߫ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫. &lt;a href=\"#login\"&gt;ߕߘߍ߬ ߥߞߌߔߋߘߌߦߊ ߘߐ߫&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">ߟߐ߲ߕߊ &amp; ߜߎ߲߬ߘߎ߬ߢߐ߲߰ߦߊ</string>
-  <string name="onboarding_data_privacy_text">ߊ߲ ߘߍ߲߬ߞߣߍ߬ߦߊ߬ߣߴߊ߬ ߡߊ߬ ߞߴߌ ߕߍߣߵߌ ߖߘߍ߬ߞߊߣߌ߲ ߞߎ߲߬ߠߊ߬ߝߏߣߌ߲ ߘߌ߫ ߟߊ߫ ߞߊ߬ ߕߘߍ߬ ߟߐ߲ߠߌ߲߫ ߛߙߊ߬ߓߊߟߌ ߕߏ߰ߝߏ ߘߐ߫. ߟߐ߲ߕߊ߫ ߘߟߊߘߍ߰ߣߍ߲ ߠߎ߬ ߟߊߓߊ߯ߙߊ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߣߌ߲߬ ߠߊ߫߸ ߏ߬ ߦߋ߫ ߕߐ߯ߒߕߊ߲ ߠߋ߬ ߘߌ߫. ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߫ ߞߊ߬ ߓߍ߲߬ ߊ߲ ߠߊ߫ &lt;a href=\"#privacy\"&gt;ߜߎ߲߬ߘߎ߬ߢߐ߲߰ߦߊ ߓߘߍ߬ߓߞߍ߬ߟߌ&lt;/a&gt; ߣߌ߫ &lt;a href=\"#termsOfUse\"&gt;ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ&lt;/a&gt; ߡߊ߬.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">ߊ߲ ߘߍ߲߬ߞߣߍ߬ߦߊ߬ߣߴߊ߬ ߡߊ߬ ߞߴߌ ߕߍߣߵߌ ߖߘߍ߬ߞߊߣߌ߲ ߞߎ߲߬ߠߊ߬ߝߏߣߌ߲ ߘߌ߫ ߟߊ߫ ߞߊ߬ ߕߘߍ߬ ߟߐ߲ߠߌ߲߫ ߛߙߊ߬ߓߊߟߌ ߕߏ߰ߝߏ ߘߐ߫. ߟߐ߲ߕߊ߫ ߘߟߊߘߍ߰ߣߍ߲ ߠߎ߬ ߟߊߓߊ߯ߙߊ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߣߌ߲߬ ߠߊ߫߸ ߏ߬ ߦߋ߫ ߕߐ߯ߒߕߊ߲ ߠߋ߬ ߘߌ߫. ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߫ ߞߊ߬ ߓߍ߲߬ ߊ߲ ߠߊ߫ &lt;a href=\"#privacy\"&gt;ߜߎ߲߬ߘߎ߬ߢߐ߲߰ߦߊ ߓߘߍ߬ߓߞߍ߬ߟߌ&lt;/a&gt; ߣߌ߫ &lt;a href=\"#termsOfUse\"&gt;ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ&lt;/a&gt; ߡߊ߬.</string>
   <string name="onboarding_analytics_switch_title">ߓߟߏߡߟߊ߫ ߟߊߓߊ߯ߙߕߊ ߗߋ߫</string>
   <string name="onboarding_got_it">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬</string>
   <string name="onboarding_multilingual_secondary_text">ߊ߲ ߓߘߴߌ ߟߊ߫ ߞߍߟߊ߲ ߠߊߓߊ߬ߕߏ߬ߓߊ߮ ߟߎ߬ ߛߐ߬ߘߐ߲߬:</string>
@@ -1522,10 +1520,7 @@
   <string name="survey_dialog_general_maybe">ߕߎ߬ߡߊ߬ߘߐ߫</string>
   <string name="survey_dialog_input_hint">ߞߊ߲߬ߞߎߡߊ ߡߊߊ߬ߝߏ߫ ߜߘߍ߫</string>
   <string name="survey_dialog_submitted_snackbar">ߞߊ߲߬ߞߎߡߊ ߓߘߊ߫ ߗߋ߫. ߌ ߣߌ߫ ߗߋ߫߹</string>
-  <string name="on_this_day_game_entry_dialog_title">ߘߊ߲߬ߕߍ߰ߟߌ</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">ߥߞߌߔߋߘߌߦߊ ߕߏߟߏ߲</string>
   <string name="on_this_day_game_entry_dialog_button" fuzzy="true">ߓߌ߬ ߕߏߟߏ߲ ߕߏߟߏ߲߫</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">ߧߞߌߔߋߘߌߦߊ ߕߏߟߏ߲ ߠߎ߬ ߦߋ߫ ߛߐ߬ߘߐ߲߬ ߠߊ߫ ߘߏ߯ߘߏ߯ ߘߐߛߏ߯ߙߋߕߊ ߟߋ߬ ߟߊ߫.</string>
   <string name="on_this_day_game_title">ߢߎ߬ߡߊ߲߬ ߝߟߐ߫ ߦߋ߫ ߣߊ߬؟</string>
   <string name="on_this_day_game_dialog_button">ߊ߬ ߕߏߟߏ߲߫</string>
   <string name="on_this_day_game_splash_message">ߌߟߋ ߢߣߊ߫ ߕߏߟߏ߲ ߢߎ߬ߡߊ߲߫ ߣߊ߬ ߘߊ߫ ߣߌ߲߬ ߟߏ߲ ߞߊ߲ߠߊ߫ ߘߐ߬ߝߐ ߘߐ߫.</string>
@@ -1545,7 +1540,7 @@
   <string name="on_this_day_game_stats_average_score">ߕߎ߰ ߕߟߊߒߕߍ</string>
   <string name="on_this_day_game_stats_streak">ߛߋ߲߬ߠߊ߫ ߘߊߕߐߡߦߊ</string>
   <string name="on_this_day_game_result_subtitle">ߞߎߡߘߊ ߡߍ߲ ߠߎ߬ ߦߟߌߡߊߛߙߋߦߊߣߍ߲߫ ߓߌ߬ ߕߏߟߏ߲ ߣߌ߲߬ ߠߊ߫</string>
-  <string name="on_this_day_game_completed_message">ߌ ߣߌ߫ ߗߋ߫ ߕߏߟߏ߲ ߠߊ߫.ߕߏߟߏ߲߫ ߞߎߘߊ߫ ߦߋ߫ ߦߋ߲߬ \"ߡߍ߲ ߝߟߐ߫ ߓߊ߯ ߣߊ߬؟\" ߏ߬ ߡߊߛߐ߬ߘߐ߲߬ߕߊ ߦߋ߫ ߟߏ߲ ߡߊ߬ ߞߍߞߎߘߊ ߖߟߐ߬ߞߐ ߡߊ߬.</string>
+  <string name="on_this_day_game_completed_message" fuzzy="true">ߌ ߣߌ߫ ߗߋ߫ ߕߏߟߏ߲ ߠߊ߫.ߕߏߟߏ߲߫ ߞߎߘߊ߫ ߦߋ߫ ߦߋ߲߬ \"ߡߍ߲ ߝߟߐ߫ ߓߊ߯ ߣߊ߬؟\" ߏ߬ ߡߊߛߐ߬ߘߐ߲߬ߕߊ ߦߋ߫ ߟߏ߲ ߡߊ߬ ߞߍߞߎߘߊ ߖߟߐ߬ߞߐ ߡߊ߬.</string>
   <string name="on_this_day_game_menu_notifications">ߕߏߟߏ߲ ߞߊ߲߬ߞߎߡߊ ߟߎ߬</string>
   <string name="on_this_day_game_menu_info">ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬</string>
   <string name="on_this_day_game_menu_feedback">ߝߙߋߞߋ ߦߋ߫ ߗߋߘߊ ߟߊ߫</string>
@@ -1666,7 +1661,7 @@
   <string name="recommended_reading_list_settings_toggle_enable_message">ߞߎ߲߬ߠߞߊ߬ߟߌ ߦߴߊ߬ ߟߊ߫. ߥߞߌߔߋߘߌߦߊ ߘߴߌ ߟߊ߫ ߞߎߡߘߊ ߟߎ߬ ߖߡߊ߬ߙߌ߬ߦߊ߫ ߘߐߞߊ߬ߙߊ߲߬ߠߌ߲ ߠߊ߫. ߠߊ߫.</string>
   <string name="donation_settings_section_header">ߣߌ߬ߟߌ</string>
   <string name="donation_reminders_settings_title" fuzzy="true">ߣߌ߬ߟߌ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ</string>
-  <string name="donation_reminders_settings_article_frequency_label">ߣߌ߫ ߒ ߞߵߊ߬ ߘߐߞߊ߬ߙߊ߲߬</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">ߣߌ߫ ߒ ߞߵߊ߬ ߘߐߞߊ߬ߙߊ߲߬</string>
   <string name="donation_reminders_settings_amount_label">ߒ ߖߊ߲߬ߓߌ߬ߟߊ߫ ߣߌ߬ߟߌ߬ߞߏ ߟߊ߫</string>
   <string name="donation_reminders_settings_confirm_btn_label">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߊߛߙߋߦߊ߫</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">ߞߎߡߘߊ ߟߎ߬</string>

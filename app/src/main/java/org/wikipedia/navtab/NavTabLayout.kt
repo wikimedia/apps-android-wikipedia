@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.annotation.ColorInt
 import androidx.core.view.isVisible
 import androidx.core.view.updateMarginsRelative
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -42,5 +43,11 @@ class NavTabLayout(context: Context, attrs: AttributeSet) : BottomNavigationView
             imageParent.addView(overlayDotView)
         }
         overlayDotView?.isVisible = enabled
+    }
+
+    fun applyColors(@ColorInt backgroundColor: Int, navTabColorStateList: ColorStateList) {
+        setBackgroundColor(backgroundColor)
+        itemIconTintList = navTabColorStateList
+        itemTextColor = navTabColorStateList
     }
 }

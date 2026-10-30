@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
@@ -38,8 +39,14 @@ interface ReadingListPageDao {
     @Query("SELECT COUNT(*) FROM ReadingListPage")
     suspend fun getPagesCount(): Int
 
+    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT lang, apiTitle, wiki, namespace FROM ReadingListPage WHERE status != :excludedStatus)")
+    suspend fun getDistinctPagesCount(excludedStatus: Long): Int
+
     @Query("SELECT * FROM ReadingListPage WHERE id = :id")
     suspend fun getPageById(id: Long): ReadingListPage?
+
+    @Query("SELECT * FROM ReadingListPage WHERE id IN (:ids)")
+    suspend fun getPagesByIds(ids: Set<Long>): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE status = :status AND offline = :offline")
     suspend fun getPagesByStatus(status: Long, offline: Boolean): List<ReadingListPage>
@@ -74,8 +81,8 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE lang = :lang ORDER BY RANDOM() LIMIT 1")
     suspend fun getRandomPage(lang: String): ReadingListPage?
 
-    @Query("SELECT displayTitle FROM ReadingListPage WHERE atime > 0 AND atime BETWEEN :startMillis AND :endMillis ORDER BY RANDOM() LIMIT :limit")
-    suspend fun getRandomPageTitlesBetween(limit: Int, startMillis: Long, endMillis: Long = System.currentTimeMillis()): List<String?>
+    @Query("SELECT * FROM ReadingListPage WHERE atime BETWEEN :startMillis AND :endMillis AND status != :excludedStatus GROUP BY lang, apiTitle, wiki, namespace ORDER BY RANDOM() LIMIT :limit")
+    suspend fun getRandomDistinctSavedPagesBetween(startMillis: Long, endMillis: Long, excludedStatus: Long, limit: Int): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     suspend fun findPageBySearchTerm(term: String): List<ReadingListPage>
@@ -92,14 +99,23 @@ interface ReadingListPageDao {
     @Query("SELECT COUNT(*) FROM ReadingListPage WHERE atime > 0 AND atime BETWEEN :startMillis AND :endMillis")
     suspend fun getTotalSavedPagesBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int?
 
+    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT lang, apiTitle, wiki, namespace FROM ReadingListPage WHERE atime BETWEEN :startMillis AND :endMillis AND status != :excludedStatus)")
+    suspend fun getDistinctSavedPagesCountBetween(startMillis: Long, endMillis: Long, excludedStatus: Long): Int
+
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 AND atime > :timestamp ORDER BY atime DESC LIMIT :limit")
     suspend fun getSavedPagesSince(timestamp: Long, limit: Int): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT 1")
     suspend fun getMostRecentSavedPage(): ReadingListPage?
 
+    @Query("SELECT * FROM ReadingListPage WHERE lang = :langCode GROUP BY apiTitle ORDER BY atime DESC LIMIT :limit")
+    suspend fun getMostRecentSavedPagesByLang(langCode: String, limit: Int): List<ReadingListPage>
+
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
     suspend fun getPagesBySavedTime(limit: Int, offset: Int): List<ReadingListPage>
+
+    @Query("SELECT apiTitle FROM ReadingListPage WHERE lang = :lang AND apiTitle IN (:apiTitles) AND status != :excludedStatus")
+    fun observeSavedApiTitles(lang: String, apiTitles: List<String>, excludedStatus: Long): Flow<List<String>>
 
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 
@@ -177,6 +193,16 @@ interface ReadingListPageDao {
         if (queueForSync) {
             ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages)
         }
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
+        SavedPageSyncService.enqueue()
+    }
+
+    @Transaction
+    suspend fun markPagesForDeletionFromLists(lists: List<ReadingList>) {
+        val pages = lists.flatMap { it.pages }
+        pages.forEach { it.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE }
+        updateReadingListPages(pages)
+        ReadingListSyncAdapter.manualSyncWithDeletePages(lists)
         FlowEventBus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
     }

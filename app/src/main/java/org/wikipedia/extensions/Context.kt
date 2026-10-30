@@ -6,6 +6,9 @@ import android.content.res.Resources
 import android.util.SparseArray
 import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.page.PageTitle
@@ -13,8 +16,10 @@ import org.wikipedia.util.L10nUtil.getStringForLocale
 import org.wikipedia.util.L10nUtil.setDesiredLocale
 import java.util.Locale
 
-fun Context.getString(languageCode: String, @StringRes resId: Int): String {
-    return getStringForLocale(this, Locale(languageCode), resId)
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "wikipedia_datastore")
+
+fun Context.getString(languageCode: String, @StringRes resId: Int, vararg formatArgs: Any): String {
+    return getStringForLocale(this, Locale(languageCode), resId, *formatArgs)
 }
 
 fun Context.getString(title: PageTitle, @StringRes resId: Int): String {
@@ -37,13 +42,11 @@ fun Context.getStrings(title: PageTitle, strings: IntArray): SparseArray<String>
     strings.forEach {
         localizedStrings.put(it, targetResources.getString(it))
     }
-    config.setLocale(systemLocale)
-    // reset to current configuration
-    createConfigurationContext(config)
     return localizedStrings
 }
 
-// To be used only for plural strings and strings requiring arguments
+// Prefer getString(languageCode, ...) for a single string; use this for plurals, or to resolve many
+// strings without creating a configuration context for each one.
 fun Context.getResources(languageCode: String): Resources {
     val config = Configuration(resources.configuration)
     val targetLocale = Locale(languageCode)
@@ -52,11 +55,7 @@ fun Context.getResources(languageCode: String): Resources {
         return resources
     }
     setDesiredLocale(config, targetLocale)
-    val targetResources = createConfigurationContext(config).resources
-    config.setLocale(systemLocale)
-    // reset to current configuration
-    createConfigurationContext(config)
-    return targetResources
+    return createConfigurationContext(config).resources
 }
 
 val Context.instrument get(): InstrumentImpl? {

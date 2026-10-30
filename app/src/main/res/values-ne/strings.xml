@@ -8,6 +8,7 @@
 * Nirajan pant
 * Nirjal stha
 * Parbat subedi
+* Pratik11
 * Suniltheblue
 * पर्वत सुबेदी
 * बडा काजी
@@ -450,7 +451,7 @@
   <string name="reading_list_items_deleted">%d वटा लेखहरूलाई सूचीबाट हटाइयो</string>
   <string name="reading_list_item_delete_undo">अन्डू गर्नुहोस्</string>
   <string name="reading_list_deleted">%s मेटियो</string>
-  <string name="saved_list_empty_title">हालसम्म कुनै पनि अध्ययन सूची छैन</string>
+  <string name="saved_list_empty_title" fuzzy="true">हालसम्म कुनै पनि अध्ययन सूची छैन</string>
   <string name="reading_list_article_offline">अफलाइनमा पनि उपलब्ध</string>
   <string name="reading_list_add_to_other_list">अर्को अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="reading_list_remove_from_list">%s बाट हटाउनुहोस्</string>
@@ -466,7 +467,7 @@
   <string name="reading_list_delete_confirm">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेटाउन चाहनुहुन्छ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश गर्नुहोस्</string>
-  <string name="reading_list_turned_sync_off_dialog_ok">हुन्छ</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ठीक छ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">मेरो अभिरुचिहरू</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">मलाई यो फेरि नदेखाउनुहोस्</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समक्रमण सक्षम पार्नुहोस्</string>
@@ -476,20 +477,19 @@
   <string name="reading_lists_menu_import_list">सूची निर्यात गर्नुहोस्</string>
   <string name="reading_lists_menu_sort_by">द्वारा क्रमबद्ध</string>
   <string name="reading_lists_refresh_sync_option">सङ्क्रमण ताजा गर्नुहोस्</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">प्रवेश गर्नुहाेस् / खाता खाेल्नुहाेस्</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यो लेख हाल अफलाइनमा उपलब्ध हुनेछ</item>
     <item quantity="other">यी लेखहरू हाल अफलाइनमा उपलब्ध हुनेछन्</item>
   </plurals>
   <string name="reading_list_toast_last_sync">अध्ययन सूची समक्रमण गर्दै</string>
-  <string name="reading_list_remove_list_dialog_ok_button_text">हुन्छ</string>
-  <string name="reading_list_delete_dialog_ok_button_text">हुन्छ</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ठीक छ</string>
+  <string name="reading_list_delete_dialog_ok_button_text">ठीक छ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_delete_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द गर्नुहोस्</string>
-  <string name="reading_list_split_dialog_ok_button_text">हुन्छ</string>
-  <string name="reading_list_delete_lists_dialog_delete_button_text">मेट्ने</string>
+  <string name="reading_list_split_dialog_ok_button_text">ठीक छ</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">मेटाउनुहोस्</string>
   <string name="reading_list_activity_title">पठन सूची: %s</string>
   <string name="reading_list_notification_title">पठन सूची(हरू) निर्यात गरियो</string>
   <string name="reading_lists_action_menu_export_lists">निर्यात गर्नुहोस्</string>
@@ -527,7 +527,7 @@
   <string name="notification_preferences_title">जानकारी अभिरुचीहरू</string>
   <string name="notifications_mark_unread">नपढिएको रूपमा चिनो लगाउनुहोस्</string>
   <string name="notifications_mark_all_as_read">सबै पढिएको भनि चिनो लगाउने</string>
-  <string name="notifications_direct_reply_action">जवाफ दिनुहोस्</string>
+  <string name="notifications_direct_reply_action">उत्तर दिनुहोस्</string>
   <string name="notifications_direct_reply_success">जवाफ प्रकाशित गरियो।</string>
   <string name="notifications_direct_reply_error">स्वचालित रूपमा जवाफ दिन सकिएन।</string>
   <string name="notifications_mark_all_as_read_message">%d पढिएको भनी चिह्न लगाइयो</string>
@@ -550,9 +550,9 @@
   <string name="preference_summary_notification_milestone">निश्चित सम्पादन सङ्ख्या पुग्यो।</string>
   <string name="preference_title_notification_thanks">धन्यवाद</string>
   <string name="preference_summary_notification_thanks">कसैले तपाईलाई सम्पादन गरेकोमा धन्यवाद दिएका छन्</string>
-  <string name="preference_title_notification_revert">पूर्ववत्</string>
+  <string name="preference_title_notification_revert">पूर्ववत</string>
   <string name="preference_summary_notification_revert">तपाईको एउटा योगदान पूर्ववत् गरियो</string>
-  <string name="preference_title_notification_login_fail">प्रवेश</string>
+  <string name="preference_title_notification_login_fail">प्रवेश गर्नुहोस्</string>
   <string name="preference_title_notification_mention">उल्लेख</string>
   <string name="preference_summary_notification_mention">कसैले तपाईलाई पृष्ठमा उल्लेख गरेकाे छ</string>
   <string name="preference_title_notification_user_talk">वार्तालाप पृष्ठ</string>
@@ -634,11 +634,11 @@
   <string name="feed_item_type_randomizer">पढ्नको लागि अनियमित लेखहरू उत्पन्न गर्नुहोस्</string>
   <string name="feed_item_type_suggested_edits">विकिपिडियामा सामग्री थप्न सुझावहरू</string>
   <string name="feed_item_type_places">हालको स्थानमा आधारित नजिकैका लेखहरू</string>
-  <string name="feed_empty_message">तपाईको अन्वेषण फिडमा केही पनि छैन।</string>
+  <string name="feed_empty_message" fuzzy="true">तपाईको अन्वेषण फिडमा केही पनि छैन।</string>
   <string name="feed_configure_onboarding_action">अनुकुलित बनाउनुहोस्</string>
-  <string name="customize_lang_selection_dialog_ok_button_text">हुन्छ</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">ठीक छ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
-  <string name="feed_lang_selection_dialog_ok_button_text">हुन्छ</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">ठीक छ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="feed_accessibility_card_text">तपाई सामग्रीको फेदमा पुग्नुभएको छ।</string>
   <string name="feed_accessibility_card_load_more_button">अझै धेरै देखाउनुहोस्</string>
@@ -805,7 +805,7 @@
   <string name="onboarding_get_started">सुरु गर्नुहोस्</string>
   <string name="onboarding_maybe_later">पछि हुनसक्छ</string>
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
-  <string name="onboarding_explore_text">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
+  <string name="onboarding_explore_text" fuzzy="true">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
   <string name="onboarding_analytics_switch_title">प्रयोग सम्बन्धी डाटाहरू पठाउने</string>
   <string name="onboarding_got_it">मैले बुझेँ</string>
   <string name="onboarding_multilingual_add_language_text">भाषा थप वा सम्पादन गर्नुहोस्</string>
@@ -843,12 +843,12 @@
   <string name="more_language_options">थप</string>
   <string name="add_wikipedia_languages_text">विकिपिडिया भाषाहरू थप्नुहोस्</string>
   <string name="remove_language_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
-  <string name="remove_language_dialog_ok_button_text">हुन्छ</string>
-  <string name="remove_all_language_warning_dialog_ok_button_text">हुन्छ</string>
-  <string name="protected_page_warning_dialog_ok_button_text">हुन्छ</string>
-  <string name="account_editing_blocked_dialog_ok_button_text">हुन्छ</string>
-  <string name="edit_conflict_dialog_ok_button_text">हुन्छ</string>
-  <string name="reverted_edit_dialog_ok_button_text">हुन्छ</string>
+  <string name="remove_language_dialog_ok_button_text">ठीक छ</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">ठीक छ</string>
+  <string name="protected_page_warning_dialog_ok_button_text">ठीक छ</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">ठीक छ</string>
+  <string name="edit_conflict_dialog_ok_button_text">ठीक छ</string>
+  <string name="reverted_edit_dialog_ok_button_text">ठीक छ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="edit_type_all">सबै योगदानहरू</string>
   <string name="wikitext_bold">गाढा</string>
@@ -886,8 +886,8 @@
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
   <string name="main_tooltip_action_button">सुरु गर्नुहोस्</string>
   <string name="main_tooltip_watchlist_title">अवलोकनसूची</string>
-  <string name="custom_date_picker_dialog_ok_button_text">हुन्छ</string>
-  <string name="text_input_dialog_ok_button_text">हुन्छ</string>
+  <string name="custom_date_picker_dialog_ok_button_text">ठीक छ</string>
+  <string name="text_input_dialog_ok_button_text">ठीक छ</string>
   <string name="text_input_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="custom_date_picker_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="talk_title">वार्तालाप</string>
@@ -897,7 +897,7 @@
   <string name="talk_warn_save_dialog_title">परिवर्तनहरू सङ्ग्रह गर्नुहोस्?</string>
   <string name="talk_warn_save_dialog_publish">प्रकाशित गर्नुहोस्</string>
   <string name="talk_warn_save_dialog_cancel">रद्द गर्नुहोस्</string>
-  <string name="talk_add_reply">जवाफ दिनुहोस्</string>
+  <string name="talk_add_reply">उत्तर दिनुहोस्</string>
   <string name="talk_no_subject">(विषय रहित)</string>
   <string name="talk_reply_subject">विषय</string>
   <string name="talk_reply_hint">प्रतिक्रिया रचना गर्नुहोस्</string>
@@ -1011,4 +1011,18 @@
   <string name="donation_reminders_settings_learn_more_button">थप जान्नुहोस्</string>
   <string name="donation_reminders_settings_report_button">सुविधामा समस्या छ</string>
   <string name="donation_reminders_snackbar_modify_button_label">परिमार्जन गर्नुहोस्</string>
+  <string name="home_feed_settings_default_view_confirm">यो परिवर्तन तपाईंले अर्को पटक एप खोल्दा लागू हुनेछ।</string>
+  <string name="home_feed_settings_games_title">खेलहरू</string>
+  <string name="home_feed_settings_games_subtitle">विकिपिडिया सामग्रीमा आधारित दैनिक खेलहरू</string>
+  <string name="read_aloud_card_play">बजाउनुहोस्</string>
+  <string name="read_aloud_card_retry">पुनः प्रयास गर्नुहोस्</string>
+  <string name="read_aloud_card_keep_listening">सुनिरहनुहोस्?</string>
+  <string name="read_aloud_lead_section_survey_title">तपाईंलाई विकिपिडिया सुन्न कतिको रुचि छ?</string>
+  <string name="read_aloud_lead_section_survey_choice1">लेख परिचयहरू</string>
+  <string name="read_aloud_lead_section_survey_choice3">पूर्ण लेखहरू</string>
+  <string name="read_aloud_lead_section_survey_choice5">अन्यः</string>
+  <string name="read_aloud_lead_section_report_issue">समस्या पेश गर्नुहाेस्</string>
+  <string name="home_feed_games_module_cta_prompt_title">थप खेलहरू खेल्न चाहनुहुन्छ?</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">खेल केन्द्रमा जानुहोस्</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">खेल हब</string>
 </resources>

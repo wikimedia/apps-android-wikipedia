@@ -513,8 +513,8 @@
     <item quantity="other">%d artikli efacita de listo</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d artiklo efacita de %s</item>
-    <item quantity="other">%d artikli efacita de %s</item>
+    <item quantity="one">%1$d artiklo efacita de %2$s</item>
+    <item quantity="other">%1$d artikli efacita de %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d listo efacita</item>
@@ -528,7 +528,7 @@
   <string name="reading_lists_item_deleted">%s efacesis de la listi</string>
   <string name="reading_list_item_delete_undo">Desfacar</string>
   <string name="reading_list_deleted">%s efacita</string>
-  <string name="saved_list_empty_title">Nula pagino konservita til nun</string>
+  <string name="saved_list_empty_title" fuzzy="true">Nula pagino konservita til nun</string>
   <string name="reading_lists_empty_message">Adjuntez artikli a listo por posa lektado, mem se tu divenos \'\'offline\'\'.</string>
   <string name="reading_list_empty">Vu adjuntis nul artikli a ca listo.</string>
   <string name="reading_list_article_offline">Disponebla \'\'offline\'\'</string>
@@ -544,7 +544,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ne divenos disponebla \'\'offline\'\' por omna lekto-listi:</string>
   <string name="reading_lists_sync_reminder_title">Ka sinkronigar listi pri lektado?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikli konservita che lektado-listi nun povas sinkronigesar a vua Wikipedio-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Savez pluse&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Nun vu povas sinkronigar vua listi pri lektado. Facez \'log in\' en vua konto che Wikipedio, e permisez konservar vua listi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Permisar sinkronigo</string>
   <string name="reading_list_login_reminder_title">Sinkronigo di listi pri lektado</string>
   <string name="reading_lists_login_reminder_text">Listi pri lektado nun povas sinkronigesar en multa utensili. Facez \'\'log in\'\' en vua Wikipedio-konto, e permisez konservar la listi.</string>
@@ -581,7 +580,6 @@
   <string name="reading_lists_menu_create_list">Krear nova listo</string>
   <string name="reading_lists_menu_sort_by">Ordinar segun</string>
   <string name="reading_lists_refresh_sync_option">Risinkronigar</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Facez \'\'log in\'\'/Enirez</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ca artiklo nun divenos disponebla \'\'offline\'\'.</item>
     <item quantity="other">Ca artikli nun divenos disponebla \'\'offline\'\'.</item>
@@ -782,11 +780,11 @@
   <string name="feed_item_type_randomizer">Krear hazard-artikli por lektar</string>
   <string name="feed_item_type_suggested_edits">Sugesti por adjuntar kontenajo a Wikipedio</string>
   <string name="feed_item_type_places">Artikli vicina, segun la nuna lokizo</string>
-  <string name="feed_empty_message">Existas nulo en vua \'\'feed\'\' Explorar</string>
+  <string name="feed_empty_message" fuzzy="true">Existas nulo en vua \'\'feed\'\' Explorar</string>
   <string name="feed_configure_onboarding_action">Ajustar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">O.K.</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anular</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Ajustez vua \'\'feed\'\' \"Explorar\"&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nun vu povas selektar quale montresos a vu, ed anke vu povas priorizar la tipi di kontenajo quin vu preferas.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Ajustez vua \'\'feed\'\' \"Explorar\"&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nun vu povas selektar quale montresos a vu, ed anke vu povas priorizar la tipi di kontenajo quin vu preferas.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">O.K.</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anular</string>
   <string name="feed_accessibility_card_text">Vu atingis l\'infra parto de ca \'\'feed\'\'.</string>
@@ -1061,7 +1059,7 @@
     <item quantity="one">Ka removar selektita idiomo?</item>
     <item quantity="other">Ka removar selektita idiomi?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Vu nur vidos kontenajo che Exploro-\'\'feed\'\' e filtrili por rapida serchado por la restanta idiomi de Wikipedio.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Vu nur vidos kontenajo che Exploro-\'\'feed\'\' e filtrili por rapida serchado por la restanta idiomi de Wikipedio.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ne povas removar omna idiomi</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenez adminime 1 idiomo de Wikipedio de quon tu povos serchar e lektar kontenajo.</string>
   <string name="more_language_options">pluse</string>

@@ -5,13 +5,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.login.LoginClient
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import java.io.IOException
 import java.util.concurrent.Semaphore
@@ -44,7 +41,7 @@ object CsrfTokenClient {
                             // If the login sequence results in anything but PASS, then don't bother retrying.
                             // Retrying is intended only for network errors, which would result in an exception, which is caught below.
                             if (!loginResult.pass()) {
-                                bailWithLogout()
+                                AccountUtil.bailWithLogout()
                                 break
                             }
                         }
@@ -71,12 +68,5 @@ object CsrfTokenClient {
 
     private fun tokenRequiresLogin(token: String): Boolean {
         return (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount && token == ANON_TOKEN)
-    }
-
-    private fun bailWithLogout() {
-        // Signal to the rest of the app that we're explicitly logging out in the background.
-        WikipediaApp.instance.resetAfterLogOut()
-        Prefs.loggedOutInBackground = true
-        FlowEventBus.post(LoggedOutInBackgroundEvent())
     }
 }

@@ -503,8 +503,8 @@
     <item quantity="other">%d оагӀув дӀаяьккхай листама чура</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d лустам дӀабаьккхаб %s яха чура</item>
-    <item quantity="other">%d лустам дӀабаьккхаб %s яха чура</item>
+    <item quantity="one">%1$d лустам дӀабаьккхаб %2$s яха чура</item>
+    <item quantity="other">%1$d лустам дӀабаьккхаб %2$s яха чура</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d листам дӀабаьккхаб</item>
@@ -519,7 +519,7 @@
   <string name="reading_lists_item_deleted">%s дӀаяьккхай листамашкара</string>
   <string name="reading_list_item_delete_undo">Юхадаккха</string>
   <string name="reading_list_deleted">%s листам дӀабаьккхаб</string>
-  <string name="saved_list_empty_title">Дешарá дола листамаш хӀанзехьа дац</string>
+  <string name="saved_list_empty_title" fuzzy="true">Дешарá дола листамаш хӀанзехьа дац</string>
   <string name="reading_lists_empty_message">ТӀехьагӀа еша дӀаяхка статьяш, хье офлайн вале/яле а.</string>
   <string name="reading_list_empty">Укх листама чу тӀатеха оагӀонаш яц.</string>
   <string name="reading_list_article_offline">Дунен мазаца хоттам беце а дешалуш да</string>
@@ -535,7 +535,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s массадолча дешара листамашка тӀакхоачача хургьяц офлайн-раже:</string>
   <string name="reading_lists_sync_reminder_title">Дешара мугӀамай синхронизаци хьалсага езий?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Хьа мугӀамашкара еша дӀаяхкача статьяштеи хьа аккаунтаи хӀанз синхронизаци е йиш я. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Цу хьакъехьа дукхагӀа довза&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Дешара листамашта тайп-тайпарча чоалхашта юкъе синхронизаци е йиш я. Хьай аккаунта чу чувала(-яла), тӀаккха листамаш дӀадахка/дӀаязде пурам ле. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ма дарра хá&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхронизаци хьалсага</string>
   <string name="reading_list_login_reminder_title">Синхронизаци хьае дешара листамá</string>
   <string name="reading_lists_login_reminder_text">Дешара листамашта тайп-тайпарча чоалхашта юкъе синхронизаци е йиш я. Хьай аккаунта чу чувала(-яла), тӀаккха листамаш дӀадахка/дӀаязде пурам ле.</string>
@@ -574,7 +573,6 @@
   <string name="reading_lists_menu_import_list">Листама импорт</string>
   <string name="reading_lists_menu_sort_by">Къоастадеш дӀанийсде укх тайпара...</string>
   <string name="reading_lists_refresh_sync_option">Юха хеца синхронизаци</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Чувала / Регистраци е</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ер статья хӀанз офлайн еша йиш хургья.</item>
     <item quantity="few">Ераш статьяш хӀанз офлайн еша йиш хургья.</item>
@@ -796,11 +794,11 @@
   <string name="feed_item_type_main_page">Википеден керттера лустам</string>
   <string name="feed_item_type_randomizer">ТӀехьагӀа еша дӀаяхка мегаргйола ца ховш нийсъенна статьяш хьагойта езий?</string>
   <string name="feed_item_type_suggested_edits">ОагӀонех лаьцар тоаде йиш я.</string>
-  <string name="feed_empty_message">Хьа лента даьсса да</string>
+  <string name="feed_empty_message" fuzzy="true">Хьа лента даьсса да</string>
   <string name="feed_configure_onboarding_action">Оттамаш де</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ХӀАЪА</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Эшац</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Хьатоаде хьай лента&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ХӀанз хьа харжа аьттув ба фу гойташ хургда а хьа лента тӀа, цу юкъера хьайна дукхагӀа эшаш дар малагӀа да а.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Хьатоаде хьай лента&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ХӀанз хьа харжа аьттув ба фу гойташ хургда а хьа лента тӀа, цу юкъера хьайна дукхагӀа эшаш дар малагӀа да а.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ХӀАЪА</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ЭШАЦ</string>
   <string name="feed_accessibility_card_text">Лентай чаккхенга кхаьчар хьо.</string>
@@ -1066,9 +1064,9 @@
   <string name="onboarding_get_started">ДӀадоладе</string>
   <string name="onboarding_maybe_later">ТӀехьагӀа мег</string>
   <string name="onboarding_explore_title">Тахкара керда наькъаш</string>
-  <string name="onboarding_explore_text">Википеде гӀолла лела хьайна даим кердадувлача лентах пайда а эцаш. &lt;br/&gt;&lt;b&gt;Оттамаш&lt;/b&gt; де йиш цу лента тӀа хьай хьашт дар цо гойтаргдолаш — &lt;b&gt;укх дийнахьа&lt;/b&gt; тархьаре хинна хӀамаш е &lt;b&gt;ца ховш нийсъенна&lt;/b&gt; оагӀонаш.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Википеде гӀолла лела хьайна даим кердадувлача лентах пайда а эцаш. &lt;br/&gt;&lt;b&gt;Оттамаш&lt;/b&gt; де йиш цу лента тӀа хьай хьашт дар цо гойтаргдолаш — &lt;b&gt;укх дийнахьа&lt;/b&gt; тархьаре хинна хӀамаш е &lt;b&gt;ца ховш нийсъенна&lt;/b&gt; оагӀонаш.</string>
   <string name="onboarding_reading_list_sync_title">Дешарá дола листамаш синхронизацеца</string>
-  <string name="onboarding_reading_list_sync_text_v2">Хье офлайн вале/яле а, тӀехьагӀа хьайна еша безам болча оагӀонех дешара листамаш хьаде йиш я хьа. &lt;br/&gt;Хьай аккаунтаца авторизаци е, хьай дешара листамашта синхронизаци ергйолаш. &lt;a href=\"#login\"&gt;Хьахоттале Википедех&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Хье офлайн вале/яле а, тӀехьагӀа хьайна еша безам болча оагӀонех дешара листамаш хьаде йиш я хьа. &lt;br/&gt;Хьай аккаунтаца авторизаци е, хьай дешара листамашта синхронизаци ергйолаш. &lt;a href=\"#login\"&gt;Хьахоттале Википедех&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Пайда эцарах отчёташ дӀаахийта</string>
   <string name="onboarding_got_it">Кхет</string>
   <string name="onboarding_multilingual_secondary_text">Ераш метташ корадаьд тхона хьа устройства тӀа:</string>
@@ -1106,7 +1104,7 @@
     <item quantity="many">ДӀабаккха хьахержа дола метташ?</item>
     <item quantity="other">ДӀабаккха хьахержа дола метташ?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Википеден кхыдолча меттала йолча разделашка мара вӀаштехьа хургдац хьа Лента яхача вкладка тӀа долчунга хьажа а сиха лахара фильтраш лелае а.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Википеден кхыдолча меттала йолча разделашка мара вӀаштехьа хургдац хьа Лента яхача вкладка тӀа долчунга хьажа а сиха лахара фильтраш лелае а.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Деррига метташ дӀадаха йиш яц</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Цхьа мотт мукъагӀа бита бéза хьа, дéша а лаха а йиш хургйолаш</string>
   <string name="more_language_options">кхы а да метташ</string>

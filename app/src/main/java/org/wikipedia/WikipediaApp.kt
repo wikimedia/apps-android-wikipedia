@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Handler
+import android.os.Process
+import android.os.UserManager
 import android.speech.RecognizerIntent
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
@@ -39,6 +41,7 @@ import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.CoilImageServiceLoader
 import org.wikipedia.views.imageservice.ImageService
+import org.wikipedia.yearinreview.data.PrefsYearInReviewStore
 import java.util.UUID
 
 class WikipediaApp : Application() {
@@ -67,7 +70,7 @@ class WikipediaApp : Application() {
     private var defaultWikiSite: WikiSite? = null
 
     val connectionStateMonitor = ConnectionStateMonitor()
-    val tabList = mutableListOf<Tab>()
+    val tabList by lazy { mutableListOf<Tab>().also { initTabs(it) } }
 
     var currentTheme = Theme.fallback
         set(value) {
@@ -139,6 +142,14 @@ class WikipediaApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        // The system WebView's sandboxed renderer can get bound to the app and run onCreate()
+        // in an isolated process, where UserManager (and thus SharedPreferences) is not available.
+        // In such a case, there's no point continuing initialization.
+        if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && Process.isIsolated()) ||
+            getSystemService(UserManager::class.java) == null) {
+            return
+        }
+
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
         connectionStateMonitor.enable()
@@ -150,7 +161,6 @@ class WikipediaApp : Application() {
 
         currentTheme = unmarshalTheme(Prefs.currentThemeId)
 
-        initTabs()
         enableWebViewDebugging()
         registerActivityLifecycleCallbacks(activityLifecycleHandler)
         registerComponentCallbacks(activityLifecycleHandler)
@@ -211,7 +221,7 @@ class WikipediaApp : Application() {
     fun commitTabState() {
         if (tabList.isEmpty()) {
             Prefs.clearTabs()
-            initTabs()
+            initTabs(tabList)
         } else {
             Prefs.tabs = tabList
         }
@@ -257,7 +267,7 @@ class WikipediaApp : Application() {
         Prefs.tempAccountDialogShown = false
         Prefs.impactLastQueryTime = 0
         Prefs.impactLastResponseBody = emptyMap()
-        Prefs.yearInReviewModelData = emptyMap()
+        PrefsYearInReviewStore.onLoggedOut()
         SharedPreferenceCookieManager.instance.clearAllCookies()
         MainScope().launch {
             AppDatabase.instance.notificationDao().deleteAll()
@@ -281,12 +291,12 @@ class WikipediaApp : Application() {
         return result
     }
 
-    private fun initTabs() {
+    private fun initTabs(tabs: MutableList<Tab>) {
         if (Prefs.hasTabs) {
-            tabList.addAll(Prefs.tabs)
+            tabs.addAll(Prefs.tabs)
         }
-        if (tabList.isEmpty()) {
-            tabList.add(Tab())
+        if (tabs.isEmpty()) {
+            tabs.add(Tab())
         }
     }
 

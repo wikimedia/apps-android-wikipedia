@@ -83,7 +83,7 @@ object EventPlatformClient {
             synchronized(INITIAL_QUEUE) {
                 // We want the queue to work as a circular buffer, so if it's full, remove the oldest item.
                 if (INITIAL_QUEUE.size >= Prefs.analyticsQueueSize) {
-                    INITIAL_QUEUE.removeAt(0)
+                    INITIAL_QUEUE.removeFirstOrNull()
                 }
                 INITIAL_QUEUE.add(event)
             }

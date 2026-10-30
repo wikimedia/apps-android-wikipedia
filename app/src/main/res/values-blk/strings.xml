@@ -443,15 +443,15 @@
     <item quantity="one">အဝ်ႏစာႏရင်ꩻကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻ %d</item>
     <item quantity="other">အဝ်ႏစာႏရင်ꩻကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻဖိုင်ႏ %d</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">အဝ်ႏ%sကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻ %d</item>
-    <item quantity="other">အဝ်ႏ%sကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻဖိုင်ႏ %d</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">အဝ်ႏ%2$sကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻ %1$d</item>
+    <item quantity="other">အဝ်ႏ%2$sကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻဖိုင်ႏ %1$d</item>
   </plurals>
   <string name="reading_list_items_deleted">အဝ်ႏစာႏရင်ꩻကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻဖိုင်ႏ %d</string>
   <string name="reading_lists_item_deleted">အဝ်ႏစာႏရင်ꩻဖိုင်ႏကို ဖုဲင်းထန်ႏထွူလဲဉ်း %s</string>
   <string name="reading_list_item_delete_undo">သဲင်ꩻဖျင်ချာ</string>
   <string name="reading_list_deleted">ယားကုဲင်ထွူလဲဉ်း %s</string>
-  <string name="saved_list_empty_title">သဲမ်ဟဝ်ခါꩻ လိတ်မဲ့ငါဖိုင်ႏ အဝ်ႏတဝ်း</string>
+  <string name="saved_list_empty_title" fuzzy="true">သဲမ်ဟဝ်ခါꩻ လိတ်မဲ့ငါဖိုင်ႏ အဝ်ႏတဝ်း</string>
   <string name="reading_list_empty">စာႏရင်ꩻယိုထျꩻနဝ်ꩻ နာꩻထဲမ်သော့ꩻခါꩻ ရောမ်ဖြုဲင်ꩻဖိုင်ႏ အဝ်ႏတဝ်း။</string>
   <string name="reading_list_article_offline">လꩻနွောင်ꩻဒျာႏ အဝ်ႏလိုႏတဝ်းလဲင်းစား</string>
   <string name="reading_list_article_make_offline">မာꩻရောမ်ဖြုဲင်ꩻယို ဖေႏကလꩻနွောင်ꩻ အဝ်ႏလိုႏတဝ်းလဲင်းစား</string>
@@ -494,7 +494,6 @@
   <string name="reading_lists_menu_create_list">ဖန်ဆင်ꩻ စာႏရင်ꩻတသာ</string>
   <string name="reading_lists_menu_sort_by">အရဲဉ်ႏအတွိုင်ꩻ</string>
   <string name="reading_lists_refresh_sync_option">ထိုမ်ႏစဲစ်ချာယင်း syncထာꩻမာꩻ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">နွို့အကောက် / ဒင်ႏအကောက်မတ်ပိုင်တိဉ်</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ရောမ်ဖြုဲင်ꩻယိုနဝ်ꩻ ယိုခါ ထွားလꩻနွောင်ꩻလဲဉ်း အဝ်ႏလိုႏတဝ်းလဲင်းစားသွူ</item>
     <item quantity="other">ရောမ်ဖြုဲင်ꩻယိုဖိုင်ႏနဝ်ꩻ ယိုခါ ထွားလꩻနွောင်ꩻလဲဉ်း အဝ်ႏလိုႏတဝ်းလဲင်းစားသွူ။</item>

@@ -31,6 +31,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
@@ -59,6 +60,7 @@ class LoginActivity : BaseActivity() {
     private var wiki = WikipediaApp.instance.wikiSite
     private var uiPromptResult: LoginResult? = null
     private var captchaResult: CaptchaResult? = null
+    private var hCaptchaToken: String? = null
     private var firstStepToken: String? = null
 
     private val loginClient = LoginClient()
@@ -83,6 +85,24 @@ class LoginActivity : BaseActivity() {
             onLoginSuccess()
         }
     }
+
+    private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
+        override fun onShow() {
+            instrument?.submitInteraction("hcaptcha_show")
+        }
+
+        override fun onSuccess(token: String) {
+            instrument?.submitInteraction("hcaptcha_success")
+            hCaptchaToken = token
+            doLogin()
+        }
+
+        override fun onError(e: Exception, code: Int) {
+            instrument?.submitInteraction("hcaptcha_error", actionContext = e.getInstrumentActionContext())
+            showProgressBar(false)
+            FeedbackUtil.showMessage(this@LoginActivity, e.message.orEmpty())
+        }
+    })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -161,6 +181,11 @@ class LoginActivity : BaseActivity() {
         super.onStop()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        hCaptchaHelper.cleanup()
+    }
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putBoolean("loginShowing", true)
@@ -206,6 +231,7 @@ class LoginActivity : BaseActivity() {
         uiPromptResult = null
         captchaResult = null
         captchaHandler.hideCaptcha()
+        hCaptchaToken = null
     }
 
     private fun clearErrors() {
@@ -259,7 +285,7 @@ class LoginActivity : BaseActivity() {
 
     private fun onLoginSuccess() {
         val isReadingChallenge = loginSource == SOURCE_READING_CHALLENGE
-        instrument?.submitInteraction(action = "success", actionContext = if (isReadingChallenge) mapOf("invoke_source" to loginSource) else null)
+        instrument?.submitInteraction(action = "success", actionContext = mapOf("invoke_source" to loginSource))
         if (isReadingChallenge) {
             Prefs.readingChallengeEnrolled = true
             Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
@@ -295,12 +321,12 @@ class LoginActivity : BaseActivity() {
         val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
 
-        if (uiPromptResult == null && captchaResult == null) {
+        if (uiPromptResult == null && captchaResult == null && hCaptchaToken == null) {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, cb = loginCallback)
         } else {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
                 captchaId = if (captchaResult != null) captchaHandler.captchaId() else null,
-                captchaWord = if (captchaResult != null) captchaHandler.captchaWord() else null,
+                captchaWord = if (hCaptchaToken != null) hCaptchaToken else if (captchaResult != null) captchaHandler.captchaWord() else null,
                 twoFactorCode = if (uiPromptResult is LoginOATHResult) twoFactorCode else null,
                 emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
                 isContinuation = uiPromptResult != null,
@@ -346,6 +372,14 @@ class LoginActivity : BaseActivity() {
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
         }
 
+        override fun hCaptchaPrompt(result: LoginResult, caught: Throwable, siteKey: String, token: String?) {
+            showProgressBar(true)
+            firstStepToken = token
+            hCaptchaHelper.cleanup()
+            instrument?.submitInteraction("hcaptcha_load")
+            hCaptchaHelper.show(siteKey)
+        }
+
         override fun passwordResetPrompt(token: String?) {
             resetPasswordLauncher.launch(ResetPasswordActivity.newIntent(this@LoginActivity, getText(binding.loginUsernameText), token))
         }
@@ -385,7 +419,6 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_ONBOARDING = "onboarding"
         const val SOURCE_SETTINGS = "settings"
         const val SOURCE_SUBSCRIBE = "subscribe"
-        const val SOURCE_READING_MANUAL_SYNC = "reading_lists_manual_sync"
         const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
         const val SOURCE_TALK = "talk"
@@ -393,6 +426,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_YEAR_IN_REVIEW = "yir"
         const val SOURCE_ON_THIS_DAY_GAME_RESULT = "on_this_day_game_result"
         const val SOURCE_READING_CHALLENGE = "widget_challenge"
+        const val SOURCE_ENCOURAGE = "encourage"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)

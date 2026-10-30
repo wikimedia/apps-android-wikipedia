@@ -303,7 +303,7 @@
   <string name="reading_list_items_deleted">អត្ថបទចំនួន %d ត្រូវបានដកចេញពីបញ្ជី</string>
   <string name="reading_list_item_delete_undo">មិន​ធ្វើ​វិញ</string>
   <string name="reading_list_deleted">%s ត្រូវបានលុបចោលហើយ</string>
-  <string name="saved_list_empty_title">មិនទាន់មានទំព័ររក្សាទុកនៅឡើយទេ</string>
+  <string name="saved_list_empty_title" fuzzy="true">មិនទាន់មានទំព័ររក្សាទុកនៅឡើយទេ</string>
   <string name="reading_list_empty">អ្នកមិនទាន់មានអត្ថបទបន្ថែមទៅក្នុងបញ្ជីនេះនៅឡើយទេ។</string>
   <string name="reading_list_article_offline">អាចអានបានពេលនៅក្រៅបណ្ដាញ</string>
   <string name="reading_list_article_make_offline">ធ្វើអោយអត្ថបទនេះអានបាននៅក្រៅបណ្ដាញ</string>
@@ -321,7 +321,6 @@
   <string name="default_reading_list_name">​រក្សាទុករួច</string>
   <string name="reading_lists_menu_create_list">បង្កើតបញ្ជីថ្មី</string>
   <string name="reading_lists_menu_sort_by">តំរៀបតាម</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">កត់ឈ្មោះចូល / ចុះឈ្មោះចូល</string>
   <string name="user_option_sync_label">ចំណង់ចំណូលចិត្ត</string>
   <string name="notification_channel_description">ស្ថានភាពការទាញយក</string>
   <string name="notification_syncing_pause_button">សម្រាក</string>

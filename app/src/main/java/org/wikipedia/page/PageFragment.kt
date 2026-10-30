@@ -53,6 +53,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
@@ -77,7 +78,6 @@ import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
-import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -95,13 +95,12 @@ import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
+import org.wikipedia.topics.db.PageTopic
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -177,6 +176,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private var avPlayer: AvPlayer? = null
     private var avCallback: AvCallback? = null
     private var sections: MutableList<Section>? = null
+    private var editCount = 0
     private var app = WikipediaApp.instance
 
     override lateinit var linkHandler: LinkHandler
@@ -186,7 +186,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override val isPreview get() = false
     override val referencesGroup get() = references?.referencesGroup
     override val selectedReferenceIndex get() = references?.selectedIndex ?: 0
-    override val messageCardHeight get() = leadImagesHandler.getDonationReminderCardViewHeight()
+    override var messageCardHeight: Float = 0f
 
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
@@ -310,7 +310,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageImageTransitionHolder.visibility = View.GONE
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
-        if (ImageUrlUtil.isGif(page?.pageProperties?.leadImageUrl)) {
+        if (ImageUrlUtil.isGif(page?.leadImageUrl)) {
             leadImagesHandler.loadLeadImage()
         }
         articleInteractionEvent?.resume()
@@ -352,7 +352,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
         leadImagesHandler.refreshCallToActionVisibility()
         page?.let {
-            bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.pageProperties.canEdit))
+            bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.canEdit))
         }
         // We disable and then re-enable scroll events coming from the WebView, because toggling
         // reading focus mode within the article could actually change the dimensions of the page,
@@ -428,7 +428,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         // that we can't control, we need to bounce them out explicitly to an external
                         // browser, even after the page is fully loaded into our WebView. This is because
                         // we can determine the namespace only after the loading sequence is in progress.
-                        if (model.page?.pageProperties?.namespace == Namespace.EVENT) {
+                        if (model.page?.summary?.ns == Namespace.EVENT) {
                             model.title?.let {
                                 UriUtil.visitInExternalBrowser(requireActivity(), it.uri.toUri())
                                 binding.root.post {
@@ -491,7 +491,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@evaluate
             }
             model.page?.let { page ->
-                page.pageProperties.protection = JsonUtil.decodeFromString(value)
+                page.protection = JsonUtil.decodeFromString(value)
                 updateQuickActionsAndMenuOptions()
             }
         }
@@ -772,7 +772,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("link", linkHandler)
         bridge.addListener("setup") { _, _ -> onPageSetupEvent() }
-        bridge.addListener("final_setup") { _, _ ->
+        bridge.addListener("final_setup") { _, payload ->
             if (!isAdded) {
                 return@addListener
             }
@@ -780,18 +780,30 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
 
-            // do we have a URL fragment to scroll to?
+            JsonUtil.decodeFromElement<PageMetadata>(payload)?.let { metadata ->
+                // Persist the list of topics for this article.
+                // TODO: do something with the other bits of metadata?
+                model.curEntry?.let { entry ->
+                    if (metadata.topics.isNotEmpty()) {
+                        MainScope().launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                            AppDatabase.instance.pageTopicDao()
+                                .upsertForPage(entry, PageTopic.fromMetadata(entry, metadata.topics))
+                        }
+                    }
+                }
+            }
+
+            // do we have a URL fragment or highlight text to scroll to?
             model.title?.let { prevTitle ->
-                if (!prevTitle.fragment.isNullOrEmpty() && scrollTriggerListener.stagedScrollY == 0) {
+                if ((!prevTitle.fragment.isNullOrEmpty() || !model.pendingHighlightText.isNullOrEmpty()) && scrollTriggerListener.stagedScrollY == 0) {
                     val scrollDelay = 100
                     webView.postDelayed({
                         if (!isAdded) {
                             return@postDelayed
                         }
                         model.title?.let {
-                            if (!it.fragment.isNullOrEmpty()) {
-                                scrollToSection(it.fragment!!)
-                            }
+                            jumpToHighlightOrSection(it.fragment, model.pendingHighlightText)
+                            model.pendingHighlightText = null
                         }
                     }, scrollDelay.toLong())
                 }
@@ -801,7 +813,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (!isAdded) {
                 return@addListener
             }
-            references = JsonUtil.decodeFromString(messagePayload.toString())
+            references = JsonUtil.decodeFromElement<PageReferences>(messagePayload)
             references?.let {
                 if (it.referencesGroup.isNotEmpty()) {
                     showBottomSheet(ReferenceDialog())
@@ -869,7 +881,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     }
                     "coordinate" -> {
                         model.page?.let { page ->
-                            val location = page.pageProperties.geo
+                            val location = page.summary.coordinates
                             if (location != null) {
                                 PlacesEvent.logAction("places_click", "article_footer")
                                 requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title, location))
@@ -920,13 +932,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun onPageMetadataLoaded(redirectedFrom: String? = null) {
+    fun onPageMetadataLoaded(redirectedFrom: String? = null, editCount: Int = -1) {
+        this.editCount = editCount
         updateQuickActionsAndMenuOptions()
         if (model.page == null) {
             return
         }
         model.page?.run {
-            articleInteractionEvent = ArticleInteractionEvent(model.title?.wikiSite?.dbName()!!, pageProperties.pageId)
+            articleInteractionEvent = ArticleInteractionEvent(model.title?.wikiSite?.dbName()!!, summary.pageId)
         }
         editHandler.setPage(model.page)
         binding.pageRefreshContainer.isEnabled = true
@@ -957,8 +970,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         maybeShowAnnouncement()
-        OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(),
-            InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
 
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
@@ -992,14 +1003,22 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         setCurrentTabAndReset(selectedTabPosition)
     }
 
-    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
+    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false, highlightText: String? = null) {
         // is the new title the same as what's already being displayed?
         if (currentTab.backStack.isNotEmpty() &&
                 title == currentTab.backStack[currentTab.backStackPosition].title) {
             if (model.page == null || isRefresh) {
-                pageFragmentLoadState.loadFromBackStack()
-            } else if (!title.fragment.isNullOrEmpty()) {
-                scrollToSection(title.fragment!!)
+                if (highlightText.isNullOrEmpty()) {
+                    pageFragmentLoadState.loadFromBackStack()
+                } else {
+                    // Scroll to the highlighted passage instead of restoring the previous scroll position.
+                    loadPage(title, entry, false, 0, isRefresh, highlightText)
+                }
+            } else {
+                // Keep the model in sync so that a pending final_setup does not jump to a stale target.
+                model.title?.fragment = title.fragment
+                model.pendingHighlightText = highlightText
+                jumpToHighlightOrSection(title.fragment, highlightText)
             }
             return
         }
@@ -1008,10 +1027,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 app.tabList.last().clearBackstack()
             }
         }
-        loadPage(title, entry, pushBackStack, 0, isRefresh)
+        loadPage(title, entry, pushBackStack, 0, isRefresh, highlightText)
     }
 
-    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false) {
+    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false, highlightText: String? = null) {
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle()
 
@@ -1034,6 +1053,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         errorState = false
         binding.pageError.visibility = View.GONE
         model.title = title
+        model.pendingHighlightText = highlightText
         model.curEntry = entry
         model.page = null
         model.readingListPage = null
@@ -1070,10 +1090,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.readingListIcon(model.isInReadingList), 0, 0)
                 }
                 PageActionItem.EDIT_ARTICLE -> {
-                    it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.editArticleIcon(model.page?.pageProperties?.canEdit != true), 0, 0)
+                    it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.editArticleIcon(model.page?.canEdit != true), 0, 0)
                 }
                 PageActionItem.VIEW_ON_MAP -> {
-                    val geoAvailable = model.page?.pageProperties?.geo != null
+                    val geoAvailable = model.page?.summary?.coordinates != null
                     val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (geoAvailable) R.attr.primary_color else R.attr.inactive_color)
                     it.setTextColor(tintColor)
                     TextViewCompat.setCompoundDrawableTintList(it, tintColor)
@@ -1118,7 +1138,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 if (!isAdded) {
                     return@evaluate
                 }
-                val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.pageProperties?.pageId ?: -1)
+                val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.summary?.pageId ?: -1)
                 val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
@@ -1157,7 +1177,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (!isAdded) {
             return
         }
+        bridge.execute(JavaScriptActionHandler.clearHighlight())
         bridge.execute(JavaScriptActionHandler.prepareToScrollTo(sectionAnchor, false))
+    }
+
+    private fun jumpToHighlightOrSection(sectionAnchor: String?, highlightText: String?) {
+        if (!highlightText.isNullOrEmpty()) {
+            bridge.evaluate(JavaScriptActionHandler.jumpToHighlightOrSection(sectionAnchor, highlightText)) { result ->
+                // ignore
+            }
+        } else if (!sectionAnchor.isNullOrEmpty()) {
+            scrollToSection(sectionAnchor)
+        }
     }
 
     fun onPageLoadError(caught: Throwable) {
@@ -1185,6 +1216,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             errorState = true
             callback()?.onPageLoadError(it)
         }
+    }
+
+    fun updateHeaderTopMargin() {
+        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
+    }
+
+    fun updateMessageCardHeight() {
+        messageCardHeight = leadImagesHandler.getDonationReminderCardViewHeight()
     }
 
     fun refreshPage(stagedScrollY: Int = 0) {
@@ -1286,6 +1325,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().finish()
     }
 
+    fun dismissEditHandlerMenu(title: PageTitle?) {
+        title?.let {
+            EditAttemptStepEvent.logAbort(pageTitle = it, editCount = this.editCount)
+        }
+    }
+
     private inner class AvCallback : AvPlayer.Callback {
         override fun onSuccess() {
             avPlayer?.stop()
@@ -1365,29 +1410,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     inner class PageActionItemCallback : PageActionItem.Callback {
         override fun onSaveSelected() {
-            if (model.isInReadingList) {
-                val anchor = if (Prefs.customizeToolbarOrder.contains(PageActionItem.SAVE.id))
-                    binding.pageActionsTabLayout else (requireActivity() as PageActivity).getOverflowMenu()
-                LongPressMenu(anchor, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                        title?.run {
-                            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, addToDefault, InvokeSource.BOOKMARK_BUTTON)
-                        }
-                    }
-
-                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                        page?.let { readingListPage ->
-                            title?.run {
-                                ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, this, InvokeSource.BOOKMARK_BUTTON)
-                            }
-                        }
-                    }
-                }).show(model.curEntry)
-            } else {
-                title?.run {
-                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, true, InvokeSource.BOOKMARK_BUTTON)
-                }
-            }
+            title?.let { SaveArticleSheetDialog.show(childFragmentManager, it) }
             articleInteractionEvent?.logSaveClick()
         }
 
@@ -1460,9 +1483,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             articleInteractionEvent?.logNewTabClick()
         }
 
-        override fun onExploreSelected() {
-            goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
-            articleInteractionEvent?.logExploreClick()
+        override fun onHomeSelected() {
+            goToMainActivity(tab = NavTab.HOME, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
+            articleInteractionEvent?.logHomeClick()
         }
 
         override fun onCategoriesSelected() {
@@ -1479,7 +1502,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onViewOnMapSelected() {
             title?.let {
-                val location = page?.pageProperties?.geo
+                val location = page?.summary?.coordinates
                 if (location != null) {
                     PlacesEvent.logAction("places_click", "article_more_menu")
                     requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it, location))

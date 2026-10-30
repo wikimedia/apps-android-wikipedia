@@ -523,13 +523,13 @@
   <string name="reading_list_description_hint">ਵੇਰਵਾ (ਚੋਣਵਾਂ)</string>
   <string name="reading_list_item_deleted">%s ਨੂੰ ਸੂਚੀ \'ਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="reading_list_item_deleted_from_list">%2$s ਤੋਂ %1$s ਹਟਾਇਆ ਗਿਆ</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
     <item quantity="other"> ਸੂਚੀ ਵਿੱਚੋਂ %d ਲੇਖ ਹਟਾਏ ਗਏ</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%s ਤੋਂ %d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
-    <item quantity="other">%s ਤੋਂ %d ਲੇਖ ਹਟਾਏ ਗਏ</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%2$s ਤੋਂ %1$d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
+    <item quantity="other">%2$s ਤੋਂ %1$d ਲੇਖ ਹਟਾਏ ਗਏ</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d ਸੂਚੀ ਮਿਟਾਈ ਗਈ</item>
@@ -544,7 +544,7 @@
   <string name="reading_lists_item_deleted">%s ਸੂਚੀਆਂ ਵਿੱਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="reading_list_item_delete_undo">ਰੱਦ ਕਰੋ</string>
   <string name="reading_list_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
-  <string name="saved_list_empty_title">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>
+  <string name="saved_list_empty_title" fuzzy="true">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>
   <string name="reading_list_empty">ਤੁਹਾਡੇ ਕੋਲ ਇਸ ਸੂਚੀ ਵਿੱਚ ਕੋਈ ਲੇਖ ਸ਼ਾਮਲ ਨਹੀਂ ਹੈ।</string>
   <string name="reading_list_add_to_other_list">ਇੱਕ ਹੋਰ ਪੜ੍ਹਨ ਦੀ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="reading_list_move_to_other_list">ਕਿਸੇ ਹੋਰ ਪੜ੍ਹਨ ਦੀ ਸੂਚੀ ਵਿੱਚ ਜਾਓ</string>
@@ -555,7 +555,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">ਲੇਖ ਕਈ ਸੂਚੀਆਂ ਵਿੱਚ ਦਿਖਾਈ ਦਿੰਦਾ ਹੈ</string>
   <string name="reading_lists_sync_reminder_title">ਕੀ ਪਡ਼੍ਹਨ ਦੀ ਸੂਚੀ ਦਾ ਸਮਕਾਲੀਕਰਨ ਚਾਲੂ ਕਰਨਾ ਹੈ?</string>
   <string name="reading_lists_sync_reminder_text">ਪਡ਼੍ਹਨ ਦੀਆਂ ਸੂਚੀਆਂ ਵਿੱਚ ਸੰਭਾਲੇ ਲੇਖ ਹੁਣ ਤੁਹਾਡੇ ਵਿਕੀਪੀਡੀਆ ਖਾਤੇ ਨਾਲ਼ ਸਮਕਾਲੀ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ। &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">ਪਡ਼੍ਹਨ ਦੀਆਂ ਸੂਚੀਆਂ ਨੂੰ ਹੁਣ ਸਾਰੇ ਜੰਤਰਾਂ ਵਿੱਚ ਸਮਕਾਲੀ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਆਪਣੇ ਵਿਕੀਪੀਡੀਆ ਖਾਤੇ ਵਿੱਚ ਦਾਖ਼ਲ ਹੋਵੋ ਅਤੇ ਆਪਣੀਆਂ ਸੂਚੀਆਂ ਨੂੰ ਸੰਭਾਲਣ ਦੀ ਆਗਿਆ ਦਿਓ। &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">ਸਮਕਾਲੀਕਰਨ ਚਾਲੂ ਕਰੋ</string>
   <string name="reading_list_login_reminder_title">ਪਡ਼੍ਹਨਵਾਲੀ ਸੂਚੀਆਂ ਸਮਕਾਲੀ ਕਰੋ</string>
   <string name="reading_lists_login_reminder_text">ਪਡ਼੍ਹਨ ਦੀਆਂ ਸੂਚੀਆਂ ਨੂੰ ਹੁਣ ਸਾਰੇ ਜੰਤਰਾਂ ਵਿੱਚ ਸਮਕਾਲੀ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਆਪਣੇ ਵਿਕੀਪੀਡੀਆ ਖਾਤੇ ਵਿੱਚ ਦਾਖ਼ਲ ਹੋਵੋ ਅਤੇ ਆਪਣੀਆਂ ਸੂਚੀਆਂ ਨੂੰ ਸੰਭਾਲਣ ਦੀ ਆਗਿਆ ਦਿਓ।</string>
@@ -594,7 +593,6 @@
   <string name="reading_lists_menu_import_list">ਦਰਾਮਦ ਸੂਚੀ</string>
   <string name="reading_lists_menu_sort_by">ਇਸ ਮੁਤਾਬਕ ਛਾਂਟੋ</string>
   <string name="reading_lists_refresh_sync_option">ਸਮਕਾਲੀਕਰਨ ਨੂੰ ਤਾਜ਼ਾ ਕਰੋ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ਦਾਖ਼ਲ ਹੋਵੋ / ਖਾਤਾ ਬਣਾਓ</string>
   <string name="reading_list_toast_last_sync">ਪੜ੍ਹਨ ਦੀ ਸੂਚੀਆਂ ਦਾ ਸਮਕਾਲੀਕਰਨ ਕੀਤਾ ਗਿਆ</string>
   <string name="reading_list_menu_last_sync">ਆਖਰੀ ਸਮਕਾਲੀਕਰਨ: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ਠੀਕ</string>
@@ -1102,7 +1100,7 @@
   <string name="onboarding_explore_title">ਖੋਜ ਕਰਨ ਦੇ ਨਵੇਂ ਤਰੀਕੇ</string>
   <string name="onboarding_reading_list_sync_title">ਸਮਕਾਲੀਕਰਨ ਨਾਲ ਪਡ਼੍ਹਨਵਾਲੀ ਸੂਚੀਆਂ</string>
   <string name="onboarding_data_privacy_title">ਡਾਟਾ ਅਤੇ ਨਿੱਜਤਾ</string>
-  <string name="onboarding_data_privacy_text">ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਤੁਹਾਨੂੰ ਮੁਫਤ ਗਿਆਨ ਲਹਿਰ ਵਿੱਚ ਹਿੱਸਾ ਲੈਣ ਲਈ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਪ੍ਰਦਾਨ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੋਣੀ ਚਾਹੀਦੀ। ਇਸ ਐਪ ਲਈ ਇਕੱਤਰ ਕੀਤਾ ਗਿਆ ਵਰਤੋਂ ਡੇਟਾ ਗੁਮਨਾਮ ਹੈ। ਸਾਡੀ &lt;a href=\"#privacy\"&gt;ਪਰਦੇਦਾਰੀ ਨੀਤੀ&lt;/a&gt; ਅਤੇ &lt;a href=\"#termsOfUse\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਬਾਰੇ ਹੋਰ ਜਾਣੋ।</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਤੁਹਾਨੂੰ ਮੁਫਤ ਗਿਆਨ ਲਹਿਰ ਵਿੱਚ ਹਿੱਸਾ ਲੈਣ ਲਈ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਪ੍ਰਦਾਨ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੋਣੀ ਚਾਹੀਦੀ। ਇਸ ਐਪ ਲਈ ਇਕੱਤਰ ਕੀਤਾ ਗਿਆ ਵਰਤੋਂ ਡੇਟਾ ਗੁਮਨਾਮ ਹੈ। ਸਾਡੀ &lt;a href=\"#privacy\"&gt;ਪਰਦੇਦਾਰੀ ਨੀਤੀ&lt;/a&gt; ਅਤੇ &lt;a href=\"#termsOfUse\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਬਾਰੇ ਹੋਰ ਜਾਣੋ।</string>
   <string name="onboarding_analytics_switch_title">ਵਰਤੋਂ ਡਾਟਾ ਭੇਜੋ</string>
   <string name="onboarding_got_it">ਸਮਝ ਲਿਆ</string>
   <string name="onboarding_multilingual_secondary_text">ਸਾਨੂੰ ਤੁਹਾਡੀ ਜੰਤਰ \'ਤੇ ਹੇਠ ਲਿਖੀਆਂ ਚੀਜ਼ਾਂ ਮਿਲੀਆਂ ਹਨ:</string>
@@ -1556,8 +1554,6 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">ਹੋਰ ਜਾਣੋ</string>
   <string name="games_hub_activity_overflow_view_game_stats">ਖੇਡ ਦੇ ਅੰਕੜੇ ਵੇਖੋ</string>
   <string name="games_hub_activity_overflow_learn_more">ਹੋਰ ਸਿੱਖੋ</string>
-  <string name="on_this_day_game_entry_dialog_title">ਪੇਸ਼ ਕੀਤਾ ਜਾ ਰਿਹਾ ਏ</string>
-  <string name="on_this_day_game_entry_dialog_subtitle">ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
   <string name="on_this_day_game_entry_dialog_button">ਖੇਡੋ</string>
   <string name="on_this_day_game_title">ਕਿਹੜਾ ਪਹਿਲਾਂ ਆਇਆ?</string>
   <string name="on_this_day_game_dialog_button">ਖੇਡੋ</string>
@@ -1628,12 +1624,12 @@
   <string name="year_in_review_login_dialog_negative">ਦਾਖ਼ਲ ਹੋਏ ਬਿਨਾਂ ਜਾਰੀ ਰੱਖੋ</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">ਪੜ੍ਹਨ ਦਾ ਮਨਪਸੰਦ ਸਮਾਂ</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">ਪੜ੍ਹਨ ਦਾ ਮਨਪਸੰਦ ਦਿਨ</string>
-  <string name="year_in_review_slide_reading_pattern_morning">ਸਵੇਰੇ</string>
-  <string name="year_in_review_slide_reading_pattern_midday">ਦੁਪਹਿਰੇ</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">ਦੁਪਹਿਰ</string>
-  <string name="year_in_review_slide_reading_pattern_evening">ਸ਼ਾਮ</string>
-  <string name="year_in_review_slide_reading_pattern_night">ਰਾਤ.</string>
-  <string name="year_in_review_slide_reading_pattern_late_night">ਦੇਰ ਰਾਤ</string>
+  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">ਸਵੇਰੇ</string>
+  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">ਦੁਪਹਿਰੇ</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">ਦੁਪਹਿਰ</string>
+  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">ਸ਼ਾਮ</string>
+  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">ਰਾਤ.</string>
+  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">ਦੇਰ ਰਾਤ</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">ਬਣਾਓ</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">ਨਹੀਂ ਧੰਨਵਾਦ</string>
   <string name="year_in_review_reading_list_title">ਸਮੀਖਿਆ %d ਵਿੱਚ ਸਾਲ</string>
@@ -1676,7 +1672,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">ਨਹੀਂ, ਉਨ੍ਹਾਂ ਨੂੰ ਚਾਲੂ ਰੱਖੋ</string>
   <string name="donation_settings_section_header">ਦਾਨ</string>
   <string name="donation_reminders_settings_option_title">ਦਾਨ ਕਰਨ ਲਈ ਯਾਦ-ਦਹਾਨੀਆਂ</string>
-  <string name="donation_reminders_settings_article_frequency_label">ਜਦੋਂ ਮੈਂ ਪੜ੍ਹਦਾ/ਪੜ੍ਹਦੀ ਹਾਂ</string>
+  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">ਜਦੋਂ ਮੈਂ ਪੜ੍ਹਦਾ/ਪੜ੍ਹਦੀ ਹਾਂ</string>
   <string name="donation_reminders_settings_amount_label">ਮੈਨੂੰ ਦਾਨ ਕਰਨ ਲਈ ਯਾਦ ਦਿਵਾਓ</string>
   <string name="donation_reminders_settings_confirm_btn_label">ਯਾਦ-ਦਹਾਨੀ ਦੀ ਤਸਦੀਕ ਕਰੋ</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">ਇਸ ਤਜਰਬੇ ਬਾਰੇ</string>

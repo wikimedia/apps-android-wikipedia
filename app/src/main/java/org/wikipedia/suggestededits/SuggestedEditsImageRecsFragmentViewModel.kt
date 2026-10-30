@@ -45,6 +45,7 @@ class SuggestedEditsImageRecsFragmentViewModel(savedStateHandle: SavedStateHandl
     val langCode = savedStateHandle.get<String>(SuggestedEditsImageRecsFragment.ARG_LANG)!!
     private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
+    var editCount = 0
 
     init {
         fetchRecommendation()
@@ -68,6 +69,8 @@ class SuggestedEditsImageRecsFragmentViewModel(savedStateHandle: SavedStateHandl
             val wikiSite = WikiSite.forLanguageCode(langCode)
             summary = ServiceFactory.getRest(wikiSite).getPageSummary(page.title)
             pageTitle = summary.getPageTitle(wikiSite)
+
+            editCount = ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.editCount ?: 0
 
             val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 

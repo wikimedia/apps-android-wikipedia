@@ -229,7 +229,7 @@
   <string name="edit_how_page_improved">تُہؠ کیا کٲم دِژ اَنٛجام؟</string>
   <string name="edit_next">اَمہِ پتہٕ</string>
   <string name="edit_done">شایع</string>
-  <string name="edit_preview">نُمٲئش</string>
+  <string name="edit_preview">نُمٲیِش</string>
   <string name="edit_undo">رَد کٕرو</string>
   <string name="edit_redo">بَحال کٕرو</string>
   <string name="edit_rollback">واپس نیُن</string>
@@ -391,7 +391,7 @@
   <string name="reading_lists_item_deleted">%s آو ہَٹاونہٕ فہرستو منٛز</string>
   <string name="reading_list_item_delete_undo">رَد کٕرو</string>
   <string name="reading_list_deleted">%s آو ہَٹاونہٕ</string>
-  <string name="saved_list_empty_title">وۄنی روٗد نہٕ کانٛہہ تہِ مَحفوٗظ صَفہٕ</string>
+  <string name="saved_list_empty_title" fuzzy="true">وۄنی روٗد نہٕ کانٛہہ تہِ مَحفوٗظ صَفہٕ</string>
   <string name="reading_list_article_offline">آفلاین چھُ مَیَسر</string>
   <string name="reading_list_select_item">مُنتَخٕب کٔرِو</string>
   <string name="reading_lists_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمل گژھُن</string>
@@ -404,7 +404,6 @@
   <string name="reading_list_turned_sync_off_dialog_settings">طَرٕز</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نَہ، شُکریا۔</string>
   <string name="default_reading_list_name">مَحفوٗظ روٗد</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دٲخٕل / کھاتہٕ تَخلیٖق</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ٹھیٖک چھُ</string>
   <string name="reading_list_delete_dialog_ok_button_text">ٹھیٖک چھُ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">مَنسوٗخ</string>

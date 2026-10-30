@@ -52,6 +52,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
     private val mlKitLanguageDetector = MlKitLanguageDetector()
     private val languageDetectRunnable = Runnable { mlKitLanguageDetector.detectLanguageFromText(binding.viewDescriptionEditText.text.toString()) }
     private val textValidateRunnable = Runnable { validateText() }
+    private var suggestedDescriptionsProgressDrawable: CircularProgressDrawable? = null
     private var originalDescription: String? = null
     private var isTranslationEdit = false
     private var isLanguageWrong = false
@@ -123,6 +124,8 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
         super.onDetachedFromWindow()
         removeCallbacks(languageDetectRunnable)
         removeCallbacks(textValidateRunnable)
+        mlKitLanguageDetector.close()
+        stopSuggestedDescriptionsLoadingProgress()
     }
 
     fun setLoginCallback(callback: DescriptionEditLicenseView.Callback) {
@@ -434,11 +437,18 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
     fun showSuggestedDescriptionsLoadingProgress() {
         binding.suggestedDescButton.isVisible = true
         binding.suggestedDescButton.isEnabled = false
+        stopSuggestedDescriptionsLoadingProgress()
         val drawable = CircularProgressDrawable(context)
         drawable.strokeWidth = DimenUtil.dpToPx(1.5f)
         drawable.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(ResourceUtil.getThemedColor(context, R.attr.primary_color), BlendModeCompat.SRC_IN)
         binding.suggestedDescButton.chipIcon = drawable
         drawable.start()
+        suggestedDescriptionsProgressDrawable = drawable
+    }
+
+    private fun stopSuggestedDescriptionsLoadingProgress() {
+        suggestedDescriptionsProgressDrawable?.stop()
+        suggestedDescriptionsProgressDrawable = null
     }
 
      fun updateSuggestedDescriptionsButtonVisibility() {
@@ -447,6 +457,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
 
     fun showSuggestedDescriptionsButton(firstSuggestion: String, secondSuggestion: String?) {
         binding.suggestedDescButton.isEnabled = true
+        stopSuggestedDescriptionsLoadingProgress()
         binding.suggestedDescButton.chipIcon = AppCompatResources.getDrawable(context, R.drawable.ic_robot_24)
         binding.suggestedDescButton.setOnClickListener {
             SuggestedArticleDescriptionsDialog(context as Activity, firstSuggestion, secondSuggestion, pageTitle, callback!!.getAnalyticsHelper()) { suggestion ->

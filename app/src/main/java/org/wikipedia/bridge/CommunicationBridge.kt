@@ -45,7 +45,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         val model: PageViewModel
         val isPreview: Boolean
         val toolbarMargin: Int
-        val messageCardHeight: Int
+        val messageCardHeight: Float
     }
 
     init {

@@ -19,6 +19,9 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.db.HistoryEntryDao
+import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
@@ -27,6 +30,8 @@ import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
 import org.wikipedia.util.log.L
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Date
 
 @RunWith(AndroidJUnit4::class)
@@ -35,6 +40,7 @@ class AppDatabaseTests {
     private lateinit var recentSearchDao: RecentSearchDao
     private lateinit var talkPageSeenDao: TalkPageSeenDao
     private lateinit var notificationDao: NotificationDao
+    private lateinit var historyEntryDao: HistoryEntryDao
 
     @Before
     fun createDb() {
@@ -43,6 +49,7 @@ class AppDatabaseTests {
         recentSearchDao = db.recentSearchDao()
         talkPageSeenDao = db.talkPageSeenDao()
         notificationDao = db.notificationDao()
+        historyEntryDao = db.historyEntryDao()
     }
 
     @After
@@ -133,4 +140,55 @@ class AppDatabaseTests {
         notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("zhwiki")).first())
         assertTrue(notificationDao.getAllNotifications().isEmpty())
     }
+
+    @Test
+    fun testPeakMonthByVisitedDays() = runBlocking {
+        val start = millisAtNoon(LocalDate.of(2026, 1, 1))
+        val end = millisAtNoon(LocalDate.of(2026, 11, 30))
+        assertNull(historyEntryDao.getPeakMonthByVisitedDaysBetween(start, end))
+
+        // March: many articles, but on only 2 days
+        listOf(3, 3, 3, 4, 4).forEachIndexed { index, day -> insertHistoryEntry(LocalDate.of(2026, 3, day), "march-$index") }
+        // May: one article on each of 3 days
+        listOf(5, 6, 7).forEach { day -> insertHistoryEntry(LocalDate.of(2026, 5, day)) }
+        // December falls outside the range, so its 4 days don't count
+        listOf(1, 2, 3, 4).forEach { day -> insertHistoryEntry(LocalDate.of(2026, 12, day)) }
+
+        assertEquals(MonthVisitedDays(month = 5, visitedDays = 3), historyEntryDao.getPeakMonthByVisitedDaysBetween(start, end))
+
+        // March now ties May at 3 days, and a tie goes to the more recent month
+        insertHistoryEntry(LocalDate.of(2026, 3, 10))
+        assertEquals(MonthVisitedDays(month = 5, visitedDays = 3), historyEntryDao.getPeakMonthByVisitedDaysBetween(start, end))
+        insertHistoryEntry(LocalDate.of(2026, 3, 11))
+        assertEquals(MonthVisitedDays(month = 3, visitedDays = 4), historyEntryDao.getPeakMonthByVisitedDaysBetween(start, end))
+    }
+
+    @Test
+    fun testPeakMonthByVisitedDaysKeepsYearsApart() = runBlocking {
+        // Two Decembers with 2 days each would beat February's 3 days if months were merged across years
+        listOf(1, 2).forEach { day -> insertHistoryEntry(LocalDate.of(2025, 12, day)) }
+        listOf(1, 2, 3).forEach { day -> insertHistoryEntry(LocalDate.of(2026, 2, day)) }
+        listOf(1, 2).forEach { day -> insertHistoryEntry(LocalDate.of(2026, 12, day)) }
+
+        val peakMonth = historyEntryDao.getPeakMonthByVisitedDaysBetween(
+            millisAtNoon(LocalDate.of(2025, 12, 1)),
+            millisAtNoon(LocalDate.of(2026, 12, 31))
+        )
+        assertEquals(MonthVisitedDays(month = 2, visitedDays = 3), peakMonth)
+    }
+
+    private suspend fun insertHistoryEntry(date: LocalDate, titleSuffix: String = date.toString()) {
+        historyEntryDao.insertEntry(
+            HistoryEntry(
+                authority = "en.wikipedia.org",
+                lang = "en",
+                apiTitle = "Article_$titleSuffix",
+                displayTitle = "Article $titleSuffix",
+                timestamp = Date(millisAtNoon(date))
+            )
+        )
+    }
+
+    // Noon local time, since the query buckets days and months in local time
+    private fun millisAtNoon(date: LocalDate) = date.atTime(12, 0).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
 }

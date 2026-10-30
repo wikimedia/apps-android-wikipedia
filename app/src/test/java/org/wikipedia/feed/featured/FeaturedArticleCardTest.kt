@@ -7,6 +7,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.model.FeaturedArticleCard
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.test.TestFileUtil
 

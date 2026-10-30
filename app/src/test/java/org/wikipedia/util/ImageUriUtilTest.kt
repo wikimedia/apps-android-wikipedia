@@ -39,4 +39,10 @@ class ImageUriUtilTest {
         assertEquals("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Lossy-page1-2658px-Nelson%27s_Pillar%2C_Sackville-Street%2C_Dublin_RMG_PU3914_%28cropped%29.jpg/640px-Lossy-page1-2658px-Nelson%27s_Pillar%2C_Sackville-Street%2C_Dublin_RMG_PU3914_%28cropped%29.jpg",
             ImageUrlUtil.getUrlForPreferredSize("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Lossy-page1-2658px-Nelson%27s_Pillar%2C_Sackville-Street%2C_Dublin_RMG_PU3914_%28cropped%29.jpg/492px-Lossy-page1-2658px-Nelson%27s_Pillar%2C_Sackville-Street%2C_Dublin_RMG_PU3914_%28cropped%29.jpg", 640))
     }
+
+    @Test
+    fun testUrlForSizeStringWithUrlParameters() {
+        assertEquals("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/PaeoniaSuffruticosa7.jpg/200px-PaeoniaSuffruticosa7.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+            ImageUrlUtil.getUrlForPreferredSize("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/PaeoniaSuffruticosa7.jpg/320px-PaeoniaSuffruticosa7.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail", 200))
+    }
 }

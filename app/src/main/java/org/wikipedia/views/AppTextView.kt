@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.core.content.res.use
@@ -18,16 +17,6 @@ open class AppTextView(context: Context, attrs: AttributeSet? = null) : Material
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        // Workaround for https://code.google.com/p/android/issues/detail?id=191430
-        // which only occurs on API 23
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
-            if (event.actionMasked == MotionEvent.ACTION_DOWN &&
-                    selectionStart != selectionEnd) {
-                val text = text
-                setText(null)
-                setText(text)
-            }
-        }
         try {
             // Workaround for some obscure AOSP crashes when highlighting text.
             return super.dispatchTouchEvent(event)

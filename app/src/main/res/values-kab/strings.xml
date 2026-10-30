@@ -85,7 +85,7 @@
   <string name="menu_page_article_share">Bḍu</string>
   <string name="menu_page_open_a_new_tab">Ldi iccer amaynut</string>
   <string name="menu_page_new_tab">Iccer amaynut</string>
-  <string name="menu_page_reading_lists">Tibdarin n tɣuri</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Tilkensa</string>
   <string name="menu_page_recently_viewed">yettwaẓra melmi kan</string>
   <string name="menu_page_archive">Taṛcivt</string>
   <string name="menu_long_press_open_page">Ldi</string>
@@ -251,6 +251,7 @@
   <string name="edit_summary_tag_other">Wayeḍ</string>
   <string name="edit_summary_tag_other_hint">Iberdan-nniḍen n usnerni n usebter</string>
   <string name="edit_conflict_title">Ẓreg tillas</string>
+  <string name="editor_select_dialog_continue">Kemmel</string>
   <string name="find_next">Nadi ar zdat</string>
   <string name="find_previous">Nadi ar deffir</string>
   <string name="find_first_occurence">Tagi d timeḍriwt tamezwarut</string>
@@ -352,7 +353,7 @@
   <string name="link_preview_dialog_saved_button">Yettwasekles</string>
   <string name="link_preview_dialog_share_button">Bḍu</string>
   <string name="error_page_does_not_exist">Asebter-agi ulac-it</string>
-  <string name="view_wiki_error_message_offline">Ur izmir ara ad yeqqen ar Internet.</string>
+  <string name="view_wiki_error_message_offline">Ulamek ara yeqqen ar Internet</string>
   <string name="view_wiki_error_message_timeout">D awezɣi ad yeqqen ɣer Wikipedia. Senqed tuqqna-k ɣer uẓeṭṭa, neɣ ɛreḍ tikkelt-nniḍen umebɛed</string>
   <string name="reference_title">Tamsisɣelt %s</string>
   <string name="reference_list_title">Timsisɣal</string>
@@ -415,20 +416,21 @@
   <string name="reading_list_action_menu_save_all_for_offline">Sekles meṛṛa di war tuqqna</string>
   <string name="reading_list_action_menu_add_to_another_list">Rnu tabdart-nniḍen</string>
   <string name="reading_list_action_menu_move_to_another_list">Smimmeḍ ɣer wumuɣ niḍen</string>
-  <string name="reading_list_name_sample">Tabdart-iw n tɣuri</string>
-  <string name="reading_list_name_hint">Isem n tebdart-agi</string>
+  <string name="reading_list_name_sample" fuzzy="true">Talkensit-iw</string>
+  <string name="reading_list_name_hint" fuzzy="true">Isem n telkensit-a</string>
   <string name="reading_list_description_hint">Aglam (afrayan)</string>
   <string name="reading_list_item_deleted">%s yettwakkes seg tebdart</string>
   <string name="reading_list_items_deleted">%d n imagraden ttwakksen seg tebdart</string>
   <string name="reading_lists_item_deleted">%s yettwakkes seg wumuɣen</string>
   <string name="reading_list_item_delete_undo">Err-d</string>
   <string name="reading_list_deleted">%s yettwakkes</string>
-  <string name="saved_list_empty_title">Ulac yakan tabdart n tɣuri</string>
+  <string name="saved_list_empty_title" fuzzy="true">Ulac yakan tabdart n tɣuri</string>
   <string name="reading_lists_empty_message">Sekles imagraden deg tebdarin n tɣuri akken ad tizmireḍ ad ten-twaliḍ ticki, ɣas s war tuqqna.</string>
   <string name="reading_list_empty">UR ɣur-k ara imagraden yettwarnan ar tebdart-agi.</string>
   <string name="reading_list_article_offline">Yella s war tuqqna</string>
   <string name="reading_list_article_make_offline">ECred afaris-agi yella di war tuqqna</string>
   <string name="reading_list_add_to_other_list">Rnu tabdart-nniḍen n tɣuri</string>
+  <string name="reading_list_add_to_collection" fuzzy="true">Rnu ar telkensit</string>
   <string name="reading_list_remove_from_list">Kkes seg %s</string>
   <string name="reading_list_remove_from_lists">Kkes seg tebdarin n tɣuri</string>
   <string name="reading_list_select_item">Fren</string>
@@ -467,7 +469,6 @@
   <string name="reading_lists_menu_import_list">Kter tabdart</string>
   <string name="reading_lists_menu_sort_by">Fren s</string>
   <string name="reading_lists_refresh_sync_option">Sismeḍ amtawi</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Qqen / jerred</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>
     <item quantity="other">Imagraden-agi llan s war tuqqna.</item>
@@ -486,13 +487,14 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Sefsex</string>
   <string name="reading_list_split_dialog_ok_button_text">IH</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Kkes</string>
-  <string name="reading_list_activity_title">Tabdart n tɣuri: %s</string>
+  <string name="reading_list_activity_title" fuzzy="true">Talkensit: %s</string>
   <string name="reading_lists_action_menu_export_lists">Sifeḍ</string>
   <string name="reading_lists_preview_save_button">Sekles</string>
   <string name="reading_lists_preview_save_dialog_title">Sekles tabdart</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Azwel</string>
   <string name="reading_lists_preview_save_dialog_cancel">Semmet</string>
   <string name="reading_lists_preview_save_dialog_save">Sekles</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Talkensit tettwasekles</string>
   <string name="reading_lists_preview_saved_snackbar_action">Sken</string>
   <string name="user_option_sync_label">Ismenyifen</string>
   <string name="notification_reverted_title">Asnifel yettwasefsex</string>
@@ -501,7 +503,7 @@
   <string name="notification_syncing_pause_button">Rǧu</string>
   <string name="notification_syncing_resume_button">Kemmel</string>
   <string name="notification_syncing_cancel_button">Sefsex</string>
-  <string name="notification_syncing_reading_list_channel_title">Amtawi n tebdarin n tɣuri</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">Amtawi n tilkensa</string>
   <string name="notification_syncing_reading_list_channel_description">Amtawi n tebdarin n tɣuri itteddu</string>
   <string name="notification_many_unread">Tesɛiḍ %d n yilɣuten ur nettwaɣṛa ara</string>
   <plurals name="notification_channel_name">
@@ -677,7 +679,7 @@
   <string name="onboarding_get_started">Bdu</string>
   <string name="onboarding_explore_title">Tarryin-nniden n usnirem</string>
   <string name="onboarding_explore_text" fuzzy="true">Wali imagraden ufrinen, isental imaynutenakked isumar n tɣuri di tnelli n usnirem.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Tibdarin n tɣuri s umtawi</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Tilkensa s umtawi</string>
   <string name="onboarding_analytics_switch_title">Azen isefka n useqdec</string>
   <string name="app_shortcuts_random">Agacuran</string>
   <string name="app_shortcuts_continue_reading">Kemmel taɣuri</string>
@@ -796,4 +798,7 @@
   <string name="recommended_reading_list_settings_articles">imagraden</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Yal ass</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">Err-d</string>
+  <string name="reading_lists_tab_collections" fuzzy="true">Tilkensa</string>
+  <string name="reading_lists_search_collections" fuzzy="true">Nadi tilkensa</string>
+  <string name="reading_lists_save_sheet_empty_message" fuzzy="true">Sekles imagraden ar tilkensa.</string>
 </resources>

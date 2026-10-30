@@ -30,19 +30,19 @@ object RemoteConfig {
 
     @Suppress("unused")
     @Serializable
-    class RemoteConfigImpl {
-        val commonv1: RemoteConfigCommonV1? = null
+    class RemoteConfigImpl(
+        val commonv1: RemoteConfigCommonV1? = null,
         val androidv1: RemoteConfigAndroidV1? = null
-
+    ) {
         val disableReadingListSync
             get() = androidv1?.disableReadingListSync == true
     }
 
     @Suppress("unused")
     @Serializable
-    class RemoteConfigCommonV1 {
-        val yir: List<RemoteConfigYearInReview> = emptyList()
-
+    class RemoteConfigCommonV1(
+        @SerialName("yirv2") val yir: List<RemoteConfigYearInReview> = emptyList()
+    ) {
         fun getYirForYear(year: Int): RemoteConfigYearInReview? {
             return yir.find { it.year == year }
         }
@@ -50,12 +50,17 @@ object RemoteConfig {
 
     @Suppress("unused")
     @Serializable
-    class RemoteConfigAndroidV1 {
-        val disableReadingListSync = false
-        val hCaptcha: RemoteConfigHCaptcha? = null
-        val hybridSearchEnabled: Boolean? = null
-        val hybridSearchLanguages: List<String>? = null
-    }
+    class RemoteConfigAndroidV1(
+        val disableReadingListSync: Boolean? = false,
+        val hCaptcha: RemoteConfigHCaptcha? = null,
+        val semanticSearchEnabledv2: Boolean? = null,
+        val semanticSearchLanguagesv2: List<String>? = null,
+        val visualEditorEnabled: Boolean? = null,
+        val readAloudLeadSectionEnabled: Boolean? = null,
+        val notificationsExperimentEnabledv1: Boolean? = null,
+        val notificationsExperimentLanguagesv1: List<String>? = null,
+        val yirMinAppVersion: Int? = null
+    )
 
     @Suppress("unused")
     @Serializable
@@ -70,31 +75,35 @@ object RemoteConfig {
         val siteKey: String = ""
     )
 
+    // TODO: remove this comment once remote config yir date names are confirmed
     @Suppress("unused")
     @Serializable
-    class RemoteConfigYearInReview {
-        val year: Int = 0
-        @Serializable(with = LocalDateTimeSerializer::class) val activeStartDate: LocalDateTime = LocalDateTime.now()
-        @Serializable(with = LocalDateTimeSerializer::class) val activeEndDate: LocalDateTime = LocalDateTime.now()
-        @Serializable(with = LocalDateTimeSerializer::class) val dataStartDate: LocalDateTime = LocalDateTime.now()
-        @Serializable(with = LocalDateTimeSerializer::class) val dataEndDate: LocalDateTime = LocalDateTime.now()
-        val languages: Int = 0
-        val articles: Long = 0
-        val savedArticlesApps: Long = 0
-        val viewsApps: Long = 0
-        val editsApps: Long = 0
-        val editsPerMinute: Int = 0
-        val averageArticlesReadPerYear: Int = 0
-        val edits: Long = 0
-        val editsEN: Long = 0
-        val bytesAddedEN: Long = 0
-        val hoursReadEN: Long = 0
-        val yearsReadEN: Int = 0
-        val topReadEN: List<String> = emptyList()
-        val topReadPercentages: List<TopReadPercentage> = emptyList()
-        val hideCountryCodes: List<String> = emptyList()
+    class RemoteConfigYearInReview(
+        val year: Int = 0,
+        @Serializable(with = LocalDateTimeSerializer::class) val activeStartDate: LocalDateTime = LocalDateTime.now(),
+        @Serializable(with = LocalDateTimeSerializer::class) val activeEndDate: LocalDateTime = LocalDateTime.now(),
+        @Serializable(with = LocalDateTimeSerializer::class) val dataStartDate: LocalDateTime? = null,
+        @Serializable(with = LocalDateTimeSerializer::class) val dataEndDate: LocalDateTime? = null,
+        @Serializable(with = LocalDateTimeSerializer::class) val contributionsStartDate: LocalDateTime? = null,
+        @Serializable(with = LocalDateTimeSerializer::class) val contributionsEndDate: LocalDateTime? = null,
+        val languages: Int = 0,
+        val articles: Long = 0,
+        val editors: Long = 0,
+        val savedArticlesApps: Long = 0,
+        val viewsApps: Long = 0,
+        val editsApps: Long = 0,
+        val editsPerMinute: Int = 0,
+        val averageArticlesReadPerYear: Int = 0,
+        val edits: Long = 0,
+        val editsEN: Long = 0,
+        val bytesAddedEN: Long = 0,
+        val hoursReadEN: Long = 0,
+        val yearsReadEN: Int = 0,
+        val topReadEN: List<String> = emptyList(),
+        val topReadPercentages: List<TopReadPercentage> = emptyList(),
+        val hideCountryCodes: List<String> = emptyList(),
         val hideDonateCountryCodes: List<String> = emptyList()
-    }
+    )
 
     @Serializable
     class TopReadPercentage(

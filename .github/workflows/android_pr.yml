@@ -9,12 +9,12 @@ jobs:
   test_pr:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-    - uses: gradle/actions/wrapper-validation@v6
-    - uses: actions/setup-java@v5
+    - uses: actions/checkout@v7
+    - uses: gradle/actions/wrapper-validation@v6.4.0
+    - uses: actions/setup-java@v6
       with:
         distribution: 'temurin'
-        java-version: '17'
+        java-version: '25'
         cache: 'gradle'
     - uses: gradle/gradle-build-action@v3
     - name: Check for missing qq strings

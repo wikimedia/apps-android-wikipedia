@@ -6,12 +6,12 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.language.LanguageUtil
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.staticdata.ContributionsNameData
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import java.util.*
+import java.util.Locale
 
 /**
  * Represents certain vital information about a page, including the title, namespace,
@@ -194,7 +194,7 @@ data class PageTitle(
             "%1\$s://%2\$s/%3\$s/%4\$s%5\$s",
             wikiSite.scheme(),
             domain,
-            if (LanguageUtil.isChineseVariant(domain)) wikiSite.languageCode else "wiki",
+            if (WikiSite.authorityToLanguageCode(domain) == AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) wikiSite.languageCode else "wiki",
             UriUtil.encodeURL(prefixedText),
             if (!fragment.isNullOrEmpty()) "#" + UriUtil.encodeURL(fragment!!) else ""
         )
@@ -238,6 +238,20 @@ data class PageTitle(
                 path += "#" + uri.fragment
             }
             return titleForInternalLink(path, wiki)
+        }
+
+        /**
+         * For use in Composable previews.
+         */
+        fun preview(withThumbnail: Boolean = true): PageTitle {
+            return PageTitle(
+                text = "Test Article",
+                displayText = "Test <i>Article</i>",
+                wiki = WikiSite.preview(),
+                description = "This is a test article",
+                extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                thumbUrl = if (withThumbnail) "https://example.com/thumb.jpg" else null
+            )
         }
     }
 }

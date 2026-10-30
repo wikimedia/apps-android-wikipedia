@@ -10,6 +10,7 @@ import org.wikimedia.testkitchen.context.InteractionData
 import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
+import org.wikimedia.testkitchen.instrument.ExperimentImpl
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 
 @Serializable
@@ -86,7 +87,8 @@ class Event {
         instrument: InstrumentImpl? = null,
         clientData: ClientData,
         interactionData: InteractionData,
-        sample: SampleConfig? = null
+        sample: SampleConfig? = null,
+        experiment: ExperimentImpl? = null
     ) : super() {
         this.meta = Meta(stream)
         this.schema = schema
@@ -95,6 +97,7 @@ class Event {
         applyInstrument(instrument)
         applyClientData(clientData)
         applyInteractionData(interactionData)
+        applyExperiment(experiment)
     }
 
     fun applyClientData(clientData: ClientData) {
@@ -116,14 +119,18 @@ class Event {
             this.funnelEventSequencePosition = instrument.funnel?.sequence
         }
         instrument.experiment?.let {
-            if (it.isLoggable()) {
-                this.experiment = EventExperiment(
-                    assigned = it.group,
-                    enrolled = it.name,
-                    subjectId = it.subjectId,
-                    coordinator = it.coordinator
-                )
-            }
+            applyExperiment(it)
+        }
+    }
+
+    private fun applyExperiment(experiment: ExperimentImpl?) {
+        if (experiment != null && experiment.isLoggable()) {
+            this.experiment = EventExperiment(
+                assigned = experiment.group,
+                enrolled = experiment.name,
+                subjectId = experiment.subjectId,
+                coordinator = experiment.coordinator
+            )
         }
     }
 

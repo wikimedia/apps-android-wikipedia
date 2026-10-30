@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="-2dp"
+    android:layout_marginEnd="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/paper_color"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/filterAllArticles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:paddingHorizontal="12dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_article_24dp"
+                app:tint="?attr/primary_color" />
+
+            <TextView
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_weight="1"
+                android:text="@string/reading_lists_tab_all_articles"
+                android:textColor="?attr/primary_color" />
+
+            <ImageView
+                android:id="@+id/filterAllArticlesSelected"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_check_small_24dp"
+                app:tint="?attr/primary_color" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/filterNotInCollection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:paddingHorizontal="12dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_developer_board_off_24dp"
+                app:tint="?attr/primary_color" />
+
+            <TextView
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_weight="1"
+                android:text="@string/reading_lists_filter_not_in_collection"
+                android:textColor="?attr/primary_color" />
+
+            <ImageView
+                android:id="@+id/filterNotInCollectionSelected"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_check_small_24dp"
+                android:visibility="invisible"
+                app:tint="?attr/primary_color" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</org.wikipedia.views.WikiCardView>

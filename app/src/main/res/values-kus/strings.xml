@@ -469,8 +469,8 @@
     <item quantity="other">%d yis atikilnam la\'adin</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d ba yis atikili yi %s</item>
-    <item quantity="other">%d ba yis atikilnami yi %s</item>
+    <item quantity="one">%1$d ba yis atikili yi %2$s</item>
+    <item quantity="other">%1$d ba yis atikilnami yi %2$s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d list deleted</item>
@@ -482,7 +482,7 @@
   <string name="reading_lists_item_deleted">Ba yis %s la\'ad la ni</string>
   <string name="reading_list_item_delete_undo">Lɛbisim</string>
   <string name="reading_list_deleted">%s saaeya</string>
-  <string name="saved_list_empty_title">Lakir banɛ kpɛn\'ɛs nan kae</string>
+  <string name="saved_list_empty_title" fuzzy="true">Lakir banɛ kpɛn\'ɛs nan kae</string>
   <string name="reading_list_empty">Fʋ pʋ mɔr atikil I paas la\'akaŋa nii.</string>
   <string name="reading_list_add_to_other_list">Zaŋim paas karʋŋ la\'asieba ni</string>
   <string name="reading_list_move_to_other_list">Vurigim kpɛn\'ɛs karʋŋ la\'ad sieba ni</string>
@@ -511,7 +511,6 @@
   <string name="reading_lists_menu_create_list">Maalim la\'ad bɛn paal</string>
   <string name="reading_lists_menu_import_list">Kpɛn\'ɛsim la\'ad</string>
   <string name="reading_lists_menu_sort_by">Gaansim dɔlis</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kpɛn\'ɛm / yɔ\'ɔgim</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Awɔɔ</string>
   <string name="reading_list_delete_dialog_ok_button_text">Awɔɔ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Basim</string>

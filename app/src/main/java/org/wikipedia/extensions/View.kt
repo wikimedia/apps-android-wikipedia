@@ -3,13 +3,14 @@ package org.wikipedia.extensions
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Build
-import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
+import androidx.core.text.layoutDirection
 import androidx.core.view.children
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +19,7 @@ import java.util.Locale
 import kotlin.coroutines.CoroutineContext
 
 fun View.coroutineScope(coroutineContext: CoroutineContext = Dispatchers.Main): CoroutineScope {
-    return (context as? AppCompatActivity)?.lifecycleScope ?: CoroutineScope(coroutineContext)
+    return (context as? AppCompatActivity)?.lifecycleScope ?: findViewTreeLifecycleOwner()?.lifecycleScope ?: CoroutineScope(coroutineContext)
 }
 
 fun View.setTextDirectionByLang(lang: String) {
@@ -26,7 +27,7 @@ fun View.setTextDirectionByLang(lang: String) {
 }
 
 fun View.setLayoutDirectionByLang(lang: String) {
-    layoutDirection = TextUtils.getLayoutDirectionFromLocale(Locale(lang))
+    layoutDirection = Locale(lang).layoutDirection
 }
 
 fun View.ensureSoftwareBitmaps() {

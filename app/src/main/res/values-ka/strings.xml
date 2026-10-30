@@ -394,7 +394,7 @@
   <string name="reading_list_item_deleted">%s წაიშალა სიიდან</string>
   <string name="reading_list_item_delete_undo">დაბრუნება</string>
   <string name="reading_list_deleted">„%s“ წაიშალა</string>
-  <string name="saved_list_empty_title">შენახული გვერდების გარეშე</string>
+  <string name="saved_list_empty_title" fuzzy="true">შენახული გვერდების გარეშე</string>
   <string name="reading_list_remove_from_list">%s-დან წაშლა</string>
   <string name="reading_list_remove_from_lists">საკითხავი სიებიდან წაშლა</string>
   <string name="reading_list_select_item">არჩევა</string>
@@ -411,7 +411,6 @@
   <string name="reading_lists_menu_create_list">ახალი სიის შექმნა</string>
   <string name="reading_lists_menu_import_list">სიის შემოტანა</string>
   <string name="reading_lists_menu_sort_by">დალაგების პირობა</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">შესვლა / რეგისტრაცია</string>
   <string name="reading_list_menu_last_sync">ბოლო სინქრონიზაცია: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">დიახ</string>
   <string name="reading_list_delete_dialog_ok_button_text">დიახ</string>

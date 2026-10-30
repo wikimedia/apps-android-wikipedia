@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -16,13 +15,14 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import androidx.activity.addCallback
+import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ActivitySingleWebViewBinding
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
@@ -37,7 +37,7 @@ import org.wikipedia.page.PageViewModel
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 class SingleWebViewActivity : BaseActivity() {
     private lateinit var binding: ActivitySingleWebViewBinding
@@ -164,7 +164,7 @@ class SingleWebViewActivity : BaseActivity() {
         return when (item.itemId) {
             R.id.menu_in_new -> {
                 currentUrl?.let {
-                    UriUtil.visitInExternalBrowser(this@SingleWebViewActivity, Uri.parse(it))
+                    UriUtil.visitInExternalBrowser(this@SingleWebViewActivity, it.toUri())
                 }
                 true
             }
@@ -187,11 +187,8 @@ class SingleWebViewActivity : BaseActivity() {
                 }
                 PAGE_CONTENT_SOURCE_YIR -> {
                     YearInReviewViewModel.currentCampaignId?.let { campaignId ->
-                        YearInReviewEvent.submit(
-                            action = "article_return_click",
-                            slide = "webpay_processed",
-                            campaignId = campaignId
-                        )
+                        TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+                            .submitInteraction(action = "article_return_click", actionSource = "webpay_processed", actionContext = mapOf("campaign_id" to campaignId))
                     }
                 }
                 else -> { }
@@ -213,7 +210,7 @@ class SingleWebViewActivity : BaseActivity() {
         }
     }
 
-    inner class SingleWebViewLinkHandler(context: Context, override var wikiSite: WikiSite) : LinkHandler(context) {
+    class SingleWebViewLinkHandler(context: Context, override var wikiSite: WikiSite) : LinkHandler(context) {
         override fun onPageLinkClicked(anchor: String, linkText: String) { }
         override fun onInternalLinkClicked(title: PageTitle) { }
         override fun onMediaLinkClicked(title: PageTitle) { }

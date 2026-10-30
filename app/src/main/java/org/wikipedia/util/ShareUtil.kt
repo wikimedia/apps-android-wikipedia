@@ -3,12 +3,9 @@ package org.wikipedia.util
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.content.pm.LabeledIntent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
-import android.os.Parcelable
 import android.os.TransactionTooLargeException
 import android.widget.Toast
 import androidx.core.content.FileProvider
@@ -101,6 +98,9 @@ object ShareUtil {
                 .putExtra(Intent.EXTRA_TEXT, text)
                 .putExtra(Intent.EXTRA_STREAM, uri)
                 .setType("image/jpeg")
+                // Android 17 warns to Explicitly grant read access to the URI permission.
+                // The system will no longer grant it from Android 18, so adding this flag to be safe.
+                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     }
 
     private fun displayOnCatchMessage(caught: Throwable, context: Context) {
@@ -156,28 +156,9 @@ object ShareUtil {
             if (isSelfComponentName(componentName))
                 excludedComponents.add(componentName)
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return if (excludedComponents.size >= infoList.size) null
-            else Intent.createChooser(intent, chooserTitle)
-                .putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, excludedComponents.toTypedArray())
-        }
-        if (infoList.isEmpty()) {
-            return null
-        }
-        val targetIntents = ArrayList<Intent>()
-        for (info in infoList) {
-            val activityInfo = info.activityInfo
-            if (excludedComponents.contains(ComponentName(activityInfo.packageName, activityInfo.name)))
-                continue
-            val targetIntent = Intent(intent)
-                    .setPackage(activityInfo.packageName)
-                    .setComponent(ComponentName(activityInfo.packageName, activityInfo.name))
-            targetIntents.add(LabeledIntent(targetIntent, activityInfo.packageName, info.labelRes, info.icon))
-        }
-        val chooserIntent = Intent.createChooser(Intent(), chooserTitle) ?: return null
-
-        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetIntents.toTypedArray<Parcelable>())
-        return chooserIntent
+        return if (excludedComponents.size >= infoList.size) null
+        else Intent.createChooser(intent, chooserTitle)
+            .putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, excludedComponents.toTypedArray())
     }
 
     fun canOpenUrlInApp(context: Context, url: String): Boolean {

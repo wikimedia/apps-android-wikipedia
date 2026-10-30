@@ -7,6 +7,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.baselineprofile)
 }
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
@@ -20,7 +21,7 @@ static def computeVersionName(versionCode, label) {
 }
 
 android {
-    compileSdk = 36
+    compileSdk = 37
 
     compileOptions {
         coreLibraryDesugaringEnabled = true
@@ -37,9 +38,9 @@ android {
 
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdk = 23
-        targetSdk = 36
-        versionCode 50586
+        minSdk = 24
+        targetSdk = 37
+        versionCode 50615
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -82,6 +83,12 @@ android {
             maybeCreate(name).res.srcDirs += 'src/extra/res'
         }
 
+        // The build types created by the Baseline Profile plugin are release builds, so give them the release-only sources.
+        ['nonMinifiedRelease', 'benchmarkRelease'].forEach { name ->
+            maybeCreate(name).java.srcDirs += 'src/release/java'
+            maybeCreate(name).kotlin.srcDirs += 'src/release/java'
+        }
+
         maybeCreate('androidTest').assets.srcDirs += files("$projectDir/schemas".toString())
     }
 
@@ -111,6 +118,7 @@ android {
 
     productFlavors {
         dev {
+            isDefault = true
             versionName computeVersionName(defaultConfig.versionCode, 'dev')
             applicationIdSuffix '.dev'
             buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.beta.wmflabs.org"'
@@ -161,6 +169,17 @@ ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
+// See baselineprofile/README.md for how the Baseline and Startup Profiles are generated and maintained.
+baselineProfile {
+    // Profiles are generated from a single flavor (alpha) and shared by all flavors, since the code is the same.
+    mergeIntoMain = true
+    saveInSrc = true
+    // Generating requires a device, so it must be run explicitly instead of during every release build.
+    automaticGenerationDuringBuild = false
+    // Uses the startup profile to put the classes needed at startup into the primary DEX file.
+    dexLayoutOptimization = true
+}
+
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
@@ -195,7 +214,6 @@ dependencies {
     implementation libs.work.runtime.ktx
     implementation libs.hcaptcha
 
-    implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
     implementation libs.retrofit
     implementation libs.commons.lang3
@@ -203,10 +221,16 @@ dependencies {
     implementation libs.photoview
     implementation libs.balloon
     implementation libs.retrofit2.kotlinx.serialization.converter
-    implementation(libs.paging.compose)
+    implementation libs.paging.compose
+    implementation libs.lottie.compose
+    implementation libs.media3.exoplayer
 
+    // Use the OpenGL ES variant of MapLibre, since the default variant requires Vulkan, which is
+    // not available on some lower-budget devices, and causes the Play Store to exclude those devices.
     implementation libs.maplibre
-    implementation libs.maplibre.annotation
+    implementation(libs.maplibre.annotation) {
+        exclude group: 'org.maplibre.gl', module: 'android-sdk'
+    }
 
     implementation libs.androidx.room.runtime
     annotationProcessor libs.androidx.room.compiler
@@ -235,11 +259,11 @@ dependencies {
     customImplementation libs.com.google.mlkit.language.id
 
     // For receiving push notifications for logged-in users.
-    prodImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    betaImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    alphaImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    devImplementation libs.com.google.firebase.firebase.messaging.ktx3
-    customImplementation libs.com.google.firebase.firebase.messaging.ktx3
+    prodImplementation libs.com.google.firebase.firebase.messaging
+    betaImplementation libs.com.google.firebase.firebase.messaging
+    alphaImplementation libs.com.google.firebase.firebase.messaging
+    devImplementation libs.com.google.firebase.firebase.messaging
+    customImplementation libs.com.google.firebase.firebase.messaging
 
     // For integrating with Google Pay for donations
     prodImplementation libs.com.google.android.gms.play.services.wallet2
@@ -257,6 +281,11 @@ dependencies {
 
     debugImplementation libs.leakcanary.android
     implementation libs.plumber.android
+
+    // Baseline and Startup Profiles: profileinstaller applies the profile on devices that don't
+    // get it from the Play Store, and the baselineprofile module generates the profile.
+    implementation libs.androidx.profileinstaller
+    baselineProfile project(':baselineprofile')
 
     testImplementation libs.junit
     testImplementation libs.mockk
@@ -278,6 +307,10 @@ dependencies {
     implementation(libs.coil.network.okhttp)
     implementation(libs.coil.gif)
     implementation(libs.coil.svg)
+
+    // Rive
+    implementation libs.rive.android
+    implementation libs.androidx.startup.runtime
 
     // Compose Library
     def composeBom = platform(libs.composeBom)

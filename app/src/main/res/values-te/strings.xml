@@ -486,14 +486,14 @@
     <item quantity="other">%d వ్యాసాలను జాబితా నుండి తీసేసాం</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%s నుండి %d వ్యాసాన్ని తీసేసాం</item>
-    <item quantity="other">%s నుండి %d వ్యాసాలను తీసేసాం</item>
+    <item quantity="one">%2$s నుండి %1$d వ్యాసాన్ని తీసేసాం</item>
+    <item quantity="other">%2$s నుండి %1$d వ్యాసాలను తీసేసాం</item>
   </plurals>
   <string name="reading_list_items_deleted">%d వ్యాసాలను జాబితా నుండి తీసేసాం</string>
   <string name="reading_lists_item_deleted">%s ని జాబితాల నుండి తీసేసాం</string>
   <string name="reading_list_item_delete_undo">వెనక్కి తిప్పు</string>
   <string name="reading_list_deleted">%s ను తొలగించాం</string>
-  <string name="saved_list_empty_title">భద్రపరచిన పేజీలు ఇంకా ఏమీ లేవు</string>
+  <string name="saved_list_empty_title" fuzzy="true">భద్రపరచిన పేజీలు ఇంకా ఏమీ లేవు</string>
   <string name="reading_lists_empty_message">తరువాత, మీరు ఆఫ్‌లైనులో ఉండగా చదువుకునేందుకు కొన్ని వ్యాసాలను చేర్చండి</string>
   <string name="reading_list_empty">ఈ జాబితాలో వ్యాసాలనేమీ చేర్చుకోలేదు.</string>
   <string name="reading_list_article_offline">ఆఫ్‌లైనులో అందుబాటులో ఉన్నవి</string>
@@ -509,7 +509,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">ఇక %s, చదివే జాబితా లన్నిటినీ లోనూ ఆఫ్‌లైనులో అందుబాటులో ఉండదు:</string>
   <string name="reading_lists_sync_reminder_title">చదివే జాబితా సింకును ఆన్ చేస్తారా?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">చదివే జాబితాల్లోకి చేర్చిన వ్యాసాలను ఇపుడు మీ వికీపీడియా ఖాతాకు సింకు చేసుకోవచ్చు. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">చదివే జాబితాలను ఇపుడు అన్ని డివైసుల లోకీ సింకు చేసుకోవచ్చు. మీ వికీపీడియా ఖాతా లోకి లాగినై జాబితాలను భద్రపరచండి. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">సింకును చేతనం చెయ్యండి</string>
   <string name="reading_list_login_reminder_title">చదివే జాబితాలను సింకు చెయ్యండి</string>
   <string name="reading_lists_login_button">వికీపీడియాలో లాగినవండి / చేరండి</string>
@@ -545,7 +544,6 @@
   <string name="reading_lists_menu_import_list">జాబితా దిగుమతి</string>
   <string name="reading_lists_menu_sort_by">ఇలా పేర్చు</string>
   <string name="reading_lists_refresh_sync_option">సింకును తాజాకరించు</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">లాగినవండి / నమోదవండి</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ఈ వ్యాసం ఇప్పుడు ఆఫ్‌లైనులో అందుబాటులో ఉంటుంది.</item>
     <item quantity="other">ఈ వ్యాసాలు ఇప్పుడు ఆఫ్‌లైనులో అందుబాటులో ఉంటాయి.</item>
@@ -805,7 +803,7 @@
   <string name="suggested_edits_add_caption_button">వ్యాఖ్య చేర్చు</string>
   <string name="suggested_edits_edit_caption_button">వ్యాఖ్యను సవరించు</string>
   <string name="suggested_edits_review_image_caption">బొమ్మ వ్యాఖ్యను సమీక్షించు</string>
-  <string name="suggested_edits_my_contributions">నా మార్పులు</string>
+  <string name="suggested_edits_my_contributions">నా తోడ్పాట్లు</string>
   <string name="suggested_edits_no_description">ఈ దస్త్రానికి వివరణ లేదు</string>
   <string name="suggested_edits_license_notice">వివరణ చేర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వినియోగ నియమాలకూ&lt;/a&gt;, మీ రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; లైసెన్సు కింద వెనక్కి తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు.</string>
   <string name="suggested_edits_image_caption_license_notice">బొమ్మకు వ్యాఖ్యను చేర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వినియోగ నియమాలకూ&lt;/a&gt;, మీ రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; లైసెన్సు కింద వెనక్కి తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు.</string>
@@ -982,7 +980,7 @@
   <string name="onboarding_maybe_later">మరెప్పుడైనా</string>
   <string name="onboarding_explore_title">శోధించేందుకు కొత్త పద్ధతులు</string>
   <string name="onboarding_reading_list_sync_title">సింకుతో చదివే జాబితాలు</string>
-  <string name="onboarding_reading_list_sync_text_v2">తరువాత చదువుదామని అనుకున్న వ్యాసాలను ఆఫ్‌లైనులో కూడా చదివేందుకు చదివే జాబితాలు తయారు చేసుకోవచ్చు. &lt;br/&gt;మీ చదివే జాబితాలను సింకు చేసుకునేందుకు వికీపీడియా లోకి లాగినవండి. &lt;a href=\"#login\"&gt;వికీపీడీయాలో చేరండి&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">తరువాత చదువుదామని అనుకున్న వ్యాసాలను ఆఫ్‌లైనులో కూడా చదివేందుకు చదివే జాబితాలు తయారు చేసుకోవచ్చు. &lt;br/&gt;మీ చదివే జాబితాలను సింకు చేసుకునేందుకు వికీపీడియా లోకి లాగినవండి. &lt;a href=\"#login\"&gt;వికీపీడీయాలో చేరండి&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">వాడుక డేటాను పంపించు</string>
   <string name="onboarding_got_it">అర్థమైంది</string>
   <string name="onboarding_multilingual_secondary_text">మీ డివైసులో మాకు ఇవి కనబడ్డాయి:</string>
@@ -1145,6 +1143,7 @@
   <string name="category_tab_subcategories">ఉపవర్గాలు</string>
   <string name="category_empty">ఈ వర్గంలో వ్యాసాలేమీ కనబడలేదు.</string>
   <string name="subcategory_empty">ఈ వర్గంలో ఉపవర్గాలేమీ కనబడలేదు.</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">లాగిన్ కాని ఎడిటర్లు.</string>
   <string name="reading_challenge_onboarding_win_title">బహుమతులు గెలుచుకోండి</string>
   <string name="reading_challenge_onboarding_learn_more_button">మరింత తెలుసుకోండి</string>
   <plurals name="reading_challenge_small_widget_streak">

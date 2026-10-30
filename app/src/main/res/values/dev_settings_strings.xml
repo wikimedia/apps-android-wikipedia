@@ -13,7 +13,6 @@
     <string name="preferences_developer_announcement_country_override">GeoIP Country Override</string>
     <string name="preferences_developer_announcement_country_override_hint">Type a two-letter, all caps country code (US, NG, etc).</string>
     <string name="preferences_developer_announcement_ignore_date">Ignore date</string>
-    <string name="preferences_developer_announcement_version_code_hint">Set to 0 to reset.</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_title">Reset shown dialogs</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_summary">%d shown dialog(s).</string>
     <string name="preferences_developer_announcement_debug_url">Use the test.wikipedia debug URL.</string>
@@ -47,6 +46,10 @@
 
     <string name="preferences_developer_search_heading">Search</string>
     <string name="preferences_developer_search_hint">Search preferences…</string>
+    <string name="preferences_developer_sort_newest_first">Newest first</string>
     <string name="preferences_developer_otd_show_notification">Show otd game notification</string>
     <string name="preference_developer_otd_reset_notification_state">Reset otd game notification state</string>
+    <string name="preference_developer_semantic_search_heading">Semantic Search</string>
+
+    <string name="preference_developer_notifications_experiment_heading">Notifications Experiment</string>
 </resources>

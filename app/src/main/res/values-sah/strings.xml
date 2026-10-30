@@ -448,7 +448,7 @@
   <string name="reading_lists_item_deleted">%s испииһэктэртэн сотулунна</string>
   <string name="reading_list_item_delete_undo">Төннөр</string>
   <string name="reading_list_deleted">%s сотуллубут</string>
-  <string name="saved_list_empty_title">Испииһэк оҥоһулла илик эбит</string>
+  <string name="saved_list_empty_title" fuzzy="true">Испииһэк оҥоһулла илик эбит</string>
   <string name="reading_lists_empty_message">Ыстатыйаларгын ааҕыы испииһэгэр хойут, ситимэ да суох олорон, киллэриэххин сөп.</string>
   <string name="reading_list_empty">Испииһэккэ эбиллибит ыстатыйа суох эбит.</string>
   <string name="reading_list_article_offline">Ситимэ суох ааҕыахха сөп</string>
@@ -462,7 +462,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>
   <string name="reading_lists_sync_reminder_title">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Мэнэйдэһии испииһэгэр хараллыбыт ыстатыйалар Эн Бикипиэдьийэҕэ бэлиэтэммит ааккын кытта ситимнэниэхтэрин сөп. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Мэнэйдээһини холбоо</string>
   <string name="reading_list_login_reminder_title">Мэнэйдэhии испиhиэгэ</string>
   <string name="reading_lists_login_reminder_text">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ.</string>
@@ -497,7 +496,6 @@
   <string name="reading_lists_menu_create_list">Саҥа испииһэги оҥоруу</string>
   <string name="reading_lists_menu_sort_by">Маннык наардаа...</string>
   <string name="reading_lists_refresh_sync_option">Хос ыыт</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Киир / бэлиэтэн</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Бу ыстатыйаны ситимэ суох ааҕыахха сөп буолла.</item>
     <item quantity="other">Ыстатыйалары ситимэ суох ааҕыахха сөп буолла.</item>
@@ -528,15 +526,15 @@
   </plurals>
   <string name="notification_syncing_title">%1$d ыстатыйа хачайданна…</string>
   <string name="notification_syncing_description">%1$d ыстатыйа хаалла</string>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Ааҕыы испииһэгин тэҥнээһинэ</item>
     <item quantity="other">Ааҕыы испииһэктэрин тэҥнээһинэ</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">%1$d Испииһэги тэҥнээһин…</item>
     <item quantity="other">%1$d Испииһэктэри тэҥнээһин…</item>
   </plurals>
-  <string name="notification_syncing_reading_list_description">%1$d испииһэк хаалла</string>
+  <string name="notification_syncing_reading_list_description" fuzzy="true">%1$d испииһэк хаалла</string>
   <string name="notification_echo_channel_description">Бикипиэдьийэ биллэриилэрэ</string>
   <string name="notifications_activity_title">Биллэриилэр</string>
   <string name="notifications_activity_title_archived">Биллэриилэр (архыып)</string>
@@ -611,7 +609,7 @@
   <string name="feed_item_type_main_page">Бикипиэдьийэ сүрүн сирэйэ күн аайы уларыйар</string>
   <string name="feed_item_type_randomizer">Түбэспиччэ ыстатыйалаах ааҕыы испииһэгин оҥор</string>
   <string name="feed_item_type_suggested_edits">Кылгас быһаарыылары эбэргэ этии</string>
-  <string name="feed_empty_message">Кураанах</string>
+  <string name="feed_empty_message" fuzzy="true">Кураанах</string>
   <string name="feed_configure_onboarding_action">Нарылааһын</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Сөп</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Салҕаама</string>
@@ -732,7 +730,7 @@
   <string name="onboarding_maybe_later">Баҕар кэлин</string>
   <string name="onboarding_explore_title">Көрөргө саҥа ньымалар</string>
   <string name="onboarding_explore_text" fuzzy="true">Explore лиэнтэҕэ талба ыстатыйалары, араас тиэмэлэри уонна биллэриилэри көрө олор.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Синхроннаах ааҕыы испииһэгэ</string>
+  <string name="onboarding_reading_list_sync_title">Синхроннаах ааҕыы испииһэгэ</string>
   <string name="onboarding_analytics_switch_title">Ыытарга</string>
   <string name="onboarding_got_it">Бу өйдөнөр</string>
   <string name="onboarding_multilingual_secondary_text">Эн тэрилгэр маннык тыллар көһүннүлэр:</string>

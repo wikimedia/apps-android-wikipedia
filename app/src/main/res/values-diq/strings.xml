@@ -355,7 +355,7 @@
   <string name="reading_lists_item_deleted">%s listan ra dariya we</string>
   <string name="reading_list_item_delete_undo">Peyser bıgê</string>
   <string name="reading_list_deleted">%s esteriya</string>
-  <string name="saved_list_empty_title">Hewna qeyd bıyaye pela çıniya</string>
+  <string name="saved_list_empty_title" fuzzy="true">Hewna qeyd bıyaye pela çıniya</string>
   <string name="reading_list_empty">Na lista rê hewna şıma meqale cı nêkerdo</string>
   <string name="reading_list_article_offline">Resayışê offline</string>
   <string name="reading_list_remove_from_list">%s ra wedarne</string>
@@ -379,7 +379,6 @@
   <string name="reading_lists_menu_create_list">Lista newiye vıraze</string>
   <string name="reading_lists_menu_sort_by">Sencışê rêzi</string>
   <string name="reading_lists_refresh_sync_option">Senkronizey newe kerê</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Ronıştış ake/qeyd bıbê</string>
   <string name="reading_list_toast_last_sync">Listey wendış biyê senkronize</string>
   <string name="reading_list_menu_last_sync">Senkronizeyo peyên : %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">TEMAM</string>
@@ -464,7 +463,7 @@
   <string name="feed_configure_menu_deselect_all">Pêroyın bınımnê</string>
   <string name="customize_lang_selection_dialog_ok_button_text">TEMAM</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Rodayışê xulasay ra keşf kerdışi xısusi kerê&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Hêni rodayışê ho de çıçi bımocneyo u sinaye zerrekê ho şenê bıweçine u biyarê ver.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Rodayışê xulasay ra keşf kerdışi xısusi kerê&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Hêni rodayışê ho de çıçi bımocneyo u sinaye zerrekê ho şenê bıweçine u biyarê ver.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">TEMAM</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
   <string name="feed_accessibility_card_load_more_button">Tayna bar ke</string>
@@ -648,4 +647,6 @@
   <string name="shareable_reading_lists_new_indicator">*newe*</string>
   <string name="reading_list_share_menu_label">Vıla ke...</string>
   <string name="on_this_day_game_stats_average_score">Puwano miyanên</string>
+  <string name="donation_reminders_settings_article_number_selection_label">Meqaleyi</string>
+  <string name="random_article_widget_name">Nuşteyo raştameye</string>
 </resources>

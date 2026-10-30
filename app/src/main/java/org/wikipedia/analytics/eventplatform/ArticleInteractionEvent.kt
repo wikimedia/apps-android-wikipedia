@@ -49,8 +49,8 @@ class ArticleInteractionEvent(private val wikiDb: String, private val pageId: In
         submitEvent("new_tab")
     }
 
-    fun logExploreClick() {
-        submitEvent("explore")
+    fun logHomeClick() {
+        submitEvent("home")
     }
 
     fun logForwardClick() {

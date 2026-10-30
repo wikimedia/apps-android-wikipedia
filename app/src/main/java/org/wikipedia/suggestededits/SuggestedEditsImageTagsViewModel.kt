@@ -24,6 +24,7 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
 
     private val _actionState = MutableStateFlow(Resource<Entities.Entity?>())
     val actionState = _actionState.asStateFlow()
+    var editCount = 0
 
     fun findNextSuggestedEditsItem(languageCode: String, page: MwQueryPage?) {
         _uiState.value = Resource.Loading()
@@ -31,10 +32,13 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
             _uiState.value = Resource.Error(throwable)
         }) {
             val mwQueryPage = page ?: EditingSuggestionsProvider.getNextImageWithMissingTags()
-            val caption = ServiceFactory.get(Constants.commonsWikiSite)
+            val response = ServiceFactory.get(Constants.commonsWikiSite)
                 .getWikidataEntityTerms(mwQueryPage.title, LanguageUtil.convertToUselangIfNeeded(languageCode))
-                .query?.firstPage()?.entityTerms?.label?.firstOrNull()
+
+            val caption = response.query?.firstPage()?.entityTerms?.label?.firstOrNull()
             _uiState.value = Resource.Success(mwQueryPage to caption)
+
+            editCount = response.query?.userInfo?.editCount ?: 0
         }
     }
 

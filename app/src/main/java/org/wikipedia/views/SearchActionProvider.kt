@@ -65,4 +65,8 @@ class SearchActionProvider(context: Context,
     fun setQueryText(text: String?) {
         binding.searchInput.setQuery(text, false)
     }
+
+    fun setSearchHint(searchHint: String) {
+        binding.searchInput.queryHint = searchHint
+    }
 }

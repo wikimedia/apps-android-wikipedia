@@ -421,7 +421,7 @@
   <string name="reading_list_items_deleted">%d مضامین فہرست سے ہٹا دیے گئے</string>
   <string name="reading_list_item_delete_undo">ترمیم رد کریں</string>
   <string name="reading_list_deleted">%s حذف شدہ</string>
-  <string name="saved_list_empty_title">یہاں اب تک کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
+  <string name="saved_list_empty_title" fuzzy="true">یہاں اب تک کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
   <string name="reading_lists_empty_message">مضامین کو مطالعہ کی فہرست میں شامل کریں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں۔</string>
   <string name="reading_list_empty">اس فہرست میں کوئی مضمون شامل نہیں کیا گیا۔</string>
   <string name="reading_list_article_offline">آف لائن دستیاب</string>
@@ -446,7 +446,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نہیں شکریہ</string>
   <string name="reading_lists_menu_create_list">نئی فہرست بنائیں</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دخول / اندراج</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">یہ مضمون آف لائن دستیاب ہوگا۔</item>
     <item quantity="other">یہ مضامین آف لائن دستیاب ہونگے۔</item>
@@ -645,7 +644,7 @@
   <string name="onboarding_continue">جاری رکھیں</string>
   <string name="onboarding_get_started">شروع کریں</string>
   <string name="onboarding_explore_title">اکتشاف کی نئی راہیں</string>
-  <string name="onboarding_explore_text">Dive down the Wikipedia rabbit hole with a constantly updating Explore feed۔ &lt;br/&gt; &lt;b&gt;حسب ضرورت&lt;/b&gt; the feed to your interests – whether it’s learning about تاریخی واقعات &lt;b&gt;آج کے دن&lt;/b&gt;، یا لڈو کے ڈانے کو گھما کے &lt;b&gt;بے ترتیب&lt;/b&gt;۔</string>
+  <string name="onboarding_explore_text" fuzzy="true">Dive down the Wikipedia rabbit hole with a constantly updating Explore feed۔ &lt;br/&gt; &lt;b&gt;حسب ضرورت&lt;/b&gt; the feed to your interests – whether it’s learning about تاریخی واقعات &lt;b&gt;آج کے دن&lt;/b&gt;، یا لڈو کے ڈانے کو گھما کے &lt;b&gt;بے ترتیب&lt;/b&gt;۔</string>
   <string name="onboarding_reading_list_sync_title">موجودہ وقت تک فہرستیں برائے مطالعہ</string>
   <string name="onboarding_analytics_switch_title">استعمال شدہ ڈیٹا بھیجیں</string>
   <string name="onboarding_got_it">سمجھ آ گیا</string>

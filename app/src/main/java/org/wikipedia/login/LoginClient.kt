@@ -9,6 +9,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
@@ -20,6 +21,7 @@ class LoginClient {
     interface LoginCallback {
         fun success(result: LoginResult)
         fun uiPrompt(result: LoginResult, caught: Throwable, captchaId: String? = null, token: String? = null)
+        fun hCaptchaPrompt(result: LoginResult, caught: Throwable, siteKey: String, token: String? = null)
         fun passwordResetPrompt(token: String?)
         fun error(caught: Throwable)
     }
@@ -34,6 +36,13 @@ class LoginClient {
             if (Prefs.loginForceEmailAuth) {
                 enqueueForceEmailAuth = true
             }
+
+            if (isContinuation != true) {
+                // For investigating https://phabricator.wikimedia.org/T439670
+                // Not intended as a permanent solution, since this removes the user's temporary account, if they have one.
+                SharedPreferenceCookieManager.instance.clearAllCookies()
+            }
+
             val loginToken = token ?: getLoginToken(wiki)
             var loginResult = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword,
                 twoFactorCode = twoFactorCode, emailAuthToken = emailAuthCode,
@@ -69,8 +78,13 @@ class LoginClient {
                         }
                     } else {
                         // Make a call to authmanager to see if we need to provide a captcha.
-                        val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
-                        if (!captchaId.isNullOrEmpty()) {
+                        val query = ServiceFactory.get(wiki).getAuthManagerForLogin().query
+                        val captchaId = query?.captchaId()
+                        if (query?.hasHCaptchaRequest() == true &&
+                            loginResult.messageCode.orEmpty().contains("captcha") &&
+                            !loginResult.messageCode.orEmpty().contains("error")) {
+                            cb.hCaptchaPrompt(loginResult, LoginFailedException(loginResult.message), siteKey = query.getHCaptchaSiteKey().orEmpty(), token = loginToken)
+                        } else if (!captchaId.isNullOrEmpty()) {
                             cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), captchaId = captchaId, token = loginToken)
                         } else {
                             cb.error(LoginFailedException(loginResult.message, loginResult.messageCode))

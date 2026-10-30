@@ -527,8 +527,8 @@
     <item quantity="other">%d статья тизмеден къоратлды</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d бет %s тизмеден къоратылды</item>
-    <item quantity="other">%d бет %s тизмеден къоратылды</item>
+    <item quantity="one">%1$d бет %2$s тизмеден къоратылды</item>
+    <item quantity="other">%1$d бет %2$s тизмеден къоратылды</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d тизме кетерилди</item>
@@ -543,7 +543,7 @@
   <string name="reading_lists_item_deleted">%s, тизмеледен къоратылды</string>
   <string name="reading_list_item_delete_undo">Кери ал</string>
   <string name="reading_list_deleted">%s кетерилди</string>
-  <string name="saved_list_empty_title">Алкъын сакъланнган бет джокъду</string>
+  <string name="saved_list_empty_title" fuzzy="true">Алкъын сакъланнган бет джокъду</string>
   <string name="reading_lists_empty_message">Оффлайн болсагъыз да, артдан окъурча тизмелеригизге статьяла къошугъуз.</string>
   <string name="reading_list_empty">Бу тизмеге алкъын чырт бир статья къошмагъансыз.</string>
   <string name="reading_list_article_offline">Оффлайн джетиширчады</string>
@@ -559,7 +559,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s мындан ары бу тизмеледе оффлайн джетиширча боллукъ тюлдю:</string>
   <string name="reading_lists_sync_reminder_title">Окъуу тизмени синхронизациясы джандырылсынмы?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Окъуу тизмелеригизге сакъланнган статьяланы, мындан ары Википедия хыйсабыгъыз бла синхронизация этерчады. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Аслам бил&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Окъуу тизмеле энди девайсла арасында синхронизация этилирчады. Википедия хыйсабыгъызда сессия ачыгъыз эмда тизмелеригизни сакъландырыууна эркинлик беригиз. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Аслам бил&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхрозинацияны джандыр</string>
   <string name="reading_list_login_reminder_title">Окъуу тимзелени синхронизация эт</string>
   <string name="reading_lists_login_reminder_text">Окъуу тизмеле энди девайсла арасында синхронизация этилирчады. Википедия хыйсабыгъызда сессия ачыгъыз эмда тизмелеригизни сакъландырыууна эркинлик беригиз.</string>
@@ -602,7 +601,6 @@
   <string name="reading_lists_menu_import_list">Тизмени импорт эт</string>
   <string name="reading_lists_menu_sort_by">Айырыу шарт</string>
   <string name="reading_lists_refresh_sync_option">Синхронизацияны джангырт</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Кир / регистрация эт</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Бу статьягъа энди оффлайн джетиширчады.</item>
     <item quantity="other">Бу статьягъа энди оффлайн джетиширчады.</item>
@@ -819,11 +817,11 @@
   <string name="feed_item_type_main_page">Кюнню сайланнган статьясы болгъан Википедияны баш бети</string>
   <string name="feed_item_type_randomizer">Окъур ючюн рандом статьяла тизме болдур</string>
   <string name="feed_item_type_suggested_edits">Википедиягъа контент къошар ючюн теджеуле</string>
-  <string name="feed_empty_message">Тасмагъызда чырт бир зат джокъду</string>
+  <string name="feed_empty_message" fuzzy="true">Тасмагъызда чырт бир зат джокъду</string>
   <string name="feed_configure_onboarding_action">Джарашдыр</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Ызына ал</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Тасмагъызны джарашдырыгъыз&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Энди тасмагъызда нени кёргюзюллюгюн эмда эм сюйген контент типлени аллында берирчасыз.</string>
+  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Тасмагъызны джарашдырыгъыз&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Энди тасмагъызда нени кёргюзюллюгюн эмда эм сюйген контент типлени аллында берирчасыз.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ызына ал</string>
   <string name="feed_accessibility_card_text">Тасмаггъызны артына джетдигиз.</string>
@@ -1118,11 +1116,11 @@
   <string name="onboarding_get_started">Башла</string>
   <string name="onboarding_maybe_later">Кечирек болургъа болур</string>
   <string name="onboarding_explore_title">Тинтиуню джангы джоллары</string>
-  <string name="onboarding_explore_text">Википедия къоян тешикге джангыртылгъан Тасма бла кир. &lt;br/&gt; Тасмагъызны кёлюгюз ушатханча &lt;b&gt;джарашдырыгъыз&lt;/b&gt; – &lt;b&gt;Тарихде бюгюн&lt;/b&gt; тарихде болууланы юсюнден юрен неда &lt;b&gt;Рандом&lt;/b&gt;гъа ышан.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Википедия къоян тешикге джангыртылгъан Тасма бла кир. &lt;br/&gt; Тасмагъызны кёлюгюз ушатханча &lt;b&gt;джарашдырыгъыз&lt;/b&gt; – &lt;b&gt;Тарихде бюгюн&lt;/b&gt; тарихде болууланы юсюнден юрен неда &lt;b&gt;Рандом&lt;/b&gt;гъа ышан.</string>
   <string name="onboarding_reading_list_sync_title">Синхронизациясы бла окъуу тизмеле</string>
-  <string name="onboarding_reading_list_sync_text_v2">Оффлайн болсагъыз да, артдан окъургъа излеген статьяланы окъуяллыкъсыз. &lt;br/&gt;Окъуу тизмелеригизни синхронизация этер ючюн Википедия хыйсабыгъызгъа киригиз. &lt;a href=\"#login\"&gt;Википедиягъа къошулугъуз&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Оффлайн болсагъыз да, артдан окъургъа излеген статьяланы окъуяллыкъсыз. &lt;br/&gt;Окъуу тизмелеригизни синхронизация этер ючюн Википедия хыйсабыгъызгъа киригиз. &lt;a href=\"#login\"&gt;Википедиягъа къошулугъуз&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Билгиле эмда Ташалыкъ</string>
-  <string name="onboarding_data_privacy_text">Тёлеусюз билим къозгъалыугъа къошулур ючюн, энчи информациягъызны берирге керек болмагъанына ийнанабыз. Бу къошакъ ючюн джыйылгъан хайырланыу билиле аноним болур. &lt;a href=\"#privacy\"&gt;Ташалыкъ политикабызны&lt;/a&gt; эм &lt;a href=\"#termsOfUse\"&gt;хайырланыу шартларыбызны&lt;/a&gt; юснден аслам билигиз.</string>
+  <string name="onboarding_data_privacy_text" fuzzy="true">Тёлеусюз билим къозгъалыугъа къошулур ючюн, энчи информациягъызны берирге керек болмагъанына ийнанабыз. Бу къошакъ ючюн джыйылгъан хайырланыу билиле аноним болур. &lt;a href=\"#privacy\"&gt;Ташалыкъ политикабызны&lt;/a&gt; эм &lt;a href=\"#termsOfUse\"&gt;хайырланыу шартларыбызны&lt;/a&gt; юснден аслам билигиз.</string>
   <string name="onboarding_analytics_switch_title">Хайырланыу билгини джибер</string>
   <string name="onboarding_got_it">Англашынды</string>
   <string name="onboarding_multilingual_secondary_text">Девайсыгъызда тюбюндегилени табдыкъ:</string>
@@ -1156,7 +1154,7 @@
     <item quantity="one">Сайланнган тил къоратылсынмы?</item>
     <item quantity="other">Сайланнган тилле къоратылсынмы?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Къалгъан Википедия тилле ючюн къуру Аулау тасмада эмда терк излеу фильтрледе контненти кёрлюксюз.</string>
+  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Къалгъан Википедия тилле ючюн къуру Аулау тасмада эмда терк излеу фильтрледе контненти кёрлюксюз.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Бютеу тилле къоратылалмадыла</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Ичиндегини окъур эмда ичиндегиде излеу этер ючюн эм азы бла бир Википедия тилни къоюгъуз.</string>
   <string name="more_language_options">энтда</string>

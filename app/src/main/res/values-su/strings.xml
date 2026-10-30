@@ -381,7 +381,7 @@
   <string name="reading_list_items_deleted">%d artikel dipupus tina daptar</string>
   <string name="reading_list_item_delete_undo">Teu tulus</string>
   <string name="reading_list_deleted">%s dipupus</string>
-  <string name="saved_list_empty_title">Can aya daptar bacaan deui</string>
+  <string name="saved_list_empty_title" fuzzy="true">Can aya daptar bacaan deui</string>
   <string name="reading_lists_empty_message" fuzzy="true">Simpen artikel kana daptar bacaan hambéh engké anjeun bisa nempona deui, malah mah mun anjeun  keur oflén.</string>
   <string name="reading_list_empty">Anjeun teu mibanda artikel nu ditambahkeun ka ieu daptar.</string>
   <string name="reading_list_article_offline">Sayaga kalawan oflén</string>
@@ -413,7 +413,6 @@
   <string name="reading_lists_menu_create_list">Jieun daptar anyar</string>
   <string name="reading_lists_menu_sort_by">Runtuykeun dumasar</string>
   <string name="reading_lists_refresh_sync_option">Segerkeun singkronan</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Asup log / jieun akun</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ieu artikel ayeuna bakal sayaga kalawan oflén.</item>
     <item quantity="other">Ieu artikel-artikel ayeuna bakal sayaga kalawan oflén.</item>
@@ -527,7 +526,7 @@
   <string name="onboarding_get_started">Mitembeyan</string>
   <string name="onboarding_explore_title">Cara anyar pikeun ngalanglang</string>
   <string name="onboarding_explore_text" fuzzy="true">Panggihan artikel petingan, jejer nu keur trén, sarta saran artikel di eupan Langlangan.</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Daptar bacaan kalawan singkronisasi</string>
+  <string name="onboarding_reading_list_sync_title">Daptar bacaan kalawan singkronisasi</string>
   <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>

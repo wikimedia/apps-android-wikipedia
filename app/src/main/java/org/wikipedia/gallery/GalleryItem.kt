@@ -31,6 +31,7 @@ open class GalleryItem {
 
     val caption: TextInfo? = null
     val sources: List<ImageInfo>? = null
+    val credit: TextInfo? = null
     var titles: Titles? = null
     var artist: ArtistInfo? = null
     var license: ImageLicense? = null

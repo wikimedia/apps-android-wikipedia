@@ -372,7 +372,7 @@
   <string name="reading_lists_item_deleted">Á̱ turung %s di̱ lís</string>
   <string name="reading_list_item_delete_undo">Bwuok ma̱ng</string>
   <string name="reading_list_deleted">Á̱ ti̱n %s</string>
-  <string name="saved_list_empty_title">Pejí nang á̱ sak a̱ni ku nshyia̱ bah</string>
+  <string name="saved_list_empty_title" fuzzy="true">Pejí nang á̱ sak a̱ni ku nshyia̱ bah</string>
   <string name="reading_lists_empty_message">Mbeang a̱yaati̱kut mi̱ lis mat fang jenjini̱shi, ku nang a shyia̱ ma̱ntalang wa.</string>
   <string name="reading_list_empty">A sang a̱yaati̱kut nang á̱ mbeang a̱ni mi̱ lis huni.</string>
   <string name="reading_list_article_offline">A̱ nshyia̱ ma̱ntalang</string>
@@ -404,7 +404,6 @@
   <string name="reading_lists_menu_create_list">Khwuk lis fai</string>
   <string name="reading_lists_menu_sort_by">Tswang di̱n vak</string>
   <string name="reading_lists_refresh_sync_option">Shyim tyei pwut</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Nwuo/Shyia̱ nwuai</string>
   <string name="reading_list_menu_last_sync">Tyei pwut ngaan: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Ndei</string>
   <string name="reading_list_delete_dialog_ok_button_text">Ndei</string>

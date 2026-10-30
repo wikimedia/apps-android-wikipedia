@@ -1,7 +1,6 @@
 package org.wikipedia.language
 
 import android.content.Context
-import android.os.Build
 import android.view.inputmethod.InputMethodManager
 import androidx.core.os.LocaleListCompat
 import org.apache.commons.lang3.StringUtils
@@ -40,9 +39,7 @@ object LanguageUtil {
                 val submethods = imm.getEnabledInputMethodSubtypeList(method, true) ?: emptyList()
                 for (submethod in submethods) {
                     if (submethod.mode == "keyboard") {
-                        var langTag =
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && submethod.languageTag.isNotEmpty()) submethod.languageTag
-                            else submethod.locale
+                        var langTag = submethod.languageTag.ifEmpty { submethod.locale }
                         if (langTag.isEmpty()) {
                             continue
                         }
@@ -88,11 +85,6 @@ object LanguageUtil {
             "zh" -> AppLanguageLookUpTable.chineseLocaleToWikiLanguageCode(locale)
             else -> locale.language
         }
-    }
-
-    fun isChineseVariant(langCode: String): Boolean {
-        return langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) &&
-                langCode != AppLanguageLookUpTable.CHINESE_YUE_LANGUAGE_CODE
     }
 
     fun startsWithArticle(text: String, language: String): Boolean {

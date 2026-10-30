@@ -24,13 +24,14 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.BreadCrumbViewUtil
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
+import org.wikipedia.createaccount.CreateAccountEncourageActivity
+import org.wikipedia.createaccount.CreateAccountEncourageViewModel
 import org.wikipedia.donate.DonateDialog
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.ReadingListsEnableDialogEvent
@@ -41,9 +42,11 @@ import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
-import org.wikipedia.onboarding.InitialOnboardingActivity
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -58,9 +61,8 @@ import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.YearInReviewActivity
-import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
     interface Callback {
@@ -99,7 +101,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_CANCELED) {
-            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
+            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later_activity))
         }
     }
 
@@ -130,8 +132,23 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         .submitInteraction(action = "app_open", actionSource = "widget", actionSubtype = widgetType)
                 }
                 InvokeSource.NOTIFICATION -> {
+                    val notificationCategory = intent.getSerializableExtra(Constants.INTENT_EXTRA_NOTIFICATION_CATEGORY) as NotificationCategory?
+                    val subType = when (notificationCategory) {
+                        NotificationCategory.GAMES -> "game"
+                        NotificationCategory.RECOMMENDED_READING_LISTS -> "discover"
+                        else -> null
+                    }
                     TestKitchenAdapter.client.getInstrument("apps-open")
-                        .submitInteraction(action = "app_open", actionSource = "notification")
+                        .also { instrument ->
+                            if (notificationCategory == NotificationCategory.RECOMMENDED_READING_LISTS) {
+                                NotificationsExperimentAbTest().setExperimentIfEligible(instrument)
+                            }
+                        }
+                        .submitInteraction(
+                            action = "app_open",
+                            actionSource = "notification",
+                            actionSubtype = subType
+                        )
                 }
                 InvokeSource.APP_SHORTCUTS -> {
                     val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
@@ -151,6 +168,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             Prefs.isReadingListSyncEnabled = true
             ReadingListSyncAdapter.manualSyncWithForce()
         }
+        NotificationsExperimentAbTest().maybeRescheduleRecommendedReadingListNotification(this)
 
         WikipediaApp.instance.connectionStateMonitor.registerCallback(this)
 
@@ -158,10 +176,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
-        maybeShowYearInReview()
-        maybeShowReadingChallengePrompt()
-
-        Prefs.localClassName = localClassName
+        maybeShowAnnouncement(this)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -230,7 +245,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         BreadCrumbLogEvent.logScreenShown(this)
         TestKitchenAdapter.client.getInstrument("apps-open")
             .submitInteraction(action = "app_open", actionSource = "background",
-                actionSubtype = BreadCrumbViewUtil.getReadableScreenName(this))
+                actionSubtype = this::class.java.simpleName)
     }
 
     override fun onStart() {
@@ -299,21 +314,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         return _instrument
     }
 
-    private fun maybeShowYearInReview() {
-        if (this !is YearInReviewOnboardingActivity && this !is YearInReviewActivity &&
-            !Prefs.isInitialOnboardingEnabled &&
-            YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
-            yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
-        }
-    }
-
-    protected fun maybeShowReadingChallengePrompt() {
-        if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
-            this !is ReadingChallengeOnboardingActivity && this !is InitialOnboardingActivity) {
-            requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity
-                .newIntent(this)
-                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-        }
+    protected fun showReadingChallenge() {
+        requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity
+            .newIntent(this)
+            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
     }
 
     private fun removeSplashBackground() {
@@ -321,27 +325,27 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     }
 
     private fun maybeShowLoggedOutInBackgroundDialog() {
-        if (Prefs.loggedOutInBackground) {
-            Prefs.loggedOutInBackground = false
+        if (!Prefs.queueLoggedOutInBackgroundDialog || isDestroyed || this is LoginActivity)
+            return
+        Prefs.queueLoggedOutInBackgroundDialog = false
 
-            val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
-                .setDefaultActionSource("logout_background_dialog")
-                .startFunnel("logout_account_background")
-            instrument.submitInteraction("impression")
+        val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+            .setDefaultActionSource("logout_background_dialog")
+            .startFunnel("logout_account_background")
+        instrument.submitInteraction("impression")
 
-            MaterialAlertDialogBuilder(this)
-                    .setCancelable(false)
-                    .setTitle(R.string.logged_out_in_background_title)
-                    .setMessage(R.string.logged_out_in_background_dialog)
-                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ ->
-                        instrument.submitInteraction("click", elementId = "login_button")
-                        startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND))
-                    }
-                    .setNegativeButton(R.string.logged_out_in_background_cancel) { _, _ ->
-                        instrument.submitInteraction("click", elementId = "cancel")
-                    }
-                    .show()
-        }
+        MaterialAlertDialogBuilder(this)
+                .setCancelable(false)
+                .setTitle(R.string.logged_out_in_background_title)
+                .setMessage(R.string.logged_out_in_background_dialog)
+                .setPositiveButton(R.string.logged_out_in_background_login) { _, _ ->
+                    instrument.submitInteraction("click", elementId = "login_button")
+                    startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND))
+                }
+                .setNegativeButton(R.string.logged_out_in_background_cancel) { _, _ ->
+                    instrument.submitInteraction("click", elementId = "cancel")
+                }
+                .show()
     }
 
     private fun dismissCurrentTooltip() {
@@ -356,6 +360,36 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     fun setImageZoomHelper() {
         imageZoomHelper = ImageZoomHelper(this)
+    }
+
+    fun maybeShowAnnouncement(activity: BaseActivity) {
+        // Announcements may only be shown on top of these activities:
+        if (listOf(
+                MainActivity::class,
+                PageActivity::class
+        ).none { it.isInstance(activity) }) {
+            return
+        }
+
+        if (Prefs.isInitialOnboardingEnabled) return
+        if (!Prefs.isExploreFeedUpdatePromptShown) return
+
+        val isExternalArticleLink = activity is PageActivity &&
+                activity.intent.action == Intent.ACTION_VIEW &&
+                activity.intent.data != null
+
+        lifecycleScope.launch {
+            when {
+                ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
+                YearInReviewViewModel.canShowEntryPoint &&
+                        !Prefs.yearInReviewVisited -> {
+                    yearInReviewLauncher.launch(YearInReviewOnboardingActivity.newIntent(this@BaseActivity))
+                }
+                !isExternalArticleLink && CreateAccountEncourageViewModel.shouldShow() -> {
+                    startActivity(CreateAccountEncourageActivity.newIntent(this@BaseActivity))
+                }
+            }
+        }
     }
 
     open fun onUnreadNotification() { }

@@ -508,15 +508,15 @@
     <item quantity="one">١ وتار سڕایەوە لە پێڕست</item>
     <item quantity="other">%d وتار سڕایەوە لە پێڕست</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">%d وتار سڕدرایەوە لە %s</item>
-    <item quantity="other">%d وتار سڕدرایەوە لە %s</item>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">%1$d وتار سڕدرایەوە لە %2$s</item>
+    <item quantity="other">%1$d وتار سڕدرایەوە لە %2$s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d وتار سڕایەوە لە پێڕست</string>
   <string name="reading_lists_item_deleted">%s سڕایەوە لە پێڕست</string>
   <string name="reading_list_item_delete_undo">پووچەڵکردنەوە</string>
   <string name="reading_list_deleted">%s سڕدرایەوە</string>
-  <string name="saved_list_empty_title">ھێشتا پەڕەکان پاشەکەوت نەکراون</string>
+  <string name="saved_list_empty_title" fuzzy="true">ھێشتا پەڕەکان پاشەکەوت نەکراون</string>
   <string name="reading_lists_empty_message">وتارەکان زیاد بکە بۆ پێڕستەکانی خوێندنەوە، کە دەتوانیت دواتر بیان بینیت، تەنانەت کاتێک دەرھێڵیش بیت.</string>
   <string name="reading_list_empty">ھیچ وتارێکت لەم پێڕستە دانەناوە.</string>
   <string name="reading_list_article_offline">بەبێ ئینتەرنێت بەردەستە</string>
@@ -532,7 +532,6 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s چی تر بەردەست نابێت بۆ خوێندنەوە بەبێ ئینتەرنێت لە ھیچ کامێک لە پێڕستی خوێندنەوەکان:</string>
   <string name="reading_lists_sync_reminder_title">هاوکاتکردنی پێڕستی خوێندنەوە هەڵدەکەیت؟</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">ئەو وتارانەی کە لە پێڕستی خوێندنەوەدا هەڵگیراوە ئێستا دەتوانرێت هاوکات بکرێن بۆ هەژماری ویکیپیدیاکەت. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;زیاتر فێربه&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">ئێستا دەکرێت پێڕستی خوێندنەوە هاودەم بکرێت لە هەموو ئامێرەکان. بچۆ ژوورەوە بۆ هەژماری ویکیپیدیاکەت و ڕێگە بدە پێڕستەکانت هەڵبگیرێن. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;زیاتر فێربه&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">هاوکاتکردن چالاک بکە</string>
   <string name="reading_list_login_reminder_title">خەزێنەکردنی پێڕستی خوێندنەوە</string>
   <string name="reading_lists_login_reminder_text">ئێستا دەکرێت پێڕستی خوێندنەوە هاودەم بکرێت لە هەموو ئامێرەکان. بچۆ ژوورەوە بۆ هەژماری ویکیپیدیاکەت و ڕێگە بدە پێڕستەکانت هەڵبگیرێن.</string>
@@ -569,7 +568,6 @@
   <string name="reading_lists_menu_create_list">دروستکردنی لیستی نوێ</string>
   <string name="reading_lists_menu_import_list">پێڕست ھاوردە بکە</string>
   <string name="reading_lists_menu_sort_by">ڕیزکردن بە</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">چوونە ژوورەوە/تۆمارکردن</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە.</item>
     <item quantity="other"> ئەم وتارانە ئێستا بەبێ ئینتەرنێت بەردەستن.</item>
