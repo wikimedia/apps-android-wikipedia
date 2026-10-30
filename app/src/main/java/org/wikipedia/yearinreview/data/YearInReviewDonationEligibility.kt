@@ -13,7 +13,7 @@ import java.time.format.DateTimeParseException
 
 class YearInReviewDonationEligibility(
     private val donationStatusFromWebProvider: suspend () -> MwQueryResponse = {
-        ServiceFactory.get(WikiSite.forLanguageCode("en")).getUserInfo()},
+        ServiceFactory.get(WikiSite.forLanguageCode("en")).getUserInfo() },
     private val isLoggedIn: () -> Boolean = { AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount },
     private val donationResultsProvider: () -> List<DonationResult> = { Prefs.donationResults }
 ) {

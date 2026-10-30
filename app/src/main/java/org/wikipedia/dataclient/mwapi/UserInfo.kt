@@ -6,7 +6,6 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.intOrNull
 import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.util.DateUtil
 import java.util.Date
 
