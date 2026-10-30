@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -80,7 +81,8 @@ object NotificationsExperimentHelper {
             bodyIntent = TopReadArticlesActivity.newIntent(
                 context = context,
                 card = TopReadCard(TopRead(articles = articles), age = 0, site = WikiSite.forLanguageCode(languageCode)),
-                fromNotification = true
+                invokeSource = Constants.InvokeSource.NOTIFICATION,
+                notificationCategory = NotificationCategory.WEEKLY_MOST_READ
             )
         )
         if (isNotificationPosted) {

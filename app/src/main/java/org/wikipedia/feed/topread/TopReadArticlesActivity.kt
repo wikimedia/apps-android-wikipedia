@@ -4,18 +4,20 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.feed.model.TopReadCard
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.util.DateUtil
 
 class TopReadArticlesActivity : SingleFragmentActivity<TopReadFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val fromNotification = intent.getBooleanExtra(Constants.ARG_BOOLEAN, false)
-        title = if (fromNotification) {
+        val notificationCategory = intent.getSerializableExtra(Constants.INTENT_EXTRA_NOTIFICATION_CATEGORY) as NotificationCategory?
+        title = if (notificationCategory == NotificationCategory.WEEKLY_MOST_READ) {
             getString(R.string.notifications_experiment_weekly_most_read_notification_title)
         } else {
             val card = intent.parcelableExtra<TopReadCard>(TOP_READ_CARD)
@@ -30,10 +32,11 @@ class TopReadArticlesActivity : SingleFragmentActivity<TopReadFragment>() {
 
     companion object {
         const val TOP_READ_CARD = "item"
-        fun newIntent(context: Context, card: TopReadCard, fromNotification: Boolean = false): Intent {
+        fun newIntent(context: Context, card: TopReadCard, invokeSource: InvokeSource? = null, notificationCategory: NotificationCategory? = null): Intent {
             return Intent(context, TopReadArticlesActivity::class.java)
                 .putExtra(TOP_READ_CARD, card)
-                .putExtra(Constants.ARG_BOOLEAN, fromNotification)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_CATEGORY, notificationCategory)
         }
     }
 }
