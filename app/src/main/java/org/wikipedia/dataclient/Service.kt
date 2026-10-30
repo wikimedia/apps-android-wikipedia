@@ -9,7 +9,6 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
 import org.wikipedia.dataclient.donate.PaymentResponseContainer
-import org.wikipedia.dataclient.mwapi.CreateAccountResponse
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -324,19 +323,6 @@ interface Service {
     @Headers("Cache-Control: no-cache")
     suspend fun getToken(@Query("type") type: String = "csrf"): MwQueryResponse
 
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=createaccount&createmessageformat=html")
-    suspend fun postCreateAccount(
-        @Field("username") user: String,
-        @Field("password") pass: String,
-        @Field("retype") retype: String,
-        @Field("createtoken") token: String,
-        @Field("createreturnurl") returnurl: String,
-        @Field("email") email: String?,
-        @Field("captchaId") captchaId: String?,
-        @Field("captchaWord") captchaWord: String?
-    ): CreateAccountResponse
-
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
     @Headers("Cache-Control: no-cache")
     suspend fun getLoginToken(): MwQueryResponse
@@ -361,9 +347,6 @@ interface Service {
     @POST(MW_API_PREFIX + "action=logout")
     suspend fun postLogout(@Field("token") token: String): MwPostResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
-    suspend fun getAuthManagerInfo(): MwQueryResponse
-
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo&amirequestsfor=login")
     suspend fun getAuthManagerForLogin(): MwQueryResponse
 
@@ -381,9 +364,6 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount|groups|rights")
     suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
-
-    @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
-    suspend fun getUserList(@Query("ususers") userNames: String): MwQueryResponse
 
     // ------- Notifications -------
 

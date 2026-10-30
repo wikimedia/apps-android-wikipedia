@@ -816,7 +816,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             dialog.window?.let {
                 it.decorView.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { link ->
                     if (link.contains("#login") || link.contains("#createaccount")) {
-                        launchLogin(link.contains("#createaccount"))
+                        launchLogin()
                     } else {
                         UriUtil.handleExternalLink(this, link.toUri())
                     }
@@ -829,8 +829,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         return false
     }
 
-    private fun launchLogin(createAccountFirst: Boolean = true) {
-        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT, createAccountFirst))
+    private fun launchLogin() {
+        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT))
     }
 
     private fun startInsertImageFlow() {
