@@ -42,14 +42,6 @@ object NotificationsExperimentHelper {
     private const val MAX_DAYS_TO_CHECK = 14
     private const val MAX_WEEKLY_MOST_READ_ARTICLES = 50
 
-    fun maybeScheduleWeeklyMostReadNotification(context: Context) {
-        if (Prefs.notificationsExperimentWeeklyMostReadScheduled || !NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
-            return
-        }
-        scheduleNotification(context, fromFiredAlarm = false)
-        Prefs.notificationsExperimentWeeklyMostReadScheduled = true
-    }
-
     fun scheduleNotification(context: Context, fromFiredAlarm: Boolean) {
         // Always cancel before scheduling a new one
         cancelNotification(context)
@@ -182,5 +174,13 @@ object NotificationsExperimentHelper {
                 .getTopPageViews(wikiSite.authority(), date.year, date.month, date.day)
                 .items.flatMap { it.articles }
         }.getOrDefault(emptyList())
+    }
+
+    fun maybeScheduleWeeklyMostReadNotification(context: Context) {
+        if (Prefs.notificationsExperimentWeeklyMostReadScheduled || !NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+            return
+        }
+        scheduleNotification(context, fromFiredAlarm = false)
+        Prefs.notificationsExperimentWeeklyMostReadScheduled = true
     }
 }
