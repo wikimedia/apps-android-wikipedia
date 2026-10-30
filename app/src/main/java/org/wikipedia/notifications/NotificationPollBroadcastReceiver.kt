@@ -28,6 +28,9 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
+import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
+import org.wikipedia.notifications.experiment.WeeklyMostReadNotificationWorker
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
@@ -57,6 +60,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 // persist discover notification experiment alarm after reboot
                 if (Prefs.isRecommendedReadingListNotificationEnabled) {
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                }
+
+                // persist trending notification experiment alarm after reboot
+                if (Prefs.notificationsExperimentWeeklyMostReadScheduled) {
+                    NotificationsExperimentHelper.scheduleNotification(context, fromFiredAlarm = false)
                 }
             }
             ACTION_POLL == intent.action -> {
@@ -97,6 +105,16 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
+
+            ACTION_WEEKLY_MOST_READ == intent.action -> {
+                if (!NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+                    NotificationsExperimentHelper.cancelNotification(context)
+                    return
+                }
+                // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
+                NotificationsExperimentHelper.scheduleNotification(context, fromFiredAlarm = true)
+                WeeklyMostReadNotificationWorker.enqueue(context)
+            }
         }
     }
 
@@ -106,6 +124,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
         const val ACTION_DAILY_GAME = "action_daily_game"
         const val ACTION_RECOMMENDED_READING_LIST = "action_recommended_reading_list"
+        const val ACTION_WEEKLY_MOST_READ = "action_weekly_most_read"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"

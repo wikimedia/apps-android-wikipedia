@@ -10,7 +10,6 @@ import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPresenter
-import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.settings.Prefs
@@ -55,7 +54,7 @@ object RecommendedReadingListNotificationManager {
                     context.getString(R.string.recommended_reading_list_notification_subtitle)
         Prefs.resetRecommendedReadingList = true
         RecommendedReadingListEvent.submit("impression", "rrl_notification")
-        val isNotificationPosted = NotificationPresenter.showNotification(
+        NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, 1, notificationCategory = NotificationCategory.RECOMMENDED_READING_LISTS),
             id = 1,
@@ -72,9 +71,6 @@ object RecommendedReadingListNotificationManager {
                 notificationCategory = NotificationCategory.RECOMMENDED_READING_LISTS
             )
         )
-        if (isNotificationPosted) {
-            NotificationsExperimentAbTest().maybeSendExposureEventIfEligible()
-        }
     }
 
     fun cancelRecommendedReadingListNotification(context: Context) {

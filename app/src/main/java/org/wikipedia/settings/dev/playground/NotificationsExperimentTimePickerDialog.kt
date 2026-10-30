@@ -30,7 +30,6 @@ import androidx.compose.ui.unit.dp
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.Date
@@ -55,9 +54,8 @@ fun showNotificationsExperimentTimePickerDialog(context: Context, onChanged: (Lo
                     dialog.dismiss()
                 },
                 onSave = { timeInMillis ->
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
-                    Toast.makeText(context, "Scheduled for ${Date(timeInMillis)}", Toast.LENGTH_SHORT).show()
                     onChanged(timeInMillis)
+                    Toast.makeText(context, "Scheduled for ${Date(timeInMillis)}", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
             )

@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
@@ -37,7 +36,6 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
             _uiState.value = _uiState.value.copy(
                 isRecommendedReadingListEnabled = enabled,
                 updateFrequency = Prefs.recommendedReadingListUpdateFrequency,
-                isUpdateFrequencyVisible = shouldShowUpdateFrequency(),
                 isRecommendedReadingListNotificationEnabled = Prefs.isRecommendedReadingListNotificationEnabled
             )
         }
@@ -76,7 +74,6 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
             )
         _uiState.value = _uiState.value.copy(
             updateFrequency = updateFrequency,
-            isUpdateFrequencyVisible = shouldShowUpdateFrequency(),
             isRecommendedReadingListNotificationEnabled = enabled
         )
     }
@@ -99,14 +96,10 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
     }
 }
 
-// The notifications experiment sends weekly, so the frequency can't be changed while the user is in it.
-private fun shouldShowUpdateFrequency() = !NotificationsExperimentAbTest().isNotificationsExperimentEligible()
-
 data class RecommendedReadingListSettingsState(
     val isRecommendedReadingListEnabled: Boolean = Prefs.isRecommendedReadingListEnabled,
     val articlesNumber: Int = Prefs.recommendedReadingListArticlesNumber,
     val updateFrequency: RecommendedReadingListUpdateFrequency = Prefs.recommendedReadingListUpdateFrequency,
-    val isUpdateFrequencyVisible: Boolean = shouldShowUpdateFrequency(),
     val recommendedReadingListSource: RecommendedReadingListSource = Prefs.recommendedReadingListSource,
     val isRecommendedReadingListNotificationEnabled: Boolean = Prefs.isRecommendedReadingListNotificationEnabled
 )
