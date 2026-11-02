@@ -141,7 +141,7 @@
   <string name="search_reading_list_no_results">\"%s\" وچ کوئی نتیجہ نئیں ملیا۔</string>
   <string name="search_reading_lists_no_results" fuzzy="true">مجموعیاں وچ کوئی نتیجہ نئیں ملیا۔</string>
   <string name="search_all_articles_no_results">ساریاں مضامین وچ کوئی نتیجہ نئیں ملیا۔</string>
-  <string name="search_collections_no_results" fuzzy="true">مجموعیاں وچ کوئی نتیجہ نئیں ملیا۔</string>
+  <string name="search_collections_no_results">پڑھݨ تندیراں وچ کوئی نتیجہ نئیں ملیا۔</string>
   <string name="search_history_no_results">تاریخ وچ کائی نتیجہ نی لبھا</string>
   <string name="edit_section_captcha_message">خودکار اسپام توں تحفظ کیتے، مہربانی کر کے ہیٹھ ݙتے ڳئے الفاظ لکھو۔</string>
   <string name="edit_section_captcha_request_an_account_message">تصویر نئیں نظر آندی؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;کھاتے دی درخواست کرو&lt;/a&gt;</string>
@@ -246,7 +246,7 @@
   <string name="preference_title_download_reading_list_articles" fuzzy="true">مجموعیاں دے مضامین ڈاؤن لوڈ کرو</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">اپݨے وکیپیڈیا کھاتے وچ محفوظ کر کے مختلف ڈیوائساں دے وچکار مجموعیاں کوں سنک کرو</string>
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">اپݨے وکیپیڈیا کھاتے \"%s\" وچ محفوظ کر کے مختلف ڈیوائساں دے وچکار مجموعیاں کوں سنک کرو</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">\"%s\" توں سنک کیتیاں ڳئیاں مجموعیاں ہٹاوو؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" توں سنک کیتیاں ڳئیاں پڑھݨ تندیراں ہٹاؤں؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">ایں نال ریموٹ سٹوریج توں پہلے سنک کیتیاں ڳئیاں ساریاں مجموعیاں مکمل طور تے مٹا ݙتیاں ویندیاں ہن۔ اپݨے کھاتے \"%s\" توں ساریاں سنک کیتیاں ڳئیاں مجموعیاں ہٹاوو؟</string>
   <string name="preference_title_auto_upload_crash_reports">کریش رپورٹس بھیجو</string>
   <string name="preference_summary_auto_upload_crash_reports">ایپ کوں اجازت ݙیو جو کریش رپورٹس خودکار طور تے کہیں تریجھی فریق دی سروس مہیا کرݨ آلے کوں بھیجے تاں جو اساں تہاݙے کریش دا جائزہ گھن کے بگ کوں تیزی نال تے سخیا نال ٹھیک کر سڳوں۔</string>
@@ -400,7 +400,7 @@
   <string name="unnamed_tab_closed">ٹیب بند تھی ڳئی۔</string>
   <string name="tab_item_closed">%s بند تھی ڳیا۔</string>
   <string name="all_tab_items_closed">ساریاں ٹیبز بند تھی ڳئیاں ہن۔</string>
-  <string name="tool_tip_bookmark_icon_title" fuzzy="true">مجموعے وچ شامل کرو</string>
+  <string name="tool_tip_bookmark_icon_title">پڑھݨ تندیر وچ شامل کرو</string>
   <string name="tool_tip_bookmark_icon_text" fuzzy="true">مضمون کوں مجموعے وچ محفوظ کرݨ کیتے بُک مارک آئیکون تے ٹیپ کرو۔</string>
   <string name="page_view_in_browser">صفحہ براؤزر وچ ݙیکھو</string>
   <string name="tool_tip_toc_title">فہرستِ مضامین تئیں تیز رسائی</string>
@@ -609,7 +609,7 @@
   <string name="reading_list_empty" fuzzy="true">ایں مجموعے وچ تساں کوئی مضمون نئیں شامل کیتا۔</string>
   <string name="reading_list_article_offline">آف لائن دستیاب</string>
   <string name="reading_list_article_make_offline">ایں مضمون کوں آف لائن دستیاب بݨاؤ</string>
-  <string name="reading_list_add_to_other_list" fuzzy="true">ٻئے مجموعے وچ شامل کرو</string>
+  <string name="reading_list_add_to_other_list">ٻئی پڑھݨ تندیر وچ شامل کرو</string>
   <string name="reading_list_move_to_other_list" fuzzy="true">ٻئے مجموعے وچ منتقل کرو</string>
   <string name="reading_list_add_to_collection">پڑھݨ تندیر وچ شامل کرو</string>
   <plurals name="reading_list_in_collections" fuzzy="true">
@@ -686,12 +686,12 @@
   <string name="reading_list_split_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">مٹاؤ</string>
   <string name="reading_list_activity_title">مطالعہ تندیر: %s</string>
-  <string name="reading_list_notification_title" fuzzy="true">مجموعے ایکسپورٹ تھی ڳئے</string>
+  <string name="reading_list_notification_title">پڑھݨ تندیر(اں) ایکسپورٹ تھی ڳئے</string>
   <string name="reading_list_notification_text" fuzzy="true">%d مجموعے \'reading_lists export.json\' دے طور تے تہاݙے ڈاؤن لوڈ فولڈر وچ ایکسپورٹ تھی ڳئے ہن۔</string>
   <string name="reading_list_notification_detailed_text" fuzzy="true">مجموعے \'reading_lists_export.json\' وچ ایکسپورٹ تھی ڳئے ہن۔</string>
   <string name="reading_lists_action_menu_export_lists">ٻاہر بھیڄو</string>
   <string name="reading_lists_import_file_picker_title">درآمد کرݨ کیتے فائل چݨو</string>
-  <string name="reading_lists_import_failure_message" fuzzy="true">مجموعیاں دی درآمد ناکام تھی ڳئی</string>
+  <string name="reading_lists_import_failure_message">پڑھݨ تندیراں دی درآمد ناکام تھی ڳئی</string>
   <string name="reading_lists_export_select_lists_message" fuzzy="true">ایکسپورٹ کرݨ کیتے مجموعے منتخب کرو</string>
   <string name="reading_lists_export_completed_message" fuzzy="true">اے پیغام صارف کوں ایں ڳالھ دی اطلاع ݙیندے جو مجموعے دی ایکسپورٹ مکمل تھی ڳئی اے۔</string>
   <plurals name="reading_list_export_failed_message" fuzzy="true">
@@ -709,7 +709,7 @@
   <string name="reading_lists_preview_save_dialog_title_hint">عنوان</string>
   <string name="reading_lists_preview_save_dialog_cancel">منسوخ</string>
   <string name="reading_lists_preview_save_dialog_save">محفوظ کرو</string>
-  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">مجموعہ محفوظ تھی ڳیا</string>
+  <string name="reading_lists_preview_saved_snackbar">پڑھݨ تندیر محفوظ تھی ڳئی</string>
   <string name="reading_lists_preview_saved_snackbar_action">ݙیکھو</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_reverted_title">واپس تھئی تبدیلی</string>
@@ -1871,7 +1871,7 @@
   <string name="read_aloud_lead_section_beta_label">ازمائشی</string>
   <string name="reading_lists_tab_all_articles">سارے مضمون</string>
   <string name="reading_lists_tab_collections" fuzzy="true">مجموعے</string>
-  <string name="reading_lists_search_collections" fuzzy="true">مجموعیاں دی ڳول</string>
+  <string name="reading_lists_search_collections">پڑھݨ تندیراں دی ڳول</string>
   <string name="reading_lists_remove_articles_confirm_button" fuzzy="true">ہٹاؤ</string>
   <string name="semantic_search_results_last_updated_label">چھیکڑی تجدید تھئی %s</string>
 </resources>

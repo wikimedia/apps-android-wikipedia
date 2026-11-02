@@ -12,6 +12,7 @@
 * Maria zaos
 * MuratTheTurkish
 * O Breixo
+* O andras
 * Sabelaraga
 * Toliño
 * Vivaelcelta
@@ -102,7 +103,7 @@
   <string name="reading_list_page_share">Compartir</string>
   <string name="menu_text_select_edit_here">Editar aquí</string>
   <string name="menu_edit_article">Editar artigo</string>
-  <string name="last_updated_text">Última actualización o %s</string>
+  <string name="last_updated_text">Última actualización hai %s</string>
   <string name="talk_page_link_text">Ver a páxina de conversa</string>
   <string name="edit_history_link_text">Ver o historial de edicións</string>
   <string name="map_view_link_text">ver nun mapa</string>
