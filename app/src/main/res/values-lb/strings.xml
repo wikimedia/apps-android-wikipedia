@@ -1854,8 +1854,8 @@
   </plurals>
   <string name="yir_article_count_headline">Sou vill Artikelen hutt Dir gelies:</string>
   <plurals name="yir_article_count_supporting_top">
-    <item quantity="one">Doduerch sidd Dir an den Top %1$s % vun de Wikipedia-Lieser weltwäit. D\'Duerchschnëttspersoun liest %2$d Artikel am Joer.</item>
-    <item quantity="other">Doduerch sidd Dir an den Top %1$s % vun de Wikipedia-Lieser weltwäit. D\'Duerchschnëttspersoun liest %2$d Artikelen am Joer.</item>
+    <item quantity="one">Doduerch sidd Dir an den Top %1$s%% vun de Wikipedia-Lieser weltwäit. D\'Duerchschnëttspersoun liest %2$d Artikel am Joer.</item>
+    <item quantity="other">Doduerch sidd Dir an den Top %1$s%% vun de Wikipedia-Lieser weltwäit. D\'Duerchschnëttspersoun liest %2$d Artikelen am Joer.</item>
   </plurals>
   <string name="yir_article_count_supporting">Dir waart dat ganzt Joer op Entdeckungstour. All Artikel huet Äert Wëssen erweidert.</string>
   <string name="yir_article_count_empty_headline">Et gëtt Millioune vun Artikelen z\'entdecken</string>
@@ -1876,8 +1876,8 @@
   </plurals>
   <string name="yir_reading_time_headline">Liblingszäit fir op Entdeckungstour ze goen:</string>
   <plurals name="yir_reading_time_supporting">
-    <item quantity="one">%1$d % vun Ären Entdeckunge ware wärend där Dageszäit. Zoufall oder… net?</item>
-    <item quantity="other">%1$d % vun Ären Entdeckunge ware wärend där Dageszäit. Zoufall oder… net?</item>
+    <item quantity="one">%1$d%% vun Ären Entdeckunge ware wärend där Dageszäit. Zoufall oder… net?</item>
+    <item quantity="other">%1$d%% vun Ären Entdeckunge ware wärend där Dageszäit. Zoufall oder… net?</item>
   </plurals>
   <string name="yir_reading_time_empty_headline">Dir hutt am Fong zu all Dageszäit gelies</string>
   <string name="yir_reading_time_empty_supporting">Et gëtt keng fix Deeg oder Zäiten, wou Dir Iech decidéiert, duerch d\'Säiten op der Wikipedia ze goen.</string>
