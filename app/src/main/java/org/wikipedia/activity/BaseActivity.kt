@@ -137,7 +137,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                     val subType = when (notificationCategory) {
                         NotificationCategory.GAMES -> "game"
                         NotificationCategory.RECOMMENDED_READING_LISTS -> "discover"
-                        NotificationCategory.WEEKLY_MOST_READ -> "weekly_most_read"
+                        NotificationCategory.WEEKLY_MOST_READ -> "trending"
                         else -> null
                     }
                     TestKitchenAdapter.client.getInstrument("apps-open")
