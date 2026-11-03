@@ -240,7 +240,8 @@ fun SearchResultPageItem(
     val iconResId = when (type) {
         SearchResult.SearchResultType.HISTORY -> R.drawable.ic_history_24
         SearchResult.SearchResultType.TAB_LIST -> R.drawable.ic_tab_one_24px
-        else -> R.drawable.ic_bookmark_border_white_24dp
+        SearchResult.SearchResultType.READING_LIST -> R.drawable.ic_bookmark_border_white_24dp
+        else -> null
     }
 
     val showImage =
@@ -323,7 +324,7 @@ fun SearchResultPageItem(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                if (type != SearchResult.SearchResultType.PREFIX && type != SearchResult.SearchResultType.FULL_TEXT) {
+                if (iconResId != null) {
                     Image(
                         modifier = Modifier
                             .size(20.dp),

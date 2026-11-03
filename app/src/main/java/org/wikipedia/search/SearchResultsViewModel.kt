@@ -26,6 +26,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.search.interleave.InterleavedSearchRepository
 import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.Prefs
 import kotlin.time.Duration.Companion.milliseconds
@@ -40,6 +41,8 @@ class SearchResultsViewModel : ViewModel() {
     private val semanticSearchIsFirstUsePrefUpdates = Prefs.observeKeys(
         R.string.preference_key_semantic_search_first_use
     )
+    private val standardSearchRepository = StandardSearchRepository()
+    private val interleavedSearchRepository = InterleavedSearchRepository(lexicalRepository = standardSearchRepository)
     private val batchSize = 10
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
@@ -101,7 +104,7 @@ class SearchResultsViewModel : ViewModel() {
                     maybeSendSemanticSearchExposure(lang)
                 }
             }
-            val repository = StandardSearchRepository()
+            val repository = if (isInterleavingEnabled(lang)) interleavedSearchRepository else standardSearchRepository
             Pager(PagingConfig(pageSize = batchSize)) {
                 SearchResultsPagingSource(
                     searchTerm = term,
@@ -112,6 +115,7 @@ class SearchResultsViewModel : ViewModel() {
                     onFirstPageLoaded = { result ->
                         lastXSearchIdPrefix = result.xSearchIdPrefix.orEmpty()
                         lastXSearchIdFullText = result.xSearchIdFullText.orEmpty()
+                        result.xSearchIdSemantic?.let { lastXSearchIdSemantic = it }
                         _lexicalResultsForLogging.value = result.results
                     }
                 )
@@ -167,6 +171,10 @@ class SearchResultsViewModel : ViewModel() {
         }
         isSemanticSearchExposureSent = true
         semanticSearchAbTest.maybeSendExposureEvent()
+    }
+
+    private fun isInterleavingEnabled(languageCode: String): Boolean {
+        return invokeSource != Constants.InvokeSource.PLACES && semanticSearchAbTest.isSemanticSearchEnabled(languageCode)
     }
 
     fun disableSemanticSearch() {
