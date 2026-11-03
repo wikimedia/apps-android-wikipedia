@@ -106,7 +106,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec("frame8"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_biggest_reading_day_headline),
-                "data" to page.date,
+                "data" to page.date.uppercase(),
                 "bodyCopy" to resources.getQuantityString(R.plurals.yir_biggest_reading_day_supporting, page.minutesSpent, page.minutesSpent)
             )
         )
