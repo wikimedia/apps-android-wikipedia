@@ -20,21 +20,21 @@ object YearInReviewPlaygroundPreview {
         PageTitle(
             text = "Moon",
             wiki = WikiSite.preview(),
-            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/120px-FullMoon2010.jpg",
+            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/330px-FullMoon2010.jpg",
             description = "Natural satellite orbiting Earth",
             displayText = "Moon"
         ),
         PageTitle(
             text = "Leonardo da Vinci",
             wiki = WikiSite.preview(),
-            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/120px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png",
+            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/330px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png",
             description = "Italian polymath (1452–1519)",
             displayText = "Leonardo da Vinci"
         ),
         PageTitle(
             text = "Python (programming language)",
             wiki = WikiSite.preview(),
-            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/120px-Python-logo-notext.svg.png",
+            thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/330px-Python-logo-notext.svg.png",
             description = "General-purpose programming language",
             displayText = "Python (programming language)"
         )
