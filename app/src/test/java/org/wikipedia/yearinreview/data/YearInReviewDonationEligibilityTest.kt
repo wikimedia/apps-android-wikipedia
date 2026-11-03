@@ -4,6 +4,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -70,7 +71,7 @@ class YearInReviewDonationEligibilityTest {
 
     @Test
     fun `logged out user is not a donor even with a web donor value`() = runBlocking {
-        val sampleData = donorPref(3)
+        val sampleData = donorPref(1)
         val eligibility = YearInReviewDonationEligibility(
             donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = sampleData) },
             isLoggedIn = { false }
@@ -109,5 +110,16 @@ class YearInReviewDonationEligibilityTest {
         ) { emptyList() }
 
         assertFalse(eligibility.isDonor(remoteConfig = null))
+    }
+
+    @Test
+    fun `web values map to YiR donor status`() = runBlocking {
+        mapOf(0 to false, 1 to true, 2 to true, 3 to false, 4 to true, 5 to false).forEach { (value, expected) ->
+            val eligibility = YearInReviewDonationEligibility(
+                donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = donorPref(value)) },
+                isLoggedIn = { true }
+            ) { emptyList() }
+            assertEquals("value $value", expected, eligibility.isDonor(remoteConfig = null))
+        }
     }
 }
