@@ -41,7 +41,7 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.Visits -> RiveSlideContent(
-            spec = allTemplatesSlideSpec("frame2", instanceType = RiveInstanceType.Blank),
+            spec = allTemplatesSlideSpec("frame2"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
                 "data" to page.days.toString(),
@@ -369,16 +369,16 @@ private fun allTemplatesGlobalProperties(dataNumberFontSize: Float = 64f) = Rive
         // TODO: determine proper values for all of these:
         // "glyphKerningEM" to 1f,
         // "textkerningEM" to 1f,
-        "dataTextFontSize" to 20f,
-        "dataTextLineHeight" to 22f,
-        "coverGlyphsFontSize" to 40f,
-        "coverGlyphsLineHeight" to 42f,
-        "dataNumberFontSize" to dataNumberFontSize,
-        "dataNumbersLineHeight" to dataNumberFontSize + 2f,
-        "headlineFontSize" to 24f,
-        "headlineLineHeight" to 25.44f,
-        "bodyCopyFontSize" to 18f,
-        "bodyCopyLineHeight" to 20f
+        // "dataTextFontSize" to 20f,
+        // "dataTextLineHeight" to 22f,
+        // "coverGlyphsFontSize" to 40f,
+        // "coverGlyphsLineHeight" to 42f,
+        // "dataNumberFontSize" to dataNumberFontSize,
+        // "dataNumbersLineHeight" to dataNumberFontSize + 2f,
+        // "headlineFontSize" to 24f,
+        // "headlineLineHeight" to 25.44f,
+        // "bodyCopyFontSize" to 18f,
+        // "bodyCopyLineHeight" to 20f
     )
 )
 
