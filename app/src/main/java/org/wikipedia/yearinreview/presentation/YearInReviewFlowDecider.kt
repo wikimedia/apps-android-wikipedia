@@ -105,7 +105,7 @@ object YearInReviewFlowDecider {
             },
             CandidatePage(status = readingStats.biggestReadingDayStatus) {
                 YearInReviewPage.BiggestReadingDay(
-                    date = if (readingStats.streakStatus == YearInReviewInsightStatus.PERSONALIZED) DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.biggestReadingDayMonth, readingStats.biggestReadingDayOfMonth)) else "",
+                    date = if (readingStats.biggestReadingDayStatus == YearInReviewInsightStatus.PERSONALIZED) DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.biggestReadingDayMonth, readingStats.biggestReadingDayOfMonth)) else "",
                     minutesSpent = readingStats.biggestReadingDayTimeSpentSec.seconds.inWholeMinutes.toInt(),
                 )
             },
@@ -187,7 +187,7 @@ object YearInReviewFlowDecider {
     }
 
     private fun youMatterPage(candidates: List<CandidatePage>, snapshot: YearInReviewSnapshot): YearInReviewPage? {
-        val hasThankYou = candidates.any { it.page() is YearInReviewPage.ThankYou }
+        val hasThankYou = candidates.any { it.status == YearInReviewInsightStatus.PERSONALIZED && it.page() is YearInReviewPage.ThankYou }
          return if (snapshot.isDonationEligible && !hasThankYou) YearInReviewPage.YouMatter(showLoginPrompt = !snapshot.isLoggedIn) else null }
 
     private fun getTopReadPercentile(snapshot: YearInReviewSnapshot): String {
