@@ -53,13 +53,13 @@
   <string name="nav_item_search">Procurar</string>
   <string name="nav_item_contribute">Contribuir</string>
   <string name="error_network_error">Não é possível ligar à Internet.</string>
-  <string name="page_error_retry">Repetir</string>
-  <string name="card_offline_error_retry">Repetir</string>
-  <string name="storage_access_error_retry">Repetir</string>
-  <string name="article_load_error_retry">Repetir</string>
-  <string name="offline_load_error_retry">Repetir</string>
-  <string name="page_error_back_to_main">Voltar</string>
-  <string name="error_back">Voltar</string>
+  <string name="page_error_retry">Tentar novamente</string>
+  <string name="card_offline_error_retry">Tentar novamente</string>
+  <string name="storage_access_error_retry">Tentar novamente</string>
+  <string name="article_load_error_retry">Tentar novamente</string>
+  <string name="offline_load_error_retry">Tentar novamente</string>
+  <string name="page_error_back_to_main">Voltar atrás</string>
+  <string name="error_back">Voltar atrás</string>
   <string name="error_next">Seguinte</string>
   <string name="menu_clear_all_history">Limpar histórico de leitura</string>
   <string name="history_item_deleted">%s removido do histórico</string>
@@ -74,11 +74,11 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
-  <string name="dialog_message_clear_history">Isto irá eliminar todo o seu histórico de navegação. Tem a certeza?</string>
+  <string name="dialog_message_clear_history">Irá eliminar todo o seu histórico de navegação. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
   <string name="dialog_message_clear_history_no">Não</string>
   <string name="share_via">Partilhar via</string>
-  <string name="image_share_via">Partilhar através de</string>
+  <string name="image_share_via">Partilhar via</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
   <string name="page_edit_history_activity_title">Histórico de revisões: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
@@ -102,14 +102,14 @@
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar idioma</string>
   <string name="menu_page_find_in_page">Encontrar no artigo</string>
-  <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
+  <string name="menu_page_add_to_watchlist">Adicionar às Páginas vigiadas</string>
   <string name="menu_page_watch">Vigiar</string>
   <string name="menu_page_unwatch">Deixar de vigiar</string>
   <string name="menu_page_view_talk">Ver página de discussão</string>
   <string name="menu_page_talk_page">Página de discussão</string>
   <string name="menu_page_view_edit_history">Ver histórico de edições</string>
   <string name="menu_page_edit_history">Histórico de edições</string>
-  <string name="menu_page_remove_from_watchlist">Remover das páginas vigiadas</string>
+  <string name="menu_page_remove_from_watchlist">Remover das Páginas vigiadas</string>
   <string name="menu_page_watched">Vigiada</string>
   <string name="edit_section_find_in_page">Encontrar na página</string>
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
@@ -123,7 +123,7 @@
   <string name="menu_page_open_a_new_tab">Abrir um novo separador</string>
   <string name="menu_page_new_tab">Novo separador</string>
   <string name="menu_page_reading_lists">Listas de leitura</string>
-  <string name="menu_page_recently_viewed">Visualizados recentemente</string>
+  <string name="menu_page_recently_viewed">Visitados recentemente</string>
   <string name="menu_page_archive">Arquivo</string>
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_places">Abrir em Lugares</string>
@@ -134,12 +134,12 @@
   <string name="reading_list_page_share">Partilhar</string>
   <string name="menu_text_select_edit_here">Editar aqui</string>
   <string name="menu_edit_article">Editar artigo</string>
-  <string name="last_updated_text">Última atualização: %s</string>
+  <string name="last_updated_text">Última atualização há %s</string>
   <string name="talk_page_link_text">Ver página de discussão</string>
   <string name="edit_history_link_text">Ver histórico de edições</string>
   <string name="map_view_link_text">Ver num mapa</string>
   <string name="other_languages_indication_text">Ler noutro idioma</string>
-  <string name="language_count_link_text">Disponível em outros %d idiomas</string>
+  <string name="language_count_link_text">Disponível noutros %d idiomas</string>
   <string name="edit_save_action_license_logged_in">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de Utilização&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao publicar, está a concordar com os &lt;a href=\"%1$s\"&gt;Termos de Utilização&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. As edições serão atribuídas ao endereço de IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar a sessão&lt;/a&gt; terá mais privacidade.</string>
   <string name="edit_anon_warning">As suas edições serão atribuídas ao endereço de IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
@@ -166,6 +166,8 @@
   <string name="search_no_results_found">Não foram encontrados resultados</string>
   <string name="search_reading_list_no_results">Não foram encontrados resultados em \"%s\"</string>
   <string name="search_reading_lists_no_results">Não foram encontrados resultados nas listas de leitura</string>
+  <string name="search_all_articles_no_results">Nenhum resultado encontrado em todos os artigo</string>
+  <string name="search_collections_no_results">Nenhum resultado encontrado nas listas de leitura</string>
   <string name="search_history_no_results">Não foram encontrados resultados no histórico</string>
   <string name="edit_section_captcha_message">Para ajudar a proteger contra sistemas automatizados de inserção de \'\'spam\'\', introduza as palavras que aparecem abaixo, por favor</string>
   <string name="edit_section_captcha_request_an_account_message">Não consegue ver a imagem? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Peça uma conta&lt;/a&gt;</string>
@@ -233,9 +235,10 @@
   <string name="email_recommendation_dialog_create_without_email_action">Continuar sem correio eletrónico</string>
   <string name="email_recommendation_dialog_create_with_email_action">Adicionar um endereço de correio eletrónico</string>
   <string name="create_account_button">Criar conta</string>
+  <string name="create_account_encourage_title">A Wikipédia é melhor com uma conta</string>
   <string name="create_account_name_unavailable">O nome de utilizador \"%s\" não está disponível. Escolha um nome diferente, por favor.</string>
   <string name="create_account_ip_block_message">Desculpe, o seu endereço IP está presentemente impedido de criar contas.</string>
-  <string name="create_account_ip_block_help_url">https://pt.wikipedia.org/wiki/Ajuda:Fui_bloqueado</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalhes</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="preferences_account_heading">Conta</string>
@@ -570,7 +573,7 @@
     <item quantity="one">%d artigo removido da lista</item>
     <item quantity="other">%d artigos removidos da lista</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d artigo removido de %2$s</item>
     <item quantity="other">%1$d artigos removidos de %2$s</item>
   </plurals>
@@ -587,7 +590,7 @@
   <string name="reading_lists_item_deleted">%s removido das listas</string>
   <string name="reading_list_item_delete_undo">Anular</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="saved_list_empty_title" fuzzy="true">Ainda não existem páginas guardadas</string>
+  <string name="saved_list_empty_title">Ainda não existem artigos guardados</string>
   <string name="reading_lists_empty_message">Acrescente artigos a uma lista para lê-los mais tarde, mesmo quando estiver sem acesso à Internet.</string>
   <string name="reading_list_empty">Não tem nenhum artigo adicionado a esta lista.</string>
   <string name="reading_list_article_offline">Disponível off-line</string>
@@ -862,11 +865,11 @@
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
   <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_item_type_places">Artigos nas proximidades com base na localização atual</string>
-  <string name="feed_empty_message" fuzzy="true">Não há nada no seu feed Explorar</string>
+  <string name="feed_empty_message">Não há nada no seu feed de Início</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Cancelar</string>
-  <string name="feed_configure_onboarding_text" fuzzy="true">&lt;strong&gt;Personalize o seu feed Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escolher o que deseja mostrar no seu feed, e também priorizar os seus tipos de conteúdos favoritos.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize o seu feed de Início&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escolher o que deseja mostrar no seu feed, e também priorizar os seus tipos de conteúdo favoritos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_accessibility_card_text">Atingiu o fim do feed.</string>
@@ -1023,7 +1026,7 @@
   <string name="suggested_edits_image_tags_add_tag">Adicionar etiqueta</string>
   <string name="suggested_edits_image_tags_exit_dialog_message">As etiquetas não publicadas não serão gravadas</string>
   <string name="suggested_edits_image_zoom_tooltip">Junte/separe dois dedos para ampliar/afastar esta imagem.</string>
-  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
+  <string name="suggested_edits_encouragement_message">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, encontra abaixo algumas formas rápidas e divertidas de ajudar a melhorar a Wikipédia. Verá a diferença que está a fazer logo que começar. Divirta-se a editar!</string>
   <string name="suggested_edits_image_captions_task_detail">Descreva uma imagem para ajudar os leitores a entenderem o seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resuma um artigo para ajudar os leitores a compreenderem imediatamente o assunto.</string>
@@ -1237,9 +1240,9 @@
   <string name="onboarding_get_started">Começar</string>
   <string name="onboarding_maybe_later">Talvez mais tarde</string>
   <string name="onboarding_explore_title">Novas formas de explorar</string>
-  <string name="onboarding_explore_text" fuzzy="true">Mergulhe no poço sem fundo da Wikipédia com um feed Explorar em constante atualização. &lt;br/&gt; &lt;b&gt;Personalize&lt;/b&gt; o feed com as suas preferências – quer seja acontecimentos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou assuntos ao calhas com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Mergulhe no poço sem fundo da Wikipédia com um feed de Início em constante atualização. &lt;br/&gt; &lt;b&gt;Personalize&lt;/b&gt; o feed com as suas preferências – quer seja acontecimentos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou assuntos ao calhas com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de leitura com sincronização</string>
-  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Pode criar listas de leitura dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet. &lt;br/&gt;Entre na sua conta da Wikipédia para sincronizar as suas listas de leitura. &lt;a href=\"#login\"&gt;Junte-se à Wikipédia&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">Pode criar listas de leitura dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet. &lt;br/&gt;Entre na sua conta da Wikipédia para sincronizar as suas listas de leitura. &lt;a href=\"#login\"&gt;Junte-se à Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dados e Privacidade</string>
   <string name="onboarding_analytics_switch_title">Enviar dados de utilização</string>
   <string name="onboarding_got_it">Percebido</string>
@@ -1275,7 +1278,7 @@
     <item quantity="one">Remover idioma selecionado?</item>
     <item quantity="other">Remover idiomas selecionados?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content" fuzzy="true">Só verá conteúdo no feed de Explorar e nos filtros de pesquisa rápida para os restantes idiomas da Wikipédia.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Só verá conteúdo no feed de Início e nos filtros de pesquisa rápida para os restantes idiomas da Wikipédia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Não é possível remover todos os idiomas</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos um idioma da Wikipédia para pesquisar e ler o conteúdo.</string>
   <string name="more_language_options">mais</string>
@@ -1707,7 +1710,7 @@
   <string name="email_report_patroller_tasks_subject">Relatório de problema - Funcionalidade \"Patrulha de Edições\"</string>
   <string name="email_report_patroller_tasks_body">Encontrei um problema com a funcionalidade \"Patrulha de Edições\":\n- [Descrever o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descrever a solução proposta]\n\n[Capturas de ecrã ou hiperligações]</string>
   <string name="donation_campaign_maybe_later_snackbar">Iremos lembrá-lo novamente amanhã.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Obrigado, caro benfeitor! A sua generosidade ajuda a continuar o desenvolvimento da Wikipédia e dos \"sites\" associados.</string>
+  <string name="donation_campaign_donated_snackbar">Obrigado, caro benfeitor! A sua generosidade ajuda a continuar o desenvolvimento da Wikipédia e doutros projectos de conhecimento livre.</string>
   <string name="donation_campaign_go_back_button">Voltar</string>
   <string name="menu_single_webview_open_external">Abrir no \'\'browser\'\' do sistema</string>
   <string name="donate_gpay_dialog_title">Doar com Google Pay?</string>
@@ -1725,7 +1728,7 @@
   <string name="donate_gpay_help_other_ways">Outras formas de contribuir</string>
   <string name="donate_gpay_help_faq">Perguntas mais frequentes</string>
   <string name="donate_gpay_help_tax">Informação sobre dedução fiscal</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Histórico de doadores eliminados</string>
+  <string name="donation_history_deleted_message_snackbar">Histórico de doações eliminado.</string>
   <string name="places_title">Lugares</string>
   <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Por favor, tente novamente.</string>
   <string name="places_search_hint">Procurar por lugares</string>
@@ -1755,7 +1758,7 @@
   <string name="survey_dialog_general_maybe">Talvez</string>
   <string name="survey_dialog_input_hint">Comentários adicionais</string>
   <string name="survey_dialog_submitted_snackbar">Comentário enviado. Obrigado!</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Jogue o jogo de hoje</string>
+  <string name="on_this_day_game_entry_dialog_button">Jogar</string>
   <string name="on_this_day_game_title">Qual foi o primeiro?</string>
   <string name="on_this_day_game_dialog_button">Jogar</string>
   <string name="on_this_day_game_splash_message">Adivinhe qual o evento que ocorreu primeiro neste dia na história.</string>
@@ -1767,7 +1770,7 @@
   <string name="on_this_day_game_point">+1 ponto</string>
   <string name="on_this_day_game_next">Questão seguinte</string>
   <string name="on_this_day_game_finish">Resultados finais</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">Partilhar</string>
+  <string name="on_this_day_game_share_button">Partilhar pontuação</string>
   <string name="on_this_day_game_feed_entry_card_heading">Jogos da Wikipédia</string>
   <string name="on_this_day_game_feed_entry_card_title">Qual foi o primeiro?</string>
   <string name="on_this_day_game_result">Você pontuou %1$d/%2$d.</string>
@@ -1843,11 +1846,11 @@
     <item quantity="one">Editores efetuaram %,d alteração este ano</item>
     <item quantity="other">Editores efetuaram %,d alterações neste ano</item>
   </plurals>
-  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Manhã</string>
-  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">Meio dia</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">Tarde</string>
-  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">Noite</string>
-  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">Noite</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Manhã</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Meio dia</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Tarde</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Fim de tarde</string>
+  <string name="year_in_review_slide_reading_pattern_night">Noite</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos escolhidos apenas para si</string>
   <string name="recommended_reading_list_onboarding_card_new">Novo!</string>

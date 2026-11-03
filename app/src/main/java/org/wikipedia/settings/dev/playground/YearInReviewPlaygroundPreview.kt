@@ -5,6 +5,7 @@ import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.yearinreview.data.YearInReviewConfig
+import org.wikipedia.yearinreview.data.YearInReviewTimeOfDay
 import org.wikipedia.yearinreview.presentation.YearInReviewPage
 
 // Fixed decks that skip the flow decider, so every slide can be seen before its data is built.
@@ -45,7 +46,7 @@ object YearInReviewPlaygroundPreview {
         YearInReviewPage.Visits(days = 45, peakMonth = MonthVisitedDays(month = 9, visitedDays = 20)),
         YearInReviewPage.TimeSpent(duration = 1500),
         YearInReviewPage.ReadingStreak(isEmptyState = false, longestStreak = 21, streakStartDate = "March 4", streakEndDate = "24"),
-        YearInReviewPage.ReadingPattern(isEmptyState = false, favoriteTime = "AFTERNOON", favoriteTimePercentage = 68),
+        YearInReviewPage.ReadingPattern(isEmptyState = false, favoriteTime = YearInReviewTimeOfDay.AFTERNOON, favoriteTimePercentage = 68),
         YearInReviewPage.TopTopic(isEmptyState = false, topic = sampleTopTopic, totalArticles = 123, sampleArticles = sampleTopTopicArticles),
         YearInReviewPage.OtherTopTopics(
             topicArticleCounts = listOf(
@@ -122,7 +123,7 @@ object YearInReviewPlaygroundPreview {
     val emptyStates = listOf(
         YearInReviewPage.ArticlesRead(isEmptyState = true, count = 0, percentile = "", averageCount = averageArticlesReadPerYear),
         YearInReviewPage.ReadingStreak(isEmptyState = true, longestStreak = 0, streakStartDate = "", streakEndDate = ""),
-        YearInReviewPage.ReadingPattern(isEmptyState = true, favoriteTime = "", favoriteTimePercentage = 0),
+        YearInReviewPage.ReadingPattern(isEmptyState = true, favoriteTime = null, favoriteTimePercentage = 0),
         YearInReviewPage.TopTopic(isEmptyState = true, topic = ArticleTopics.all.first(), totalArticles = 0, sampleArticles = emptyList()),
         YearInReviewPage.RevisitedArticles(isEmptyState = true, articles = emptyList()),
         YearInReviewPage.Geography(isEmptyState = true, countryCode = null, countryName = null, articleCount = 0),

@@ -1777,8 +1777,8 @@
   <string name="watchlist_filter_watchlist_activity_seen">التغييرات المرئية</string>
   <string name="watchlist_filter_contribution_quality_header">توقعات جودة المساهمة</string>
   <string name="watchlist_filter_contribution_quality_good">جيد جدا على الأرجح</string>
-  <string name="watchlist_filter_contribution_quality_may_problems">قد تكون بها مشاكل</string>
-  <string name="watchlist_filter_contribution_quality_likely_problems">على الأرجح بها مشاكل</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">قد تكون بها مشكلات</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">على الأرجح بها مشكلات</string>
   <string name="watchlist_filter_contribution_quality_bad">من المحتمل جدا أن تكون بها مشاكل</string>
   <string name="watchlist_filter_user_intent_header">توقعات نية المستخدم</string>
   <string name="watchlist_filter_user_intent_good">من المحتمل جدا حسن النية</string>
@@ -1933,7 +1933,7 @@
   <string name="patroller_tasks_filters_contribution_quality_header">توقعات جودة المساهمة</string>
   <string name="patroller_tasks_filters_contribution_quality_good">جيد جدا على الأرجح</string>
   <string name="patroller_tasks_filters_contribution_quality_good_desc">دقة عالية في العثور على جميع التعديلات الخالية من المشاكل تقريبا.</string>
-  <string name="patroller_tasks_filters_contribution_quality_may_problems">قد تكون بها مشاكل</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">قد تكون بها مشكلات</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">العثور على معظم التعديلات الخاطئة أو الضارة ولكن بدقة أقل.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">على الأرجح بها مشاكل</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">بدقة متوسطة، يُعثر على جزء متوسط تعديلات المشكلات.</string>

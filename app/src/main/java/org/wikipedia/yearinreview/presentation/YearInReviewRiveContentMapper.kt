@@ -76,7 +76,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame5-empty" else "frame5"),
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_reading_time_empty_headline else R.string.yir_reading_time_headline),
-                "data" to page.favoriteTime,
+                "data" to if (page.favoriteTime != null) resources.getString(page.favoriteTime.resId).uppercase() else "",
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_reading_time_empty_supporting)
                 else resources.getQuantityString(R.plurals.yir_reading_time_supporting, page.favoriteTimePercentage, page.favoriteTimePercentage)
             )
@@ -369,16 +369,16 @@ private fun allTemplatesGlobalProperties(dataNumberFontSize: Float = 64f) = Rive
         // TODO: determine proper values for all of these:
         // "glyphKerningEM" to 1f,
         // "textkerningEM" to 1f,
-        "dataTextFontSize" to 20f,
-        "dataTextLineHeight" to 22f,
-        "coverGlyphsFontSize" to 40f,
-        "coverGlyphsLineHeight" to 42f,
-        "dataNumberFontSize" to dataNumberFontSize,
-        "dataNumbersLineHeight" to dataNumberFontSize + 2f,
-        "headlineFontSize" to 24f,
-        "headlineLineHeight" to 25.44f,
-        "bodyCopyFontSize" to 18f,
-        "bodyCopyLineHeight" to 20f
+        // "dataTextFontSize" to 20f,
+        // "dataTextLineHeight" to 22f,
+        // "coverGlyphsFontSize" to 40f,
+        // "coverGlyphsLineHeight" to 42f,
+        // "dataNumberFontSize" to dataNumberFontSize,
+        // "dataNumbersLineHeight" to dataNumberFontSize + 2f,
+        // "headlineFontSize" to 24f,
+        // "headlineLineHeight" to 25.44f,
+        // "bodyCopyFontSize" to 18f,
+        // "bodyCopyLineHeight" to 20f
     )
 )
 
