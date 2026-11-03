@@ -50,6 +50,7 @@ startupRuntime = "1.2.0"
 swiperefreshlayout = "1.2.0"
 uiautomator = "2.4.0"
 viewpager2 = "1.1.0"
+webkit = "1.14.0"
 workRuntimeKtx = "2.12.0"
 composeBom = "2026.09.00"
 composeActivity = "1.13.0"
@@ -61,6 +62,7 @@ datastorePreferences = "1.2.1"
 
 [libraries]
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+androidx-webkit = { module = "androidx.webkit:webkit", version.ref = "webkit" }
 androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
