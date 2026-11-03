@@ -7,6 +7,7 @@ import org.wikipedia.yearinreview.data.YearInReviewInsightStatus
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
 import java.time.LocalDate
 import kotlin.time.Duration.Companion.minutes
+import kotlin.time.Duration.Companion.seconds
 
 object YearInReviewFlowDecider {
     private const val MIN_PERSONALIZED_PAGES = 2
@@ -100,6 +101,17 @@ object YearInReviewFlowDecider {
             CandidatePage(status = readingStats.otherTopicsStatus) {
                 YearInReviewPage.OtherTopTopics(
                     topicArticleCounts = readingStats.topicArticleCountMap
+                )
+            },
+            CandidatePage(status = readingStats.biggestReadingDayStatus) {
+                YearInReviewPage.BiggestReadingDay(
+                    date = DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.biggestReadingDayMonth, readingStats.biggestReadingDayOfMonth)),
+                    minutesSpent = readingStats.biggestReadingDayTimeSpentSec.seconds.inWholeMinutes.toInt(),
+                )
+            },
+            CandidatePage(status = readingStats.biggestReadingDayArticlesStatus) {
+                YearInReviewPage.BiggestReadingDayArticles(
+                    articles = readingStats.biggestReadingDayArticles
                 )
             },
             CandidatePage(status = readingStats.longestReadArticleStatus) {
