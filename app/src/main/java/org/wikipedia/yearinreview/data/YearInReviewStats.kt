@@ -3,6 +3,7 @@ package org.wikipedia.yearinreview.data
 import kotlinx.serialization.Serializable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopic
+import kotlin.time.Duration.Companion.seconds
 
 @Serializable
 data class YearInReviewCachedStats(
@@ -109,6 +110,18 @@ data class YearInReviewReadingStats(
     }
 
     val otherTopicsStatus get() = if (topTopic != null && topicArticleCountMap.size >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val biggestReadingDayStatus get() = if (biggestReadingDayMonth > 0 && biggestReadingDayOfMonth > 0 && biggestReadingDayTimeSpentSec.seconds.inWholeMinutes >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val biggestReadingDayArticlesStatus get() = if (biggestReadingDayStatus == YearInReviewInsightStatus.PERSONALIZED && biggestReadingDayArticles.size >= 2) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.SUPPRESSED
