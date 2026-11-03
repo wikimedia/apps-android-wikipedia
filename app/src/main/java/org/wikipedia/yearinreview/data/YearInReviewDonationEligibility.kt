@@ -33,7 +33,7 @@ class YearInReviewDonationEligibility(
     suspend fun getDonorStatusFromWeb(): Boolean {
         return isLoggedIn() && try {
             val donationStatus = donationStatusFromWebProvider().query?.userInfo?.options?.wikimediaDonorStatus
-            donationStatus in DONOR_CODES
+            donationStatus in YIR_DONOR_CODES
         } catch (e: Exception) {
             L.e(e)
             false
@@ -46,6 +46,6 @@ class YearInReviewDonationEligibility(
 
     companion object {
         // Donor Code meaning: 1="Recent", 2="Sustaining", 3="Lapsed", 4="Returning", 5="Contactable"
-        private val DONOR_CODES = setOf(1, 2, 4)
+        private val YIR_DONOR_CODES = setOf(1, 2, 4)
     }
 }
