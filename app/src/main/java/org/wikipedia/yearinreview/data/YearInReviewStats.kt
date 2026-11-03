@@ -3,6 +3,7 @@ package org.wikipedia.yearinreview.data
 import kotlinx.serialization.Serializable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopic
+import kotlin.time.Duration.Companion.seconds
 
 @Serializable
 data class YearInReviewCachedStats(
@@ -96,13 +97,31 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
-    val topTopicsStatus get() = if (topTopic != null && topTopicTotalArticles >= 3) {
+    val readingPatternStatus get() = if (favoriteTimeOfDay != null && favoriteTimeOfDayPercentage > 0) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
+    val topTopicsStatus get() = if (topTopic != null && topTopicTotalArticles >= 3 && articlesReadCount >= 5) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
     val otherTopicsStatus get() = if (topTopic != null && topicArticleCountMap.size >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val biggestReadingDayStatus get() = if (biggestReadingDayMonth > 0 && biggestReadingDayOfMonth > 0 && biggestReadingDayTimeSpentSec.seconds.inWholeMinutes >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val biggestReadingDayArticlesStatus get() = if (biggestReadingDayStatus == YearInReviewInsightStatus.PERSONALIZED && biggestReadingDayArticles.size >= 2) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.SUPPRESSED

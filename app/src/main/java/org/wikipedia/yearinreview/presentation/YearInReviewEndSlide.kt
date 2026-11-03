@@ -58,7 +58,6 @@ import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 
 private const val STORE_DISCOUNT_PERCENT = 15
@@ -165,9 +164,8 @@ fun YearInReviewEndSlide(
             Spacer(modifier = Modifier.height(24.dp))
             if (canShareHighlights) {
                 Button(
-                    modifier = Modifier.padding(bottom = 24.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.progressiveColor,
+                        containerColor = ComposeColors.Blue300,
                         contentColor = ComposeColors.White
                     ),
                     onClick = onShareHighlightsClick
@@ -184,11 +182,12 @@ fun YearInReviewEndSlide(
                     )
                 }
             }
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.height(48.dp))
             YearInReviewEndCardPager(
                 cards = cards,
                 onCardActionClick = onCardActionClick
             )
+            Spacer(modifier = Modifier.weight(1f))
             Spacer(modifier = Modifier.height(24.dp))
         }
     }
@@ -316,7 +315,7 @@ private fun YearInReviewEndCardItem(
     }
 }
 
-@Preview(widthDp = 360, heightDp = 720)
+@Preview(widthDp = 640, heightDp = 920)
 @Composable
 private fun YearInReviewEndSlidePreview() {
     BaseTheme(currentTheme = Theme.DARK) {

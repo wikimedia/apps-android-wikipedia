@@ -124,11 +124,11 @@ data class RiveSlideFont(
 @SuppressLint("ResourceType")
 val YearInReviewRiveFonts = listOf(
     // If we want to use the system serif font:
-    // RiveSlideFont(RiveFontSource.SystemFamily("serif"), registrationKey = "SerifFont-6815481"),
-    RiveSlideFont(RiveFontSource.RawResource(R.font.ebgaramond_regular), registrationKey = "SerifFont-6815481"),
+    // RiveSlideFont(RiveFontSource.SystemFamily("serif"), registrationKey = "SerifFont-7260919"),
+    RiveSlideFont(RiveFontSource.RawResource(R.font.ebgaramond_regular), registrationKey = "SerifFont-7260919"),
     // Static instances of the variable Roboto Flex at weights 400 and 700, since Rive can't pick a weight from a variable font
-    RiveSlideFont(RiveFontSource.RawResource(R.font.robotoflex_regular), registrationKey = "SanSerifFont-Regular-6847910"),
-    RiveSlideFont(RiveFontSource.RawResource(R.font.robotoflex_bold), registrationKey = "SanSerifFont-6815482")
+    RiveSlideFont(RiveFontSource.RawResource(R.font.robotoflex_regular), registrationKey = "SanSerifFont-Regular-7260879"),
+    RiveSlideFont(RiveFontSource.RawResource(R.font.robotoflex_bold), registrationKey = "SanSerifFont-7226664")
 )
 
 private const val MAX_RIVE_TEXT_SCALE = 1.5f
