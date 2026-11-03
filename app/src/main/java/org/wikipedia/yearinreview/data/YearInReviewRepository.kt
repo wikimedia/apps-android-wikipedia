@@ -154,9 +154,9 @@ class YearInReviewRepositoryImpl(
         val topTopic = topTopicWithCount?.topic?.let {
             ArticleTopics.all.find { topic -> topic.taxonIds.contains(it) }
         }
-        val topTopicSampleArticles = topTopic?.let { topic ->
-            pageTopicDao.findEntriesByTopic(topic.taxonIds.firstOrNull().orEmpty(), dateRange.startMillis, dateRange.endMillis, limit = 3)
-                .map { StringUtil.fromHtml(it.displayTitle).toString() }
+        val topTopicSampleArticles = topTopicWithCount?.let {
+            pageTopicDao.findEntriesByTopic(it.topic, dateRange.startMillis, dateRange.endMillis, limit = 3)
+                .map { entry -> StringUtil.fromHtml(entry.displayTitle).toString() }
         }
         val otherTopTopics = topTopics.drop(1).filter { it.articleCount > 1 }
 

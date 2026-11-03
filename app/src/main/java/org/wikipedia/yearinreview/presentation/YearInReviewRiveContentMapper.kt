@@ -41,7 +41,7 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.Visits -> RiveSlideContent(
-            spec = allTemplatesSlideSpec("frame2", instanceType = RiveInstanceType.Blank),
+            spec = allTemplatesSlideSpec("frame2"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
                 "data" to page.days.toString(),
