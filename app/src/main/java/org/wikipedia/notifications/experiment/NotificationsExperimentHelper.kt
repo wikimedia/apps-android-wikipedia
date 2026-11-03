@@ -222,12 +222,16 @@ object NotificationsExperimentHelper {
         val rankByTitle = rankedTitles.withIndex().associate { it.value to it.index }
         ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = rankedTitles.joinToString("|"))
             .query?.pages.orEmpty()
+            .asSequence()
             .filter { it.pageId > 0 }
             // Check again after redirects are resolved, in case a redirect points to a denied article.
             .filterNot { StringUtil.addUnderscores(it.title) in MOST_READ_DENY_LIST }
             .distinctBy { it.pageId }
             // The API returns pages in its own order, with titles normalized and redirects resolved.
-            .sortedBy { rankByTitle[StringUtil.addUnderscores(it.redirectFrom ?: it.title)] ?: Int.MAX_VALUE }
+            // A page that was also requested through a redirect takes the better rank of the two.
+            .sortedBy { page ->
+                listOfNotNull(page.title, page.redirectFrom).minOf { rankByTitle[StringUtil.addUnderscores(it)] ?: Int.MAX_VALUE }
+            }
             .map {
                 PageSummary(
                     displayTitle = it.displayTitle(languageCode),
@@ -239,6 +243,7 @@ object NotificationsExperimentHelper {
                     pageId = it.pageId
                 )
             }
+            .toList()
     }
 
     private suspend fun getDailyTopArticles(wikiSite: WikiSite, age: Int): List<TopPageViews.Article> {

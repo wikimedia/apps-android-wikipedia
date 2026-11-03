@@ -109,6 +109,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ACTION_WEEKLY_MOST_READ == intent.action -> {
                 if (!NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
                     NotificationsExperimentHelper.cancelNotification(context)
+                    // Allow maybeScheduleWeeklyMostReadNotification() to schedule again once the user becomes eligible again.
+                    Prefs.notificationsExperimentWeeklyMostReadScheduled = false
                     return
                 }
                 // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
