@@ -85,7 +85,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame6-empty" else "frame6"),
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_top_topic_empty_headline else R.string.yir_top_topic_headline, YearInReviewConfig.YEAR),
-                "data" to if (page.isEmptyState) "" else resources.getString(page.topic.msgKey).uppercase(),
+                "data" to if (page.isEmptyState) "" else ArticleTopics.all.find { it.topicId == page.topic.topicId }?.let { resources.getString(it.msgKey).uppercase() } ?: "",
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
                 else resources.getQuantityString(R.plurals.yir_top_topic_supporting, page.totalArticles,
                     page.sampleArticles.first(), page.sampleArticles.last(), page.totalArticles, getTopicComment(resources, page.topic))
@@ -97,7 +97,7 @@ object YearInReviewRiveContentMapper {
             textProperties = mapOf(
                 "bodyText" to resources.getString(R.string.yir_runner_up_topics_headline, YearInReviewConfig.YEAR)
             ) + listRows(page.topicArticleCounts.map { (topicId, count) ->
-                resources.getString(ArticleTopics.all.find { it.topicId == topicId }?.msgKey ?: 0) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
+                (ArticleTopics.all.find { it.topicId == topicId }?.let { resources.getString(it.msgKey) } ?: "") to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
             }),
             numberProperties = listItemCount(page.topicArticleCounts.size),
             imageUrls = listIcons(page.topicArticleCounts.map { ArticleTopics.all.find { topic -> topic.topicId == it.key }?.thumbnailUrl ?: "" })
