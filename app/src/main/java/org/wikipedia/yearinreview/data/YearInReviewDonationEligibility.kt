@@ -34,7 +34,7 @@ class YearInReviewDonationEligibility(
     suspend fun getDonorStatusFromWeb(): Boolean {
         return isLoggedIn() && try {
             val donationCode = donationStatusFromWebProvider().query?.userInfo?.options?.wikimediaDonorCode
-            donationCode in YIR_DONOR_CODES
+            donationCode?.isRecentDonor == true
         } catch (e: Exception) {
             L.e(e)
             false
@@ -43,9 +43,5 @@ class YearInReviewDonationEligibility(
 
     suspend fun isDonor(remoteConfig: RemoteConfig.RemoteConfigYearInReview?): Boolean {
         return  hasDonatedWithinContributionsDateRange(remoteConfig) || getDonorStatusFromWeb()
-    }
-
-    companion object {
-        private val YIR_DONOR_CODES = setOf(DonorCode.RECENT, DonorCode.SUSTAINING, DonorCode.RETURNING)
     }
 }

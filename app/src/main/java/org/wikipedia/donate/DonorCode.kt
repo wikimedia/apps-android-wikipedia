@@ -23,7 +23,10 @@ enum class DonorCode(val value: Int) {
     CONTACTABLE(5),
     UNKNOWN(-1);
 
+    val isRecentDonor get() = this in RECENT_DONOR_CODES
+
     companion object {
+        private val RECENT_DONOR_CODES = setOf(RECENT, SUSTAINING, RETURNING)
         fun fromValue(value: Int): DonorCode = entries.firstOrNull { it.value == value } ?: UNKNOWN
     }
 
