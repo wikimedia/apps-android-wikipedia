@@ -25,6 +25,7 @@ data class RiveSlideSnapshotSource(
     val spec: RiveSlideSpec,
     val textProperties: Map<String, String>,
     val numberProperties: Map<String, Int>,
+    val booleanProperties: Map<String, Boolean>,
     val images: Map<String, ImageAsset?>,
     val textSizes: Map<String, Float>,
     val isRtl: Boolean,
@@ -52,6 +53,7 @@ suspend fun renderRiveSlideSnapshot(source: RiveSlideSnapshotSource, width: Int,
                 try {
                     source.textProperties.forEach { (property, value) -> instance.setString(property, value) }
                     source.numberProperties.forEach { (property, value) -> instance.setNumber(property, value.toFloat()) }
+                    source.booleanProperties.forEach { (property, value) -> instance.setBoolean(property, value) }
                     source.images.forEach { (property, image) -> instance.setImage(property, image) }
                     spec.layoutDirectionEnum?.let {
                         instance.setEnum(it, if (source.isRtl) "Right to Left" else "Left to Right")
