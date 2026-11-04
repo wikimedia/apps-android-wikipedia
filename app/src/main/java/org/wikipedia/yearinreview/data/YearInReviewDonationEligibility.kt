@@ -5,6 +5,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.donate.DonationResult
+import org.wikipedia.donate.DonorCode
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.log.L
@@ -33,7 +34,7 @@ class YearInReviewDonationEligibility(
     suspend fun getDonorStatusFromWeb(): Boolean {
         return isLoggedIn() && try {
             val donationStatus = donationStatusFromWebProvider().query?.userInfo?.options?.wikimediaDonorStatus
-            donationStatus in YIR_DONOR_CODES
+            DonorCode.fromValue(donationStatus) in YIR_DONOR_CODES
         } catch (e: Exception) {
             L.e(e)
             false
@@ -45,7 +46,6 @@ class YearInReviewDonationEligibility(
     }
 
     companion object {
-        // Donor Code meaning: 1="Recent", 2="Sustaining", 3="Lapsed", 4="Returning", 5="Contactable"
-        private val YIR_DONOR_CODES = setOf(1, 2, 4)
+        private val YIR_DONOR_CODES = setOf(DonorCode.RECENT, DonorCode.SUSTAINING, DonorCode.RETURNING)
     }
 }
