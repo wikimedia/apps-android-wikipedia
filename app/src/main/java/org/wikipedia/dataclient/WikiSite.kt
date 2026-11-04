@@ -88,9 +88,9 @@ data class WikiSite(
 
     constructor(url: String) : this(
         when {
-            url.startsWith("http") -> Uri.parse(url)
-            url.startsWith("//") -> Uri.parse("$DEFAULT_SCHEME:$url")
-            else -> Uri.parse("$DEFAULT_SCHEME://$url")
+            url.startsWith("http") -> url.toUri()
+            url.startsWith("//") -> "$DEFAULT_SCHEME:$url".toUri()
+            else -> "$DEFAULT_SCHEME://$url".toUri()
         }
     )
 
@@ -138,7 +138,7 @@ data class WikiSite(
         private var DEFAULT_BASE_URL: String? = null
 
         fun supportedAuthority(authority: String): Boolean {
-            return authority.endsWith(DEFAULT_BASE_URL!!.toUri().authority!!)
+            return Service.matchesAuthority(authority, DEFAULT_BASE_URL!!.toUri().authority!!)
         }
 
         fun setDefaultBaseUrl(url: String) {
