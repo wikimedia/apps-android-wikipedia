@@ -84,7 +84,7 @@ object CampaignCollection {
 
     private fun replaceParams(message: String, campaignId: String): String {
         val localDateTime = LocalDateTime.now()
-        val localeByAppLanguage = LanguageUtil.languageCodeToLocale(WikipediaApp.instance.appOrSystemLanguageCode)
+        val localeByAppLanguage = LanguageUtil.wikiLanguageCodeToLocale(WikipediaApp.instance.appOrSystemLanguageCode)
 
         return message
             .replace("\$platform;", CAMPAIGN_PLATFORM)
