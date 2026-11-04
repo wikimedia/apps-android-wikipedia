@@ -1,5 +1,13 @@
 package org.wikipedia.donate
 
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
+
+@Serializable(with = DonorCode.Serializer::class)
 enum class DonorCode(val value: Int) {
     NONE(0),
     RECENT(1),
@@ -10,10 +18,12 @@ enum class DonorCode(val value: Int) {
     UNKNOWN(-1);
 
     companion object {
-        fun fromValue(value: Int?): DonorCode =
-            when (value) {
-                null, 0 -> NONE
-                else -> entries.firstOrNull { it.value == value } ?: UNKNOWN
-            }
+        fun fromValue(value: Int): DonorCode = entries.firstOrNull { it.value == value } ?: UNKNOWN
+    }
+
+    object Serializer : KSerializer<DonorCode> {
+        override val descriptor = PrimitiveSerialDescriptor("DonorCode", PrimitiveKind.INT)
+        override fun serialize(encoder: Encoder, value: DonorCode) = encoder.encodeInt(value.value)
+        override fun deserialize(decoder: Decoder): DonorCode = fromValue(decoder.decodeInt())
     }
 }

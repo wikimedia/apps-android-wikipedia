@@ -6,6 +6,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
+import org.wikipedia.donate.DonorCode
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.util.DateUtil
 import java.util.Date
@@ -63,15 +64,15 @@ class UserInfo : BlockInfo() {
         val optedInToFundraising get() = isExplicitOne(fundraisingOptIn)
         val wikimediaDonorPref: WikimediaDonorPref?
             get() = JsonUtil.decodeFromString<WikimediaDonorPref>(wikimediaDonor?.jsonPrimitive?.contentOrNull)
-        val wikimediaDonorStatus: Int?
+        val wikimediaDonorCode: DonorCode?
             get() = wikimediaDonorPref?.value
 
         private fun isExplicitOne(element: JsonElement?) = element?.toString().orEmpty().replace("\"", "") == "1"
 
         @Serializable
         class WikimediaDonorPref(
-            val value: Int = 0,
-            val timestamp: Long = 0,
+            val value: DonorCode? = null,
+            val timestamp: Long? = null,
             val source: String? = null
         )
     }
