@@ -20,6 +20,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.TopPageViews
 import org.wikipedia.feed.model.TopReadCard
@@ -225,17 +226,17 @@ object NotificationsExperimentHelper {
             .asSequence()
             .filter { it.pageId > 0 }
             // Check again after redirects are resolved, in case a redirect points to a denied article.
-            .filterNot { StringUtil.addUnderscores(it.title) in MOST_READ_DENY_LIST }
+            .filterNot { it.articleTitle in MOST_READ_DENY_LIST }
             .distinctBy { it.pageId }
             // The API returns pages in its own order, with titles normalized and redirects resolved.
             // A page that was also requested through a redirect takes the better rank of the two.
             .sortedBy { page ->
-                listOfNotNull(page.title, page.redirectFrom).minOf { rankByTitle[StringUtil.addUnderscores(it)] ?: Int.MAX_VALUE }
+                listOfNotNull(page.articleTitle, page.redirectFrom).minOf { rankByTitle[StringUtil.addUnderscores(it)] ?: Int.MAX_VALUE }
             }
             .map {
                 PageSummary(
                     displayTitle = it.displayTitle(languageCode),
-                    prefixTitle = it.title,
+                    prefixTitle = it.articleTitle,
                     description = it.description,
                     extract = null,
                     thumbnail = it.thumbUrl(),
@@ -245,6 +246,9 @@ object NotificationsExperimentHelper {
             }
             .toList()
     }
+
+    // A redirect to a section appends "#section" to the page title, which isn't part of the article's title.
+    private val MwQueryPage.articleTitle get() = StringUtil.addUnderscores(StringUtil.removeSectionAnchor(title))
 
     private suspend fun getDailyTopArticles(wikiSite: WikiSite, age: Int): List<TopPageViews.Article> {
         val date = DateUtil.getUtcRequestDateFor(age)
