@@ -148,16 +148,19 @@ class YearInReviewRepositoryImpl(
 
         // The sample articles query depends on the top topic, so the topic queries run in sequence here,
         // while the queries above keep running in parallel.
-        val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis).take(4)
-        val topTopicWithCount = topTopics.firstOrNull { it.articleCount >= 3 }
-        val topTopic = topTopicWithCount?.topic?.let {
-            ArticleTopics.all.find { topic -> topic.taxonIds.contains(it) }
-        }
-        val topTopicSampleArticles = topTopicWithCount?.let {
-            pageTopicDao.findEntriesByTopic(it.topic, dateRange.startMillis, dateRange.endMillis, limit = 3)
+        // Counts come per taxon id, and several taxon ids can share one topicId
+        // so only the highest-counted taxon id of each topic is kept.
+        val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis)
+            .mapNotNull { stats -> ArticleTopics.all.find { it.taxonIds.contains(stats.topic) }?.let { it to stats } }
+            .distinctBy { (topic, _) -> topic.topicId }
+            .take(4)
+        val topTopicWithCount = topTopics.firstOrNull { (_, stats) -> stats.articleCount >= 3 }
+        val topTopic = topTopicWithCount?.first
+        val topTopicSampleArticles = topTopicWithCount?.let { (_, stats) ->
+            pageTopicDao.findEntriesByTopic(stats.topic, dateRange.startMillis, dateRange.endMillis, limit = 3)
                 .map { entry -> StringUtil.fromHtml(entry.displayTitle).toString() }
         }
-        val otherTopTopics = topTopics.drop(1).filter { it.articleCount > 1 }
+        val otherTopTopics = topTopics.drop(1).filter { (_, stats) -> stats.articleCount > 1 }
 
         val topCategories = topCategoriesDeferred.await().filter { it.count > 1 }
         val topCategoriesWithSpaces = topCategories.filter { it.title.split(" ").size > 2 }
@@ -240,14 +243,9 @@ class YearInReviewRepositoryImpl(
             rabbitHoleFakeEnd = rabbitHole?.fakeEnd,
             rabbitHoleArticleCount = rabbitHole?.articleCount ?: 0,
             topTopic = topTopic,
-            topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
+            topTopicTotalArticles = topTopicWithCount?.second?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,
-            topicArticleCountMap = otherTopTopics.associate { entry ->
-                val topic = ArticleTopics.all.find { topic -> topic.taxonIds.contains(entry.topic) }
-                topic to entry.articleCount
-            }.mapNotNull {
-                if (it.key != null) it.key!! to it.value else null
-            }.associate { it.first.topicId to it.second }
+            topicArticleCountMap = otherTopTopics.associate { (topic, stats) -> topic.topicId to stats.articleCount }
         )
     }
 
