@@ -12,8 +12,11 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
 import java.time.LocalDateTime
+import java.time.format.TextStyle
+import java.util.Locale
 
 object CampaignCollection {
 
@@ -79,6 +82,11 @@ object CampaignCollection {
     }
 
     private fun replaceParams(message: String, campaignId: String): String {
+        val localDateTime = LocalDateTime.now()
+        val localeByAppLanguage = Locale
+            .forLanguageTag(WikipediaApp.instance.appOrSystemLanguageCode)
+            .takeIf { it.language.isNotEmpty() } ?: Locale.getDefault()
+
         return message
             .replace("\$platform;", CAMPAIGN_PLATFORM)
             .replace("\$formattedId;", getFormattedCampaignId(campaignId))
@@ -86,6 +94,9 @@ object CampaignCollection {
             .replace("\$language;", WikipediaApp.instance.appOrSystemLanguageCode)
             .replace("\$appVersion;", BuildConfig.VERSION_NAME)
             .replace("\$appInstallId;", WikipediaApp.instance.appInstallID)
+            .replace("%weekday%", localDateTime.dayOfWeek.getDisplayName(TextStyle.FULL, localeByAppLanguage))
+            .replace("%date%", DateUtil.getWeekdayMonthDayDateString(localDateTime.toLocalDate(), localeByAppLanguage))
+            .replace("%HH:MM%", DateUtil.getTimeString(WikipediaApp.instance, localDateTime, localeByAppLanguage))
     }
 
     @Serializable
