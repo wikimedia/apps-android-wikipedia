@@ -11,6 +11,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
@@ -83,9 +84,7 @@ object CampaignCollection {
 
     private fun replaceParams(message: String, campaignId: String): String {
         val localDateTime = LocalDateTime.now()
-        val localeByAppLanguage = Locale
-            .forLanguageTag(WikipediaApp.instance.appOrSystemLanguageCode)
-            .takeIf { it.language.isNotEmpty() } ?: Locale.getDefault()
+        val localeByAppLanguage = LanguageUtil.languageCodeToLocale(WikipediaApp.instance.appOrSystemLanguageCode)
 
         return message
             .replace("\$platform;", CAMPAIGN_PLATFORM)

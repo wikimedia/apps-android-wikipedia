@@ -113,4 +113,10 @@ object LanguageUtil {
             WikipediaApp.instance.languageState.getLanguageVariants(langCode) ?: listOf(langCode)
         }
     }
+
+    fun languageCodeToLocale(languageCode: String): Locale {
+        return Locale
+            .forLanguageTag(languageCode)
+            .takeIf { it.language.isNotEmpty() } ?: Locale.getDefault()
+    }
 }
