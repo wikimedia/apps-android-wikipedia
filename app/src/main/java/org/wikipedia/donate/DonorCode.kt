@@ -7,6 +7,12 @@ import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
+/**
+ * Donor relationship codes stored in the "wikimedia-donor" user option.
+ * Values 1–5 mirror WikimediaCustomizations DonorIdentification relationships.json,
+ * and NONE (0) matches web's "not consented" default.
+ * Note: UNKNOWN (-1) is app-only: any value we don't recognize maps here instead of failing to decode.
+ */
 @Serializable(with = DonorCode.Serializer::class)
 enum class DonorCode(val value: Int) {
     NONE(0),

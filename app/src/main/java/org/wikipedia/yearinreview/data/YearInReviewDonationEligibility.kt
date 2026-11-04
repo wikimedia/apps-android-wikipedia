@@ -42,7 +42,7 @@ class YearInReviewDonationEligibility(
     }
 
     suspend fun isDonor(remoteConfig: RemoteConfig.RemoteConfigYearInReview?): Boolean {
-        return getDonorStatusFromWeb() || hasDonatedWithinContributionsDateRange(remoteConfig)
+        return  hasDonatedWithinContributionsDateRange(remoteConfig) || getDonorStatusFromWeb()
     }
 
     companion object {
