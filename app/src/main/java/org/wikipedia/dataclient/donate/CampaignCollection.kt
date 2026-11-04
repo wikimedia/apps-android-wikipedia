@@ -17,7 +17,6 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
 import java.time.LocalDateTime
 import java.time.format.TextStyle
-import java.util.Locale
 
 object CampaignCollection {
 
