@@ -5,7 +5,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.donate.DonationResult
-import org.wikipedia.donate.DonorCode
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.log.L
@@ -42,6 +41,6 @@ class YearInReviewDonationEligibility(
     }
 
     suspend fun isDonor(remoteConfig: RemoteConfig.RemoteConfigYearInReview?): Boolean {
-        return  hasDonatedWithinContributionsDateRange(remoteConfig) || getDonorStatusFromWeb()
+        return hasDonatedWithinContributionsDateRange(remoteConfig) || getDonorStatusFromWeb()
     }
 }
