@@ -21,6 +21,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.TopPageViews
 import org.wikipedia.feed.model.TopReadCard
@@ -34,6 +35,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.ThrowableUtil
 import java.time.DayOfWeek
 import java.time.LocalTime
 import java.time.ZonedDateTime
@@ -221,17 +223,21 @@ object NotificationsExperimentHelper {
         }
 
         val rankByTitle = rankedTitles.withIndex().associate { it.value to it.index }
-        ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = rankedTitles.joinToString("|"))
-            .query?.pages.orEmpty()
+        val queryResult = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = rankedTitles.joinToString("|")).query
+        // Several requested titles can redirect to the same article, e.g. when it was renamed more than once during the week.
+        val redirectSourcesByTarget = queryResult?.redirects.orEmpty()
+            .groupBy({ StringUtil.addUnderscores(it.to.orEmpty()) }, { StringUtil.addUnderscores(it.from.orEmpty()) })
+        queryResult?.pages.orEmpty()
             .asSequence()
-            .filter { it.pageId > 0 }
-            // Check again after redirects are resolved, in case a redirect points to a denied article.
-            .filterNot { it.articleTitle in MOST_READ_DENY_LIST }
+            // Check again after redirects are resolved, since a redirect or a namespace alias (e.g. "WP:")
+            // can lead to a non-article, the main page, or a denied article.
+            .filter { it.pageId > 0 && it.ns == Namespace.MAIN.code() }
+            .filterNot { it.articleTitle == mainPageTitle || it.articleTitle in MOST_READ_DENY_LIST }
             .distinctBy { it.pageId }
             // The API returns pages in its own order, with titles normalized and redirects resolved.
-            // A page that was also requested through a redirect takes the better rank of the two.
+            // A page takes the best rank among its own title and every requested title that redirects to it.
             .sortedBy { page ->
-                listOfNotNull(page.articleTitle, page.redirectFrom).minOf { rankByTitle[StringUtil.addUnderscores(it)] ?: Int.MAX_VALUE }
+                (redirectSourcesByTarget[page.articleTitle].orEmpty() + page.articleTitle).minOf { rankByTitle[it] ?: Int.MAX_VALUE }
             }
             .map {
                 PageSummary(
@@ -252,11 +258,15 @@ object NotificationsExperimentHelper {
 
     private suspend fun getDailyTopArticles(wikiSite: WikiSite, age: Int): List<TopPageViews.Article> {
         val date = DateUtil.getUtcRequestDateFor(age)
-        return runCatching {
+        return try {
             ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
                 .getTopPageViews(wikiSite.authority(), date.year, date.month, date.day)
                 .items.flatMap { it.articles }
-        }.getOrDefault(emptyList())
+        } catch (e: HttpStatusException) {
+            // A day whose page views aren't published yet returns 404, so it's skipped.
+            // Any other failure is rethrown, so that WeeklyMostReadNotificationWorker can retry.
+            if (ThrowableUtil.is404(e)) emptyList() else throw e
+        }
     }
 
     fun maybeScheduleWeeklyMostReadNotification(context: Context) {
