@@ -101,11 +101,13 @@ fun Modifier.placeholderBackground() = background(
 @Composable
 fun YearInReviewScreen(
     uiState: YearInReviewUiState,
+    isSoundOn: Boolean,
     modifier: Modifier = Modifier,
     onCloseClick: (YearInReviewPage?) -> Unit = {},
     onLearnMoreClick: () -> Unit = {},
     onAboutInsightsClick: () -> Unit = {},
     onShareFeedbackClick: () -> Unit = {},
+    onSoundToggleClick: () -> Unit = {},
     onShareClick: (YearInReviewPage, Bitmap) -> Unit = { _, _ -> },
     onDonateClick: (YearInReviewPage) -> Unit = { _ -> },
     onEndCardClick: (YearInReviewEndCard) -> Unit = {},
@@ -136,10 +138,12 @@ fun YearInReviewScreen(
                 readingStats = uiState.readingStats,
                 showDonateButton = uiState.isDonationEligible,
                 canShareHighlights = uiState.isPersonalized && uiState.canShareHighlights,
+                isSoundOn = isSoundOn,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
                 onAboutInsightsClick = onAboutInsightsClick,
                 onShareFeedbackClick = onShareFeedbackClick,
+                onSoundToggleClick = onSoundToggleClick,
                 onShareClick = onShareClick,
                 onDonateClick = onDonateClick,
                 onEndCardClick = onEndCardClick,
@@ -177,11 +181,13 @@ private fun YearInReviewContent(
     readingStats: YearInReviewReadingStats,
     showDonateButton: Boolean,
     canShareHighlights: Boolean,
+    isSoundOn: Boolean,
     modifier: Modifier = Modifier,
     onCloseClick: (YearInReviewPage) -> Unit,
     onLearnMoreClick: () -> Unit,
     onAboutInsightsClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
+    onSoundToggleClick: () -> Unit,
     onShareClick: (YearInReviewPage, Bitmap) -> Unit,
     onDonateClick: (YearInReviewPage) -> Unit,
     onEndCardClick: (YearInReviewEndCard) -> Unit,
@@ -384,7 +390,9 @@ private fun YearInReviewContent(
                 },
                 onLearnMoreClick = onLearnMoreClick,
                 onShareFeedbackClick = onShareFeedbackClick,
-                onAboutInsightsClick = onAboutInsightsClick
+                onAboutInsightsClick = onAboutInsightsClick,
+                isSoundOn = isSoundOn,
+                onSoundToggleClick = onSoundToggleClick
             )
 
             YearInReviewProgressTracker(
@@ -448,6 +456,8 @@ fun YearInReviewTopBar(
     onAboutInsightsClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
     showWikipediaLogo: Boolean = true,
+    isSoundOn: Boolean? = null,
+    onSoundToggleClick: () -> Unit = {},
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets
 ) {
     var overflowMenuExpanded by remember { mutableStateOf(false) }
@@ -540,6 +550,28 @@ fun YearInReviewTopBar(
                             onAboutInsightsClick()
                         }
                     )
+                    if (isSoundOn != null) {
+                        DropdownMenuItem(
+                            leadingIcon = {
+                                Icon(
+                                    painter = painterResource(if (isSoundOn) R.drawable.volume_off_24dp else R.drawable.volume_up_24dp),
+                                    tint = WikipediaTheme.colors.secondaryColor,
+                                    contentDescription = null
+                                )
+                            },
+                            text = {
+                                Text(
+                                    text = stringResource(if (isSoundOn) R.string.year_in_review_sound_off else R.string.year_in_review_sound_on),
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    color = WikipediaTheme.colors.primaryColor
+                                )
+                            },
+                            onClick = {
+                                overflowMenuExpanded = false
+                                onSoundToggleClick()
+                            }
+                        )
+                    }
                     DropdownMenuItem(
                         leadingIcon = {
                             Icon(

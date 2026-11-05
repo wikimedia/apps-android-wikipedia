@@ -6,6 +6,8 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.settings.dev.playground.YearInReviewPlayground
@@ -36,6 +38,8 @@ class YearInReviewViewModel(
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<YearInReviewUiState>(YearInReviewUiState.Loading)
     val uiState = _uiState.asStateFlow()
+    private val audioPlayer = YearInReviewAudioPlayer(WikipediaApp.instance)
+    val isSoundOn = MutableStateFlow(Prefs.isYearInReviewSoundOn)
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
@@ -59,6 +63,26 @@ class YearInReviewViewModel(
                 readingStats = yearInReview.readingStats
             )
         }
+    }
+
+    fun playAudio() {
+        if (isSoundOn.value) {
+            audioPlayer.play(R.raw.dreamy, loop = true)
+        }
+    }
+
+    fun pauseAudio() {
+        audioPlayer.pause()
+    }
+
+    fun toggleSound() {
+        isSoundOn.value = !isSoundOn.value
+        Prefs.isYearInReviewSoundOn = isSoundOn.value
+        if (isSoundOn.value) playAudio() else pauseAudio()
+    }
+
+    override fun onCleared() {
+        audioPlayer.release()
     }
 
     companion object {

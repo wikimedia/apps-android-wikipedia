@@ -832,6 +832,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_visited, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_visited, value)
 
+    var isYearInReviewSoundOn
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_sound_on, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_sound_on, value)
+
     var yearInReviewSurveyState: YearInReviewSurveyState
         get() = PrefsIoUtil.getString(R.string.preference_key_yir_survey_state, null)?.let {
             YearInReviewSurveyState.valueOf(it)
