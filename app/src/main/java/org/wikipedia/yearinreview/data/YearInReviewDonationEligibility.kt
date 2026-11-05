@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview.data
 
+import kotlinx.coroutines.CancellationException
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -34,6 +35,8 @@ class YearInReviewDonationEligibility(
         return isLoggedIn() && try {
             val donationCode = donationStatusFromWebProvider().query?.userInfo?.options?.wikimediaDonorCode
             donationCode?.isRecentDonor == true
+        } catch (cancellationException: CancellationException) {
+            throw cancellationException
         } catch (e: Exception) {
             L.e(e)
             false
