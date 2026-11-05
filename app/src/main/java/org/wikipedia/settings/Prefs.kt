@@ -1004,6 +1004,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, value)
 
+    var isYearInReviewSwipeTutorialShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_swipe_tutorial_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_swipe_tutorial_shown, value)
+
     var searchWidgetInstallPromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_search_widget_install_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_search_widget_install_prompt_shown, value)
