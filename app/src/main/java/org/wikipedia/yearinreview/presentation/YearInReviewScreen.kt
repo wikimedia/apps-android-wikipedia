@@ -1,6 +1,7 @@
 package org.wikipedia.yearinreview.presentation
 
 import android.graphics.Bitmap
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.Orientation
@@ -67,21 +68,27 @@ import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import app.rive.Result
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import kotlin.math.roundToInt
+import kotlin.time.Duration.Companion.milliseconds
 
 private val YearInReviewCardCornerRadius = 28.dp
 internal val TopAppBarHeight = 64.dp
+private const val SWIPE_TUTORIAL_DELAY_MILLIS = 2000L
 
 fun Modifier.placeholderBackground() = background(
     brush = Brush.linearGradient(
@@ -206,6 +213,43 @@ private fun YearInReviewContent(
             pages.getOrNull(position)?.let { currentOnPageImpression(it) }
         }
     }
+
+    var showSwipeTutorial by remember { mutableStateOf(false) }
+    LaunchedEffect(pagerState) {
+        if (!Prefs.isYearInReviewSwipeTutorialShown) {
+            val swipedBeforeTutorial = withTimeoutOrNull(SWIPE_TUTORIAL_DELAY_MILLIS.milliseconds) {
+                snapshotFlow { pagerState.isScrollInProgress }.first { it }
+            } != null
+            if (swipedBeforeTutorial) {
+                Prefs.isYearInReviewSwipeTutorialShown = true
+            } else {
+                showSwipeTutorial = true
+            }
+        }
+    }
+    if (showSwipeTutorial) {
+        val dismissSwipeTutorial = {
+            showSwipeTutorial = false
+            Prefs.isYearInReviewSwipeTutorialShown = true
+        }
+        BaseTheme(currentTheme = Theme.BLACK) {
+            WikipediaAlertDialog(
+                title = stringResource(R.string.year_in_review_swipe_tutorial_title),
+                titleModifier = Modifier.fillMaxWidth(),
+                message = stringResource(R.string.year_in_review_swipe_tutorial_message),
+                image = {
+                    Image(
+                        painter = painterResource(R.drawable.illustration_swipeup),
+                        contentDescription = null
+                    )
+                },
+                confirmButtonText = stringResource(R.string.onboarding_got_it),
+                onDismissRequest = dismissSwipeTutorial,
+                onConfirmButtonClick = dismissSwipeTutorial
+            )
+        }
+    }
+
     // Slides are restarted once they're off screen, so that scrolling back to one plays it from the beginning
     val restartKeysByPageId = remember { mutableStateMapOf<String, Int>() }
     LaunchedEffect(pagerState, pages) {
