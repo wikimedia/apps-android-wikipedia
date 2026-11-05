@@ -387,6 +387,7 @@ private fun YearInReviewRiveArtboard(
                 spec = spec,
                 textProperties = shown.content.textProperties,
                 numberProperties = shown.content.numberProperties,
+                booleanProperties = shown.content.booleanProperties,
                 images = shown.images,
                 textSizes = shown.textSizes,
                 isRtl = layoutDirection == LayoutDirection.Rtl,
