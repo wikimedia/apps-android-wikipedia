@@ -27,6 +27,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
+import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -334,6 +335,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                 showNotificationsExperimentTimePickerDialog(activity) { millis ->
                     pref.summary = getTimestampSummary(millis)
                     Prefs.notificationsExperimentWeeklyMostReadDevTriggerTime = millis
+                    // Clearing the dev time (0) falls back to the regular weekly send time.
+                    NotificationsExperimentHelper.scheduleNotification(activity, fromFiredAlarm = false)
                 }
                 true
             }

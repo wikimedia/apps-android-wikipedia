@@ -31,7 +31,9 @@ class NotificationsExperimentAbTest : ABTest("trending-notifications-test-2", GR
     private val supportedLanguages = RemoteConfig.config.androidv1?.notificationsExperimentLanguagesv2.orEmpty()
 
     fun isNotificationsExperimentEligible(): Boolean {
-        return isTestActive() && isLanguageSupported(WikipediaApp.instance.languageState.appLanguageCode)
+        // Users who already entered the experiment stay in it even if they later switch to an unsupported language.
+        val isLanguageEligible = Prefs.notificationsExperimentWeeklyMostReadScheduled || isLanguageSupported(WikipediaApp.instance.languageState.appLanguageCode)
+        return isTestActive() && isLanguageEligible
     }
 
     fun isNotificationsExperimentEnabled(): Boolean {
