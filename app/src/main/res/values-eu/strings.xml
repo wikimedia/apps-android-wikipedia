@@ -1398,7 +1398,7 @@
   <string name="talk_list_item_overflow_mark_as_read">Markatu irakurritzat</string>
   <string name="talk_list_item_overflow_mark_as_unread">Markatu irakurri gabekotzat</string>
   <string name="talk_list_item_overflow_share">Partekatu</string>
-  <string name="talk_list_item_last_comment_date" fuzzy="true">Azken iruzkina: $1</string>
+  <string name="talk_list_item_last_comment_date" fuzzy="true">Azken iruzkina: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Erantzunak guztira</string>
   <string name="talk_list_item_swipe_mark_as_read">Irakurri</string>
   <string name="talk_list_item_swipe_mark_as_unread">Irakurri gabe</string>

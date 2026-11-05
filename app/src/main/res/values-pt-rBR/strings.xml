@@ -1960,7 +1960,7 @@
   <string name="yir_intro_headline">O seu Resumo do Ano da Wikipédia já está disponível</string>
   <plurals name="yir_intro_supporting">
     <item quantity="one">Muito obrigado por ter passado %1$d dia no seu confiável aplicativo da Wikipédia em %2$d.</item>
-    <item quantity="other">Muito obrigado por ter passado %2$d dias no seu confiável aplicativo da Wikipédia em %2$d.</item>
+    <item quantity="other">Muito obrigado por ter passado %1$d dias no seu confiável aplicativo da Wikipédia em %2$d.</item>
   </plurals>
   <string name="yir_article_count_headline">Seu número total de artigos:</string>
   <plurals name="yir_article_count_supporting_top">
