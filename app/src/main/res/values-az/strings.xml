@@ -29,7 +29,7 @@
   <string name="search_back_button_content_description">Geriyə qayıt</string>
   <string name="search_clear_query_content_description">Sorğunu sil</string>
   <string name="search_icon_content_description">Axtarış</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Kolleksiyalarımı süzgəcdən keçir</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Siyahılarımı süzgəcdən keçir</string>
   <string name="nav_item_suggested_edits">Redaktələr</string>
   <string name="nav_item_activity">Fəaliyyət</string>
   <string name="nav_item_more">Daha</string>
@@ -96,16 +96,16 @@
   <string name="menu_page_watched">İzlənən</string>
   <string name="edit_section_find_in_page">Səhifədə axtar</string>
   <string name="menu_page_font_and_theme">Şrift və tərtibatı dəyiş</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Kolleksiyaya əlavə et</string>
+  <string name="menu_page_add_to_list">Oxuma siyahısına əlavə et</string>
   <string name="menu_page_add_to_default_list">Saxla</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Kolleksiyaya əlavə et</string>
+  <string name="feed_card_add_to_list">Oxuma siyahısına əlavə et</string>
   <string name="feed_card_add_to_default_list">Qeyd et</string>
   <string name="menu_page_share">İstinadı paylaş</string>
   <string name="menu_article_share">Məqaləni paylaş</string>
   <string name="menu_page_article_share">Paylaş</string>
   <string name="menu_page_open_a_new_tab">Səhifəni yeni pəncərədə aç</string>
   <string name="menu_page_new_tab">Yeni nişan</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Kolleksiyalar</string>
+  <string name="menu_page_reading_lists">Oxuma siyahıları</string>
   <string name="menu_page_recently_viewed">Son vaxtlarda baxıldı</string>
   <string name="menu_page_archive">Arxiv</string>
   <string name="menu_long_press_open_page">Aç</string>
@@ -148,9 +148,9 @@
   <string name="menu_show_toc">Mündəricat</string>
   <string name="search_no_results_found">Nəticələr tapılmadı</string>
   <string name="search_reading_list_no_results">\"%s\"-də heç bir nəticə tapılmadı</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Kolleksiyada heç bir nəticə tapılmadı</string>
+  <string name="search_reading_lists_no_results">Oxuma siyahılarında heç bir nəticə tapılmadı</string>
   <string name="search_all_articles_no_results">Bütün məqalələrdə heç bir nəticə tapılmadı</string>
-  <string name="search_collections_no_results" fuzzy="true">Kolleksiyalarda heç bir nəticə tapılmadı</string>
+  <string name="search_collections_no_results">Oxuma siyahılarında heç bir nəticə tapılmadı</string>
   <string name="search_history_no_results">Tarixçədə heç bir nəticə tapılmadı</string>
   <string name="edit_section_captcha_message">Avtomatik spamdan qorumağa kömək etmək üçün, aşağıda göstərilən sözləri daxil edin</string>
   <string name="edit_section_captcha_request_an_account_message">Şəkili görə bilmirsiniz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Hesab üçün müraciət edin&lt;/a&gt;</string>
@@ -251,8 +251,8 @@
   <string name="preferences_heading_syncing">Sinxronizasiya olunur</string>
   <string name="preferences_heading_data_usage">Data istifadəsi</string>
   <string name="preferences_heading_experimental">Eksperimental</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Kolleksiya sinxronizasiyası</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Kolleksiya məqalələrini yüklə</string>
+  <string name="preference_title_sync_reading_lists_from_account">Oxuma siyahısı sinxronizasiyası</string>
+  <string name="preference_title_download_reading_list_articles">Oxuma siyahısı məqalələrini yüklə</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Müxtəlif cihazlar arasında Vikipediya hesabını saxlayaraq kolleksiyaları sinxronizasiya et</string>
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">\"%s\" Vikipediya hesabınıza əlavə etməklə müxtəlif cihazlar arasında kolleksiyaları sinxronlaşdırın</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Sinxronlaşdırılmış kolleksiyalar \"%s\" hesabından silinsin?</string>
