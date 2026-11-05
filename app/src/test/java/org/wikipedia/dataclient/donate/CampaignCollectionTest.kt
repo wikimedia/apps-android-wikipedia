@@ -2,19 +2,55 @@ package org.wikipedia.dataclient.donate
 
 import io.mockk.every
 import io.mockk.mockkObject
+import io.mockk.mockkStatic
+import io.mockk.unmockkAll
+import org.hamcrest.CoreMatchers.equalTo
+import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.ErrorCollector
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.shadows.ShadowSettings
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.GeoUtil
+import java.time.LocalDateTime
 
 @RunWith(RobolectricTestRunner::class)
 class CampaignCollectionTest {
 
-    // @get: Rule
-    // val errorCollector = ErrorCollector()
+    @get:Rule
+    val errorCollector = ErrorCollector()
+
+    @Before
+    fun setUp() {
+        mockkStatic(LocalDateTime::class)
+        every { LocalDateTime.now() } returns LocalDateTime.of(2025, 3, 19, 12, 19)
+    }
+
+    @After
+    fun tearDown() {
+        unmockkAll()
+    }
+
+    private fun createCampaignAssets(text: String): Campaign.Assets {
+        return Campaign.Assets(
+            id = "123",
+            weight = 1f,
+            text = text,
+            footer = "",
+            actions = arrayOf(
+                Campaign.Action(
+                    title = "",
+                    url = ""
+                )
+            )
+        )
+    }
 
     @Test
     fun testReplaceAssetsNoParams() {
@@ -70,44 +106,54 @@ class CampaignCollectionTest {
         assertEquals(replacedAssets.actions[0].url, "http://example.com?wmf_source=enUS_US_2025_Android&country=US&lang=en&appVersion=${BuildConfig.VERSION_NAME}&appInstallId=${WikipediaApp.instance.appInstallID}")
     }
 
-    /*@Test
-    fun testReplaceParamsForDateTimeVariables() {
-        ShadowSettings.set24HourTimeFormat(true)
-        mockkStatic(LocalDateTime::class)
-        every { LocalDateTime.now() } returns LocalDateTime.of(2025, 3, 19, 12, 19)
-
-        val template = "%weekday% | %date% | %HH:MM%"
-        val expected = mapOf(
-            "en" to "Wednesday | Wednesday, March 19 | 12:19",
-            "fr" to "mercredi | mercredi 19 mars | 12:19",
-            "de" to "Mittwoch | Mittwoch, 19. März | 12:19",
-            "nl" to "woensdag | woensdag 19 maart | 12:19",
-            "ja" to "水曜日 | 3月19日水曜日 | 12:19",
-            "zh-hans" to "星期三 | 3月19日星期三 | 12:19",
-            "ar" to "الأربعاء | الأربعاء، 19 مارس | 12:19",
+    @Test
+    fun testReplaceWeekdayParam() {
+        val cases = mapOf(
+            "en" to Pair("This %weekday%, we ask you", "This Wednesday, we ask you"),
+            "fr" to Pair("Ce %weekday%, nous vous demandons", "Ce mercredi, nous vous demandons"),
+            "de" to Pair("Diesen %weekday% bitten wir Sie", "Diesen Mittwoch bitten wir Sie"),
+            "nl" to Pair("Deze %weekday% vragen we u", "Deze woensdag vragen we u"),
+            "ja" to Pair("この%weekday%、皆様にお願いします", "この水曜日、皆様にお願いします"),
+            "zh-hans" to Pair("这个%weekday%，我们请求您", "这个星期三，我们请求您"),
+            "ar" to Pair("هذا %weekday%، نطلب منكم", "هذا الأربعاء، نطلب منكم"),
         )
 
-        val campaignAsset: (String) -> Campaign.Assets = { textString ->
-            Campaign.Assets(
-                id = "123",
-                weight = 1f,
-                text = textString,
-                footer = "",
-                actions = arrayOf(
-                    Campaign.Action(
-                        title = "",
-                        url = ""
-                    )
-                )
-            )
-        }
-        expected.forEach {
-            WikipediaApp.instance.languageState.setAppLanguageCodes(listOf(it.key))
-            val replacedAssets = CampaignCollection.replaceAssetsParams(campaignAsset(template), "US_2025")
+        cases.forEach { (wikiLanguageCode, case) ->
+            val (testString, expected) = case
+            WikipediaApp.instance.languageState.setAppLanguageCodes(listOf(wikiLanguageCode))
+            val replacedAssets = CampaignCollection.replaceAssetsParams(createCampaignAssets(testString), "US_2025")
             errorCollector.checkThat(
+                "lang=$wikiLanguageCode",
                 replacedAssets.text,
-                equalTo(it.value)
+                equalTo(expected)
             )
         }
-    }*/
+    }
+
+    @Test
+    fun testReplaceDateParam() {
+        val assets = createCampaignAssets("It's %date%, and our fundraiser will soon be over.")
+
+        val replacedAssets = CampaignCollection.replaceAssetsParams(assets, "US_2025")
+        assertEquals("It's Wednesday, March 19, and our fundraiser will soon be over.", replacedAssets.text)
+    }
+
+    @Test
+    fun testReplaceTimeParam24Hour() {
+        ShadowSettings.set24HourTimeFormat(true)
+        val assets = createCampaignAssets("It's %HH:MM%: Please don't scroll away.")
+
+        val replacedAssets = CampaignCollection.replaceAssetsParams(assets, "US_2025")
+        assertEquals("It's 12:19: Please don't scroll away.", replacedAssets.text)
+    }
+
+    @Test
+    fun testReplaceTimeParam12Hour() {
+        ShadowSettings.set24HourTimeFormat(false)
+        val assets = createCampaignAssets("It's %HH:MM%: Please don't scroll away.")
+
+        val text = CampaignCollection.replaceAssetsParams(assets, "US_2025").text.orEmpty()
+        assertTrue("Missing time in: $text", text.contains("12:19"))
+        assertTrue("Missing PM marker in: $text", text.contains("PM"))
+    }
 }
