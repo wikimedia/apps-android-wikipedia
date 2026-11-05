@@ -2206,7 +2206,7 @@
   <string name="yir_community_global_reach_headline">Globálny dosah Wikipédie: jedna z desiatich najnavštevovanejších webových stránok na svete</string>
   <string name="yir_community_global_reach_supporting">Wikipédia je chrbticou poznania na internete. Učia sa z nej všetci, od študentov po chatboty.</string>
   <string name="yir_community_contribute_headline">Na vás záleží.</string>
-  <string name="yir_community_contribute_supporting">Wikipédia existuje vďaka skutočným ľuďom, ako ste vy, ktorí prispievajú, ako môžu, aby udržala svoju prosperitu. Ak je pre vás Wikipédia cenná, zvážte jej podporu darovaním alebo úpravami. \n\nUž ste prispievateľom? Prihláste sa alebo si vytvorte účet a pozrite si svoje úspechy.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Wikipédia existuje vďaka skutočným ľuďom, ako ste vy, ktorí prispievajú, ako môžu, aby udržala svoju prosperitu. Ak je pre vás Wikipédia cenná, zvážte jej podporu darovaním alebo úpravami. \n\nUž ste prispievateľom? Prihláste sa alebo si vytvorte účet a pozrite si svoje úspechy.</string>
   <string name="yir_closing_headline">Do ďalšieho ponoru do hlbín</string>
   <string name="yir_closing_supporting">Či ste prišli kvôli jednému článku alebo stovke, ďakujeme, že s nami na Wikipédii objavujete, čítate a zostávate zvedaví.</string>
   <string name="yir_closing_share_action">Zdieľať zaujímavosti</string>

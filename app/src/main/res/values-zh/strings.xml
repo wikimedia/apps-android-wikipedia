@@ -794,7 +794,7 @@
   <string name="notifications_view_archived_button_text">查看已存档通知</string>
   <string name="notification_preferences_title">通知设置</string>
   <string name="notifications_mark_unread">标记为未读</string>
-  <string name="notifications_mark_all_as_read">标记所有为已读</string>
+  <string name="notifications_mark_all_as_read">全部标记为已读</string>
   <string name="notifications_direct_reply_action">回复</string>
   <string name="notifications_direct_reply_progress">正在向%s发送回复…</string>
   <string name="notifications_direct_reply_success">回复已发布。</string>
