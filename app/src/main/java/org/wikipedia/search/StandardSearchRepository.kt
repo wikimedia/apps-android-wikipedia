@@ -104,5 +104,6 @@ data class StandardSearchResults(
     var results: List<SearchResult>,
     val continuation: Int?,
     val xSearchIdPrefix: String? = null,
-    val xSearchIdFullText: String? = null
+    val xSearchIdFullText: String? = null,
+    val xSearchIdSemantic: String? = null
 )
