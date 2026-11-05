@@ -39,7 +39,7 @@
   <string name="search_back_button_content_description">Visszalépés</string>
   <string name="search_clear_query_content_description">Lekérdezés ürítése</string>
   <string name="search_icon_content_description">Keresés</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Gyűjteményeim szűrése</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Listáim szűrése</string>
   <string name="nav_item_suggested_edits">Szerkesztések</string>
   <string name="nav_item_activity">Tevékenység</string>
   <string name="nav_item_more">Több</string>
@@ -2050,7 +2050,7 @@
   <string name="yir_community_global_reach_headline">A Wikipédia globális elérése: a világ tíz leglátogatottabb weboldalának egyike</string>
   <string name="yir_community_global_reach_supporting">A Wikipédia az internet tudásának egyik alappillére. A diákoktól a csevegőrobotokig mindenki tanul belőle.</string>
   <string name="yir_community_contribute_headline">Számítasz.</string>
-  <string name="yir_community_contribute_supporting">A Wikipédia olyan valódi embereknek köszönheti a létezését, mint te, akik lehetőségeikhez mérten hozzájárulnak ahhoz, hogy továbbra is fejlődjön. Ha fontos számodra a Wikipédia, kérjük, fontold meg, hogy adománnyal vagy szerkesztéssel támogatod. \n\nMár közreműködő vagy? Jelentkezz be, vagy hozz létre egy fiókot az eredményeid megtekintéséhez.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">A Wikipédia olyan valódi embereknek köszönheti a létezését, mint te, akik lehetőségeikhez mérten hozzájárulnak ahhoz, hogy továbbra is fejlődjön. Ha fontos számodra a Wikipédia, kérjük, fontold meg, hogy adománnyal vagy szerkesztéssel támogatod. \n\nMár közreműködő vagy? Jelentkezz be, vagy hozz létre egy fiókot az eredményeid megtekintéséhez.</string>
   <string name="yir_closing_headline">A következő témáig, amibe beleásod magad</string>
   <string name="yir_closing_supporting">Akár egyetlen szócikkért jöttél, akár százért, köszönjük, hogy velünk együtt felfedeztél, olvastál és kíváncsi maradtál a Wikipédián.</string>
   <string name="yir_closing_share_action">Összefoglaló megosztása</string>

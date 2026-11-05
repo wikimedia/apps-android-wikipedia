@@ -2088,7 +2088,7 @@
   <string name="yir_community_global_reach_headline">Die globale Reichweite von Wikipedia: eine der zehn meistbesuchten Websites der Welt</string>
   <string name="yir_community_global_reach_supporting">Wikipedia ist das Rückgrat des Wissens im Internet. Von Schülern bis zu Chatbots – alle lernen von ihr.</string>
   <string name="yir_community_contribute_headline">Du zählst.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia gibt es dank echter Menschen wie dir, die beitragen, was sie können, damit Wikipedia weiter gedeiht. Wenn dir Wikipedia etwas bedeutet, unterstütze sie doch mit einer Spende oder einer Bearbeitung.\n\nDu trägst bereits bei? Melde dich an oder erstelle ein Konto, um deine Erfolge zu sehen.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Wikipedia gibt es dank echter Menschen wie dir, die beitragen, was sie können, damit Wikipedia weiter gedeiht. Wenn dir Wikipedia etwas bedeutet, unterstütze sie doch mit einer Spende oder einer Bearbeitung.\n\nDu trägst bereits bei? Melde dich an oder erstelle ein Konto, um deine Erfolge zu sehen.</string>
   <string name="yir_closing_headline">Bis zum nächsten Abtauchen</string>
   <string name="yir_closing_supporting">Ob du für einen Artikel gekommen bist oder für hundert: Danke, dass du mit uns auf Wikipedia entdeckst, liest und neugierig bleibst.</string>
   <string name="yir_closing_share_action">Highlights teilen</string>

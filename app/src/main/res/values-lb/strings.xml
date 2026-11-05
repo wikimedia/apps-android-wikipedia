@@ -482,7 +482,7 @@
   <string name="temp_account_end_session">Sessioun ofschléissen</string>
   <string name="temp_account_end_session_confirm">Doduerch gitt Dir aus Ärem temporäre Kont ausgeloggt. Wëllt Dir virufueren?</string>
   <string name="crash_report_activity_title">Feeler vum Programm</string>
-  <string name="crash_report_relaunch_or_quit">Et deet eis Leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
+  <string name="crash_report_relaunch_or_quit">Et deet eis leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
   <string name="crash_report_quit">Erausgoen</string>
   <string name="article_menu_bar_save_button">Späicheren</string>
@@ -1036,7 +1036,7 @@
   <string name="suggested_edits_add_descriptions_task_detail">Resuméiert en Artikel fir dem Lieser ze hëllefen de Sujet op ee Bléck ze verstoen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Den Total vun Äre Kontributioune bis elo.</string>
   <string name="suggested_edits_ip_blocked_message">Et schéngt, wéi wann Är IP-Adress (oder Ären IP-Adressberäich) aktuell gespaart ass, fir op Wikipedia Ännerungen ze maachen.</string>
-  <string name="suggested_edits_gate_message">Et deet ons Leed, %s, mee Dir musst op d\'mannst dräi Ännerungen direkt an engem Artikel maache fir dës Funktioun benotzen ze kënnen.</string>
+  <string name="suggested_edits_gate_message">Et deet ons leed, %s, mee Dir musst op d\'mannst dräi Ännerungen direkt an engem Artikel maache fir dës Funktioun benotzen ze kënnen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tippen an Tricker beim Änneren</string>
   <string name="suggested_edits_help_page_link_text">Hëllefssäit fir d\'Ännerungsvirschléi</string>
   <string name="suggested_edits_edit_streak_label_text">Ännerungsserie</string>
@@ -1147,7 +1147,7 @@
   <string name="image_recommendation_tooltip_3">Entscheet, ob d\'Bild dem Lieser dobäi hëlleft d\'Theema besser ze verstoen</string>
   <string name="image_recommendation_tooltip_next">Nächst</string>
   <string name="image_recommendation_tooltip_warning">Liest Iech wgl. den Artikel duerch, fir d\'Theema ze verstoen, a kuckt Iech d\'Bild un</string>
-  <string name="image_recommendation_depleted">Et deet eis Leed, leider gëtt et am Moment keng weider Billervirschléi. Dir kënnt aner &lt;a href=\"#\"&gt;Ännerungsvirschléi&lt;/a&gt; entdecken oder méi spéit zeréckkommen.</string>
+  <string name="image_recommendation_depleted">Et deet eis leed, leider gëtt et am Moment keng weider Billervirschléi. Dir kënnt aner &lt;a href=\"#\"&gt;Ännerungsvirschléi&lt;/a&gt; entdecken oder méi spéit zeréckkommen.</string>
   <string name="suggested_edits_report_feature">Problem mat der Funktioun</string>
   <string name="suggested_edits_report_feature_subject">Problem mat den Ännerungsvirschléi</string>
   <string name="edit_summary_added_image">Bild derbäigesat</string>
@@ -1974,7 +1974,7 @@
   <string name="yir_community_global_reach_headline">Déi global Reechwäit vun der Wikipedia: Ënnert den Top 10 vun de meeschtbesichte Websäite vun der Welt</string>
   <string name="yir_community_global_reach_supporting">Wikipedia ass d\'Réckgrat vum Wëssen am Internet. Vun Schüler bis Chatbot: Jidderee léiert vun der Wikipedia.</string>
   <string name="yir_community_contribute_headline">Dir sidd wichteg.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia existéiert dank richtege Mënsche wéi Iech, déi bäidroen, wat se kënnen, fir se um lafen ze halen. Wa Wikipedia Iech wichteg ass, consideréiert wgl. se z\'ënnerstëtzen, andeems Dir en Don maacht oder Ännerunge bäidrot.\n\nDir sidd schonn e Contributeur? Loggt Iech an oder maacht e Benotzerkont op, fir Är Errongenschaften ze gesinn.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia existéiert dank richtege Mënsche wéi Iech, déi bäidroen, wat se kënnen, fir se um lafen ze halen. Wa Wikipedia Iech wichteg ass, consideréiert wgl. se z\'ënnerstëtzen, andeems Dir en Don maacht oder Ännerunge bäidrot.\n\nDir sidd schonn e Contributeur? Loggt Iech an oder maacht e Benotzerkont op, fir Äert Contributeur-Symbol ze gesinn.</string>
   <string name="yir_closing_headline">Bis zum nächsten Antauchen</string>
   <string name="yir_closing_supporting">Ob Dir elo fir een oder fir honnert Artikele laanscht komm sidd: Merci, datt Dir mat eis op der Wikipedia entdeckt, liest a virwëtzeg bleift.</string>
   <string name="yir_closing_share_action">Highlights deelen</string>

@@ -2076,7 +2076,7 @@
   <string name="yir_community_global_reach_headline">Het wereldwijde bereik van Wikipedia: een van de tien meest bezochte websites ter wereld</string>
   <string name="yir_community_global_reach_supporting">Wikipedia is de ruggengraat van de kennis op het internet. Van studenten tot chatbots, iedereen leert ervan.</string>
   <string name="yir_community_contribute_headline">U doet ertoe.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia bestaat dankzij echte mensen zoals u, die bijdragen wat ze kunnen om het te laten floreren. Als Wikipedia waardevol voor u is, overweeg dan die te steunen door te doneren of te bewerken.\n\nAl een bijdrager? Meld u aan of maak een account aan om uw prestaties te zien.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Wikipedia bestaat dankzij echte mensen zoals u, die bijdragen wat ze kunnen om het te laten floreren. Als Wikipedia waardevol voor u is, overweeg dan die te steunen door te doneren of te bewerken.\n\nAl een bijdrager? Meld u aan of maak een account aan om uw prestaties te zien.</string>
   <string name="yir_closing_headline">Tot het volgende konijnenhol</string>
   <string name="yir_closing_supporting">Of u nu voor één artikel of honderd kwam, bedankt dat u samen met ons op Wikipedia heeft verkend, gelezen en nieuwsgierig bent gebleven.</string>
   <string name="yir_closing_share_action">Hoogtepunten delen</string>
