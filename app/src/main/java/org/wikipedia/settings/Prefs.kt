@@ -932,10 +932,6 @@ object Prefs {
             ?: emptyMap()
         set(statsByYear) = PrefsIoUtil.setString(R.string.preference_key_yir_cached_stats, JsonUtil.encodeToString(statsByYear))
 
-    var selectedAppIcon
-        get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
-
     var isGameStatsUnavailableSnackbarShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
