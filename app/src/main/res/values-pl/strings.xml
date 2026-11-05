@@ -2221,7 +2221,7 @@
   <string name="yir_community_global_reach_headline">Światowy fenomen – Wikipedia to jedna z 10 najbardziej uczęszczanych stron w Internecie</string>
   <string name="yir_community_global_reach_supporting">Wikipedia to fundament wiedzy w Internecie. Korzysta z niej cała społeczność – od osób uczących się i studiujących po modele sztucznej inteligencji.</string>
   <string name="yir_community_contribute_headline">Liczy się każdy wkład.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia istnieje dzięki ludziom takim jak Ty, którzy dzielą się tym, czym mogą. Jeśli cenisz Wikipedię, rozważ wsparcie jej poprzez wpłatę lub edytowanie haseł.\n\nJesteś już częścią społeczności? Zaloguj się, by zobaczyć swoje osiągnięcia.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Wikipedia istnieje dzięki ludziom takim jak Ty, którzy dzielą się tym, czym mogą. Jeśli cenisz Wikipedię, rozważ wsparcie jej poprzez wpłatę lub edytowanie haseł.\n\nJesteś już częścią społeczności? Zaloguj się, by zobaczyć swoje osiągnięcia.</string>
   <string name="yir_closing_headline">Do zobaczenia na kolejnym czytelniczym szlaku!</string>
   <string name="yir_closing_supporting">Niezależnie od tego, czy wpadasz tu po jedno hasło, czy czytasz całymi godzinami – dziękujemy, że zgłębiasz wiedzę razem z Wikipedią.</string>
   <string name="yir_closing_share_action">Udostępnij podsumowanie</string>
