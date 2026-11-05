@@ -2504,6 +2504,8 @@
     </plurals>
     <string name="year_in_review_highlights_share_button_title">Share highlights</string>
     <string name="year_in_review_highlights_logo_description">Wikipedia logo</string>
+    <string name="year_in_review_swipe_tutorial_title">Swipe to explore</string>
+    <string name="year_in_review_swipe_tutorial_message">Swipe up to navigate through Year in Review.</string>
     <!-- Recommended reading list -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>
