@@ -242,6 +242,8 @@
   <string name="email_recommendation_dialog_create_without_email_action">이메일 없이 계속하기</string>
   <string name="email_recommendation_dialog_create_with_email_action">이메일 주소 추가</string>
   <string name="create_account_button">계정 만들기</string>
+  <string name="create_account_encourage_title">계정을 만드면 위키백과를 좀 더 편리하게 사용할 수 있습니다</string>
+  <string name="create_account_encourage_saved_articles_title_zero">저장된 문서 동기화</string>
   <string name="create_account_name_unavailable">\"%s\" 사용자 이름을 사용할 수 없습니다. 다른 이름을 선택해 주십시오.</string>
   <string name="create_account_ip_block_message">죄송하지만, 당신의 IP 주소가 현재 새로운 계정을 생성하지 못하도록 차단되어 있습니다.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -331,6 +333,8 @@
   <string name="editor_select_dialog_ve_title">시각 편집</string>
   <string name="editor_select_dialog_source_title">원본 편집</string>
   <string name="editor_select_dialog_continue">계속</string>
+  <string name="editor_select_icon_ve_title">외부 브라우저에서 열기 아이콘</string>
+  <string name="editor_select_title_settings_screen">환경 설정 편집</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="find_first_occurence">이것이 처음 항목입니다</string>
@@ -1859,6 +1863,7 @@
   <string name="wikipedia_games_title">위키백과 게임</string>
   <string name="wikipedia_games_subtitle">위키백과 콘텐츠를 기반으로 한 일일 퀴즈 게임입니다.</string>
   <string name="yir_article_count_headline">총 문서 수:</string>
+  <string name="yir_contributor_thanks_headline">감사합니다!</string>
   <string name="yir_community_languages_title">위키백과에서 사용할 수 있는 언어는 다음과 같습니다:</string>
   <string name="yir_community_articles_headline">위키백과 문서 수:</string>
   <string name="yir_time_spent_comment_1">이것은 벌새의 심장이 1200번 뛰는 데 걸리는 시간보다 더 깁니다.</string>

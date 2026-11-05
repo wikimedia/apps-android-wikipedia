@@ -39,7 +39,7 @@
   <string name="search_back_button_content_description">Gå tillbaka</string>
   <string name="search_clear_query_content_description">Rensa förfrågan</string>
   <string name="search_icon_content_description">Sök</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtrera mina samlingar</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_activity">Aktivitet</string>
   <string name="nav_item_more">Mer</string>
@@ -106,16 +106,16 @@
   <string name="menu_page_watched">Bevakas</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Lägg till i samling</string>
+  <string name="menu_page_add_to_list">Lägg till i läslista</string>
   <string name="menu_page_add_to_default_list">Spara</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Lägg till i samling</string>
+  <string name="feed_card_add_to_list">Lägg till i läslista</string>
   <string name="feed_card_add_to_default_list">Spara</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_article_share">Dela artikel</string>
   <string name="menu_page_article_share">Dela</string>
   <string name="menu_page_open_a_new_tab">Öppna en ny flik</string>
   <string name="menu_page_new_tab">Ny flik</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Samlingar</string>
+  <string name="menu_page_reading_lists">Läslistor</string>
   <string name="menu_page_recently_viewed">Nyligen lästa</string>
   <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Öppna</string>
@@ -159,9 +159,9 @@
   <string name="menu_show_toc">Innehållsförteckning</string>
   <string name="search_no_results_found">Inga resultat hittades</string>
   <string name="search_reading_list_no_results">Inga resultat hittades i \"%s\"</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Inga resultat hittades i samlingar</string>
+  <string name="search_reading_lists_no_results">Inga resultat hittades i läslistor</string>
   <string name="search_all_articles_no_results">Inga resultat hittades i alla artiklar</string>
-  <string name="search_collections_no_results" fuzzy="true">Inga resultat hittades i samlingar</string>
+  <string name="search_collections_no_results">Inga resultat hittades i läslistor</string>
   <string name="search_history_no_results">Inga resultat hittades i historik</string>
   <string name="edit_section_captcha_message">För att skydda mot automatiserad reklam, var god skriv in orden som visas nedan</string>
   <string name="edit_section_captcha_request_an_account_message">Kan du inte se bilden? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Begär ett konto&lt;/a&gt;</string>
@@ -262,8 +262,8 @@
   <string name="preferences_heading_syncing">Synkronisering</string>
   <string name="preferences_heading_data_usage">Dataanvändning</string>
   <string name="preferences_heading_experimental">\nExperimentell</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synkronisera samlingar</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Ladda ned artiklar från samlingar</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synkronisera läslistor</string>
+  <string name="preference_title_download_reading_list_articles">Ladda ned artiklar från läslistor</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Synkronisera samlingar över olika enheter genom att spara dem till ditt Wikipedia-konto</string>
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Synkronisera samlingar över olika enheter genom att spara dem till ditt Wikipedia-konto %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Ta bort synkroniserade samlingar från \"%s\"?</string>
@@ -2550,4 +2550,5 @@
     <item quantity="one">Denna artikel kommer att tas bort från alla associerade samlingar.</item>
     <item quantity="other">Dessa artiklar kommer att tas bort från alla associerade samlingar.</item>
   </plurals>
+  <string name="semantic_search_entry_point_card_text_button">Testa nu</string>
 </resources>

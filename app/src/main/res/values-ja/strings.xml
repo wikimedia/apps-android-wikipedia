@@ -1950,6 +1950,7 @@
   <string name="year_in_review_learn_more">詳細</string>
   <string name="year_in_review_share_feedback">フィードバックを共有</string>
   <string name="year_in_review_get_started">始める</string>
+  <string name="year_in_review_announcement_explore">探索</string>
   <string name="year_in_review_topbar_w_icon">ウィキペディア W アイコン</string>
   <string name="year_in_review_navigate_left">左へ移動</string>
   <string name="year_in_review_close">閉じる</string>
@@ -2146,6 +2147,7 @@
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">記事</string>
   <string name="donation_reminders_settings_option_custom">カスタム…</string>
   <string name="donation_reminders_prompt_positive_button">今すぐ寄付する</string>
+  <string name="donation_reminders_prompt_positive_button_v2">はい、今寄付します</string>
   <string name="donation_reminders_prompt_negative_button">今はしない</string>
   <string name="donation_reminders_gpay_text">Google Payで %s 寄付する</string>
   <string name="donation_reminders_gpay_different_amount_text">Google Payで別の金額を寄付する</string>
@@ -2163,6 +2165,17 @@
   <string name="donation_reminders_settings_report_email_body">寄付リマインダー機能で問題に出くわしました:\n- [具体的な問題の説明]\n- [スクリーンショットまたはリンク]\n\n期待する挙動:\n- [提案する解決策の説明]</string>
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
   <string name="donation_reminders_settings_article_number_selection_label">記事</string>
+  <string name="donation_reminders_settings_update_reminder_button">リマインダーを更新</string>
+  <string name="donation_reminders_beta_label">ベータ版</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">フィードバックを共有</string>
+  <string name="donation_reminders_wrap_up_survey_title">寄付リマインダーに関する簡単な質問</string>
+  <string name="donation_reminders_wrap_up_survey_message">読んだ記事に基づく寄付リマインダーは恒久的な機能にすべきですか？</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">そのままにする</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">除去する</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">わからない</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">他に何かありますか？（任意）</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">フィードバックに感謝します。あなたの回答は次に私たちが何を構築するか決定する役に立ちます。</string>
+  <string name="donation_reminders_eoe_title">これで実験は終わりです</string>
   <string name="reading_challenge_widget_name">読書チャレンジ</string>
   <string name="reading_challenge_onboarding_header">ウィキペディア誕生25周年を記念して、25日間閲覧チャレンジに参加しよう！</string>
   <string name="reading_challenge_onboarding_read_title">25日間、1日1記事を読もう</string>
@@ -2229,15 +2242,27 @@
   <string name="reading_challenge_widget_reward_title">好奇心旺盛なあなたは最高！</string>
   <string name="reading_challenge_widget_reward_body">チャレンジ達成を記念して、ウィキペディア・ストアで15%%割引</string>
   <string name="reading_challenge_widget_reward_button_label">ストアで15%% OFFをゲット</string>
+  <string name="explore_feed_new_update_prompt_title">探索は新しい外観のホームになりました</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">新しい名前</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">探索フィードはホームになり、以前と同じ場所にあります。</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">あなたのフィード、2つの方法</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">あなた向けであなたの興味にパーソナライズされた記事を発見するか、コミュニティでウィキペディアの最高の編集コンテンツを探索します。</string>
+  <string name="explore_feed_new_update_prompt_control_title">制御を保つ</string>
+  <string name="explore_feed_new_update_prompt_control_description">すべてのお勧めはなぜ表示されているのか示されます。設定でいつでも個人設定を更新できます。</string>
+  <string name="explore_feed_new_update_prompt_language_title">すべての言語、完全なパーソナライズ</string>
+  <string name="explore_feed_new_update_prompt_language_description">複数言語で閲覧しますか？それぞれに独自の体験を得られます。新しいフィードに切り替える準備ができています。</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">自分のフィードをカスタマイズ</string>
   <string name="explore_feed_customize_interests">興味をカスタマイズ</string>
   <string name="explore_feed_customize_discover">発見をカスタマイズ</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">私のために設定してください</string>
+  <string name="explore_feed_building_text">あなたのフィードを構築しましょう…</string>
   <string name="explore_feed_community_tab_label">コミュニティ</string>
   <string name="explore_feed_for_you_tab_label">あなた向け</string>
   <string name="explore_feed_date_today">今日 - %s</string>
   <string name="explore_feed_load_previous_day_label">前の日を読み込む</string>
   <string name="explore_feed_from_reading_list">あなたのあとで読むリストから</string>
   <string name="explore_feed_because_of_interest">興味による: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">好奇心に従って</string>
   <string name="explore_feed_onboarding_curiosity_description">興味のあるトピックを選択すると、あなたのフィードがパーソナライズされます。\n\n我々は匿名化された最小限のデータを収集します。</string>
   <string name="explore_feed_deselect_all_button_label">すべての選択を解除</string>
   <string name="explore_feed_potd_subtitle">ボランティア投稿者によって選ばれた、ウィキメディア・コモンズの今日の一枚</string>
@@ -2270,9 +2295,17 @@
   <string name="home_feed_settings_for_you_modules_description">モジュールをオフにすると「あなた向け」フィードに表示されなくなります。ここでいつでも再有効化できます。</string>
   <string name="home_feed_settings_based_on_interest_title">興味に基づいて</string>
   <string name="home_feed_settings_based_on_interest_subtitle">あなたの選択するトピックで仕立てた記事。&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;あなたのフィードの原動力&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">あなたの興味の新着</string>
+  <string name="home_feed_new_within_interest_title">あなたが興味のある新しい記事</string>
+  <string name="home_feed_new_within_interest_subtitle">あなたがフォローしているトピック分野内の最近作成された記事</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">記事冒頭を聞く</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">あなたがフォローしているトピック分野内の記事冒頭について生成された音声</string>
   <string name="home_feed_settings_because_you_read_subtitle">あなたの最近の記事閲覧履歴に基づく提案</string>
+  <string name="home_feed_settings_continue_reading_title">続けて読む</string>
+  <string name="home_feed_settings_continue_reading_subtitle">読み終わっていない記事に戻ります</string>
   <string name="home_feed_did_you_know_title">知っていましたか？</string>
   <string name="home_feed_did_you_know_subtitle">ボランティア編集者が選んだ記事からの興味深い事実</string>
+  <string name="home_feed_did_you_know_more_label">さらに知っていますか</string>
   <string name="home_feed_settings_community_empty_dialog_title">あなたのコミュニティフィードは空になります</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">あなたの「あなた向け」フィードは空になります</string>
   <string name="home_feed_settings_empty_dialog_text">コンテンツを表示するモジュールを少なくとも1つオンにしてください。</string>
@@ -2286,6 +2319,9 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">始める方法：</string>
   <string name="home_feed_for_you_screen_empty_add_interests">&lt;a href=\"#add_interests\"&gt;興味のあること&lt;/a&gt;を追加する</string>
   <string name="home_feed_for_you_screen_empty_see_community">&lt;a href=\"#community_tab\"&gt;コミュニティ&lt;/a&gt;で起こっていることを確認する</string>
+  <string name="home_feed_random_title">おまかせ表示</string>
+  <string name="home_feed_random_subtitle">あなたの好奇心を刺激するランダムな記事</string>
+  <string name="home_feed_random_shuffle_button">シャッフル</string>
   <string name="home_feed_settings_feed_configuration_description">これらのトピックおよび記事は「あなた向け」フィードに現れるものを形成します。不要になったものを除去したり、新しい興味を追加してください。</string>
   <string name="home_feed_settings_feed_configuration_interest_title">あなたの興味</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">あなたの興味のあるトピックを編集してください</string>
@@ -2306,7 +2342,20 @@
   <string name="home_feed_settings_games_title">ゲーム</string>
   <string name="home_feed_settings_games_subtitle">ウィキペディアのコンテンツに基づく毎日のゲーム</string>
   <string name="home_feed_settings_discover_title">発見のお勧め</string>
+  <string name="read_aloud_card_play">再生</string>
+  <string name="read_aloud_card_pause">一時停止</string>
+  <string name="read_aloud_card_retry">再試行</string>
+  <string name="read_aloud_card_error">この記事で音声は利用できません。</string>
+  <string name="read_aloud_card_keep_listening">聞き続けますか？</string>
+  <string name="read_aloud_lead_section_survey_title">どのようにしてウィキペディアを聞くことに興味を持ちましたか？</string>
+  <string name="read_aloud_lead_section_survey_choice1">記事冒頭</string>
+  <string name="read_aloud_lead_section_survey_choice2">記事のいくつかのセクション</string>
+  <string name="read_aloud_lead_section_survey_choice3">記事全体</string>
+  <string name="read_aloud_lead_section_survey_choice4">トピックについて複数の異なる記事からの短い抜粋</string>
   <string name="read_aloud_lead_section_survey_choice5">その他:</string>
+  <string name="read_aloud_lead_section_beta_label">ベータ版</string>
+  <string name="read_aloud_lead_section_report_subject">問題を報告 - 記事冒頭を聞く</string>
+  <string name="read_aloud_lead_section_report_body">「記事冒頭を聞く」機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]</string>
   <string name="read_aloud_lead_section_about_experiment">この実験について</string>
   <string name="read_aloud_lead_section_report_issue">問題を報告</string>
   <string name="home_feed_settings_discover_subtitle">あなたの発見あとで読むリストの記事</string>
@@ -2322,7 +2371,10 @@
   <string name="home_feed_for_you_screen_end_of_feed_description">明日戻ってきてあなた向けにカスタマイズされた新しい記事を見つけてください。</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">学び続ける方法:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;新しい興味&lt;/a&gt;を追加する</string>
+  <string name="randomizer_shake_prompt_title">振ってシャッフル</string>
+  <string name="randomizer_shake_prompt_message">デバイスを振ってランダムな記事に飛び、予想外のものを発見しましょう。</string>
   <string name="home_feed_games_module_cta_prompt_title">もっとゲームをプレイしたいですか？</string>
+  <string name="random_article_widget_name">おまかせ記事</string>
   <string name="reading_lists_tab_all_articles">すべての記事</string>
   <string name="reading_lists_tab_collections">あとで読むリスト</string>
   <string name="reading_lists_filter_content_description">保存済み記事を絞り込み</string>
@@ -2377,4 +2429,6 @@
   <string name="preference_title_semantic_search_within_articles">記事内を検索</string>
   <string name="semantic_search_snackbar_message">モジュールが非表示になっています。設定から再度表示できます。</string>
   <string name="semantic_search_snackbar_action_label">変更</string>
+  <string name="notifications_experiment_discover_interests_title">%sに興味があるため</string>
+  <string name="notifications_experiment_discover_saved_or_history_title">%sについて読んだため</string>
 </resources>

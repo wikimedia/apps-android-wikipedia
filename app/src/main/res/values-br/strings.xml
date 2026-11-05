@@ -2263,7 +2263,7 @@
   <string name="yir_community_global_reach_headline">Skog bedel Wikipedia : unan eus an dek lec\'hienn web a vez gweladennet an aliesañ er bed</string>
   <string name="yir_community_global_reach_supporting">Livenn-gein gouiziegezh an Internet eo Wikipedia. Koulz studierien ha graerioù kaozeal a zesk digantañ.</string>
   <string name="yir_community_contribute_headline">Pouezus oc\'h.</string>
-  <string name="yir_community_contribute_supporting">Bez\' ez eus eus Wikipedia a-drugarez da dud wirion eveldoc\'h, a zegas ar pezh a c\'hallont evit e lakaat da greskiñ. Mard eo talvoudus Wikipedia evidoc\'h, soñjit mar plij e skorañ ar raktres dre zonezonañ pe dre e gemmañ.\n\nUr perzhiad zo ac\'hanoc\'h dija ? Kevreit pe krouit ur gont evit gwelet ar pezh hoc\'h eus graet.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Bez\' ez eus eus Wikipedia a-drugarez da dud wirion eveldoc\'h, a zegas ar pezh a c\'hallont evit e lakaat da greskiñ. Mard eo talvoudus Wikipedia evidoc\'h, soñjit mar plij e skorañ ar raktres dre zonezonañ pe dre e gemmañ.\n\nUr perzhiad zo ac\'hanoc\'h dija ? Kevreit pe krouit ur gont evit gwelet ar pezh hoc\'h eus graet.</string>
   <string name="yir_closing_headline">Betek ar milendall kentañ</string>
   <string name="yir_closing_supporting">Hag evit ur pennad pe evit kant anezho ez oc\'h deuet, trugarez deoc\'h evit furchal, lenn ha chom ranell ganimp e Wikipedia.</string>
   <string name="yir_closing_share_action">Lodañ krafoù</string>
