@@ -115,6 +115,7 @@ fun YearInReviewScreen(
     onRetryClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
     onPageImpression: (YearInReviewPage) -> Unit = {},
+    onPageSettled: (YearInReviewPage) -> Unit = {},
     onRiveError: (Throwable) -> Unit = {}
 ) {
     when (uiState) {
@@ -150,6 +151,7 @@ fun YearInReviewScreen(
                 onShareHighlightsClick = onShareHighlightsClick,
                 onStatusBarIconColorChange = onStatusBarIconColorChange,
                 onPageImpression = onPageImpression,
+                onPageSettled = onPageSettled,
                 onRiveError = onRiveError
             )
         }
@@ -194,6 +196,7 @@ private fun YearInReviewContent(
     onShareHighlightsClick: (Bitmap) -> Unit,
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
     onPageImpression: (YearInReviewPage) -> Unit,
+    onPageSettled: (YearInReviewPage) -> Unit,
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
@@ -207,9 +210,13 @@ private fun YearInReviewContent(
     }
     val coroutineScope = rememberCoroutineScope()
     val currentOnPageImpression by rememberUpdatedState(onPageImpression)
+    val currentOnPageSettled by rememberUpdatedState(onPageSettled)
     LaunchedEffect(pagerState, pages) {
         snapshotFlow { pagerState.settledPage }.collect { position ->
-            pages.getOrNull(position)?.let { currentOnPageImpression(it) }
+            pages.getOrNull(position)?.let {
+                currentOnPageSettled(it)
+                currentOnPageImpression(it)
+            }
         }
     }
     // Slides are restarted once they're off screen, so that scrolling back to one plays it from the beginning

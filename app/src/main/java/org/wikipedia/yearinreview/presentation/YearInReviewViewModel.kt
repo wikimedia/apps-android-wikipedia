@@ -38,7 +38,16 @@ class YearInReviewViewModel(
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<YearInReviewUiState>(YearInReviewUiState.Loading)
     val uiState = _uiState.asStateFlow()
-    private val audioPlayer = YearInReviewAudioPlayer(WikipediaApp.instance)
+    private var audioState = AudioState.MUSIC
+    private val audioPlayer = YearInReviewAudioPlayer(
+        context = WikipediaApp.instance,
+        onPlaybackEnded = {
+            if (audioState == AudioState.LOGO) {
+                audioState = AudioState.FINISHED
+                pauseAudio()
+            }
+        }
+    )
     val isSoundOn = MutableStateFlow(Prefs.isYearInReviewSoundOn)
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
@@ -66,9 +75,23 @@ class YearInReviewViewModel(
     }
 
     fun playAudio() {
-        if (isSoundOn.value) {
-            audioPlayer.play(R.raw.dreamy, loop = true)
+        if (!isSoundOn.value) {
+            return
         }
+
+        when (audioState) {
+            AudioState.MUSIC -> audioPlayer.play(R.raw.dreamy, loop = true)
+            AudioState.LOGO -> audioPlayer.play(R.raw.wikipedia_logo_sound, loop = false)
+            AudioState.FINISHED -> Unit
+        }
+    }
+
+    fun onPageSettled(page: YearInReviewPage) {
+        if (page !is YearInReviewPage.End || audioState != AudioState.MUSIC) {
+            return
+        }
+        audioState = if (isSoundOn.value) AudioState.LOGO else AudioState.FINISHED
+        playAudio()
     }
 
     fun pauseAudio() {
@@ -84,6 +107,8 @@ class YearInReviewViewModel(
     override fun onCleared() {
         audioPlayer.release()
     }
+
+    private enum class AudioState { MUSIC, LOGO, FINISHED }
 
     companion object {
         const val YIR_YEAR = YearInReviewConfig.YEAR

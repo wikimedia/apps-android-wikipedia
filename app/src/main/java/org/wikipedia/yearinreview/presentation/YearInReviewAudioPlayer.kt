@@ -12,13 +12,22 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import org.wikipedia.util.log.L
 
-class YearInReviewAudioPlayer(private val context: Context) {
+class YearInReviewAudioPlayer(
+    private val context: Context,
+    private val onPlaybackEnded: () -> Unit = {}
+) {
     private var player: ExoPlayer? = null
 
     @RawRes
     private var currentResourceId: Int? = null
 
     private val playerListener = object : Player.Listener {
+        override fun onPlaybackStateChanged(playbackState: Int) {
+            if (playbackState == Player.STATE_ENDED) {
+                onPlaybackEnded()
+            }
+        }
+
         override fun onPlayerError(error: PlaybackException) {
             L.e(error)
         }

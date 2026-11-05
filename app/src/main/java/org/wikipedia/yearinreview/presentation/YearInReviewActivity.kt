@@ -147,6 +147,7 @@ class YearInReviewActivity : BaseActivity() {
                         WindowCompat.getInsetsController(window, window.decorView)
                             .isAppearanceLightStatusBars = useDarkIcons
                     },
+                    onPageSettled = viewModel::onPageSettled,
                     onPageImpression = { page ->
                         submitInteraction(uiState, action = "impression", actionContext = mapOf("page" to page.id))
                         if (page is YearInReviewPage.End && YearInReviewEndScreenABTest().isUserEligible()) {
