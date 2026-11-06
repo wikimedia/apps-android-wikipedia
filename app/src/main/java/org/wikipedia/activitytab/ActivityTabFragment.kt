@@ -165,7 +165,7 @@ class ActivityTabFragment : Fragment() {
                             },
                             onLoginClick = {
                                 ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "login_click")
-                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY_TAB, createAccountFirst = false))
+                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY_TAB))
                             },
                             yearInReviewEntryState = yearInReviewEntryState.takeIf { YearInReviewViewModel.canShowEntryPoint },
                             onYirGetStartedClick = {
