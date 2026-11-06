@@ -1958,12 +1958,6 @@
   <string name="year_in_review_share_subject">Il mio Anno in Rassegna su Wikipedia</string>
   <string name="year_in_review_share_body">Ecco il mio Anno in Rassegna su Wikipedia. Creato con l\'app Android di Wikipedia %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Icona del globo</string>
-  <string name="settings_app_icon_title">Icona dell\'app</string>
-  <string name="settings_app_icon_preference_subtitle">Hai accesso a un\'icona personalizzata che celebra i tuoi %d contributi a Wikipedia nell\'applicazione. Resterà visibile fino al prossimo Anno in Rassegna.</string>
-  <string name="settings_app_icon_updated">L\'icona della tua app è stata aggiornata.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nuova icona dell\'applicazione sbloccata per la schermata iniziale</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Sblocca la tua ricompensa per i contributori per il prossimo anno!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Attiva la nuova icona dell\'app negli impostazioni, sotto \"Icona app\". Grazie per aver investito nel futuro della conoscenza libera. I tuoi contributi come %1$s in %2$d stanno contribuendo ad aprire la strada a un mondo di informazioni libere e, di conseguenza, hai sbloccato un\'icona personalizzata per Wikipedia nella tua schermata iniziale.</string>
   <string name="year_in_review_slide_app_icon_donor">un donatore</string>
   <string name="year_in_review_slide_app_icon_editor">un editore</string>
   <string name="year_in_review_slide_geo_headline">Le voci che hai letto sono più vicino a %s</string>

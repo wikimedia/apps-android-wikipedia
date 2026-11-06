@@ -2203,14 +2203,6 @@
   <string name="year_in_review_share_subject">Mijn Wikipedia-jaaroverzicht</string>
   <string name="year_in_review_share_body">Hier is mijn Wikipedia-jaaroverzicht. Gemaakt met de Wikipedia Android-app %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Wereldbol-pictogram</string>
-  <string name="settings_app_icon_title">Apppictogram</string>
-  <string name="settings_app_icon_subtitle">Bijdragervoordeel</string>
-  <string name="settings_app_icon_preference_subtitle">U hebt toegang tot een aangepast pictogram waarmee uw %d via de app gemaakte bijdragen aan Wikipedia worden gevierd. Het blijft staan tot het volgende Jaaroverzicht.</string>
-  <string name="settings_app_icon_updated">Uw apppictogram is bijgewerkt.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nieuw apppictogram ontgrendeld voor uw startscherm</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Ontgrendel uw bijdragersbeloning voor volgend jaar!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Activeer uw nieuwe apppictogram in de Instellingen onder Apppictogram. Bedankt voor het investeren in de toekomst van de vrije kennis. Uw bijdragen als %1$s in %2$d helpen de weg vrij te maken naar een wereld van vrije informatie. Daarom is nu voor u een eigen bijdragerspictogram ontsloten voor Wikipedia op uw startscherm.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Wat fijn dat Wikipedia deel uitmaakte van uw jaar %1$d! Ontgrendel met uw bijdragen een speciale beloning in uw Jaaroverzicht %2$d. Dat doet u door &lt;a href=\"%3$s\"&gt;Wikipedia te bewerken&lt;/a&gt; of door vanuit de app te doneren aan de &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, de non-profitorganisatie erachter. Als Wikipedia dit jaar voor u behulpzaam is geweest, overweeg dan te doneren zodat Wikipedia ook in de toekomst voor iedereen gratis, advertentievrij, betrouwbaar en toegankelijk blijft. Als u ergens anders hebt gedoneerd, stellen we uw steun zeer op prijs.</string>
   <string name="year_in_review_slide_app_icon_donor">donateur</string>
   <string name="year_in_review_slide_app_icon_editor">een bewerker</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donateur en bewerker</string>

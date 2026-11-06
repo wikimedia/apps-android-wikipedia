@@ -2180,14 +2180,6 @@
   <string name="year_in_review_share_subject">مراجعة عامي على ويكيبيديا</string>
   <string name="year_in_review_share_body">إليكم مراجعة ويكيبيديا لهذا العام. تم الإنشاء باستخدام تطبيق ويكيبيديا لأجهزة أندرويد %1$s %2$s</string>
   <string name="year_in_review_globe_icon">أيقونة الكرة الأرضية</string>
-  <string name="settings_app_icon_title">أيقونة التطبيق</string>
-  <string name="settings_app_icon_subtitle">فائدة المساهم</string>
-  <string name="settings_app_icon_preference_subtitle">لديك إمكانية الوصول إلى أيقونة مخصصة للاحتفال بمساهماتك %d داخل التطبيق في ويكيبيديا. ستبقى هذه الأيقونة حتى مراجعة العام المقبل.</string>
-  <string name="settings_app_icon_updated">لقد تم تحديث أيقونة التطبيق الخاص بك.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">فتحت أيقونة التطبيق الجديدة على الشاشة الرئيسية</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">احصل على مكافأة المساهم الخاصة بك للعام القادم!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">فعّل أيقونة تطبيقك الجديدة في الإعدادات ضمن أيقونة التطبيق. شكرًا لاستثمارك في مستقبل المعرفة المجانية. مساهماتك، كـ %1$s من %2$d ، تُمهّد الطريق لعالم من المعلومات المجانية، ونتيجةً لذلك، حصلت على أيقونة مُخصّصة للمساهمين في ويكيبيديا على شاشتك الرئيسية.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">نحن سعداء أن ويكيبيديا كانت جزءا من %1$d الخاص بك! قم بتحويل مكافأة خاصة في عامك في %2$d في المراجعة من خلال أن تصبح مساهمة - سواء من خلال &lt;a href=\"%3$s\"&gt;تحرير ويكيبيديا&lt;/a&gt; أو عن طريق التبرع من التطبيق إلى &lt;a href=\"%4$s\"&gt;مؤسسة ويكيميديا&lt;/a&gt; ، وهي منظمة غير ربحية وراءها. إذا كانت ويكيبيديا مفيدة لك، يرجى النظر في التبرع للمساعدة في الحفاظ على مستقبلها والحفاظ على مجاناً، خالياً من الإعلانات، وموثوق بها، ويمكن الوصول إليها للجميع. إذا كنت قدمتِ التبرع في مكان آخر، فإن دعمك يقدّر بشدة.</string>
   <string name="year_in_review_slide_app_icon_donor">متبرع</string>
   <string name="year_in_review_slide_app_icon_editor">محرر</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">متبرع ومحرر</string>

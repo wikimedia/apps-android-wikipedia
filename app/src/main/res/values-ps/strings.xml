@@ -1986,14 +1986,6 @@
   <string name="year_in_review_share_subject">زما د ويکي‌پېډيا کال بياکتنه</string>
   <string name="year_in_review_share_body">دلته زما د ويکي‌پېډيا کال بياکتنه ده. د ويکي‌پېډيا اندرويد کاريال %1$s %2$s سره جوړ شوی</string>
   <string name="year_in_review_globe_icon">نړۍ نښه</string>
-  <string name="settings_app_icon_title">کاريال نښه</string>
-  <string name="settings_app_icon_subtitle">ونډه اخيستونکي گټه</string>
-  <string name="settings_app_icon_preference_subtitle">تاسو يوې دوديزې نښې ته لاسرسی لرئ چې ستاسو د %d کاريال ونډې په ويکي‌پېډيا کې نمانځي. دا به د راتلونکي کال تر بياکتنې پورې پاتې شي.</string>
-  <string name="settings_app_icon_updated">ستاسو کاريال نښه هم‌‌مهاله شوه.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">ستاسو کور سکرين لپاره نوې کاريال نښه ايله شوه</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">د راتلونکي کال لپاره د خپل ونډه‌اخيستنې جايزه ترلاسه کړئ!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">د کاريال نښې لاندې اوڼنو کې خپله نوې کاريال نښه چارن کړئ. د وړيا پوهې د راتلونکي لپاره مو له پانگونې مننه. د %1$s په توگه ستاسو ونډې په %2$d کې د وړيا مالوماتو نړۍ ته لار هواروي او په پايله کې تاسو په خپل کور سکرين کې د ويکي‌پېډيا لپاره د ونډې اخيستلو يو دوديزه نښه پرانېځئ.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">خوښ يو چې ويکي‌پېډيا ستاسو د%1$d کال برخه وه! د خپل %2$d کال بياکتنې برخه کې د ونډه اخيستونکي په توگه د ځانگړې جايزې ترلاسه کولو لپاره د &lt;a href=\"%3$s\"&gt;ويکي‌پېډيا سمولو&lt;/a&gt; يا د کاريال له لارې &lt;a href=\"%4$s\"&gt;ويکي‌رسنۍ بنسټ &lt;/a&gt; چې يو ناگټندوی بنسټ دی، ته بسپنې ورکولو سره دوام ورکړئ. که ويکي‌پېډيا ستاسو لپاره مرستندويه وي، مهرباني وکړئ د خپل راتلونکي ساتلو لپاره بسپنې ورکولو ته پام وکړئ او دا وړيا له اعلاناتو څخه سپا، باوري او د ټولو لپاره د لاسرسي وړ وساتئ. که تاسو بل ځای کې بسپنه ورکړې وي؛ نو ستاسو ملاتړ د ستايلو وړ دی.</string>
   <string name="year_in_review_slide_app_icon_donor">يو بسپنه ورکوونکی</string>
   <string name="year_in_review_slide_app_icon_editor">يو سمونگر</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">بسپنه ورکوونکی او سمونگر</string>

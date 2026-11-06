@@ -1962,14 +1962,6 @@
   <string name="year_in_review_share_subject">Vikipediyadakı ilimin icmalı</string>
   <string name="year_in_review_share_body">Mənim Vikipediyada İlimin İcmalı. Vikipediya Android tətbiqi ilə yaradılıb %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Qlobus ikonu</string>
-  <string name="settings_app_icon_title">Tətbiq ikonu</string>
-  <string name="settings_app_icon_subtitle">Töhfəçi faydası</string>
-  <string name="settings_app_icon_preference_subtitle">Töhfəçi ikonası %d-ci ildə Vikipediyaya tətbiqdaxili töhfələrinizi qeyd edir. O, növbəti İlin İcmalına qədər qalacaq.</string>
-  <string name="settings_app_icon_updated">Tətbiq ikonanız yeniləndi.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Əsas ekranınız üçün yeni tətbiq ikonası açıldı</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Gələn il üçün töhfəçi mükafatınızı açın!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Tətbiq ikonasının altındakı Parametrlərdə yeni tətbiq ikonanızı aktivləşdirin. Açıq biliyin gələcəyinə sərmayə qoyduğunuz üçün təşəkkür edirik. %2$dda %1$s kimi verdiyiniz töhfələriniz azad məlumat dünyasına yol açmağa kömək edir və nəticədə siz ana ekranınızda Vikipediya üçün fərdi töhfəçi ikonasını açdınız.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Vikipediyanın %1$d-ci ilinizin bir hissəsi olmasına şadıq! %2$d-cı ilin icmalında xüsusi bir mükafatın kilidini açmaq üçün töhfə verən olun — istər &lt;a href=\"%3$s\"&gt;Vikipediyanı redaktə etməklə&lt;/a&gt;, istərsə də onu dəstəkləyən qeyri-kommersiya təşkilatı &lt;a href=\"%4$s\"&gt;Vikimedia Fondu&lt;/a&gt;na tətbiq vasitəsilə ianə etməklə. Əgər Vikipediya sənin üçün faydalıdırsa, onun gələcəyini qorumaq və onu hər kəs üçün pulsuz, reklamsız, etibarlı və əlçatan saxlamaq üçün ianə etməyi nəzərdən keçirin. Başqa yerdə ianə etmisinizsə, dəstəyiniz üçün dərin minnətdarlığımızı bildiririk.</string>
   <string name="year_in_review_slide_app_icon_donor">donor</string>
   <string name="year_in_review_slide_app_icon_editor">redaktor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donor və redaktor</string>
