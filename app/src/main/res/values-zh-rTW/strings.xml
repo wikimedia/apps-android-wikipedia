@@ -1932,14 +1932,6 @@
   <string name="year_in_review_share_subject">我的維基百科年度回顧</string>
   <string name="year_in_review_share_body">這是我的 Wikipedia 年度回顧，由 Wikipedia Android 應用程式製作。 %1$s %2$s</string>
   <string name="year_in_review_globe_icon">地球圖示</string>
-  <string name="settings_app_icon_title">應用程式圖示</string>
-  <string name="settings_app_icon_subtitle">貢獻者福利</string>
-  <string name="settings_app_icon_preference_subtitle">您取得了自訂圖示，以表彰您於 %d 年在應用程式裡對維基百科做出的貢獻。該圖示會保留至下一次年度回顧。</string>
-  <string name="settings_app_icon_updated">您的應用程式圖示已更新。</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">已為您的主畫面解鎖新的應用程式圖示</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">解鎖您明年的貢獻者獎勵！</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">請在設定中的「應用程式圖示」裡啟動您的新應用程式圖示。感謝您投入自由知識的未來，您作為 %2$d 年%1$s的貢獻，幫助到鋪往自由資訊世界的道路，因此您在主畫面上解鎖了維基百科的自訂貢獻者圖示。</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">我們很高興維基百科成為您在 %1$d 年參與的活動！透過成為貢獻者，即可在您的 %2$d 年度回顧解鎖特別獎勵—無論是藉由應用程式&lt;a href=\"%3$s\"&gt;編輯維基百科&lt;/a&gt;，或是對其背後的非營利組織&lt;a href=\"%4$s\"&gt;維基媒體基金會&lt;/a&gt;捐款。如果維基百科對您有所幫助，歡迎您考慮捐款，來幫助維基百科維持其未來發展，並保持免費、無廣告、值得信賴、且人人皆可用的運作狀態。如果您是透過其他管道捐款，我們由衷感謝您的支持。</string>
   <string name="year_in_review_slide_app_icon_donor">捐款者</string>
   <string name="year_in_review_slide_app_icon_editor">編輯者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">捐款者與編輯者</string>

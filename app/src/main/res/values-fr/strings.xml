@@ -2026,14 +2026,6 @@
   <string name="year_in_review_share_subject">Ma rétrospective annuelle de Wikipédia</string>
   <string name="year_in_review_share_body">Voici ma rétrospective annuelle de Wikipédia, créée avec l’appli Wikipédia pour Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Icône de globe</string>
-  <string name="settings_app_icon_title">Icône de l’appli</string>
-  <string name="settings_app_icon_subtitle">Privilège des contributeurs</string>
-  <string name="settings_app_icon_preference_subtitle">Vous avez accès à une icône personnalisée qui met en valeur vos contributions à Wikipédia en %d via l’application. Elle restera affichée jusqu’au prochain bilan annuel.</string>
-  <string name="settings_app_icon_updated">L’icône de votre appli a été mise à jour.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nouvelle icône d’appli débloquée pour votre écran d’accueil</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Débloquez votre récompense pour vos contributions !</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Activez votre nouvelle icône d\'application dans les paramètres en dessous de l\'icône de l\'application. Merci d\'avoir investi dans le futur du savoir gratuit. Vos contributions en tant que %1$s dans %2$d aident à bâtir un monde d\'information gratuite, et grâce à ça, vous avez débloqué une icône customisée de contributeur pour Wikipedia sur votre écran d\'accueil.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Nous sommes ravis que Wikipédia ait fait partie de votre année %1$d&amp;nbsp;! Débloquez une récompense spéciale dans votre Bilan %2$d en devenant contributeur·rice&amp;nbsp;— que ce soit en &lt;a href=\"%3$s\"&gt;modifiant Wikipédia&lt;/a&gt; ou en faisant un don depuis l’application à la &lt;a href=\"%4$s\"&gt;Fondation Wikimedia&lt;/a&gt;, l’organisme à but non lucratif qui la soutient. Si Wikipédia vous est utile, pensez à faire un don pour aider à préserver son avenir et la garder gratuite, sans publicité, fiable et accessible à toutes et à tous. Si vous avez déjà fait un don ailleurs, votre soutien nous touche profondément.</string>
   <string name="year_in_review_slide_app_icon_donor">donateur·rice</string>
   <string name="year_in_review_slide_app_icon_editor">contributeur·rice</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donateur·rice et contributeur·rice</string>

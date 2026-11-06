@@ -2202,14 +2202,6 @@
   <string name="year_in_review_share_subject">Meu Resumo do Ano na Wikipédia</string>
   <string name="year_in_review_share_body">Aqui está o meu Resumo do Ano na Wikipédia. Criado com o aplicativo da Wikipédia para Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Ícone de globo</string>
-  <string name="settings_app_icon_title">Ícone do aplicativo</string>
-  <string name="settings_app_icon_subtitle">Benefício para o colaborador</string>
-  <string name="settings_app_icon_preference_subtitle">Você tem acesso a um ícone personalizado que celebra suas %d contribuições no aplicativo da Wikipédia. Ele permanecerá até o próximo Resumo do Ano.</string>
-  <string name="settings_app_icon_updated">O ícone do seu aplicativo foi atualizado.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Novo ícone do aplicativo desbloqueado para sua tela inicial</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Desbloqueie sua recompensa de colaborador para o próximo ano!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Ative o novo ícone do aplicativo em Configurações, em Ícone do aplicativo. Obrigado por investir no futuro do conhecimento livre. Suas contribuições como %1$s em %2$d estão ajudando a pavimentar o caminho para um mundo de informação livre e, como resultado, você desbloqueou um ícone personalizado de colaborador da Wikipédia na sua tela inicial.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Ficamos felizes que a Wikipédia tenha feito parte do seu %1$d! Desbloqueie uma recompensa especial no seu Resumo do Ano para %2$d tornando-se um colaborador — seja &lt;a href=\"%3$s\"&gt;editando a Wikipédia&lt;/a&gt; ou fazendo uma doação pelo aplicativo para a &lt;a href=\"%4$s\"&gt;Fundação Wikimedia&lt;/a&gt;, a organização sem fins lucrativos por trás do projeto. Se a Wikipédia é útil para você, considere fazer uma doação para ajudar a garantir seu futuro e mantê-la gratuita, sem anúncios, confiável e acessível a todos. Se você fez uma doação em outro lugar, agradecemos imensamente o seu apoio.</string>
   <string name="year_in_review_slide_app_icon_donor">doador</string>
   <string name="year_in_review_slide_app_icon_editor">editor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">doador e editor</string>

@@ -2310,14 +2310,6 @@
   <string name="year_in_review_share_subject">Огляд мого року у Вікіпедії</string>
   <string name="year_in_review_share_body">Ось мій огляд Вікіпедії за рік. Створено за допомогою програмки Вікіпедії для Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Іконка глобуса</string>
-  <string name="settings_app_icon_title">Іконка програми</string>
-  <string name="settings_app_icon_subtitle">Подяка за внесок</string>
-  <string name="settings_app_icon_preference_subtitle">Ви маєте доступ до спеціальної іконки, яка відзначає ваш внесок у Вікіпедію через застосунок за %d рік. Вона залишатиметься до наступного огляду року.</string>
-  <string name="settings_app_icon_updated">Вашу іконку програми оновлено.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Нову іконку програми розблоковано для вашого головного екрана</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Розблокуйте свою винагороду за внесок на наступний рік!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Активуйте нову іконку програми в налаштуваннях у розділі «Іконка програми». Дякуємо, що вкладаєтеся в майбутнє вільних знань. Ваш внесок як %1$s у %2$d допомагає прокласти шлях до світу вільної інформації, і тому для вас розблоковано спеціальну іконку для Вікіпедії на вашому головному екрані.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Ми раді, що Вікіпедія була частиною вашого %1$d року! Розблокуйте спеціальну нагороду у своєму «Огляді року %2$d», ставши учасником — чи то шляхом &lt;a href=\"%3$s\"&gt;редагування Вікіпедії&lt;/a&gt;, чи то шляхом пожертви з додатку на некомерційний &lt;a href=\"%4$s\"&gt;Фонд Вікімедіа&lt;/a&gt;. Якщо Вікіпедія корисна для вас, розгляньте, будь ласка, можливість пожертви на підтримку її майбутнього, щоб вона залишалася безкоштовною, без реклами, надійною та доступною для всіх. Якщо ви зробили пожертву деінде, ваша підтримка дуже цінується.</string>
   <string name="year_in_review_slide_app_icon_donor">донора</string>
   <string name="year_in_review_slide_app_icon_editor">редактора</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">донора і редактора</string>

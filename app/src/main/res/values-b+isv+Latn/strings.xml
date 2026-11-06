@@ -1953,14 +1953,6 @@
   <string name="year_in_review_share_subject">Moj Prěgled goda v Vikipediji</string>
   <string name="year_in_review_share_body">Tuto jest moj Prěgled goda v Vikipediji. Stvorjeny s pomočju aplikacije Vikipedije za Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Ikonka globusa</string>
-  <string name="settings_app_icon_title">Ikonka aplikacije</string>
-  <string name="settings_app_icon_subtitle">Korist za učestnika</string>
-  <string name="settings_app_icon_preference_subtitle">Vy imajete dostup k specialnoj ikonkě, ktora oznamenuje vaš vklad črěz aplikaciju Vikipedije v tečenju %d goda. Ona ostane do naslědnogo Prěgleda goda.</string>
-  <string name="settings_app_icon_updated">Ikonka vašej aplikacije jest obnovjena.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nova ikonka aplikacije jest razblokovana za vaš domašnji ekran</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Razkryjte nagradu za vaš vklad za slědujuči god!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivujte novu ikonku svojej aplikacije v Nastavjenjah v razdělu «Ikonka aplikacije». Hvala vam, že investujete v budučnost svobodnogo znanja. Vaš vklad kako %1$s v %2$d godu pomagaje proklasti put k světu svobodnoj informacije, a v rezultatu vy jeste razblokovali specialnu ikonku učestnika Vikipedije na vašem domašnjem ekranu.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">My radujemo se, že Vikipedija byla čest vašego goda %1$d! Razblokujte specialnu nagradu v vašem «Prěgledu goda %2$d» i stanite učestnikom – ili kako &lt;a href=\"%3$s\"&gt;redaktor Vikipedije&lt;/a&gt;, ili kako daritelj &lt;a href=\"%4$s\"&gt;Fondacije Wikimedia&lt;/a&gt;, nekomercialnoj organizacije, ktora stoji za njeju. Ako Vikipedija jest vam upotrěbima, prosimo, razmyslite možnost darovanja, da byste pomogli poddrživati jejnu budučnost kako svobodny, věrodostojny, bezreklamny i občedostupny izvor informacije za vsekogo. Ako vy uže darovali inde, vaša poddržka jest vysoko cěnjena.</string>
   <string name="year_in_review_slide_app_icon_donor">daritelj</string>
   <string name="year_in_review_slide_app_icon_editor">redaktor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">daritelj i redaktor</string>

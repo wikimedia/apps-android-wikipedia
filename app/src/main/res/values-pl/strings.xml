@@ -2352,14 +2352,6 @@
   <string name="year_in_review_share_subject">Moje podsumowanie roku w Wikipedii</string>
   <string name="year_in_review_share_body">Oto moje podsumowanie roku w Wikipedii. Utworzone za pomocą aplikacji Wikipedii na Androida %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Ikona globusa</string>
-  <string name="settings_app_icon_title">Ikona aplikacji</string>
-  <string name="settings_app_icon_subtitle">Nagroda dla wikipedystów</string>
-  <string name="settings_app_icon_preference_subtitle">Masz dostęp do specjalnej ikony upamiętniającej Twój wkład w aplikację Wikipedii w roku %d. Będzie ona dostępna do następnego podsumowania roku.</string>
-  <string name="settings_app_icon_updated">Zaktualizowano ikonę aplikacji.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Odblokowano nową ikonę aplikacji na ekranie głównym</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Odblokuj nagrodę dla wikipedystów na przyszły rok!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktywuj nową ikonę w ustawieniach, w sekcji „Ikona aplikacji”. Dziękujemy za inwestycję w przyszłość wolnej wiedzy. Twój wkład w roku %2$d jako %1$s pomaga przecierać szlaki do świata wolnej informacji – w nagrodę na Twoim ekranie głównym odblokowuje się specjalna ikona osoby współtworzącej Wikipedię.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Cieszymy się, że Wikipedia towarzyszyła Ci w %1$d roku! Odblokuj specjalną nagrodę w podsumowaniu roku %2$d, dołączając do grona osób współtworzących Wikipedię – czy to poprzez &lt;a href=\"%3$s\"&gt;edytowanie Wikipedii&lt;/a&gt;, czy też przekazując darowiznę z poziomu aplikacji na rzecz &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, organizacji non-profit stojącej za projektem. Jeśli Wikipedia jest dla Ciebie przydatna, rozważ przekazanie wsparcia, aby pomóc zabezpieczyć jej przyszłość i zachować ją jako wolną od opłat i reklam, wiarygodną oraz dostępną dla wszystkich. Jeśli darowizna została złożona w innym miejscu, serdecznie dziękujemy za wsparcie.</string>
   <string name="year_in_review_slide_app_icon_donor">darczyńca</string>
   <string name="year_in_review_slide_app_icon_editor">osoba edytująca Wikipedię</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">darczyńca i osoba edytująca Wikipedię</string>
