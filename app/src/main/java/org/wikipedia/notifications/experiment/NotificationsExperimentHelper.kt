@@ -6,7 +6,18 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.applyCanvas
+import androidx.core.graphics.createBitmap
+import androidx.core.graphics.scale
+import coil3.imageLoader
+import coil3.request.ImageRequest
+import coil3.request.SuccessResult
+import coil3.request.allowHardware
+import coil3.request.transformations
+import coil3.toBitmap
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.asFlow
@@ -34,12 +45,15 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
+import org.wikipedia.views.imageservice.WhiteBackgroundTransformation
 import java.time.DayOfWeek
 import java.time.LocalTime
 import java.time.ZonedDateTime
 import java.time.temporal.TemporalAdjusters
+import kotlin.math.min
 
 object NotificationsExperimentHelper {
 
@@ -49,6 +63,8 @@ object NotificationsExperimentHelper {
     private const val MAX_DAYS_TO_CHECK = 14
     private const val MAX_WEEKLY_MOST_READ_ARTICLES = 50
     private const val NOTIFICATION_ID = 1003
+    private const val FALLBACK_LARGE_ICON_SIZE_DP = 48f
+    private const val FALLBACK_LARGE_ICON_LOGO_SIZE_DP = 28f
 
     // Copied from the "*" deny list of the wikifeeds most-read endpoint, which is the one applied to English Wikipedia:
     // https://github.com/wikimedia/mediawiki-services-wikifeeds/blob/master/lib/most-read.js
@@ -141,6 +157,8 @@ object NotificationsExperimentHelper {
         val mostReadArticle = articles.firstOrNull() ?: return
         val (title, text) = context.getString(R.string.notifications_experiment_weekly_most_read_notification_title) to
                 context.getString(R.string.notifications_experiment_weekly_most_read_notification_description, StringUtil.fromHtml(mostReadArticle.displayTitle).toString())
+        val color = R.color.blue600
+        val largeIcon = loadSquareThumbnail(context, mostReadArticle.thumbnailUrl) ?: drawWikipediaLogo(context, color)
         val isNotificationPosted = NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, NOTIFICATION_ID.toLong(), notificationCategory = NotificationCategory.WEEKLY_MOST_READ),
@@ -150,17 +168,45 @@ object NotificationsExperimentHelper {
             longText = null,
             lang = null,
             icon = null,
-            color = R.color.blue600,
+            color = color,
             bodyIntent = TopReadArticlesActivity.newIntent(
                 context = context,
                 card = TopReadCard(TopRead(articles = articles), age = 0, site = WikiSite.forLanguageCode(languageCode)),
                 invokeSource = Constants.InvokeSource.NOTIFICATION,
                 notificationCategory = NotificationCategory.WEEKLY_MOST_READ
-            )
+            ),
+            largeIcon = largeIcon
         )
         if (isNotificationPosted) {
             abTest.maybeSendExposureEventIfEligible()
         }
+    }
+
+    // A failed load returns an ErrorResult instead of throwing, so the notification still goes out with the fallback icon.
+    private suspend fun loadSquareThumbnail(context: Context, thumbnailUrl: String?): Bitmap? {
+        if (thumbnailUrl.isNullOrEmpty() || !Prefs.isImageDownloadEnabled) {
+            return null
+        }
+        val request = ImageRequest.Builder(context)
+            .data(thumbnailUrl)
+            .allowHardware(false)
+            .transformations(WhiteBackgroundTransformation())
+            .build()
+        val thumbnail = (context.imageLoader.execute(request) as? SuccessResult)?.image?.toBitmap() ?: return null
+        val side = min(thumbnail.width, thumbnail.height)
+        val largeIconSize = context.resources.getDimensionPixelSize(android.R.dimen.notification_large_icon_width)
+        return Bitmap.createBitmap(thumbnail, (thumbnail.width - side) / 2, (thumbnail.height - side) / 2, side, side)
+            .scale(largeIconSize, largeIconSize)
+    }
+
+    private fun drawWikipediaLogo(context: Context, @ColorRes color: Int): Bitmap {
+        val bitmapSize = DimenUtil.roundedDpToPx(FALLBACK_LARGE_ICON_SIZE_DP)
+        val logoSize = DimenUtil.roundedDpToPx(FALLBACK_LARGE_ICON_LOGO_SIZE_DP)
+        val logoOffset = (bitmapSize - logoSize) / 2
+        val logo = ContextCompat.getDrawable(context, R.drawable.ic_wikipedia_w)!!.mutate()
+        logo.setTint(ContextCompat.getColor(context, color))
+        logo.setBounds(logoOffset, logoOffset, logoOffset + logoSize, logoOffset + logoSize)
+        return createBitmap(bitmapSize, bitmapSize).applyCanvas { logo.draw(this) }
     }
 
     fun cancelNotification(context: Context) {
