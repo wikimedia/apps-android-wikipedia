@@ -72,6 +72,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.WikipediaAlertDialog
@@ -356,6 +357,7 @@ private fun YearInReviewContent(
                         YearInReviewEndSlide(
                             isDonor = page.isDonor,
                             isTestGroupUser = YearInReviewEndScreenABTest().isUserEligible() && YearInReviewEndScreenABTest().isTestGroupUser(),
+                            hasEnglishAppLanguage = WikipediaApp.instance.languageState.appLanguageCodes.contains("en"),
                             canShareHighlights = canShareHighlights,
                             onCardActionClick = onEndCardClick,
                             onShareHighlightsClick = { isRenderingShareCard = true }

@@ -35,6 +35,7 @@
     <string name="year_in_highlights_screenshot_url" translatable="false">wikimediafoundation.org/yir25</string>
     <string name="year_in_highlights_screenshot_articles_url" translatable="false">wikimediafoundation.org/2025articles</string>
     <string name="year_in_review_store_discount_url" translatable="false">https://store.wikimedia.org/discount/WikiLove?utm_campaign=bf45f7&amp;utm_source=discount_shareable_link</string>
+    <string name="year_in_review_top_read_url" translatable="false">https://wikimediafoundation.org/news/2026/12/01/wikipedia-most-read-articles-2026/?utm_campaign=26yir&amp;utm_source=26appyir&amp;utm_medium=26andcard</string>
     <string name="year_in_review_quiz_url" translatable="false">https://wikipedia25.org/%1$s/which-wikipedia-of-the-future-are-you</string>
     <string name="recommended_reading_list_url" translatable="false">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
     <string name="donation_reminders_experiment_url" translatable="false">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Customizable_Donation_Reminder_Experiment</string>
