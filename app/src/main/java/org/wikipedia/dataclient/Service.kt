@@ -788,9 +788,13 @@ interface Service {
 
         fun isWikimediaAuthority(authority: String?): Boolean {
             return !authority.isNullOrEmpty() &&
-                    (authority == WikiSite.BASE_DOMAIN || authority.endsWith(".${WikiSite.BASE_DOMAIN}") ||
-                            authority == BASE_AUTHORITY_WIKIMEDIA || authority.endsWith(".${BASE_AUTHORITY_WIKIMEDIA}") ||
-                            authority == BASE_AUTHORITY_WIKIDATA || authority.endsWith(".${BASE_AUTHORITY_WIKIDATA}"))
+                    (matchesAuthority(authority, WikiSite.BASE_DOMAIN) ||
+                            matchesAuthority(authority, BASE_AUTHORITY_WIKIMEDIA) ||
+                            matchesAuthority(authority, BASE_AUTHORITY_WIKIDATA))
+        }
+
+        fun matchesAuthority(authority: String, match: String): Boolean {
+            return authority == match || authority.endsWith(".$match")
         }
     }
 }

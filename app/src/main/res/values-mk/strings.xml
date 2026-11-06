@@ -2038,7 +2038,7 @@
   <string name="yir_community_global_reach_headline">Глобалниот досег на Википедија: едно од десетте најпосетувани мрежни места на светот</string>
   <string name="yir_community_global_reach_supporting">Википедија е темел на знаењето на семрежјето. Сите учат од неа, од учениците до виртуелните соговорници.</string>
   <string name="yir_community_contribute_headline">Вие сте важни.</string>
-  <string name="yir_community_contribute_supporting">Википедија постои благодарение на вистински луѓе како вас кои придонесуваат колку што можат за таа да напредува. Ако Википедија има вредност за вас, поддржете ја со парична уплата или уредување.\n\nВеќе учествувате? Најавете се или направете сметка за да ги видите вашите достигнувања.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Википедија постои благодарение на вистински луѓе како вас кои придонесуваат колку што можат за таа да напредува. Ако Википедија има вредност за вас, поддржете ја со парична уплата или уредување.\n\nВеќе учествувате? Најавете се или направете сметка за да ги видите вашите достигнувања.</string>
   <string name="yir_closing_headline">До следното вовлекување</string>
   <string name="yir_closing_supporting">Било да дојдвте поради една статија или сто, ви благодариме што истражувате, читате и останувате љуботицни со нас на Википедија.</string>
   <string name="yir_closing_share_action">Сподели најважни моменти</string>
@@ -2165,14 +2165,6 @@
   <string name="year_in_review_share_subject">Мој Преглед на годината на Википедија</string>
   <string name="year_in_review_share_body">Еве го мојот Преглед на годината. Созаден со прилогот на Википедија за Андроид %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Икона на глобус</string>
-  <string name="settings_app_icon_title">Икона на прилогот</string>
-  <string name="settings_app_icon_subtitle">Придобивка на учесник</string>
-  <string name="settings_app_icon_preference_subtitle">Имате пристап до прилагодлива икона која ги чествува вашите придонеси кон Википедија во %d г направени во прилог. Ќе остане сè до следниот Преглед на годината.</string>
-  <string name="settings_app_icon_updated">Вашиата икона на прилогот е подновена.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Отклучена нова икона на прилог за вашиот почетен екран</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Отклучeте ја вашата награда за придонеси за следната година!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Активирајте ја вашата нова икона на прилогот во нагодувањата под „Икона на прилогот“. Ви благодариме што вложувате во иднината на слободното знаење. Вашите приронеси како %1$s во %2$d г. ни помагаат да го отвориме патот кон свет на слободни информации. Поради придонесите, отклучивте прилагодлива учесничка икона за Википедија на вашиот почетен екран.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Драго ни е што Википедија беше дел од вашата %1$d година! Отклучете специјална награда во вашиот преглед на годината %2$d со тоа што ќе станете учесник — било со &lt;a href=\"%3$s\"&gt;уредување на Википедија&lt;/a&gt; или со дарување од прилогот за &lt;a href=\"%4$s\"&gt;Фондацијата Викимедија&lt;/a&gt;($4), непрофитната организација што стои зад неа. Ако Википедија ви е корисна, би ве замолиле да дарувате за да ја зачуваме за во иднина, и таа да биде слободна, без реклами, меродавна и пристапна за сите. Ако дарувавте на друго место, вашата поддршка длабоко се цени.</string>
   <string name="year_in_review_slide_app_icon_donor">дарител</string>
   <string name="year_in_review_slide_app_icon_editor">уредник</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">дарител и уредник</string>

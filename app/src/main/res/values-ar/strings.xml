@@ -1777,8 +1777,8 @@
   <string name="watchlist_filter_watchlist_activity_seen">التغييرات المرئية</string>
   <string name="watchlist_filter_contribution_quality_header">توقعات جودة المساهمة</string>
   <string name="watchlist_filter_contribution_quality_good">جيد جدا على الأرجح</string>
-  <string name="watchlist_filter_contribution_quality_may_problems">قد تكون بها مشاكل</string>
-  <string name="watchlist_filter_contribution_quality_likely_problems">على الأرجح بها مشاكل</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">قد تكون بها مشكلات</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">على الأرجح بها مشكلات</string>
   <string name="watchlist_filter_contribution_quality_bad">من المحتمل جدا أن تكون بها مشاكل</string>
   <string name="watchlist_filter_user_intent_header">توقعات نية المستخدم</string>
   <string name="watchlist_filter_user_intent_good">من المحتمل جدا حسن النية</string>
@@ -1933,7 +1933,7 @@
   <string name="patroller_tasks_filters_contribution_quality_header">توقعات جودة المساهمة</string>
   <string name="patroller_tasks_filters_contribution_quality_good">جيد جدا على الأرجح</string>
   <string name="patroller_tasks_filters_contribution_quality_good_desc">دقة عالية في العثور على جميع التعديلات الخالية من المشاكل تقريبا.</string>
-  <string name="patroller_tasks_filters_contribution_quality_may_problems">قد تكون بها مشاكل</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">قد تكون بها مشكلات</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">العثور على معظم التعديلات الخاطئة أو الضارة ولكن بدقة أقل.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">على الأرجح بها مشاكل</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">بدقة متوسطة، يُعثر على جزء متوسط تعديلات المشكلات.</string>
@@ -2145,6 +2145,7 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">اطلع على سلسلة انتصاراتك ونتائجك والمزيد</string>
   <string name="wikipedia_games_title">ألعاب ويكيبيديا</string>
   <string name="wikipedia_games_subtitle">ألعاب معلومات عامة يومية تعتمد على محتوى ويكيبيديا.</string>
+  <string name="yir_article_count_headline">إجمالي عدد مقالاتك:</string>
   <string name="year_in_review_learn_more">يتعلم أكثر</string>
   <string name="year_in_review_get_started">البدء</string>
   <string name="year_in_review_topbar_w_icon">أيقونة ويكيبيديا W</string>
@@ -2179,14 +2180,6 @@
   <string name="year_in_review_share_subject">مراجعة عامي على ويكيبيديا</string>
   <string name="year_in_review_share_body">إليكم مراجعة ويكيبيديا لهذا العام. تم الإنشاء باستخدام تطبيق ويكيبيديا لأجهزة أندرويد %1$s %2$s</string>
   <string name="year_in_review_globe_icon">أيقونة الكرة الأرضية</string>
-  <string name="settings_app_icon_title">أيقونة التطبيق</string>
-  <string name="settings_app_icon_subtitle">فائدة المساهم</string>
-  <string name="settings_app_icon_preference_subtitle">لديك إمكانية الوصول إلى أيقونة مخصصة للاحتفال بمساهماتك %d داخل التطبيق في ويكيبيديا. ستبقى هذه الأيقونة حتى مراجعة العام المقبل.</string>
-  <string name="settings_app_icon_updated">لقد تم تحديث أيقونة التطبيق الخاص بك.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">فتحت أيقونة التطبيق الجديدة على الشاشة الرئيسية</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">احصل على مكافأة المساهم الخاصة بك للعام القادم!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">فعّل أيقونة تطبيقك الجديدة في الإعدادات ضمن أيقونة التطبيق. شكرًا لاستثمارك في مستقبل المعرفة المجانية. مساهماتك، كـ %1$s من %2$d ، تُمهّد الطريق لعالم من المعلومات المجانية، ونتيجةً لذلك، حصلت على أيقونة مُخصّصة للمساهمين في ويكيبيديا على شاشتك الرئيسية.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">نحن سعداء أن ويكيبيديا كانت جزءا من %1$d الخاص بك! قم بتحويل مكافأة خاصة في عامك في %2$d في المراجعة من خلال أن تصبح مساهمة - سواء من خلال &lt;a href=\"%3$s\"&gt;تحرير ويكيبيديا&lt;/a&gt; أو عن طريق التبرع من التطبيق إلى &lt;a href=\"%4$s\"&gt;مؤسسة ويكيميديا&lt;/a&gt; ، وهي منظمة غير ربحية وراءها. إذا كانت ويكيبيديا مفيدة لك، يرجى النظر في التبرع للمساعدة في الحفاظ على مستقبلها والحفاظ على مجاناً، خالياً من الإعلانات، وموثوق بها، ويمكن الوصول إليها للجميع. إذا كنت قدمتِ التبرع في مكان آخر، فإن دعمك يقدّر بشدة.</string>
   <string name="year_in_review_slide_app_icon_donor">متبرع</string>
   <string name="year_in_review_slide_app_icon_editor">محرر</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">متبرع ومحرر</string>

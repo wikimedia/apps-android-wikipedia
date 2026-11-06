@@ -39,7 +39,7 @@
   <string name="search_back_button_content_description">Gå tillbaka</string>
   <string name="search_clear_query_content_description">Rensa förfrågan</string>
   <string name="search_icon_content_description">Sök</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Filtrera mina samlingar</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_activity">Aktivitet</string>
   <string name="nav_item_more">Mer</string>
@@ -106,16 +106,16 @@
   <string name="menu_page_watched">Bevakas</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Lägg till i samling</string>
+  <string name="menu_page_add_to_list">Lägg till i läslista</string>
   <string name="menu_page_add_to_default_list">Spara</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Lägg till i samling</string>
+  <string name="feed_card_add_to_list">Lägg till i läslista</string>
   <string name="feed_card_add_to_default_list">Spara</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_article_share">Dela artikel</string>
   <string name="menu_page_article_share">Dela</string>
   <string name="menu_page_open_a_new_tab">Öppna en ny flik</string>
   <string name="menu_page_new_tab">Ny flik</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Samlingar</string>
+  <string name="menu_page_reading_lists">Läslistor</string>
   <string name="menu_page_recently_viewed">Nyligen lästa</string>
   <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Öppna</string>
@@ -159,9 +159,9 @@
   <string name="menu_show_toc">Innehållsförteckning</string>
   <string name="search_no_results_found">Inga resultat hittades</string>
   <string name="search_reading_list_no_results">Inga resultat hittades i \"%s\"</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Inga resultat hittades i samlingar</string>
+  <string name="search_reading_lists_no_results">Inga resultat hittades i läslistor</string>
   <string name="search_all_articles_no_results">Inga resultat hittades i alla artiklar</string>
-  <string name="search_collections_no_results" fuzzy="true">Inga resultat hittades i samlingar</string>
+  <string name="search_collections_no_results">Inga resultat hittades i läslistor</string>
   <string name="search_history_no_results">Inga resultat hittades i historik</string>
   <string name="edit_section_captcha_message">För att skydda mot automatiserad reklam, var god skriv in orden som visas nedan</string>
   <string name="edit_section_captcha_request_an_account_message">Kan du inte se bilden? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Begär ett konto&lt;/a&gt;</string>
@@ -262,8 +262,8 @@
   <string name="preferences_heading_syncing">Synkronisering</string>
   <string name="preferences_heading_data_usage">Dataanvändning</string>
   <string name="preferences_heading_experimental">\nExperimentell</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synkronisera samlingar</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Ladda ned artiklar från samlingar</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synkronisera läslistor</string>
+  <string name="preference_title_download_reading_list_articles">Ladda ned artiklar från läslistor</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Synkronisera samlingar över olika enheter genom att spara dem till ditt Wikipedia-konto</string>
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Synkronisera samlingar över olika enheter genom att spara dem till ditt Wikipedia-konto %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Ta bort synkroniserade samlingar från \"%s\"?</string>
@@ -1963,14 +1963,6 @@
   <string name="year_in_review_share_subject">Min årsöversikt för Wikipedia</string>
   <string name="year_in_review_share_body">Här kommer min årsöversikt för Wikipedia, som skapades med Wikipedias Android-app %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Jordglobsikon</string>
-  <string name="settings_app_icon_title">Appikon</string>
-  <string name="settings_app_icon_subtitle">Bidragsgivarens förmån</string>
-  <string name="settings_app_icon_preference_subtitle">Du har tillgång till en anpassad ikon som hyllar dina %d bidrag till Wikipedia i appen. Den kommer att finnas kvar till nästa årsöversikt.</string>
-  <string name="settings_app_icon_updated">Din appikon har uppdaterats.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Ny appikon har låsts upp för din startskärm</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Lås upp din bidragsbelöning för nästa år!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivera din nya appikon i Inställningar under Appikon. Tack för att du investerar i framtiden för fri kunskap. Dina bidrag som %1$s under %2$d hjälper till att bana väg för en värld av fri information och som ett resultat har du låst upp en anpassad bidragsikon för Wikipedia på din hemskärm.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Vi är glada att Wikipedia var en del av %1$d för dig! Lås upp en speciell belöning under din årsöversikt för %2$d genom att bli en bidragsgivare – antingen genom att &lt;a href=\"%3$s\"&gt;redigera Wikipedia&lt;/a&gt; eller genom att donera från appen till &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, den ideella organisationen bakom den. Om du finner Wikipedia användbart kan du gärna överväga att donera för att hjälpa till att upprätthålla dess framtid och hålla den kostnadsfri, reklamfri, pålitlig och tillgänglig för alla. Om du har donerat någon annanstans uppskattas ditt stöd.</string>
   <string name="year_in_review_slide_app_icon_donor">en givare</string>
   <string name="year_in_review_slide_app_icon_editor">en redigerare</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">en givare och redigerare</string>
@@ -2550,4 +2542,5 @@
     <item quantity="one">Denna artikel kommer att tas bort från alla associerade samlingar.</item>
     <item quantity="other">Dessa artiklar kommer att tas bort från alla associerade samlingar.</item>
   </plurals>
+  <string name="semantic_search_entry_point_card_text_button">Testa nu</string>
 </resources>

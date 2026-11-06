@@ -932,10 +932,6 @@ object Prefs {
             ?: emptyMap()
         set(statsByYear) = PrefsIoUtil.setString(R.string.preference_key_yir_cached_stats, JsonUtil.encodeToString(statsByYear))
 
-    var selectedAppIcon
-        get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
-
     var isGameStatsUnavailableSnackbarShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
@@ -999,6 +995,10 @@ object Prefs {
     var isHomeSwipeToExplorePromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, value)
+
+    var isYearInReviewSwipeTutorialShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_swipe_tutorial_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_swipe_tutorial_shown, value)
 
     var searchWidgetInstallPromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_search_widget_install_prompt_shown, false)

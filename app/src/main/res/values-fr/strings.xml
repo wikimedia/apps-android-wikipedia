@@ -14,6 +14,7 @@
 * Cooltey
 * Crochet.david
 * Crowwhailord
+* Célian
 * Daniel236
 * Dbrant
 * DePlusJean
@@ -26,6 +27,7 @@
 * Envlh
 * Eric.LEWIN
 * Escargot bleu
+* Feldo
 * Fitoschido
 * Florian COLLIN
 * Framawiki
@@ -219,6 +221,8 @@
   <string name="search_no_results_found">Aucun résultat trouvé</string>
   <string name="search_reading_list_no_results">Aucun résultat trouvé dans « %s »</string>
   <string name="search_reading_lists_no_results">Aucun résultat trouvé dans les listes de lecture</string>
+  <string name="search_all_articles_no_results">Aucun résultat n\'a été trouvé dans tous les articles</string>
+  <string name="search_collections_no_results">Aucun résultat trouvé dans les listes de lecture</string>
   <string name="search_history_no_results">Aucun résultat trouvé dans l’historique</string>
   <string name="edit_section_captcha_message">Pour aider à la protection contre le pourriel automatisé, veuillez saisir les mots qui apparaissent ci-dessous</string>
   <string name="edit_section_captcha_request_an_account_message">Impossible de voir l’image ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Demander un compte&lt;/a&gt;</string>
@@ -396,6 +400,12 @@
   <string name="edit_notices_please_read">Veuillez lire avant de modifier</string>
   <string name="edit_notices_show_auto">Afficher automatiquement les avertissements de modification</string>
   <string name="edit_notices_tooltip">Taper sur ce bouton pour afficher les avertissements de modification pour cet article.</string>
+  <string name="editor_select_dialog_title">Choisissez comment modifier</string>
+  <string name="editor_select_dialog_ve_title">Éditeur visuel</string>
+  <string name="editor_select_dialog_source_title">Éditeur de code source</string>
+  <string name="editor_select_dialog_dont_show_again">Ne plus afficher ce message. Ce paramètre peut être changé plus tard dans les paramètres.</string>
+  <string name="editor_select_dialog_continue">Continuer</string>
+  <string name="editor_select_title_settings_screen">Modifier les préférences</string>
   <string name="find_next">Rechercher le suivant</string>
   <string name="find_previous">Rechercher le précédent</string>
   <string name="find_first_occurence">Ceci est la première occurrence</string>
@@ -667,13 +677,18 @@
   <string name="reading_lists_item_deleted">%s supprimé des listes</string>
   <string name="reading_list_item_delete_undo">Annuler</string>
   <string name="reading_list_deleted">%s supprimé</string>
-  <string name="saved_list_empty_title" fuzzy="true">Encore aucune page enregistrée</string>
+  <string name="saved_list_empty_title">Aucun article enregistré pour le moment</string>
   <string name="reading_lists_empty_message">Ajouter des articles à une liste pour les lire plus tard, même quand vous serez hors connexion.</string>
+  <string name="reading_lists_search_empty_articles_title">Aucun article enregistré trouvé</string>
+  <string name="reading_lists_search_empty_articles_message">Nous n\'avons pas trouvé « %s » dans vos articles enregistrés.</string>
+  <string name="reading_lists_search_empty_collections_title">Aucune liste de lecture trouvée</string>
+  <string name="reading_lists_search_empty_collections_message">Nous n\'avons pas trouvé « %s » dans vos listes de lecture.</string>
   <string name="reading_list_empty">Vous n’avez aucun article ajouté à cette liste.</string>
   <string name="reading_list_article_offline">Disponible hors connexion</string>
   <string name="reading_list_article_make_offline">Marquer cet article comme disponible hors connexion</string>
   <string name="reading_list_add_to_other_list">Ajouter à une autre liste de lecture</string>
   <string name="reading_list_move_to_other_list">Déplacer vers une autre liste de lecture</string>
+  <string name="reading_list_add_to_collection">Ajouter à la liste de lecture</string>
   <string name="reading_list_move_from_to_other_list">Déplacer de %s vers une autre liste de lecture</string>
   <string name="reading_list_remove_from_list">Supprimer de %s</string>
   <string name="reading_list_remove_from_lists">Supprimer des listes de lecture</string>
@@ -719,7 +734,7 @@
   <string name="reading_list_saved_list_rename">%1$s (créé par l’utilisateur)</string>
   <string name="split_reading_list_message">Les listes de lecture sont limitées à %d articles par liste. Les listes existantes qui en avait trop ont été scindées en plusieurs listes.</string>
   <string name="reading_list_move_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
-  <string name="reading_list_article_limit_message" fuzzy="true">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
+  <string name="reading_list_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
   <string name="reading_lists_limit_message">Impossible de créer une autre liste. Vous avez atteint la limite de 100 listes de lecture par compte.</string>
   <string name="reading_lists_menu_create_list">Créer une nouvelle liste</string>
   <string name="reading_lists_menu_import_list">Importer la liste</string>
@@ -1348,7 +1363,7 @@
   <string name="onboarding_explore_title">Nouvelles façons d’explorer</string>
   <string name="onboarding_explore_text">Plongez dans l\'univers de Wikipédia avec un fil d\'actualité continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos centres d\'intérêt — que ce soit pour découvrir les événements historiques &lt;b&gt;Ce jour-là&lt;/b&gt;, ou tenter votre chance avec &lt;b&gt;l\'option Aléatoire&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
-  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Données &amp; confidentialité</string>
   <string name="onboarding_data_privacy_text">Nous considérons que vous ne devriez pas avoir à fournir d’informations personnelles pour participer au mouvement du savoir libre. Les données d’utilisation collectées pour cette application sont anonymes. Apprenez-en plus sur notre &lt;a href=\"#privacy\"&gt;politique de confidentialité&lt;/a&gt; et &lt;a href=\"#termsOfUse\"&gt;nos conditions d’utilisation&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
@@ -1874,6 +1889,8 @@
   <string name="places_empty_message_snackbar">Il n\'y a pas d\'articles à proximité. Essayez de dézoomer ou de déplacer la carte.</string>
   <string name="survey_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
   <string name="survey_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
+  <string name="home_feed_survey_title">Aidez à améliorer le fil d\'actualité</string>
+  <string name="home_feed_survey_message">Êtes-vous satisfait des flux « Communauté » et « Pour vous » ?</string>
   <string name="survey_dialog_option_satisfied">Satisfait</string>
   <string name="survey_dialog_option_neutral">Neutre</string>
   <string name="survey_dialog_option_unsatisfied">Insatisfait</string>
@@ -1941,7 +1958,7 @@
   <string name="on_this_day_game_notification_undo">Annuler</string>
   <string name="on_this_day_game_share_link_message">Je joue à « Qui est arrivé en premier ? », un jeu-questionnaire quotidien sur l\'application Android Wikipédia %s</string>
   <string name="on_this_day_game_share_screen_title">J\'ai obtenu un score de %1$d/%2$d sur « Qu\'est-ce qui est venu en premier ? ».</string>
-  <string name="on_this_day_game_share_screen_subtitle">Thèmes abordés :</string>
+  <string name="on_this_day_game_share_screen_subtitle">Sujets abordés :</string>
   <string name="on_this_day_game_archive_calendar_title">Choisissez un jeu par date.</string>
   <string name="on_this_day_game_score_toast_message">Votre score pour ce jour est de %1$d/%2$d.</string>
   <string name="on_this_day_game_continue_btn_text">Continuer le jeu du jour</string>
@@ -1964,6 +1981,17 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Voir vos streaks, vos scores et plus encore</string>
   <string name="wikipedia_games_title">Jeux de Wikipédia</string>
   <string name="wikipedia_games_subtitle">Jeux quotidiens basés sur le contenu de Wikipédia.</string>
+  <string name="yir_intro_headline">Votre bilan annuel Wikipédia est ici.</string>
+  <string name="yir_article_count_headline">Votre nombre total d\'articles:</string>
+  <string name="yir_article_count_supporting">Vous avez exploré toute l\'année. Chaque article a enrichi vos connaissances.</string>
+  <string name="yir_article_count_empty_headline">Vous avez des millions d\'articles à découvrir</string>
+  <string name="yir_article_count_empty_supporting">Attends juste de découvrir tout ce qu\'il y a à apprendre sur Wikipedia.</string>
+  <string name="yir_minutes_read_headline">Durée totale de lecture (en minutes) :</string>
+  <string name="yir_top_topic_headline">Votre sujet principal en %1$d :</string>
+  <string name="yir_top_topic_empty_headline">Votre sujet numéro 1 en %1$d est… tous</string>
+  <string name="yir_top_topic_empty_supporting">Avec tant d\'intérêts, il n\'y a aucun sujet qui a défini vos habitudes de lecture.</string>
+  <string name="yir_customize_home_headline">Faites de ce fil d\'actualité le vôtre</string>
+  <string name="yir_topic_comment_north_america">Vos lectures vous ont permis de rester près de chez vous en Amérique du Nord (ou de la découvrir à distance).</string>
   <string name="year_in_review_learn_more">En savoir plus</string>
   <string name="year_in_review_get_started">Commencer</string>
   <string name="year_in_review_topbar_w_icon">Icône de Wikipédia W</string>
@@ -1998,14 +2026,6 @@
   <string name="year_in_review_share_subject">Ma rétrospective annuelle de Wikipédia</string>
   <string name="year_in_review_share_body">Voici ma rétrospective annuelle de Wikipédia, créée avec l’appli Wikipédia pour Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Icône de globe</string>
-  <string name="settings_app_icon_title">Icône de l’appli</string>
-  <string name="settings_app_icon_subtitle">Privilège des contributeurs</string>
-  <string name="settings_app_icon_preference_subtitle">Vous avez accès à une icône personnalisée qui met en valeur vos contributions à Wikipédia en %d via l’application. Elle restera affichée jusqu’au prochain bilan annuel.</string>
-  <string name="settings_app_icon_updated">L’icône de votre appli a été mise à jour.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nouvelle icône d’appli débloquée pour votre écran d’accueil</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Débloquez votre récompense pour vos contributions !</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Activez votre nouvelle icône d\'application dans les paramètres en dessous de l\'icône de l\'application. Merci d\'avoir investi dans le futur du savoir gratuit. Vos contributions en tant que %1$s dans %2$d aident à bâtir un monde d\'information gratuite, et grâce à ça, vous avez débloqué une icône customisée de contributeur pour Wikipedia sur votre écran d\'accueil.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Nous sommes ravis que Wikipédia ait fait partie de votre année %1$d&amp;nbsp;! Débloquez une récompense spéciale dans votre Bilan %2$d en devenant contributeur·rice&amp;nbsp;— que ce soit en &lt;a href=\"%3$s\"&gt;modifiant Wikipédia&lt;/a&gt; ou en faisant un don depuis l’application à la &lt;a href=\"%4$s\"&gt;Fondation Wikimedia&lt;/a&gt;, l’organisme à but non lucratif qui la soutient. Si Wikipédia vous est utile, pensez à faire un don pour aider à préserver son avenir et la garder gratuite, sans publicité, fiable et accessible à toutes et à tous. Si vous avez déjà fait un don ailleurs, votre soutien nous touche profondément.</string>
   <string name="year_in_review_slide_app_icon_donor">donateur·rice</string>
   <string name="year_in_review_slide_app_icon_editor">contributeur·rice</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donateur·rice et contributeur·rice</string>
@@ -2453,6 +2473,11 @@
   <string name="home_feed_settings_for_you_modules_description">Désactiver un module le masque dans votre flux « Pour vous ». Vous pouvez le réactiver ici à tout moment.</string>
   <string name="home_feed_settings_based_on_interest_title">En fonction de vos intérêts</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Des articles adaptés aux sujets que vous avez choisis.&lt;br /&gt; &lt;a href=\"#drivingFeed\"&gt;Qu\'est-ce qui influence votre flux ?&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">Nouveautés dans vos centres d\'intérêt</string>
+  <string name="home_feed_new_within_interest_title">Nouveaux articles dans vos intérêts</string>
+  <string name="home_feed_new_within_interest_subtitle">Articles récemment créés dans les thèmes que vous suivez</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">Écoutez les introductions des articles</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Contenu audio généré pour les introductions d\'articles dans les thèmes que vous suivez</string>
   <string name="home_feed_settings_because_you_read_subtitle">Suggestions basées sur un article récemment lu de votre historique</string>
   <string name="home_feed_settings_continue_reading_title">Continuer à lire</string>
   <string name="home_feed_settings_continue_reading_subtitle">Reprendre les articles que vous n\'avez pas terminés.</string>
