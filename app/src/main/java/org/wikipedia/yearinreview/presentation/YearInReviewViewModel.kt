@@ -13,7 +13,6 @@ import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.yearinreview.data.YearInReviewAvailability
 import org.wikipedia.yearinreview.data.YearInReviewConfig
-import org.wikipedia.yearinreview.data.YearInReviewDonationEligibility
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import org.wikipedia.yearinreview.data.YearInReviewRepository
 import org.wikipedia.yearinreview.data.YearInReviewRepositoryImpl
@@ -83,10 +82,5 @@ class YearInReviewViewModel(
         )
 
         var currentCampaignId: String? = null
-
-        val isCustomIconAllowed get() = Prefs.yearInReviewCachedStats[YIR_YEAR]?.let {
-            YearInReviewDonationEligibility().hasDonatedWithinContributionsDateRange(YearInReviewConfig.cachedRemoteConfig) ||
-                    (it.editingStats?.totalEditCount ?: 0) > 0
-        } == true
     }
 }

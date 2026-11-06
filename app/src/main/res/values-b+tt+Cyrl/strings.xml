@@ -1820,7 +1820,6 @@
   <string name="year_in_review_disable_positive_button">Әйе, телим</string>
   <string name="year_in_review_disable_negative_button">Юк, теләмим</string>
   <string name="year_in_review_globe_icon">Глобус тамгачыгы</string>
-  <string name="settings_app_icon_title">Кушымта тамгачыгы</string>
   <string name="year_in_review_slide_top_categories_headline">Сезне иң кызыксындырган төркемнәр</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Мәкалә эзләү</string>
   <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Сезнең өчен булдырылган</string>

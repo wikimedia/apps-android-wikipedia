@@ -2092,14 +2092,6 @@
   <string name="year_in_review_share_subject">Mäi Wikipedia-Joresréckbléck</string>
   <string name="year_in_review_share_body">Hei ass mäi Wikipedia-Joresréckbléck. Mat der Wikipedia-Android-App erstallt %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Globussymbol</string>
-  <string name="settings_app_icon_title">App-Symbol</string>
-  <string name="settings_app_icon_subtitle">Virdeeler fir Contributeuren</string>
-  <string name="settings_app_icon_preference_subtitle">Dir hutt Zougrëff op e personaliséiert Symbol, fir Är %d Wikipedia-Kontributiounen an der App ze feieren. Et wäert bis den nächste Joresréckbléck dobleiwen.</string>
-  <string name="settings_app_icon_updated">Äert App-Symbol gouf aktualiséiert.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Neit App-Symbol fir Äre Startbildschierm fräigeschalt</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Schalt Äert Contributeur-Symbol fir d\'nächst Joer fräi!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivéiert Äert neit App-Symbol an den Astellungen ënner „App-Symbol“. Merci fir Ären Investissement an d\'Zukunft vum fräie Wëssen. Är Kontributiounen als %1$s op %2$d droen dozou bäi, dee Wee a Richtung vun enger Welt voller fräier Informatiounen fräizemaachen, an dofir hutt Dir e personaliséiert Symbol fir Wikipedia-Contributeure fir Äre Startbildschierm fräigeschalt.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Mir si frou, datt Wikipedia Deel vun Ärem Joer %1$d war! Dir kënnt eng speziell Belounung an Ärem Joresréckbléck fir %2$d fräischalten, andeems Dir selwer e Bäitrag leescht – sief et, andeems Dir &lt;a href=\"%3$s\"&gt;Ännerungen op Wikipedia maacht&lt;/a&gt;, oder andeems Dir an der App en Don fir d\'&lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt; maacht, d\'Organisatioun ouni Gewënnzweck hannendrun. Wa Wikipedia fir Iech nëtzlech ass, consideréiert wgl., en Don ze maachen an domat dozou bäizedroen, datt se fräi, och fräi vu Reklammen, zouverléisseg a fir jiddereen accessibel bleift. Wann Dir anerwäerts schonn en Don gemaach hutt, soe mir Iech villmools Merci fir Är Ënnerstëtzung.</string>
   <string name="year_in_review_slide_app_icon_donor">Donateur</string>
   <string name="year_in_review_slide_app_icon_editor">Editeur</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">Donateur an Editeur</string>

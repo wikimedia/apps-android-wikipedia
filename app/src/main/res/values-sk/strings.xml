@@ -2337,14 +2337,6 @@
   <string name="year_in_review_share_subject">Môj Rok v skratke na Wikipédii</string>
   <string name="year_in_review_share_body">Toto je môj Rok v skratke na Wikipédii. Vytvorené v aplikácii Wikipédia pre Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Ikona glóbusu</string>
-  <string name="settings_app_icon_title">Ikona aplikácie</string>
-  <string name="settings_app_icon_subtitle">Výhoda pre prispievateľov</string>
-  <string name="settings_app_icon_preference_subtitle">Máte prístup k osobitnej ikone, ktorá oslavuje vaše príspevky do Wikipédie v aplikácii za rok %d. Zostane až do ďalšieho Roku v skratke.</string>
-  <string name="settings_app_icon_updated">Vaša ikona aplikácie bola aktualizovaná.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Odomkli ste novú ikonu aplikácie pre svoju domovskú obrazovku</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Odomknite si odmenu pre prispievateľov na budúci rok!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivujte si novú ikonu aplikácie v Nastaveniach v časti Ikona aplikácie. Ďakujeme, že investujete do budúcnosti slobodných vedomostí. Vaše príspevky ako %1$s v roku %2$d pomáhajú dláždiť cestu k svetu slobodných informácií, a preto ste si odomkli osobitnú ikonu prispievateľa pre Wikipédiu na svojej domovskej obrazovke.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Sme radi, že Wikipédia bola súčasťou vášho roka %1$d! Odomknite si špeciálnu odmenu vo svojom Roku v skratke %2$d tým, že sa stanete prispievateľom – či už &lt;a href=\"%3$s\"&gt;úpravou Wikipédie&lt;/a&gt;, alebo darom z aplikácie &lt;a href=\"%4$s\"&gt;nadácii Wikimedia Foundation&lt;/a&gt;, neziskovej organizácii, ktorá za ňou stojí. Ak je pre vás Wikipédia užitočná, zvážte prosím dar, ktorý pomôže udržať jej budúcnosť a zachovať ju bezplatnú, bez reklám, dôveryhodnú a prístupnú pre všetkých. Ak ste darovali inde, vašu podporu si hlboko vážime.</string>
   <string name="year_in_review_slide_app_icon_donor">darca</string>
   <string name="year_in_review_slide_app_icon_editor">redaktor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">darca a redaktor</string>
