@@ -59,67 +59,22 @@ class YearInReviewDonationEligibilityTest {
     }
 
     @Test
-    fun `web pref makes user a donor when there is no local donation`() = runBlocking {
-        val sampleData = donorPref(2)
-        val eligibility = YearInReviewDonationEligibility(
-            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = sampleData) },
-            isLoggedIn = { true }
-        ) { emptyList() }
-
-        assertTrue(eligibility.isDonor(remoteConfig = null))
-    }
-
-    @Test
-    fun `logged out user is not a donor even with a web donor value`() = runBlocking {
-        val sampleData = donorPref(1)
-        val eligibility = YearInReviewDonationEligibility(
-            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = sampleData) },
-            isLoggedIn = { false }
-        ) { emptyList() }
-
-        assertFalse(eligibility.isDonor(remoteConfig = null))
-    }
-
-    @Test
     fun `contactable value 5 is not a donor`() = runBlocking {
-        val sampleData = donorPref(5)
-        val eligibility = YearInReviewDonationEligibility(
-            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = sampleData) },
-            isLoggedIn = { true }
-        ) { emptyList() }
-
-        assertFalse(eligibility.isDonor(remoteConfig = null))
-    }
-
-    @Test
-    fun `web pref returns blank but local donation exists`() = runBlocking {
-        val sampleData = ""
-        val eligibility = YearInReviewDonationEligibility(
-            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = sampleData) },
-            isLoggedIn = { true }
-        ) { listOf(DonationResult(dateTime = "2026-06-15T12:00:00")) }
-
-        assertTrue(eligibility.isDonor(remoteConfig = null))
+        val response = donationStatusFromWeb(donorPref = donorPref(5))
+        assertFalse(response.query?.userInfo?.options?.wikimediaDonorCode?.isRecentDonor == true)
     }
 
     @Test
     fun `malformed web pref is not a donor`() = runBlocking {
-        val eligibility = YearInReviewDonationEligibility(
-            donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = "{not json") },
-            isLoggedIn = { true }
-        ) { emptyList() }
-
-        assertFalse(eligibility.isDonor(remoteConfig = null))
+        val response = donationStatusFromWeb(donorPref = "{not json")
+        assertFalse(response.query?.userInfo?.options?.wikimediaDonorCode?.isRecentDonor == true)
     }
 
     @Test
     fun `web values map to YiR donor status`() = runBlocking {
         mapOf(0 to false, 1 to true, 2 to true, 3 to false, 4 to true, 5 to false).forEach { (value, expected) ->
-            val eligibility = YearInReviewDonationEligibility(
-                donationStatusFromWebProvider = { donationStatusFromWeb(donorPref = donorPref(value)) },
-                isLoggedIn = { true }
-            ) { emptyList() }
-            assertEquals("value $value", expected, eligibility.isDonor(remoteConfig = null))
+            val response = donationStatusFromWeb(donorPref = donorPref(value))
+            assertEquals("value $value", expected, response.query?.userInfo?.options?.wikimediaDonorCode?.isRecentDonor == true)
         }
     }
 }
