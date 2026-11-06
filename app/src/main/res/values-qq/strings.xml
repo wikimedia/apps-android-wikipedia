@@ -2269,6 +2269,8 @@
   <string name="year_in_review_highlights_logged_in_total_edits_title">Title of the sixth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_share_button_title">Title for the button that shares the Highlights screen.</string>
   <string name="year_in_review_highlights_logo_description">Text for for the Wikipedia logo in year-in-review highlights.</string>
+  <string name="year_in_review_swipe_tutorial_title">Title of the Year in Review prompt that shows the gesture for moving between slides.</string>
+  <string name="year_in_review_swipe_tutorial_message">Message of the Year in Review prompt that shows the gesture for moving between slides.</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
   <string name="recommended_reading_list_onboarding_card_message">Message on the onboarding card for the recommended reading list.</string>
