@@ -17,7 +17,8 @@ data class SearchResult(val pageTitle: PageTitle,
                         val sectionTitle: String? = null,
                         val editCounts: Int? = null,
                         val referenceCounts: Int? = null,
-                        val lastUpdated: String? = null) {
+                        val lastUpdated: String? = null,
+                        val pageId: Int = 0) {
 
     @Serializable
     enum class SearchResultType {
@@ -50,7 +51,8 @@ data class SearchResult(val pageTitle: PageTitle,
         sectionTitle = page.sectionTitle,
         editCounts = editCounts,
         referenceCounts = referenceCounts,
-        lastUpdated = lastUpdated
+        lastUpdated = lastUpdated,
+        pageId = page.pageId
     )
 
     constructor(pageTitle: PageTitle, searchResultType: SearchResultType = SearchResultType.PREFIX, snippet: String? = null, indexInApiCall: Int = 0) :
