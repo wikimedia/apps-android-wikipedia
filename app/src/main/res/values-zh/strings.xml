@@ -1962,14 +1962,6 @@
   <string name="year_in_review_share_subject">我的维基百科年度回顾</string>
   <string name="year_in_review_share_body">这是我的维基百科年度回顾。使用 Wikipedia Android 应用创建而成。%1$s %2$s</string>
   <string name="year_in_review_globe_icon">地球图标</string>
-  <string name="settings_app_icon_title">应用程序图标</string>
-  <string name="settings_app_icon_subtitle">贡献者福利</string>
-  <string name="settings_app_icon_preference_subtitle">您获得了一个自定义图标，以表彰您于%d年在应用内对维基百科做出的贡献。该图标将保留至下一次年度回顾。</string>
-  <string name="settings_app_icon_updated">您的应用图标已更新。</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">已解锁新的桌面应用图标</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">解锁您明年的贡献者奖励！</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">请在“设置”中的“应用图标”下激活您的新应用图标。感谢您为自由知识的未来贡献力量。您%2$d年作为%1$s的贡献正在帮助我们铺就通往自由信息世界的道路，因此，您已解锁了维基百科贡献者的自定义桌面图标。</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">我们很高兴维基百科成为您%1$d年活动的一部分！成为贡献者，即可在您的%2$d年度回顾中解锁特别奖励——无论是在应用内&lt;a href=\"%3$s\"&gt;编辑维基百科&lt;/a&gt;，还是对其背后的&lt;a href=\"%4$s\"&gt;维基媒体基金会&lt;/a&gt;捐款。如果您认为维基百科对您有所帮助，欢迎考虑捐赠我们，来帮助维基百科的未来发展，保持免费、无广告、值得信赖且人人可访问的运作状态。如果您已通过其他渠道捐款，我们衷心感谢您的支持。</string>
   <string name="year_in_review_slide_app_icon_donor">捐赠者</string>
   <string name="year_in_review_slide_app_icon_editor">编辑者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">捐赠者和编辑者</string>

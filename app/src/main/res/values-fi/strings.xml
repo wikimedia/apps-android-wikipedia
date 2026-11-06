@@ -2180,14 +2180,6 @@
   <string name="year_in_review_share_subject">Minun Wikipedia-vuosikatsaukseni</string>
   <string name="year_in_review_share_body">Tämä on Wikipedia-vuosikatsaukseni, joka on luotu Wikipedian Android-sovelluksella %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Maapallo-kuvake</string>
-  <string name="settings_app_icon_title">Sovelluskuvake</string>
-  <string name="settings_app_icon_subtitle">Muokkaajaetu</string>
-  <string name="settings_app_icon_preference_subtitle">Sinun on mahdollista ottaa käyttöön mukautettu sovelluskuvake juhlistaaksesi vuonna %d sovelluksessa tekemiäsi muokkauksia Wikipediaan. Se pysyy käytössä seuraavaan vuosikatsaukseen saakka.</string>
-  <string name="settings_app_icon_updated">Sovelluskuvakkeesi on päivitetty.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Uusi sovelluskuvake mahdollista ottaa käyttöön aloitusnäytölläsi</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Ota käyttöön muokkaajapalkintosi ensi vuodelle!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivoi uusi sovelluskuvakkeesi asetusten Sovelluskuvake-osiossa. Kiitos, kun otit osaa vapaan tiedon tulevaisuuteen. Osallistumisesi %1$s vuonna %2$d auttoi tasoittamaan tietä kohti vapaan tiedon maailmaa. Tästä syystä sinun on mahdollista ottaa käyttöön erityinen sovelluskuvake Wikipedia-sovellukselle aloitusnäytölläsi.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Olemme iloisia, että Wikipedia oli osa sinun vuottasi %1$d! Saat erityispalkinnon vuoden %2$d vuosikatsauksessasi ryhtymällä muokkaajaksi tai lahjoittajaksi – joko &lt;a href=\"%3$s\"&gt;muokkaamalla Wikipediaa&lt;/a&gt; tai lahjoittamalla sovelluksen kautta &lt;a href=\"%4$s\"&gt;Wikimedia-säätiölle&lt;/a&gt;, Wikipediaa ylläpitävälle säätiölle. Jos Wikipedia on sinulle hyödyllinen, harkitse lahjoittamista sen tulevaisuuden turvaamiseksi ja pitääksesi sen vapaana, mainoksettomana, luotettavana ja kaikien saavutettavana. Jos olet lahjoittanut muualla, arvostamme suuresti tukeasi.</string>
   <string name="year_in_review_slide_app_icon_donor">lahjoittajana</string>
   <string name="year_in_review_slide_app_icon_editor">muokkaajana</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">lahjoittajana ja muokkaajana</string>

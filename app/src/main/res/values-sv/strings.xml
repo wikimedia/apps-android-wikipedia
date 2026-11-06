@@ -1963,14 +1963,6 @@
   <string name="year_in_review_share_subject">Min årsöversikt för Wikipedia</string>
   <string name="year_in_review_share_body">Här kommer min årsöversikt för Wikipedia, som skapades med Wikipedias Android-app %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Jordglobsikon</string>
-  <string name="settings_app_icon_title">Appikon</string>
-  <string name="settings_app_icon_subtitle">Bidragsgivarens förmån</string>
-  <string name="settings_app_icon_preference_subtitle">Du har tillgång till en anpassad ikon som hyllar dina %d bidrag till Wikipedia i appen. Den kommer att finnas kvar till nästa årsöversikt.</string>
-  <string name="settings_app_icon_updated">Din appikon har uppdaterats.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Ny appikon har låsts upp för din startskärm</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Lås upp din bidragsbelöning för nästa år!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivera din nya appikon i Inställningar under Appikon. Tack för att du investerar i framtiden för fri kunskap. Dina bidrag som %1$s under %2$d hjälper till att bana väg för en värld av fri information och som ett resultat har du låst upp en anpassad bidragsikon för Wikipedia på din hemskärm.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Vi är glada att Wikipedia var en del av %1$d för dig! Lås upp en speciell belöning under din årsöversikt för %2$d genom att bli en bidragsgivare – antingen genom att &lt;a href=\"%3$s\"&gt;redigera Wikipedia&lt;/a&gt; eller genom att donera från appen till &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, den ideella organisationen bakom den. Om du finner Wikipedia användbart kan du gärna överväga att donera för att hjälpa till att upprätthålla dess framtid och hålla den kostnadsfri, reklamfri, pålitlig och tillgänglig för alla. Om du har donerat någon annanstans uppskattas ditt stöd.</string>
   <string name="year_in_review_slide_app_icon_donor">en givare</string>
   <string name="year_in_review_slide_app_icon_editor">en redigerare</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">en givare och redigerare</string>

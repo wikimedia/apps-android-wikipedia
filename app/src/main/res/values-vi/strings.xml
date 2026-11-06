@@ -1786,7 +1786,6 @@
   <string name="year_in_review_survey_cancel">Hủy bỏ</string>
   <string name="year_in_review_survey_submit">Gửi</string>
   <string name="year_in_review_disable_negative_button">Không, cảm ơn</string>
-  <string name="settings_app_icon_title">Biểu tượng ứng dụng</string>
   <string name="year_in_review_login_dialog_positive">Đăng nhập / Tham gia Wikipedia</string>
   <string name="year_in_review_login_dialog_negative">Tiếp tục mà không cần đăng nhập</string>
   <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">Buổi sáng</string>
