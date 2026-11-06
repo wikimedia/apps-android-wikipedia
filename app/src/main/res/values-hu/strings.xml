@@ -2177,14 +2177,6 @@
   <string name="year_in_review_share_subject">Az én Wikipédia Éves összefoglalóm</string>
   <string name="year_in_review_share_body">Íme a Wikipédia Éves összefoglalóm. A Wikipédia Android alkalmazással készült. %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Földgömb ikon</string>
-  <string name="settings_app_icon_title">App ikon</string>
-  <string name="settings_app_icon_subtitle">Közreműködői előny</string>
-  <string name="settings_app_icon_preference_subtitle">Hozzáférést kapsz egy egyedi ikonhoz, amely a Wikipédia alkalmazásban a %d. évben tett hozzájárulásaidat ünnepli. Az ikon a következő Éves összefoglalóig marad elérhető.</string>
-  <string name="settings_app_icon_updated">Az alkalmazás ikonja frissült.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Új alkalmazásikon vált elérhetővé a kezdőképernyődön</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Oldd fel a közreműködői jutalmadat a jövő évre!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktiváld az új alkalmazásikont a Beállításokban, az Alkalmazásikon menüpont alatt. Köszönjük, hogy befektetsz a szabad tudás jövőjébe. A %2$d. évben %1$s szerepben tett hozzájárulásaid hozzájárulnak a szabad információ világának megteremtéséhez, ennek eredményeként pedig feloldottál egy egyedi közreműködői ikont a Wikipédia számára a kezdőképernyődön.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Örülünk, hogy a Wikipédia része volt a(z) %1$d-es évednek! Oldj fel egy különleges jutalmat a(z) %2$d-es Éves összefoglalódban azzal, hogy hozzájárulsz — akár a Wikipédia &lt;a href=\"%3$s\"&gt;szerkesztésével&lt;/a&gt;, akár az alkalmazáson keresztül a mögötte álló nonprofit &lt;a href=\"%4$s\"&gt;Wikimédia Alapítvány&lt;/a&gt; támogatásával. Ha hasznos számodra a Wikipédia, kérjük, fontold meg az adományozást, hogy segíts fenntartani a jövőjét, és megőrizni azt ingyenesnek, reklámmentesnek, megbízhatónak és mindenki számára hozzáférhetőnek. Ha máshol adományoztál, a támogatásodat ezúton is nagyra értékeljük.</string>
   <string name="year_in_review_slide_app_icon_donor">adományozó</string>
   <string name="year_in_review_slide_app_icon_editor">szerkesztő</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">adományozó és szerkesztő</string>

@@ -1916,14 +1916,6 @@
   <string name="year_in_review_share_subject">Tinjauan Tahunan Wikipedia Saya</string>
   <string name="year_in_review_share_body">Inilah Tinjauan Tahunan Wikipedia saya. Dibuat dengan aplikasi Wikipedia Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Ikon globe</string>
-  <string name="settings_app_icon_title">Ikon aplikasi</string>
-  <string name="settings_app_icon_subtitle">Manfaat kontributor</string>
-  <string name="settings_app_icon_preference_subtitle">Anda punya akses ke ikon khusus yang merayakan kontribusi %d Anda dalam aplikasi untuk Wikipedia. Ikon ini akan tetap ada hingga Tinjauan Tahunan berikutnya.</string>
-  <string name="settings_app_icon_updated">Ikon aplikasi Anda telah diperbarui.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Ikon aplikasi baru tersedia untuk layar beranda Anda</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Dapatkan hadiah kontributor Anda untuk tahun depan!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktifkan ikon aplikasi baru Anda di Pengaturan di bawah Ikon aplikasi. Terima kasih telah berinvestasi dalam masa depan pengetahuan bebas. Kontribusi Anda sebagai %1$s di %2$d membantu membuka jalan menuju dunia informasi bebas, dan sebagai hasilnya Anda telah membuka kunci ikon kontributor khusus untuk Wikipedia di layar beranda Anda.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Kami senang Wikipedia menjadi bagian dari tahun %1$d Anda! Raih hadiah istimewa di Tinjauan Tahunan %2$d Anda dengan menjadi kontributor—baik dengan &lt;a href=\"%3$s\"&gt;menyunting Wikipedia&lt;/a&gt; atau dengan menyumbang dari aplikasi ke &lt;a href=\"%4$s\"&gt;Yayasan Wikimedia&lt;/a&gt;, organisasi nirlaba di baliknya. Jika Wikipedia berguna bagi Anda, pertimbangkan untuk guna membantu keberlanjutannya di masa depan dan menjaganya agar tetap gratis, bebas iklan, tepercaya, dan dapat diakses oleh semua orang. Jika Anda telah menyumbang di tempat lain, dukungan Anda sangat kami hargai.</string>
   <string name="year_in_review_slide_app_icon_donor">donor</string>
   <string name="year_in_review_slide_app_icon_editor">editor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donor dan editor</string>

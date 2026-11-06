@@ -2395,14 +2395,6 @@
   <string name="year_in_review_share_subject">Ma Bilañs ar Bloaz e Wikipedia</string>
   <string name="year_in_review_share_body">Setu amañ ma Bilañs ar Bloaz e Wikipedia. Krouet gant an arload Wikipedia Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Arlun ar voul-douar</string>
-  <string name="settings_app_icon_title">Arlun an arload</string>
-  <string name="settings_app_icon_subtitle">Splet ar perzhiad</string>
-  <string name="settings_app_icon_preference_subtitle">Tu zo deoc\'h da gaout un arlun personelaet a lid ho tegasadennoù da Wikipedia e %d dre an arload. Chom a raio betek Bilañs ar Bloaz a zeu.</string>
-  <string name="settings_app_icon_updated">Hizivaet eo bet ho arlun arload.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Dibrennet eo bet an arlun nevez evit ho skramm degemer</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Dibrennit ho karedon perzhiad evit ar bloaz a zeu !</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Gweredit ho arlun arload nevez e Dibarzhioù dindan Arlun an arload. Trugarez deoc\'h evit kemer perzh e dazont ar c\'houziegezh frank. Ho tegasadennoù evel  %1$s e %2$d a sikour da sevel ur bed titouroù frank ennañ, ha dre-se hoc\'h eus dibrennet un arload perzhiad personelaet evit Wikipedia war ho skramm degemer.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Laouen omp pa \'z eo bet Wikipedia un elfenn eus ho ploaziad %1$d ! Dibrennit ur garedon dibar en ho Pilañs ar Bloaz %2$d dre zont da vezañ ur perzhiad – dre &lt;a href=\"%3$s\"&gt;gemmañ Wikipedia&lt;/a&gt; pe dre zonezoniñ adal an arload d\'ar &lt;a href=\"%4$s\"&gt;Fondezon Wikimedia&lt;/a&gt;, ar gevredigezh hep pal arc\'hantus a zo a-drek. Mard eo talvoudus Wikipedia deoc\'h, soñjit e donezonañ evit sikour da skorañ e zazont hag e virout digoust, hep bruderezh, solius ha digor d\'an holl. Mard hoc\'h eus donezonet en ul lec\'h all, priziet-bras eo ho skoazell.</string>
   <string name="year_in_review_slide_app_icon_donor">un donezoner</string>
   <string name="year_in_review_slide_app_icon_editor">un aozer</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">un donezoner hag un aozer</string>
