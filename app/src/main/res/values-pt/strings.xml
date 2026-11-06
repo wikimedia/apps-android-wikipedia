@@ -1830,8 +1830,6 @@
   <string name="year_in_review_disable_negative_button">Não, obrigado</string>
   <string name="year_in_review_share_subject">Meu Ano da Wikipédia em Avaliação</string>
   <string name="year_in_review_globe_icon">Ícone Globo</string>
-  <string name="settings_app_icon_title">Ícone da aplicação</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Desbloqueie a sua recompensa para o próximo ano!</string>
   <string name="year_in_review_slide_app_icon_donor">um doador</string>
   <string name="year_in_review_slide_app_icon_editor">um editor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">um doador e editor</string>
