@@ -74,7 +74,7 @@ class YearInReviewActivity : BaseActivity() {
                 // The music should only play when the slides are active, not on the loading or error screen
                 if (uiState is YearInReviewUiState.Content) {
                     LifecycleStartEffect(viewModel) {
-                        viewModel.playAudio()
+                        viewModel.updateAudio()
                         onStopOrDispose { viewModel.pauseAudio() }
                     }
                 }

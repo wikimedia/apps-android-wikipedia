@@ -14,7 +14,7 @@ import org.wikipedia.util.log.L
 
 class YearInReviewAudioPlayer(
     private val context: Context,
-    private val onPlaybackEnded: () -> Unit = {}
+    private val onPlaybackEnded: (resourceId: Int) -> Unit = {}
 ) {
     private var player: ExoPlayer? = null
 
@@ -24,7 +24,7 @@ class YearInReviewAudioPlayer(
     private val playerListener = object : Player.Listener {
         override fun onPlaybackStateChanged(playbackState: Int) {
             if (playbackState == Player.STATE_ENDED) {
-                onPlaybackEnded()
+                currentResourceId?.let(onPlaybackEnded)
             }
         }
 

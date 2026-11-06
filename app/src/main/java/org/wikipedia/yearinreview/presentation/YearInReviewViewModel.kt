@@ -38,13 +38,13 @@ class YearInReviewViewModel(
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<YearInReviewUiState>(YearInReviewUiState.Loading)
     val uiState = _uiState.asStateFlow()
-    private var audioState = AudioState.MUSIC
+    private var hasReachedEnd = false
+    private var hasLogoSoundPlayed = false
     private val audioPlayer = YearInReviewAudioPlayer(
         context = WikipediaApp.instance,
-        onPlaybackEnded = {
-            if (audioState == AudioState.LOGO) {
-                audioState = AudioState.FINISHED
-                pauseAudio()
+        onPlaybackEnded = { resourceId ->
+            if (resourceId == R.raw.wikipedia_logo_sound) {
+                hasLogoSoundPlayed = true
             }
         }
     )
@@ -74,24 +74,20 @@ class YearInReviewViewModel(
         }
     }
 
-    fun playAudio() {
-        if (!isSoundOn.value) {
-            return
-        }
-
-        when (audioState) {
-            AudioState.MUSIC -> audioPlayer.play(R.raw.dreamy, loop = true)
-            AudioState.LOGO -> audioPlayer.play(R.raw.wikipedia_logo_sound, loop = false)
-            AudioState.FINISHED -> Unit
+    fun updateAudio() {
+        when {
+            !isSoundOn.value -> audioPlayer.pause()
+            !hasReachedEnd -> audioPlayer.play(R.raw.dreamy, loop = true)
+            !hasLogoSoundPlayed -> audioPlayer.play(R.raw.wikipedia_logo_sound, loop = false)
+            else -> audioPlayer.pause()
         }
     }
 
     fun onPageSettled(page: YearInReviewPage) {
-        if (page !is YearInReviewPage.End || audioState != AudioState.MUSIC) {
-            return
+        if (page is YearInReviewPage.End) {
+            hasReachedEnd = true
+            updateAudio()
         }
-        audioState = if (isSoundOn.value) AudioState.LOGO else AudioState.FINISHED
-        playAudio()
     }
 
     fun pauseAudio() {
@@ -101,14 +97,12 @@ class YearInReviewViewModel(
     fun toggleSound() {
         isSoundOn.value = !isSoundOn.value
         Prefs.isYearInReviewSoundOn = isSoundOn.value
-        if (isSoundOn.value) playAudio() else pauseAudio()
+        updateAudio()
     }
 
     override fun onCleared() {
         audioPlayer.release()
     }
-
-    private enum class AudioState { MUSIC, LOGO, FINISHED }
 
     companion object {
         const val YIR_YEAR = YearInReviewConfig.YEAR
