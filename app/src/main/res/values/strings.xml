@@ -2244,6 +2244,8 @@
     <string name="year_in_review_learn_more">Learn more</string>
     <string name="year_in_review_about_your_insights">About your insights</string>
     <string name="year_in_review_share_feedback">Share feedback</string>
+    <string name="year_in_review_sound_on">Turn sound on</string>
+    <string name="year_in_review_sound_off">Turn sound off</string>
     <string name="year_in_review_feedback_email_subject">Year in Review Feedback</string>
     <string name="year_in_review_get_started">Get started</string>
     <string name="year_in_review_announcement_explore">Explore</string>
