@@ -1910,14 +1910,6 @@
   <string name="year_in_review_share_subject">내 위키백과 연말 결산</string>
   <string name="year_in_review_share_body">제 위키백과 연말 결산입니다. 안드로이드 앱으로 작성되었습니다 %1$s %2$s</string>
   <string name="year_in_review_globe_icon">지구본 아이콘</string>
-  <string name="settings_app_icon_title">앱 아이콘</string>
-  <string name="settings_app_icon_subtitle">기여자 혜택</string>
-  <string name="settings_app_icon_preference_subtitle">위키백과에 대한 %d 번의 앱 내 기여를 기념하는 맞춤 아이콘을 사용하실 수 있습니다. 이 아이콘은 다음 연말 결산 때까지 유지됩니다.</string>
-  <string name="settings_app_icon_updated">앱 아이콘이 업데이트되었습니다.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">홈 화면을 위한 새 앱 아이콘이 잠금 해제되었습니다</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">내년도 후원자 보상을 잠금 해제하세요!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">설정의 앱 아이콘에서 새 앱 아이콘을 활성화하세요. 자유로운 지식의 미래에 투자해 주셔서 감사합니다. %2$d년의 %1$s로써의 기여는 자유로운 정보의 세상을 향한 길을 열어주고 있으며, 그 결과 홈 화면에 위키백과 기여자 맞춤 아이콘이 활성화되었습니다.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">위키백과가 여러분의 %1$d년의 일부가 될 수 있어서기쁩니다! &lt;a href=\"%3$s\"&gt;위키백과를 편집&lt;/a&gt;하거나 앱에서 &lt;a href=\"%4$s\"&gt;위키미디어 재단&lt;/a&gt;에 기부하는 등 기여자가 되어 %2$d년 연말 결산에서 특별한 보상을 받으세요. 위키백과가 유용하다고 생각하신다면, 위키백과의 미래를 지속하고 모두에게 무료로, 광고 없이, 신뢰할 수 있고 접근 가능한 서비스로 유지할 수 있도록 기부를 고려해 주세요. 다른 곳에 기부해 주셨더라도 진심으로 감사드립니다.</string>
   <string name="year_in_review_slide_app_icon_donor">기부자</string>
   <string name="year_in_review_slide_app_icon_editor">편집자</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">기부자와 편집자</string>
