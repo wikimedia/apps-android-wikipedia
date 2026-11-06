@@ -63,11 +63,7 @@ object DateUtil {
     }
 
     fun getMonthOnlyDateStringFromTimeString(dateStr: String): String {
-        return getMonthOnlyDateString(
-            SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(
-                dateStr
-            )!!
-        )
+        return getMonthOnlyDateString(SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(dateStr)!!)
     }
 
     fun getMonthOnlyDateString(date: LocalDate): String {
@@ -83,12 +79,7 @@ object DateUtil {
     }
 
     fun getYMDDateString(date: LocalDate): String {
-        return getCachedDateTimeFormatter(
-            "yyyyMMdd",
-            Locale.getDefault(),
-            utc = false,
-            skeleton = false
-        )
+        return getCachedDateTimeFormatter("yyyyMMdd", Locale.getDefault(), utc = false, skeleton = false)
             .format(date)
     }
 
@@ -108,10 +99,7 @@ object DateUtil {
 
     fun getTimeString(context: Context, localDateTime: LocalDateTime, locale: Locale): String {
         val timePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
-        return DateTimeFormatter.ofPattern(
-            DateFormat.getBestDateTimePattern(locale, timePattern),
-            locale
-        ).format(localDateTime)
+        return DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(locale, timePattern), locale).format(localDateTime)
     }
 
     fun getShortDayWithTimeString(dateStr: String): String {
@@ -123,20 +111,17 @@ object DateUtil {
     }
 
     fun getTimeAndDateString(context: Context, date: Date): String {
-        val datePattern =
-            if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
         return getDateStringWithSkeletonPattern(date, datePattern)
     }
 
     fun getTimeAndDateString(context: Context, dateStr: String): String {
-        val datePattern =
-            if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), datePattern)
     }
 
     fun getDateAndTime(context: Context, date: Date): String {
-        val datePattern =
-            if (DateFormat.is24HourFormat(context)) "MMM d, yyyy, HH:mm" else "MMM d, yyyy, hh:mm a"
+        val datePattern = if (DateFormat.is24HourFormat(context)) "MMM d, yyyy, HH:mm" else "MMM d, yyyy, hh:mm a"
         return getCachedDateFormat(datePattern, Locale.getDefault(), false).format(date)
     }
 
@@ -145,32 +130,14 @@ object DateUtil {
             .format(date)
     }
 
-    private fun getDateStringWithSkeletonPattern(
-        temporalAccessor: TemporalAccessor,
-        pattern: String
-    ): String {
-        return getCachedDateTimeFormatter(
-            pattern,
-            Locale.getDefault(),
-            utc = false,
-            skeleton = true
-        )
+    private fun getDateStringWithSkeletonPattern(temporalAccessor: TemporalAccessor, pattern: String): String {
+        return getCachedDateTimeFormatter(pattern, Locale.getDefault(), utc = false, skeleton = true)
             .format(temporalAccessor)
     }
 
-    private fun getCachedDateFormat(
-        pattern: String,
-        locale: Locale,
-        utc: Boolean,
-        skeleton: Boolean = false
-    ): SimpleDateFormat {
+    private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean, skeleton: Boolean = false): SimpleDateFormat {
         return DATE_FORMATS.getOrPut(pattern) {
-            val df = SimpleDateFormat(
-                if (skeleton) DateFormat.getBestDateTimePattern(
-                    locale,
-                    pattern
-                ) else pattern, locale
-            )
+            val df = SimpleDateFormat(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
             if (utc) {
                 df.timeZone = TimeZone.getTimeZone("UTC")
             }
@@ -178,18 +145,8 @@ object DateUtil {
         }
     }
 
-    private fun getCachedDateTimeFormatter(
-        pattern: String,
-        locale: Locale,
-        utc: Boolean,
-        skeleton: Boolean = false
-    ): DateTimeFormatter {
-        val dtf = DateTimeFormatter.ofPattern(
-            if (skeleton) DateFormat.getBestDateTimePattern(
-                locale,
-                pattern
-            ) else pattern, locale
-        )
+    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean, skeleton: Boolean = false): DateTimeFormatter {
+        val dtf = DateTimeFormatter.ofPattern(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
         return if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
     }
 
@@ -225,39 +182,16 @@ object DateUtil {
     fun getYearDifferenceString(context: Context, year: Int, languageCode: String): String {
         val diffInYears = Calendar.getInstance()[Calendar.YEAR] - year
         val targetResource = context.getResources(languageCode)
-        val firstMatchLocaleInstance = RelativeDateTimeFormatter.getInstance(
-            targetResource.configuration.locales.getFirstMatch(arrayOf(languageCode))
-        )
+        val firstMatchLocaleInstance = RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales.getFirstMatch(arrayOf(languageCode)))
         return when (diffInYears) {
-            0 -> firstMatchLocaleInstance.format(
-                RelativeDateTimeFormatter.Direction.THIS,
-                RelativeDateTimeFormatter.AbsoluteUnit.YEAR
-            )
-
-            1 -> firstMatchLocaleInstance.format(
-                RelativeDateTimeFormatter.Direction.LAST,
-                RelativeDateTimeFormatter.AbsoluteUnit.YEAR
-            )
-
-            -1 -> firstMatchLocaleInstance.format(
-                RelativeDateTimeFormatter.Direction.NEXT,
-                RelativeDateTimeFormatter.AbsoluteUnit.YEAR
-            )
-
-            else -> firstMatchLocaleInstance.format(
-                diffInYears.toDouble(),
-                RelativeDateTimeFormatter.Direction.LAST,
-                RelativeDateTimeFormatter.RelativeUnit.YEARS
-            )
+            0 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.THIS, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+            1 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+            -1 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.NEXT, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+            else -> firstMatchLocaleInstance.format(diffInYears.toDouble(), RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS)
         }
     }
 
     fun getWeekdayMonthDayDateString(date: LocalDate, locale: Locale): String {
-        return DateTimeFormatter.ofPattern(
-            DateFormat.getBestDateTimePattern(
-                locale,
-                "EEEE, MMMM d"
-            ), locale
-        ).format(date)
+        return DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(locale, "EEEE, MMMM d"), locale).format(date)
     }
 }
