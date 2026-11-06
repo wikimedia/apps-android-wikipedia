@@ -62,15 +62,15 @@ class UserInfo : BlockInfo() {
 
         val watchEditedPagesByDefault get() = isExplicitOne(watchDefault)
         val optedInToFundraising get() = isExplicitOne(fundraisingOptIn)
-        val wikimediaDonorPref: WikimediaDonorPref?
-            get() = JsonUtil.decodeFromString<WikimediaDonorPref>(wikimediaDonor?.jsonPrimitive?.contentOrNull)
+        val wikimediaDonorPref: WikimediaDonorStatus?
+            get() = JsonUtil.decodeFromString<WikimediaDonorStatus>(wikimediaDonor?.jsonPrimitive?.contentOrNull)
         val wikimediaDonorCode: DonorCode?
             get() = wikimediaDonorPref?.value
 
         private fun isExplicitOne(element: JsonElement?) = element?.toString().orEmpty().replace("\"", "") == "1"
 
         @Serializable
-        class WikimediaDonorPref(
+        class WikimediaDonorStatus(
             val value: DonorCode? = null,
             val timestamp: Long? = null,
             val source: String? = null
