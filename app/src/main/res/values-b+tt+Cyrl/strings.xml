@@ -24,7 +24,7 @@
   <string name="search_back_button_content_description">Артка</string>
   <string name="search_clear_query_content_description">Сорауны бетер</string>
   <string name="search_icon_content_description">Эзлә</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Исемлекләремне фильтрлау</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Исемлекләремне фильтрлау</string>
   <string name="nav_item_suggested_edits">Төзәтмәләр</string>
   <string name="nav_item_activity">Активлык</string>
   <string name="nav_item_more">Тагын</string>
@@ -91,16 +91,16 @@
   <string name="menu_page_watched">Күзәтелә</string>
   <string name="edit_section_find_in_page">Биттә табу</string>
   <string name="menu_page_font_and_theme">Шрифтны һәм бизәлешне үзгәртү</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Исемлеккә өстәү</string>
+  <string name="menu_page_add_to_list">Исемлеккә өстәү</string>
   <string name="menu_page_add_to_default_list">Саклау</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Исемлеккә өстәү</string>
+  <string name="feed_card_add_to_list">Исемлеккә өстәү</string>
   <string name="feed_card_add_to_default_list">Саклау</string>
   <string name="menu_page_share">Сылтаманы уртаклашу</string>
   <string name="menu_article_share">Мәкалә белән уртаклашу</string>
   <string name="menu_page_article_share">Уртаклашу</string>
   <string name="menu_page_open_a_new_tab">Битне яңа өстәмәдә ачу</string>
   <string name="menu_page_new_tab">Яңа өстәмә бит</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Исемлекләр</string>
+  <string name="menu_page_reading_lists">Уку өчен исемлекләр</string>
   <string name="menu_page_recently_viewed">Күптән түгел карап чыгарылган</string>
   <string name="menu_page_archive">Архив</string>
   <string name="menu_long_press_open_page">Ачу</string>
@@ -144,9 +144,9 @@
   <string name="menu_show_toc">Эчтәлек</string>
   <string name="search_no_results_found">Берни дә табылмаган</string>
   <string name="search_reading_list_no_results">«%s» эчендә берни дә табылмаган</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Исемлекләрдә берни дә табылмады</string>
+  <string name="search_reading_lists_no_results">Исемлекләрдә берни дә табылмады</string>
   <string name="search_all_articles_no_results">Мәкаләләрдә берни дә табылмады</string>
-  <string name="search_collections_no_results" fuzzy="true">Исемлекләрдә берни дә табылмады</string>
+  <string name="search_collections_no_results">Исемлекләрдә берни дә табылмады</string>
   <string name="search_history_no_results">Тарихта берни дә табылмаган</string>
   <string name="edit_section_captcha_message">Автомат спамнан саклану өчен, түбәндәге сүзләрне кертегез.</string>
   <string name="edit_section_captcha_request_an_account_message">Сурәт күренмиме? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Хисап язмасын соратырга&lt;/a&gt;</string>
@@ -215,6 +215,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">Электрон почта адресын өстәү</string>
   <string name="create_account_button">Хисапъязманы булдыру</string>
   <string name="create_account_encourage_title">Википедиядә хисапъязма өстенлекләр бирә</string>
+  <string name="create_account_encourage_year_in_review_title_zero">Ел күзәтүендә укучы көннәрегезнең нәтиҗәсен билгеләгез.</string>
   <string name="create_account_encourage_saved_articles_title_zero">Сакланган мәкаләләрегезне синхронлаштырыгыз</string>
   <string name="create_account_encourage_saved_articles_description">Җайланмаларыгыз арасында мөкаләләрегезне синхронлаштыру өчен Википедия хисапъязмасын булдырыгыз.</string>
   <string name="create_account_name_unavailable">\"%s\" кулланучының исеме укылмый. Зинһар, башка исем сайлагыз.</string>
@@ -1819,7 +1820,6 @@
   <string name="year_in_review_disable_positive_button">Әйе, телим</string>
   <string name="year_in_review_disable_negative_button">Юк, теләмим</string>
   <string name="year_in_review_globe_icon">Глобус тамгачыгы</string>
-  <string name="settings_app_icon_title">Кушымта тамгачыгы</string>
   <string name="year_in_review_slide_top_categories_headline">Сезне иң кызыксындырган төркемнәр</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Мәкалә эзләү</string>
   <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Сезнең өчен булдырылган</string>

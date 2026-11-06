@@ -2009,13 +2009,6 @@
   <string name="year_in_review_share_subject">הסקירה השנתית שלי בוויקיפדיה</string>
   <string name="year_in_review_share_body">הינה הסקירה השנתית שלי בוויקיפדיה. נוצרה באמצעות יישום ויקיפדיה לאנדרואיד %1$s %2$s</string>
   <string name="year_in_review_globe_icon">סמל גלובוס</string>
-  <string name="settings_app_icon_title">סמל היישום</string>
-  <string name="settings_app_icon_subtitle">הטבה לתורמים</string>
-  <string name="settings_app_icon_preference_subtitle">יש לך גישה לסמל מותאם אישית שחוגג את %d התרומות שעית לוויקיפדיה מתוך האפליקציה. הוא יישאר עד לסקירה השנתית הבאה.</string>
-  <string name="settings_app_icon_updated">סמל היישום שלך עודכן.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">פתחת אפשרות לסמל יישום החדש למסך הבית שלך</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">יש לך אפשרות לפתוח ההטבה שלך לתורם לשנה הבאה!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">יש להפעיל את סמל היישום החדש שלך בהגדרות באפשרות \"סמל היישום\". תודה על ההשקעה בעתיד הידע החופשי. %1$s שלך ב־%2$d עוזרות לסלול את הדרך לעולם של מידע חופשי, וכתוצאה מכך פתחת סמל תורם מותאם לוויקיפדיה במסך הבית שלך.</string>
   <string name="year_in_review_slide_app_icon_donor">התרומות</string>
   <string name="year_in_review_slide_app_icon_editor">העריכות</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">התרומות והעריכות</string>

@@ -192,7 +192,6 @@
     <string name="preference_key_yir_playground" translatable="false">yirPlayground</string>
     <string name="preference_key_yir_playground_data" translatable="false">yirPlaygroundData</string>
     <string name="preference_key_yir_playground_entry_point" translatable="false">yirPlaygroundEntryPoint</string>
-    <string name="preference_key_selected_app_icon" translatable="false">selectedAppIcon</string>
     <string name="preference_category_recommended_reading_list" translatable="false">recommendedReadingListSettings</string>
     <string name="preference_key_recommended_reading_list_enabled" translatable="false">recommendedReadingListEnabled</string>
     <string name="preference_key_recommended_reading_list_articles_number" translatable="false">recommendedReadingListArticlesNumber</string>
@@ -230,6 +229,7 @@
     <string name="preference_key_home_preference_selection" translatable="false">exploreFeedPreferenceSelection</string>
     <string name="preference_key_home_for_you_modules_today" translatable="false">homeForYouModulesToday</string>
     <string name="preference_key_home_swipe_to_explore_prompt_shown" translatable="false">homeSwipeToExplorePromptShown</string>
+    <string name="preference_key_year_in_review_swipe_tutorial_shown" translatable="false">yearInReviewSwipeTutorialShown</string>
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>

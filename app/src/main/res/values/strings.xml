@@ -2027,7 +2027,7 @@
     <string name="wikipedia_games_title">Wikipedia games</string>
     <string name="wikipedia_games_subtitle">Daily trivia games based Wikipedia content.</string>
 
-    <!-- Year In Review -->y
+    <!-- Year In Review -->
     <string name="yir_intro_headline">Your Wikipedia Year in Review is here</string>
     <plurals name="yir_intro_supporting">
         <item quantity="one">Thanks for spending %1$d day on your trusty Wikipedia app in %2$d.</item>
@@ -2155,7 +2155,7 @@
     <string name="yir_community_global_reach_headline">Wikipedia\'s global reach: one of the top ten most visited websites in the world</string>
     <string name="yir_community_global_reach_supporting">Wikipedia is the backbone of the internet\'s knowledge. From students to chatbots, everyone learns from it.</string>
     <string name="yir_community_contribute_headline">You matter.</string>
-    <string name="yir_community_contribute_supporting">Wikipedia exists thanks to real people like you, contributing what they can to keep it thriving. If Wikipedia is valuable to you, please consider supporting it by donating or editing.\n\nAlready a contributor? Log in or create an account to see your achievements.</string>
+    <string name="yir_community_contribute_supporting">Wikipedia exists thanks to real people like you, contributing what they can to keep it thriving. If Wikipedia is valuable to you, please consider supporting it by donating or editing.\n\nAlready a contributor? Log in or create an account to see your contributor reward.</string>
     <string name="yir_closing_headline">Until the next rabbit hole</string>
     <string name="yir_closing_supporting">Whether you came for one article or one hundred, thanks for exploring, reading, and staying curious with us on Wikipedia.</string>
     <string name="yir_closing_share_action">Share highlights</string>
@@ -2285,14 +2285,6 @@
     <string name="year_in_review_share_subject">My Wikipedia Year in Review</string>
     <string name="year_in_review_share_body">Here\'s my Wikipedia Year in Review. Created with the Wikipedia Android app %1$s %2$s</string>
     <string name="year_in_review_globe_icon">Globe icon</string>
-    <string name="settings_app_icon_title">App icon</string>
-    <string name="settings_app_icon_subtitle">Contributor benefit</string>
-    <string name="settings_app_icon_preference_subtitle">You have access to a custom icon that celebrates your %d in-app contributions to Wikipedia. It will remain until the next Year in Review.</string>
-    <string name="settings_app_icon_updated">Your app icon has been updated.</string>
-    <string name="year_in_review_slide_app_icon_title_unlocked">New app icon unlocked for your home screen</string>
-    <string name="year_in_review_slide_app_icon_title_unlock">Unlock your contributor reward for next year!</string>
-    <string name="year_in_review_slide_app_icon_body_unlocked"><![CDATA[Activate your new app icon in Settings under App icon. Thank you for investing in the future of free knowledge. Your contributions as %1$s in %2$d are helping pave the way to a world of free information, and as a result you have unlocked a custom contributor icon for Wikipedia on your home screen.]]></string>
-    <string name="year_in_review_slide_app_icon_body_unlock"><![CDATA[We\'re glad Wikipedia was part of your %1$d! Unlock a special reward in your %2$d Year in Review by becoming a contributor—whether by <a href="%3$s">editing Wikipedia</a> or by donating from the app to the <a href="%4$s">Wikimedia Foundation</a>, the nonprofit behind it. If Wikipedia is useful to you, please consider donating to help sustain its future and keep it free, ad-free, trustworthy, and accessible to all. If you donated elsewhere, your support is deeply appreciated.]]></string>
     <string name="year_in_review_slide_app_icon_donor">a donor</string>
     <string name="year_in_review_slide_app_icon_editor">an editor</string>
     <string name="year_in_review_slide_app_icon_donor_and_editor">a donor and editor</string>
@@ -2504,6 +2496,8 @@
     </plurals>
     <string name="year_in_review_highlights_share_button_title">Share highlights</string>
     <string name="year_in_review_highlights_logo_description">Wikipedia logo</string>
+    <string name="year_in_review_swipe_tutorial_title">Swipe to explore</string>
+    <string name="year_in_review_swipe_tutorial_message">Swipe up to navigate through Year in Review.</string>
     <!-- Recommended reading list -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>
