@@ -8,6 +8,7 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.util.log.L
 
 class WeeklyMostReadNotificationWorker(
@@ -18,6 +19,7 @@ class WeeklyMostReadNotificationWorker(
     override suspend fun doWork(): Result {
         return try {
             NotificationsExperimentHelper.showNotification(applicationContext)
+            TestKitchenAdapter.client.flushEventQueue()
             Result.success()
         } catch (e: Exception) {
             L.e(e)
