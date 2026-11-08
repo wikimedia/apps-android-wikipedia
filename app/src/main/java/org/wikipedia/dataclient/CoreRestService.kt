@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient
 
+import org.wikipedia.auth.OAuthProfile
 import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.dataclient.restbase.Attribution
@@ -40,6 +41,9 @@ interface CoreRestService {
     suspend fun getUserImpact(
         @Path("userId") userId: Int
     ): GrowthUserImpact
+
+    @GET("oauth2/resource/profile")
+    suspend fun getOAuthProfile(): OAuthProfile
 
     @GET("attribution/v0-beta/pages/{title}/signals?redirect=true&expand=trust_and_relevance")
     suspend fun getAttribution(

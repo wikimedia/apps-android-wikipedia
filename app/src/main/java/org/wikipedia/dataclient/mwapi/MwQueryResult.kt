@@ -66,10 +66,6 @@ class MwQueryResult {
         return tokens?.rollback
     }
 
-    fun createAccountToken(): String? {
-        return tokens?.createAccount
-    }
-
     fun loginToken(): String? {
         return tokens?.login
     }
@@ -77,14 +73,6 @@ class MwQueryResult {
     fun captchaId(): String? {
         val key = "captchaId"
         return amInfo?.requests?.find { it.fields?.containsKey(key) == true }?.fields?.get(key)?.value
-    }
-
-    fun hasHCaptchaRequest(): Boolean {
-        return amInfo?.requests?.find { it.provider.orEmpty().lowercase().contains("hcaptcha") } != null
-    }
-
-    fun getHCaptchaSiteKey(): String? {
-        return amInfo?.requests?.find { it.metadata?.get("type") == "hcaptcha" }?.metadata?.get("key")
     }
 
     fun getUserResponse(userName: String): UserInfo? {
@@ -159,7 +147,6 @@ class MwQueryResult {
 
     @Serializable
     private class Tokens(@SerialName("csrftoken") val csrf: String? = null,
-                         @SerialName("createaccounttoken") val createAccount: String? = null,
                          @SerialName("logintoken") val login: String? = null,
                          @SerialName("watchtoken") val watch: String? = null,
                          @SerialName("rollbacktoken") val rollback: String? = null)

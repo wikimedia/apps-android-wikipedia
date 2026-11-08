@@ -550,7 +550,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             dialog.window?.let {
                 it.decorView.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { link ->
                     if (link.contains("#login") || link.contains("#createaccount")) {
-                        launchLogin(link.contains("#createaccount"))
+                        launchLogin()
                     } else {
                         UriUtil.handleExternalLink(this, link.toUri())
                     }
@@ -562,8 +562,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         return false
     }
 
-    private fun launchLogin(createAccountFirst: Boolean = true) {
-        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT, createAccountFirst))
+    private fun launchLogin() {
+        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT))
     }
 
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
