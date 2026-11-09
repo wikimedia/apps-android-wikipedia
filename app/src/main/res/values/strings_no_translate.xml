@@ -35,6 +35,7 @@
     <string name="year_in_highlights_screenshot_url" translatable="false">wikimediafoundation.org/yir25</string>
     <string name="year_in_highlights_screenshot_articles_url" translatable="false">wikimediafoundation.org/2025articles</string>
     <string name="year_in_review_store_discount_url" translatable="false">https://store.wikimedia.org/discount/WikiLove?utm_campaign=bf45f7&amp;utm_source=discount_shareable_link</string>
+    <string name="year_in_review_top_read_url" translatable="false">https://wikimediafoundation.org/news/2026/12/01/wikipedia-most-read-articles-2026/?utm_campaign=26yir&amp;utm_source=26appyir&amp;utm_medium=26andcard</string>
     <string name="year_in_review_quiz_url" translatable="false">https://wikipedia25.org/%1$s/which-wikipedia-of-the-future-are-you</string>
     <string name="recommended_reading_list_url" translatable="false">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
     <string name="donation_reminders_experiment_url" translatable="false">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Customizable_Donation_Reminder_Experiment</string>
@@ -141,4 +142,9 @@
     <string name="semantic_search_info_dialog_sample_snippet_ja" translatable="false"><![CDATA[だが、いずれの説も現在の月の力学的・物質科学的な特徴を矛盾なく説明することができなかった。まず、親子説では地球-月系の現在の全 角運動量 を原始地球が単独で持っていたとは考えにくい。兄弟説では月の平均密度から推定される全体的な組成が、地球と比較して金属鉄に乏しいことを説明できない。また、他人説では地球の重力圏外から進入する月が、地球からちょうど良い距離に接近して衛星軌道へ捕らえられる可能性が低い。また、 アポロ計画 により採取された 月の石 の分析結果から判明した地球の マントル と月の石の化学組成や 酸素同位体 比の類似性も、他人説は説明できない。一方で、 月の石 の 放射年代測定 により月が<span class=\"searchmatch\">約45億5000万年前に</span>誕生したこと、月の高地が斜長岩からなることから月はその歴史の初期に高温だったことが明らかとなった。これらの証拠から、有力視されるようになったのが巨大衝突説である。]]></string>
     <string name="semantic_search_info_dialog_article_thumbnail_url_ja" translatable="false">https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/60px-FullMoon2010.jpg</string>
     <string name="semantic_search_info_dialog_search_string_ja" translatable="false">月はどのように形成されたのか？</string>
+
+    <!-- Year in Review   -->
+    <string name="yir_top_read_headline" translatable="false">2026\'s most-read articles</string>
+    <string name="yir_top_read_supporting" translatable="false">Learn what everyone read about on Wikipedia this year. Did the World Cup make the list?</string>
+    <string name="yir_top_read_action" translatable="false">Explore the top 25</string>
 </resources>
