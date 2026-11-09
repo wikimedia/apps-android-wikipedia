@@ -2299,22 +2299,85 @@
   <string name="year_in_review_slide_reading_pattern_evening">Fins de tarde</string>
   <string name="year_in_review_slide_reading_pattern_night">Noites</string>
   <string name="year_in_review_slide_reading_pattern_late_night">Tardes da noite</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">Passamos %,d hora lendo</item>
+    <item quantity="other">Passamos %,d horas lendo</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">Estimadamente, pessoas passaram %,d hora</item>
+    <item quantity="other">Estimadamente, pessoas passaram %,d horas</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—cerca de %1$,d ano!— lendo a Wikipédia em inglês no ano de %2$d. A Wikipédia está lá sempre que você quiser aprender sobre nosso mundo em constante mudança, vencer uma aposta entre amigos, ou até mesmo responder a pergunta de uma criança curiosa.</item>
+    <item quantity="other">—cerca de %1$,d anos!— lendo a Wikipédia em inglês no ano de %2$d. A Wikipédia está lá sempre que você quiser aprender sobre nosso mundo em constante mudança, vencer uma aposta entre amigos, ou até mesmo responder a pergunta de uma criança curiosa.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">A Wikipédia esteve disponível em mais de %,d idioma</item>
+    <item quantity="other">A Wikipédia esteve disponível em mais de %,d idiomas</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">A Wikipédia teve %,d artigo</item>
+    <item quantity="other">A Wikipédia teve %,d artigos</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">em %,d idioma ativo neste ano. Você figurou entre milhões na expansão do conhecimento e na exploração de diversos tópicos.</item>
+    <item quantity="other">em mais de %,d idiomas ativos neste ano. Você figurou entre milhões na expansão do conhecimento e na exploração de diversos tópicos.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">Você passou %,d minuto</item>
+    <item quantity="other">Você passou %,d minutos</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">lendo %1$,d artigo em %2$d</item>
+    <item quantity="other">lendo %1$,d artigos em %2$d</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">Nossa estimativa é que isso te coloca entre os %1$s%% de leitores da Wikipédia ao redor do globo. Em média, cada pessoa lê %2$,d artigo por ano.</item>
+    <item quantity="other">Nossa estimativa é que isso te coloca entre os %1$s%% de leitores da Wikipédia ao redor do globo. Em média, cada pessoa lê %2$,d artigos por ano.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">A Wikipédia teve %,d artigo</item>
+    <item quantity="other">A Wikipédia teve %,d artigos</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">em %,d idioma ativo neste ano. Você figurou entre milhões na expansão do conhecimento e na exploração de diversos tópicos.</item>
+    <item quantity="other">em mais de %,d idiomas ativos neste ano. Você figurou entre milhões na expansão do conhecimento e na exploração de diversos tópicos.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">Estimadamente, pessoas passaram %,d hora</item>
+    <item quantity="other">Estimadamente, pessoas passaram %,d horas</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">—cerca de %1$,d ano!— lendo a Wikipédia em inglês no ano de %2$d.</item>
+    <item quantity="other">—cerca de %1$,d anos!— lendo a Wikipédia em inglês no ano de %2$d.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">Usuários do aplicativo visualizaram artigos da Wikipédia %,d vez</item>
+    <item quantity="other">Usuários do aplicativo visualizaram artigos da Wikipédia %,d vezes</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Para pessoas em todo o mundo, a Wikipédia é a primeira parada quando se trata de responder a uma pergunta, procurar informações para a escola ou o trabalho, ou aprender um fato novo.</string>
+  <string name="year_in_review_reading_list_dialog_title">Criar sua lista de leitura do Resumo do Ano de %d?</string>
+  <string name="year_in_review_reading_list_dialog_message">O Resumo do Ano da Wikipédia criará uma lista de leitura composta dos artigos com os quais você mais passou tempo em %1$d. &lt;a href=\"%2$s\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Criar</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Não, obrigado</string>
-  <string name="year_in_review_reading_list_title">Resumo do ano %d</string>
-  <string name="year_in_review_reading_list_description">Criado para %1$s. Artigos nos quais você passou mais tempo em %2$d.</string>
+  <string name="year_in_review_reading_list_title">Resumo do Ano de %d</string>
+  <string name="year_in_review_reading_list_description">Criada para %1$s. Artigos com os quais você mais passou tempo em %2$d.</string>
   <string name="year_in_review_highlights_thank_you_message">Obrigado por dedicar seu ano à Wikipédia.</string>
   <string name="year_in_review_highlights_looking_forward_message">Nós estamos ansiosos pelo próximo ano!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">O artigo mais lido na Wikipédia em inglês</item>
+    <item quantity="other">Os artigos mais lidos na Wikipédia em inglês</item>
+  </plurals>
   <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
-    <item quantity="one">Hora dedicada à leitura</item>
-    <item quantity="other">Horas dedicadas à leitura</item>
+    <item quantity="one">Hora dedicada a leitura</item>
+    <item quantity="other">Horas dedicadas a leitura</item>
   </plurals>
   <plurals name="year_in_review_highlights_logged_out_en_edits_title">
-    <item quantity="one">Alterações feitas pelos editores</item>
-    <item quantity="other">Alterações feitas pelos editores</item>
+    <item quantity="one">Mudança feita por editores</item>
+    <item quantity="other">Mudanças feitas por editores</item>
   </plurals>
   <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
-    <item quantity="one">Número de artigos visualizados</item>
+    <item quantity="one">Número de artigo visualizado</item>
     <item quantity="other">Número de artigos visualizados</item>
   </plurals>
   <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
@@ -2322,9 +2385,13 @@
     <item quantity="other">Edições no aplicativo</item>
   </plurals>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Com que frequência a Wikipédia foi editada</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">%d vez por minuto</item>
+    <item quantity="other">%d vezes por minuto</item>
+  </plurals>
   <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
     <item quantity="one">O artigo que mais li</item>
-    <item quantity="other">Os artigos que mais leio</item>
+    <item quantity="other">Os artigos que mais li</item>
   </plurals>
   <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
     <item quantity="one">Minuto lido</item>
@@ -2341,14 +2408,16 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Compartilhar destaques</string>
   <string name="year_in_review_highlights_logo_description">Logotipo da Wikipédia</string>
+  <string name="year_in_review_swipe_tutorial_title">Deslize para explorar</string>
+  <string name="year_in_review_swipe_tutorial_message">Deslize para cima para navegar pela Respectiva do ano.</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos selecionados especialmente para você</string>
-  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Sua coleção semanal de artigos da Wikipédia, selecionados especialmente para você.</string>
+  <string name="recommended_reading_list_onboarding_card_message">Sua lista de leitura semanal de artigos da Wikipédia, selecionados especialmente para você.</string>
   <string name="recommended_reading_list_onboarding_card_new">Novo!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Começar</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Não, obrigado</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true">Para configurar sua coleção recomendada posteriormente, acesse Configurações.</string>
-  <string name="recommended_reading_list_interest_source_message" fuzzy="true">Como devemos criar sua coleção recomendadas?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Para configurar sua lista de leitura recomendada posteriormente, acesse Configurações.</string>
+  <string name="recommended_reading_list_interest_source_message">Como devemos criar sua lista de leitura recomendadas?</string>
   <string name="recommended_reading_list_interest_source_interests">Deixe-me escolher com base nos meus interesses</string>
   <string name="recommended_reading_list_interest_source_saved">Escolha por mim com base nos meus artigos salvos</string>
   <string name="recommended_reading_list_interest_source_history">Escolha para mim com base no meu histórico de leitura</string>
@@ -2372,9 +2441,9 @@
     <item quantity="one">• %d artigo</item>
     <item quantity="other">• %d artigos</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Sua coleção diária. Aprenda sobre novos tópicos, escolhidos especialmente para você. Atualizações à meia-noite.</string>
-  <string name="recommended_reading_list_page_description_weekly" fuzzy="true">Sua coleção semanal. Aprenda sobre novos tópicos, escolhidos especialmente para você. Atualizações no início da semana.</string>
-  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Sua coleção mensal. Aprenda sobre novos tópicos, escolhidos especialmente para você. Atualizações no primeiro dia de cada mês.</string>
+  <string name="recommended_reading_list_page_description_daily">Sua lista de leitura diária. Aprenda sobre novos tópicos, escolhidos especialmente para você. Atualizações à meia-noite.</string>
+  <string name="recommended_reading_list_page_description_weekly">Sua lista de leitura semanal. Aprenda sobre novos tópicos, escolhidos especialmente para você. Atualizações no início da semana.</string>
+  <string name="recommended_reading_list_page_description_monthly">Sua lista de leitura mensal. Aprenda sobre novos tópicos, escolhidos especialmente para você. Atualizações no primeiro dia de cada mês.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personalizar</string>
   <string name="recommended_reading_list_page_overflow_about">Sobre este recurso</string>
   <string name="recommended_reading_list_page_snackbar">O Descobrir será atualizado com %1$d novos artigos a cada %2$s. Suas recomendações são armazenadas localmente no seu dispositivo.</string>
@@ -2384,7 +2453,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Mês</string>
   <string name="recommended_reading_list_settings_section_header">Recomendações</string>
   <string name="recommended_reading_list_settings_title">Configuração do Descobrir</string>
-  <string name="recommended_reading_list_settings_toggle" fuzzy="true">Coleção de Descobrir</string>
+  <string name="recommended_reading_list_settings_toggle">Lista de leitura de Descobrir</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">O Descobrir está desativado. A Wikipédia não recomendará artigos para você ler.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Desativar o Descobrir?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Se você desativar o Descobrir, deixará de receber %s recomendações de leitura da Wikipédia.</string>
@@ -2419,7 +2488,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Se você desativar as notificações, não receberá mais lembretes quando o Descobrir for atualizado.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Desativar</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Não, manter ativado</string>
-  <string name="recommended_reading_list_notification_title" fuzzy="true">Sua coleção do Descobrir %s está pronta.</string>
+  <string name="recommended_reading_list_notification_title">Sua lista de leitura do Descobrir %s está pronta.</string>
   <string name="recommended_reading_list_notification_subtitle">Toque para ver suas recomendações mais recentes.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando o seu Descobrir for atualizado, a Wikipédia enviará uma notificação.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">O Descobrir está ativado. A Wikipédia irá recomendar artigos para você ler.</string>
@@ -2428,8 +2497,8 @@
   <string name="donation_reminders_settings_title">Como podemos lembrá-lo?</string>
   <string name="donation_reminders_settings_option_title">Lembretes de doações</string>
   <string name="donation_reminders_settings_thank_you_message">Sua generosidade ajuda a manter a Wikipédia prosperando. Configure um lembrete de doação com base no número de artigos que você lê.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">As doações são destinadas à Wikimedia Foundation e suas afiliadas, orgulhosas anfitriãs da Wikipédia e de outros projetos de conhecimento livre.</string>
-  <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Quando eu li</string>
+  <string name="donation_reminders_settings_donation_info">As doações são destinadas à Fundação Wikimedia e suas afiliadas, orgãos que orgulhosamente administram a Wikipédia e seus sites irmãos.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Sempre que leio</string>
   <string name="donation_reminders_settings_amount_label">Lembre-me de fazer uma doação</string>
   <string name="donation_reminders_settings_confirm_btn_label">Confirmar lembrete</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Sobre esse experimento</string>
@@ -2438,7 +2507,7 @@
   <string name="donation_reminders_settings_warning_max_amount">O máximo permitido é %s</string>
   <string name="donation_reminders_settings_option_custom">Personalizar...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Obrigado! Lembraremos você de doar %1$s quando ler %2$s enquanto este experimento estiver em andamento.</string>
-  <string name="donation_reminders_first_milestone_reached_prompt_title" fuzzy="true">Você leu %1$s desde que se comprometeu com %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Você leu %1$s desde que se comprometeu com %2$s!</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Você leu mais um %1$s!</string>
   <string name="donation_reminders_prompt_message">Você configurou um lembrete de doação em %1$s para doar %3$s a cada %2$s que você ler. Pronto para cumprir sua promessa de apoiar a Wikipédia?</string>
   <string name="donation_reminders_prompt_positive_button">Doar agora</string>
@@ -2563,7 +2632,7 @@
   <string name="explore_feed_for_you_tab_label">Para você</string>
   <string name="explore_feed_date_today">Hoje - %s</string>
   <string name="explore_feed_load_previous_day_label">Carregar dados do dia anterior</string>
-  <string name="explore_feed_from_reading_list" fuzzy="true">Da sua coleção</string>
+  <string name="explore_feed_from_reading_list">Da sua lista de leitura</string>
   <string name="explore_feed_because_of_interest">Devido ao seu interesse: %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Siga sua curiosidade</string>
   <string name="explore_feed_onboarding_curiosity_description">Selecione os tópicos que lhe interessam e personalizaremos seu feed.\n\nColetamos uma quantidade mínima de dados, que são anonimizados.</string>
@@ -2655,13 +2724,13 @@
   <string name="read_aloud_lead_section_beta_label">Beta</string>
   <string name="read_aloud_lead_section_about_experiment">Sobre esse experimento</string>
   <string name="read_aloud_lead_section_report_issue">Comunicar um problema</string>
-  <string name="home_feed_settings_discover_subtitle" fuzzy="true">Artigos da sua coleção do Descobrir</string>
+  <string name="home_feed_settings_discover_subtitle">Artigos da sua lista de leitura do Descobrir</string>
   <string name="home_feed_discover_cta_title">Do Descobrir</string>
   <string name="home_feed_discover_cta_description">Conheça novos assuntos, selecionados especialmente para você. Escolha entre atualizações diárias, semanais ou mensais.</string>
-  <string name="home_feed_discover_cta_button" fuzzy="true">Ativar a coleção do Descobrir</string>
+  <string name="home_feed_discover_cta_button">Ativar a lista de leitura do Descobrir</string>
   <string name="home_feed_discover_card_footer">Do Descobrir • Atualizações %s</string>
   <string name="home_feed_discover_see_all_title">Ainda há muito mais para descobrir</string>
-  <string name="home_feed_discover_see_all_description" fuzzy="true">Sua coleção personalizada tem mais histórias escolhidas especialmente para você.</string>
+  <string name="home_feed_discover_see_all_description">Sua lista de leitura personalizada tem mais histórias escolhidas especialmente para você.</string>
   <string name="home_feed_discover_see_all_button">Explore todas as recomendações</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Com base na sua localização nos Locais</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Por hoje é só!</string>
@@ -2675,26 +2744,27 @@
   <string name="home_feed_games_module_cta_prompt_button_text">Central de jogos</string>
   <string name="random_article_widget_name">Artigo aleatório</string>
   <string name="reading_lists_tab_all_articles">Todos os artigos</string>
-  <string name="reading_lists_tab_collections" fuzzy="true">Coleções</string>
-  <string name="reading_lists_filter_not_in_collection" fuzzy="true">Não faz parte de uma coleção</string>
-  <string name="reading_lists_empty_not_in_collection_title" fuzzy="true">Todos os artigos salvos estão em coleções.</string>
+  <string name="reading_lists_tab_collections">Listas de leitura</string>
+  <string name="reading_lists_filter_not_in_collection">Não faz parte de uma lista de leitura</string>
+  <string name="reading_lists_empty_not_in_collection_title">Todos os artigos salvos estão em listas de leitura.</string>
   <string name="reading_lists_search_saved_articles">Pesquisar artigos salvos</string>
-  <string name="reading_lists_search_collections" fuzzy="true">Pesquisar coleções</string>
-  <string name="reading_lists_empty_collections_title" fuzzy="true">Organize os artigos salvos em coleções</string>
-  <string name="reading_lists_empty_collections_description" fuzzy="true">Crie coleções de destinos de viagem, assuntos favoritos e muito mais.</string>
-  <string name="reading_lists_create_new_collection" fuzzy="true">Criar uma nova coleção</string>
+  <string name="reading_lists_search_collections">Pesquisar listas de leitura</string>
+  <string name="reading_lists_empty_collections_title">Organiza os artigos salvados com as listas de leitura</string>
+  <string name="reading_lists_empty_collections_description">Crie listas de leitura de destinos de viagem, assuntos favoritos e muito mais.</string>
+  <string name="reading_lists_create_new_collection">Criar uma nova lista de leitura</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">Cancelar o salvamento do artigo?</string>
   <string name="reading_lists_remove_articles_confirm_button">Não salvar</string>
-  <plurals name="reading_lists_remove_articles_confirm_dialog_message" fuzzy="true">
-    <item quantity="one">Este artigo será removido de todas as coleções associadas.</item>
-    <item quantity="other">Esses %d artigos serão removidos de todas as coleções associadas.</item>
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+    <item quantity="one">Este artigo será removido de todas as listas de leitura associadas.</item>
+    <item quantity="other">Esses %d artigos serão removidos de todas as listas de leitura associadas.</item>
   </plurals>
   <string name="reading_lists_save_sheet_empty_title">Reúna os artigos que você adora</string>
-  <string name="reading_lists_save_sheet_empty_message" fuzzy="true">Salve artigos em coleções.</string>
+  <string name="reading_lists_save_sheet_empty_message">Salve artigos em listas de leitura.</string>
   <string name="reading_lists_save_sheet_create">Criar</string>
   <string name="semantic_search_entry_point_card_text_button">Experimente agora</string>
   <string name="semantic_search_info_dialog_button_text">Saiba mais</string>
   <string name="semantic_search_beta_label">Beta</string>
+  <string name="semantic_search_results_last_updated_label">Última atualização: %s</string>
   <string name="semantic_search_results_feedback_submit_button_text">Enviar</string>
   <string name="semantic_search_feedback_dialog_title">Comentário</string>
   <string name="preference_heading_semantic_search">Pesquisar</string>
