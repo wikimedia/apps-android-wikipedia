@@ -2646,6 +2646,8 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Udostępnij podsumowanie</string>
   <string name="year_in_review_highlights_logo_description">Logo Wikipedii</string>
+  <string name="year_in_review_swipe_tutorial_title">Przesuń, aby odkrywać</string>
+  <string name="year_in_review_swipe_tutorial_message">Przesuń palcem w górę, aby przeglądać podsumowanie roku.</string>
   <string name="recommended_reading_list_title">Odkrywaj</string>
   <string name="recommended_reading_list_onboarding_card_title">Odkryj artykuły wybrane specjalnie dla Ciebie</string>
   <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Twoja cotygodniowa kolekcja artykułów z Wikipedii przygotowana specjalnie dla Ciebie.</string>
@@ -3076,4 +3078,5 @@
   <string name="semantic_search_snackbar_action_label">Zmień</string>
   <string name="notifications_experiment_discover_interests_title">Ponieważ interesuje Cię %s</string>
   <string name="notifications_experiment_discover_saved_or_history_title">Po przeczytaniu: %s</string>
+  <string name="notifications_experiment_discover_message">Na podstawie tych i innych zainteresowań stworzyliśmy dla Ciebie nową listę zapisanych stron.</string>
 </resources>

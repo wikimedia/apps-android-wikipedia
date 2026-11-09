@@ -2598,8 +2598,8 @@
   <string name="home_feed_settings_for_you_modules_description">Moduulin käytöstä poistaminen piilottaa sen Sinulle-syötteestäsi. Voit ottaa moduulin uudelleen käyttöön milloin tahansa näissä asetuksissa.</string>
   <string name="home_feed_settings_based_on_interest_title">Kiinnostuksen kohteidesi perusteella</string>
   <string name="home_feed_settings_based_on_interest_subtitle">Valitsemiisi aiheisiin räätälöityjä artikkeleita.&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;Mikä ohjaa syötettäsi&lt;/a&gt;</string>
-  <string name="home_feed_new_within_interest_card_heading">Uutta kiinnostuksenkohteissasi</string>
-  <string name="home_feed_new_within_interest_title">Uusia artikkeleita kiinnostuksenkohteistasi</string>
+  <string name="home_feed_new_within_interest_card_heading">Uutta kiinnostuksen kohteissasi</string>
+  <string name="home_feed_new_within_interest_title">Uusia artikkeleita kiinnostuksen kohteistasi</string>
   <string name="home_feed_new_within_interest_subtitle">Äskettäin luotuja artikkeleita seuraamillasi aihealueilla</string>
   <string name="home_feed_settings_because_you_read_subtitle">Hiljattain lukemaasi artikkeliin perustuvia ehdotuksia</string>
   <string name="home_feed_settings_continue_reading_title">Jatka lukemista</string>
@@ -2714,5 +2714,5 @@
   <string name="semantic_search_snackbar_action_label">Muokkaa</string>
   <string name="notifications_experiment_discover_interests_title">Koska olet kiinnostunut aiheesta %s</string>
   <string name="notifications_experiment_discover_saved_or_history_title">Koska luit aiheesta %s</string>
-  <string name="notifications_experiment_discover_message">Olemme luoneet sinulle uuden lukulistan tämän ja muiden kiinnostuksenkohteidesi perusteella.</string>
+  <string name="notifications_experiment_discover_message">Olemme luoneet sinulle uuden lukulistan tämän ja muiden kiinnostuksen kohteidesi perusteella.</string>
 </resources>

@@ -1832,7 +1832,7 @@
   <string name="email_report_patroller_tasks_subject">Problembericht – Funktion „Patrouille bearbeiten“</string>
   <string name="email_report_patroller_tasks_body">Ich habe ein Problem mit der Funktion „Patrouille bearbeiten“ festgestellt:\n- [Problem beschreiben]\n\nIch wünsche mir folgendes Verhalten:\n- [Lösungsvorschlag beschreiben]\n\n[Screenshots oder Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Wir werden dich morgen erneut erinnern.</string>
-  <string name="donation_campaign_donated_snackbar">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und seine Schwesterprojekte weiter bestehen können.</string>
+  <string name="donation_campaign_donated_snackbar">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und ihre Schwesterprojekte weiter bestehen können.</string>
   <string name="donation_campaign_go_back_button">Zurück</string>
   <string name="menu_single_webview_open_external">Im Systembrowser öffnen</string>
   <string name="donate_gpay_dialog_title">Mit Google Pay spenden?</string>
@@ -2425,6 +2425,7 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Highlights teilen</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia-Logo</string>
+  <string name="year_in_review_swipe_tutorial_title">Wischen zum Entdecken</string>
   <string name="recommended_reading_list_title">Entdecken</string>
   <string name="recommended_reading_list_onboarding_card_title">Entdecke für dich ausgewählte Artikel</string>
   <string name="recommended_reading_list_onboarding_card_message">Deine wöchentliche Leseliste mit Wikipedia-Artikeln, nur für dich zusammengestellt.</string>
