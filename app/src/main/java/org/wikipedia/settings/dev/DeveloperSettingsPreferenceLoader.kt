@@ -35,6 +35,7 @@ import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
+import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.IntPreference
@@ -376,7 +377,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             ReadAloudLeadSectionABTest(),
             SemanticSearchAbTest(),
             YearInReviewEndScreenABTest(),
-            NotificationsExperimentAbTest()
+            NotificationsExperimentAbTest(),
+            InterleaveSearchAbTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey
