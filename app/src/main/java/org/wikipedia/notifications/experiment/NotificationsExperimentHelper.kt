@@ -15,7 +15,6 @@ import androidx.core.graphics.scale
 import coil3.imageLoader
 import coil3.request.ImageRequest
 import coil3.request.SuccessResult
-import coil3.request.allowHardware
 import coil3.request.transformations
 import coil3.toBitmap
 import kotlinx.coroutines.async
@@ -158,7 +157,7 @@ object NotificationsExperimentHelper {
         val (title, text) = context.getString(R.string.notifications_experiment_weekly_most_read_notification_title) to
                 context.getString(R.string.notifications_experiment_weekly_most_read_notification_description, StringUtil.fromHtml(mostReadArticle.displayTitle).toString())
         val color = R.color.blue600
-        val largeIcon = loadSquareThumbnail(context, mostReadArticle.thumbnailUrl) ?: drawWikipediaLogo(context, color)
+        val largeIcon = loadThumbnail(context, mostReadArticle.thumbnailUrl) ?: drawWikipediaLogo(context, color)
         val isNotificationPosted = NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, NOTIFICATION_ID.toLong(), notificationCategory = NotificationCategory.WEEKLY_MOST_READ),
@@ -182,14 +181,12 @@ object NotificationsExperimentHelper {
         }
     }
 
-    // A failed load returns an ErrorResult instead of throwing, so the notification still goes out with the fallback icon.
-    private suspend fun loadSquareThumbnail(context: Context, thumbnailUrl: String?): Bitmap? {
+    private suspend fun loadThumbnail(context: Context, thumbnailUrl: String?): Bitmap? {
         if (thumbnailUrl.isNullOrEmpty() || !Prefs.isImageDownloadEnabled) {
             return null
         }
         val request = ImageRequest.Builder(context)
             .data(thumbnailUrl)
-            .allowHardware(false)
             .transformations(WhiteBackgroundTransformation())
             .build()
         val thumbnail = (context.imageLoader.execute(request) as? SuccessResult)?.image?.toBitmap() ?: return null
