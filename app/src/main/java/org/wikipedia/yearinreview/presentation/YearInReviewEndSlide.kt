@@ -81,6 +81,7 @@ enum class YearInReviewEndCard(
     STORE_DISCOUNT(R.string.yir_store_discount_headline, R.string.yir_store_discount_action),
     GAMES(R.string.yir_games_headline, R.string.yir_games_action),
     CUSTOMIZE_HOME(R.string.yir_customize_home_headline, R.string.yir_customize_home_action),
+    TOP_READ(R.string.yir_top_read_headline, R.string.yir_top_read_action),
     QUIZ(R.string.yir_quiz_headline, R.string.yir_quiz_action)
 }
 
@@ -89,6 +90,7 @@ private fun YearInReviewEndCard.supportingText(): String = when (this) {
     YearInReviewEndCard.STORE_DISCOUNT -> pluralStringResource(R.plurals.yir_store_discount_supporting, STORE_DISCOUNT_PERCENT, STORE_DISCOUNT_PERCENT)
     YearInReviewEndCard.GAMES -> stringResource(R.string.yir_games_supporting)
     YearInReviewEndCard.CUSTOMIZE_HOME -> stringResource(R.string.yir_customize_home_supporting)
+    YearInReviewEndCard.TOP_READ -> stringResource(R.string.yir_top_read_supporting)
     YearInReviewEndCard.QUIZ -> stringResource(R.string.yir_quiz_supporting)
 }
 
@@ -97,6 +99,7 @@ fun YearInReviewEndSlide(
     modifier: Modifier = Modifier,
     isDonor: Boolean = false,
     isTestGroupUser: Boolean = true,
+    hasEnglishAppLanguage: Boolean = true,
     canShareHighlights: Boolean = true,
     onCardActionClick: (YearInReviewEndCard) -> Unit = {},
     onShareHighlightsClick: () -> Unit = {}
@@ -109,6 +112,9 @@ fun YearInReviewEndSlide(
             // The user being in the test group implies that the Game card is available.
             add(YearInReviewEndCard.GAMES)
             add(YearInReviewEndCard.CUSTOMIZE_HOME)
+        }
+        if (hasEnglishAppLanguage) {
+            add(YearInReviewEndCard.TOP_READ)
         }
         add(YearInReviewEndCard.QUIZ)
     }
