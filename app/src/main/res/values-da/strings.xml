@@ -2386,6 +2386,8 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Del højdepunkter</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia-logo</string>
+  <string name="year_in_review_swipe_tutorial_title">Stryg for at udforske</string>
+  <string name="year_in_review_swipe_tutorial_message">Stryg op for at navigere gennem Årsoversigt.</string>
   <string name="recommended_reading_list_title">Opdag</string>
   <string name="recommended_reading_list_onboarding_card_title">Opdag artikler udvalgt til dig</string>
   <string name="recommended_reading_list_onboarding_card_message">Din ugentlige læseliste med Wikipedia-artikler, sammensat til dig.</string>
