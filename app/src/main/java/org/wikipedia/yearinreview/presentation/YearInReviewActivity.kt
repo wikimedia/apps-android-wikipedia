@@ -133,6 +133,10 @@ class YearInReviewActivity : BaseActivity() {
                                 submitInteraction(uiState, action = "click", elementId = "visit_store_button")
                                 UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_store_discount_url).toUri())
                             }
+                            YearInReviewEndCard.TOP_READ -> {
+                                submitInteraction(uiState, action = "click", elementId = "explore_top_read_button")
+                                UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_top_read_url).toUri())
+                            }
                             YearInReviewEndCard.QUIZ -> {
                                 submitInteraction(uiState, action = "click", elementId = "take_quiz_button")
                                 UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.year_in_review_quiz_url, WikipediaApp.instance.appOrSystemLanguageCode).toUri())
