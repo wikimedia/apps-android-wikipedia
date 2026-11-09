@@ -63,6 +63,7 @@ class GamesHubFragment : Fragment() {
                     val languageList = WikipediaApp.instance.languageState.appLanguageCodes
                     val transition = rememberInfiniteTransition()
                     BaseTheme {
+                        // TODO: Add WikiRun game
                         GamesHubScreen(
                             viewModel = viewModel,
                             onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value,
