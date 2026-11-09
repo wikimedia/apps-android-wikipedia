@@ -2285,8 +2285,8 @@
   <string name="recommended_reading_list_settings_updates_frequency_daily">all Dag</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">all Woch</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">all Mount</string>
-  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">All Dag</string>
-  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">All Woch</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Deeglech</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Wéchentlech</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">All Mount</string>
   <string name="recommended_reading_list_settings_updates_base_title">Wéi „Entdecken“ zesummegestallt gëtt</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Baséiert op Ären Interessen</string>

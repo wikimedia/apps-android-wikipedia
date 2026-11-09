@@ -2038,7 +2038,7 @@
   <string name="yir_community_global_reach_headline">Глобалниот досег на Википедија: едно од десетте најпосетувани мрежни места на светот</string>
   <string name="yir_community_global_reach_supporting">Википедија е темел на знаењето на семрежјето. Сите учат од неа, од учениците до виртуелните соговорници.</string>
   <string name="yir_community_contribute_headline">Вие сте важни.</string>
-  <string name="yir_community_contribute_supporting" fuzzy="true">Википедија постои благодарение на вистински луѓе како вас кои придонесуваат колку што можат за таа да напредува. Ако Википедија има вредност за вас, поддржете ја со парична уплата или уредување.\n\nВеќе учествувате? Најавете се или направете сметка за да ги видите вашите достигнувања.</string>
+  <string name="yir_community_contribute_supporting">Википедија постои благодарение на вистински луѓе како вас кои придонесуваат колку што можат за таа да напредува. Ако Википедија има вредност за вас, поддржете ја со парична уплата или уредување.\n\nВеќе учествувате? Најавете се или направете сметка за да ја видите вашата учесничка награда.</string>
   <string name="yir_closing_headline">До следното вовлекување</string>
   <string name="yir_closing_supporting">Било да дојдвте поради една статија или сто, ви благодариме што истражувате, читате и останувате љуботицни со нас на Википедија.</string>
   <string name="yir_closing_share_action">Сподели најважни моменти</string>
@@ -2375,6 +2375,8 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Сподели најважни моменти</string>
   <string name="year_in_review_highlights_logo_description">Лого на Википедија</string>
+  <string name="year_in_review_swipe_tutorial_title">Повлечете за да истражите</string>
+  <string name="year_in_review_swipe_tutorial_message">Повлечете нагоре за да се продвижите низ Прегледот на годината.</string>
   <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_title">Откријте статии избрани токму за вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Вашиот неделен список за читање на википедиски статии, подготвена токму за вас.</string>
