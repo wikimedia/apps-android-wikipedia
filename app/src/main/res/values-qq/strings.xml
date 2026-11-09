@@ -2069,9 +2069,6 @@
   <string name="yir_community_recap_headline">Headline of the Year in Review card that leads to the community Year in Review.</string>
   <string name="yir_community_recap_supporting">Supporting text of the Year in Review card that leads to the community Year in Review.</string>
   <string name="yir_community_recap_action">Button label on the Year in Review card that leads to the community Year in Review.</string>
-  <string name="yir_top_read_headline">Headline of the Year in Review card that leads to a blog post about the most-read English Wikipedia articles of 2026.</string>
-  <string name="yir_top_read_supporting">Supporting text of the Year in Review most-read articles card.</string>
-  <string name="yir_top_read_action">Button label on the Year in Review most-read articles card.</string>
   <string name="yir_quiz_headline">Headline of the Year in Review quiz card.</string>
   <string name="yir_quiz_supporting">Supporting text of the Year in Review quiz card.</string>
   <string name="yir_quiz_action">Button label on the Year in Review quiz card.</string>

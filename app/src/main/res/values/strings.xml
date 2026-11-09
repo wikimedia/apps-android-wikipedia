@@ -2174,9 +2174,6 @@
     <string name="yir_community_recap_headline">Our Year in Review</string>
     <string name="yir_community_recap_supporting">Rediscover how much the world read, edited, and explored together.</string>
     <string name="yir_community_recap_action">Explore now</string>
-    <string name="yir_top_read_headline">2026\'s most-read articles</string>
-    <string name="yir_top_read_supporting">Learn what everyone read about on Wikipedia this year. Did the World Cup make the list?</string>
-    <string name="yir_top_read_action">Explore the top 25</string>
     <string name="yir_quiz_headline">Which Wikipedia are you?</string>
     <string name="yir_quiz_supporting">From dial-up days to now, travel through Wikipedia\'s history.</string>
     <string name="yir_quiz_action">Take the quiz</string>
