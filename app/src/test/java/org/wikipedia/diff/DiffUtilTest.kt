@@ -77,5 +77,4 @@ class DiffUtilTest {
             assertEquals(listOf("😀B"), highlights.map { text.subSequence(text.getSpanStart(it), text.getSpanEnd(it)).toString() })
         }
     }
-
 }
