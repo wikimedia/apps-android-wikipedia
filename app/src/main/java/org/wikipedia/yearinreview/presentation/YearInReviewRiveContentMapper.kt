@@ -420,7 +420,7 @@ private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String
 
 // Rows without an image are cleared, so the instance's sample picture doesn't show
 private fun listIcons(imageUrls: List<String?>): Map<String, String?> {
-    return (1..LIST_ROW_COUNT).associate { row -> "icon$row" to imageUrls.getOrNull(row - 1) }
+    return (1..LIST_ROW_COUNT).associate { row -> "icon$row" to imageUrls.getOrNull(row - 1) }.filterValues { !it.isNullOrEmpty() }
 }
 
 // frame7 and frame9 have this property so far.
