@@ -1925,8 +1925,8 @@
   <string name="wikipedia_games_subtitle">Daglig frågesport som bygger på Wikipedias innehåll.</string>
   <string name="yir_intro_headline">Din Wikipedia-årsöversikt är här</string>
   <plurals name="yir_intro_supporting" fuzzy="true">
-    <item quantity="one">Tack för att du spenderat %2$d dag på din trofasta Wikipedia-app på %2$d.</item>
-    <item quantity="other">Tack för att du spenderat %2$d dagar på din trofasta Wikipedia-app på %2$d.</item>
+    <item quantity="one">Tack för att du spenderat %1$d dag på din trofasta Wikipedia-app på %2$d.</item>
+    <item quantity="other">Tack för att du spenderat %1$d dagar på din trofasta Wikipedia-app på %2$d.</item>
   </plurals>
   <string name="yir_article_count_headline">Ditt totala antal artiklar:</string>
   <string name="yir_article_count_supporting">Du har utforskat hela året. Varje artikel har bidragit med något till din kunskap.</string>

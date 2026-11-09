@@ -336,6 +336,6 @@
   <string name="talk_title">ⵎⵙⴳⴷⴰⵍ</string>
   <string name="talk_add_reply">ⵔⴰⵔ</string>
   <string name="talk_reply_subject">ⵉⵎⵔⵙⵉ</string>
-  <string name="talk_last_modified">&lt;b&gt;ⴰⵙⵏⴼⵍ ⴰⵎⴳⴳⴰⵔⵓ %1$s&lt;/b&gt; %1$s ⵙ %2$s</string>
+  <string name="talk_last_modified">&lt;b&gt;ⴰⵙⵏⴼⵍ ⴰⵎⴳⴳⴰⵔⵓ %1$s&lt;/b&gt; ⵙ %2$s</string>
   <string name="talk_templates_menu_remove_message">ⴽⴽⵙ ⵜⵓⵣⵉⵏⵜ</string>
 </resources>
