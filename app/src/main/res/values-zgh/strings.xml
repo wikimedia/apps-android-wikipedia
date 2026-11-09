@@ -20,10 +20,15 @@
   <string name="search_hint">ⵔⵣⵓ ⴳ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
   <string name="search_hint_voice_search">ⴰⵔⵣⵣⵓ ⴰⴳⵔⴹⴰⵏ</string>
   <string name="search_hint_search_languages">ⵔⵣⵓ ⵖⴼ ⴽⵔⴰ ⵏ ⵜⵓⵜⵍⴰⵢⵜ</string>
+  <string name="search_back_button_content_description">ⴷⴷⵓ ⵙ ⴹⴰⵕⵜ</string>
+  <string name="search_clear_query_content_description">ⵙⴼⴹ ⴰⵙⵓⵜⵔ</string>
+  <string name="search_icon_content_description">ⵙⵉⴳⴳⵍ</string>
   <string name="filter_hint_filter_my_lists_and_articles">ⵙⵜⵢ ⵜⵉⵍⴳⴰⵎⵉⵏ ⵉⵏⵓ</string>
   <string name="nav_item_suggested_edits">ⵉⵙⵏⴼⵍⵏ</string>
+  <string name="nav_item_activity">ⵜⵍⴰⵍⵉⵜ</string>
   <string name="nav_item_more">ⵓⴳⴳⴰⵔ</string>
   <string name="nav_item_search">ⵔⵣⵓ</string>
+  <string name="nav_item_contribute">ⵙⵙⵉⵡⵙ</string>
   <string name="error_network_error">ⵓⵔ ⵢⴰⵍⵍⴼⵓⵙ ⵓⵣⴷⴰⵢ ⵖⵔ ⵡⴰⵏⵜⵉⵔⵏⵉⵜ.</string>
   <string name="page_error_retry">ⴰⵔⵎ ⴷⴰⵖ</string>
   <string name="card_offline_error_retry">ⴰⵔⵎ ⴷⴰⵖ</string>
@@ -33,13 +38,14 @@
   <string name="page_error_back_to_main">ⴷⴷⵓ ⴹⴰⵕⴰⵜ</string>
   <string name="error_back">ⴷⴷⵓ ⴹⴰⵕⴰⵜ</string>
   <string name="error_next">ⵓⴹⴼⵉⵕ</string>
-  <string name="menu_clear_all_history" fuzzy="true">ⵙⴼⴹ ⴰⵎⵣⵔⵓⵢ</string>
+  <string name="menu_clear_all_history">ⵙⴼⴹ ⴰⵎⴰⵣⵔⴰⵢ ⵏ ⵜⵉⵖⵔⵉ</string>
   <string name="history_item_deleted">ⵉⵜⵜⵡⴰⴽⴽⵙ %s ⵙⴳ ⵓⵎⵣⵔⵓⵢ</string>
   <string name="history_items_deleted">%d ⵉⵎⴰⴳⵔⴰⴷⵏ ⵜⵡⴰⴽⵙⵏ ⵙⴳ ⵓⵎⵣⵔⵓⵢ</string>
   <string name="history_item_delete_undo">ⵙⵔ</string>
   <string name="notification_archive_undo">ⵙⵔ</string>
   <string name="app_settings">ⵜⵉⵙⵖⴰⵍ ⵏ ⵜⵙⵏⵙⵉ</string>
   <string name="history_list_title">ⴰⵎⵣⵔⵓⵢ</string>
+  <string name="image_content_description">ⵜⴰⵡⵍⴰⴼⵜ: %s</string>
   <string name="page_content_description">ⵜⴰⵙⵏⴰ: %s</string>
   <string name="wikimedia_commons">ⵡⵉⴽⵉⵎⵉⴷⵢⴰ ⴽⴰⵎⵏⵥ</string>
   <string name="wikidata">ⵡⵉⴽⵉⵙⴼⴽⴰ</string>
@@ -58,6 +64,7 @@
   <string name="menu_page_other_languages">ⵙⵏⴼⵍ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="menu_page_find_in_page">ⴰⴼ ⴳ ⵓⵎⴳⵔⴰⴷ</string>
   <string name="menu_page_add_to_watchlist">ⵔⵏⵓ ⵉ ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵕ</string>
+  <string name="menu_page_watch">ⵎⴰⵜⵜⵔ</string>
   <string name="menu_page_view_talk">ⵙⴽⵏ ⵜⴰⵙⵏⴰ ⵏ ⵓⵎⵙⴰⵡⴰⵍ</string>
   <string name="menu_page_view_edit_history">ⵙⴽⵏ ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵏⴼⵍ</string>
   <string name="menu_page_edit_history">ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵏⴼⵍ</string>
@@ -79,6 +86,7 @@
   <string name="on_this_day_page_share">ⴱⴹⵓ</string>
   <string name="reading_list_page_share">ⴱⴹⵓ</string>
   <string name="menu_text_select_edit_here">ⵙⵏⴼⵍ ⴷⴰ</string>
+  <string name="menu_edit_article">ⵙⵏⴼⵍ ⴰⵎⴳⵔⴰⴷ</string>
   <string name="last_updated_text">ⴰⵙⴷⵖⵉ ⴰⵏⴳⴳⴰⵔⵓ %s</string>
   <string name="talk_page_link_text">ⵙⴽⵏ ⵜⴰⵙⵏⴰ ⵏ ⵓⵎⵙⴰⵡⴰⵍ</string>
   <string name="edit_history_link_text">ⵙⴽⵏ ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵏⴼⵍ</string>
@@ -101,6 +109,7 @@
   <string name="dialog_message_leaving_edit">ⵓⵔ ⵜⴰ ⵜⵜⵓⴼⵙⴰⵔⵏ ⵉⵙⵏⴼⵉⵍⵏ ⵏⵏⴽ. ⵉⵙ ⵏⵉⵜ ⵜⵅⵙⴷ ⴰⴷ ⵜⴼⵍⴷ ⵜⴰⵙⵏⴰ?</string>
   <string name="dialog_message_leaving_edit_leave">ⴼⵍ</string>
   <string name="dialog_message_leaving_edit_stay">ⵇⵇⵉⵎ</string>
+  <string name="dialog_confirm_delete_donation_history_delete">ⴽⴽⵙ</string>
   <string name="menu_show_toc">ⵜⴰⴼⵍⵡⵉⵜ ⵏ ⵜⵓⵎⴰⵢⵉⵏ</string>
   <string name="search_no_results_found">ⵓⵔ ⵜⵜⵢⴰⴼⴰⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ</string>
   <string name="search_reading_list_no_results">ⵓⵔ ⵜⵜⵢⴰⴼⴰⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ ⴳ %s</string>
@@ -327,5 +336,6 @@
   <string name="talk_title">ⵎⵙⴳⴷⴰⵍ</string>
   <string name="talk_add_reply">ⵔⴰⵔ</string>
   <string name="talk_reply_subject">ⵉⵎⵔⵙⵉ</string>
+  <string name="talk_last_modified">&lt;b&gt;ⴰⵙⵏⴼⵍ ⴰⵎⴳⴳⴰⵔⵓ %1$s&lt;/b&gt; ⵙ %2$s</string>
   <string name="talk_templates_menu_remove_message">ⴽⴽⵙ ⵜⵓⵣⵉⵏⵜ</string>
 </resources>
