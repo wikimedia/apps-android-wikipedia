@@ -614,7 +614,7 @@ fun YearInReviewTopBar(
                             },
                             text = {
                                 Text(
-                                    text = stringResource(if (isSoundOn) R.string.year_in_review_sound_off else R.string.year_in_review_sound_on),
+                                    text = stringResource(if (isSoundOn) R.string.on_this_day_game_sound_off else R.string.on_this_day_game_sound_on),
                                     style = MaterialTheme.typography.bodyLarge,
                                     color = WikipediaTheme.colors.primaryColor
                                 )
