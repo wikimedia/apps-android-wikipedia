@@ -41,9 +41,9 @@ class YearInReviewAudioPlayer(
         val player = player ?: buildPlayer().also { player = it }
         if (resourceId != currentResourceId) {
             player.setMediaItem(MediaItem.fromUri(rawResourceUri(resourceId)))
-            player.prepare()
             currentResourceId = resourceId
         }
+        player.prepare()
         player.repeatMode = if (loop) Player.REPEAT_MODE_ONE else Player.REPEAT_MODE_OFF
         player.play()
     }
