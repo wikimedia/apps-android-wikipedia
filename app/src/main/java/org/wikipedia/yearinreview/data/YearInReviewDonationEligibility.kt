@@ -1,21 +1,12 @@
 package org.wikipedia.yearinreview.data
 
-import kotlinx.coroutines.CancellationException
-import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.util.log.L
 import java.time.LocalDateTime
 import java.time.format.DateTimeParseException
 
 class YearInReviewDonationEligibility(
-    private val donationStatusFromWebProvider: suspend () -> MwQueryResponse = {
-        ServiceFactory.get(WikiSite.forLanguageCode("en")).getUserInfo() },
-    private val isLoggedIn: () -> Boolean = { AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount },
     private val donationResultsProvider: () -> List<DonationResult> = { Prefs.donationResults }
 ) {
     fun hasDonatedWithinContributionsDateRange(
@@ -31,19 +22,7 @@ class YearInReviewDonationEligibility(
         }
     }
 
-    suspend fun getDonorStatusFromWeb(): Boolean {
-        return isLoggedIn() && try {
-            val donationCode = donationStatusFromWebProvider().query?.userInfo?.options?.wikimediaDonorCode
-            donationCode?.isRecentDonor == true
-        } catch (cancellationException: CancellationException) {
-            throw cancellationException
-        } catch (e: Exception) {
-            L.e(e)
-            false
-        }
-    }
-
-    suspend fun isDonor(remoteConfig: RemoteConfig.RemoteConfigYearInReview?): Boolean {
-        return hasDonatedWithinContributionsDateRange(remoteConfig) || getDonorStatusFromWeb()
+    fun isDonor(remoteConfig: RemoteConfig.RemoteConfigYearInReview?): Boolean {
+        return hasDonatedWithinContributionsDateRange(remoteConfig)
     }
 }

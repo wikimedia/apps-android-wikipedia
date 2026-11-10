@@ -6,6 +6,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -38,6 +39,17 @@ class YearInReviewViewModel(
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<YearInReviewUiState>(YearInReviewUiState.Loading)
     val uiState = _uiState.asStateFlow()
+    private var isOnEndPage = false
+    private var hasLogoSoundPlayed = false
+    private val audioPlayer = YearInReviewAudioPlayer(
+        context = WikipediaApp.instance,
+        onPlaybackEnded = { resourceId ->
+            if (resourceId == R.raw.wikipedia_logo_sound) {
+                hasLogoSoundPlayed = true
+            }
+        }
+    )
+    val isSoundOn = MutableStateFlow(Prefs.isYearInReviewSoundOn)
 
     val tabArticles: List<PageTitle> = loadTabArticles()
 
@@ -75,6 +87,35 @@ class YearInReviewViewModel(
                 readingStats = yearInReview.readingStats
             )
         }
+    }
+
+    fun updateAudio() {
+        when {
+            !isSoundOn.value || hasLogoSoundPlayed -> audioPlayer.pause()
+            isOnEndPage -> audioPlayer.play(R.raw.wikipedia_logo_sound, loop = false)
+            else -> audioPlayer.play(R.raw.dreamy, loop = true)
+        }
+    }
+
+    fun onPageSettled(page: YearInReviewPage) {
+        isOnEndPage = page is YearInReviewPage.End
+        if (isOnEndPage) {
+            updateAudio()
+        }
+    }
+
+    fun pauseAudio() {
+        audioPlayer.pause()
+    }
+
+    fun toggleSound() {
+        isSoundOn.value = !isSoundOn.value
+        Prefs.isYearInReviewSoundOn = isSoundOn.value
+        updateAudio()
+    }
+
+    override fun onCleared() {
+        audioPlayer.release()
     }
 
     companion object {

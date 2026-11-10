@@ -1,0 +1,334 @@
+[
+	{
+		"start_time": "2026-09-09T16:00:00Z",
+		"end_time": "2026-10-07T23:59:00Z",
+		"id": "NL_2026_09",
+		"platforms": {
+			"iOS": {},
+			"Android": {}
+		},
+		"version": 2,
+		"countries": [
+			"NL"
+		],
+		"assets": {
+			"en": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EThe internet we were promised.\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003EAn important update for readers\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003EPlease don't skip this 1-minute read. Our fundraiser will soon be over, but we're short of our goal. We hope that Wikipedia has given you at least €2.50 of knowledge this year. If just 2% of our most loyal readers gave €2.50, we'd hit our goal in a few hours.\u003Cbr\u003E\u003Cbr\u003EThe internet we were promised—a place of free, collaborative, accessible knowledge—is under constant threat. Wikipedia volunteers create and verify the pages you rely on, supported by tools that undo vandalism within minutes, ensuring the information you seek is trustworthy.\u003Cbr\u003E\u003Cbr\u003EMost readers don’t donate, so your gift matters. Please donate today, whether it's €2.50 one time or monthly. Thanks.",
+					"footer": "By donating, you agree to our \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/en'\u003Edonor privacy policy\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Donate now",
+							"url": "https://donate.wikimedia.org/?country=NL\u0026uselang=en\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=enNL_NL_2026_09_Control_$platform;"
+						},
+						{
+							"title": "Maybe later"
+						},
+						{
+							"title": "I already donated"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			],
+			"nl": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EHet internet dat ons werd beloofd.\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003EEen belangrijke update voor onze lezers\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003ESla dit korte bericht alsjeblieft niet over. Want onze fondsenwerving eindigt bijna en het doel is nog niet bereikt. Hopelijk vind je de kennis die je het afgelopen jaar op Wikipedia hebt opgedaan minstens € 2,50 waard. Als 2% van onze trouwe lezers € 2,50 geeft, bereiken we snel ons doel.\u003Cbr\u003E\u003Cbr\u003EHet internet zoals beloofd, de plek met vrij toegankelijke en gezamenlijk vergaarde kennis, wordt continu bedreigd. Vrijwilligers bewerken de pagina’s en controleren ze op juistheid met behulp van tools tegen vandalisme. Daarom kun je rekenen op betrouwbare informatie.\u003Cbr\u003E\u003Cbr\u003EJe bijdrage maakt écht verschil. Doneer je vandaag nog? Eenmalig € 2,50 of maandelijks, alles helpt. Hartelijk dank!",
+					"footer": "Door te doneren ga je akkoord met ons \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/nl'\u003Eprivacybeleid voor donateurs\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Nu doneren",
+							"url": "https://donate.wikimedia.org/?country=NL\u0026uselang=nl\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=nlNL_NL_2026_09_Control_$platform;"
+						},
+						{
+							"title": "Misschien later"
+						},
+						{
+							"title": "Ik heb al gedoneerd"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			]
+		}
+	},
+	{
+		"start_time": "2026-09-09T16:00:00Z",
+		"end_time": "2026-10-07T23:59:00Z",
+		"id": "NL_2026_09",
+		"platforms": {
+			"iOS": {},
+			"Android": {}
+		},
+		"version": 3,
+		"countries": [
+			"NL"
+		],
+		"assets": {
+			"en": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EThe internet we were promised.\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003EAn important update for readers\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003EPlease don't skip this 1-minute read. Our fundraiser will soon be over, but we're short of our goal. We hope that Wikipedia has given you at least €2.50 of knowledge this year. If just 2% of our most loyal readers gave €2.50, we'd hit our goal in a few hours.\u003Cbr\u003E\u003Cbr\u003EThe internet we were promised—a place of free, collaborative, accessible knowledge—is under constant threat. Wikipedia volunteers create and verify the pages you rely on, supported by tools that undo vandalism within minutes, ensuring the information you seek is trustworthy.\u003Cbr\u003E\u003Cbr\u003EMost readers don’t donate, so your gift matters. Please donate today, whether it's €2.50 one time or monthly. Thanks.",
+					"footer": "By donating, you agree to our \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/en'\u003Edonor privacy policy\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Donate now",
+							"url": "https://donate.wikimedia.org/?country=$country;\u0026uselang=$language;\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=$formattedId;\u0026app_install_id=$appInstallId;\u0026app_version=$appVersion;"
+						},
+						{
+							"title": "Maybe later"
+						},
+						{
+							"title": "I already donated"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			],
+			"nl": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EHet internet dat ons werd beloofd.\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003EEen belangrijke update voor onze lezers\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003ESla dit korte bericht alsjeblieft niet over. Want onze fondsenwerving eindigt bijna en het doel is nog niet bereikt. Hopelijk vind je de kennis die je het afgelopen jaar op Wikipedia hebt opgedaan minstens € 2,50 waard. Als 2% van onze trouwe lezers € 2,50 geeft, bereiken we snel ons doel.\u003Cbr\u003E\u003Cbr\u003EHet internet zoals beloofd, de plek met vrij toegankelijke en gezamenlijk vergaarde kennis, wordt continu bedreigd. Vrijwilligers bewerken de pagina’s en controleren ze op juistheid met behulp van tools tegen vandalisme. Daarom kun je rekenen op betrouwbare informatie.\u003Cbr\u003E\u003Cbr\u003EJe bijdrage maakt écht verschil. Doneer je vandaag nog? Eenmalig € 2,50 of maandelijks, alles helpt. Hartelijk dank!",
+					"footer": "Door te doneren ga je akkoord met ons \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/nl'\u003Eprivacybeleid voor donateurs\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Nu doneren",
+							"url": "https://donate.wikimedia.org/?country=$country;\u0026uselang=$language;\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=$formattedId;\u0026app_install_id=$appInstallId;\u0026app_version=$appVersion;"
+						},
+						{
+							"title": "Misschien later"
+						},
+						{
+							"title": "Ik heb al gedoneerd"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			]
+		}
+	},
+	{
+		"start_time": "2026-10-01T16:00:00Z",
+		"end_time": "2026-10-29T23:59:00Z",
+		"id": "FR_2026_10",
+		"platforms": {
+			"iOS": {},
+			"Android": {}
+		},
+		"version": 2,
+		"countries": [
+			"FR"
+		],
+		"assets": {
+			"en": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EThe internet we were promised.\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003EAn important update for readers\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003EPlease don't skip this 1-minute read. Our fundraiser will soon be over, but we're short of our goal. We hope that Wikipedia has given you at least €2.50 of knowledge this year. If just 2% of our most loyal readers gave €2.50, we'd hit our goal in a few hours.\u003Cbr\u003E\u003Cbr\u003EThe internet we were promised—a place of free, collaborative, accessible knowledge—is under constant threat. Wikipedia volunteers create and verify the pages you rely on, supported by tools that undo vandalism within minutes, ensuring the information you seek is trustworthy.\u003Cbr\u003E\u003Cbr\u003EMost readers don’t donate, so your gift matters. Please donate today, whether it's €2.50 one time or monthly. Thanks.",
+					"footer": "By donating, you agree to our \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/en'\u003Edonor privacy policy\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Donate now",
+							"url": "https://donate.wikimedia.org/?country=FR\u0026uselang=en\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=enFR_FR_2026_10_Control_$platform;"
+						},
+						{
+							"title": "Maybe later"
+						},
+						{
+							"title": "I already donated"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			],
+			"fr": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EL’Internet qu’on nous avait promis\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003ENote importante pour nos lecteurs et lectrices\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003ES’il vous plaît, prenez 1 minute pour lire ceci. Notre collecte de fonds sera bientôt terminée, mais nous n’avons pas atteint notre objectif. Nous espérons que Wikipédia vous a transmis au moins 2,50 € de connaissances cette année. Si seulement 2 % de nos lecteurs et lectrices les plus fidèles donnaient 2,50 €, nous atteindrions notre but en quelques heures.\u003Cbr\u003E\u003Cbr\u003EL’Internet qu’on nous avait promis — un lieu de savoir libre, collaboratif et accessible — est sans cesse menacé. Les bénévoles de Wikipédia créent et vérifient des pages auxquelles vous faites confiance à l’aide d’outils qui réparent les vandalismes en quelques minutes pour que vous trouviez des informations fiables.\u003Cbr\u003E\u003Cbr\u003ELa plupart des internautes ne donnent pas, c’est pourquoi votre don est important. Merci d’en faire un aujourd’hui, que ce soit 2,50 € ponctuellement ou tous les mois. Merci.",
+					"footer": "En faisant un don, vous acceptez notre \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/fr'\u003Epolitique de confidentialité\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Faire un don",
+							"url": "https://donate.wikimedia.org/?country=FR\u0026uselang=fr\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=frFR_FR_2026_10_Control_$platform;"
+						},
+						{
+							"title": "Peut-être plus tard"
+						},
+						{
+							"title": "J’ai déjà fait un don"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			]
+		}
+	},
+	{
+		"start_time": "2026-10-01T16:00:00Z",
+		"end_time": "2026-10-29T23:59:00Z",
+		"id": "FR_2026_10",
+		"platforms": {
+			"iOS": {},
+			"Android": {}
+		},
+		"version": 3,
+		"countries": [
+			"FR"
+		],
+		"assets": {
+			"en": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EThe internet we were promised.\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003EAn important update for readers\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003EPlease don't skip this 1-minute read. Our fundraiser will soon be over, but we're short of our goal. We hope that Wikipedia has given you at least €2.50 of knowledge this year. If just 2% of our most loyal readers gave €2.50, we'd hit our goal in a few hours.\u003Cbr\u003E\u003Cbr\u003EThe internet we were promised—a place of free, collaborative, accessible knowledge—is under constant threat. Wikipedia volunteers create and verify the pages you rely on, supported by tools that undo vandalism within minutes, ensuring the information you seek is trustworthy.\u003Cbr\u003E\u003Cbr\u003EMost readers don’t donate, so your gift matters. Please donate today, whether it's €2.50 one time or monthly. Thanks.",
+					"footer": "By donating, you agree to our \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/en'\u003Edonor privacy policy\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Donate now",
+							"url": "https://donate.wikimedia.org/?country=$country;\u0026uselang=$language;\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=$formattedId;\u0026app_install_id=$appInstallId;\u0026app_version=$appVersion;"
+						},
+						{
+							"title": "Maybe later"
+						},
+						{
+							"title": "I already donated"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			],
+			"fr": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EL’Internet qu’on nous avait promis\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003ENote importante pour nos lecteurs et lectrices\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003ES’il vous plaît, prenez 1 minute pour lire ceci. Notre collecte de fonds sera bientôt terminée, mais nous n’avons pas atteint notre objectif. Nous espérons que Wikipédia vous a transmis au moins 2,50 € de connaissances cette année. Si seulement 2 % de nos lecteurs et lectrices les plus fidèles donnaient 2,50 €, nous atteindrions notre but en quelques heures.\u003Cbr\u003E\u003Cbr\u003EL’Internet qu’on nous avait promis — un lieu de savoir libre, collaboratif et accessible — est sans cesse menacé. Les bénévoles de Wikipédia créent et vérifient des pages auxquelles vous faites confiance à l’aide d’outils qui réparent les vandalismes en quelques minutes pour que vous trouviez des informations fiables.\u003Cbr\u003E\u003Cbr\u003ELa plupart des internautes ne donnent pas, c’est pourquoi votre don est important. Merci d’en faire un aujourd’hui, que ce soit 2,50 € ponctuellement ou tous les mois. Merci.",
+					"footer": "En faisant un don, vous acceptez notre \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/fr'\u003Epolitique de confidentialité\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Faire un don",
+							"url": "https://donate.wikimedia.org/?country=$country;\u0026uselang=$language;\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=$formattedId;\u0026app_install_id=$appInstallId;\u0026app_version=$appVersion;"
+						},
+						{
+							"title": "Peut-être plus tard"
+						},
+						{
+							"title": "J’ai déjà fait un don"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			]
+		}
+	},
+	{
+		"start_time": "2026-11-01T00:00:00Z",
+		"end_time": "2026-12-31T23:59:00Z",
+		"id": "NL_2026_09",
+		"platforms": {
+			"iOS": {},
+			"Android": {}
+		},
+		"version": 4,
+		"countries": [
+			"NL",
+			"US"
+		],
+		"assets": {
+			"en": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EThe internet we were promised.\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003EAn important update for readers\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003EIt's %HH:MM%: Please don't skip this 1-minute read. It's %date%, and our fundraiser will soon be over, but we're short of our goal. We hope that Wikipedia has given you at least €2.50 of knowledge this year. If just 2% of our most loyal readers gave €2.50, we'd hit our goal in a few hours.\u003Cbr\u003E\u003Cbr\u003EThe internet we were promised—a place of free, collaborative, accessible knowledge—is under constant threat. Wikipedia volunteers create and verify the pages you rely on, supported by tools that undo vandalism within minutes, ensuring the information you seek is trustworthy.\u003Cbr\u003E\u003Cbr\u003EMost readers don’t donate, so your gift matters. This %weekday%, we ask you to donate, whether it's €2.50 one time or monthly. Thanks.",
+					"footer": "By donating, you agree to our \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/en'\u003Edonor privacy policy\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Donate now",
+							"url": "https://donate.wikimedia.org/?country=$country;\u0026uselang=$language;\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=$formattedId;\u0026app_install_id=$appInstallId;\u0026app_version=$appVersion;"
+						},
+						{
+							"title": "Maybe later"
+						},
+						{
+							"title": "I already donated"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			],
+			"nl": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EHet internet dat ons werd beloofd.\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003EEen belangrijke update voor onze lezers\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003EHet is %HH:MM%: sla dit korte bericht alsjeblieft niet over. Het is %date%. Onze fondsenwerving eindigt bijna en het doel is nog niet bereikt. Hopelijk vind je de kennis die je het afgelopen jaar op Wikipedia hebt opgedaan minstens € 2,50 waard. Als 2% van onze trouwe lezers € 2,50 geeft, bereiken we snel ons doel.\u003Cbr\u003E\u003Cbr\u003EHet internet zoals beloofd, de plek met vrij toegankelijke en gezamenlijk vergaarde kennis, wordt continu bedreigd. Vrijwilligers bewerken de pagina’s en controleren ze op juistheid met behulp van tools tegen vandalisme. Daarom kun je rekenen op betrouwbare informatie.\u003Cbr\u003E\u003Cbr\u003EJe bijdrage maakt écht verschil. Doneer je deze %weekday% nog? Eenmalig € 2,50 of maandelijks, alles helpt. Hartelijk dank!",
+					"footer": "Door te doneren ga je akkoord met ons \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/nl'\u003Eprivacybeleid voor donateurs\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Nu doneren",
+							"url": "https://donate.wikimedia.org/?country=$country;\u0026uselang=$language;\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=$formattedId;\u0026app_install_id=$appInstallId;\u0026app_version=$appVersion;"
+						},
+						{
+							"title": "Misschien later"
+						},
+						{
+							"title": "Ik heb al gedoneerd"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			]
+		}
+	},
+	{
+		"start_time": "2026-11-01T00:00:00Z",
+		"end_time": "2026-12-31T23:59:00Z",
+		"id": "FR_2026_10",
+		"platforms": {
+			"iOS": {},
+			"Android": {}
+		},
+		"version": 4,
+		"countries": [
+			"FR",
+			"US"
+		],
+		"assets": {
+			"en": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EThe internet we were promised.\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003EAn important update for readers\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003EIt's %HH:MM%: Please don't skip this 1-minute read. It's %date%, and our fundraiser will soon be over, but we're short of our goal. We hope that Wikipedia has given you at least €2.50 of knowledge this year. If just 2% of our most loyal readers gave €2.50, we'd hit our goal in a few hours.\u003Cbr\u003E\u003Cbr\u003EThe internet we were promised—a place of free, collaborative, accessible knowledge—is under constant threat. Wikipedia volunteers create and verify the pages you rely on, supported by tools that undo vandalism within minutes, ensuring the information you seek is trustworthy.\u003Cbr\u003E\u003Cbr\u003EMost readers don’t donate, so your gift matters. This %weekday%, we ask you to donate, whether it's €2.50 one time or monthly. Thanks.",
+					"footer": "By donating, you agree to our \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/en'\u003Edonor privacy policy\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Donate now",
+							"url": "https://donate.wikimedia.org/?country=$country;\u0026uselang=$language;\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=$formattedId;\u0026app_install_id=$appInstallId;\u0026app_version=$appVersion;"
+						},
+						{
+							"title": "Maybe later"
+						},
+						{
+							"title": "I already donated"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			],
+			"fr": [
+				{
+					"id": "Control",
+					"text": "\u003Cb\u003EL’Internet qu’on nous avait promis\u003C/b\u003E\u003Cbr\u003E\u003Ci\u003ENote importante pour nos lecteurs et lectrices\u003C/i\u003E\u003Cbr\u003E\u003Cbr\u003EIl est %HH:MM% : s’il vous plaît, prenez 1 minute pour lire ceci. Nous sommes le %date% et notre collecte de fonds sera bientôt terminée, mais nous n’avons pas atteint notre objectif. Nous espérons que Wikipédia vous a transmis au moins 2,50 € de connaissances cette année. Si seulement 2 % de nos lecteurs et lectrices les plus fidèles donnaient 2,50 €, nous atteindrions notre but en quelques heures.\u003Cbr\u003E\u003Cbr\u003EL’Internet qu’on nous avait promis — un lieu de savoir libre, collaboratif et accessible — est sans cesse menacé. Les bénévoles de Wikipédia créent et vérifient des pages auxquelles vous faites confiance à l’aide d’outils qui réparent les vandalismes en quelques minutes pour que vous trouviez des informations fiables.\u003Cbr\u003E\u003Cbr\u003ELa plupart des internautes ne donnent pas, c’est pourquoi votre don est important. Ce %weekday%, merci d’en faire un, que ce soit 2,50 € ponctuellement ou tous les mois. Merci.",
+					"footer": "En faisant un don, vous acceptez notre \u003Ca href='https://foundation.wikimedia.org/wiki/Donor_privacy_policy/fr'\u003Epolitique de confidentialité\u003C/a\u003E.",
+					"actions": [
+						{
+							"title": "Faire un don",
+							"url": "https://donate.wikimedia.org/?country=$country;\u0026uselang=$language;\u0026appeal=SupportingWikipedia\u0026wmf_medium=WikipediaApp\u0026wmf_campaign=$platform;\u0026wmf_source=$formattedId;\u0026app_install_id=$appInstallId;\u0026app_version=$appVersion;"
+						},
+						{
+							"title": "Peut-être plus tard"
+						},
+						{
+							"title": "J’ai déjà fait un don"
+						}
+					],
+					"currency_code": "EUR"
+				}
+			]
+		}
+	}
+]
