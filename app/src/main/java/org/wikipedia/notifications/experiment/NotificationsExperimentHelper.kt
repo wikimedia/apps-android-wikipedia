@@ -8,7 +8,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.scale
 import coil3.imageLoader
 import coil3.request.ImageRequest
 import coil3.request.SuccessResult
@@ -48,7 +47,6 @@ import java.time.DayOfWeek
 import java.time.LocalTime
 import java.time.ZonedDateTime
 import java.time.temporal.TemporalAdjusters
-import kotlin.math.min
 
 object NotificationsExperimentHelper {
 
@@ -181,11 +179,7 @@ object NotificationsExperimentHelper {
             .data(thumbnailUrl)
             .transformations(WhiteBackgroundTransformation())
             .build()
-        val thumbnail = (context.imageLoader.execute(request) as? SuccessResult)?.image?.toBitmap() ?: return null
-        val side = min(thumbnail.width, thumbnail.height)
-        val largeIconSize = context.resources.getDimensionPixelSize(android.R.dimen.notification_large_icon_width)
-        return Bitmap.createBitmap(thumbnail, (thumbnail.width - side) / 2, (thumbnail.height - side) / 2, side, side)
-            .scale(largeIconSize, largeIconSize)
+        return (context.imageLoader.execute(request) as? SuccessResult)?.image?.toBitmap()
     }
 
     fun cancelNotification(context: Context) {
