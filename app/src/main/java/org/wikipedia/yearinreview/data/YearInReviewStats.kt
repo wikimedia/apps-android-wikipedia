@@ -15,7 +15,8 @@ data class YearInReviewCachedStats(
 data class YearInReviewEditingStats(
     val totalEditCount: Int = 0,
     val totalPageViewsCount: Long = 0,
-    val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList()
+    val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList(),
+    val isDonor: Boolean = false
 ) {
     val totalEditCountStatus get() = if (totalEditCount > 0) {
         YearInReviewInsightStatus.PERSONALIZED
