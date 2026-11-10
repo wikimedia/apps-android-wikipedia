@@ -39,7 +39,7 @@ class YearInReviewViewModel(
     private val _uiState = MutableStateFlow<YearInReviewUiState>(YearInReviewUiState.Loading)
     val uiState = _uiState.asStateFlow()
 
-    val openTabs: List<PageTitle> = loadOpenTabs()
+    val tabArticles: List<PageTitle> = loadTabArticles()
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
@@ -50,7 +50,7 @@ class YearInReviewViewModel(
         loadYearInReview()
     }
 
-    private fun loadOpenTabs(): List<PageTitle> {
+    private fun loadTabArticles(): List<PageTitle> {
         val titles = WikipediaApp.instance.tabList.asReversed()
             .asSequence()
             .mapNotNull { it.backStackPositionTitle }
