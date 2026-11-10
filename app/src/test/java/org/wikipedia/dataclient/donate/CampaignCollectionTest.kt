@@ -184,4 +184,20 @@ class CampaignCollectionTest {
             text
         )
     }
+
+    @Test
+    fun testReplaceWeekdayParamWithNonBcp47WikiLanguageCodes() {
+        val cases = mapOf(
+            "als" to "This Mittwuch, we ask you",
+            "simple" to "This Wednesday, we ask you",
+            "sr-el" to "This sreda, we ask you",
+            "map-bms" to "This Rabu, we ask you"
+        )
+
+        cases.forEach { (wikiLanguageCode, expected) ->
+            WikipediaApp.instance.languageState.setAppLanguageCodes(listOf(wikiLanguageCode))
+            val replacedAssets = CampaignCollection.replaceAssetsParams(createCampaignAssets("This %weekday%, we ask you"), "US_2025")
+            errorCollector.checkThat("lang=$wikiLanguageCode", replacedAssets.text, equalTo(expected))
+        }
+    }
 }
