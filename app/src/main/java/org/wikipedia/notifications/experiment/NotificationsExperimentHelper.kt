@@ -174,7 +174,6 @@ object NotificationsExperimentHelper {
     }
 
     private suspend fun loadThumbnail(context: Context, thumbnailUrl: String?): Bitmap? {
-        return null
         if (thumbnailUrl.isNullOrEmpty() || !Prefs.isImageDownloadEnabled) {
             return null
         }
