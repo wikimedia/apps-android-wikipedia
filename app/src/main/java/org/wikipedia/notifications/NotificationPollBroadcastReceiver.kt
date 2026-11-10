@@ -28,7 +28,7 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
-import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
+import org.wikipedia.notifications.experiment.NotificationsExperimentMostReadAbTest
 import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
 import org.wikipedia.notifications.experiment.WeeklyMostReadNotificationWorker
 import org.wikipedia.page.PageTitle
@@ -102,12 +102,12 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     return
                 }
                 // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
-                RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context, fromFiredAlarm = true)
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
 
             ACTION_WEEKLY_MOST_READ == intent.action -> {
-                if (!NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+                if (!NotificationsExperimentMostReadAbTest().isNotificationsExperimentEligible()) {
                     NotificationsExperimentHelper.cancelNotification(context)
                     // Allow maybeScheduleWeeklyMostReadNotification() to schedule again once the user becomes eligible again.
                     Prefs.notificationsExperimentWeeklyMostReadScheduled = false
