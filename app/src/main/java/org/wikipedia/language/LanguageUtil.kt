@@ -89,7 +89,7 @@ object LanguageUtil {
 
     fun wikiLanguageCodeToLocale(languageCode: String): Locale {
         return Locale
-            .forLanguageTag(languageCode)
+            .forLanguageTag(WikipediaApp.instance.languageState.getBcp47LanguageCode(languageCode))
             .takeIf { it.language.isNotEmpty() } ?: Locale.getDefault()
     }
 
