@@ -22,7 +22,7 @@ class NotificationsExperimentAbTest : ABTest("discover-notifications-test-1", GR
         return Prefs.notificationsIsTestActive || RemoteConfig.config.androidv1?.notificationsExperimentEnabledv1 ?: false
     }
 
-    private fun isTestGroupUser(): Boolean {
+    fun isTestGroupUser(): Boolean {
         return group != GROUP_1
     }
 
