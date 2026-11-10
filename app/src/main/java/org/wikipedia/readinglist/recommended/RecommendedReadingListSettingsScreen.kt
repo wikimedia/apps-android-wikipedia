@@ -158,6 +158,7 @@ fun RecommendedReadingListSettingsScreen(
                 EnabledState(
                     articlesNumber = uiState.articlesNumber,
                     selectedFrequency = uiState.updateFrequency,
+                    isUpdateFrequencyVisible = uiState.isUpdateFrequencyVisible,
                     discoverSource = uiState.recommendedReadingListSource,
                     isNotificationEnabled = uiState.isRecommendedReadingListNotificationEnabled,
                     onArticleNumberChanged = onArticleNumberChanged,
@@ -213,6 +214,7 @@ private fun DisabledState(
 private fun EnabledState(
     articlesNumber: Int,
     selectedFrequency: RecommendedReadingListUpdateFrequency,
+    isUpdateFrequencyVisible: Boolean,
     discoverSource: RecommendedReadingListSource,
     isNotificationEnabled: Boolean,
     onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
@@ -231,10 +233,12 @@ private fun EnabledState(
                 articlesNumber = articlesNumber,
                 onArticleNumberChanged = onArticleNumberChanged
             )
-            UpdatesFrequencyView(
-                selectedFrequency = selectedFrequency,
-                onUpdateFrequency = onUpdateFrequency
-            )
+            if (isUpdateFrequencyVisible) {
+                UpdatesFrequencyView(
+                    selectedFrequency = selectedFrequency,
+                    onUpdateFrequency = onUpdateFrequency
+                )
+            }
             Spacer(modifier = Modifier.height(16.dp))
         }
 
@@ -690,6 +694,7 @@ private fun RecommendedReadingListSettingsScreenPreview() {
                 isRecommendedReadingListEnabled = true,
                 articlesNumber = 1,
                 updateFrequency = RecommendedReadingListUpdateFrequency.WEEKLY,
+                isUpdateFrequencyVisible = true,
                 recommendedReadingListSource = RecommendedReadingListSource.INTERESTS,
                 isRecommendedReadingListNotificationEnabled = true
             ),

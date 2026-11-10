@@ -46,6 +46,7 @@ import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
+import org.wikipedia.notifications.experiment.NotificationsExperimentMostReadAbTest
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
@@ -142,8 +143,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                     }
                     TestKitchenAdapter.client.getInstrument("apps-open")
                         .also { instrument ->
-                            if (notificationCategory == NotificationCategory.WEEKLY_MOST_READ) {
-                                NotificationsExperimentAbTest().setExperimentIfEligible(instrument)
+                            when (notificationCategory) {
+                                NotificationCategory.RECOMMENDED_READING_LISTS -> NotificationsExperimentAbTest().setExperimentIfEligible(instrument)
+                                NotificationCategory.WEEKLY_MOST_READ -> NotificationsExperimentMostReadAbTest().setExperimentIfEligible(instrument)
+                                else -> { }
                             }
                         }
                         .submitInteraction(
@@ -170,6 +173,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             Prefs.isReadingListSyncEnabled = true
             ReadingListSyncAdapter.manualSyncWithForce()
         }
+        NotificationsExperimentAbTest().maybeRescheduleRecommendedReadingListNotification(this)
         NotificationsExperimentHelper.maybeScheduleWeeklyMostReadNotification(this)
 
         WikipediaApp.instance.connectionStateMonitor.registerCallback(this)

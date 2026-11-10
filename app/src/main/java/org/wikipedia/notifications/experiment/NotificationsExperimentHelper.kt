@@ -130,7 +130,7 @@ object NotificationsExperimentHelper {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             return
         }
-        val abTest = NotificationsExperimentAbTest()
+        val abTest = NotificationsExperimentMostReadAbTest()
         if (!abTest.isNotificationsExperimentEnabled()) {
             // Control users don't get the notification, but are exposed at the moment they would have received it.
             abTest.maybeSendExposureEventIfEligible()
@@ -270,7 +270,7 @@ object NotificationsExperimentHelper {
     }
 
     fun maybeScheduleWeeklyMostReadNotification(context: Context) {
-        if (Prefs.notificationsExperimentWeeklyMostReadScheduled || !NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+        if (Prefs.notificationsExperimentWeeklyMostReadScheduled || !NotificationsExperimentMostReadAbTest().isNotificationsExperimentEligible()) {
             return
         }
         scheduleNotification(context, fromFiredAlarm = false)
