@@ -97,6 +97,11 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(localDateTime, datePattern)
     }
 
+    fun getTimeString(context: Context, localDateTime: LocalDateTime, locale: Locale): String {
+        val timePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
+        return DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(locale, timePattern), locale).format(localDateTime)
+    }
+
     fun getShortDayWithTimeString(dateStr: String): String {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "MMM d HH:mm")
     }
@@ -184,5 +189,9 @@ object DateUtil {
             -1 -> firstMatchLocaleInstance.format(RelativeDateTimeFormatter.Direction.NEXT, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
             else -> firstMatchLocaleInstance.format(diffInYears.toDouble(), RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS)
         }
+    }
+
+    fun getWeekdayMonthDayDateString(date: LocalDate, locale: Locale): String {
+        return DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(locale, "EEEE, MMMM d"), locale).format(date)
     }
 }
