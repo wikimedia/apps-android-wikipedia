@@ -2,31 +2,34 @@ package org.wikipedia.games
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.webkit.JavaScriptReplyProxy
 import androidx.webkit.WebMessageCompat
 import androidx.webkit.WebViewCompat
 import androidx.webkit.WebViewFeature
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.encodeToJsonElement
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.UriUtil
 import java.io.File
 import java.util.concurrent.Executors
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
 
 class WikiRunActivity : BaseActivity() {
     private lateinit var webView: WebView
@@ -122,60 +125,59 @@ class WikiRunActivity : BaseActivity() {
 
     private fun handleBridgeMessage(message: WebMessageCompat, replyProxy: JavaScriptReplyProxy) {
         val rawMessage = message.data ?: return
-        val envelope = runCatching { JSONObject(rawMessage) }.getOrNull() ?: return
-        val requestId = envelope.optString("id")
-        val type = envelope.optString("type")
-        val payload = envelope.optJSONObject("payload") ?: JSONObject()
-        when (type) {
+        val request = JsonUtil.decodeFromString<BridgeRequest>(rawMessage) ?: return
+        val requestId = request.id
+        when (request.type) {
             "initialize" -> snapshotStore.read { snapshot ->
-                val response = JSONObject()
-                    .put("snapshot", snapshot ?: JSONObject.NULL)
-                    .put("darkMode", WikipediaApp.instance.currentTheme.isDark)
-                reply(replyProxy, requestId, response)
+                reply(replyProxy, requestId, InitializeResult(snapshot, WikipediaApp.instance.currentTheme.isDark))
             }
             "saveSnapshot" -> {
-                if (payload.optInt("version") != 1) {
+                val snapshot = JsonUtil.decodeFromElement<WikiRunSnapshot>(request.payload)
+                if (snapshot == null || snapshot.version != SNAPSHOT_VERSION) {
                     replyError(replyProxy, requestId, "Invalid WikiRun snapshot")
                     return
                 }
-                val values = payload.optJSONObject("values") ?: JSONObject()
-                snapshotStore.save(JSONObject().put("version", 1).put("values", values)) { saved ->
-                    if (saved) reply(replyProxy, requestId, JSONObject().put("saved", true))
+                snapshotStore.save(snapshot) { saved ->
+                    if (saved) reply(replyProxy, requestId, SaveSnapshotResult(saved = true))
                     else replyError(replyProxy, requestId, "Could not save WikiRun progress")
                 }
             }
             "openLink" -> {
-                safeWebUri(payload.optString("url"))?.let { UriUtil.visitInExternalBrowser(this, it) }
+                val url = JsonUtil.decodeFromElement<UrlPayload>(request.payload)?.url.orEmpty()
+                safeWebUri(url)?.let { UriUtil.visitInExternalBrowser(this, it) }
             }
             "openArticle" -> {
-                safeWebUri(payload.optString("url"))?.let {
+                val url = JsonUtil.decodeFromElement<UrlPayload>(request.payload)?.url.orEmpty()
+                safeWebUri(url)?.let {
                     if (isArticleUri(it)) openArticle(it) else UriUtil.visitInExternalBrowser(this, it)
                 }
             }
-            "share" -> share(payload)
+            "share" -> JsonUtil.decodeFromElement<SharePayload>(request.payload)?.let { share(it) }
             "close" -> finish()
             else -> if (requestId.isNotEmpty()) replyError(replyProxy, requestId, "Unsupported WikiRun bridge request")
         }
     }
 
-    private fun reply(replyProxy: JavaScriptReplyProxy, requestId: String, payload: JSONObject) {
-        replyProxy.postMessage(JSONObject().put("id", requestId).put("payload", payload).toString())
+    private inline fun <reified T> reply(replyProxy: JavaScriptReplyProxy, requestId: String, payload: T) {
+        JsonUtil.encodeToString(ReplyEnvelope(requestId, JsonUtil.json.encodeToJsonElement(payload)))
+            ?.let { replyProxy.postMessage(it) }
     }
 
     private fun replyError(replyProxy: JavaScriptReplyProxy, requestId: String, error: String) {
-        replyProxy.postMessage(JSONObject().put("id", requestId).put("error", error).toString())
+        JsonUtil.encodeToString(ErrorEnvelope(requestId, error))?.let { replyProxy.postMessage(it) }
     }
 
-    private fun share(payload: JSONObject) {
+    private fun share(payload: SharePayload) {
+        val title = payload.title ?: "WikiRun"
         val sendIntent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"
-            putExtra(Intent.EXTRA_TITLE, payload.optString("title", "WikiRun"))
+            putExtra(Intent.EXTRA_TITLE, title)
             putExtra(Intent.EXTRA_TEXT, listOfNotNull(
-                payload.optString("text").takeIf { it.isNotBlank() },
-                payload.optString("url").takeIf { it.isNotBlank() }
+                payload.text?.takeIf { it.isNotBlank() },
+                payload.url?.takeIf { it.isNotBlank() }
             ).joinToString("\n"))
         }
-        startActivity(Intent.createChooser(sendIntent, payload.optString("title", "WikiRun")))
+        startActivity(Intent.createChooser(sendIntent, title))
     }
 
     private fun safeWebUri(value: String): Uri? {
@@ -203,19 +205,60 @@ class WikiRunActivity : BaseActivity() {
 
     private fun originRule(uri: Uri): String = "${uri.scheme}://${uri.host}${if (uri.port >= 0) ":${uri.port}" else ""}"
 
+    @Serializable
+    private class BridgeRequest(
+        val id: String = "",
+        val type: String = "",
+        val payload: JsonElement? = null
+    )
+
+    @Serializable
+    private class WikiRunSnapshot(
+        val version: Int,
+        val values: Map<String, String>
+    )
+
+    @Serializable
+    private class InitializeResult(
+        val snapshot: WikiRunSnapshot?,
+        val darkMode: Boolean
+    )
+
+    @Serializable
+    private class SaveSnapshotResult(val saved: Boolean)
+
+    @Serializable
+    private class UrlPayload(val url: String = "")
+
+    @Serializable
+    private class SharePayload(
+        val title: String? = null,
+        val text: String? = null,
+        val url: String? = null
+    )
+
+    @Serializable
+    private class ReplyEnvelope(val id: String, val payload: JsonElement)
+
+    @Serializable
+    private class ErrorEnvelope(val id: String, val error: String)
+
     private class SnapshotStore(private val file: File) {
         private val executor = Executors.newSingleThreadExecutor()
 
-        fun read(onLoaded: (JSONObject?) -> Unit) {
+        fun read(onLoaded: (WikiRunSnapshot?) -> Unit) {
             execute {
-                val snapshot = runCatching { JSONObject(file.readText()) }.getOrNull()
+                val snapshot = runCatching { file.readText() }.getOrNull()
+                    ?.let { JsonUtil.decodeFromString<WikiRunSnapshot>(it) }
                 Handler(Looper.getMainLooper()).post { onLoaded(snapshot) }
             }
         }
 
-        fun save(snapshot: JSONObject, onComplete: (Boolean) -> Unit) {
+        fun save(snapshot: WikiRunSnapshot, onComplete: (Boolean) -> Unit) {
             execute {
-                val saved = runCatching { file.writeText(snapshot.toString()) }.isSuccess
+                val saved = JsonUtil.encodeToString(snapshot)?.let { json ->
+                    runCatching { file.writeText(json) }.isSuccess
+                } ?: false
                 Handler(Looper.getMainLooper()).post { onComplete(saved) }
             }
         }
@@ -231,5 +274,6 @@ class WikiRunActivity : BaseActivity() {
 
     companion object {
         private const val BRIDGE_NAME = "WikiRunBridge"
+        private const val SNAPSHOT_VERSION = 1
     }
 }
