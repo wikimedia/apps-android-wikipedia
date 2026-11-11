@@ -1,12 +1,14 @@
 package org.wikipedia.readinglist.database
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.ArticleOfflineState
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import java.io.Serializable
@@ -48,13 +50,24 @@ data class ReadingListPage(
 
     @Transient var selected = false
 
-    val saving get() = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
+    @Ignore @Transient var articleOfflineState: ArticleOfflineState? = null
+
+    val offlineRequested get() = articleOfflineState?.requested ?: (offline && status != STATUS_QUEUE_FOR_DELETE)
+
+    val availableOffline get() = articleOfflineState?.downloaded == true
+
+    val availableOfflineBytes get() = articleOfflineState?.availableBytes ?: 0L
+
+    val downloadQueued get() = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
+    val saving get() = articleOfflineState?.pending ?: downloadQueued
+    val canRetryOffline get() = offlineRequested && !availableOffline && !saving
 
     companion object {
         const val STATUS_QUEUE_FOR_SAVE = 0L
         const val STATUS_SAVED = 1L
         const val STATUS_QUEUE_FOR_DELETE = 2L
         const val STATUS_QUEUE_FOR_FORCED_SAVE = 3L
+        const val STATUS_DOWNLOAD_FAILED = 4L
 
         fun toPageSummary(page: ReadingListPage): PageSummary {
             return PageSummary(page.displayTitle, page.apiTitle, page.description, page.description, page.thumbUrl, page.lang)

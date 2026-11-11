@@ -41,10 +41,10 @@ class ReadingList(
         get() = title == L10nUtil.getString(R.string.default_reading_list_name)
 
     val numPagesOffline
-        get() = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
+        get() = pages.count { it.availableOffline }
 
     val sizeBytesFromPages
-        get() = pages.sumOf { if (it.offline) it.sizeBytes else 0 }
+        get() = pages.sumOf { it.availableOfflineBytes }
 
     fun touch() {
         atime = System.currentTimeMillis()

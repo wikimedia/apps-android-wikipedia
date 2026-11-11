@@ -149,7 +149,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         when (resource) {
                             is Resource.Success -> {
                                 binding.readingListSwipeRefresh.isRefreshing = false
+                                val previousPages = readingList?.pages.orEmpty().associateBy { it.articleKey() }
                                 readingList = resource.data
+                                readingList?.pages?.forEach { page ->
+                                    previousPages[page.articleKey()]?.let { previous ->
+                                        page.selected = previous.selected
+                                        page.downloadProgress = if (page.saving) previous.downloadProgress else 0
+                                    }
+                                }
                                 readingList?.let {
                                     binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                                 }
@@ -877,8 +884,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setImageUrl(page.thumbUrl)
             view.isSelected = page.selected
             view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp,
-                    if (readingListMode != ReadingListMode.DEFAULT) false else !page.offline || page.saving)
-            view.setCircularProgressVisibility(page.downloadProgress > 0 && page.downloadProgress < CircularProgressBar.MAX_PROGRESS)
+                    if (readingListMode != ReadingListMode.DEFAULT) false else !page.availableOffline)
+            view.setCircularProgressVisibility(page.saving && page.downloadProgress > 0 && page.downloadProgress < CircularProgressBar.MAX_PROGRESS)
             view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
@@ -1079,7 +1086,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             } else if (item != null) {
                 val title = ReadingListPage.toPageTitle(item)
                 val entry = HistoryEntry(title, if (isRecommendedList) HistoryEntry.SOURCE_RECOMMENDED_READING_LIST else HistoryEntry.SOURCE_READING_LIST)
-                ReadingListBehaviorsUtil.updateReadingListPage(item)
+                ReadingListBehaviorsUtil.touchListsForPage(item)
                 if (isRecommendedList) {
                     RecommendedReadingListEvent.submit("reading_list_click", "rrl_discover")
                 }
@@ -1113,10 +1120,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         override fun onActionClick(item: ReadingListPage?, view: View) {
             item?.let {
-                if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi && it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
-                    it.offline = false
-                }
-                if (it.saving) {
+                if (it.saving && !(Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi &&
+                        it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE)) {
                     Toast.makeText(context, R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show()
                 } else {
                     ReadingListBehaviorsUtil.toggleOffline(requireActivity(), item) {
@@ -1226,7 +1231,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun getPagePositionInList(page: ReadingListPage): Int {
-        return displayedLists.indexOfFirst { it is ReadingListPage && it.id == page.id }
+        return displayedLists.indexOfFirst { it is ReadingListPage && it.articleKey() == page.articleKey() }
     }
 
     companion object {

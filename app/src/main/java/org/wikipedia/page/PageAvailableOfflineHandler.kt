@@ -14,7 +14,7 @@ object PageAvailableOfflineHandler {
     }
 
     fun check(page: ReadingListPage, callback: Callback) {
-        callback.onFinish(WikipediaApp.instance.isOnline || (page.offline && !page.saving))
+        callback.onFinish(WikipediaApp.instance.isOnline || page.availableOffline)
     }
 
     fun check(lifeCycleScope: CoroutineScope, pageTitle: PageTitle, callback: Callback) {
@@ -27,7 +27,7 @@ object PageAvailableOfflineHandler {
             L.w(exception)
         }) {
             val readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageTitle)
-            callback.onFinish(readingListPage != null && readingListPage.offline && !readingListPage.saving)
+            callback.onFinish(readingListPage?.availableOffline == true)
         }
     }
 
