@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import kotlinx.coroutines.async
@@ -169,7 +170,7 @@ object NotificationsExperimentHelper {
             return false
         }
         val notificationManager = NotificationManagerCompat.from(context)
-        val channel = notificationManager.getNotificationChannelCompat(NotificationCategory.WEEKLY_MOST_READ.id) ?: return true
+        val channel = notificationManager.getNotificationChannelCompat(NotificationCategory.WEEKLY_MOST_READ.id) ?: return Build.VERSION.SDK_INT < Build.VERSION_CODES.O
         val channelGroup = channel.group?.let { notificationManager.getNotificationChannelGroupCompat(it) }
         return channel.importance != NotificationManagerCompat.IMPORTANCE_NONE && channelGroup?.isBlocked != true
     }
