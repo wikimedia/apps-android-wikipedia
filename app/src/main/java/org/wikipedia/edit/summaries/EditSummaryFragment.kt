@@ -154,7 +154,7 @@ class EditSummaryFragment : Fragment() {
     }
 
     private fun getWatchedStatus() {
-        if (AccountUtil.isLoggedIn) {
+        if (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
             }) {
@@ -165,6 +165,8 @@ class EditSummaryFragment : Fragment() {
         } else {
             binding.watchPageCheckBox.isEnabled = false
             binding.watchPageCheckBox.alpha = 0.5f
+            binding.minorEditCheckBox.isEnabled = false
+            binding.minorEditCheckBox.alpha = 0.5f
         }
     }
 
