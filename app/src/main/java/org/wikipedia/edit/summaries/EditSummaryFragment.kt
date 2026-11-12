@@ -154,7 +154,7 @@ class EditSummaryFragment : Fragment() {
     }
 
     private fun getWatchedStatus() {
-        if (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) {
+        if (AccountUtil.isLoggedIn) {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
             }) {
@@ -165,8 +165,6 @@ class EditSummaryFragment : Fragment() {
         } else {
             binding.watchPageCheckBox.isEnabled = false
             binding.watchPageCheckBox.alpha = 0.5f
-            binding.minorEditCheckBox.isEnabled = false
-            binding.minorEditCheckBox.alpha = 0.5f
         }
     }
 
@@ -210,6 +208,11 @@ class EditSummaryFragment : Fragment() {
     private fun invokeSource() = (requireActivity() as EditSectionActivity).getInvokeSource()
 
     fun show() {
+        binding.minorEditCheckBox.isEnabled = viewModel.canMarkMinorEdit
+        binding.minorEditCheckBox.alpha = if (viewModel.canMarkMinorEdit) 1f else 0.5f
+        if (!viewModel.canMarkMinorEdit) {
+            binding.minorEditCheckBox.isChecked = false
+        }
         if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
             binding.footerContainer.tempAccountInfoContainer.isVisible = true
             binding.footerContainer.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
