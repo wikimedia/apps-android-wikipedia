@@ -217,6 +217,9 @@ class EditSummaryFragment : Fragment() {
         } else {
             binding.footerContainer.tempAccountInfoContainer.isVisible = false
         }
+        binding.footerContainer.hCaptchaDisclaimer.isVisible = !viewModel.hCaptchaPolicyMessage.isNullOrEmpty()
+        binding.footerContainer.hCaptchaDisclaimer.movementMethod = LinkMovementMethod.getInstance()
+        binding.footerContainer.hCaptchaDisclaimer.text = StringUtil.fromHtml(StringUtil.parseWikitextExternalLinks(viewModel.hCaptchaPolicyMessage.orEmpty()))
         ViewAnimations.fadeIn(binding.root) {
             requireActivity().invalidateOptionsMenu()
             binding.editSummaryText.requestFocus()

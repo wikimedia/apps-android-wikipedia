@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwServiceError
@@ -34,6 +35,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var editingAllowed = false
     var editCount = 0
     val editNotices = mutableListOf<String>()
+    var hCaptchaPolicyMessage: String? = null
 
     // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
     private var currentRevision: Long = 0
@@ -59,9 +61,14 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         }) {
             _fetchSectionTextState.value = Resource.Loading()
 
-            val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
+            val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoAndMessages(
+                title = pageTitle.prefixedText,
+                section = if (sectionID >= 0) sectionID else null,
+                messages = HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE
+            )
             editCount = infoResponse.query?.userInfo?.editCount ?: 0
             tempAccountsEnabled = infoResponse.query?.autoCreateTempUser?.enabled == true
+            hCaptchaPolicyMessage = infoResponse.query?.allmessages?.find { it.name == HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE }?.content
 
             infoResponse.query?.firstPage()?.let { firstPage ->
                 val rev = firstPage.revisions.first()
