@@ -6,6 +6,8 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
@@ -127,7 +129,7 @@ object NotificationsExperimentHelper {
     }
 
     suspend fun showNotification(context: Context) {
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+        if (!canPostWeeklyMostReadNotification(context)) {
             return
         }
         val abTest = NotificationsExperimentMostReadAbTest()
@@ -161,6 +163,16 @@ object NotificationsExperimentHelper {
         if (isNotificationPosted) {
             abTest.maybeSendExposureEventIfEligible()
         }
+    }
+
+    private fun canPostWeeklyMostReadNotification(context: Context): Boolean {
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            return false
+        }
+        val notificationManager = NotificationManagerCompat.from(context)
+        val channel = notificationManager.getNotificationChannelCompat(NotificationCategory.WEEKLY_MOST_READ.id) ?: return Build.VERSION.SDK_INT < Build.VERSION_CODES.O
+        val channelGroup = channel.group?.let { notificationManager.getNotificationChannelGroupCompat(it) }
+        return channel.importance != NotificationManagerCompat.IMPORTANCE_NONE && channelGroup?.isBlocked != true
     }
 
     fun cancelNotification(context: Context) {
