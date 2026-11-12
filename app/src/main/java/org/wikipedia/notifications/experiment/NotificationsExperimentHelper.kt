@@ -119,19 +119,12 @@ object NotificationsExperimentHelper {
     fun scheduleNotification(context: Context, fromFiredAlarm: Boolean) {
         // Always cancel before scheduling a new one
         cancelNotification(context)
-        val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-            .setAction(NotificationPollBroadcastReceiver.ACTION_WEEKLY_MOST_READ)
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         alarmManager.setAndAllowWhileIdle(
             AlarmManager.RTC_WAKEUP,
             getNotificationsExperimentTriggerMillis(fromFiredAlarm),
-            PendingIntent.getBroadcast(
-                context,
-                0,
-                intent,
-                PendingIntent.FLAG_IMMUTABLE
-            )
+            getAlarmPendingIntent(context)
         )
     }
 
@@ -139,15 +132,16 @@ object NotificationsExperimentHelper {
         if (!canPostWeeklyMostReadNotification(context)) {
             return
         }
-        val abTest = NotificationsExperimentMostReadAbTest()
-        if (!abTest.isNotificationsExperimentEnabled()) {
-            // Control users don't get the notification, but are exposed at the moment they would have received it.
-            abTest.maybeSendExposureEventIfEligible()
-            return
-        }
         val languageCode = WikipediaApp.instance.languageState.appLanguageCode
         val articles = getWeeklyMostRead(languageCode)
         val mostReadArticle = articles.firstOrNull() ?: return
+        val abTest = NotificationsExperimentMostReadAbTest()
+        if (!abTest.isNotificationsExperimentEnabled()) {
+            // Control users don't get the notification, but are exposed at the moment they would have received it.
+            // They go through the same fetch as treatment users first, so that a failed or empty fetch leaves both groups unexposed.
+            abTest.maybeSendExposureEventIfEligible()
+            return
+        }
         val (title, text) = context.getString(R.string.notifications_experiment_weekly_most_read_notification_title) to
                 context.getString(R.string.notifications_experiment_weekly_most_read_notification_description, StringUtil.fromHtml(mostReadArticle.displayTitle).toString())
         val isNotificationPosted = NotificationPresenter.showNotification(
@@ -196,9 +190,24 @@ object NotificationsExperimentHelper {
 
     fun cancelNotification(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
+        val pendingIntent = getAlarmPendingIntent(context)
+        alarmManager.cancel(pendingIntent)
+        // Also cancel the PendingIntent itself, so that isAlarmScheduled() stops finding it.
+        pendingIntent.cancel()
+    }
+
+    // A pending alarm keeps its PendingIntent alive, and force-stopping the app removes both.
+    private fun isAlarmScheduled(context: Context): Boolean {
+        return PendingIntent.getBroadcast(context, 0, getAlarmIntent(context), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_NO_CREATE) != null
+    }
+
+    private fun getAlarmPendingIntent(context: Context): PendingIntent {
+        return PendingIntent.getBroadcast(context, 0, getAlarmIntent(context), PendingIntent.FLAG_IMMUTABLE)
+    }
+
+    private fun getAlarmIntent(context: Context): Intent {
+        return Intent(context, NotificationPollBroadcastReceiver::class.java)
             .setAction(NotificationPollBroadcastReceiver.ACTION_WEEKLY_MOST_READ)
-        alarmManager.cancel(PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
     }
 
     private fun getNotificationsExperimentTriggerMillis(fromFiredAlarm: Boolean): Long {
@@ -301,7 +310,10 @@ object NotificationsExperimentHelper {
     }
 
     fun maybeScheduleWeeklyMostReadNotification(context: Context) {
-        if (Prefs.notificationsExperimentWeeklyMostReadScheduled || !NotificationsExperimentMostReadAbTest().isNotificationsExperimentEligible()) {
+        // Checking the alarm too (not only the flag) re-arms it after a force-stop, which removes the app's alarms until a reboot.
+        // Rescheduling only a missing alarm keeps a pending one, so the alarm that just fired can't be scheduled again for the same day.
+        val isAlreadyScheduled = Prefs.notificationsExperimentWeeklyMostReadScheduled && isAlarmScheduled(context)
+        if (isAlreadyScheduled || !NotificationsExperimentMostReadAbTest().isNotificationsExperimentEligible()) {
             return
         }
         scheduleNotification(context, fromFiredAlarm = false)
