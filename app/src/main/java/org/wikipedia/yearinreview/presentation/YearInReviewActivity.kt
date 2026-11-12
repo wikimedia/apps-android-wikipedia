@@ -13,6 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.core.net.toUri
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -68,9 +69,19 @@ class YearInReviewActivity : BaseActivity() {
         setContent {
             BaseTheme {
                 val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+                val isSoundOn by viewModel.isSoundOn.collectAsStateWithLifecycle()
+
+                // The music should only play when the slides are active, not on the loading or error screen
+                if (uiState is YearInReviewUiState.Content) {
+                    LifecycleStartEffect(viewModel) {
+                        viewModel.updateAudio()
+                        onStopOrDispose { viewModel.pauseAudio() }
+                    }
+                }
 
                 YearInReviewScreen(
                     uiState = uiState,
+                    isSoundOn = isSoundOn,
                     onCloseClick = { page ->
                         if (page != null) {
                             submitInteraction(uiState, action = "click", elementId = "close_button", actionContext = mapOf("page" to page.id))
@@ -91,6 +102,9 @@ class YearInReviewActivity : BaseActivity() {
                             context = this,
                             subject = getString(R.string.year_in_review_feedback_email_subject)
                         )
+                    },
+                    onSoundToggleClick = {
+                        viewModel.toggleSound()
                     },
                     onShareClick = { page, bitmap ->
                         submitInteraction(uiState, action = "click", elementId = "share_button", actionContext = mapOf("page" to page.id))
@@ -137,6 +151,7 @@ class YearInReviewActivity : BaseActivity() {
                         WindowCompat.getInsetsController(window, window.decorView)
                             .isAppearanceLightStatusBars = useDarkIcons
                     },
+                    onPageSettled = viewModel::onPageSettled,
                     onPageImpression = { page ->
                         submitInteraction(uiState, action = "impression", actionContext = mapOf("page" to page.id))
                         if (page is YearInReviewPage.End && YearInReviewEndScreenABTest().isUserEligible()) {

@@ -53,7 +53,6 @@ class YearInReviewRepositoryImpl(
             L.e("Using fallback remote configuration!")
         }
         val isDonationEligible = !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty())
-        val isDonor = donationEligibility.isDonor(remoteConfig)
 
         val cachedStats = cache.get(year)
         val readingStats = cachedStats?.readingStats ?: getReadingStats(YearInReviewConfig.insightsDateRange(remoteConfig))
@@ -63,6 +62,8 @@ class YearInReviewRepositoryImpl(
             L.e(e)
             null
         }
+        val isDonor = donationEligibility.isDonor(remoteConfig) || editingStats?.isDonor == true
+
         val updatedStats = YearInReviewCachedStats(readingStats = readingStats, editingStats = editingStats)
         if (updatedStats != cachedStats) {
             cache.put(year, updatedStats)
@@ -331,7 +332,8 @@ class YearInReviewRepositoryImpl(
         YearInReviewEditingStats(
             totalEditCount = totalEditsDeferred.await().items.sumOf { it.editCount },
             totalPageViewsCount = totalPageViewsDeferred.await().items.sumOf { it.viewCount },
-            mostViewedArticles = mostViewedPagesToViews
+            mostViewedArticles = mostViewedPagesToViews,
+            isDonor = userInfoResponse.query?.userInfo?.options?.wikimediaDonorCode?.isRecentDonor == true
         )
     }
 

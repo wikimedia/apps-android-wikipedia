@@ -8,6 +8,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.NewRecommendedReadingListEvent
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.settings.Prefs
@@ -66,6 +67,14 @@ object RecommendedReadingListHelper {
         // Check if amount of new articles to see if we really need to generate a new list
         val existingRecommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages().distinctBy { it.lang to it.apiTitle }
         if (existingRecommendedPages.size >= numberOfArticles) {
+            // Notifications experiment: the cached list skips the seed save at the end of generation,
+            // so seed here if there isn't one yet (e.g. users enrolled before their first experiment notification).
+            if (Prefs.notificationsExperimentDiscoverSource == null && NotificationsExperimentAbTest().isTestGroupUser()) {
+                saveNotificationsExperimentDiscoverSource(
+                    getTitlesFromSource(Prefs.recommendedReadingListSource, 1),
+                    previousTitle = null
+                )
+            }
             return existingRecommendedPages.take(numberOfArticles)
         } else {
             // If the number of articles is less than the number of new articles, adjust the number of articles
@@ -73,8 +82,14 @@ object RecommendedReadingListHelper {
         }
 
         // Step 1: get titles from the source by number of articles
-        val titles = getTitlesFromSource(Prefs.recommendedReadingListSource, numberOfArticles)
+        var titles = getTitlesFromSource(Prefs.recommendedReadingListSource, numberOfArticles)
         val sourceTitles = titles
+
+        // Notifications experiment: Add seed article to the list of titles
+        val notificationSource = if (NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) Prefs.notificationsExperimentDiscoverSource else null
+        notificationSource?.let { seed ->
+            titles = (listOf(seed.title) + titles).distinctBy { it.prefixedText }.take(numberOfArticles)
+        }
 
         // If no titles are found, return an empty list
         if (titles.isEmpty()) {
@@ -158,6 +173,7 @@ object RecommendedReadingListHelper {
         }
         Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
+        saveNotificationsExperimentDiscoverSource(sourceTitles, notificationSource?.title)
         return finalList.shuffled().take(Prefs.recommendedReadingListArticlesNumber)
     }
 
@@ -211,6 +227,18 @@ object RecommendedReadingListHelper {
                 }
             }
         }.distinctBy { it.prefixedText }
+    }
+
+    private fun saveNotificationsExperimentDiscoverSource(titles: List<PageTitle>, previousTitle: PageTitle?) {
+        // Checks only the group, since the list can be built before notifications are on or the remote config is fetched.
+        if (!NotificationsExperimentAbTest().isTestGroupUser()) {
+            return
+        }
+        // Prevent reuse of the same article notification
+        val nextTitle = titles.firstOrNull { it.prefixedText != previousTitle?.prefixedText } ?: titles.firstOrNull()
+        Prefs.notificationsExperimentDiscoverSource = nextTitle?.let {
+            NotificationsExperimentDiscoverSource(it, Prefs.recommendedReadingListSource)
+        }
     }
 }
 
