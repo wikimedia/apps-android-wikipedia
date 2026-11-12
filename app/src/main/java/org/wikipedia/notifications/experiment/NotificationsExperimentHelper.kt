@@ -6,9 +6,15 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.os.Build
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import coil3.imageLoader
+import coil3.request.ImageRequest
+import coil3.request.SuccessResult
+import coil3.request.transformations
+import coil3.toBitmap
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.asFlow
@@ -38,6 +44,7 @@ import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
+import org.wikipedia.views.imageservice.WhiteBackgroundTransformation
 import java.time.DayOfWeek
 import java.time.LocalTime
 import java.time.ZonedDateTime
@@ -158,11 +165,23 @@ object NotificationsExperimentHelper {
                 card = TopReadCard(TopRead(articles = articles), age = 0, site = WikiSite.forLanguageCode(languageCode)),
                 invokeSource = Constants.InvokeSource.NOTIFICATION,
                 notificationCategory = NotificationCategory.WEEKLY_MOST_READ
-            )
+            ),
+            largeIcon = loadThumbnail(context, mostReadArticle.thumbnailUrl)
         )
         if (isNotificationPosted) {
             abTest.maybeSendExposureEventIfEligible()
         }
+    }
+
+    private suspend fun loadThumbnail(context: Context, thumbnailUrl: String?): Bitmap? {
+        if (thumbnailUrl.isNullOrEmpty() || !Prefs.isImageDownloadEnabled) {
+            return null
+        }
+        val request = ImageRequest.Builder(context)
+            .data(thumbnailUrl)
+            .transformations(WhiteBackgroundTransformation())
+            .build()
+        return (context.imageLoader.execute(request) as? SuccessResult)?.image?.toBitmap()
     }
 
     private fun canPostWeeklyMostReadNotification(context: Context): Boolean {
