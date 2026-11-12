@@ -40,23 +40,26 @@ class WiktionaryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 return@launch
             }
             val query = StringUtil.addUnderscores(selectedText)
-            val response = try {
-                ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WiktionaryDialog.WIKTIONARY_DOMAIN))
-                    .getDefinition(query)
+            val wikiSite = WikiSite(pageTitle.wikiSite.subdomain() + WiktionaryDialog.WIKTIONARY_DOMAIN)
+            var usageList = try {
+                ServiceFactory.getRest(wikiSite).getDefinition(query)[pageTitle.wikiSite.languageCode]
             } catch (e: Exception) {
                 L.w("Cannot find the definition. Try to use lowercase text.")
-                ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WiktionaryDialog.WIKTIONARY_DOMAIN))
-                    .getDefinition(query.lowercase(Locale.getDefault()))
+                null
             }
 
-            response[pageTitle.wikiSite.languageCode]?.let { usageList ->
-                if (usageList.isEmpty()) {
-                    definitionsNotFound()
-                } else {
-                    _uiState.value = Resource.Success(usageList)
+            if (usageList.isNullOrEmpty()) {
+                val lowercaseQuery = query.lowercase(Locale.getDefault())
+                if (lowercaseQuery != query) {
+                    usageList = ServiceFactory.getRest(wikiSite)
+                        .getDefinition(lowercaseQuery)[pageTitle.wikiSite.languageCode]
                 }
-            } ?: run {
+            }
+
+            if (usageList.isNullOrEmpty()) {
                 definitionsNotFound()
+            } else {
+                _uiState.value = Resource.Success(usageList)
             }
         }
     }
