@@ -69,7 +69,7 @@ object RecommendedReadingListHelper {
         if (existingRecommendedPages.size >= numberOfArticles) {
             // Notifications experiment: the cached list skips the seed save at the end of generation,
             // so seed here if there isn't one yet (e.g. users enrolled before their first experiment notification).
-            if (Prefs.notificationsExperimentDiscoverSource == null && NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) {
+            if (Prefs.notificationsExperimentDiscoverSource == null && NotificationsExperimentAbTest().isTestGroupUser()) {
                 saveNotificationsExperimentDiscoverSource(
                     getTitlesFromSource(Prefs.recommendedReadingListSource, 1),
                     previousTitle = null
@@ -230,7 +230,8 @@ object RecommendedReadingListHelper {
     }
 
     private fun saveNotificationsExperimentDiscoverSource(titles: List<PageTitle>, previousTitle: PageTitle?) {
-        if (!NotificationsExperimentAbTest().isNotificationsExperimentEnabled()) {
+        // Checks only the group, since the list can be built before notifications are on or the remote config is fetched.
+        if (!NotificationsExperimentAbTest().isTestGroupUser()) {
             return
         }
         // Prevent reuse of the same article notification
