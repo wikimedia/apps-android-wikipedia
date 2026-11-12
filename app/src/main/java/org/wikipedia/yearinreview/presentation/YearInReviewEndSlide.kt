@@ -234,45 +234,50 @@ private fun YearInReviewTabArticlesSection(
     onOverflowItemClick: (PageOverflowMenuItem, HistoryEntry) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = EndCardPageSpacing),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(EndCardPageSpacing)
-    ) {
-        Text(
-            modifier = Modifier.padding(bottom = 12.dp),
-            text = stringResource(R.string.yir_open_tabs_headline),
-            color = ComposeColors.White,
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium)
-        )
-        // generates two ArticleCard on each row
-        articles.withIndex().chunked(2).forEach { row ->
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(EndCardPageSpacing)
-            ) {
-                row.forEach { (index, title) ->
-                    val menuKey = "tab-article-$index"
-                    ArticleCard(
-                        modifier = Modifier.weight(1f),
-                        item = title,
-                        onItemClick = onArticleClick,
-                        onOverflowClick = { onOverflowClick(title, menuKey) },
-                        overflowMenuContent = {
-                            PageOverflowMenu(
-                                menuKey = menuKey,
-                                overflowMenuState = overflowMenuState,
-                                onDismiss = onOverflowDismiss,
-                                onItemClick = onOverflowItemClick
-                            )
-                        }
-                    )
-                }
-                if (row.size == 1) {
-                    Spacer(modifier = Modifier.weight(1f))
+    BaseTheme(currentTheme = Theme.BLACK) {
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(horizontal = EndCardPageSpacing),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(EndCardPageSpacing)
+        ) {
+            Text(
+                modifier = Modifier.padding(bottom = 12.dp),
+                text = stringResource(R.string.yir_open_tabs_headline),
+                color = ComposeColors.White,
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontFamily = FontFamily.Serif,
+                    fontWeight = FontWeight.Medium
+                )
+            )
+            // generates two ArticleCard on each row
+            articles.withIndex().chunked(2).forEach { row ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(EndCardPageSpacing)
+                ) {
+                    row.forEach { (index, title) ->
+                        val menuKey = "tab-article-$index"
+                        ArticleCard(
+                            modifier = Modifier.weight(1f),
+                            item = title,
+                            onItemClick = onArticleClick,
+                            onOverflowClick = { onOverflowClick(title, menuKey) },
+                            overflowMenuContent = {
+                                PageOverflowMenu(
+                                    menuKey = menuKey,
+                                    overflowMenuState = overflowMenuState,
+                                    onDismiss = onOverflowDismiss,
+                                    onItemClick = onOverflowItemClick
+                                )
+                            }
+                        )
+                    }
+                    if (row.size == 1) {
+                        Spacer(modifier = Modifier.weight(1f))
+                    }
                 }
             }
         }
