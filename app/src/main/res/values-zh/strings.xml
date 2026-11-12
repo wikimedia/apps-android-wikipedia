@@ -83,6 +83,7 @@
 * 沈澄心
 * 神樂坂秀吉
 * 科劳
+* 薛定谔的呼噜猫
 * 铁桶
 -->
 <resources>
@@ -99,7 +100,7 @@
   <string name="search_back_button_content_description">返回</string>
   <string name="search_clear_query_content_description">清空查询</string>
   <string name="search_icon_content_description">搜索</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">筛选我的收藏</string>
+  <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_activity">活动</string>
   <string name="nav_item_more">更多</string>
@@ -160,16 +161,16 @@
   <string name="menu_page_watched">已监视</string>
   <string name="edit_section_find_in_page">在页面内查找</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
-  <string name="menu_page_add_to_list" fuzzy="true">加入收藏</string>
+  <string name="menu_page_add_to_list">添加至阅读列表</string>
   <string name="menu_page_add_to_default_list">保存</string>
-  <string name="feed_card_add_to_list" fuzzy="true">加入收藏</string>
+  <string name="feed_card_add_to_list">添加至阅读列表</string>
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">分享链接</string>
   <string name="menu_article_share">分享条目</string>
   <string name="menu_page_article_share">分享</string>
   <string name="menu_page_open_a_new_tab">打开新标签页</string>
   <string name="menu_page_new_tab">新标签页</string>
-  <string name="menu_page_reading_lists" fuzzy="true">收藏</string>
+  <string name="menu_page_reading_lists">阅读列表</string>
   <string name="menu_page_recently_viewed">近期浏览</string>
   <string name="menu_page_archive">存档</string>
   <string name="menu_long_press_open_page">打开</string>
@@ -213,9 +214,9 @@
   <string name="menu_show_toc">目录</string>
   <string name="search_no_results_found">找不到结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">在收藏中未找到结果</string>
+  <string name="search_reading_lists_no_results">未从阅读列表中查找到结果</string>
   <string name="search_all_articles_no_results">所有条目中未找到结果</string>
-  <string name="search_collections_no_results" fuzzy="true">在收藏中未找到结果</string>
+  <string name="search_collections_no_results">未从阅读列表中查找到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
   <string name="edit_section_captcha_message">为了防止自动化垃圾信息，请输入下方显示的文字</string>
   <string name="edit_section_captcha_request_an_account_message">无法显示图片？请&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:维基百科:账号请求\"&gt;申请账号&lt;/a&gt;</string>
@@ -283,6 +284,8 @@
   <string name="email_recommendation_dialog_create_without_email_action">不填写电子邮件继续</string>
   <string name="email_recommendation_dialog_create_with_email_action">添加电子邮件地址</string>
   <string name="create_account_button">创建账号</string>
+  <string name="create_account_encourage_title">注册账号有助于您使用维基百科</string>
+  <string name="create_account_encourage_year_in_review_title_zero">在年度回顾中查看您的阅读天数</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
   <string name="create_account_ip_block_message">对不起，您的IP地址目前受到封禁，不能创建新账号。</string>
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
