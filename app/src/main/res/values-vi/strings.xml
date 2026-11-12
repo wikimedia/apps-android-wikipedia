@@ -116,16 +116,16 @@
   <string name="menu_page_watched">Đã theo dõi</string>
   <string name="edit_section_find_in_page">Tìm trong trang</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Thêm vào bộ sưu tập</string>
+  <string name="menu_page_add_to_list">Thêm vào danh sách đọc</string>
   <string name="menu_page_add_to_default_list">Lưu</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Thêm vào bộ sưu tập</string>
+  <string name="feed_card_add_to_list">Thêm vào danh sách đọc</string>
   <string name="feed_card_add_to_default_list">Lưu</string>
   <string name="menu_page_share">Chia sẻ liên kết</string>
   <string name="menu_article_share">Chia sẻ bài</string>
   <string name="menu_page_article_share">Chia sẻ</string>
   <string name="menu_page_open_a_new_tab">Mở một thẻ mới</string>
   <string name="menu_page_new_tab">Tab mới</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Bộ sưu tập</string>
+  <string name="menu_page_reading_lists">Danh sách đọc</string>
   <string name="menu_page_recently_viewed">Đã xem gần đây</string>
   <string name="menu_page_archive">Lưu trữ</string>
   <string name="menu_long_press_open_page">Mở</string>
@@ -168,9 +168,9 @@
   <string name="menu_show_toc">Mục lục</string>
   <string name="search_no_results_found">Không tìm thấy kết quả</string>
   <string name="search_reading_list_no_results">Không tìm thấy kết quả trong “%s”</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Không tìm thấy kết quả nào trong bộ sưu tập</string>
+  <string name="search_reading_lists_no_results">Không tìm thấy kết quả nào trong danh sách đọc</string>
   <string name="search_all_articles_no_results">Không tìm thấy kết quả nào trong toàn bộ bài viết</string>
-  <string name="search_collections_no_results" fuzzy="true">Không tìm thấy kết quả nào trong bộ sưu tập</string>
+  <string name="search_collections_no_results">Không tìm thấy kết quả nào trong danh sách đọc</string>
   <string name="search_history_no_results">Không tìm thấy kết quả trong lịch sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
   <string name="edit_section_captcha_request_an_account_message">Không đọc được các chữ trong hình này? &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản\"&gt;Yêu cầu tạo tài khoản&lt;/a&gt;</string>
@@ -238,6 +238,8 @@
   <string name="email_recommendation_dialog_create_without_email_action">Bỏ qua việc cung cấp địa chỉ thư điện tử</string>
   <string name="email_recommendation_dialog_create_with_email_action">Đặt địa chỉ thư điện tử</string>
   <string name="create_account_button">Mở tài khoản</string>
+  <string name="create_account_encourage_title">Wikipedia sẽ trở nên tốt hơn nếu bạn có tài khoản</string>
+  <string name="create_account_encourage_saved_articles_title_zero">Đồng bộ hóa các bài viết đã lưu của bạn</string>
   <string name="create_account_name_unavailable">Tên người dùng “%s” không sẵn có. Xin hãy chọn một cái tên khác.</string>
   <string name="create_account_ip_block_message">Đáng tiếc, địa chỉ IP của bạn hiện đang được cấm không được mở tài khoản mới.</string>
   <string name="create_account_ip_block_help_url">https://vi.wikipedia.org/wiki/Trợ_giúp:Tôi_đã_bị_cấm</string>
@@ -530,8 +532,8 @@
   <string name="reading_list_article_moved_to_named">Đã thêm %1$s vào %2$s.</string>
   <string name="reading_list_article_already_exists_message">Rất tốt! %1$s đã chứa %2$s rồi.</string>
   <string name="reading_list_articles_already_exist_message">Rất tốt! %s đã chứa tất cả bài viết rồi.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Xem bộ sưu tập</string>
-  <string name="reading_list_add_to_list_button" fuzzy="true">Thêm vào bộ sưu tập</string>
+  <string name="reading_list_added_view_button">Xem danh sách</string>
+  <string name="reading_list_add_to_list_button">Thêm vào danh sách</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="other">%d bài</item>
   </plurals>
@@ -553,7 +555,7 @@
   <string name="reading_list_sort_by_recent_desc">Sắp xếp theo ngày được thêm (cũ nhất)</string>
   <string name="reading_list_sort_by_created">Sắp xếp theo ngày được tạo (mới nhất)</string>
   <string name="reading_list_sort_by_created_desc">Sắp xếp theo ngày được tạo (cũ nhất)</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Xóa bộ sưu tập</string>
+  <string name="reading_list_menu_delete">Xóa danh sách</string>
   <string name="reading_list_menu_export">Xuất danh sách</string>
   <string name="reading_list_menu_select">Chọn</string>
   <string name="reading_list_menu_unselect">Bỏ chọn</string>
@@ -563,9 +565,9 @@
   <string name="reading_list_action_menu_save_for_offline">Lưu để đọc ngoại tuyến</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Xóa hết khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_action_menu_save_all_for_offline">Lưu hết để đọc ngoại tuyến</string>
-  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Thêm vào bộ sưu tập khác</string>
-  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Chuyển vào bộ sưu tập khác</string>
-  <string name="reading_list_name_sample" fuzzy="true">Bộ sưu tập của tôi</string>
+  <string name="reading_list_action_menu_add_to_another_list">Thêm vào danh sách khác</string>
+  <string name="reading_list_action_menu_move_to_another_list">Chuyển vào danh sách khác</string>
+  <string name="reading_list_name_sample">Danh sách đọc của tôi</string>
   <string name="reading_list_name_hint">Tên của danh sách này</string>
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
   <string name="reading_list_item_deleted">Đã xóa %s khỏi danh sách</string>
@@ -589,13 +591,15 @@
   <string name="reading_lists_item_deleted">Đã xóa %s khỏi danh sách</string>
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>
-  <string name="saved_list_empty_title" fuzzy="true">Chưa có danh sách đọc</string>
+  <string name="saved_list_empty_title">Chưa có bài viết nào được lưu</string>
   <string name="reading_lists_empty_message">Thêm các bài viết vào danh sách để bạn có thể đọc sau, ngay cả khi bạn đang ngoại tuyến!</string>
+  <string name="reading_lists_search_empty_articles_title">Không tìm thấy bài viết nào đã lưu</string>
   <string name="reading_list_empty">Bạn chưa có bài viết nào được thêm vào danh sách này.</string>
   <string name="reading_list_article_offline">Khả dụng ngoại tuyến</string>
   <string name="reading_list_article_make_offline">Làm bài viết này khả dụng ngoại tuyến</string>
   <string name="reading_list_add_to_other_list">Thêm vào danh sách đọc khác</string>
   <string name="reading_list_move_to_other_list">Thêm vào danh sách đọc khác.</string>
+  <string name="reading_list_add_to_collection">Thêm vào danh sách đọc</string>
   <plurals name="reading_list_in_collections" fuzzy="true">
     <item quantity="other">Trong %d bộ sưu tập</item>
   </plurals>
@@ -1193,6 +1197,8 @@
   <plurals name="activity_tab_impact_best_streak_text">
     <item quantity="other">%d ngày</item>
   </plurals>
+  <string name="activity_tab_impact_suggested_edits_title">Gần đây không có chỉnh sửa nào đối với các bài viết</string>
+  <string name="activity_tab_impact_suggested_edits_message">Có vẻ như bạn chưa thực hiện chỉnh sửa nào trong tháng này. Hãy đóng góp cho tri thức tự do bằng cách biên tập những chủ đề mà bạn yêu thích.</string>
   <string name="activity_tab_impact_suggested_edits_button">Làm một sửa đổi</string>
   <string name="activity_tab_impact_recent_activity">Hoạt động gần đây của bạn (30 ngày qua)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1241,6 +1247,7 @@
   <string name="onboarding_welcome_title_v2">Bách khoa toàn thư mở\n…trong hơn 300 ngôn ngữ</string>
   <string name="onboarding_next">Tiếp</string>
   <string name="onboarding_fresh_install_knowledge_learn_more">Tìm hiểu thêm về Wikipedia</string>
+  <string name="onboarding_app_languages_primary">Chính</string>
   <string name="onboarding_app_languages_add_button">Thêm hoặc chỉnh sửa ngôn ngữ của bạn</string>
   <string name="app_shortcuts_random">Ngẫu nhiên</string>
   <string name="app_shortcuts_continue_reading">Đọc tiếp</string>
@@ -1798,6 +1805,7 @@
   <string name="year_in_review_reading_list_dialog_negative_button_label">Không, cảm ơn</string>
   <string name="recommended_reading_list_title">Khám phá</string>
   <string name="recommended_reading_list_onboarding_card_title">Khám phá các bài viết được chọn lọc dành riêng cho bạn</string>
+  <string name="recommended_reading_list_onboarding_card_message">Danh sách bài viết Wikipedia được chọn lọc dành riêng cho bạn mỗi tuần.</string>
   <string name="recommended_reading_list_onboarding_card_new">Mới!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Bắt đầu</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Không, cảm ơn</string>
@@ -1812,6 +1820,7 @@
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="other">• %d bài viết</item>
   </plurals>
+  <string name="recommended_reading_list_page_description_weekly">Danh sách đọc hằng tuần dành riêng cho bạn. Khám phá những chủ đề mới được chọn lọc phù hợp với sở thích của bạn. Danh sách được cập nhật vào đầu mỗi tuần.</string>
   <string name="recommended_reading_list_page_overflow_customize">Tùy chỉnh</string>
   <string name="recommended_reading_list_page_overflow_about">Về tính năng này</string>
   <string name="recommended_reading_list_page_snackbar_day">Ngày</string>
@@ -1837,6 +1846,7 @@
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Điều chỉnh</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">Lùi lại</string>
   <string name="recommended_reading_list_settings_notifications_title">Thông báo</string>
+  <string name="recommended_reading_list_notification_subtitle">Nhấn để xem các đề xuất mới nhất dành cho bạn.</string>
   <string name="donation_settings_section_header">Khoản quyên góp</string>
   <string name="donation_reminders_settings_title" fuzzy="true">Lời nhắc quyên góp</string>
   <string name="donation_reminders_settings_article_frequency_label" fuzzy="true">Khi tôi đọc</string>
@@ -1883,6 +1893,7 @@
   <string name="reading_challenge_widget_concluded_complete">Bạn đã làm được rồi!</string>
   <string name="explore_feed_new_update_prompt_title">Khám phá nay đã trở thành Trang nhà, với một diện mạo mới</string>
   <string name="explore_feed_new_update_prompt_new_name_title">Một cái tên mới</string>
+  <string name="explore_feed_new_update_prompt_control_description">Mỗi đề xuất đều nêu rõ lý do xuất hiện. Bạn có thể thay đổi tùy chọn của mình bất cứ lúc nào trong phần Cài đặt.</string>
   <string name="explore_feed_community_tab_label">Cộng đồng</string>
   <string name="explore_feed_for_you_tab_label">Dành cho bạn</string>
   <string name="explore_feed_date_today">Hôm nay - %s</string>

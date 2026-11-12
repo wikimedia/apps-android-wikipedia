@@ -1,6 +1,7 @@
 package org.wikipedia.compose.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,12 +24,17 @@ import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
 @Composable
@@ -36,6 +43,8 @@ fun ArticleCard(
     item: PageTitle,
     isSelected: Boolean = false,
     onItemClick: (PageTitle) -> Unit = {},
+    onOverflowClick: (() -> Unit)? = null,
+    overflowMenuContent: @Composable () -> Unit = {}
 ) {
     WikiCard(
         modifier = modifier
@@ -98,11 +107,39 @@ fun ArticleCard(
                             tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = null
                         )
-                    } else {
+                    } else if (onOverflowClick == null) {
                         Spacer(modifier = Modifier.width(32.dp).height(24.dp))
                     }
                 }
             }
+            if (onOverflowClick != null) {
+                Box(
+                    modifier = Modifier.align(Alignment.End)
+                ) {
+                    IconButton(
+                        onClick = onOverflowClick
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_more_vert_white_24dp),
+                            tint = WikipediaTheme.colors.secondaryColor,
+                            contentDescription = stringResource(R.string.menu_feed_overflow_label)
+                        )
+                    }
+                    overflowMenuContent()
+                }
+            }
         }
+    }
+}
+
+@Preview(widthDp = 180)
+@Composable
+private fun ArticleCardWithOverflowPreview() {
+    BaseTheme(currentTheme = Theme.DARK) {
+        ArticleCard(
+            modifier = Modifier,
+            item = PageTitle("Toffee_Crisp", WikiSite.preview(), null, "British candy bar", "Toffee Crisp"),
+            onOverflowClick = {}
+        )
     }
 }

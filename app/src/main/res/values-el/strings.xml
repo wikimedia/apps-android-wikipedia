@@ -1653,6 +1653,7 @@
   <string name="on_this_day_game_more_label">Περισσότερα</string>
   <string name="on_this_day_game_card_progress_short_label">Είστε στην ερώτηση %d.</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">Σύνδεση</string>
+  <string name="yir_intro_headline">Η Ανασκόπηση της Χρονιάς της Wikipedia είναι εδώ.</string>
   <string name="year_in_review_learn_more">Μάθετε περισσότερα</string>
   <string name="year_in_review_close">Κλείσιμο</string>
   <string name="year_in_review_share_icon">Εικονίδιο κοινοποίησης</string>

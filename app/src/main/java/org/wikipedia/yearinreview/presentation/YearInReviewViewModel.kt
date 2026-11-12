@@ -8,6 +8,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.settings.dev.playground.YearInReviewPlayground
@@ -49,6 +51,8 @@ class YearInReviewViewModel(
     )
     val isSoundOn = MutableStateFlow(Prefs.isYearInReviewSoundOn)
 
+    val tabArticles: List<PageTitle> = loadTabArticles()
+
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
         _uiState.value = YearInReviewUiState.Error(throwable)
@@ -56,6 +60,18 @@ class YearInReviewViewModel(
 
     init {
         loadYearInReview()
+    }
+
+    private fun loadTabArticles(): List<PageTitle> {
+        val titles = WikipediaApp.instance.tabList.asReversed()
+            .asSequence()
+            .mapNotNull { it.backStackPositionTitle }
+            .filter { it.namespace() == Namespace.MAIN && !it.isMainPage }
+            .distinct()
+            .take(MAX_OPEN_TABS)
+            .map { it.copy() }
+            .toList()
+        return titles.takeIf { it.size >= MIN_OPEN_TABS }.orEmpty()
     }
 
     fun loadYearInReview() {
@@ -103,6 +119,9 @@ class YearInReviewViewModel(
     }
 
     companion object {
+        private const val MIN_OPEN_TABS = 2
+        private const val MAX_OPEN_TABS = 10
+
         const val YIR_YEAR = YearInReviewConfig.YEAR
         const val YIR_TAG = "yir_$YIR_YEAR"
 
