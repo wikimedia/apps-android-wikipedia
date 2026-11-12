@@ -14,6 +14,7 @@
 * Festina90
 * Goefie
 * HanV
+* ItsNyoty
 * Jeroen N
 * Jillids
 * Klaas van Buiten
@@ -2413,6 +2414,8 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Hoogtepunten delen</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia-logo</string>
+  <string name="year_in_review_swipe_tutorial_title">Veeg om te ontdekken</string>
+  <string name="year_in_review_swipe_tutorial_message">Veeg omhoog om door het jaaroverzicht te navigeren.</string>
   <string name="recommended_reading_list_title">Ontdekken</string>
   <string name="recommended_reading_list_onboarding_card_title">Ontdek pagina\'s die speciaal voor u zijn uitgekozen</string>
   <string name="recommended_reading_list_onboarding_card_message">Uw wekelijkse leeslijst met Wikipedia-artikelen, speciaal voor u samengesteld.</string>
@@ -2819,4 +2822,7 @@
   <string name="preference_summary_semantic_search_jump_to_passage">Spring rechtstreeks naar de relevante passage</string>
   <string name="semantic_search_snackbar_message">Module verborgen. U kunt die via Instellingen weer zichtbaar maken</string>
   <string name="semantic_search_snackbar_action_label">Wijzigen</string>
+  <string name="notifications_experiment_discover_interests_title">Omdat u geïnteresseerd bent in %s</string>
+  <string name="notifications_experiment_discover_saved_or_history_title">Omdat u gelezen hebt over %s</string>
+  <string name="notifications_experiment_discover_message">We hebben een nieuwe leeslijst voor u samengesteld op basis van dit en andere interesses.</string>
 </resources>
