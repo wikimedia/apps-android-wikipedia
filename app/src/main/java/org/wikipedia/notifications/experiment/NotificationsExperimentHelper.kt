@@ -52,7 +52,7 @@ import java.time.temporal.TemporalAdjusters
 
 object NotificationsExperimentHelper {
 
-    private val NOTIFICATIONS_EXPERIMENT_SEND_DAY = DayOfWeek.MONDAY
+    private val NOTIFICATIONS_EXPERIMENT_SEND_DAY = DayOfWeek.TUESDAY
     private val NOTIFICATIONS_EXPERIMENT_SEND_TIME = LocalTime.of(18, 0)
     private const val DAYS_IN_WEEK = 7
     private const val MAX_DAYS_TO_CHECK = 14
