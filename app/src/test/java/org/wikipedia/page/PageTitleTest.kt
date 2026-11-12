@@ -61,6 +61,9 @@ class PageTitleTest {
         assertEquals("https://zh.wikipedia.org/zh-tw/Taiwan", PageTitle.titleForInternalLink("/zh/Taiwan", zhwiki).uri)
         assertEquals("https://zh.wikipedia.org/zh-tw/Taiwan", PageTitle.titleForInternalLink("/zh-tw/Taiwan", zhwiki).uri)
         assertEquals("https://zh.wikipedia.org/zh-tw/Taiwan", PageTitle.titleForInternalLink("/wiki/Taiwan", zhwiki).uri)
+        assertEquals("https://zh-classical.wikipedia.org/wiki/Taiwan", PageTitle("Taiwan", WikiSite.forLanguageCode("zh-classical")).uri)
+        assertEquals("https://zh-min-nan.wikipedia.org/wiki/Taiwan", PageTitle("Taiwan", WikiSite.forLanguageCode("zh-min-nan")).uri)
+        assertEquals("https://zh-yue.wikipedia.org/wiki/Taiwan", PageTitle("Taiwan", WikiSite.forLanguageCode("zh-yue")).uri)
     }
 
     @Test

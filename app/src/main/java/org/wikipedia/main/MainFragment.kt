@@ -46,6 +46,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
+import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
@@ -53,6 +54,7 @@ import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsItem
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.history.HistoryEntry
@@ -90,11 +92,8 @@ import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
 import org.wikipedia.widgets.SearchWidgetInstallDialog
-import org.wikipedia.yearinreview.YearInReviewDialog
-import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.io.File
-import java.time.LocalDate
 import java.util.concurrent.TimeUnit
 
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
@@ -128,9 +127,16 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            onNavigateTo(NavTab.EDITS)
+            binding.root.post {
+                if (isAdded) {
+                    onNavigateTo(NavTab.EDITS)
+                }
+            }
         }
     }
+
+    private val shouldShowYearInReviewDot get() =
+        YearInReviewViewModel.canShowEntryPoint && Prefs.yearInReviewActivityTabDotSeenYear != YearInReviewViewModel.YIR_YEAR
 
     var navTabBackStack = mutableListOf<NavTab>()
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
@@ -144,6 +150,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
+                        is LoggedInEvent -> {
+                            refreshContents()
+                            FeedbackUtil.showMessage(this@MainFragment, R.string.login_success_toast)
+                        }
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
                             requireActivity().invalidateOptionsMenu()
@@ -167,15 +177,20 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         binding.mainViewPager.registerOnPageChangeCallback(pageChangeCallback)
         binding.mainNavTabLayout.descendants.filterIsInstance<TextView>().forEach {
             it.maxLines = 2
+            it.textAlignment = View.TEXT_ALIGNMENT_CENTER
         }
         val shouldShowRedDotForRecommendedReadingList = (!Prefs.isRecommendedReadingListOnboardingShown) || (Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
         binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, shouldShowRedDotForRecommendedReadingList)
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             navTabBackStack.clear()
             if (item.order == NavTab.EDITS.code()) {
+                binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
+                if (YearInReviewViewModel.canShowEntryPoint) {
+                    Prefs.yearInReviewActivityTabDotSeenYear = YearInReviewViewModel.YIR_YEAR
+                }
+
                 if (!Prefs.isActivityTabOnboardingShown) {
                     activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
-                    binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
                     return@setOnItemSelectedListener false
                 }
             }
@@ -196,10 +211,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             true
         }
 
-        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
-
-        // Check this first because the Feed tooltip marks its preference before posting its UI.
-        maybeShowReadingListsUpdateTooltip()
         maybeShowFeedNewModulesTooltip()
         Prefs.incrementExploreFeedVisitCount()
 
@@ -221,11 +232,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
-        YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(requireActivity())
-        if (YearInReviewViewModel.getYearInReviewModel()?.isReadingListCreated == true) {
-            onNavigateTo(NavTab.READING_LISTS) // Navigate to reading lists only if Year in Review reading list is created
-            YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListCreated = false) }
-        }
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown || shouldShowYearInReviewDot)
     }
 
     override fun onDestroyView() {
@@ -243,10 +250,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY &&
                 resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED && data != null) {
             startActivity(data)
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
-                resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            refreshContents()
-            FeedbackUtil.showMessage(this, R.string.login_success_toast)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.instance.tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -438,8 +441,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun onLoginRequested() {
-        startActivityForResult(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV),
-                Constants.ACTIVITY_REQUEST_LOGIN)
+        startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV))
     }
 
     override fun onLoadPage(entry: HistoryEntry) {
@@ -492,10 +494,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     override fun donateClick(campaignId: String?) {
         (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = campaignId)
-    }
-
-    override fun yearInReviewClick() {
-        startActivity(YearInReviewOnboardingActivity.newIntent(requireActivity()))
     }
 
     fun setBottomNavVisible(visible: Boolean) {
@@ -568,48 +566,26 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    private fun maybeShowFeedNewModulesTooltip() {
-        if (Prefs.exploreFeedVisitCount == 0) {
-            // Explicitly consider this tooltip "shown", since we only want to show it to users
-            // who have used the Feed already, instead of completely new users.
-            Prefs.isHomeFeedUpdateTooltipShown = true
-        } else if (!Prefs.isHomeFeedUpdateTooltipShown) {
-            Prefs.isHomeFeedUpdateTooltipShown = true
-            binding.root.post {
-                if (isAdded) {
-                    FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id), getString(R.string.home_feed_update_tooltip1), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
-                }
-            }
-        }
-    }
-
-    private fun maybeShowReadingListsUpdateTooltip() {
-        val endDate = LocalDate.of(2026, 9, 15)
-        // Only show the tooltip to existing users and expire after September 15, 2026
-        if (Prefs.exploreFeedVisitCount == 0) {
-            Prefs.isReadingListsUpdateTooltipShown = true
-        } else if (Prefs.isHomeFeedUpdateTooltipShown &&
-                !Prefs.isReadingListsUpdateTooltipShown &&
-                !LocalDate.now().isAfter(endDate)) {
-            Prefs.isReadingListsUpdateTooltipShown = true
-            binding.root.post {
-                if (isAdded) {
-                    FeedbackUtil.showTooltip(
-                        requireActivity(),
-                        binding.mainNavTabLayout.findViewById(NavTab.READING_LISTS.id),
-                        getString(R.string.reading_lists_update_tooltip),
-                        aboveOrBelow = true,
-                        autoDismiss = false,
-                        showDismissButton = true
-                    )
-                }
-            }
-        }
-    }
-
     private fun maybeShowSearchWidgetInstallPrompt() {
         if (DeviceUtil.areWidgetsSupported && !Prefs.searchWidgetInstallPromptShown && !SearchWidgetInstallDialog.isWidgetInstalled()) {
             ExclusiveBottomSheetPresenter.show(childFragmentManager, SearchWidgetInstallDialog())
+        }
+    }
+
+    private fun maybeShowFeedNewModulesTooltip() {
+        lifecycleScope.launch {
+            if (ReadAloudLeadSectionABTest().shouldShowToolTip()) {
+                Prefs.readAloudLeadSectionTooltipShown = true
+                binding.root.post {
+                    if (isAdded) {
+                        FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id),
+                            getString(R.string.read_aloud_lead_section_tooltip_text), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                        // For the purposes of this experiment, explicitly clear today's cache of For You content,
+                        // so that the Audio content can be loaded when the user goes to For You.
+                        Prefs.homeForYouModulesToday = ""
+                    }
+                }
+            }
         }
     }
 

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AlertDialog
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.ABTest.Companion.GROUP_2
+import org.wikipedia.analytics.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.dataclient.donate.Campaign
 import org.wikipedia.donate.donationreminder.DonationReminderAbTest
@@ -73,16 +75,27 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
         if (DonationReminderHelper.isInEligibleCountry) {
+            val groupAssigned = when (DonationReminderAbTest().group) {
+                GROUP_3 -> "android_remind_c"
+                GROUP_2 -> "android_remind_b"
+                else -> "android_remind_a"
+            }
             DonorExperienceEvent.logDonationReminderAction(
                 action = "group_assigned",
                 activeInterface = "article_banner",
-                groupAssigned = if (DonationReminderAbTest().isTestGroupUser()) "android_remind_b" else "android_remind_a",
+                groupAssigned = groupAssigned,
                 campaignId = campaignId
+            )
+            DonationReminderAbTest().maybeSendExposureEvent()
+            // Enable wrap up for the user if they are in the eligible country and have seen the campaign.
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                wrapUpEnabled = true
             )
         }
         if (!DonationReminderHelper.isEnabled) {
             Prefs.announcementPauseTime = Date().time
             FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
+            DonorExperienceEvent.logAction("impression", "maybe_later_toast", campaignId = campaignId)
             dismissDialog(false)
             return
         }

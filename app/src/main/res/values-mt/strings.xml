@@ -2,6 +2,7 @@
 <!-- Authors:
 * Chrisportelli
 * Fenakhay
+* JiodoJ
 * Leli Forte
 * Macofe
 -->
@@ -16,7 +17,7 @@
   <string name="search_hint_voice_search">Tfittxija bil-vuċi</string>
   <string name="search_hint_search_languages">Fittex lingwa</string>
   <string name="search_icon_content_description">Fittex</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Iffiltra l-listi tiegħi</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Iffiltra l-listi tiegħi</string>
   <string name="nav_item_suggested_edits">Modifiki</string>
   <string name="nav_item_activity">Attività</string>
   <string name="nav_item_more">Aktar</string>
@@ -115,4 +116,5 @@
   <string name="cc_logo">Liċenzja Creative Commons</string>
   <string name="captcha_image">Stampa captcha</string>
   <string name="gallery_fair_use_license">Użu ġust</string>
+  <string name="yir_community_languages_title">Lingwi li-Wikipedija hija disponibbli bihom:</string>
 </resources>

@@ -685,6 +685,16 @@
         <item name="paddingBottomSystemWindowInsets">false</item>
     </style>
 
+    <!-- For sheets that should stop below the status bar when fully expanded, instead of extending behind it. -->
+    <style name="App.BottomSheetDialogTheme.BelowStatusBar">
+        <item name="bottomSheetStyle">@style/App.BottomSheetStyle.BelowStatusBar</item>
+    </style>
+
+    <style name="App.BottomSheetStyle.BelowStatusBar">
+        <item name="paddingTopSystemWindowInsets">false</item>
+        <item name="marginTopSystemWindowInsets">true</item>
+    </style>
+
     <style name="FloatingActionButtonRounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>

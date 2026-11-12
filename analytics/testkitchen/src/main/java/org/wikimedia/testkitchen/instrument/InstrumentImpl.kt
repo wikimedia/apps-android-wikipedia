@@ -51,6 +51,11 @@ class InstrumentImpl(
         return this
     }
 
+    fun continueFunnel(funnel: Funnel?): InstrumentImpl {
+        this.funnel = funnel?.let { Funnel.resolve(it) }
+        return this
+    }
+
     fun stopFunnel(): InstrumentImpl {
         funnel = null
         return this

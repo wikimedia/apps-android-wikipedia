@@ -43,6 +43,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
@@ -79,7 +80,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.util.Date
 import java.util.Locale
 
@@ -122,7 +122,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         readingListMode = (requireArguments().getSerializable(ReadingListActivity.EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
-        invokeSource = requireArguments().getSerializable(ReadingListActivity.EXTRA_SOURCE) as InvokeSource?
+        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
 
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
@@ -272,7 +272,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 binding.readingListSwipeRefresh.isVisible = true
                                 binding.readingListSwipeRefresh.isRefreshing = false
                                 update()
-                                YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListCreated = true) }
                                 viewModel.saveReadingList(it.data)
                             }
                             is Resource.Error -> {
@@ -481,7 +480,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun refreshSync() {
         if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
-            ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(requireActivity())
             binding.readingListSwipeRefresh.isRefreshing = false
         } else {
             Prefs.isReadingListSyncEnabled = true
@@ -807,9 +805,13 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 update()
             }
             .setNegativeButton(R.string.recommended_reading_list_settings_notifications_dialog_positive_button) { _, _ ->
+                TestKitchenAdapter.client.getInstrument("apps-notifications")
+                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home_modal", elementId = "notification_modal_off")
                 Prefs.isRecommendedReadingListNotificationEnabled = false
                 RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(requireContext())
                 update()
+                TestKitchenAdapter.client.getInstrument("apps-notifications")
+                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home", elementId = "notification_bell_off")
             }
             .show()
     }
@@ -819,15 +821,15 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
                 ContextCompat.checkSelfPermission(requireActivity(), permission) == PackageManager.PERMISSION_GRANTED -> {
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
                     Prefs.isRecommendedReadingListNotificationEnabled = true
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
                     update()
                 }
                 else -> (requireActivity() as ReadingListActivity).requestPermissionLauncher.launch(permission)
             }
         } else {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
             Prefs.isRecommendedReadingListNotificationEnabled = true
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
             update()
         }
     }
@@ -889,7 +891,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 view.setTitleEllipsis()
                 view.setDescriptionMaxLines(2)
                 view.setDescriptionEllipsis()
-                view.setUpChipGroup(ReadingListBehaviorsUtil.getListsContainPage(page))
+                val collectionsContainingPage = ReadingListBehaviorsUtil.getListsContainPage(page)
+                    .filterNot { it.isDefault }
+                view.setUpChipGroup(collectionsContainingPage)
             } else {
                 view.hideChipGroup()
             }
@@ -1025,6 +1029,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 Prefs.isRecommendedReadingListNotificationEnabled = true
                 requestPermissionAndScheduleRecommendedReadingNotification()
                 update()
+                TestKitchenAdapter.client.getInstrument("apps-notifications")
+                    .submitInteraction(action = "click", actionSource = "discover", actionSubtype = "discover_home", elementId = "notification_bell_on")
             }
         }
 
@@ -1238,7 +1244,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             return ReadingListFragment().apply {
                 arguments = bundleOf(
                     ReadingListActivity.EXTRA_READING_LIST_MODE to readingListMode,
-                    ReadingListActivity.EXTRA_SOURCE to invokeSource
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
                 )
             }
         }

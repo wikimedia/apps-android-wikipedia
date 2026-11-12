@@ -21,6 +21,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.components.menu.PageOverflowMenu
+import org.wikipedia.compose.components.menu.PageOverflowMenuItem
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -35,7 +36,6 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
-import kotlin.collections.orEmpty
 import kotlin.getValue
 
 class DidYouKnowActivity : BaseActivity() {
@@ -62,28 +62,23 @@ class DidYouKnowActivity : BaseActivity() {
                     },
                     onPageOverflowClick = { pageSummary, source, menuKey ->
                         pageOverflowMenuViewModel.onPageOverflowClick(
-                            context = this,
                             wikiSite = wikiSite,
                             pageSummary = pageSummary,
                             source = source,
-                            menuKey = menuKey,
-                            onOpenPage = { entry ->
-                                startActivity(PageActivity.newIntentForCurrentTab(this, entry, entry.title))
-                            },
-                            onOpenInNewTab = { entry ->
-                                startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
-                            },
-                            onSaveRequest = { entry ->
-                                SaveArticleSheetDialog.show(this, entry.title)
-                            },
-                            onShareRequest = { entry ->
-                                ShareUtil.shareText(this, entry.title.displayText, entry.title.uri)
-                            },
-                            onLinkCopyRequest = { entry ->
+                            menuKey = menuKey
+                        )
+                    },
+                    onPageOverflowItemClick = { item, entry ->
+                        when (item) {
+                            PageOverflowMenuItem.OPEN_PAGE -> startActivity(PageActivity.newIntentForCurrentTab(this, entry, entry.title))
+                            PageOverflowMenuItem.OPEN_IN_NEW_TAB -> startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+                            PageOverflowMenuItem.SAVE -> SaveArticleSheetDialog.show(this, entry.title)
+                            PageOverflowMenuItem.SHARE -> ShareUtil.shareText(this, entry.title.displayText, entry.title.uri)
+                            PageOverflowMenuItem.COPY_LINK -> {
                                 ClipboardUtil.setPlainText(this, text = entry.title.uri)
                                 FeedbackUtil.showMessage(this, R.string.address_copied)
                             }
-                        )
+                        }
                     }
                 )
             }
@@ -109,6 +104,7 @@ fun DidYouKnowScreen(
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onPageOverflowDismiss: () -> Unit = {},
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageOverflowItemClick: (PageOverflowMenuItem, HistoryEntry) -> Unit = { _, _ -> },
 ) {
     val context = LocalContext.current
     Scaffold(
@@ -140,7 +136,7 @@ fun DidYouKnowScreen(
                                 menuKey = "dyk-$index",
                                 overflowMenuState = overflowMenuState,
                                 onDismiss = onPageOverflowDismiss,
-                                items = overflowMenuState?.items.orEmpty()
+                                onItemClick = onPageOverflowItemClick
                             )
                         },
                         onPageOverflowClick = { onPageOverflowClick(it, HistoryEntry.SOURCE_ACTIVITY_DID_YOU_KNOW, "dyk-$index") }

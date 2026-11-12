@@ -90,9 +90,6 @@
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
-            android:exported="true" />
-        <activity-alias
-            android:name=".DefaultIcon"
             android:targetActivity=".main.MainActivity"
             android:icon="@mipmap/launcher"
             android:exported="true">
@@ -101,19 +98,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
-        </activity-alias>
-        <activity-alias
-            android:name=".YIR25Icon"
-            android:targetActivity=".main.MainActivity"
-            android:icon="@mipmap/launcher_yir25"
-            android:exported="true"
-            android:enabled="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
+        </activity>
 
         <activity
             android:name=".page.PageActivity"
@@ -188,6 +173,9 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity
+            android:name=".createaccount.CreateAccountEncourageActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".login.ResetPasswordActivity"
             android:theme="@style/AppTheme"
@@ -383,13 +371,10 @@
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
-            android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
+            android:name=".yearinreview.presentation.YearInReviewOnboardingActivity"/>
 
         <activity
-            android:name=".yearinreview.YearInReviewOnboardingActivity"/>
-
-        <activity
-            android:name=".yearinreview.YearInReviewActivity"/>
+            android:name=".yearinreview.presentation.YearInReviewActivity"/>
       
         <activity
             android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"
@@ -402,10 +387,8 @@
             android:name=".activitytab.ActivityTabOnboardingActivity" />
 
         <activity
-            android:name=".search.HybridSearchOnboardingActivity" />
-
-        <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"/>
 
         <activity
@@ -418,6 +401,8 @@
         <activity android:name=".feed.personalization.PersonalizationActivity"/>
 
         <activity android:name=".settings.homefeed.HomeFeedSettingsActivity"/>
+
+        <activity android:name=".settings.VisualEditorSettingsActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"

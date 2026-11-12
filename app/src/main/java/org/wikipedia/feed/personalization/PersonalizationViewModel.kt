@@ -1,6 +1,7 @@
 package org.wikipedia.feed.personalization
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -92,7 +93,8 @@ private data class PersonalizedViewModelState(
 
 class PersonalizationViewModel(
     private val interestSelectionRepository: InterestSelectionRepository,
-    private val homePreferenceRepository: HomePreferenceRepository
+    private val homePreferenceRepository: HomePreferenceRepository,
+    showInterestsOnly: Boolean = false
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState(
@@ -119,15 +121,21 @@ class PersonalizationViewModel(
             initialValue = state.value.toFeedPreferenceUiState()
         )
 
-    fun onPageChanged(screen: PersonalizationPage) {
-        when (screen) {
-            PersonalizationPage.INTERESTS -> loadInterestSelectionScreen()
-            PersonalizationPage.HOME_PREFERENCE -> loadFeedPreferenceScreen()
-            else -> {}
+    // Start loading content that doesn't depend on the user's selections before its page is shown.
+    init {
+        loadInterests()
+        if (!showInterestsOnly) {
+            loadCommunityPreviewContent()
         }
     }
 
-    private fun loadInterestSelectionScreen() {
+    fun onPageChanged(screen: PersonalizationPage) {
+        if (screen == PersonalizationPage.HOME_PREFERENCE) {
+            loadFeedPreferenceScreen()
+        }
+    }
+
+    private fun loadInterests() {
         viewModelScope.launch( CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
          }) {
@@ -136,7 +144,7 @@ class PersonalizationViewModel(
     }
 
     private fun loadFeedPreferenceScreen() {
-        if (state.value.communityContent.isEmpty()) {
+        if (state.value.communityContent.isEmpty() && !state.value.communityLoading) {
             loadCommunityPreviewContent()
         }
         loadPersonalizedPreviewContent()
@@ -169,6 +177,7 @@ class PersonalizationViewModel(
 
     private suspend fun initialize() {
         runCatching {
+            state.update { it.copy(articlesLoading = true, articlesError = null) }
             val langCode = interestSelectionRepository.wikiSite.languageCode
             // check db for persisted interest (topic and articles) data
             val persistedTopics = interestSelectionRepository.getPersistedTopics()
@@ -210,7 +219,7 @@ class PersonalizationViewModel(
 
             val articles = interestSelectionRepository.loadInitialArticles()
             state.update { current ->
-                val newArticles = (current.selectedArticles + articles).distinct()
+                val newArticles = (current.selectedArticles + articles).distinctBy { it.prefixedText }
                 current.copy(
                     articles = newArticles,
                     articlesLoading = false
@@ -231,7 +240,7 @@ class PersonalizationViewModel(
             val articles = InterestSelectionRepository.getArticlesByTopic(interestSelectionRepository.wikiSite, topic.topic.queryTopicId)
             val previewContent = HomePreferenceContent.fromPageTitles(pageTitles = articles, topic = topic)
             state.update { current ->
-                val newArticles = (current.selectedArticles.toList() + articles).distinct()
+                val newArticles = (current.selectedArticles.toList() + articles).distinctBy { it.prefixedText }
                 current.copy(articles = newArticles, topicPreviewContent = current.topicPreviewContent + (topic.topic.topicId to previewContent), articlesLoading = false)
             }
         }
@@ -286,7 +295,7 @@ class PersonalizationViewModel(
             clearForYouCache()
             interestSelectionRepository.saveArticle(title, interestSelectionRepository.wikiSite.languageCode)
             state.update {
-                val newItems = listOf(title) + it.articles
+                val newItems = listOf(title) + it.articles.filter { article -> article.prefixedText != title.prefixedText }
                 val newSelection = it.selectedArticles + title
                 it.copy(articles = newItems, selectedArticles = newSelection)
             }
@@ -382,7 +391,8 @@ class PersonalizationViewModel(
                         context = instance,
                         historyEntryWithImageDao = appDatabase.historyEntryWithImageDao(),
                         wikiSite = wikiSite
-                    )
+                    ),
+                    showInterestsOnly = createSavedStateHandle().get<Boolean>(PersonalizationActivity.EXTRA_SHOW_INTERESTS_ONLY) ?: false
                 )
             }
         }

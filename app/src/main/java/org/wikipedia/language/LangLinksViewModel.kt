@@ -180,11 +180,10 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             val link = it.next()
             val languageCode = link.wikiSite.languageCode
             val languageVariants = WikipediaApp.instance.languageState.getLanguageVariants(languageCode)
-            if (AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE == languageCode) {
-                // Replace legacy name of тарашкевіца language with the correct name.
-                // TODO: Can probably be removed when T111853 is resolved.
+            val normalizedCode = WikiSite.normalizeLanguageCode(languageCode)
+            if (normalizedCode != languageCode) {
                 it.remove()
-                it.add(PageTitle(link.text, WikiSite.forLanguageCode(AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE)))
+                it.add(PageTitle(link.text, WikiSite.forLanguageCode(normalizedCode)))
             } else if (languageVariants != null) {
                 // remove the language code and replace it with its variants
                 it.remove()

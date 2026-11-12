@@ -115,8 +115,9 @@ class GamesHubActivity : SingleFragmentActivity<GamesHubFragment>() {
     }
 
     companion object {
-        fun newIntent(context: Context): Intent {
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource = Constants.InvokeSource.NAV_MENU): Intent {
             return Intent(context, GamesHubActivity::class.java)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
 }

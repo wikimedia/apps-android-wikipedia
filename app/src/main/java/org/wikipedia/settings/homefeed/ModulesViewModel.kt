@@ -19,7 +19,7 @@ class ModulesViewModel : ViewModel() {
             initialValue = null
         )
     val feedConfigurationState: StateFlow<FeedConfigurationState> = combine(
-        AppDatabase.instance.topicInterestDao().hasAnyTopics(),
+        AppDatabase.instance.topicInterestDao().hasAnyTopicsFlow(),
         AppDatabase.instance.articleInterestDao().hasAnyArticles(),
         AppDatabase.instance.historyEntryDao().hasAnyEntries()
     ) { hasTopics, hasArticles, hasReadingHistory ->

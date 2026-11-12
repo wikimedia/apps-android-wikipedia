@@ -10,13 +10,12 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.LocationSerializer
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.Page
-import org.wikipedia.page.PageProperties
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 
 @Parcelize
 @Serializable
-open class PageSummary(
+class PageSummary(
     val namespace: NamespaceContainer? = null,
     var titles: Titles? = null,
     var lang: String = "",
@@ -48,14 +47,15 @@ open class PageSummary(
     val ns get() = if (namespace == null) Namespace.MAIN else Namespace.of(namespace.id)
 
     constructor(displayTitle: String, prefixTitle: String, description: String?,
-                extract: String?, thumbnail: String?, lang: String) : this(
+                extract: String?, thumbnail: String?, lang: String, pageId: Int = 0,
+                revision: Long = 0L) : this(
         titles = Titles(prefixTitle, displayTitle), description = description, extract = extract,
-        thumbnail = Thumbnail(thumbnail, 0, 0), lang = lang
+        thumbnail = Thumbnail(thumbnail, 0, 0), lang = lang, pageId = pageId, revision = revision
     )
 
     fun toPage(title: PageTitle?): Page? {
         return title?.let {
-            Page(adjustPageTitle(it), pageProperties = PageProperties(this))
+            Page(adjustPageTitle(it), summary = this)
         }
     }
 

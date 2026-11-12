@@ -1,7 +1,6 @@
 package org.wikipedia.settings.dev
 
 import android.content.DialogInterface
-import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -21,30 +20,37 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
-import org.wikipedia.feed.interests.NewWithinInterestABTest
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
+import org.wikipedia.feed.readaloud.ReadAloudLeadSectionABTest
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
+import org.wikipedia.notifications.experiment.showNotificationsExperimentTimePickerDialog
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
-import org.wikipedia.search.HybridSearchAbCTest
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.IntPreference
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
 import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
+import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
-import org.wikipedia.yearinreview.YearInReviewSurveyState
+import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
+import org.wikipedia.yearinreview.data.YearInReviewSurveyState
+import java.util.Date
+import java.util.concurrent.TimeUnit
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     private val setMediaWikiBaseUriChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
@@ -95,6 +101,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             val intValue = newValue.toIntOrDefault()
             if (intValue != 0) {
                 createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, intValue)
+            }
+            true
+        }
+        findPreference(R.string.preference_key_add_history_entries).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                createTestHistoryEntries(intValue)
             }
             true
         }
@@ -178,7 +191,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preference_key_announcement_shown_dialogs).summary = activity.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.announcementShownDialogs.size)
         findPreference(R.string.preference_key_announcement_shown_dialogs).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             Prefs.resetAnnouncementShownDialogs()
-            loadPreferences()
+            it.summary = activity.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.announcementShownDialogs.size)
             true
         }
         findPreference(R.string.preference_key_suggested_edits_reactivation_test).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, _: Any? ->
@@ -220,10 +233,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             FeedbackUtil.showMessage(activity, "Notification state reset.")
             true
         }
-        findPreference(R.string.preference_key_playground_category).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
-            true
-        }
         (findPreference(R.string.preference_key_recommended_reading_list_notification_simulator) as ListPreference).apply {
             val frequencies = RecommendedReadingListUpdateFrequency.entries
             val names = frequencies.map { it.name }.toTypedArray()
@@ -244,6 +253,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
         findPreference(R.string.preference_key_donation_reminders_dev_reset).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             Prefs.donationReminderConfig = DonationReminderConfig()
+            Prefs.donationReminderDevWrapUp = false
             Toast.makeText(activity, "donationReminderConfig has been reset", Toast.LENGTH_SHORT).show()
             fragment.requireActivity().finish()
             true
@@ -254,6 +264,14 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             )
             Toast.makeText(activity, "promptLastSeen has been reset", Toast.LENGTH_SHORT).show()
             fragment.requireActivity().finish()
+            true
+        }
+        findPreference(R.string.preference_key_donation_reminders_dev_wrap_up_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+            val isWrapUpEnabled = newValue as Boolean
+            Prefs.donationReminderDevWrapUp = isWrapUpEnabled
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                wrapUpEnabled = isWrapUpEnabled
+            )
             true
         }
         (findPreference(R.string.preference_key_yir_survey_state) as ListPreference).apply {
@@ -277,6 +295,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Prefs.eventPlatformIntakeUriOverride = selectedState
             findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
             true
+        }
+        findPreference(R.string.preference_key_yir_playground).apply {
+            isVisible = ReleaseUtil.isPreProdRelease
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager, YearInReviewPlaygroundDialog())
+                true
+            }
         }
         findPreference(R.string.preference_key_reading_challenge_widgets).apply {
             isVisible = ReleaseUtil.isPreProdRelease
@@ -302,7 +327,38 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                 true
             }
         }
+
+        findPreference(R.string.preference_key_notifications_experiment_discover_dev_trigger_time).apply {
+            summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
+            onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
+                showNotificationsExperimentTimePickerDialog(activity) {
+                    pref.summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
+                }
+                true
+            }
+        }
+
         addABTestPreferences()
+
+        if (Prefs.isDeveloperSettingsNewestFirst) {
+            reverseCategoryOrder()
+        }
+    }
+
+    private fun reverseCategoryOrder() {
+        val screen = fragment.preferenceScreen
+        val categories = (0 until screen.preferenceCount).map { screen.getPreference(it) }
+        categories.forEachIndexed { index, category ->
+            category.order = categories.lastIndex - index
+        }
+    }
+
+    private fun getTimestampSummary(millis: Long): String {
+        if (millis == 0L) {
+            return "Unset"
+        }
+        val formatted = DateUtil.getDateAndTime(activity, Date(millis))
+        return if (millis < System.currentTimeMillis()) "$formatted (passed)" else formatted
     }
 
     private fun addABTestPreferences() {
@@ -317,8 +373,10 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         screen.addPreference(category)
         listOf(
             DonationReminderAbTest(),
-            HybridSearchAbCTest(),
-            NewWithinInterestABTest()
+            ReadAloudLeadSectionABTest(),
+            SemanticSearchAbTest(),
+            YearInReviewEndScreenABTest(),
+            NotificationsExperimentAbTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey
@@ -338,6 +396,30 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
 
     private fun resetMediaWikiSettings() {
         WikipediaApp.instance.resetWikiSite()
+    }
+
+    private fun createTestHistoryEntries(numOfArticles: Int) {
+        fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+            MaterialAlertDialogBuilder(activity)
+                .setMessage(caught.message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }) {
+            val wikiSite = WikiSite.forLanguageCode("en")
+            val count = numOfArticles.coerceIn(1, TEST_HISTORY_TITLES.size)
+            for (index in 0 until count) {
+                val title = PageTitle(TEST_HISTORY_TITLES[index], wikiSite)
+                val timestamp = Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(index * 2L))
+                AppDatabase.instance.historyEntryDao().insertEntry(
+                    HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK, timestamp)
+                )
+                AppDatabase.instance.pageImagesDao().insertPageImage(
+                    PageImage(wikiSite.languageCode, title.namespace, title.text, null, null, 90)
+                )
+            }
+            Prefs.homeForYouModulesToday = ""
+            Toast.makeText(activity, "Added $count history entries.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun createTestReadingList(listName: String, numOfLists: Int, numOfArticles: Int) {
@@ -390,8 +472,23 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     private class TestException(message: String?) : RuntimeException(message)
 
     companion object {
-        private const val TEXT_OF_TEST_READING_LIST = "Test collection"
-        private const val TEXT_OF_READING_LIST = "Collection"
+        private const val TEXT_OF_TEST_READING_LIST = "Test reading list"
+        private const val TEXT_OF_READING_LIST = "Reading list"
+        private val TEST_HISTORY_TITLES = listOf(
+            "Albert Einstein", "Mount Everest", "Photosynthesis", "Roman Empire",
+            "Jazz", "Antarctica", "Leonardo da Vinci", "Coffee",
+            "Black hole", "Great Barrier Reef", "Sushi", "Tokyo",
+            "Ada Lovelace", "Amazon rainforest", "Ancient Egypt", "Apollo 11",
+            "Artificial intelligence", "Ballet", "Basketball", "Beethoven",
+            "Biodiversity", "Climate change", "Computer science",
+            "Coral reef", "Democracy", "DNA", "Earth", "Evolution",
+            "French Revolution", "Galileo Galilei", "Grand Canyon", "Human brain",
+            "Internet", "Marie Curie", "Mars", "Mona Lisa",
+            "New York City", "Ocean", "Olympic Games", "Pablo Picasso",
+            "Penguin", "Quantum mechanics", "Renaissance", "Solar System",
+            "Space exploration", "Theory of relativity", "Volcano", "World War II",
+            "William Shakespeare", "Yoga"
+        )
         private const val AB_TEST_CATEGORY_KEY = "ab_test_category"
     }
 }

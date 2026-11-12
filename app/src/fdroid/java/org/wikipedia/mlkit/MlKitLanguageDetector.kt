@@ -10,4 +10,8 @@ class MlKitLanguageDetector {
     fun detectLanguageFromText(text: String) {
         // stub
     }
+
+    fun close() {
+        // stub
+    }
 }

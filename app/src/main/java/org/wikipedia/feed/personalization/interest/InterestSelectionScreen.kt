@@ -35,6 +35,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -58,7 +59,7 @@ import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.getResources
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.topics.ArticleTopics
@@ -179,7 +180,7 @@ fun InterestOnboardingScreen(
                             }
 
                             is ArticlesState.Success -> {
-                                items(articlesState.articles) { item ->
+                                items(articlesState.articles, key = { it.prefixedText }) { item ->
                                     ArticleCard(
                                         modifier = Modifier.animateItem(),
                                         item = item,
@@ -218,6 +219,7 @@ fun TopicFilterChipRow(
     onTopicSelected: (OnboardingTopic) -> Unit
 ) {
     val context = LocalContext.current
+    val localizedResources = remember(context, languageCode) { context.getResources(languageCode) }
     LazyRow(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -226,7 +228,7 @@ fun TopicFilterChipRow(
         items(items = topics, key = { it.topic.topicId }) { item ->
             FilterChip(
                 label = { Text(
-                    text = context.getString(languageCode, item.topic.msgKey)
+                    text = localizedResources.getString(item.topic.msgKey)
                 ) },
                 selected = item.isSelected,
                 onClick = { onTopicSelected(item) },

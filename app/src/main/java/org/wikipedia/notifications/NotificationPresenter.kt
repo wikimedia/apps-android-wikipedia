@@ -127,9 +127,9 @@ object NotificationPresenter {
         context: Context, builder: NotificationCompat.Builder, id: Int,
         title: String, text: String, longText: CharSequence?, lang: String?,
         @DrawableRes icon: Int?, @ColorRes color: Int, bodyIntent: Intent,
-    ) {
+    ): Boolean {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            return
+            return false
         }
         builder.setContentIntent(PendingIntentCompat.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT, false))
                 .setLargeIcon(if (icon != null) drawNotificationBitmap(context, color, icon, lang.orEmpty().uppercase(Locale.getDefault())) else null)
@@ -139,6 +139,7 @@ object NotificationPresenter {
                 .setContentText(text)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(longText))
         NotificationManagerCompat.from(context).notify(id, builder.build())
+        return true
     }
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {

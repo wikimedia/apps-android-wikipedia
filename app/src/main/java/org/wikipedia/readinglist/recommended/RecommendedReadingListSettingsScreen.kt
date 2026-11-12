@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -156,6 +158,7 @@ fun RecommendedReadingListSettingsScreen(
                 EnabledState(
                     articlesNumber = uiState.articlesNumber,
                     selectedFrequency = uiState.updateFrequency,
+                    isUpdateFrequencyVisible = uiState.isUpdateFrequencyVisible,
                     discoverSource = uiState.recommendedReadingListSource,
                     isNotificationEnabled = uiState.isRecommendedReadingListNotificationEnabled,
                     onArticleNumberChanged = onArticleNumberChanged,
@@ -211,6 +214,7 @@ private fun DisabledState(
 private fun EnabledState(
     articlesNumber: Int,
     selectedFrequency: RecommendedReadingListUpdateFrequency,
+    isUpdateFrequencyVisible: Boolean,
     discoverSource: RecommendedReadingListSource,
     isNotificationEnabled: Boolean,
     onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
@@ -229,10 +233,13 @@ private fun EnabledState(
                 articlesNumber = articlesNumber,
                 onArticleNumberChanged = onArticleNumberChanged
             )
-            UpdatesFrequencyView(
-                selectedFrequency = selectedFrequency,
-                onUpdateFrequency = onUpdateFrequency
-            )
+            if (isUpdateFrequencyVisible) {
+                UpdatesFrequencyView(
+                    selectedFrequency = selectedFrequency,
+                    onUpdateFrequency = onUpdateFrequency
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
         }
 
         SettingsSection {
@@ -378,8 +385,7 @@ private fun UpdatesFrequencyView(
                     RecommendedReadingListEvent.submit("updates_click", "discover_settings")
                     showDialog = true
                 }
-            )
-            .padding(bottom = 16.dp),
+            ),
         colors = ListItemDefaults.colors(
             containerColor = WikipediaTheme.colors.paperColor
         ),
@@ -688,6 +694,7 @@ private fun RecommendedReadingListSettingsScreenPreview() {
                 isRecommendedReadingListEnabled = true,
                 articlesNumber = 1,
                 updateFrequency = RecommendedReadingListUpdateFrequency.WEEKLY,
+                isUpdateFrequencyVisible = true,
                 recommendedReadingListSource = RecommendedReadingListSource.INTERESTS,
                 isRecommendedReadingListNotificationEnabled = true
             ),
