@@ -49,7 +49,7 @@ class WiktionaryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             }
 
             if (usageList.isNullOrEmpty()) {
-                val lowercaseQuery = query.lowercase(Locale.getDefault())
+                val lowercaseQuery = query.lowercase(Locale.ROOT)
                 if (lowercaseQuery != query) {
                     usageList = ServiceFactory.getRest(wikiSite)
                         .getDefinition(lowercaseQuery)[pageTitle.wikiSite.languageCode]
