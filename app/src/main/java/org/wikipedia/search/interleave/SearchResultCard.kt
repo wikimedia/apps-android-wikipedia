@@ -94,9 +94,8 @@ fun SearchResultCard(
                     Text(
                         modifier = Modifier.padding(top = 2.dp),
                         text = it,
+                        style = MaterialTheme.typography.bodyMedium,
                         color = WikipediaTheme.colors.secondaryColor,
-                        fontSize = 14.sp,
-                        lineHeight = 20.sp,
                         maxLines = DESCRIPTION_MAX_LINES,
                         overflow = TextOverflow.Ellipsis
                     )
