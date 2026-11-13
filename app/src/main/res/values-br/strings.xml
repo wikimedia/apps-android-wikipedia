@@ -12,7 +12,9 @@
 * Huñvreüs
 * Kadwallan
 * Lompezh
+* Wrai
 * Y-M D
+* YeBoy371
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -28,7 +30,7 @@
   <string name="search_back_button_content_description">Distreiñ</string>
   <string name="search_clear_query_content_description">Diverkañ ar goulenn</string>
   <string name="search_icon_content_description">Klask</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Silañ ma rolloù</string>
+  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Silañ ma rolloù</string>
   <string name="nav_item_suggested_edits">Kemmoù</string>
   <string name="nav_item_activity">Obererezh</string>
   <string name="nav_item_more">Muioc\'h</string>
@@ -101,16 +103,16 @@
   <string name="menu_page_watched">Evezhiet</string>
   <string name="edit_section_find_in_page">Klask er bajenn</string>
   <string name="menu_page_font_and_theme">Font ha tem</string>
-  <string name="menu_page_add_to_list">Ouzhpennañ d\'ur roll</string>
+  <string name="menu_page_add_to_list" fuzzy="true">Ouzhpennañ d\'ur roll</string>
   <string name="menu_page_add_to_default_list">Enrollañ</string>
-  <string name="feed_card_add_to_list">Ouzhpennañ d\'ur roll</string>
+  <string name="feed_card_add_to_list" fuzzy="true">Ouzhpennañ d\'ur roll</string>
   <string name="feed_card_add_to_default_list">Enrollañ</string>
   <string name="menu_page_share">Rannañ al liamm</string>
   <string name="menu_article_share">Rannañ pennad</string>
   <string name="menu_page_article_share">Rannañ</string>
   <string name="menu_page_open_a_new_tab">Digeriñ en un ivinell nevez</string>
   <string name="menu_page_new_tab">Ivinell nevez</string>
-  <string name="menu_page_reading_lists">Rolloù</string>
+  <string name="menu_page_reading_lists" fuzzy="true">Rolloù</string>
   <string name="menu_page_recently_viewed">Gweladennet nevez zo</string>
   <string name="menu_page_archive">Diell</string>
   <string name="menu_long_press_open_page">Digeriñ</string>
@@ -128,7 +130,7 @@
   <string name="map_view_link_text">Diskwel war ur gartenn</string>
   <string name="other_languages_indication_text">Lenn en ur yezh all</string>
   <string name="language_count_link_text">A c\'haller kaout e %d yezh all</string>
-  <string name="edit_save_action_license_logged_in">Pa \'z embannit ec\'h asantit an &lt;a href=\"%1$s\"&gt;divizoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; en ur doare didorradus.</string>
+  <string name="edit_save_action_license_logged_in">Pa \'z embannit ec\'h asantit an &lt;a href=\"%1$s\"&gt;Divizoù implijout&lt;/a&gt; ha diskouez dizistro ho tegasadennoù dindan an aotre &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Pa\'z embannit e tegemerit an &lt;a href=\"%1$s\"&gt;divizoù implijout&lt;/a&gt;, ha dizistro e lakait ho tegasadennoù dindan an aotre &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. Mar &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a brevezded.</string>
   <string name="edit_anon_warning">Lakaet e vo ar c\'hemmoù war gont chomlec\'h IP ho penveg. Ma &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt;, ho po muioc\'h a brevezded.</string>
   <string name="preference_title_language">Yezhoù Wikipedia</string>
@@ -153,9 +155,9 @@
   <string name="menu_show_toc">Taolenn</string>
   <string name="search_no_results_found">N\'eus bet kavet disoc\'h ebet</string>
   <string name="search_reading_list_no_results">N\'eus bet kavet disoc\'h ebet e \"%s\"</string>
-  <string name="search_reading_lists_no_results">Disoc\'h ebet kavet er rolloù</string>
+  <string name="search_reading_lists_no_results" fuzzy="true">Disoc\'h ebet kavet er rolloù</string>
   <string name="search_all_articles_no_results">Disoc\'h ebet kavet en holl bennadoù</string>
-  <string name="search_collections_no_results">Disoc\'h ebet kavet er rolloù</string>
+  <string name="search_collections_no_results" fuzzy="true">Disoc\'h ebet kavet er rolloù</string>
   <string name="search_history_no_results">Disoc\'h ebet kavet en istor</string>
   <string name="edit_section_captcha_message">Evit reiñ sikour d\'ar gwareziñ a-enep ar posteloù strobus emgefre, bizskrivit ar gerioù a zeu war wel amañ dindan</string>
   <string name="edit_section_captcha_request_an_account_message">Ne c\'haller ket gwelet ar skeudenn ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Goulenn ur gont&lt;/a&gt;</string>
@@ -169,7 +171,7 @@
   <string name="login_2fa_hint">Kod gwiriañ div-elfenn</string>
   <string name="login_2fa_other_workflow_error_msg">Dilesadur div-elfenn ret ! Kit d’ar skramm pennañ ha kevreit mar plij, ha merkit ar c’hod eus ho jedouer 2FA.</string>
   <string name="login_email_auth_hint">Kod gwiriañ ar postel</string>
-  <string name="login_email_auth_other_workflow_error_msg">Rekis eo gwiriañ ar postel ! Kevreit diwar ar skramm pennañ, hag ebarzhit ho kod gwiriañ ar postel.</string>
+  <string name="login_email_auth_other_workflow_error_msg">Rekis eo gwiriañ dre bostel ! Kevreit diwar ar skramm pennañ hag ebarzhit ho kod gwiriañ dre bostel.</string>
   <string name="login_background_error_msg">Dic\'hallus eo adkevreañ. Distroit d\'ar skramm pennañ ha kevreit dre an dorn.</string>
   <string name="onboarding_card_login">Kevreañ</string>
   <string name="page_editing_login">Kevreañ</string>
@@ -265,12 +267,12 @@
   <string name="preferences_heading_syncing">Sinkronelaat</string>
   <string name="preferences_heading_data_usage">Implij ar roadennoù</string>
   <string name="preferences_heading_experimental">Arnodel</string>
-  <string name="preference_title_sync_reading_lists_from_account">Kempredañ ar rolloù</string>
-  <string name="preference_title_download_reading_list_articles">Enkargañ pennadoù ar roll</string>
-  <string name="preference_summary_sync_reading_lists">Kempredañ ar rolloù etre meur a ardivink dre o enrollañ en ho kont Wikipedia</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Kempredañ rolloù etre meur a ardinvik dre o enrollañ en ho kont Wikipedia « %s »</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Dilemel rolloù kempredet diwar ho kont « %s » ?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Kement-mañ a beurziverko an holl rolloù a zo bet kempredet el lec\'h stokañ a-bell. Dilemel an holl rolloù kempredet diwar ho kont « %s » ?</string>
+  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Kempredañ ar rolloù</string>
+  <string name="preference_title_download_reading_list_articles" fuzzy="true">Enkargañ pennadoù ar roll</string>
+  <string name="preference_summary_sync_reading_lists" fuzzy="true">Kempredañ ar rolloù etre meur a ardivink dre o enrollañ en ho kont Wikipedia</string>
+  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">Kempredañ rolloù etre meur a ardinvik dre o enrollañ en ho kont Wikipedia « %s »</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Dilemel rolloù kempredet diwar ho kont « %s » ?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Kement-mañ a beurziverko an holl rolloù a zo bet kempredet el lec\'h stokañ a-bell. Dilemel an holl rolloù kempredet diwar ho kont « %s » ?</string>
   <string name="preference_title_auto_upload_crash_reports">Kas danevelloù implij</string>
   <string name="preference_summary_auto_upload_crash_reports">Reiñ tro d\'an arload da gas danevelloù implij d\'ur pourchaser servijoù tredeour en un doare emgefreek, abalamour deomp da c\'hallout kompren warno ha reizhañ ar c\'hudennoù buanoc\'h hag aesoc\'h.</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
@@ -350,7 +352,6 @@
   <string name="editor_select_dialog_continue">Kenderc\'hel</string>
   <string name="editor_select_icon_ve_title">Arlun Digeriñ en ur merdeer diavaez</string>
   <string name="editor_select_title_settings_screen">Penndibaboù kemmañ</string>
-  <string name="editor_select_save_btn_settings_screen">Enrollañ</string>
   <string name="find_next">Kavout an hini da-heul</string>
   <string name="find_previous">Kavout an hini a-raok</string>
   <string name="find_first_occurence">Kentañ degouezh</string>
@@ -372,7 +373,7 @@
     <item quantity="other">%d disoc\'h</item>
   </plurals>
   <string name="button_clear_all_recent_searches">diverkañ an enklaskoù nevez</string>
-  <string name="clear_recent_searches_confirm">Ha sur eo ho peus c\'hoant da ziverkañ roll-istor  hoc\'h enklaskoù ?</string>
+  <string name="clear_recent_searches_confirm">Ha sur oc\'h e vennit riñsañ istor ho klaskoù ?</string>
   <string name="clear_recent_searches_confirm_yes">Ya</string>
   <string name="clear_recent_searches_confirm_no">Ket</string>
   <string name="error_browser_not_found">Ne c\'haller ket digeriñ ar bajenn web (n\'eus bet kavet arload  merdeer)</string>
@@ -425,8 +426,8 @@
   <string name="unnamed_tab_closed">Ivinell serret.</string>
   <string name="tab_item_closed">%s serret.</string>
   <string name="all_tab_items_closed">Serret eo an holl ivinelloù.</string>
-  <string name="tool_tip_bookmark_icon_title">Ouzhpennañ d\'ur roll</string>
-  <string name="tool_tip_bookmark_icon_text">Klikit war arlun ar sined evit enrollañ ar pennad en ur roll.</string>
+  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Ouzhpennañ d\'ur roll</string>
+  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Klikit war arlun ar sined evit enrollañ ar pennad en ur roll.</string>
   <string name="page_view_in_browser">Gwelet ar bajenn er merdeer</string>
   <string name="tool_tip_toc_title">Taolenn evit tizhout buan an endalc\'hadoù</string>
   <string name="tool_tip_toc_text">Gallout a reot bremañ lakaat riklañ a-gleiz evit digeriñ taolenn an endalc\'hadoù, ha ivez klikañ ha sachañ ar bouton dibunañ evit lammat buan da rannoù disheñvel ur pennad.</string>
@@ -439,9 +440,9 @@
   <string name="button_continue_to_talk_page">Gwelet ar bajenn gaozeal</string>
   <string name="button_continue_to_disambiguation">Diskouez ar pajennoù heñvel</string>
   <string name="link_preview_disambiguation_description">An titl-mañ a ra dave da ouzhpenn ur bajenn :</string>
-  <string name="button_add_to_reading_list">Ouzhpennañ d\'ur roll</string>
+  <string name="button_add_to_reading_list" fuzzy="true">Ouzhpennañ d\'ur roll</string>
   <string name="page_offline_notice_cannot_load_while_offline">N\'haller ket kargañ ar pennad pa vezet ezlinenn.</string>
-  <string name="page_offline_notice_add_to_reading_list">Tun : Ouzhpennit ar pennad d\'ur roll hag enkarget e vo pa viot enlinenn en-dro.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Tun : Ouzhpennit ar pennad d\'ur roll hag enkarget e vo pa viot enlinenn en-dro.</string>
   <string name="page_offline_notice_last_date">Emaoc\'h o lenn un doare ezlinenn savetaet d\'an %s</string>
   <string name="redirected_from_snackbar">Adkaset eus \"%s\"</string>
   <string name="button_get_directions">Kaout an tuioù</string>
@@ -561,17 +562,17 @@
   <string name="editing_monospace_font_label">Implijout ur font digemm e foet</string>
   <string name="editing_typing_suggestions">Diskouez alioù a-fet bizskrivañ</string>
   <string name="nav_item_saved">Enrollet</string>
-  <string name="reading_list_save_to">Enrollañ en ur roll</string>
-  <string name="reading_list_move_to">Ouzhpennañ d\'ur roll</string>
+  <string name="reading_list_save_to" fuzzy="true">Enrollañ en ur roll</string>
+  <string name="reading_list_move_to" fuzzy="true">Ouzhpennañ d\'ur roll</string>
   <string name="reading_list_create_new">Krouiñ unan nevez</string>
-  <string name="reading_list_title_exists">Ar roll \"%s\" zo anezhañ dija.</string>
+  <string name="reading_list_title_exists" fuzzy="true">Ar roll \"%s\" zo anezhañ dija.</string>
   <string name="reading_list_article_added_to_named">Ouzhpennet %1$s da %2$s.</string>
-  <string name="reading_list_article_added_to_default_list">%s enrollet. Ha fellout a ra deoc\'h e ouzhpennañ d\'ur roll ?</string>
+  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s enrollet. Ha fellout a ra deoc\'h e ouzhpennañ d\'ur roll ?</string>
   <string name="reading_list_article_moved_to_named">Dilec’hiet %1$s da %2$s.</string>
   <string name="reading_list_article_already_exists_message">Pep tra zo mat ! Emañ %2$s e %1$s c\'hoazh.</string>
   <string name="reading_list_articles_already_exist_message">Pep tra zo mat ! Emañ an holl bennadoù e %s c\'hoazh.</string>
-  <string name="reading_list_added_view_button">Diskwel ar roll</string>
-  <string name="reading_list_add_to_list_button">Ouzhpennañ d\'ar roll</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Diskwel ar roll</string>
+  <string name="reading_list_add_to_list_button" fuzzy="true">Ouzhpennañ d\'ar roll</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">%d pennad</item>
     <item quantity="two">%d bennad</item>
@@ -608,24 +609,24 @@
   <string name="reading_list_sort_by_recent_desc">Rummañ dre an deiz ouzhpennañ (an hini koshañ)</string>
   <string name="reading_list_sort_by_created">Rummañ dre an deiz krouiñ (an hini nevesañ)</string>
   <string name="reading_list_sort_by_created_desc">Rummañ dre an deiz krouiñ (an hini koshañ)</string>
-  <string name="reading_list_menu_delete">Diverkañ ar roll</string>
-  <string name="reading_list_menu_export">Ezporzhiañ ar roll</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Diverkañ ar roll</string>
+  <string name="reading_list_menu_export" fuzzy="true">Ezporzhiañ ar roll</string>
   <string name="reading_list_menu_select">Diuzañ</string>
   <string name="reading_list_menu_unselect">Diziuzañ</string>
-  <string name="reading_list_export_write_permission_rationale">Rekis eo aotren ar skrivañ e lec\'h stokañ ho ardivink evit ezporzhiañ ho roll.</string>
+  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Rekis eo aotren ar skrivañ e lec\'h stokañ ho ardivink evit ezporzhiañ ho roll.</string>
   <string name="reading_list_menu_rename">Kemmañ anv/deskrivadur</string>
   <string name="reading_list_action_menu_remove_from_offline">Lemel eus ezlinenn</string>
   <string name="reading_list_action_menu_save_for_offline">Enorollañ \nevit ezlinenn</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Lemel pep tra eus ezlinenn</string>
   <string name="reading_list_action_menu_save_all_for_offline">Enrollañ pep tra evit ezlinenn</string>
-  <string name="reading_list_action_menu_add_to_another_list">Ouzhpennañ d\'ur roll all</string>
-  <string name="reading_list_action_menu_move_to_another_list">Dilerc\'hiañ d\'ur roll all</string>
-  <string name="reading_list_name_sample">Ma roll</string>
-  <string name="reading_list_name_hint">Anv ar roll-mañ</string>
+  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Ouzhpennañ d\'ur roll all</string>
+  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Dilerc\'hiañ d\'ur roll all</string>
+  <string name="reading_list_name_sample" fuzzy="true">Ma roll</string>
+  <string name="reading_list_name_hint" fuzzy="true">Anv ar roll-mañ</string>
   <string name="reading_list_description_hint">Deskrivadur (diret)</string>
-  <string name="reading_list_item_deleted">%s dilamet diouzh ar roll</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s dilamet diouzh ar roll</string>
   <string name="reading_list_item_deleted_from_list">%1$s lamet diouzh %2$s</string>
-  <plurals name="reading_list_articles_deleted">
+  <plurals name="reading_list_articles_deleted" fuzzy="true">
     <item quantity="one">%d pennad dilamet diouzh ar roll</item>
     <item quantity="two">%d bennad lamet diouzh ar roll</item>
     <item quantity="few">%d a bennadoù dilamet diouzh ar roll</item>
@@ -639,53 +640,53 @@
     <item quantity="many">%1$d a bennadoù dilamet diouzh %2$s</item>
     <item quantity="other">%1$d a bennadoù lamet diouzh %2$s</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
+  <plurals name="reading_lists_deleted_message" fuzzy="true">
     <item quantity="one">%d roll dilamet</item>
     <item quantity="two">%d roll dilamet</item>
     <item quantity="few">%d roll dilamet</item>
     <item quantity="many">%d roll dilamet</item>
     <item quantity="other">%d roll dilamet</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Ne c\'heller ket diverkañ ar roll dre ziouer (%s)</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s diverket. Ne c\'heller ket dilemel ar roll dre ziouer (%2$s).</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Diverket eo bet ar rolloù. Ne c\'heller ket dilemel ar roll dre ziouer (%s).</string>
-  <string name="single_list_json_file_name">%s (Roll Wikipedia).json</string>
-  <string name="multiple_lists_json_file_name">Rolloù Wikipedia (%s ha muioc\'h).json</string>
-  <string name="reading_list_items_deleted">%d pennad dilamet diouzh ar roll</string>
-  <string name="reading_lists_item_deleted">%s dilamet diouzh ar rolloù</string>
+  <string name="reading_lists_default_list_delete_message" fuzzy="true">Ne c\'heller ket diverkañ ar roll dre ziouer (%s)</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s diverket. Ne c\'heller ket dilemel ar roll dre ziouer (%2$s).</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Diverket eo bet ar rolloù. Ne c\'heller ket dilemel ar roll dre ziouer (%s).</string>
+  <string name="single_list_json_file_name" fuzzy="true">%s (Roll Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name" fuzzy="true">Rolloù Wikipedia (%s ha muioc\'h).json</string>
+  <string name="reading_list_items_deleted" fuzzy="true">%d pennad dilamet diouzh ar roll</string>
+  <string name="reading_lists_item_deleted" fuzzy="true">%s dilamet diouzh ar rolloù</string>
   <string name="reading_list_item_delete_undo">Dizober</string>
   <string name="reading_list_deleted">%s dilamet</string>
   <string name="saved_list_empty_title">Pennad enrollet ebet c\'hoazh.</string>
-  <string name="reading_lists_empty_message">Ouzhpennañ pennadoù d\'ur roll da lenn diwezhatoc\'h, zoken pa \'z oc\'h ezlinenn.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Ouzhpennañ pennadoù d\'ur roll da lenn diwezhatoc\'h, zoken pa \'z oc\'h ezlinenn.</string>
   <string name="reading_lists_search_empty_articles_title">N\'eus bet kavet pennad ebet</string>
   <string name="reading_lists_search_empty_articles_message">N\'hon eus ket gellet kavout “%s” en ho pennadoù enrollet.</string>
-  <string name="reading_lists_search_empty_collections_title">N\'eus bet kavet roll ebet.</string>
-  <string name="reading_lists_search_empty_collections_message">N\'hon eus ket gellet kavout “%s” en ho rolloù.</string>
-  <string name="reading_list_empty">N\'hoc\'h eus pennad ebet ouzhpennet d\'ar roll-mañ.</string>
+  <string name="reading_lists_search_empty_collections_title" fuzzy="true">N\'eus bet kavet roll ebet.</string>
+  <string name="reading_lists_search_empty_collections_message" fuzzy="true">N\'hon eus ket gellet kavout “%s” en ho rolloù.</string>
+  <string name="reading_list_empty" fuzzy="true">N\'hoc\'h eus pennad ebet ouzhpennet d\'ar roll-mañ.</string>
   <string name="reading_list_article_offline">A c\'haller tizhout ezlinenn</string>
   <string name="reading_list_article_make_offline">Aotren gwelet ar pennad-mañ ezlinenn</string>
-  <string name="reading_list_add_to_other_list">Ouzhpennañ d\'ur roll all</string>
-  <string name="reading_list_move_to_other_list">Dilec\'hiañ d\'ur roll all</string>
-  <string name="reading_list_add_to_collection">Ouzhpennañ d\'ur roll</string>
-  <plurals name="reading_list_in_collections">
+  <string name="reading_list_add_to_other_list" fuzzy="true">Ouzhpennañ d\'ur roll all</string>
+  <string name="reading_list_move_to_other_list" fuzzy="true">Dilec\'hiañ d\'ur roll all</string>
+  <string name="reading_list_add_to_collection" fuzzy="true">Ouzhpennañ d\'ur roll</string>
+  <plurals name="reading_list_in_collections" fuzzy="true">
     <item quantity="one">En 1 roll</item>
     <item quantity="two">E %d roll</item>
     <item quantity="few">E %d roll</item>
     <item quantity="many">E %d roll</item>
     <item quantity="other">E %d roll</item>
   </plurals>
-  <string name="reading_list_move_from_to_other_list">Dilec\'hiañ eus %s d\'ur roll all</string>
+  <string name="reading_list_move_from_to_other_list" fuzzy="true">Dilec\'hiañ eus %s d\'ur roll all</string>
   <string name="reading_list_remove_from_list">Dilemel diwar %s</string>
-  <string name="reading_list_remove_from_lists">Dilemel diouzh ar rolloù</string>
+  <string name="reading_list_remove_from_lists" fuzzy="true">Dilemel diouzh ar rolloù</string>
   <string name="reading_list_select_item">Diuzañ</string>
   <string name="reading_list_confirm_remove_article_from_offline">Ne c\'haller ket e gaout er mod digevreet</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">E meur a roll emañ ar pennad</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">Ne vo mui %s hegerz er mod ezlinenn en holl rolloù :</string>
-  <string name="reading_lists_sync_reminder_title">Gweredekaat kempredañ ar roll ?</string>
-  <string name="reading_lists_sync_reminder_text">Ar pennadoù enrollet e rolloù a c\'hall bremañ bezañ kempredet gant ho kont Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gouzout hiroc\'h&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">E meur a roll emañ ar pennad</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">Ne vo mui %s hegerz er mod ezlinenn en holl rolloù :</string>
+  <string name="reading_lists_sync_reminder_title" fuzzy="true">Gweredekaat kempredañ ar roll ?</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Ar pennadoù enrollet e rolloù a c\'hall bremañ bezañ kempredet gant ho kont Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Gweredekaat ar sinkroneladur</string>
-  <string name="reading_list_login_reminder_title">Kempredañ ar rolloù</string>
-  <string name="reading_lists_login_reminder_text">Ar rolloù a c\'hall bremañ bezañ kempredet etre ardivinkoù. Kevreit ouzh ho kont Wikipedia ha roit aotre da enrollañ ho rolloù.</string>
+  <string name="reading_list_login_reminder_title" fuzzy="true">Kempredañ ar rolloù</string>
+  <string name="reading_lists_login_reminder_text" fuzzy="true">Ar rolloù a c\'hall bremañ bezañ kempredet etre ardivinkoù. Kevreit ouzh ho kont Wikipedia ha roit aotre da enrollañ ho rolloù.</string>
   <string name="reading_lists_login_button">Kevreañ / Kemer perzh e Wikipedia</string>
   <string name="reading_lists_ignore_button">Ket bremañ</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
@@ -694,8 +695,8 @@
   <string name="reading_list_articles_added_to_named">%1$d pennad ouzhpennet da %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d pennad dilec\'hiet da %2$s</string>
   <string name="reading_list_delete_confirm">Ha sur eo hoc\'h eus c\'hoant da zilemel %s ?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Diverkañ ar roll(où) diuzet ?</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+  <string name="reading_list_delete_lists_confirm_dialog_title" fuzzy="true">Diverkañ ar roll(où) diuzet ?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message" fuzzy="true">
     <item quantity="one">Ha sur oc\'h e vennit diverkañ %d roll ?</item>
     <item quantity="two">Ha sur oc\'h e vennit diverkañ %d roll?</item>
     <item quantity="few">Ha sur oc\'h e vennit diverkañ %d roll?</item>
@@ -703,29 +704,29 @@
     <item quantity="other">Ha sur oc\'h e vennit diverkañ %d roll?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kevreit evit gweredekaat ar sinkronelaat</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kevreit evit aotren enrollañ ho rolloù en ho kont.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text" fuzzy="true">Kevreit evit aotren enrollañ ho rolloù en ho kont.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Nullañ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kevreañ</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Diweredekaet eo kempredañ ar rolloù</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Diweredekaet eo kempredañ ar rolloù evit ho kont, ha ne vez mui saveteet ar pennadoù enrollet en hoc\'h ardivinkoù kevreet. Gweredekait kempredañ ho rolloù en Arventennoù.</string>
+  <string name="reading_list_turned_sync_off_dialog_title" fuzzy="true">Diweredekaet eo kempredañ ar rolloù</string>
+  <string name="reading_list_turned_sync_off_dialog_text" fuzzy="true">Diweredekaet eo kempredañ ar rolloù evit ho kont, ha ne vez mui saveteet ar pennadoù enrollet en hoc\'h ardivinkoù kevreet. Gweredekait kempredañ ho rolloù en Arventennoù.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Mat eo</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Arventennoù</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Gweredekaat kempredañ ar rolloù ?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Ar pennadoù enrollet er rolloù a c\'hall bremañ bezañ kempredet gant ho kont Wikipedia. &lt;a href=\"#faq\"&gt;Gouzout hiroc\'h&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title" fuzzy="true">Gweredekaat kempredañ ar rolloù ?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text" fuzzy="true">Ar pennadoù enrollet er rolloù a c\'hall bremañ bezañ kempredet gant ho kont Wikipedia. &lt;a href=\"#faq\"&gt;Gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Chom hep diskwel an dra-se c\'hoazh.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Gweredekaat an sinkroneladur</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nann, trugarez</string>
   <string name="default_reading_list_name">Enrollet</string>
-  <string name="default_reading_list_description">Roll dre ziouer evit ho pennadoù enrollet.</string>
-  <string name="no_user_lists_title">Renkañ pennadoù a-rolladoù</string>
-  <string name="no_user_lists_msg">Krouiñ rolloù lec\'hioù da weladenniñ, rolloù dodennoù gwellañ-karet, ha kalz muioc\'h</string>
+  <string name="default_reading_list_description" fuzzy="true">Roll dre ziouer evit ho pennadoù enrollet.</string>
+  <string name="no_user_lists_title" fuzzy="true">Renkañ pennadoù a-rolladoù</string>
+  <string name="no_user_lists_msg" fuzzy="true">Krouiñ rolloù lec\'hioù da weladenniñ, rolloù dodennoù gwellañ-karet, ha kalz muioc\'h</string>
   <string name="reading_list_saved_list_rename">%1$s (krouet gant an implijer)</string>
-  <string name="split_reading_list_message">%d eo an niver brasañ a bennadoù dre roll. Rannet etre meur a roll ez eo bet ar rolloù muioc\'h a bennadoù enno.</string>
-  <string name="reading_list_move_article_limit_message">Ne c\'heller ket dilec\'hiañ d\'ar roll-mañ. Tizhet eo bet ar vevenn %2$d pennad dre roll evit \"%1$s\".</string>
-  <string name="reading_list_article_limit_message">Ne c\'heller ket ouzhpennañ d\'ar roll-mañ. Tizhet eo bet ar vevenn %2$d pennad dre roll evit \"%1$s\".</string>
-  <string name="reading_lists_limit_message">Ne c\'heller ket krouiñ ur roll all. Tizhet eo bet ar vevenn 100 roll dre gont.</string>
-  <string name="reading_lists_menu_create_list">Kroui­ñ ur roll nevez</string>
-  <string name="reading_lists_menu_import_list">Enporzhiañ ur roll</string>
+  <string name="split_reading_list_message" fuzzy="true">%d eo an niver brasañ a bennadoù dre roll. Rannet etre meur a roll ez eo bet ar rolloù muioc\'h a bennadoù enno.</string>
+  <string name="reading_list_move_article_limit_message" fuzzy="true">Ne c\'heller ket dilec\'hiañ d\'ar roll-mañ. Tizhet eo bet ar vevenn %2$d pennad dre roll evit \"%1$s\".</string>
+  <string name="reading_list_article_limit_message" fuzzy="true">Ne c\'heller ket ouzhpennañ d\'ar roll-mañ. Tizhet eo bet ar vevenn %2$d pennad dre roll evit \"%1$s\".</string>
+  <string name="reading_lists_limit_message" fuzzy="true">Ne c\'heller ket krouiñ ur roll all. Tizhet eo bet ar vevenn 100 roll dre gont.</string>
+  <string name="reading_lists_menu_create_list" fuzzy="true">Kroui­ñ ur roll nevez</string>
+  <string name="reading_lists_menu_import_list" fuzzy="true">Enporzhiañ ur roll</string>
   <string name="reading_lists_menu_sort_by">Rummañ dre</string>
   <string name="reading_lists_refresh_sync_option">Freskaat ar sinkroneladur</string>
   <plurals name="reading_list_article_offline_message">
@@ -742,7 +743,7 @@
     <item quantity="many">Ne c\'hallot ket gwelet ar pennadoù-mañ ezlinenn ken.</item>
     <item quantity="other">Ne c\'hallot ket gwelet ar pennadoù-mañ ezlinenn ken.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Rolloù kempredet</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Rolloù kempredet</string>
   <string name="reading_list_menu_last_sync">Sinkroneladur diwezhañ : %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Mat eo</string>
   <string name="reading_list_delete_dialog_ok_button_text">Mat eo</string>
@@ -752,37 +753,37 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Nullañ</string>
   <string name="reading_list_split_dialog_ok_button_text">Mat eo</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Dilemel</string>
-  <string name="reading_list_activity_title">Roll : %s</string>
-  <string name="reading_list_notification_title">Roll(où) ezporzhiet</string>
-  <string name="reading_list_notification_text">%d Roll zo bet ezporzhiet evel \'reading_lists export.json\' d\'ho teuliad enkargadennoù</string>
-  <string name="reading_list_notification_detailed_text">Rolloù zo bet ezporzhiet da \'reading_lists_export.json\'</string>
+  <string name="reading_list_activity_title" fuzzy="true">Roll : %s</string>
+  <string name="reading_list_notification_title" fuzzy="true">Roll(où) ezporzhiet</string>
+  <string name="reading_list_notification_text" fuzzy="true">%d Roll zo bet ezporzhiet evel \'reading_lists export.json\' d\'ho teuliad enkargadennoù</string>
+  <string name="reading_list_notification_detailed_text" fuzzy="true">Rolloù zo bet ezporzhiet da \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Ezporzhiañ</string>
   <string name="reading_lists_import_file_picker_title">Diuzit ar restr da enporzhiañ</string>
-  <string name="reading_lists_import_failure_message">C\'hwitet eo bet enporzhiañ rolloù</string>
-  <string name="reading_lists_export_select_lists_message">Diuzit roll(où) da ezporzhiañ</string>
-  <string name="reading_lists_export_completed_message">Roll(où) ezporzhiet</string>
-  <plurals name="reading_list_export_failed_message">
+  <string name="reading_lists_import_failure_message" fuzzy="true">C\'hwitet eo bet enporzhiañ rolloù</string>
+  <string name="reading_lists_export_select_lists_message" fuzzy="true">Diuzit roll(où) da ezporzhiañ</string>
+  <string name="reading_lists_export_completed_message" fuzzy="true">Roll(où) ezporzhiet</string>
+  <plurals name="reading_list_export_failed_message" fuzzy="true">
     <item quantity="one">C\'hwitet eo bet ezporzhiañ ar roll</item>
     <item quantity="two">C\'hwitet eo bet ezporzhiañ ar rolloù</item>
     <item quantity="few">C\'hwitet eo bet ezporzhiañ ar rolloù</item>
     <item quantity="many">C\'hwitet eo bet ezporzhiañ ar rolloù</item>
     <item quantity="other">C\'hwitet eo bet ezporzhiañ ar rolloù</item>
   </plurals>
-  <plurals name="reading_list_import_success_message">
+  <plurals name="reading_list_import_success_message" fuzzy="true">
     <item quantity="one">Roll enporzhiet</item>
     <item quantity="two">Rolloù enporzhiet</item>
     <item quantity="few">Rolloù enporzhiet</item>
     <item quantity="many">Rolloù enporzhiet</item>
     <item quantity="other">Rolloù enporzhiet</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">Roll lodet</string>
+  <string name="reading_lists_preview_header_title" fuzzy="true">Roll lodet</string>
   <string name="reading_lists_preview_save_button">Enrollañ</string>
-  <string name="reading_lists_preview_save_dialog_title">Enrollañ ar roll</string>
-  <string name="reading_lists_preview_save_dialog_text">Anvit ar roll ha diuzit pennadoù da vezañ enrollet</string>
+  <string name="reading_lists_preview_save_dialog_title" fuzzy="true">Enrollañ ar roll</string>
+  <string name="reading_lists_preview_save_dialog_text" fuzzy="true">Anvit ar roll ha diuzit pennadoù da vezañ enrollet</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titl</string>
   <string name="reading_lists_preview_save_dialog_cancel">Nullañ</string>
   <string name="reading_lists_preview_save_dialog_save">Enrollañ</string>
-  <string name="reading_lists_preview_saved_snackbar">Roll enrollet</string>
+  <string name="reading_lists_preview_saved_snackbar" fuzzy="true">Roll enrollet</string>
   <string name="reading_lists_preview_saved_snackbar_action">Gwelet</string>
   <string name="user_option_sync_label">Penndibaboù</string>
   <string name="notification_reverted_title">Kemm disc\'hraet</string>
@@ -791,8 +792,8 @@
   <string name="notification_syncing_pause_button">Ehan</string>
   <string name="notification_syncing_resume_button">Adstagañ ganti</string>
   <string name="notification_syncing_cancel_button">Nullañ</string>
-  <string name="notification_syncing_reading_list_channel_title">O kempredañ rolloù</string>
-  <string name="notification_syncing_reading_list_channel_description">Emeur o kempredañ ar rolloù</string>
+  <string name="notification_syncing_reading_list_channel_title" fuzzy="true">O kempredañ rolloù</string>
+  <string name="notification_syncing_reading_list_channel_description" fuzzy="true">Emeur o kempredañ ar rolloù</string>
   <string name="notification_many_unread">%d a gemennoù ho peus da lenn</string>
   <plurals name="notification_channel_name">
     <item quantity="one">O pellgargañ pennad</item>
@@ -815,21 +816,21 @@
     <item quantity="many">Chom a ra %1$d pennad</item>
     <item quantity="other">Chom a ra %1$d pennad</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">O kempredañ ur roll</item>
     <item quantity="two">O kempredañ rolloù</item>
     <item quantity="few">O kempredañ rolloù</item>
     <item quantity="many">O kempredañ rolloù</item>
     <item quantity="other">O kempredañ rolloù</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">O kempredañ %1$d roll</item>
     <item quantity="two">O kempredañ %1$d roll</item>
     <item quantity="few">O kempredañ %1$d roll</item>
     <item quantity="many">O kempredañ %1$d roll</item>
     <item quantity="other">O kempredañ %1$d roll</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">Chom a ra %1$d roll</item>
     <item quantity="two">Chom a ra %1$d roll</item>
     <item quantity="few">Chom a ra %1$d roll</item>
@@ -1442,9 +1443,9 @@
   <string name="onboarding_get_started">Stagañ ganti</string>
   <string name="onboarding_maybe_later">Diwezhatoc\'hik marteze</string>
   <string name="onboarding_explore_title">Doareoù ergerzhet nevez</string>
-  <string name="onboarding_explore_text">Splujit e n hollved Wikipedia gant ur wazh keleier hizivaet dizehan.&lt;br/&gt;&lt;b&gt;Personelait&lt;/b&gt; ar wazh hervez ho tiduadennoù – ha deskiñ a-zivout darvoudoù istorel &lt;b&gt;Hiziv&lt;/b&gt; e vefe, pe c\'hoari diñsoù gant &lt;b&gt;Dre zegouezh&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Rolloù gant kempredañ</string>
-  <string name="onboarding_reading_list_sync_text_v2">Gallout a rit sevel rolloù pennadoù a vennit lenn diwezhatoc\'h, ha pa vefec\'h ezlinenn.&lt;br /&gt;Kevreit ouzh ho kont Wikipedia evit kempredañ ho rolloù. &lt;a href=\"#login\"&gt;Mont-tre e Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_explore_text">Splujit e milendall Wikipedia gant ur wazh keleier hizivaet dizehan.&lt;br/&gt;&lt;b&gt;Personelait&lt;/b&gt; ar wazh hervez ho tiduadennoù – ha deskiñ a-zivout darvoudoù istorel &lt;b&gt;Hiziv&lt;/b&gt; e vefe, pe c\'hoari diñsoù gant &lt;b&gt;Dre zegouezh&lt;/b&gt;.</string>
+  <string name="onboarding_reading_list_sync_title" fuzzy="true">Rolloù gant kempredañ</string>
+  <string name="onboarding_reading_list_sync_text_v2" fuzzy="true">Gallout a rit sevel rolloù pennadoù a vennit lenn diwezhatoc\'h, ha pa vefec\'h ezlinenn.&lt;br /&gt;Kevreit ouzh ho kont Wikipedia evit kempredañ ho rolloù. &lt;a href=\"#login\"&gt;Mont-tre e Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Roadennoù &amp; Prevezded</string>
   <string name="onboarding_data_privacy_text">Krediñ a reomp ne dlefec\'h ket pourchas titouroù personel evit kemer perzh e lusk ar c\'houiziegezh frank. Dizanv eo ar roadennoù implij a zastumomp evit an arload-mañ.&lt;br /&gt;&lt;br /&gt;Deskit hiroc\'h a-zivout hor &lt;a href=\"#privacy\"&gt;politikerezh a-fet prevezded&lt;/a&gt; hag hon &lt;a href=\"#termsOfUse\"&gt;divizoù implijout&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Kas ar roadennoù implijout</string>
@@ -1794,16 +1795,16 @@
   <string name="user_contrib_filter_activity_title">Silañ an degasadennoù</string>
   <string name="action_item_view_on_map">Diskwel war ar gartenn</string>
   <string name="action_item_view_on_map_unavailable">Dihegerz eo an daveennoù douaroniel evit ar bajenn-mañ</string>
-  <string name="shareable_reading_lists_import_dialog_title">Enporzhiañ ur roll lodet</string>
-  <string name="shareable_reading_lists_import_dialog_content">Pe anv a rofec\'h d\'ar roll a zo bet lodet ouzhoc\'h ?</string>
+  <string name="shareable_reading_lists_import_dialog_title" fuzzy="true">Enporzhiañ ur roll lodet</string>
+  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Pe anv a rofec\'h d\'ar roll a zo bet lodet ouzhoc\'h ?</string>
   <string name="shareable_reading_lists_new_indicator">*nevez*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Ur roll zo bet lodet ouzhoc\'h</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Merzet hon eus ez eus bet lodet ur roll ouzhoc\'h. Evit gwelet ar roll-se en arload, distroit d\'ar c\'hemenn orin ha pouezit war al liamm en-dro.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title" fuzzy="true">Ur roll zo bet lodet ouzhoc\'h</string>
+  <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">Merzet hon eus ez eus bet lodet ur roll ouzhoc\'h. Evit gwelet ar roll-se en arload, distroit d\'ar c\'hemenn orin ha pouezit war al liamm en-dro.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Mat eo</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Roll enporzhiet</string>
+  <string name="shareable_reading_lists_new_imported_snackbar" fuzzy="true">Roll enporzhiet</string>
   <string name="reading_list_share_menu_label">Rannañ…</string>
-  <string name="reading_list_share_menu_tooltip">Lodit ar roll-mañ gant tud all</string>
-  <string name="reading_list_share_message_v2">Demat ! Me \'garfe lodañ ma roll Wikipedia ouzhoc\'h :</string>
+  <string name="reading_list_share_menu_tooltip" fuzzy="true">Lodit ar roll-mañ gant tud all</string>
+  <string name="reading_list_share_message_v2" fuzzy="true">Demat ! Me \'garfe lodañ ma roll Wikipedia ouzhoc\'h :</string>
   <string name="talk_templates_empty_message">Krouit ho kemennoù-c\'hwi pe implijit &lt;a href=\"#\"&gt;kemenn skouer&lt;/a&gt; evit kregiñ ganti.</string>
   <string name="talk_templates_new_message_title">Kemennadenn nevez</string>
   <string name="talk_templates_new_message_subject_hint">Danvez</string>
@@ -2016,7 +2017,7 @@
   <string name="on_this_day_game_entry_dialog_button">C\'hoari</string>
   <string name="on_this_day_game_title">Pe hini a oa da gentañ ?</string>
   <string name="on_this_day_game_dialog_button">C\'hoari</string>
-  <string name="on_this_day_game_splash_message">Divinit pe zarvoud a choarvezas da gentañ en deiz-mañ en istor.</string>
+  <string name="on_this_day_game_splash_message">Divinit pe zarvoud a choarvezas da gentañ en deiz-mañ en Istor.</string>
   <string name="on_this_day_game_progress">%1$d diwar %2$d</string>
   <string name="on_this_day_game_score">Poentoù : %d</string>
   <string name="on_this_day_game_submit">Kinnig</string>
@@ -2088,8 +2089,275 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Gwelit ho steudadoù, ho poentoù, ha muioc\'h</string>
   <string name="wikipedia_games_title">C\'hoarioù Wikipedia</string>
   <string name="wikipedia_games_subtitle">Kwizoù pemdeziek diazezet war endalc\'had Wikipedia</string>
+  <string name="yir_intro_headline">Amañ emañ ho Pilañs ar Bloaz e Wikipedia</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">Trugarez da vezañ tremenet %1$d devezh war ho arload Wikipedia solius e %2$d.</item>
+    <item quantity="two">Trugarez da vezañ tremenet %1$d devezh war ho arload Wikipedia solius e %2$d.</item>
+    <item quantity="few">Trugarez da vezañ tremenet %1$d devezh war ho arload Wikipedia solius e %2$d.</item>
+    <item quantity="many">Trugarez da vezañ tremenet %1$d devezh war ho arload Wikipedia solius e %2$d.</item>
+    <item quantity="other">Trugarez da vezañ tremenet %1$d devezh war ho arload Wikipedia solius e %2$d.</item>
+  </plurals>
+  <string name="yir_article_count_headline">Ho niver hollek a bennadoù :</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="one">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+    <item quantity="two">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+    <item quantity="few">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+    <item quantity="many">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+    <item quantity="other">Kement-se ho laka er %1$s%% uhelañ eus lennerien Wikipedia er bed a-bezh. %2$d pennad ar bloaz a vez lennet gant un den etre.</item>
+  </plurals>
+  <string name="yir_article_count_supporting">A-hed ar bloaz oc\'h bet o furchal. Pep pennad en deus ouzhpennet un dra bennak d\'ar pezh a ouezit.</string>
+  <string name="yir_article_count_empty_headline">Milionoù a bennadoù hoc\'h eus da zizoleiñ.</string>
+  <string name="yir_article_count_empty_supporting">Gortozit betek ma kavot kement a zo da zeskiñ e Wikipedia.</string>
+  <string name="yir_days_visited_headline">Deizioù m\'hoc\'h eus gweladennet Wikipedia e %1$d :</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">E %1$s ez oc\'h bet an oberiantañ, p\'ho poa lennet da %2$d deiz disheñvel.</item>
+    <item quantity="two">E %1$s ez oc\'h bet an oberiantañ, p\'ho poa lennet da %2$d deiz disheñvel.</item>
+    <item quantity="few">E %1$s ez oc\'h bet an oberiantañ, p\'ho poa lennet da %2$d deiz disheñvel.</item>
+    <item quantity="many">E %1$s ez oc\'h bet an oberiantañ, p\'ho poa lennet da %2$d deiz disheñvel.</item>
+    <item quantity="other">E %1$s ez oc\'h bet an oberiantañ, p\'ho poa lennet da %2$d deiz disheñvel.</item>
+  </plurals>
+  <string name="yir_minutes_read_headline">Hollad ar munutennoù hoc\'h eus tremenet o lenn :</string>
+  <string name="yir_minutes_read_supporting">%1$s Hiroc\'h eget un nozvezh kousk eo kement-se. Buan ez a an amzer hebiou pa vezit en ur milendall.</string>
+  <string name="yir_reading_streak_headline">Deizioù en ho steudad lenn hirañ :</string>
+  <string name="yir_reading_streak_supporting">Adalek %1$s–%2$s hoc\'h eus tapet da vat ar boaz da lenn bemdez.</string>
+  <string name="yir_reading_streak_empty_headline">0 steudad lenn… evit bremañ</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">N\'eo ket ur steudad keit ha ma n\'hoc\'h eus ket graet da %1$d deiz da-heul. Perak ne grogfec\'h ket bremañ ?</item>
+    <item quantity="two">N\'eo ket ur steudad keit ha ma n\'hoc\'h eus ket graet da %1$d deiz da-heul. Perak ne grogfec\'h ket bremañ ?</item>
+    <item quantity="few">N\'eo ket ur steudad keit ha ma n\'hoc\'h eus ket graet da %1$d deiz da-heul. Perak ne grogfec\'h ket bremañ ?</item>
+    <item quantity="many">N\'eo ket ur steudad keit ha ma n\'hoc\'h eus ket graet da %1$d deiz da-heul. Perak ne grogfec\'h ket bremañ ?</item>
+    <item quantity="other">N\'eo ket ur steudad keit ha ma n\'hoc\'h eus ket graet da %1$d deiz da-heul. Perak ne grogfec\'h ket bremañ ?</item>
+  </plurals>
+  <string name="yir_reading_time_headline">Hoc\'h eur gwellañ-karet evit furchal :</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">%1$d%% eus ho furchadennoù zo c\'hoarvezet er mare-mañ eus an deiz. Un degouezh... pe get ?</item>
+    <item quantity="two">%1$d%% eus ho furchadennoù zo c\'hoarvezet er mare-mañ eus an deiz. Un degouezh... pe get ?</item>
+    <item quantity="few">%1$d%% eus ho furchadennoù zo c\'hoarvezet er mare-mañ eus an deiz. Un degouezh... pe get ?</item>
+    <item quantity="many">%1$d%% eus ho furchadennoù zo c\'hoarvezet er mare-mañ eus an deiz. Un degouezh... pe get ?</item>
+    <item quantity="other">%1$d%% eus ho furchadennoù zo c\'hoarvezet er mare-mañ eus an deiz. Un degouezh... pe get ?</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">Dre vras e lennit forzh pegoulz</string>
+  <string name="yir_reading_time_empty_supporting">N\'eus na deiz nag eur resis evit divizout mont da furchal pajennoù Wikipedia.</string>
+  <string name="yir_top_topic_headline">Ho todenn wellañ-karet e %1$d :</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">Adalek %1$s betek %2$s, %3$d eus ho pennadoù a oa liammet ouzh an dodenn-mañ. %4$s</item>
+    <item quantity="two">Adalek %1$s betek %2$s, %3$d eus ho pennadoù a oa liammet ouzh an dodenn-mañ. %4$s</item>
+    <item quantity="few">Adalek %1$s betek %2$s, %3$d eus ho pennadoù a oa liammet ouzh an dodenn-mañ. %4$s</item>
+    <item quantity="many">Adalek %1$s betek %2$s, %3$d eus ho pennadoù a oa liammet ouzh an dodenn-mañ. %4$s</item>
+    <item quantity="other">Adalek %1$s betek %2$s, %3$d eus ho pennadoù a oa liammet ouzh an dodenn-mañ. %4$s</item>
+  </plurals>
+  <string name="yir_top_topic_empty_headline">Ho todenn #1 diwar %1$d eo… an holl</string>
+  <string name="yir_top_topic_empty_supporting">N\'eus diduadenn ebet a gement a dermenas ho poazioù lenn</string>
+  <string name="yir_runner_up_topics_headline">Hag ho peskampioned e %1$d :</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d pennad</item>
+    <item quantity="two">%1$d pennad</item>
+    <item quantity="few">%1$d pennad</item>
+    <item quantity="many">%1$d pennad</item>
+    <item quantity="other">%1$d pennad</item>
+  </plurals>
+  <string name="yir_biggest_reading_day_headline">Ho tevezhiad lenn brasañ :</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">%1$d munutenn en holl hoc\'h eus tremenet e Wikipedia. on Wikipedia. Setu bezañ oberiek !</item>
+    <item quantity="two">%1$d munutenn en holl hoc\'h eus tremenet e Wikipedia. on Wikipedia. Setu bezañ oberiek !</item>
+    <item quantity="few">%1$d munutenn en holl hoc\'h eus tremenet e Wikipedia. on Wikipedia. Setu bezañ oberiek !</item>
+    <item quantity="many">%1$d munutenn en holl hoc\'h eus tremenet e Wikipedia. on Wikipedia. Setu bezañ oberiek !</item>
+    <item quantity="other">%1$d munutenn en holl hoc\'h eus tremenet e Wikipedia. on Wikipedia. Setu bezañ oberiek !</item>
+  </plurals>
+  <string name="yir_articles_read_headline">Un tañva eus ar pennadoù hoc\'h eus lennet :</string>
+  <string name="yir_most_time_article_headline">Gant pe hini hoc\'h eus tremenet ar hirañ amzer ?</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">%1$d munutenn en holl hoc\'h eus gouestlet d\'ar pennad-mañ e %2$d !</item>
+    <item quantity="two">%1$d munutenn en holl hoc\'h eus gouestlet d\'ar pennad-mañ e %2$d !</item>
+    <item quantity="few">%1$d munutenn en holl hoc\'h eus gouestlet d\'ar pennad-mañ e %2$d !</item>
+    <item quantity="many">%1$d munutenn en holl hoc\'h eus gouestlet d\'ar pennad-mañ e %2$d !</item>
+    <item quantity="other">%1$d munutenn en holl hoc\'h eus gouestlet d\'ar pennad-mañ e %2$d !</item>
+  </plurals>
+  <string name="yir_rabbit_hole_headline">Pe hini eus ho milendalloù a oa an hini brasañ ?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">Estlammus eo heuliañ %1$d liamm.</item>
+    <item quantity="two">Estlammus eo heuliañ %1$d liamm.</item>
+    <item quantity="few">Estlammus eo heuliañ %1$d liamm.</item>
+    <item quantity="many">Estlammus eo heuliañ %1$d liamm.</item>
+    <item quantity="other">Estlammus eo heuliañ %1$d liamm.</item>
+  </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">Pe vilendall e kouezhot ennañ bremañ ?</string>
+  <string name="yir_niche_category_headline">Diduennoù dibar hoc\'h eus, da skouer :</string>
+  <string name="yir_niche_category_supporting">Evit abeg pe abeg, paket-holl oc\'h bet gant ar rummad-mañ !</string>
+  <string name="yir_reread_articles_headline">Pennadoù hoc\'h eus lennet meur a wech :</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d weladenn</item>
+    <item quantity="two">%1$d weladenn</item>
+    <item quantity="few">%1$d gweladenn</item>
+    <item quantity="many">%1$d gweladenn</item>
+    <item quantity="other">%1$d gweladenn</item>
+  </plurals>
+  <string name="yir_reread_articles_empty_headline">N\'oc\'h ket un adlenner</string>
+  <string name="yir_reread_articles_empty_supporting">Ne blij ket deoc\'h lenn ur pennad div wech. Gwell eo deoc\'h an nevezentioù ha kouezhañ e milendalloù nevez.</string>
+  <string name="yir_places_headline">Gant ho lennadoù ez oc\'h bet hogozik kaset da :</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">Diazezet war %1$d pennad</item>
+    <item quantity="two">Diazezet war %1$d </item>
+    <item quantity="few">Diazezet war %1$d </item>
+    <item quantity="many">Diazezet war %1$d </item>
+    <item quantity="other">Diazezet war %1$d </item>
+  </plurals>
+  <string name="yir_places_empty_headline">Dre ar gartenn a-bezh ez oc\'h bet kaset gant ho lennadennoù</string>
+  <string name="yir_places_empty_supporting">E %1$d hoc\'h eus beajet dre Wikipedia a-bezh. Taolit ur sell war an arc\'hweladur Lec\'hioù evit kaout mennozhioù  a-zivout pe da lec\'h mont da bourmen.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+    <item quantity="two">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+    <item quantity="few">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+    <item quantity="many">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+    <item quantity="other">Pennadoù hoc\'h eus enrollet evit diwezhatoc\'h : %1$d</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s gweladenn</item>
+    <item quantity="two">%1$s gweladenn</item>
+    <item quantity="few">%1$s gweladenn</item>
+    <item quantity="many">%1$s gweladenn</item>
+    <item quantity="other">%1$s gweladenn</item>
+  </plurals>
+  <string name="yir_saved_articles_empty_headline">0 pennad zo bet enrollet ganeoc\'h</string>
+  <string name="yir_saved_articles_empty_supporting">N\'hoc\'h eus pennad enrollet ebet evit bremañ. Klikit war arlun ar sined en ur pennad evit gallout e lenn... diwezhatoc\'h.</string>
+  <string name="yir_edits_headline">Kemmoù graet ganeoc\'h :</string>
+  <string name="yir_edits_supporting">Hag e Wikipedia, Wikimedia Commons pe Wikidata e kemerfec\'h perzh, trugarez deoc\'h evit gwellaat moned an holl dud da c\'houiziegezh mab-den.</string>
+  <string name="yir_edits_empty_headline">N\'hoc\'h eus graet kemm ebet betek-henn</string>
+  <string name="yir_edits_empty_supporting">N\'hoc\'h eus graet kemm ebet c\'hoazh, met aes eo deskiñ ober. Emañ deuet ar mare da gemer perzh er gumuniezh a vez o sevel Wikipedia.</string>
+  <string name="yir_edit_views_headline">Niver a wechoù ma \'z eo bet gwelet ar pennadoù hoc\'h eus kemmet :</string>
+  <string name="yir_edit_views_supporting">E %1$d, lennerien eus ar bed a-bezh o deus gwelet ar c\'hemmoù hoc\'h eus graet.</string>
+  <string name="yir_most_viewed_edited_articles_headline">Ar pennadoù lennet an aliesañ abaoe ho kemm :</string>
+  <string name="yir_contributor_thanks_headline">Trugarez deoc\'h !</string>
+  <string name="yir_contributor_thanks_supporting">Evel %1$s, ho tegasadennoù a sikour da virout Wikipedia divruderezh, solius ha hegerz evit an holl dud. Ne oufemp ket ho trugarekaat a-walc\'h evit ho skor da Wikipedia !</string>
+  <string name="yir_non_contributor_headline">Pouezus oc\'h.</string>
+  <string name="yir_non_contributor_supporting">Bez\' ez eus eus Wikipedia a-drugarez da dud wirion eveldoc\'h, a zegas ar pezh a c\'hellont evit e lakaat da greskiñ. Mard eo talvoudus Wikipedia evidoc\'h, soñjit mar plij e skorañ ar raktres dre zonezonañ pe dre e gemmañ.</string>
+  <string name="yir_community_intro_headline">Amañ emañ hor Bilañs ar Bloaz</string>
+  <string name="yir_community_intro_supporting">Re zister ez eo bet ho obererezh evit genel ho Pilañs ar Bloaz ar wech-mañ, met furchal ar pezh a zo bet dizoloet gant tud a-gevret eus ar bed a-bezh a c\'hallit ober bepred.</string>
+  <string name="yir_community_reading_hours_headline">Eurvezhioù hon eus tremenet o lenn Wikipedia e %1$d :</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">A-gevret, en holl yezhoù, lennerien eveldoc\'h o deus tremenet ur %1$,d bloavezh bennak o lenn Wikipedia.</item>
+    <item quantity="two">A-gevret, en holl yezhoù, lennerien eveldoc\'h o deus tremenet ur %1$,d bloavezh bennak o lenn Wikipedia.</item>
+    <item quantity="few">A-gevret, en holl yezhoù, lennerien eveldoc\'h o deus tremenet ur %1$,d bloavezh bennak o lenn Wikipedia.</item>
+    <item quantity="many">A-gevret, en holl yezhoù, lennerien eveldoc\'h o deus tremenet ur %1$,d bloavezh bennak o lenn Wikipedia.</item>
+    <item quantity="other">A-gevret, en holl yezhoù, lennerien eveldoc\'h o deus tremenet ur %1$,d bloavezh bennak o lenn Wikipedia.</item>
+  </plurals>
+  <string name="yir_community_languages_title">Yezhoù m\'eo Wikipedia hegerz enno :</string>
+  <plurals name="yir_community_languages_headline">
+    <item quantity="one">Yezhoù ma c\'heller lenn Wikipedia enno : tremen %1$d</item>
+    <item quantity="two">Yezhoù ma c\'heller lenn Wikipedia enno : tremen %1$d</item>
+    <item quantity="few">Yezhoù ma c\'heller lenn Wikipedia enno : tremen %1$d</item>
+    <item quantity="many">Yezhoù ma c\'heller lenn Wikipedia enno : tremen %1$d</item>
+    <item quantity="other">Yezhoù ma c\'heller lenn Wikipedia enno : tremen %1$d</item>
+  </plurals>
+  <string name="yir_community_languages_supporting">Kumuniezhioù tud a-youl-vat er bed a-bezh a aoz hag a ver Wikipedia – setu a brou e vez komzet meur a yezh gant gouiziegezh mab-den.</string>
+  <string name="yir_community_articles_headline">Pennadoù e Wikipedia :</string>
+  <string name="yir_community_articles_supporting">Kenderc\'hel a ra Wikipedia da vezañ savet gant tud a-youl-vat er bed a-bezh en ur implijout mammennoù solius evit krouiñ ha frammañ holl ar pezh a zo ennañ.</string>
+  <string name="yir_community_saved_articles_headline">Pennadoù enrollet e %1$d :</string>
+  <string name="yir_community_saved_articles_supporting">Miliadoù ha miliadoù a sinedoù zo bet lakaet war bennadoù gant lennerien evit o lenn evit ar wech kentañ, an eil gwech pe ar c\'hantvet gwech.</string>
+  <string name="yir_community_editors_headline">Perzhidi a-youl-vat :</string>
+  <string name="yir_community_editors_supporting">Ha gouzout a rit e vez savet an holl raktresoù Wikimedia gant tud a-youl-vat ? Gant ar berzhidi e vez degaset pennadoù nevez ha gwellaet ar pennadoù a zo.</string>
+  <string name="yir_community_edits_headline" fuzzy="true">Kemmoù graet :</string>
+  <string name="yir_community_edits_supporting">Bep eur bemdez e vez tud a-youl-vat er bed a-bezh o labourat evit gwellaat Wikipedia dre hizivaat fedoù er pennadoù, luc\'hskeudenniñ monumantoù istorel heverk ha c\'hwennat vioù-koukoug.</string>
+  <string name="yir_community_global_reach_title">Skog Wikipedia er bed a-bezh :</string>
+  <string name="yir_community_global_reach_subtitle">Unan eus an dek lec\'hienn web a vez gweladennet an aliesañ er bed</string>
+  <string name="yir_community_global_reach_headline">Skog bedel Wikipedia : unan eus an dek lec\'hienn web a vez gweladennet an aliesañ er bed</string>
+  <string name="yir_community_global_reach_supporting">Livenn-gein gouiziegezh an Internet eo Wikipedia. Koulz studierien ha graerioù kaozeal a zesk digantañ.</string>
+  <string name="yir_community_contribute_headline">Pouezus oc\'h.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Bez\' ez eus eus Wikipedia a-drugarez da dud wirion eveldoc\'h, a zegas ar pezh a c\'hallont evit e lakaat da greskiñ. Mard eo talvoudus Wikipedia evidoc\'h, soñjit mar plij e skorañ ar raktres dre zonezonañ pe dre e gemmañ.\n\nUr perzhiad zo ac\'hanoc\'h dija ? Kevreit pe krouit ur gont evit gwelet ar pezh hoc\'h eus graet.</string>
+  <string name="yir_closing_headline">Betek ar milendall kentañ</string>
+  <string name="yir_closing_supporting">Hag evit ur pennad pe evit kant anezho ez oc\'h deuet, trugarez deoc\'h evit furchal, lenn ha chom ranell ganimp e Wikipedia.</string>
+  <string name="yir_closing_share_action">Lodañ krafoù</string>
+  <string name="yir_store_discount_headline">Un drugarekadennig</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">Peogwir e sikoutit da virout ar c\'houiziegezh digoust e profomp deoc\'h un distaol a  %1$d%% e stal Wikipedia. Kod ebet da gaout, jedet e vo pa baeot.</item>
+    <item quantity="two">Peogwir e sikoutit da virout ar c\'houiziegezh digoust e profomp deoc\'h un distaol a  %1$d%% e stal Wikipedia. Kod ebet da gaout, jedet e vo pa baeot.</item>
+    <item quantity="few">Peogwir e sikoutit da virout ar c\'houiziegezh digoust e profomp deoc\'h un distaol a  %1$d%% e stal Wikipedia. Kod ebet da gaout, jedet e vo pa baeot.</item>
+    <item quantity="many">Peogwir e sikoutit da virout ar c\'houiziegezh digoust e profomp deoc\'h un distaol a  %1$d%% e stal Wikipedia. Kod ebet da gaout, jedet e vo pa baeot.</item>
+    <item quantity="other">Peogwir e sikoutit da virout ar c\'houiziegezh digoust e profomp deoc\'h un distaol a  %1$d%% e stal Wikipedia. Kod ebet da gaout, jedet e vo pa baeot.</item>
+  </plurals>
+  <string name="yir_store_discount_action">Gweladennit ar stal</string>
+  <string name="yir_games_headline">Prest evit un dae all ?</string>
+  <string name="yir_games_supporting">Amprouit ho empenn Wikipedia gant kwizoù berr awenet gant gouiziezh ar bed.</string>
+  <string name="yir_games_action">Kregiñ da c\'hoari</string>
+  <string name="yir_customize_home_headline">Personelait ho pajenn Degemer</string>
+  <string name="yir_customize_home_supporting">Dibabit an dodennoù ho tedenn ar muiañ ha resevit erbedadennoù savet diouzh ho tiduadennoù.</string>
+  <string name="yir_customize_home_action">Personelaat an diduadennoù</string>
+  <string name="yir_community_recap_headline">Hor Bilañs ar Bloaz</string>
+  <string name="yir_community_recap_supporting">Adkavit kement a zo bet lennet, kemmet ha furchet gant tud a-gevret er bed a-bezh.</string>
+  <string name="yir_community_recap_action">Furchit bremañ</string>
+  <string name="yir_quiz_headline">Peseurt Wikipedia oc\'h ?</string>
+  <string name="yir_quiz_supporting">Adalek amzer ar modemoù betek hiziv, beajit dre istor Wikipedia.</string>
+  <string name="yir_quiz_action">Kemer perzh er c\'hwiz</string>
+  <string name="yir_open_tabs_headline">Adwelet ho ivinelloù digor</string>
+  <string name="yir_share_text">Setu ma Bilañs ar Bloaz %1$d, digant an arload Wikipedia : %2$s</string>
+  <string name="yir_feature_card_title">Bilañs Wikipedia er bloaz %1$d</string>
+  <string name="yir_feature_card_articles_read">Niver a bennadoù lennet :</string>
+  <string name="yir_feature_card_minutes_read">Hollad ar munutennoù tremenet o lenn :</string>
+  <string name="yir_feature_card_articles_reread">Pennadoù am eus lennet alies :</string>
+  <string name="yir_feature_card_longest_rabbit_hole">Hirañ milendall :</string>
+  <string name="yir_feature_card_top_category">Rummad dibar furchet :</string>
+  <string name="yir_feature_card_created_with">Krouet dre an arload Wikipedia</string>
+  <string name="yir_topic_comment_architecture">Tremenet hoc\'h eus ar bloavezh o priziañ traoù a oa bet savet evit padout.</string>
+  <string name="yir_topic_comment_art">Desachet oc\'h bet gant ar pezh a oa kaer, ar pezh a oa hardizh hag ar pezh a oa souezhus a-wechoù.</string>
+  <string name="yir_topic_comment_comics_and_anime">A skeudenn da skeudenn ez oc\'h aet don e bedoù ar bannoù-treset hag an animeoù.</string>
+  <string name="yir_topic_comment_entertainment">Diaes eo bet deoc\'h chom pell diouzh bed an diduelloù er bloaz-mañ.</string>
+  <string name="yir_topic_comment_fashion">Aliesoc\'h eget ar braz eus an dud hoc\'h eus kliket war bed ar c\'hiz.</string>
+  <string name="yir_topic_comment_literature">Al lennegezh e oa linenn-stur ho lennadennoù er bloaz-mañ.</string>
+  <string name="yir_topic_comment_music">Gant sonerezh e oa ho c\'hoant gouzout er bloaz-mañ.</string>
+  <string name="yir_topic_comment_performing_arts">Desachet gant al leurenn e oac\'h, e doare pe zoare.</string>
+  <string name="yir_topic_comment_sports">Heuliet hoc\'h eus disoc\'hoù ar sportoù er bloaz-mañ.</string>
+  <string name="yir_topic_comment_tv_and_film">Da roll-sellata ez eo troet ho lennadennoù er bloaz-mañ.</string>
+  <string name="yir_topic_comment_video_games">Kresket hoc\'h eus ho anaoudegezh eus ar c\'hoarioù video.</string>
+  <string name="yir_topic_comment_biography">Tremenet hoc\'h eus ar bloavezh oc\'h ober anaoudegezh gant istorioù tud all.</string>
+  <string name="yir_topic_comment_women">Tremenet hoc\'h eus ar bloaz oc\'h ober anaoudegezh gant istorioù tud all.</string>
+  <string name="yir_topic_comment_business_and_economics">Miret hoc\'h eus ul lagad war bed an aferioù.</string>
+  <string name="yir_topic_comment_education">Dedennet-bras gant ar c\'helenn hag an deskiñ oc\'h bet er bloaz-mañ.</string>
+  <string name="yir_topic_comment_food_and_drink">Digor e oa kalon ho c\'hoant gouzout er bloaz-mañ.</string>
+  <string name="yir_topic_comment_history">Anat eo e vezit angoulet gant an tremened.</string>
+  <string name="yir_topic_comment_military_and_warfare">Aet oc\'h don en istor ar brezelioù hag an difenn.</string>
+  <string name="yir_topic_comment_philosophy_and_religion">Amzer hoc\'h eus gouestlet da grefen meur mab-den er bloaz-mañ.</string>
+  <string name="yir_topic_comment_politics_and_government">Pizh hoc\'h eus sellet ouzh an doare ma vez renet ar bed.</string>
+  <string name="yir_topic_comment_society">C\'hoant ho poa da c\'houzout penaos e vev hag en em aoz an dud.</string>
+  <string name="yir_topic_comment_transportation">Sellet hoc\'h eus ouzh an doareoù ma ya ar bed a lec\'h da lec\'h.</string>
+  <string name="yir_topic_comment_biology">Furchet hoc\'h eus skiant ar boudoù bev.</string>
+  <string name="yir_topic_comment_chemistry">Un tamm kimiezh hoc\'h eus lakaet en ho lennadennoù er bloaz-mañ.</string>
+  <string name="yir_topic_comment_computers_and_internet">Hir amzer hoc\'h eus gouestlet da gompren en deknologiezh a zo a-drek ho skramm.</string>
+  <string name="yir_topic_comment_earth_and_environment">Stok-mat ouzh an douar ez eo chomet da vat ho lennadennoù.</string>
+  <string name="yir_topic_comment_engineering">Plijet oc\'h bet o teskiñ penaos e saver traoù ha penaos ez eont en-dro.</string>
+  <string name="yir_topic_comment_general_science">Ledan e oa skalfad ho c\'hoant gouzout a-fet skiantoù.</string>
+  <string name="yir_topic_comment_mathematics">Plediñ ha jediñ gant niveroù hoc\'h eus graet er bloaz-mañ.</string>
+  <string name="yir_topic_comment_medicine_and_health">Amzer hoc\'h eus tremenet o teskiñ penaos ez a ho korf en-dro.</string>
+  <string name="yir_topic_comment_physics">Sellet hoc\'h eus ouzh ar reolennoù a ren an hollved.</string>
+  <string name="yir_topic_comment_technology">Heuliet hoc\'h eus penaos emañ an traoù o kemmañ.</string>
+  <string name="yir_topic_comment_africa">Dre Afrika oc\'h bet o veajiñ er bloaz-mañ.</string>
+  <string name="yir_topic_comment_asia">Dre Azia oc\'h bet o veajiñ er bloaz-mañ.</string>
+  <string name="yir_topic_comment_central_america">Dre Greizamerika oc\'h bet o veajiñ er bloaz-mañ.</string>
+  <string name="yir_topic_comment_europe">Dre Europa oc\'h bet o veajiñ er bloaz-mañ.</string>
+  <string name="yir_topic_comment_north_america">Tost d\'ar gêr e Norzhamerika oc\'h chomet dre ho lennadennoù (pe e furchet hoc\'h eus a-bell).</string>
+  <string name="yir_topic_comment_oceania">Da Okeania oc\'h bet douget gant ho lennadennoù er bloaz-mañ.</string>
+  <string name="yir_topic_comment_south_america">Dre Suamerika oc\'h bet o veajiñ er bloaz-mañ.</string>
+  <string name="yir_time_spent_comment_1">Hiroc\'h eo eget an amzer a laka kalon ur c\'holibri evit talmiñ 1200 gwech.</string>
+  <string name="yir_time_spent_comment_9">Hiroc\'h eo eget an amzer a laka gouloù an Heol da dizhout an Douar.</string>
+  <string name="yir_time_spent_comment_13">Hiroc\'h eo eget an amzer a zo rekis evit fardañ ur vi kaletpoazh.</string>
+  <string name="yir_time_spent_comment_19">Hiroc\'h eo eget an azer keitat a zo rekis d\'an dud evit menel kousket.</string>
+  <string name="yir_time_spent_comment_31">Hiroc\'h eo eget ur rann eus ur sitkom, bruderezh hag all.</string>
+  <string name="yir_time_spent_comment_93">Hiroc\'h eo eget an amzer a laka ar Savlec\'h Egor Etrebroadel evit treiñ ur wech tro-dro d\'an Douar.</string>
+  <string name="yir_time_spent_comment_121">Hiroc\'h eo eget rekord ar bed er maraton betek-henn.</string>
+  <string name="yir_time_spent_comment_540">Hiroc\'h eo eget un nozvezh kousket.</string>
+  <string name="yir_time_spent_comment_1441">Hiroc\'h eo eget an amzer a laka ur vamm-wenan evit dozviñ betek 2000 vi.</string>
+  <plurals name="yir_time_spent_comment_2800">
+    <item quantity="one">Hiroc\'h eo eget %1$d devezh.</item>
+    <item quantity="two">Hiroc\'h eo eget %1$d devezh.</item>
+    <item quantity="few">Hiroc\'h eo eget %1$d devezh.</item>
+    <item quantity="many">Hiroc\'h eo eget %1$d devezh.</item>
+    <item quantity="other">Hiroc\'h eo eget %1$d devezh.</item>
+  </plurals>
   <string name="year_in_review_learn_more">Gouzout hiroc\'h</string>
+  <string name="year_in_review_about_your_insights">A-zivout ho stadegoù</string>
+  <string name="year_in_review_share_feedback">Lodañ evezhiadennoù</string>
+  <string name="year_in_review_feedback_email_subject">Evezhiadennoù a-zivout Bilañs ar Bloaz</string>
   <string name="year_in_review_get_started">Kregiñ ganti</string>
+  <string name="year_in_review_announcement_explore">Furchal</string>
   <string name="year_in_review_topbar_w_icon">Arlun Wikipedia W</string>
   <string name="year_in_review_navigate_left">Merdeiñ en tu kleiz</string>
   <string name="year_in_review_close">Serriñ</string>
@@ -2101,11 +2369,15 @@
   <string name="year_in_review_get_started_headline">Furchit bilañs ho ploaziad Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Gwelit titouroù a-zivout ar pennadoù hoc\'h eus lennet dre an arload Wikipedia hag ar c\'hemmoù hoc\'h eus graet.</string>
   <string name="year_in_review_get_started_info">Gwarezet eo istor ho lennadennoù. Dre roadennoù miret en ho ardivink e jeder an titouroù a-zivout al lennadennoù.</string>
-  <string name="year_in_review_get_started_later">Er meuziad Muioc\'h e c\'hallot tizhout ho Pilañs ar Bloaz diwezhatoc\'h.</string>
+  <string name="year_in_review_get_started_later_activity">En Obererezh e c\'hallot tizhout ho Pilañs ar Bloaz diwezhatoc\'h.</string>
+  <string name="year_in_review_entry_card_title_collective">Amañ emañ hor Bilañs ar Bloaz</string>
+  <string name="year_in_review_entry_card_title_personalized">Amañ emañ ho Pilañs ar Bloaz</string>
+  <string name="year_in_review_entry_card_subtitle">Adwelit ho ploavezh e Wikipedia</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">Re zister ez eo bet ho obererezh evit genel ho Pilañs ar Bloaz ar wech-mañ, met furchal ar pezh a zo bet dizoloet a-gevret gant tud eus ar bed a-bezh a c\'hallit ober bepred.</string>
   <string name="year_in_review_survey_title">Sikourit da wellaat Bilañs ar Bloaz</string>
   <string name="year_in_review_survey_subtitle">Ha laouen oc\'h gant an arc\'hweladur-mañ ?</string>
-  <string name="year_in_review_reading_list_survey_title">Sikourit da wellaat roll Bilañs ar Bloaz %d.</string>
-  <string name="year_in_review_reading_list_survey_subtitle">Ha laouen oc\'h gant ho roll ?</string>
+  <string name="year_in_review_reading_list_survey_title" fuzzy="true">Sikourit da wellaat roll Bilañs ar Bloaz %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle" fuzzy="true">Ha laouen oc\'h gant ho roll ?</string>
   <string name="year_in_review_survey_very_satisfied">Laouen-tre</string>
   <string name="year_in_review_survey_satisfied">Laouen</string>
   <string name="year_in_review_survey_neutral">Neptu</string>
@@ -2123,14 +2395,6 @@
   <string name="year_in_review_share_subject">Ma Bilañs ar Bloaz e Wikipedia</string>
   <string name="year_in_review_share_body">Setu amañ ma Bilañs ar Bloaz e Wikipedia. Krouet gant an arload Wikipedia Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Arlun ar voul-douar</string>
-  <string name="settings_app_icon_title">Arlun an arload</string>
-  <string name="settings_app_icon_subtitle">Splet ar perzhiad</string>
-  <string name="settings_app_icon_preference_subtitle">Tu zo deoc\'h da gaout un arlun personelaet a lid ho tegasadennoù da Wikipedia e %d dre an arload. Chom a raio betek Bilañs ar Bloaz a zeu.</string>
-  <string name="settings_app_icon_updated">Hizivaet eo bet ho arlun arload.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Dibrennet eo bet an arlun nevez evit ho skramm degemer</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Dibrennit ho karedon perzhiad evit ar bloaz a zeu !</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Gweredit ho arlun arload nevez e Dibarzhioù dindan Arlun an arload. Trugarez deoc\'h evit kemer perzh e dazont ar c\'houziegezh frank. Ho tegasadennoù evel  %1$s e %2$d a sikour da sevel ur bed titouroù frank ennañ, ha dre-se hoc\'h eus dibrennet un arload perzhiad personelaet evit Wikipedia war ho skramm degemer.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Laouen omp pa \'z eo bet Wikipedia un elfenn eus ho ploaziad %1$d ! Dibrennit ur garedon dibar en ho Pilañs ar Bloaz %2$d dre zont da vezañ ur perzhiad – dre &lt;a href=\"%3$s\"&gt;gemmañ Wikipedia&lt;/a&gt; pe dre zonezoniñ adal an arload d\'ar &lt;a href=\"%4$s\"&gt;Fondezon Wikimedia&lt;/a&gt;, ar gevredigezh hep pal arc\'hantus a zo a-drek. Mard eo talvoudus Wikipedia deoc\'h, soñjit e donezonañ evit sikour da skorañ e zazont hag e virout digoust, hep bruderezh, solius ha digor d\'an holl. Mard hoc\'h eus donezonet en ul lec\'h all, priziet-bras eo ho skoazell.</string>
   <string name="year_in_review_slide_app_icon_donor">un donezoner</string>
   <string name="year_in_review_slide_app_icon_editor">un aozer</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">un donezoner hag un aozer</string>
@@ -2138,6 +2402,10 @@
   <string name="year_in_review_slide_geo_body">Ar vro liammet an aliesañ ouzh meur a bennad hoc\'h eus lennet a hañval bezañ : %1$s, diazezet war bennadoù evel &lt;b&gt;%2$s&lt;/b&gt; ha &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">Kevreañ evit personelaat ?</string>
   <string name="year_in_review_login_dialog_body">Dre gevreañ e c\'hallit kaout stadegoù personelaet. Stadegoù hollek a c\'hallit gwelet c\'hoazh hep kevreañ.</string>
+  <string name="year_in_review_login_dialog_title_nodata">Gwelloc\'h eo Wikipedia gant ur gont</string>
+  <string name="year_in_review_login_dialog_body_nodata">Dre gevreañ e c\'hallit tizhout ar rannoù gwellañ a zo en arload. Krogit da sevel Bilañs ar Bloaz ar bloaz a zeu dre grouiñ ur gont hiziv.</string>
+  <string name="year_in_review_login_dialog_title_data">Gant ur gont ez eo ho Pilañs ar Bloaz en e wellañ.</string>
+  <string name="year_in_review_login_dialog_body_data">Kevreit evit gwelet ho todennoù gwellañ-karet, ho milendall hirañ, ha muioc\'h. Stadegoù hollek a c\'hallit gwelet c\'hoazh hep kevreañ.</string>
   <string name="year_in_review_login_dialog_positive">Kevreañ / Kemer perzh e Wikipedia</string>
   <string name="year_in_review_login_dialog_negative">Kenderc\'hel hep kevreañ</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -2264,16 +2532,16 @@
     <item quantity="many">%,d pennad zo bet enrollet gant implijerien an arload</item>
     <item quantity="other">%,d pennad zo bet enrollet gant implijerien an arload</item>
   </plurals>
-  <string name="year_in_review_slide_global_saved_articles_body">Dre ouzhpennañ pennadoù da rolloù e c\'hallit lenn pennadoù zoken pa vezit ezlinenn. Kevreañ a c\'hallit ober ivez evit kempredañ ar rolloù etre ardivinkoù.</string>
+  <string name="year_in_review_slide_global_saved_articles_body" fuzzy="true">Dre ouzhpennañ pennadoù da rolloù e c\'hallit lenn pennadoù zoken pa vezit ezlinenn. Kevreañ a c\'hallit ober ivez evit kempredañ ar rolloù etre ardivinkoù.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Splann eo ho poazioù a-fet lenn.</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Mare gwellañ-karet evit lenn</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Deiz gwellañ-karet evit lenn</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Miz m\'hoc\'h eus lennet ar muiañ</string>
-  <string name="year_in_review_slide_reading_pattern_morning">Beure</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Beurevezhioù</string>
   <string name="year_in_review_slide_reading_pattern_midday">Kreisteiz</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon">Enderv</string>
-  <string name="year_in_review_slide_reading_pattern_evening">Abardaez</string>
-  <string name="year_in_review_slide_reading_pattern_night">Noz</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Endervezhioù</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Abardaevezhioù</string>
+  <string name="year_in_review_slide_reading_pattern_night">Nozvezhioù</string>
   <string name="year_in_review_slide_reading_pattern_late_night">Diwezhat en noz</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">E-pad %,d eurvezh ez omp bet o lenn</item>
@@ -2374,8 +2642,8 @@
     <item quantity="other">%,d gwech ez eus bet sellet ouzh pennadoù Wikipedia gant implijerien an arload.</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">Evit tud er bed a-bezh, Wikipedia eo ar vammenn gentañ evit respont d\'ur goulenn, klask titouroù evit ar skol pe al labour, pe evit deskiñ ur fed nevez.</string>
-  <string name="year_in_review_reading_list_dialog_title">Krouiñ ho roll Bilañs ar Bloaz %d ?</string>
-  <string name="year_in_review_reading_list_dialog_message">Wikipedia Bilañs ar Bloaz a savo ur rollad pennadoù oc\'h chomet ar pellañ ganto e %1$d. &lt;a href=\"%2$s\"&gt;Gouzout hiroc\'h&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title" fuzzy="true">Krouiñ ho roll Bilañs ar Bloaz %d ?</string>
+  <string name="year_in_review_reading_list_dialog_message" fuzzy="true">Wikipedia Bilañs ar Bloaz a savo ur rollad pennadoù oc\'h chomet ar pellañ ganto e %1$d. &lt;a href=\"%2$s\"&gt;Gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Krouiñ</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Ket, trugarez</string>
   <string name="year_in_review_reading_list_title">Bilañs ar Bloaz %d.</string>
@@ -2465,12 +2733,12 @@
   <string name="year_in_review_highlights_logo_description">Logo Wikipedia</string>
   <string name="recommended_reading_list_title">Dizoleiñ</string>
   <string name="recommended_reading_list_onboarding_card_title">Dizoloit pennadoù a zo bet dibabet evidoc\'h hepken</string>
-  <string name="recommended_reading_list_onboarding_card_message">Ho rollad sizhuniek pennadoù Wikipedia, frammet evidoc\'h hepken</string>
+  <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Ho rollad sizhuniek pennadoù Wikipedia, frammet evidoc\'h hepken</string>
   <string name="recommended_reading_list_onboarding_card_new">Nevez !</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Krogit ganti</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Ket, trugarez</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar"> Kit da Arventennoù evit kefluniañ diwezhatoc\'h ho roll erbedet.</string>
-  <string name="recommended_reading_list_interest_source_message">Penaos e fell deoc\'h e savfemp ho roll erbedet ?</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true"> Kit da Arventennoù evit kefluniañ diwezhatoc\'h ho roll erbedet.</string>
+  <string name="recommended_reading_list_interest_source_message" fuzzy="true">Penaos e fell deoc\'h e savfemp ho roll erbedet ?</string>
   <string name="recommended_reading_list_interest_source_interests">Lezit-me da zibab hervez ma diduadennoù</string>
   <string name="recommended_reading_list_interest_source_saved">Dibabit evidon hervez ma fennadoù enrollet</string>
   <string name="recommended_reading_list_interest_source_history">Dibabit evidon hervez istor ma lennadennoù</string>
@@ -2500,9 +2768,9 @@
     <item quantity="many">• %d pennad</item>
     <item quantity="other">• %d pennad</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">Ho roll pemdeziek. Deskit a-zivout dodennoù nevez, dibabet evidoc\'h hepken. Da greiznoz e vez hizivaet.</string>
-  <string name="recommended_reading_list_page_description_weekly">Ho roll sizhuniek. Deskit a-zivout dodennoù nevez, dibabet evidoc\'h hepken. Da zeroù ar sizhun e vez hizivaet.</string>
-  <string name="recommended_reading_list_page_description_monthly">Ho roll miziek. Deskit a-zivout dodennoù nevez, dibabet evidoc\'h hepken. Da zeiz kentañ bep miz e vez hizivaet.</string>
+  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Ho roll pemdeziek. Deskit a-zivout dodennoù nevez, dibabet evidoc\'h hepken. Da greiznoz e vez hizivaet.</string>
+  <string name="recommended_reading_list_page_description_weekly" fuzzy="true">Ho roll sizhuniek. Deskit a-zivout dodennoù nevez, dibabet evidoc\'h hepken. Da zeroù ar sizhun e vez hizivaet.</string>
+  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Ho roll miziek. Deskit a-zivout dodennoù nevez, dibabet evidoc\'h hepken. Da zeiz kentañ bep miz e vez hizivaet.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personelaat</string>
   <string name="recommended_reading_list_page_overflow_about">A-zivout an arc\'hweladur-mañ</string>
   <string name="recommended_reading_list_page_snackbar">Hizivaet e vo Dizoleiñ gant %1$d pennad nevez bep %2$s. En ho ardivink emañ miret ho erbedadennoù.</string>
@@ -2512,7 +2780,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Miz</string>
   <string name="recommended_reading_list_settings_section_header">Erbedadennoù</string>
   <string name="recommended_reading_list_settings_title">Arventennoù Dizoleiñ</string>
-  <string name="recommended_reading_list_settings_toggle">Roll Dizoleiñ</string>
+  <string name="recommended_reading_list_settings_toggle" fuzzy="true">Roll Dizoleiñ</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Diweredekaet emañ Dizoleiñ. Wikipedia ne erbedo ket pennadoù da lenn ouzhoc\'h</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Diweredekaat Dizoleiñ ?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Mar diweredekait Dizoleiñ n\'ho po mui erbedadennoù lenn %s a-berzh Wikipedia.</string>
@@ -2547,7 +2815,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Mar diweredekait ar c\'hemennoù n\'ho po mui kounadurioù pa vo hizivaet Dizoleiñ.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Diweredekaat</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Ket, gweredekaat</string>
-  <string name="recommended_reading_list_notification_title">Prest eo ho roll %s Discover.</string>
+  <string name="recommended_reading_list_notification_title" fuzzy="true">Prest eo ho roll %s Discover.</string>
   <string name="recommended_reading_list_notification_subtitle">Stokit evit gwelet ho erbedadennoù nevesañ.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Ur c\'hemenn ho po digant Wikipedia pa vo hizivaet ho Tizoleiñ.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Gweredekaet emañ Dizoleiñ. Pennadoù da lenn a vo erbedet ouzhoc\'h gant Wikipedia.</string>
@@ -2707,7 +2975,7 @@
   <string name="explore_feed_for_you_tab_label">Evidoc\'h</string>
   <string name="explore_feed_date_today">Hiziv - %s</string>
   <string name="explore_feed_load_previous_day_label">Enkargañ an deiz kent</string>
-  <string name="explore_feed_from_reading_list">Diwar ho roll</string>
+  <string name="explore_feed_from_reading_list" fuzzy="true">Diwar ho roll</string>
   <string name="explore_feed_because_of_interest">Abalamour d\'ho tiduadenn : %s</string>
   <string name="explore_feed_onboarding_curiosity_title">Kit da heul ho c\'hoant gouzout</string>
   <string name="explore_feed_onboarding_curiosity_description">Diuzit dodennoù ez oc\'h dedennet ganto, ha pesonelaet e vo ho kwazh ganimp.\n\n\nDastuman an nebeutañ a roadennoù a reomp, ha dizanv int.</string>
@@ -2808,13 +3076,13 @@
   <string name="read_aloud_lead_section_report_body">Un gudenn am eus bet gant an arc\'hweladur \"Selaou ralkridpù ar pennadoù :\n- [Deskrivañ ar gudenn spesadel]\n\nSetu an emzalc\'h a fellfe din gwelet :\n- [Deskrivañ an diskoulm kinniget]</string>
   <string name="read_aloud_lead_section_about_experiment">A-zivoud an arnod-mañ</string>
   <string name="read_aloud_lead_section_report_issue">Disklêriañ ur gudenn</string>
-  <string name="home_feed_settings_discover_subtitle">Pennadoù eus ho roll Dizoleiñ</string>
+  <string name="home_feed_settings_discover_subtitle" fuzzy="true">Pennadoù eus ho roll Dizoleiñ</string>
   <string name="home_feed_discover_cta_title">Eus Dizoleiñ</string>
   <string name="home_feed_discover_cta_description">Deskit a-zivout dodennoù nevez, diuzet evidoc\'h hepken. Dibabit etre hizivadennoù pemdeziek, sizhuniek pe viziek.</string>
-  <string name="home_feed_discover_cta_button">Geredekaat ar roll Dizoleiñ</string>
+  <string name="home_feed_discover_cta_button" fuzzy="true">Geredekaat ar roll Dizoleiñ</string>
   <string name="home_feed_discover_card_footer">Eus Dizoleién • Hizivadennoù %s</string>
   <string name="home_feed_discover_see_all_title">Muioc\'h zo da ziloleiñ</string>
-  <string name="home_feed_discover_see_all_description">Muioc\'h a istorioù diuzet evidoc\'h hepken zo en ho roll personelaet</string>
+  <string name="home_feed_discover_see_all_description" fuzzy="true">Muioc\'h a istorioù diuzet evidoc\'h hepken zo en ho roll personelaet</string>
   <string name="home_feed_discover_see_all_button">Furchit an holl erbedadennoù</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • Diazezet war ho lec\'hiadur e Lec\'hioù</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">Echu eo evit hiziv !</string>
@@ -2828,25 +3096,25 @@
   <string name="home_feed_games_module_cta_prompt_button_text">Kreizenn ar c\'hoarioù</string>
   <string name="random_article_widget_name">Pennad dre zegouezh</string>
   <string name="reading_lists_tab_all_articles">An holl bennadoù</string>
-  <string name="reading_lists_tab_collections">Rolloù</string>
+  <string name="reading_lists_tab_collections" fuzzy="true">Rolloù</string>
   <string name="reading_lists_filter_content_description">Silañ ar pennadoù enrollet</string>
-  <string name="reading_lists_filter_not_in_collection">Ket en ur roll</string>
-  <string name="reading_lists_empty_not_in_collection_title">E rolloù emañ an holl bennadoù.</string>
+  <string name="reading_lists_filter_not_in_collection" fuzzy="true">Ket en ur roll</string>
+  <string name="reading_lists_empty_not_in_collection_title" fuzzy="true">E rolloù emañ an holl bennadoù.</string>
   <string name="reading_lists_search_saved_articles">Furchal ar pennadoù enrollet</string>
-  <string name="reading_lists_search_collections">Furchal ar rolloù</string>
-  <string name="reading_lists_empty_collections_title">Renkañ ar pennadoù a-rolladoù</string>
-  <string name="reading_lists_empty_collections_description">Krouiñ rolladoù lec\'hioù da weladenniñ, dodennoù gwellañ-karet, ha muioc\'h.</string>
-  <string name="reading_lists_create_new_collection">Krouiñ ur roll nevez</string>
+  <string name="reading_lists_search_collections" fuzzy="true">Furchal ar rolloù</string>
+  <string name="reading_lists_empty_collections_title" fuzzy="true">Renkañ ar pennadoù a-rolladoù</string>
+  <string name="reading_lists_empty_collections_description" fuzzy="true">Krouiñ rolladoù lec\'hioù da weladenniñ, dodennoù gwellañ-karet, ha muioc\'h.</string>
+  <string name="reading_lists_create_new_collection" fuzzy="true">Krouiñ ur roll nevez</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">Dienrollañ ar pennad ?</string>
   <string name="reading_lists_remove_articles_confirm_button">Dienrollañ</string>
-  <plurals name="reading_lists_remove_articles_confirm_dialog_message">
+  <plurals name="reading_lists_remove_articles_confirm_dialog_message" fuzzy="true">
     <item quantity="one">Dilamet e vo ar pennad-mañ diouzh an holl rolloù kevredet.</item>
     <item quantity="two">Dilamet e vo ar %d pennadoù-mañ diouzh an holl rolloù kevredet.</item>
     <item quantity="few">Dilamet e vo ar %d pennadoù-mañ diouzh an holl rolloù kevredet.</item>
     <item quantity="many">Dilamet e vo ar %d pennadoù-mañ diouzh an holl rolloù kevredet.</item>
     <item quantity="other">Dilamet e vo ar %d pennadoù-mañ diouzh an holl rolloù kevredet.</item>
   </plurals>
-  <plurals name="reading_lists_articles_removed_from_collections">
+  <plurals name="reading_lists_articles_removed_from_collections" fuzzy="true">
     <item quantity="one">Pennad dilamet diouzh an holl rolloù kevredet.</item>
     <item quantity="two">%d pennad dilamet diouzh an holl rolloù kevredet.</item>
     <item quantity="few">%d pennad dilamet diouzh an holl rolloù kevredet.</item>
@@ -2854,14 +3122,52 @@
     <item quantity="other">%d pennad dilamet diouzh an holl rolloù kevredet.</item>
   </plurals>
   <string name="reading_lists_save_sheet_empty_title">Dastumit ar pennadoù a blij deoc\'h</string>
-  <string name="reading_lists_save_sheet_empty_message">Enrollit pennadoù e rolloù</string>
+  <string name="reading_lists_save_sheet_empty_message" fuzzy="true">Enrollit pennadoù e rolloù</string>
   <string name="reading_lists_save_sheet_create">Krouiñ</string>
-  <string name="reading_lists_update_tooltip">Rolloù a reer bremañ eus al listennoù lennadennoù.</string>
-  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message" fuzzy="true">
     <item quantity="one">Dienrollañ ar pennad-mañ e zilamo diouzh an holl rolloù kevredet</item>
     <item quantity="two">Dienrollañ ar pennadoù-mañ o dilamo diouzh an holl rolloù kevredet.</item>
     <item quantity="few">Dienrollañ ar pennadoù-mañ o dilamo diouzh an holl rolloù kevredet.</item>
     <item quantity="many">Dienrollañ ar pennadoù-mañ o dilamo diouzh an holl rolloù kevredet.</item>
     <item quantity="other">Dienrollañ ar pennadoù-mañ o dilamo diouzh an holl rolloù kevredet.</item>
   </plurals>
+  <string name="semantic_search_entry_point_card_message">Furchal pennadoù ha mont war-eeun d\'an arroud kenglotus</string>
+  <string name="semantic_search_entry_point_card_text_button">Klaskit bremañ</string>
+  <string name="semantic_search_info_dialog_title">Petra eo an arc\'hweladur-mañ ?</string>
+  <string name="semantic_search_info_dialog_message">Kavit respontoù d\'ho koulennoù e-barzh pennadoù Wikipedia ha kit war-eeun d\'an arroud kenglotus.\n\nTennet eo an arroudoù diwar pennadoù a zo bet enklasket, skrivet ha kemmet gant tud, skoret gant mammennoù a c\'hallit gwiriañ.</string>
+  <string name="semantic_search_info_dialog_button_text">Gouzout hiroc\'h</string>
+  <string name="semantic_search_info_btn_content_description">Arlun bouton an titouroù a-zivout ar c\'hlask steroniel</string>
+  <string name="semantic_search_close_btn_content_description">Arlun bouton diweredekaat ha serriñ ar c\'hlask steroniel</string>
+  <string name="semantic_search_beta_label">Beta</string>
+  <string name="semantic_search_no_results_message">Disoc\'h ebet evit ar c\'hlask-mañ</string>
+  <string name="semantic_search_results_close_button_content_description">Serriñ disoc\'hoù ar c\'hlask steroniel</string>
+  <string name="semantic_search_results_read_in_article_label">Lenn er pennad</string>
+  <plurals name="semantic_search_result_contributors">
+    <item quantity="one">%d perzhiad</item>
+    <item quantity="two">%d berzhiad</item>
+    <item quantity="few">%d perzhiad</item>
+    <item quantity="many">%d perzhiad</item>
+    <item quantity="other">%d perzhiad</item>
+  </plurals>
+  <plurals name="semantic_search_result_references">
+    <item quantity="one">%d daveenn</item>
+    <item quantity="two">%d zaveenn</item>
+    <item quantity="few">%d daveenn</item>
+    <item quantity="many">%d daveenn</item>
+    <item quantity="other">%d daveenn</item>
+  </plurals>
+  <string name="semantic_search_results_last_updated_label">Hizivadenn nevesañ %s</string>
+  <string name="semantic_search_results_feedback_title">Ha kavet hoc\'h eus ar pezh e oac\'h o klask ?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">Kavet</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">Kazeg</string>
+  <string name="semantic_search_results_feedback_input_hint">Lavarit hiroc\'h dimp (diret)</string>
+  <string name="semantic_search_results_feedback_submit_button_text">Kas</string>
+  <string name="semantic_search_results_feedback_submitted_message">Trugarez deoch evit ho evezhiadennoù</string>
+  <string name="semantic_search_feedback_dialog_title">Evezhiadennoù</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">Serriñ evezhiadennoù ar c\'hlask steroniel</string>
+  <string name="preference_heading_semantic_search">Klask</string>
+  <string name="preference_title_semantic_search_within_articles">Klask e pennadoù</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">Mont war-eeun d\'an arroud kenglotus</string>
+  <string name="semantic_search_snackbar_message">Modulenn guzhet. He lakaat war wel en-dro a c\'hallit dre Dibarzhioù.</string>
+  <string name="semantic_search_snackbar_action_label">Kemmañ</string>
 </resources>

@@ -1,5 +1,6 @@
 package org.wikipedia.settings
 
+import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -11,12 +12,14 @@ class RemoteConfigRefreshTask() : RecurringTask() {
     override val name = "remote-config-refresher"
 
     override fun shouldRun(lastRun: Date): Boolean {
-        return millisSinceLastRun(lastRun) >= TimeUnit.HOURS.toMillis(6)
+        return Prefs.remoteConfigAppVersionCode < BuildConfig.VERSION_CODE ||
+                millisSinceLastRun(lastRun) >= TimeUnit.HOURS.toMillis(6)
     }
 
     override suspend fun run(lastRun: Date) {
         val config = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getConfiguration()
         RemoteConfig.updateConfig(config)
+        Prefs.remoteConfigAppVersionCode = BuildConfig.VERSION_CODE
 
         if (AccountUtil.isLoggedIn) {
             val userInfo = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo()

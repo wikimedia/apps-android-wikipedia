@@ -2,17 +2,15 @@ package org.wikipedia.dataclient
 
 import androidx.collection.lruCache
 import okhttp3.Interceptor
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import org.wikimedia.testkitchen.config.DestinationEventService
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventService
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
-import org.wikipedia.json.JsonUtil
+import org.wikipedia.json.MwExceptionConverterFactory
 import org.wikipedia.settings.Prefs
 import retrofit2.Retrofit
-import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -85,7 +83,7 @@ object ServiceFactory {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(builder.build())
-            .addConverterFactory(JsonUtil.json.asConverterFactory("application/json".toMediaType()))
+            .addConverterFactory(MwExceptionConverterFactory())
             .build()
     }
 

@@ -8,6 +8,7 @@ class PageViewModel {
 
     var page: Page? = null
     var title: PageTitle? = null
+    var pendingHighlightText: String? = null
     var curEntry: HistoryEntry? = null
     var readingListPage: ReadingListPage? = null
     var hasWatchlistExpiry = false

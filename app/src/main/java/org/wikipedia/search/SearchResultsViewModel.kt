@@ -1,6 +1,5 @@
 package org.wikipedia.search
 
-import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -13,22 +12,39 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.page.PageTitle
+import org.wikipedia.search.semantic.SemanticSearchAbTest
+import org.wikipedia.settings.Prefs
+import kotlin.time.Duration.Companion.milliseconds
 
 class SearchResultsViewModel : ViewModel() {
-
+    private val semanticSearchAbTest = SemanticSearchAbTest()
+    private val semanticSearchEnabledPrefUpdates = Prefs.observeKeys(
+        R.string.preference_key_semantic_search_enabled,
+        R.string.preference_key_semantic_search_is_test_active, // TODO: remove this before release
+        R.string.preference_key_semantic_search_override_supported_language // TODO: remove this before release
+    )
+    private val semanticSearchIsFirstUsePrefUpdates = Prefs.observeKeys(
+        R.string.preference_key_semantic_search_first_use
+    )
     private val batchSize = 10
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
+    var isSemanticSearchFeedbackShown = false
+    var isFromRecentSearch = false
 
     lateinit var invokeSource: Constants.InvokeSource
 
@@ -47,16 +63,44 @@ class SearchResultsViewModel : ViewModel() {
 
     private var lastXSearchIdPrefix = ""
     private var lastXSearchIdFullText = ""
+    var lastXSearchIdSemantic = ""
+    private var isSemanticSearchExposureSent = false
+
+    val isSemanticSearchEnabled = combine(
+        _languageCode,
+        semanticSearchEnabledPrefUpdates
+    ) { currentLanguageCode, _ ->
+        semanticSearchAbTest.isSemanticSearchEnabled(currentLanguageCode)
+    }.distinctUntilChanged().stateIn(
+        viewModelScope,
+        SharingStarted.Eagerly,
+        semanticSearchAbTest.isSemanticSearchEnabled(_languageCode.value)
+    )
+
+    val isSemanticSearchFirstUse = semanticSearchIsFirstUsePrefUpdates
+        .map { Prefs.isSemanticSearchFirstUse }
+        .distinctUntilChanged()
+        .stateIn(
+            viewModelScope,
+            SharingStarted.Eagerly,
+            Prefs.isSemanticSearchFirstUse
+        )
 
     @OptIn(
         FlowPreview::class,
         ExperimentalCoroutinesApi::class
     ) // TODO: revisit if the debounce method changed.
     val searchResultsFlow =
-        combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
+        combine(_searchTerm.debounce(delayMillis.milliseconds), _languageCode, _refreshSearchResults) { term, lang, _ ->
             Pair(term, lang)
         }.flatMapLatest { (term, lang) ->
-            _searchTermForLogging.emit(term)
+            // A language change or refresh can re-emit the previous debounced term before the new one settles.
+            if (term == _searchTerm.value) {
+                _searchTermForLogging.emit(term)
+                if (!term.isNullOrBlank()) {
+                    maybeSendSemanticSearchExposure(lang)
+                }
+            }
             val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize)) {
                 SearchResultsPagingSource(
@@ -75,10 +119,16 @@ class SearchResultsViewModel : ViewModel() {
         }.cachedIn(viewModelScope)
 
     fun updateSearchTerm(term: String?) {
+        if (_searchTerm.value != term) {
+            lastXSearchIdSemantic = ""
+        }
         _searchTerm.value = term
     }
 
     fun updateLanguageCode(code: String) {
+        if (_languageCode.value != code) {
+            lastXSearchIdSemantic = ""
+        }
         _languageCode.value = code
     }
 
@@ -95,6 +145,32 @@ class SearchResultsViewModel : ViewModel() {
                 put("type", result.type)
             }
         }
+    }
+
+    fun getSemanticEventActionContext(result: SearchResult? = null): Map<String, Any> {
+        return buildMap {
+            put("search_id_pre", lastXSearchIdPrefix)
+            put("search_id_ful", lastXSearchIdFullText)
+            put("search_id_sem", lastXSearchIdSemantic)
+            if (result != null) {
+                put("position", result.indexInApiCall)
+                put("type", result.type)
+            }
+        }
+    }
+
+    // Sent for both groups at the point where the semantic search entry card can appear.
+    private fun maybeSendSemanticSearchExposure(languageCode: String) {
+        if (isSemanticSearchExposureSent || invokeSource == Constants.InvokeSource.PLACES ||
+            !Prefs.isSemanticSearchEnabled || !semanticSearchAbTest.isSemanticSearchEligible(languageCode)) {
+            return
+        }
+        isSemanticSearchExposureSent = true
+        semanticSearchAbTest.maybeSendExposureEvent()
+    }
+
+    fun disableSemanticSearch() {
+        Prefs.isSemanticSearchEnabled = false
     }
 
     class SearchResultsPagingSource(
@@ -155,27 +231,6 @@ class SearchResultsViewModel : ViewModel() {
                     list.filter { it.coordinates != null } else list).sortedBy { it.index }
                     .map { SearchResult(it, wikiSite, it.coordinates, type, indexInApiCall = it.index) }
             } ?: emptyList()
-        }
-
-        fun buildList(
-            response: SemanticSearchResults,
-            wikiSite: WikiSite,
-            type: SearchResult.SearchResultType
-        ): List<SearchResult> {
-            return response.results.mapIndexed { index, result ->
-                SearchResult(PageTitle.titleForUri(result.url.toUri(), wikiSite), searchResultType = type, snippet = postProcessSectionText(result.sectionText), indexInApiCall = index + 1)
-            }
-        }
-
-        fun postProcessSectionText(text: String): String {
-            // TODO: remove this when server-side parsing is done.
-            val bold = Regex("'''(.*?)'''", RegexOption.DOT_MATCHES_ALL)
-            val italic = Regex("''(.*?)''", RegexOption.DOT_MATCHES_ALL)
-            val emptyParens = Regex("""\([\s,.;]*\)""")
-            return text
-                .replace(emptyParens, "")
-                .replace(bold, "<b>\$1</b>")
-                .replace(italic, "<i>\$1</i>")
         }
     }
 }

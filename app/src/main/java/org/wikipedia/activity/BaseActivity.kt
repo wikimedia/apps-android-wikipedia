@@ -44,6 +44,9 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
+import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
+import org.wikipedia.notifications.experiment.NotificationsExperimentMostReadAbTest
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
@@ -60,8 +63,8 @@ import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.presentation.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
     interface Callback {
@@ -100,7 +103,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_CANCELED) {
-            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
+            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later_activity))
         }
     }
 
@@ -135,9 +138,17 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                     val subType = when (notificationCategory) {
                         NotificationCategory.GAMES -> "game"
                         NotificationCategory.RECOMMENDED_READING_LISTS -> "discover"
+                        NotificationCategory.WEEKLY_MOST_READ -> "trending"
                         else -> null
                     }
                     TestKitchenAdapter.client.getInstrument("apps-open")
+                        .also { instrument ->
+                            when (notificationCategory) {
+                                NotificationCategory.RECOMMENDED_READING_LISTS -> NotificationsExperimentAbTest().setExperimentIfEligible(instrument)
+                                NotificationCategory.WEEKLY_MOST_READ -> NotificationsExperimentMostReadAbTest().setExperimentIfEligible(instrument)
+                                else -> { }
+                            }
+                        }
                         .submitInteraction(
                             action = "app_open",
                             actionSource = "notification",
@@ -162,6 +173,8 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             Prefs.isReadingListSyncEnabled = true
             ReadingListSyncAdapter.manualSyncWithForce()
         }
+        NotificationsExperimentAbTest().maybeRescheduleRecommendedReadingListNotification(this)
+        NotificationsExperimentHelper.maybeScheduleWeeklyMostReadNotification(this)
 
         WikipediaApp.instance.connectionStateMonitor.registerCallback(this)
 
@@ -170,8 +183,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
         maybeShowAnnouncement(this)
-
-        Prefs.localClassName = localClassName
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -376,10 +387,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         lifecycleScope.launch {
             when {
                 ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() -> showReadingChallenge()
-                YearInReviewViewModel.isAccessible &&
-                        Prefs.isYearInReviewEnabled &&
+                YearInReviewViewModel.canShowEntryPoint &&
                         !Prefs.yearInReviewVisited -> {
-                    yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this@BaseActivity)))
+                    yearInReviewLauncher.launch(YearInReviewOnboardingActivity.newIntent(this@BaseActivity))
                 }
                 !isExternalArticleLink && CreateAccountEncourageViewModel.shouldShow() -> {
                     startActivity(CreateAccountEncourageActivity.newIntent(this@BaseActivity))

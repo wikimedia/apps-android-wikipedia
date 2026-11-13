@@ -28,10 +28,12 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
+import org.wikipedia.notifications.experiment.NotificationsExperimentMostReadAbTest
+import org.wikipedia.notifications.experiment.WeeklyMostReadNotificationWorker
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
-import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.DeviceUtil
@@ -54,6 +56,16 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 // Update our channel name, if needed.
                 L.d("channel=" + ReleaseUtil.getChannel(context))
                 startPollTask(context)
+
+                // persist discover notification experiment alarm after reboot
+                if (Prefs.isRecommendedReadingListNotificationEnabled) {
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                }
+
+                // persist trending notification experiment alarm after reboot
+                if (Prefs.notificationsExperimentWeeklyMostReadScheduled) {
+                    NotificationsExperimentHelper.scheduleNotification(context, fromFiredAlarm = false)
+                }
             }
             ACTION_POLL == intent.action -> {
                 if (!AccountUtil.isLoggedIn) {
@@ -84,10 +96,26 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
 
             ACTION_RECOMMENDED_READING_LIST == intent.action -> {
-                if (Prefs.recommendedReadingListUpdateFrequency == RecommendedReadingListUpdateFrequency.MONTHLY) {
-                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                if (!Prefs.isRecommendedReadingListNotificationEnabled) {
+                    // Cancel the notification when it is disabled from Discover settings.
+                    RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(context)
+                    return
                 }
+                // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
+                RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context, fromFiredAlarm = true)
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
+            }
+
+            ACTION_WEEKLY_MOST_READ == intent.action -> {
+                if (!NotificationsExperimentMostReadAbTest().isNotificationsExperimentEligible()) {
+                    NotificationsExperimentHelper.cancelNotification(context)
+                    // Allow maybeScheduleWeeklyMostReadNotification() to schedule again once the user becomes eligible again.
+                    Prefs.notificationsExperimentWeeklyMostReadScheduled = false
+                    return
+                }
+                // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
+                NotificationsExperimentHelper.scheduleNotification(context, fromFiredAlarm = true)
+                WeeklyMostReadNotificationWorker.enqueue(context)
             }
         }
     }
@@ -98,6 +126,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
         const val ACTION_DAILY_GAME = "action_daily_game"
         const val ACTION_RECOMMENDED_READING_LIST = "action_recommended_reading_list"
+        const val ACTION_WEEKLY_MOST_READ = "action_weekly_most_read"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"

@@ -2,6 +2,7 @@ package org.wikipedia.bridge
 
 import android.content.Context
 import kotlinx.serialization.Serializable
+import org.json.JSONObject
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -62,7 +63,7 @@ object JavaScriptActionHandler {
 
     fun scrollToAnchor(anchorLink: String): String {
         val anchor = anchorLink.substringAfter('#')
-        return "var el = document.getElementById('$anchor');" +
+        return "var el = document.getElementById(${JSONObject.quote(anchor)});" +
                 "window.scrollTo(0, el.offsetTop - (screen.height / 2));" +
                 "setTimeout(function(){ el.style.backgroundColor='#fc3';" +
                 "    setTimeout(function(){ el.style.backgroundColor=null; }, 500);" +
@@ -70,7 +71,7 @@ object JavaScriptActionHandler {
     }
 
     fun prepareToScrollTo(anchorLink: String, highlight: Boolean): String {
-        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink.replace("\"", "\\\"")}\", { highlight: $highlight } )"
+        return "pcs.c1.Page.prepareForScrollToAnchor(${JSONObject.quote(anchorLink)}, { highlight: $highlight } )"
     }
 
     fun removeHighlights(): String {
@@ -202,6 +203,16 @@ object JavaScriptActionHandler {
                 "var elements = document.getElementsByTagName('audio');" +
                 "for(i=0; i<elements.length; i++) elements[i].pause();" +
                 "})();"
+    }
+
+    fun jumpToHighlightOrSection(headingId: String?, highlightText: String?, scroll: Boolean = true): String {
+        val highlight = highlightText?.let { JSONObject.quote(it) } ?: "null"
+        val section = headingId?.let { JSONObject.quote(it) } ?: "null"
+        return "pcs.c1.Highlight.jumpToHighlightOrSection($highlight, $section, { scroll: $scroll })"
+    }
+
+    fun clearHighlight(): String {
+        return "pcs.c1.Highlight.clearHighlight()"
     }
 
     @Serializable

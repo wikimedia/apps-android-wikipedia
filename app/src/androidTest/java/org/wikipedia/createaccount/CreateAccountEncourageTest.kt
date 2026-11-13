@@ -343,6 +343,7 @@ class CreateAccountEncourageTest {
         AccountManager.get(context).addAccountExplicitly(
             Account(PERMANENT_ACCOUNT_NAME, AccountUtil.accountType()), "password", null
         )
+        AccountUtil.invalidateAccountCache()
     }
 
     private fun setTemporaryAccountCookie() {

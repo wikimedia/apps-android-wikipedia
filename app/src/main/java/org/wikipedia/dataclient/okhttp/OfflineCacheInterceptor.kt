@@ -1,6 +1,7 @@
 package org.wikipedia.dataclient.okhttp
 
 import kotlinx.coroutines.runBlocking
+import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -81,6 +82,7 @@ class OfflineCacheInterceptor : Interceptor {
             throw IOException("Offline object not present in filesystem.")
         }
         val builder = Response.Builder().request(request).protocol(Protocol.HTTP_2)
+        val headers = Headers.Builder()
         var contentType = "*/*"
         try {
             BufferedReader(InputStreamReader(FileInputStream(metadataFile))).use { reader ->
@@ -98,7 +100,14 @@ class OfflineCacheInterceptor : Interceptor {
                     }
                     val name = line.substring(0, pos).trim()
                     val value = line.substring(pos + 1).trim()
-                    builder.header(name, value)
+                    try {
+                        // OkHttp accepts non-ASCII header values from the network, so the saved values
+                        // may contain them, but it rejects them when added through the regular methods.
+                        headers.addUnsafeNonAscii(name, value)
+                    } catch (e: IllegalArgumentException) {
+                        L.w("Skipping invalid offline header: $name")
+                        continue
+                    }
                     if (name.equals("content-type", true)) {
                         contentType = value
                     }
@@ -107,6 +116,7 @@ class OfflineCacheInterceptor : Interceptor {
         } catch (e: IOException) {
             L.e(e)
         }
+        builder.headers(headers.build())
 
         // since we're returning this response manually, let's tell the network library not to cache it.
         builder.header("Cache-Control", "no-cache")

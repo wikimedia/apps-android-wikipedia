@@ -37,9 +37,11 @@ class LoginClient {
                 enqueueForceEmailAuth = true
             }
 
-            // For investigating https://phabricator.wikimedia.org/T439670
-            // Not intended as a permanent solution, since this removes the user's temporary account, if they have one.
-            SharedPreferenceCookieManager.instance.clearAllCookies()
+            if (isContinuation != true) {
+                // For investigating https://phabricator.wikimedia.org/T439670
+                // Not intended as a permanent solution, since this removes the user's temporary account, if they have one.
+                SharedPreferenceCookieManager.instance.clearAllCookies()
+            }
 
             val loginToken = token ?: getLoginToken(wiki)
             var loginResult = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword,

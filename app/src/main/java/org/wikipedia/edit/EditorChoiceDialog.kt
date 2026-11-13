@@ -1,7 +1,6 @@
 package org.wikipedia.edit
 
 import android.content.Context
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -52,43 +51,17 @@ import org.wikipedia.theme.Theme
 
 const val EDITOR_CHOICE_VE = 0
 const val EDITOR_CHOICE_SOURCE = 1
-
-data class EditorChoiceDialogConfig(
-    @param:StringRes val dialogTitle: Int,
-    @param:StringRes val confirmButtonText: Int,
-    val isInSettingsScreen: Boolean
-)
-
 private val instrument = TestKitchenAdapter.client.getInstrument("apps-editing")
 
 fun showEditorChoiceDialog(
     context: Context,
-    isSettingsScreen: Boolean,
     onResult: (editorChoice: Int, dontShowAgain: Boolean) -> Unit
 ) {
 
-    val dialogConfig = if (isSettingsScreen) {
-        instrument.submitInteraction(
-            action = "click",
-            actionSource = "settings",
-            elementId = "editing_method"
-        )
-        EditorChoiceDialogConfig(
-            dialogTitle = R.string.editor_select_title_settings_screen,
-            confirmButtonText = R.string.editor_select_save_btn_settings_screen,
-            isInSettingsScreen = true
-        )
-    } else {
-        instrument.submitInteraction(
-            action = "impression",
-            actionSource = "edit_choice_select"
-        )
-        EditorChoiceDialogConfig(
-            dialogTitle = R.string.editor_select_dialog_title,
-            confirmButtonText = R.string.editor_select_dialog_continue,
-            isInSettingsScreen = false
-        )
-    }
+    instrument.submitInteraction(
+        action = "impression",
+        actionSource = "edit_choice_select"
+    )
 
     val composeView = ComposeView(context)
 
@@ -100,41 +73,25 @@ fun showEditorChoiceDialog(
         BaseTheme {
             EditorChoiceContent(
                 initialChoice = Prefs.editorModeChoice,
-                dialogConfigData = dialogConfig,
+                isInSettingsScreen = false,
                 onCancel = {
-                    if (!isSettingsScreen) {
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "edit_choice_select",
-                            elementId = "edit_choice_cancel"
-                        )
-                    } else {
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "settings",
-                            elementId = "cancel_editing_button"
-                        )
-                    }
+                    instrument.submitInteraction(
+                        action = "click",
+                        actionSource = "edit_choice_select",
+                        elementId = "edit_choice_cancel"
+                    )
                     dialog.dismiss()
                 },
                 onConfirm = { editorChoice, dontShowAgain ->
-                    if (!isSettingsScreen) {
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "edit_choice_select",
-                            elementId = "edit_choice_submit",
-                            actionContext = mapOf(
-                                "edit_choice" to if (editorChoice == EDITOR_CHOICE_VE) "visual" else "source",
-                                "is_default" to dontShowAgain
-                            )
+                    instrument.submitInteraction(
+                        action = "click",
+                        actionSource = "edit_choice_select",
+                        elementId = "edit_choice_submit",
+                        actionContext = mapOf(
+                            "edit_choice" to if (editorChoice == EDITOR_CHOICE_VE) "visual" else "source",
+                            "is_default" to dontShowAgain
                         )
-                    } else {
-                        instrument.submitInteraction(
-                            action = "click",
-                            actionSource = "settings",
-                            elementId = if (editorChoice == EDITOR_CHOICE_VE) "visual_editing" else "source_editing"
-                        )
-                    }
+                    )
                     onResult(editorChoice, dontShowAgain)
                     dialog.dismiss()
                 }
@@ -144,34 +101,49 @@ fun showEditorChoiceDialog(
 }
 
 @Composable
-private fun EditorChoiceContent(
+fun EditorChoiceContent(
     initialChoice: Int,
-    dialogConfigData: EditorChoiceDialogConfig,
+    isInSettingsScreen: Boolean = false,
     onCancel: () -> Unit = {},
     onConfirm: (editorChoice: Int, dontShowAgain: Boolean) -> Unit = { _, _ -> }
 ) {
     var selectedEditor by remember { mutableIntStateOf(initialChoice) }
     var dontShowAgain by remember { mutableStateOf(false) }
 
+    val onEditOptionSelected: (Int) -> Unit = { editorChoice ->
+        selectedEditor = editorChoice
+        // prevent unnecessary instrument calls
+        if (isInSettingsScreen && Prefs.editorModeChoice != editorChoice) {
+            Prefs.editorModeChoice = editorChoice
+            instrument.submitInteraction(
+                action = "click",
+                actionSource = "settings",
+                elementId = if (editorChoice == EDITOR_CHOICE_VE) "visual_editing" else "source_editing"
+            )
+        }
+    }
+
     Column(
         modifier = Modifier
             .padding(vertical = 4.dp)
             .verticalScroll(rememberScrollState())
     ) {
-        Text(
-            modifier = Modifier.padding(start = 16.dp, top = 24.dp, end = 16.dp, bottom = 16.dp),
-            text = stringResource(dialogConfigData.dialogTitle),
-            style = MaterialTheme.typography.headlineSmall,
-            color = WikipediaTheme.colors.primaryColor
-        )
+        if (!isInSettingsScreen) {
+            Text(
+                modifier = Modifier.padding(start = 16.dp, top = 24.dp, end = 16.dp, bottom = 16.dp),
+                text = stringResource(R.string.editor_select_dialog_title),
+                style = MaterialTheme.typography.headlineSmall,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
 
         Column(modifier = Modifier.selectableGroup()) {
             EditorOption(
                 title = stringResource(R.string.editor_select_dialog_ve_title),
                 subtitle = stringResource(R.string.editor_select_dialog_ve_subtitle),
                 selected = selectedEditor == EDITOR_CHOICE_VE,
-                onClick = { selectedEditor = EDITOR_CHOICE_VE },
-                shouldShowOpenInNewIcon = !dialogConfigData.isInSettingsScreen
+                onClick = { onEditOptionSelected(EDITOR_CHOICE_VE) },
+                shouldShowOpenInNewIcon = !isInSettingsScreen
             )
 
             HorizontalDivider(
@@ -183,11 +155,11 @@ private fun EditorChoiceContent(
                 title = stringResource(R.string.editor_select_dialog_source_title),
                 subtitle = stringResource(R.string.editor_select_dialog_source_subtitle),
                 selected = selectedEditor == EDITOR_CHOICE_SOURCE,
-                onClick = { selectedEditor = EDITOR_CHOICE_SOURCE }
+                onClick = { onEditOptionSelected(EDITOR_CHOICE_SOURCE) }
             )
         }
 
-        if (!dialogConfigData.isInSettingsScreen) {
+        if (!isInSettingsScreen) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -223,25 +195,27 @@ private fun EditorChoiceContent(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 8.dp),
-            horizontalArrangement = Arrangement.End,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TextButton(onClick = onCancel) {
-                Text(
-                    text = stringResource(android.R.string.cancel),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = WikipediaTheme.colors.secondaryColor
-                )
-            }
-            Spacer(modifier = Modifier.width(8.dp))
-            AppButton(
-                onClick = { onConfirm(selectedEditor, dontShowAgain) },
+        if (!isInSettingsScreen) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 8.dp),
+                horizontalArrangement = Arrangement.End,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(stringResource(dialogConfigData.confirmButtonText))
+                TextButton(onClick = onCancel) {
+                    Text(
+                        text = stringResource(android.R.string.cancel),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = WikipediaTheme.colors.secondaryColor
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                AppButton(
+                    onClick = { onConfirm(selectedEditor, dontShowAgain) },
+                ) {
+                    Text(stringResource(R.string.editor_select_dialog_continue))
+                }
             }
         }
     }
@@ -329,28 +303,7 @@ private fun EditorChoiceDialogNonSettingsScreenPreview() {
     ) {
         EditorChoiceContent(
             initialChoice = EDITOR_CHOICE_SOURCE,
-            dialogConfigData = EditorChoiceDialogConfig(
-                dialogTitle = R.string.editor_select_dialog_title,
-                confirmButtonText = R.string.editor_select_dialog_continue,
-                isInSettingsScreen = false
-            ),
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun EditorChoiceDialogSettingsScreenPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        EditorChoiceContent(
-            initialChoice = EDITOR_CHOICE_SOURCE,
-            EditorChoiceDialogConfig(
-                dialogTitle = R.string.editor_select_title_settings_screen,
-                confirmButtonText = R.string.editor_select_save_btn_settings_screen,
-                isInSettingsScreen = true
-            )
+            isInSettingsScreen = false,
         )
     }
 }

@@ -9,6 +9,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.extensions.instrument
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
@@ -38,6 +39,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
             .setDefaultActionSource("search")
             .startFunnel("search")
+            .also { SemanticSearchAbTest().setExperimentIfEligible(it) }
     }
 
     public override fun createFragment(): SearchFragment {

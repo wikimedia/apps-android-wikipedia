@@ -59,7 +59,6 @@ object Constants {
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
-
     enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),
         APP_SHORTCUTS("appShortcuts"),
@@ -116,6 +115,7 @@ object Constants {
         GAMES_HUB("gamesHub"),
         FEED_INTEREST_SELECTION("feedInterestSelection"),
         DID_YOU_KNOW("didYouKnow"),
+        YEAR_IN_REVIEW("yearInReview")
     }
 
     enum class ImageEditType(name: String) {

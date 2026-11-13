@@ -11,8 +11,15 @@ interface SearchResultCallback {
         item: PageTitle,
         inNewTab: Boolean,
         position: Int,
-        location: Location? = null
+        location: Location? = null,
+        showSemanticSearchFeedback: Boolean = false,
+        highlightText: String? = null,
+        semanticSearchId: String? = null
     )
 
     fun setSearchText(text: String)
+    fun showSemanticSearchResultsDialog(query: String)
+    fun showSemanticSearchInfoDialog()
+    fun onSemanticSearchFeedbackShown()
+    fun onSemanticSearchIdLoaded(searchId: String)
 }

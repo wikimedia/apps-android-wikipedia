@@ -85,7 +85,7 @@ interface Service {
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("gsroffset") gsrOffset: Int?,
-        @Query("cirrusSemanticSearch") isSemantic: Boolean? = null
+        @Query("cirrusSemanticSearch") semanticSearchType: String? = null
     ): Response<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
@@ -426,7 +426,7 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo&uiprop=editcount&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo&uiprop=editcount|rights&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
     suspend fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
@@ -786,9 +786,13 @@ interface Service {
 
         fun isWikimediaAuthority(authority: String?): Boolean {
             return !authority.isNullOrEmpty() &&
-                    (authority == WikiSite.BASE_DOMAIN || authority.endsWith(".${WikiSite.BASE_DOMAIN}") ||
-                            authority == BASE_AUTHORITY_WIKIMEDIA || authority.endsWith(".${BASE_AUTHORITY_WIKIMEDIA}") ||
-                            authority == BASE_AUTHORITY_WIKIDATA || authority.endsWith(".${BASE_AUTHORITY_WIKIDATA}"))
+                    (matchesAuthority(authority, WikiSite.BASE_DOMAIN) ||
+                            matchesAuthority(authority, BASE_AUTHORITY_WIKIMEDIA) ||
+                            matchesAuthority(authority, BASE_AUTHORITY_WIKIDATA))
+        }
+
+        fun matchesAuthority(authority: String, match: String): Boolean {
+            return authority == match || authority.endsWith(".$match")
         }
     }
 }

@@ -425,7 +425,7 @@ private fun SaveArticleSheetManyCollectionsPreview() {
             collections = List(100) {
                 SaveCollectionUiModel(
                     id = it.toLong(),
-                    title = "Collection ${it + 1}",
+                    title = "Reading list ${it + 1}",
                     totalPages = it
                 )
             }

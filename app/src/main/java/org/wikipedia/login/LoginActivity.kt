@@ -253,7 +253,7 @@ class LoginActivity : BaseActivity() {
 
     private fun onLoginSuccess() {
         val isReadingChallenge = loginSource == SOURCE_READING_CHALLENGE
-        instrument?.submitInteraction(action = "success", actionContext = if (isReadingChallenge) mapOf("invoke_source" to loginSource) else null)
+        instrument?.submitInteraction(action = "success", actionContext = mapOf("invoke_source" to loginSource))
         if (isReadingChallenge) {
             Prefs.readingChallengeEnrolled = true
             Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()

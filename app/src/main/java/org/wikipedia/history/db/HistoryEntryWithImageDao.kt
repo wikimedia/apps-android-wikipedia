@@ -17,9 +17,30 @@ import java.util.TimeZone
 
 @Dao
 interface HistoryEntryWithImageDao {
-    @Query("SELECT HistoryEntry.*, PageImage.* FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.lang = LatestEntries.lang AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE PageImage.timeSpentSec > 0 ORDER BY PageImage.timeSpentSec DESC LIMIT :limit")
+    // One row per mainspace article (its most recent visit in the range), excluding the given Main Pages, ordered by the time spent on it in the range.
+    // Time spent is only kept per article, as a total across all of its visits, so the article is credited with the share of that total
+    // that matches its share of visits in the range; ties go to the more recently visited.
+    @Query("""
+        SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec,
+        CAST(PageImage.timeSpentSec * RangeVisits.visitCount * 1.0 / AllVisits.visitCount AS INTEGER) AS creditedTimeSpentSec
+        FROM HistoryEntry
+        INNER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, MAX(timestamp) AS max_timestamp, COUNT(*) AS visitCount FROM HistoryEntry
+            WHERE timestamp BETWEEN :startMillis AND :endMillis
+            AND namespace = '' AND apiTitle NOT IN (:mainPageApiTitles)
+            GROUP BY lang, namespace, apiTitle
+        ) RangeVisits ON HistoryEntry.lang = RangeVisits.lang AND HistoryEntry.namespace = RangeVisits.namespace AND HistoryEntry.apiTitle = RangeVisits.apiTitle AND HistoryEntry.timestamp = RangeVisits.max_timestamp
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, COUNT(*) AS visitCount FROM HistoryEntry GROUP BY lang, namespace, apiTitle
+        ) AllVisits ON HistoryEntry.lang = AllVisits.lang AND HistoryEntry.namespace = AllVisits.namespace AND HistoryEntry.apiTitle = AllVisits.apiTitle
+        WHERE PageImage.timeSpentSec > 0
+        ORDER BY PageImage.timeSpentSec * RangeVisits.visitCount * 1.0 / AllVisits.visitCount DESC, HistoryEntry.timestamp DESC
+        LIMIT :limit
+    """
+    )
     @RewriteQueriesToDropUnusedColumns
-    suspend fun getLongestReadArticlesInPeriod(startMillis: Long, endMillis: Long, limit: Int): List<HistoryEntryWithImage>
+    suspend fun getLongestReadEntriesBetween(startMillis: Long, endMillis: Long, mainPageApiTitles: List<String>, limit: Int): List<HistoryEntryWithTimeSpent>
 
     @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp ORDER BY timestamp DESC LIMIT :limit OFFSET :offset")
     @RewriteQueriesToDropUnusedColumns
@@ -66,6 +87,94 @@ interface HistoryEntryWithImageDao {
     @RewriteQueriesToDropUnusedColumns
     suspend fun getRandomRecentReadEntries(sinceMillis: Long, excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int, langCode: String? = null): List<HistoryEntryWithImage>
 
+    // One row per article (its most recent visit in the range), most-visited first; ties go to the more recently visited.
+    // Only mainspace articles are counted, excluding the Main Page of the given language.
+    @Query("""
+        SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec, RepeatedEntries.visit_count AS visitCount
+        FROM HistoryEntry
+        LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, MAX(timestamp) AS max_timestamp, COUNT(*) AS visit_count FROM HistoryEntry
+            WHERE timestamp BETWEEN :startMillis AND :endMillis
+            AND (namespace IS NULL OR namespace = '' OR namespace = 'MAIN')
+            AND apiTitle NOT IN (:mainPageApiTitles)
+            GROUP BY lang, namespace, apiTitle
+            HAVING COUNT(*) > 1
+        ) RepeatedEntries ON HistoryEntry.lang = RepeatedEntries.lang AND HistoryEntry.namespace = RepeatedEntries.namespace AND HistoryEntry.apiTitle = RepeatedEntries.apiTitle AND HistoryEntry.timestamp = RepeatedEntries.max_timestamp
+        ORDER BY RepeatedEntries.visit_count DESC, HistoryEntry.timestamp DESC
+        LIMIT :limit
+    """
+    )
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, mainPageApiTitles: List<String>, limit: Int): List<HistoryEntryWithVisitCount>
+
+    // Time spent is only kept per article, as a total across all of its visits, so each visit is credited with an equal share of that total.
+    // The local day with the most time spent reading mainspace articles, excluding the given Main Pages; a tie goes to the more recent day.
+    @Query("""
+        SELECT date(HistoryEntry.timestamp / 1000, 'unixepoch', 'localtime') AS day,
+        CAST(SUM(PageImage.timeSpentSec * 1.0 / AllVisits.visitCount) AS INTEGER) AS timeSpentSec
+        FROM HistoryEntry
+        INNER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, COUNT(*) AS visitCount FROM HistoryEntry GROUP BY lang, namespace, apiTitle
+        ) AllVisits ON HistoryEntry.lang = AllVisits.lang AND HistoryEntry.namespace = AllVisits.namespace AND HistoryEntry.apiTitle = AllVisits.apiTitle
+        WHERE HistoryEntry.timestamp BETWEEN :startMillis AND :endMillis
+        AND HistoryEntry.namespace = '' AND HistoryEntry.apiTitle NOT IN (:mainPageApiTitles)
+        AND PageImage.timeSpentSec > 0
+        GROUP BY day
+        ORDER BY SUM(PageImage.timeSpentSec * 1.0 / AllVisits.visitCount) DESC, day DESC
+        LIMIT 1
+    """
+    )
+    suspend fun getBiggestReadingDayBetween(startMillis: Long, endMillis: Long, mainPageApiTitles: List<String>): DayTimeSpent?
+
+    // One row per mainspace article visited on the given local day (yyyy-MM-dd), excluding the given Main Pages, ordered by
+    // the time spent on it that day, credited the same way as in getBiggestReadingDayBetween; ties go to the more recently visited.
+    @Query("""
+        SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec
+        FROM HistoryEntry
+        LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, MAX(timestamp) AS max_timestamp, COUNT(*) AS dayVisitCount FROM HistoryEntry
+            WHERE timestamp BETWEEN :startMillis AND :endMillis
+            AND date(timestamp / 1000, 'unixepoch', 'localtime') = :day
+            AND namespace = '' AND apiTitle NOT IN (:mainPageApiTitles)
+            GROUP BY lang, namespace, apiTitle
+        ) DayVisits ON HistoryEntry.lang = DayVisits.lang AND HistoryEntry.namespace = DayVisits.namespace AND HistoryEntry.apiTitle = DayVisits.apiTitle AND HistoryEntry.timestamp = DayVisits.max_timestamp
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, COUNT(*) AS visitCount FROM HistoryEntry GROUP BY lang, namespace, apiTitle
+        ) AllVisits ON HistoryEntry.lang = AllVisits.lang AND HistoryEntry.namespace = AllVisits.namespace AND HistoryEntry.apiTitle = AllVisits.apiTitle
+        ORDER BY COALESCE(PageImage.timeSpentSec, 0) * DayVisits.dayVisitCount * 1.0 / AllVisits.visitCount DESC, HistoryEntry.timestamp DESC
+        LIMIT :limit
+    """
+    )
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getLongestReadEntriesOnDay(day: String, startMillis: Long, endMillis: Long, mainPageApiTitles: List<String>, limit: Int): List<HistoryEntryWithImage>
+
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry" +
+            "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +
+            "  WHERE HistoryEntry.id IN (:ids)")
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getEntriesByIds(ids: List<Long>): List<HistoryEntryWithImage>
+
+    // One row per mainspace article (its most recent visit in the range), in random order, excluding the given titles.
+    @Query("""
+        SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec
+        FROM HistoryEntry
+        LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)
+        INNER JOIN (
+            SELECT lang, namespace, apiTitle, MAX(timestamp) AS max_timestamp FROM HistoryEntry
+            WHERE timestamp BETWEEN :startMillis AND :endMillis
+            AND namespace = '' AND apiTitle NOT IN (:excludedTitles)
+            GROUP BY lang, namespace, apiTitle
+        ) LatestEntries ON HistoryEntry.lang = LatestEntries.lang AND HistoryEntry.namespace = LatestEntries.namespace AND HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp
+        ORDER BY RANDOM()
+        LIMIT :limit
+    """
+    )
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getRandomArticleEntriesBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<HistoryEntryWithImage>
+
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
@@ -83,6 +192,28 @@ interface HistoryEntryWithImageDao {
 
     suspend fun getMostRecentEntriesWithImage(limit: Int): List<HistoryEntry> {
         return getHistoryEntriesWithOffset(limit, 0).map { toHistoryEntry(it) }
+    }
+
+    suspend fun findEntriesVisitedMultipleTimesBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<Pair<HistoryEntry, Int>> {
+        return getEntriesVisitedMultipleTimesBetween(startMillis, endMillis, excludedTitles, limit)
+            .map { toHistoryEntry(it.entryWithImage) to it.visitCount }
+    }
+
+    suspend fun findLongestReadEntriesBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<Pair<HistoryEntry, Int>> {
+        return getLongestReadEntriesBetween(startMillis, endMillis, excludedTitles, limit)
+            .map { toHistoryEntry(it.entryWithImage) to it.creditedTimeSpentSec }
+    }
+
+    suspend fun findLongestReadEntriesOnDay(day: String, startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<HistoryEntry> {
+        return getLongestReadEntriesOnDay(day, startMillis, endMillis, excludedTitles, limit).map { toHistoryEntry(it) }
+    }
+
+    suspend fun findEntriesByIds(ids: List<Long>): List<HistoryEntry> {
+        return getEntriesByIds(ids).map { toHistoryEntry(it) }
+    }
+
+    suspend fun findRandomArticleEntriesBetween(startMillis: Long, endMillis: Long, excludedTitles: List<String>, limit: Int): List<HistoryEntry> {
+        return getRandomArticleEntriesBetween(startMillis, endMillis, excludedTitles, limit).map { toHistoryEntry(it) }
     }
 
     suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {

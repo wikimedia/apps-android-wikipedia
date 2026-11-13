@@ -24,7 +24,7 @@ import org.wikipedia.util.log.L
 /**
  * Two-way communications bridge between JS in a WebView and Java.
  *
- * Messages TO the WebView are sent by calling loadUrl() with the Javascript payload in it.
+ * Messages TO the WebView are sent by calling evaluateJavascript() with the Javascript payload.
  *
  * Messages FROM the WebView are received by leveraging @JavascriptInterface methods.
  */
@@ -103,7 +103,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
     }
 
     fun execute(js: String) {
-        pendingJSMessages.add("javascript:$js")
+        pendingJSMessages.add(js)
         flushMessages()
     }
 
@@ -121,7 +121,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
             return
         }
         for (jsString in pendingJSMessages) {
-            communicationBridgeListener.webView.loadUrl(jsString)
+            communicationBridgeListener.webView.evaluateJavascript(jsString, null)
         }
         pendingJSMessages.clear()
         for ((key, callback) in pendingEvals) {
