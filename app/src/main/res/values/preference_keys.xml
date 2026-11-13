@@ -243,4 +243,7 @@
     <string name="preference_key_notifications_experiment_notification_rescheduled" translatable="false">notificationsExperimentNotificationRescheduled</string>
     <string name="preference_key_notifications_experiment_discover_source" translatable="false">notificationsExperimentDiscoverSource</string>
     <string name="preference_key_notifications_experiment_discover_dev_trigger_time" translatable="false">notificationsExperimentDiscoverDevTriggerTime</string>
+    <string name="preference_key_notifications_most_read_is_test_active" translatable="false">notificationsMostReadIsTestActive</string>
+    <string name="preference_key_notifications_experiment_weekly_most_read_scheduled" translatable="false">notificationsExperimentWeeklyMostReadScheduled</string>
+    <string name="preference_key_notifications_experiment_weekly_most_read_dev_trigger_time" translatable="false">notificationsExperimentWeeklyMostReadDevTriggerTime</string>
 </resources>
