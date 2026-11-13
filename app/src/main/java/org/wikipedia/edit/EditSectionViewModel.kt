@@ -34,6 +34,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var tempAccountsEnabled = true
     var editingAllowed = false
     var editCount = 0
+    var canMarkMinorEdit = false
     val editNotices = mutableListOf<String>()
     var hCaptchaPolicyMessage: String? = null
 
@@ -67,6 +68,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 messages = HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE
             )
             editCount = infoResponse.query?.userInfo?.editCount ?: 0
+            canMarkMinorEdit = infoResponse.query?.userInfo?.rights?.contains("minoredit") == true
             tempAccountsEnabled = infoResponse.query?.autoCreateTempUser?.enabled == true
             hCaptchaPolicyMessage = infoResponse.query?.allmessages?.find { it.name == HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE }?.content
 
