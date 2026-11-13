@@ -1,5 +1,6 @@
 package org.wikipedia.games
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -63,6 +64,7 @@ class GamesHubFragment : Fragment() {
                     val languageList = WikipediaApp.instance.languageState.appLanguageCodes
                     val transition = rememberInfiniteTransition()
                     BaseTheme {
+                        // TODO: Add WikiRun game
                         GamesHubScreen(
                             viewModel = viewModel,
                             onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value,
@@ -78,6 +80,9 @@ class GamesHubFragment : Fragment() {
                                             DailyGameHistory.GAME_COMPLETED else DailyGameHistory.GAME_IN_PROGRESS
                                     )
                                 )
+                            },
+                            onPlayWikiRun = {
+                                startActivity(Intent(activity, WikiRunActivity::class.java))
                             },
                             onShowArchive = {
                                 onThisDayGameArchiveCalendarHelper.show()
