@@ -106,7 +106,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         pullToRefreshEnabled = !RemoteConfig.config.disableReadingListSync,
                         isSelectionMode = selectionState.enabled,
                         selectedListIds = selectionState.selectedListIds,
-                        selectedPageIds = selectionState.selectedPageIds,
+                        selectedPageIds = viewModel.selectedPageIds(),
                         showCollectionsBadge = uiState.showCollectionsBadge,
                         onSelectTab = ::onSelectTab,
                         onOnboardingAction = ::onOnboardingAction,
@@ -502,7 +502,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
         launchWithPage(pageId) { page ->
             val entry = HistoryEntry(ReadingListPage.toPageTitle(page), HistoryEntry.SOURCE_READING_LIST)
-            ReadingListBehaviorsUtil.updateReadingListPage(page)
+            ReadingListBehaviorsUtil.touchListsForPage(page)
             startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
         }
     }
@@ -526,11 +526,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun onToggleOfflineClick(pageId: Long) {
         launchWithPage(pageId) { page ->
-            if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi &&
-                page.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
-                page.offline = false
-            }
-            if (page.saving) {
+            if (page.saving && !(Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi &&
+                    page.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE)) {
                 Toast.makeText(requireContext(), R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show()
             } else {
                 ReadingListBehaviorsUtil.toggleOffline(requireActivity(), page) {
@@ -705,7 +702,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-            val selectedIds = viewModel.selectionState.value.selectedPageIds
+            val selectedIds = viewModel.selectedPageIds()
             val allPageIds = viewModel.uiState.value.rows
                 .filterIsInstance<ReadingListRow.PageRow>()
                 .map { it.page.id }
@@ -755,7 +752,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     val allPageIds = viewModel.uiState.value.rows
                         .filterIsInstance<ReadingListRow.PageRow>()
                         .map { it.page.id }
-                    val selectedIds = viewModel.selectionState.value.selectedPageIds
+                    val selectedIds = viewModel.selectedPageIds()
                     if (allPageIds.isNotEmpty() && selectedIds.containsAll(allPageIds)) {
                         viewModel.clearPageSelection()
                     } else {
@@ -779,7 +776,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun updateSelectedPagesOffline(saveForOffline: Boolean) {
-        val selectedPageIds = viewModel.selectionState.value.selectedPageIds
+        val selectedPageIds = viewModel.selectedPageIds()
         viewLifecycleOwner.lifecycleScope.launch {
             val pages = viewModel.getPagesByIds(selectedPageIds)
             if (pages.isEmpty()) {
@@ -798,11 +795,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun addSelectedPagesToList() {
-        val selectedPageIds = viewModel.selectionState.value.selectedPageIds
+        val selectedPageIds = viewModel.selectedPageIds()
         viewLifecycleOwner.lifecycleScope.launch {
-            val titles = viewModel.getPagesByIds(selectedPageIds)
-                .distinctBy { it.lang to it.apiTitle }
-                .map { ReadingListPage.toPageTitle(it) }
+            val titles = viewModel.getPageTitlesForIds(selectedPageIds)
             if (titles.isEmpty()) {
                 return@launch
             }

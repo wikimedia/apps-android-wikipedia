@@ -10,10 +10,13 @@ import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.page.Namespace
+import org.wikipedia.readinglist.ArticleOfflineStateStore
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.database.ReadingListWithPages
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.readinglist.withOfflineState
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.log.L
 
@@ -49,14 +52,18 @@ interface ReadingListDao {
     suspend fun getListWithPagesById(id: Long): ReadingListWithPages?
 
     @Transaction
+    @Query("SELECT * FROM ReadingList WHERE id = :id")
+    fun observeListWithPages(id: Long): Flow<ReadingListWithPages?>
+
+    @Transaction
     @Query("SELECT * FROM ReadingList WHERE id IN (:ids)")
     suspend fun getListsWithPagesByIds(ids: Set<Long>): List<ReadingListWithPages>
 
     suspend fun getAllLists(): List<ReadingList> {
         val lists = getListsWithoutContents()
-        lists.forEach {
-            AppDatabase.instance.readingListPageDao().populateListPages(it)
-        }
+        val pages = AppDatabase.instance.readingListPageDao().getActivePages()
+            .withOfflineState(ArticleOfflineStateStore(AppDatabase.instance).snapshot()).groupBy { it.listId }
+        lists.forEach { it.pages.addAll(pages[it.id].orEmpty()) }
         return lists.toMutableList()
     }
 
@@ -80,6 +87,9 @@ interface ReadingListDao {
     suspend fun updateList(list: ReadingList, queueForSync: Boolean) {
         updateLists(listOf(list), queueForSync)
     }
+
+    @Query("UPDATE ReadingList SET atime = :atime WHERE id IN (SELECT listId FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle AND status != 2)")
+    suspend fun touchListsForArticle(wiki: String, lang: String, namespace: Namespace, apiTitle: String, atime: Long)
 
     @Transaction
     suspend fun updateLists(lists: List<ReadingList>, queueForSync: Boolean) {

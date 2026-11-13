@@ -22,8 +22,10 @@ import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.AnonymousNotificationHelper
+import org.wikipedia.offline.ArticleCacheRequest
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.readinglist.articleKey
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.DateUtil
@@ -154,9 +156,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
 
             val pageSummaryRequest = async {
+                val cacheRequest = if (model.shouldSaveOffline) ArticleCacheRequest(title.articleKey()) else null
                 ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
-                    saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
-                    langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
+                    saveHeader = cacheRequest?.let { OfflineCacheInterceptor.SAVE_HEADER_SAVE },
+                    langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText),
+                    cacheRequest = cacheRequest)
             }
             val makeWatchRequest = WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn
             val watchedRequest = async {

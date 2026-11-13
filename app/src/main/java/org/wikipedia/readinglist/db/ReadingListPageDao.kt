@@ -10,13 +10,21 @@ import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
+import org.wikipedia.offline.OfflineCacheWrite
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.ArticleCacheEvidence
+import org.wikipedia.readinglist.ArticleKey
+import org.wikipedia.readinglist.ArticleOfflineStateStore
+import org.wikipedia.readinglist.articleKey
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.mandatoryResponseUrls
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.readinglist.withOfflineState
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
@@ -24,6 +32,12 @@ import org.wikipedia.util.StringUtil
 
 @Dao
 interface ReadingListPageDao {
+    @Query("SELECT * FROM ReadingListPage WHERE status != 2")
+    suspend fun getActivePages(): List<ReadingListPage>
+
+    @Query("SELECT * FROM ReadingListPage WHERE status != 2")
+    fun observeActivePages(): Flow<List<ReadingListPage>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertReadingListPage(page: ReadingListPage): Long
 
@@ -35,6 +49,17 @@ interface ReadingListPageDao {
 
     @Delete
     suspend fun deleteReadingListPage(page: ReadingListPage)
+
+    @Query("UPDATE ReadingListPage SET remoteId = :remoteId WHERE id = :id")
+    suspend fun updateRemoteId(id: Long, remoteId: Long)
+
+    @Transaction
+    suspend fun updateRemoteIds(pages: List<ReadingListPage>) {
+        pages.forEach { updateRemoteId(it.id, it.remoteId) }
+    }
+
+    @Query("UPDATE ReadingListPage SET remoteId = :remoteId, atime = :atime, mtime = :mtime WHERE id = :id")
+    suspend fun updateSyncMetadata(id: Long, remoteId: Long, atime: Long, mtime: Long)
 
     @Query("SELECT COUNT(*) FROM ReadingListPage")
     suspend fun getPagesCount(): Int
@@ -58,7 +83,7 @@ interface ReadingListPageDao {
     suspend fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, listId: Long, excludedStatus: Long): ReadingListPage?
 
-    @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus")
+    @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus ORDER BY id LIMIT 1")
     suspend fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): ReadingListPage?
 
@@ -121,12 +146,29 @@ interface ReadingListPageDao {
 
     suspend fun getAllPagesToBeForcedSave() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
 
-    suspend fun getAllPagesToBeUnsaved() = getPagesByStatus(ReadingListPage.STATUS_SAVED, false)
+    @Query("SELECT * FROM ReadingListPage WHERE offline = 0 AND status != :excludedStatus AND EXISTS (SELECT 1 FROM OfflineObject WHERE usedByStr LIKE '%|' || ReadingListPage.id || '|%')")
+    suspend fun getAllPagesToBeUnsaved(excludedStatus: Long = ReadingListPage.STATUS_QUEUE_FOR_DELETE): List<ReadingListPage>
+
+    @Query("UPDATE ReadingListPage SET offline = :offline, status = :status, sizeBytes = :sizeBytes WHERE id IN (:ids) AND status != 2")
+    suspend fun updateOfflineRequest(ids: List<Long>, offline: Boolean, status: Long, sizeBytes: Long)
+
+    @Query("UPDATE ReadingListPage SET status = 2 WHERE id IN (:ids)")
+    suspend fun markMembershipsForDeletion(ids: List<Long>)
+
+    @Query("UPDATE ReadingListPage SET offline = 0 WHERE id IN (:ids) AND status != 2")
+    suspend fun clearOfflineRequest(ids: List<Long>)
+
+    @Query("UPDATE ReadingListPage SET status = 1, sizeBytes = :sizeBytes, displayTitle = COALESCE(:displayTitle, displayTitle), description = COALESCE(:description, description), thumbUrl = COALESCE(:thumbUrl, thumbUrl) WHERE id IN (:ids) AND offline = 1 AND status != 2")
+    suspend fun completeOfflineDownload(ids: List<Long>, sizeBytes: Long, displayTitle: String?, description: String?, thumbUrl: String?)
+
+    @Query("UPDATE ReadingListPage SET status = 4, sizeBytes = 0 WHERE id IN (:ids) AND offline = 1 AND status != 2")
+    suspend fun failOfflineDownload(ids: List<Long>)
 
     suspend fun getAllPagesToBeDeleted() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
 
     suspend fun populateListPages(list: ReadingList) {
-        list.pages.addAll(getPagesByListId(list.id, ReadingListPage.STATUS_QUEUE_FOR_DELETE))
+        list.pages.addAll(getPagesByListId(list.id, ReadingListPage.STATUS_QUEUE_FOR_DELETE)
+            .withOfflineState(ArticleOfflineStateStore(AppDatabase.instance).snapshot()))
     }
 
     @Transaction
@@ -161,10 +203,24 @@ interface ReadingListPageDao {
 
     @Transaction
     suspend fun findPageInAnyList(title: PageTitle): ReadingListPage? {
-        return getPageByParams(
-            title.wikiSite, title.wikiSite.languageCode, title.namespace(),
-            title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
-        )
+        val members = getAllPageOccurrences(title.articleKey())
+        val page = members.minByOrNull { it.id } ?: return null
+        return attachArticleOfflineState(page, members)
+    }
+
+    @Transaction
+    suspend fun getActivePageWithOfflineState(id: Long): ReadingListPage? {
+        val page = getPageById(id)?.takeUnless { it.status == ReadingListPage.STATUS_QUEUE_FOR_DELETE } ?: return null
+        return attachArticleOfflineState(page, getAllPageOccurrences(page.articleKey()))
+    }
+
+    private suspend fun attachArticleOfflineState(page: ReadingListPage, members: List<ReadingListPage>): ReadingListPage {
+        val key = page.articleKey()
+        val catalog = if (members.any { it.offline && it.status == ReadingListPage.STATUS_SAVED && it.sizeBytes > 0 }) {
+            AppDatabase.instance.offlineObjectDao().getObjectsByUrls(key.lang, page.mandatoryResponseUrls())
+        } else emptyList()
+        page.articleOfflineState = ArticleOfflineStateStore.aggregate(members, catalog)[key]
+        return page
     }
 
     suspend fun findPageForSearchQueryInAnyList(wikiSite: WikiSite, searchQuery: String): SearchResults {
@@ -186,10 +242,9 @@ interface ReadingListPageDao {
 
     @Transaction
     suspend fun markPagesForDeletion(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean = true) {
-        for (page in pages) {
-            page.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE
-            updateReadingListPage(page)
-        }
+        preserveRemainingMemberships(pages)
+        pages.map { it.id }.chunked(900).forEach { markMembershipsForDeletion(it) }
+        pages.forEach { it.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE }
         if (queueForSync) {
             ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages)
         }
@@ -200,8 +255,9 @@ interface ReadingListPageDao {
     @Transaction
     suspend fun markPagesForDeletionFromLists(lists: List<ReadingList>) {
         val pages = lists.flatMap { it.pages }
+        preserveRemainingMemberships(pages)
+        pages.map { it.id }.chunked(900).forEach { markMembershipsForDeletion(it) }
         pages.forEach { it.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE }
-        updateReadingListPages(pages)
         ReadingListSyncAdapter.manualSyncWithDeletePages(lists)
         FlowEventBus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
@@ -209,17 +265,51 @@ interface ReadingListPageDao {
 
     @Transaction
     suspend fun markPagesForOffline(pages: List<ReadingListPage>, offline: Boolean, forcedSave: Boolean) {
-        val updatedPages = pages.map {
-            if (it.offline != offline || !forcedSave) {
-                it.offline = offline
-                if (forcedSave) {
-                    it.status = ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE
-                }
+        val keys = pages.mapTo(mutableSetOf()) { it.articleKey() }
+        val membersByKey = getActivePages().filter { it.articleKey() in keys }.groupBy { it.articleKey() }
+        val evidence = ArticleCacheEvidence(if (offline) AppDatabase.instance.offlineObjectDao().getAllObjects() else emptyList())
+        membersByKey.values.forEach { members ->
+            if (!offline) {
+                members.map { it.id }.chunked(900).forEach { clearOfflineRequest(it) }
+                OfflineCacheWrite.invalidate(members.first().articleKey())
+            } else {
+                requestOfflineForMembers(members, members, evidence, forcedSave)
             }
-            it
         }
-        updateReadingListPages(updatedPages)
         SavedPageSyncService.enqueue()
+    }
+
+    private suspend fun preserveRemainingMemberships(deleting: List<ReadingListPage>) {
+        val deletingIds = deleting.mapTo(mutableSetOf()) { it.id }
+        val keys = deleting.mapTo(mutableSetOf()) { it.articleKey() }
+        val groups = getActivePages().filter { it.articleKey() in keys }.groupBy { it.articleKey() }
+        val evidence = ArticleCacheEvidence(AppDatabase.instance.offlineObjectDao().getAllObjects())
+        groups.values.forEach { members ->
+            val remaining = members.filter { it.id !in deletingIds }
+            if (remaining.isEmpty()) {
+                OfflineCacheWrite.invalidate(members.first().articleKey())
+            } else if (members.any { it.offline }) {
+                requestOfflineForMembers(remaining, members, evidence,
+                    members.any { it.offline && it.status == ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE }, retry = false)
+            }
+        }
+    }
+
+    private suspend fun requestOfflineForMembers(members: List<ReadingListPage>, sources: List<ReadingListPage>,
+                                                evidence: ArticleCacheEvidence, forcedSave: Boolean, retry: Boolean = true) {
+        val completed = sources.filter { evidence.hasCompletedCopy(it) }
+        val size = completed.maxOfOrNull { it.sizeBytes } ?: 0L
+        val status = when {
+            completed.isNotEmpty() -> ReadingListPage.STATUS_SAVED
+            !retry && sources.hasSettledFailure() -> ReadingListPage.STATUS_DOWNLOAD_FAILED
+            forcedSave || members.any { it.offline && it.status == ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE } -> ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE
+            else -> ReadingListPage.STATUS_QUEUE_FOR_SAVE
+        }
+        if (completed.isNotEmpty()) {
+            AppDatabase.instance.offlineObjectDao().attachObjectsToPages(evidence.objects,
+                completed.mapTo(mutableSetOf()) { it.id }, members.mapTo(mutableSetOf()) { it.id })
+        }
+        members.map { it.id }.chunked(900).forEach { updateOfflineRequest(it, true, status, size) }
     }
 
     suspend fun purgeDeletedPages() {
@@ -264,6 +354,7 @@ interface ReadingListPageDao {
         )
     }
 
+    @Transaction
     suspend fun addPageToLists(lists: List<ReadingList>, page: ReadingListPage, queueForSync: Boolean) {
         for (list in lists) {
             if (getPageByTitle(list, ReadingListPage.toPageTitle(page)) != null) {
@@ -281,10 +372,11 @@ interface ReadingListPageDao {
     }
 
     suspend fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
-        return getPagesByParams(
-            title.wikiSite, title.wikiSite.languageCode, title.namespace(),
-            title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
-        )
+        return getAllPageOccurrences(title.articleKey())
+    }
+
+    suspend fun getAllPageOccurrences(key: ArticleKey): List<ReadingListPage> {
+        return getPagesByParams(WikiSite(key.wiki), key.lang, key.namespace, key.apiTitle, ReadingListPage.STATUS_QUEUE_FOR_DELETE)
     }
 
     private suspend fun addPageToList(list: ReadingList, title: PageTitle): ReadingListPage {
@@ -293,8 +385,35 @@ interface ReadingListPageDao {
         return protoPage
     }
 
+    private fun List<ReadingListPage>.hasSettledFailure(): Boolean =
+        none { it.downloadQueued } && any { it.offline && it.status == ReadingListPage.STATUS_DOWNLOAD_FAILED }
+
     private suspend fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {
+        val members = getPagesByParams(page.wiki, page.lang, page.namespace, page.apiTitle, ReadingListPage.STATUS_QUEUE_FOR_DELETE)
+        val requested = if (members.isEmpty()) page.offline else members.any { it.offline }
+        val cache = AppDatabase.instance.offlineObjectDao()
+        val evidence = ArticleCacheEvidence(if (requested && members.isNotEmpty()) {
+            val key = page.articleKey()
+            cache.getObjectsForArticle(key.wiki, key.lang, key.namespace, key.apiTitle)
+        } else emptyList())
+        val completed = members.filter { it.offline && evidence.hasCompletedCopy(it) }
+        page.offline = requested
+        page.status = when {
+            requested && members.hasSettledFailure() -> ReadingListPage.STATUS_DOWNLOAD_FAILED
+            requested && members.any { it.downloadQueued && it.status == ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE } ->
+                ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE
+            else -> ReadingListPage.STATUS_QUEUE_FOR_SAVE
+        }
+        page.sizeBytes = 0
+        page.articleOfflineState = null
         page.listId = list.id
+        page.id = 0
         page.id = insertReadingListPage(page)
+        if (completed.isNotEmpty()) {
+            cache.attachObjectsToPages(evidence.objects, completed.mapTo(mutableSetOf()) { it.id }, setOf(page.id))
+            page.status = ReadingListPage.STATUS_SAVED
+            page.sizeBytes = completed.maxOf { it.sizeBytes }
+            updateOfflineRequest(listOf(page.id), requested, page.status, page.sizeBytes)
+        }
     }
 }

@@ -34,7 +34,7 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
         actionsView.coroutineScope().launch {
             AppDatabase.instance.readingListPageDao()
-                .getPageById(requireArguments().getLong(ARG_READING_LIST_PAGE))?.let {
+                .getActivePageWithOfflineState(requireArguments().getLong(ARG_READING_LIST_PAGE))?.let {
                 readingListPage = it
                 val customCollectionCount = requireArguments().getInt(ARG_CUSTOM_COLLECTION_COUNT)
                 val collectionActionText = if (customCollectionCount == 0) {
@@ -55,7 +55,7 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
                     it.displayTitle,
                     removeFromListText,
                     collectionActionText,
-                    it.offline,
+                    it.offlineRequested,
                     requireArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE)
                 )
             }
@@ -64,6 +64,7 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     override fun onDestroyView() {
+        readingListPage = null
         actionsView.callback = null
         super.onDestroyView()
     }
