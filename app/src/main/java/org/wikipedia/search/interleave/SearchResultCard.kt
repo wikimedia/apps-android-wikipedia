@@ -115,9 +115,8 @@ fun SearchResultCard(
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
                         text = trail,
+                        style = MaterialTheme.typography.bodySmall,
                         color = WikipediaTheme.colors.primaryColor,
-                        fontSize = 12.sp,
-                        lineHeight = 16.sp,
                         maxLines = TRAIL_MAX_LINES,
                         overflow = TextOverflow.Ellipsis
                     )
