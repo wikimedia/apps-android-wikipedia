@@ -18,7 +18,8 @@ data class SearchResult(val pageTitle: PageTitle,
                         val editCounts: Int? = null,
                         val referenceCounts: Int? = null,
                         val lastUpdated: String? = null,
-                        val pageId: Int = 0) {
+                        val pageId: Int = 0,
+                        val leadText: String? = null) {
 
     @Serializable
     enum class SearchResultType {
