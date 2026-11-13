@@ -432,7 +432,7 @@ interface Service {
         @Query("rvsection") section: Int?
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo|allmessages&uiprop=editcount&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo|allmessages&uiprop=editcount|rights&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
     suspend fun getWikiTextForSectionWithInfoAndMessages(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?,
