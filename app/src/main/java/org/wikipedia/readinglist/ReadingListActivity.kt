@@ -69,8 +69,8 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
 
     override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
         if (isGranted) {
-            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
             Prefs.isRecommendedReadingListNotificationEnabled = true
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
         } else {
             Prefs.isRecommendedReadingListNotificationEnabled = false
         }

@@ -32,6 +32,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.HtmlText
@@ -70,9 +71,9 @@ fun CommunityDisclaimer(
                 style = MaterialTheme.typography.bodyMedium,
                 color = WikipediaTheme.colors.secondaryColor
             )
-            Image(
+            AsyncImage(
                 modifier = Modifier.size(45.dp),
-                painter = painterResource(R.drawable.w_nav_mark),
+                model = R.drawable.w_nav_mark_180,
                 contentDescription = null
             )
         }

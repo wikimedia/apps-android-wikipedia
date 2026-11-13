@@ -87,7 +87,7 @@
   <string name="search_back_button_content_description">戻る</string>
   <string name="search_clear_query_content_description">クエリを消去</string>
   <string name="search_icon_content_description">検索</string>
-  <string name="filter_hint_filter_my_lists_and_articles">コレクションを絞り込む</string>
+  <string name="filter_hint_filter_my_lists_and_articles">リストを絞り込む</string>
   <string name="nav_item_suggested_edits">編集</string>
   <string name="nav_item_activity">活動</string>
   <string name="nav_item_more">もっと見る</string>
@@ -152,16 +152,16 @@
   <string name="menu_page_watched">既読</string>
   <string name="edit_section_find_in_page">ページ内検索</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
-  <string name="menu_page_add_to_list">コレクションに追加</string>
+  <string name="menu_page_add_to_list">あとで読むリストに追加</string>
   <string name="menu_page_add_to_default_list">保存</string>
-  <string name="feed_card_add_to_list">コレクションに追加</string>
+  <string name="feed_card_add_to_list">あとで読むリストに追加</string>
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">リンクを共有</string>
   <string name="menu_article_share">記事を共有</string>
   <string name="menu_page_article_share">共有</string>
   <string name="menu_page_open_a_new_tab">新しいタブを開く</string>
   <string name="menu_page_new_tab">新しいタブ</string>
-  <string name="menu_page_reading_lists">コレクション</string>
+  <string name="menu_page_reading_lists">あとで読むリスト</string>
   <string name="menu_page_recently_viewed">最近見たページ</string>
   <string name="menu_page_archive">アーカイブ</string>
   <string name="menu_long_press_open_page">開く</string>
@@ -205,9 +205,9 @@
   <string name="menu_show_toc">目次</string>
   <string name="search_no_results_found">検索結果なし</string>
   <string name="search_reading_list_no_results">「%s」には見つかりませんでした</string>
-  <string name="search_reading_lists_no_results">コレクションにはありませんでした</string>
+  <string name="search_reading_lists_no_results">あとで読むリストにはありませんでした</string>
   <string name="search_all_articles_no_results">すべての記事で結果は見つかりませんでした</string>
-  <string name="search_collections_no_results">コレクションで結果は見つかりませんでした</string>
+  <string name="search_collections_no_results">あとで読むリストにはありませんでした</string>
   <string name="search_history_no_results">履歴には見つかりませんでした</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
   <string name="edit_section_captcha_request_an_account_message">画像が見られませんか? &lt;a href=\"https://ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成\"&gt;アカウント作成の申請&lt;/a&gt;</string>
@@ -305,12 +305,12 @@
   <string name="preferences_heading_syncing">同期</string>
   <string name="preferences_heading_data_usage">通信量</string>
   <string name="preferences_heading_experimental">実験的機能</string>
-  <string name="preference_title_sync_reading_lists_from_account">コレクションの同期</string>
-  <string name="preference_title_download_reading_list_articles">コレクションの記事をダウンロード</string>
-  <string name="preference_summary_sync_reading_lists">ウィキペディアアカウントにコレクションを保存することで、異なるデバイス間でコレクションを同期させる</string>
-  <string name="preference_summary_sync_reading_lists_from_account">あなたのウィキペディアアカウント「%s」にコレクションを保存して、リストをデバイス間で同期させる</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">「%s」から同期中のコレクションを除去しますか?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">この操作で、これまでに同期されたコレクションをクラウド上のストレージから完全に削除します。本当にすべての同期中のコレクションを「%s」のアカウントから削除しますか?</string>
+  <string name="preference_title_sync_reading_lists_from_account">あとで読むリストの同期</string>
+  <string name="preference_title_download_reading_list_articles">あとで読むリストの記事をダウンロード</string>
+  <string name="preference_summary_sync_reading_lists">ウィキペディアアカウントにあとで読むリストを保存することで、異なるデバイス間で同期させる</string>
+  <string name="preference_summary_sync_reading_lists_from_account">あなたのウィキペディアアカウント「%s」にあとで読むリストを保存して、異なるデバイス間で同期させる</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">「%s」から同期中のあとで読むリストを除去しますか?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">この操作で、これまでに同期されたあとで読むリストをクラウド上のストレージから完全に削除します。本当にすべての同期済みリストを「%s」のアカウントから除去しますか?</string>
   <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>
   <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的にサードパーティーのサービスプロバイダーに対してクラッシュレポートを送信することを許可します。これによって、クラッシュ内容を確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
@@ -462,8 +462,8 @@
   <string name="unnamed_tab_closed">タブを閉じました</string>
   <string name="tab_item_closed">%sを閉じました。</string>
   <string name="all_tab_items_closed">すべてのタブを閉じました。</string>
-  <string name="tool_tip_bookmark_icon_title">コレクションに追加</string>
-  <string name="tool_tip_bookmark_icon_text">ブックマーク用アイコンをタップして記事をコレクションに追加。</string>
+  <string name="tool_tip_bookmark_icon_title">あとで読むリストに追加</string>
+  <string name="tool_tip_bookmark_icon_text">ブックマーク用アイコンをタップして記事をあとで読むリストに追加。</string>
   <string name="page_view_in_browser">ブラウザーで閲覧</string>
   <string name="tool_tip_toc_title">目次クイックアクセス</string>
   <string name="tool_tip_toc_text">画面を左へスワイプすると目次を表示、また、このスクロールボタンをタップすると、記事の異なる節へ移動します。</string>
@@ -476,9 +476,9 @@
   <string name="button_continue_to_talk_page">ノートページを開く</string>
   <string name="button_continue_to_disambiguation">類似のページを表示</string>
   <string name="link_preview_disambiguation_description">この記事名は複数のページと関係があります</string>
-  <string name="button_add_to_reading_list">コレクションに追加</string>
+  <string name="button_add_to_reading_list">あとで読むリストに追加</string>
   <string name="page_offline_notice_cannot_load_while_offline">オフラインでは記事を読み込めません。</string>
-  <string name="page_offline_notice_add_to_reading_list">ヒント: 記事をコレクションに追加すると、次にオンラインになったときにダウンロードします。</string>
+  <string name="page_offline_notice_add_to_reading_list">ヒント: 記事をあとで読むリストに追加すると、次にオンラインになったときにダウンロードします。</string>
   <string name="page_offline_notice_last_date">あなたが読んでいる記事は%sに保存されたオフライン版です。</string>
   <string name="redirected_from_snackbar">「%s」から転送されました</string>
   <string name="button_get_directions">ルートを検索</string>
@@ -586,17 +586,17 @@
   <string name="editing_monospace_font_label">等幅フォントを使用</string>
   <string name="editing_typing_suggestions">入力候補を表示</string>
   <string name="nav_item_saved">保存済み</string>
-  <string name="reading_list_save_to">コレクションに保存</string>
-  <string name="reading_list_move_to">コレクションに移動</string>
+  <string name="reading_list_save_to">あとで読むリストに保存</string>
+  <string name="reading_list_move_to">あとで読むリストに移動</string>
   <string name="reading_list_create_new">新規作成</string>
-  <string name="reading_list_title_exists">「%s」という名前のコレクションは既にあります。</string>
+  <string name="reading_list_title_exists">あとで読むリスト「%s」は既にあります。</string>
   <string name="reading_list_article_added_to_named">%1$sを%2$sに加えました。</string>
-  <string name="reading_list_article_added_to_default_list">%s を保存しました。コレクションに追加しますか?</string>
+  <string name="reading_list_article_added_to_default_list">%s を保存しました。リストに追加しますか?</string>
   <string name="reading_list_article_moved_to_named">%1$sを%2$sに保存しました</string>
   <string name="reading_list_article_already_exists_message">大丈夫！%2$sは既に%1$sに含まれています。</string>
   <string name="reading_list_articles_already_exist_message">大丈夫！指定した記事はすべて既に%sに含まれています。</string>
-  <string name="reading_list_added_view_button">コレクションを表示</string>
-  <string name="reading_list_add_to_list_button">コレクションに追加</string>
+  <string name="reading_list_added_view_button">リストを表示</string>
+  <string name="reading_list_add_to_list_button">リストに追加</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="other">%d件の記事</item>
   </plurals>
@@ -618,65 +618,65 @@
   <string name="reading_list_sort_by_recent_desc">古い方から並べ替え</string>
   <string name="reading_list_sort_by_created">作成日で検索(降順)</string>
   <string name="reading_list_sort_by_created_desc">作成日で検索(昇順)</string>
-  <string name="reading_list_menu_delete">コレクションを削除</string>
-  <string name="reading_list_menu_export">コレクションをエクスポート</string>
+  <string name="reading_list_menu_delete">リストを削除</string>
+  <string name="reading_list_menu_export">リストをエクスポート</string>
   <string name="reading_list_menu_select">選択</string>
   <string name="reading_list_menu_unselect">選択解除</string>
-  <string name="reading_list_export_write_permission_rationale">コレクションをエクスポートするにはデバイスのストレージへの書き込み権限が必要です。</string>
+  <string name="reading_list_export_write_permission_rationale">あとで読むリストをエクスポートするにはデバイスのストレージへの書き込み権限が必要です。</string>
   <string name="reading_list_menu_rename">名前/説明を編集</string>
   <string name="reading_list_action_menu_remove_from_offline">オフラインから削除</string>
   <string name="reading_list_action_menu_save_for_offline">オフラインで保存</string>
   <string name="reading_list_action_menu_remove_all_from_offline">オフラインからすべて削除</string>
   <string name="reading_list_action_menu_save_all_for_offline">オフラインですべて保存</string>
-  <string name="reading_list_action_menu_add_to_another_list">別のコレクションに追加</string>
-  <string name="reading_list_action_menu_move_to_another_list">別のコレクションに移動</string>
-  <string name="reading_list_name_sample">あなたのコレクション</string>
-  <string name="reading_list_name_hint">このコレクションの名前</string>
+  <string name="reading_list_action_menu_add_to_another_list">別のリストに追加</string>
+  <string name="reading_list_action_menu_move_to_another_list">別のリストに移動</string>
+  <string name="reading_list_name_sample">自分のあとで読むリスト</string>
+  <string name="reading_list_name_hint">このリストの名前</string>
   <string name="reading_list_description_hint">説明 (省略可)</string>
-  <string name="reading_list_item_deleted">%s はコレクションから削除されました</string>
+  <string name="reading_list_item_deleted">%s はリストから除去されました</string>
   <string name="reading_list_item_deleted_from_list">%1$s が %2$s から削除されました。</string>
   <plurals name="reading_list_articles_deleted">
-    <item quantity="other">%d件の記事をコレクションから除去しました</item>
+    <item quantity="other">%d件の記事をリストから除去しました</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="other">%1$d件の記事を%2$sから削除しました</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
-    <item quantity="other">%d件のコレクションが削除されました</item>
+    <item quantity="other">%d件のリストが削除されました</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">既定のコレクション (%s) は削除できません</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$sは削除されました。既定のコレクション (%2$s) は削除できません。</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">コレクションを削除しました。既定のコレクション (%s) は削除できません。</string>
-  <string name="single_list_json_file_name">%s (ウィキペディアのコレクション).json</string>
-  <string name="multiple_lists_json_file_name">ウィキペディアのコレクション (%sほか).json</string>
-  <string name="reading_list_items_deleted">コレクションから%d件の記事を除去しました</string>
-  <string name="reading_lists_item_deleted">コレクションから%sを除去しました</string>
+  <string name="reading_lists_default_list_delete_message">既定のリスト (%s) は削除できません</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$sは削除されました。既定のリスト (%2$s) は削除できません。</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">リストを削除しました。既定のリスト (%s) は削除できません。</string>
+  <string name="single_list_json_file_name">%s (ウィキペディアのあとで読むリスト).json</string>
+  <string name="multiple_lists_json_file_name">ウィキペディアのあとで読むリスト (%sほか).json</string>
+  <string name="reading_list_items_deleted">リストから%d記事を除去しました</string>
+  <string name="reading_lists_item_deleted">リストから%sを除去しました</string>
   <string name="reading_list_item_delete_undo">取り消す</string>
   <string name="reading_list_deleted">%s は削除されました</string>
   <string name="saved_list_empty_title">保存済みの記事はありません</string>
-  <string name="reading_lists_empty_message">オフラインでも後で読めるように、記事をコレクションに追加しましょう。</string>
+  <string name="reading_lists_empty_message">オフラインでも後で読めるように、記事をリストに追加しましょう。</string>
   <string name="reading_lists_search_empty_articles_title">保存済みの記事が見つかりません</string>
   <string name="reading_lists_search_empty_articles_message">あなたの保存済み記事に「%s」は見つかりませんでした。</string>
-  <string name="reading_lists_search_empty_collections_title">コレクションが見つかりません</string>
-  <string name="reading_lists_search_empty_collections_message">あなたのコレクションに「%s」は見つかりませんでした。</string>
-  <string name="reading_list_empty">このコレクションにはまだ記事はありません。</string>
+  <string name="reading_lists_search_empty_collections_title">あとで読むリストが見つかりません</string>
+  <string name="reading_lists_search_empty_collections_message">あなたのあとで読むリストに「%s」は見つかりませんでした。</string>
+  <string name="reading_list_empty">このリストにはまだ記事はありません。</string>
   <string name="reading_list_article_offline">オフラインで利用可能</string>
   <string name="reading_list_article_make_offline">この記事をオフラインで読めるようにする</string>
-  <string name="reading_list_add_to_other_list">別のコレクションに追加</string>
-  <string name="reading_list_move_to_other_list">別のコレクションに移動</string>
-  <string name="reading_list_add_to_collection">コレクションに追加</string>
-  <string name="reading_list_move_from_to_other_list">%sから別のコレクションに移動</string>
+  <string name="reading_list_add_to_other_list">別のあとで読むリストに追加</string>
+  <string name="reading_list_move_to_other_list">別のあとで読むリストに移動</string>
+  <string name="reading_list_add_to_collection">あとで読むリストに追加</string>
+  <string name="reading_list_move_from_to_other_list">%sから別のあとで読むリストに移動</string>
   <string name="reading_list_remove_from_list">%sから削除</string>
-  <string name="reading_list_remove_from_lists">コレクションから除去</string>
+  <string name="reading_list_remove_from_lists">あとで読むリストから除去</string>
   <string name="reading_list_select_item">選択</string>
   <string name="reading_list_confirm_remove_article_from_offline">オフラインから削除</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">複数のコレクションに記事が表示されます</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">すべてのコレクションで、%sはオフラインで利用できなくなります：</string>
-  <string name="reading_lists_sync_reminder_title">コレクションの同期をオンにしますか?</string>
-  <string name="reading_lists_sync_reminder_text">コレクションに保存された記事を、あなたのウィキペディアアカウントで同期することができるようになりました。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">複数のリストに記事が表示されます</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">すべてのあとで読むリストで、%sはオフラインで利用できなくなります：</string>
+  <string name="reading_lists_sync_reminder_title">あとで読むリストの同期をオンにしますか?</string>
+  <string name="reading_lists_sync_reminder_text">あとで読むリストに保存された記事を、あなたのウィキペディアアカウントで同期することができるようになりました。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">同期を有効にする</string>
-  <string name="reading_list_login_reminder_title">コレクションを同期する</string>
-  <string name="reading_lists_login_reminder_text">コレクションはデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインして、コレクションの保存を許可してください。</string>
+  <string name="reading_list_login_reminder_title">あとで読むリストを同期する</string>
+  <string name="reading_lists_login_reminder_text">あとで読むリストはデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインして、リストの保存を許可してください。</string>
   <string name="reading_lists_login_button">ログイン / ウィキペディアに参加する</string>
   <string name="reading_lists_ignore_button">今はしない</string>
   <string name="reading_lists_confirm_remote_delete_yes">はい</string>
@@ -685,34 +685,34 @@
   <string name="reading_list_articles_added_to_named">%1$dに%2$sを追加しました</string>
   <string name="reading_list_articles_moved_to_named">%1$d記事を%2$sに移動しました</string>
   <string name="reading_list_delete_confirm">%sを本当に削除しますか?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">選択したコレクションを削除しますか？</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">選択したリストを削除しますか？</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
-    <item quantity="other">本当に%d件のコレクションを削除しますか？</item>
+    <item quantity="other">本当に%d件のリストを削除しますか？</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">ログインして同期を有効にする</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">コレクションをアカウントに保存することを許可するには、ログインしてください。</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">あとで読むリストをアカウントに保存することを許可するには、ログインしてください。</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">キャンセル</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ログイン</string>
-  <string name="reading_list_turned_sync_off_dialog_title">コレクションの同期はオフになりました</string>
-  <string name="reading_list_turned_sync_off_dialog_text">コレクションの同期はあなたのアカウントではオフになっており、ログイン済みのデバイス上での保存された記事は今後バックアップされません。設定でコレクションの同期をオンにしてください。</string>
+  <string name="reading_list_turned_sync_off_dialog_title">あとで読むリストの同期はオフになりました</string>
+  <string name="reading_list_turned_sync_off_dialog_text">あとで読むリストの同期はあなたのアカウントではオフになっており、ログイン済みのデバイス上での保存された記事は今後バックアップされません。設定であとで読むリストの同期をオンにしてください。</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">設定</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">コレクションの同期を有効にしますか?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">コレクションに保存された記事は、あなたのウィキペディアアカウントと同期できるようになりました。&lt;a href=\"#faq\"&gt;もっと詳しく&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">あとで読むリストの同期をオンにしますか?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">あとで読むリストに保存された記事は、あなたのウィキペディアアカウントと同期できるようになりました。&lt;a href=\"#faq\"&gt;もっと詳しく&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">次からは表示しない</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">同期を有効にする</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">いいえ、結構です。</string>
   <string name="default_reading_list_name">保存済み</string>
-  <string name="default_reading_list_description">保存した記事の既定のコレクション</string>
-  <string name="no_user_lists_title">記事をコレクションにまとめる</string>
-  <string name="no_user_lists_msg">行ってみたい場所や好きな話題その他いろいろなコレクションを作ってみる</string>
+  <string name="default_reading_list_description">保存した記事の既定のリスト</string>
+  <string name="no_user_lists_title">記事をリストにまとめる</string>
+  <string name="no_user_lists_msg">行ってみたい場所や好きな話題その他いろいろなリストを作ってみる</string>
   <string name="reading_list_saved_list_rename">%1$s (利用者による作成)</string>
-  <string name="split_reading_list_message">コレクションごとの記事数は%d件までに限られます。既存のコレクションでこの上限を超えたものは複数のコレクションに分割されました。</string>
-  <string name="reading_list_move_article_limit_message">このコレクションに移動できません。「%1$s」はコレクションごとの記事数の上限%2$d件に達しました。</string>
-  <string name="reading_list_article_limit_message">このコレクションに追加できません。「%1$s」はコレクションごと記事数の上限%2$d件に達しました。</string>
-  <string name="reading_lists_limit_message">これ以上コレクションを作成できません。あなたは1アカウント当たりのコレクションの上限100件に達しました。</string>
-  <string name="reading_lists_menu_create_list">新しいコレクションを作成</string>
-  <string name="reading_lists_menu_import_list">コレクションをインポート</string>
+  <string name="split_reading_list_message">あとで読むリストごとの記事数は%d件までに限られます。既存のリストでこの上限を超えたものは複数のリストに分割されました。</string>
+  <string name="reading_list_move_article_limit_message">このリストに移動できません。「%1$s」はリストごとの記事数の上限%2$d件に達しました。</string>
+  <string name="reading_list_article_limit_message">このリストに追加できません。「%1$s」はリストごと記事数の上限%2$d件に達しました。</string>
+  <string name="reading_lists_limit_message">これ以上リストを作成できません。あなたは1アカウント当たりのあとで読むリストの上限100件に達しました。</string>
+  <string name="reading_lists_menu_create_list">新しいリストを作成</string>
+  <string name="reading_lists_menu_import_list">リストをインポート</string>
   <string name="reading_lists_menu_sort_by">並び順</string>
   <string name="reading_lists_refresh_sync_option">同期を更新</string>
   <plurals name="reading_list_article_offline_message">
@@ -723,7 +723,7 @@
     <item quantity="one">この記事はオフラインでは利用できなくなります。</item>
     <item quantity="other">これらの記事はオフラインで利用できなくなります。</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">コレクションを同期しました</string>
+  <string name="reading_list_toast_last_sync">あとで読むリストを同期しました</string>
   <string name="reading_list_menu_last_sync">最後の同期: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -733,29 +733,29 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">キャンセル</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">削除</string>
-  <string name="reading_list_activity_title">コレクション：%s</string>
-  <string name="reading_list_notification_title">コレクションをエクスポートしました</string>
-  <string name="reading_list_notification_text">%d件のコレクションが「reading_lists export.json」として、あなたのダウンロードフォルダにエクスポートされました</string>
-  <string name="reading_list_notification_detailed_text">コレクションが「reading_lists_export.json」にエクスポートされました</string>
+  <string name="reading_list_activity_title">あとで読むリスト：%s</string>
+  <string name="reading_list_notification_title">あとで読むリストをエクスポートしました</string>
+  <string name="reading_list_notification_text">%d件のあとで読むリストが「reading_lists export.json」として、あなたのダウンロードフォルダにエクスポートされました</string>
+  <string name="reading_list_notification_detailed_text">あとで読むリストが「reading_lists_export.json」にエクスポートされました</string>
   <string name="reading_lists_action_menu_export_lists">エクスポート</string>
   <string name="reading_lists_import_file_picker_title">インポートするファイルを選択</string>
-  <string name="reading_lists_import_failure_message">コレクションのインポートに失敗しました</string>
-  <string name="reading_lists_export_select_lists_message">エクスポートするコレクションを選択してください</string>
-  <string name="reading_lists_export_completed_message">コレクションをエクスポートしました</string>
+  <string name="reading_lists_import_failure_message">あとで読むリストのインポートに失敗しました</string>
+  <string name="reading_lists_export_select_lists_message">エクスポートするリストを選択してください</string>
+  <string name="reading_lists_export_completed_message">あとで読むリストをエクスポートしました</string>
   <plurals name="reading_list_export_failed_message">
-    <item quantity="other">コレクションのエクスポートに失敗しました</item>
+    <item quantity="other">あとで読むリストのエクスポートに失敗しました</item>
   </plurals>
   <plurals name="reading_list_import_success_message">
-    <item quantity="other">コレクションをインポートしました</item>
+    <item quantity="other">あとで読むリストをインポートしました</item>
   </plurals>
-  <string name="reading_lists_preview_header_title">共有したコレクション</string>
+  <string name="reading_lists_preview_header_title">共有したリスト</string>
   <string name="reading_lists_preview_save_button">保存</string>
-  <string name="reading_lists_preview_save_dialog_title">コレクションを保存</string>
-  <string name="reading_lists_preview_save_dialog_text">コレクションに名前を付けて保存する記事を選択します。</string>
+  <string name="reading_lists_preview_save_dialog_title">リストを保存</string>
+  <string name="reading_lists_preview_save_dialog_text">リストに名前を付けて保存する記事を選択します。</string>
   <string name="reading_lists_preview_save_dialog_title_hint">タイトル</string>
   <string name="reading_lists_preview_save_dialog_cancel">キャンセル</string>
   <string name="reading_lists_preview_save_dialog_save">保存</string>
-  <string name="reading_lists_preview_saved_snackbar">コレクションを保存しました</string>
+  <string name="reading_lists_preview_saved_snackbar">あとで読むリストを保存しました</string>
   <string name="reading_lists_preview_saved_snackbar_action">表示</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_reverted_title">編集が差し戻されました</string>
@@ -764,8 +764,8 @@
   <string name="notification_syncing_pause_button">一時停止</string>
   <string name="notification_syncing_resume_button">継続</string>
   <string name="notification_syncing_cancel_button">キャンセル</string>
-  <string name="notification_syncing_reading_list_channel_title">コレクションを同期中</string>
-  <string name="notification_syncing_reading_list_channel_description">コレクションを同期中です</string>
+  <string name="notification_syncing_reading_list_channel_title">あとで読むリストを同期中</string>
+  <string name="notification_syncing_reading_list_channel_description">あとで読むリストを同期中です</string>
   <string name="notification_many_unread">未読のお知らせが%d件あります</string>
   <plurals name="notification_channel_name">
     <item quantity="one">記事をダウンロード中</item>
@@ -780,13 +780,13 @@
     <item quantity="other">残り%1$d記事</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="other">コレクションを同期中</item>
+    <item quantity="other">あとで読むリストを同期中</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
-    <item quantity="other">コレクション%1$d件を同期中…</item>
+    <item quantity="other">%1$d件のリストを同期中…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="other">コレクション残り%1$d件</item>
+    <item quantity="other">残りリスト%1$d件</item>
   </plurals>
   <string name="notification_echo_channel_description">ウィキペディアの通知</string>
   <string name="notifications_activity_title">通知</string>
@@ -1236,6 +1236,7 @@
   <string name="activity_tab_menu_feedback">機能の問題</string>
   <string name="activity_tab_menu_info">詳細</string>
   <string name="activity_tab_menu_customize">カスタマイズ</string>
+  <string name="activity_tab_menu_customize_description">閲覧についての洞察は設定のあなたのアプリ言語に基づき、編集についての洞察はあなたのアプリの第一言語に限定されます。洞察は公開されている編集を除き、ローカルデータを活用します。</string>
   <string name="activity_tab_highlights">ハイライト</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">閲覧履歴</string>
   <string name="activity_tab_impact">あなたの影響力</string>
@@ -1274,14 +1275,25 @@
   <string name="activity_tab_customize_screen_editing_insights_switch_title">編集についての洞察</string>
   <string name="activity_tab_customize_screen_impact_switch_title">全期間の影響</string>
   <string name="activity_tab_customize_screen_games_switch_title">ゲームスステータス</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">アプリでの最近の寄付</string>
   <string name="activity_tab_customize_screen_timeline_switch_title">行動のタイムライン</string>
+  <string name="activity_tab_customize_screen_no_modules_message">活動モジュールはオフになっています。このタブで更新を確認するには &lt;a href=\"#\"&gt;オンに切り替えてください。&lt;/a&gt;</string>
   <string name="activity_tab_timeline_today">今日</string>
   <string name="activity_tab_timeline_yesterday">昨日</string>
   <string name="activity_tab_timeline_empty_state_title">表示するものはありません</string>
+  <string name="activity_tab_timeline_empty_state_message">閲覧を始めて履歴を構築しましょう</string>
   <string name="activity_tab_timeline_view_changes_button">変更を表示</string>
   <string name="activity_tab_onboarding_reading_patterns_title">閲覧パターン</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">どのくらい閲覧に時間を費やしたか、どの記事やトピックに時間をかけて探索したのかを確認します。</string>
+  <string name="activity_tab_onboarding_screen_title">活動の紹介</string>
+  <string name="activity_tab_onboarding_impact_title">影響力のハイライト</string>
+  <string name="activity_tab_onboarding_impact_message">あなたの投稿に関する洞察およびあなたが共有した知識が届いた範囲を発見します。</string>
+  <string name="activity_tab_onboarding_engage_title">もっと関与する方法</string>
+  <string name="activity_tab_onboarding_engage_message">ゲームの成績、保存済み記事、あなたとウィキペディアをもっと深くつなぐその他の活動を探索します。</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">制御を保つ</string>
   <string name="activity_tab_onboarding_stay_in_control_message">表示するモジュールを選択してください。すべての個人データはあなたのデバイス上でプライベートにとどまり、閲覧履歴はいつでもクリアできます。</string>
   <string name="edits_screen_what_is_title">ウィキペディアアプリで編集</string>
+  <string name="edits_screen_what_is_body">どこから編集を始めればいいかわかりませんか？小さいけれど不可欠なウィキペディアへの投稿をする機会を作る機能であるお勧め編集を試してください。あるいは、直接興味のある記事へ行き、ウィキテキストを使って変更を加えることもできます。</string>
   <string name="activity_tab_snackbar_label">ゲームステータスはあなたの第一言語で表示されます。</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
@@ -1303,8 +1315,8 @@
   <string name="onboarding_maybe_later">後で</string>
   <string name="onboarding_explore_title">新しいツールで探検しよう</string>
   <string name="onboarding_explore_text">絶えずアップデートしていくホームフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
-  <string name="onboarding_reading_list_sync_title">コレクションの同期</string>
-  <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにコレクションを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、コレクションを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
+  <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにあとで読むリストを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、あとで読むリストを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">データとプライバシー</string>
   <string name="onboarding_data_privacy_text">私たちはフリーな知識運動に参加するために個人情報を提供する必要はないと考えています。このアプリで収集される利用データは匿名です。&lt;br/&gt;&lt;br/&gt;詳細は&lt;a href=\"#privacy\"&gt;プライバシーポリシー&lt;/a&gt;および&lt;a href=\"#termsOfUse\"&gt;利用規約&lt;/a&gt;をご覧ください。</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
@@ -1635,16 +1647,16 @@
   <string name="user_contrib_filter_activity_title">投稿を絞り込む</string>
   <string name="action_item_view_on_map">地図上に表示</string>
   <string name="action_item_view_on_map_unavailable">このページの地理座標は入手できません</string>
-  <string name="shareable_reading_lists_import_dialog_title">共有コレクションのインポート</string>
-  <string name="shareable_reading_lists_import_dialog_content">共有されたコレクションにどのような名前を付けたいですか？</string>
+  <string name="shareable_reading_lists_import_dialog_title">共有あとで読むリストのインポート</string>
+  <string name="shareable_reading_lists_import_dialog_content">共有されたリストにどのような名前を付けたいですか？</string>
   <string name="shareable_reading_lists_new_indicator">*新規*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">コレクションが共有されました</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">コレクションが共有されていることが通知されました。アプリでこのコレクションを表示するには、元のメッセージに戻ってリンクをもう一度タップしてください。</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">あとで読むリストが共有されました</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">あとで読むリストが共有されていることが通知されました。アプリでこのリストを表示するには、元のメッセージに戻ってリンクをもう一度タップしてください。</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">わかりました</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">コレクションをインポートしました</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">あとで読むリストをインポートしました</string>
   <string name="reading_list_share_menu_label">共有…</string>
-  <string name="reading_list_share_menu_tooltip">コレクションを他の人と共有する</string>
-  <string name="reading_list_share_message_v2">こんにちは！私のウィキペディアコレクションを共有します：</string>
+  <string name="reading_list_share_menu_tooltip">あとで読むリストを他の人と共有する</string>
+  <string name="reading_list_share_message_v2">こんにちは！私のウィキペディアあとで読むリストを共有します：</string>
   <string name="talk_templates_empty_message">自分のメッセージを作成するか &lt;a href=\"#\"&gt;メッセージの例&lt;/a&gt; を使って始めます。</string>
   <string name="talk_templates_new_message_title">新しいメッセージ</string>
   <string name="talk_templates_new_message_subject_hint">件名</string>
@@ -1901,9 +1913,36 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">あなたの連続記録、スコアなどを確認します</string>
   <string name="wikipedia_games_title">ウィキペディアゲーム</string>
   <string name="wikipedia_games_subtitle">ウィキペディアのコンテンツに基づく毎日のトリビアゲーム。</string>
+  <string name="yir_intro_headline">あなたのウィキペディアの一年の振り返りはこちらです</string>
+  <string name="yir_article_count_headline">あなたの総記事数:</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="other">あなたはグローバルなウィキペディア読者の上位%1$s%%です。平均的な人は年に%2$d記事を読みます。</item>
+  </plurals>
+  <string name="yir_article_count_supporting">あなたは一年を通して探索してきました。どの記事もあなたに何らかの知識をもたらしました。</string>
+  <string name="yir_article_count_empty_headline">何百万もの記事が発見できます</string>
+  <string name="yir_article_count_empty_supporting">ウィキペディアであなたがあらゆる学びを見つけるのを待っています。</string>
   <string name="yir_days_visited_headline">%1$d年にあなたがウィキペディアを訪れた日数:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="other">あなたの活動ピークは%1$sで、%2$d日閲覧しました。</item>
+  </plurals>
   <string name="yir_minutes_read_headline">閲覧に費やした合計分数:</string>
   <string name="yir_reading_streak_headline">最長連続閲覧記録の日:</string>
+  <string name="yir_reading_streak_supporting">%1$s–%2$sの期間、毎日の閲覧が習慣になっていました。</string>
+  <string name="yir_reading_streak_empty_headline">連続閲覧記録は0です… まだ</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="other">連続%1$d日を達成するまでは連続記録になりません。今から始めてみてはどうでしょう?</item>
+  </plurals>
+  <string name="yir_reading_time_headline">探索するのが好きな時間:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="other">あなたの探索の%1$d%%がこの時間帯でした。偶然か…それとも?</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">あなたは基本的にいつでも閲覧します</string>
+  <string name="yir_reading_time_empty_supporting">ウィキペディアのページを探索すると決めている日または時間は設定されていせん。</string>
+  <string name="yir_top_topic_headline">あなたの%1$d年の上位トピック:</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="other">%1$d記事</item>
+  </plurals>
+  <string name="yir_biggest_reading_day_headline">閲覧が最大の日:</string>
   <plurals name="yir_saved_articles_headline">
     <item quantity="other">あなたが後で読むために保存した記事数: %1$d記事</item>
   </plurals>
@@ -1922,6 +1961,8 @@
   <string name="yir_contributor_thanks_headline">ありがとうございます!</string>
   <string name="yir_contributor_thanks_supporting">%1$sとして、あなたはウィキペディアを広告なしで、信頼に値し、誰でも利用できるように維持することに貢献しました。ウィキペディアを支援していただいたことに感謝してもしきれません!</string>
   <string name="yir_non_contributor_supporting">ウィキペディアが発展し続けられるように貢献してくださる、あなたのような実在の人々のおかげでウィキペディアは存在します。ウィキペディアがあなたにとって価値のあるものならば、寄付あるいは編集によって支援することをご検討ください。</string>
+  <string name="yir_community_intro_headline">私たちの一年の振り返りはこちらです</string>
+  <string name="yir_community_languages_title">ウィキペディアが利用可能な言語数:</string>
   <plurals name="yir_community_languages_headline">
     <item quantity="other">ウィキペディアの知識が利用可能な言語数: %1$d言語以上</item>
   </plurals>
@@ -1932,17 +1973,30 @@
   <string name="yir_community_saved_articles_supporting">読者は何千もの記事をブックマークして、1回、3回、あるいは100回と読みました。</string>
   <string name="yir_community_editors_headline">ボランティア編集者数:</string>
   <string name="yir_community_editors_supporting">ウィキメディアプロジェクトはすべてボランティアによって作られていることを知っていますか？編集者は新しい記事を投稿し、現在の記事を改善します。</string>
-  <string name="yir_community_edits_headline">編集数:</string>
+  <string name="yir_community_edits_headline">ボランティアが行った編集数:</string>
   <string name="yir_community_edits_supporting">毎日の毎時、世界中のボランティアが、記事の事実を更新、歴史的ランドマークを撮影、そして誤字を修正することによって、ウィキペディアの改善に取り組んでいます。</string>
+  <string name="yir_community_global_reach_title">ウィキペディアのグローバルな影響範囲:</string>
+  <string name="yir_community_global_reach_subtitle">世界の最も訪問されたウェブサイトのトップテンのひとつ</string>
   <string name="yir_community_global_reach_headline">ウィキペディアの世界的な影響範囲: 世界の最も訪問されたウェブサイトトップテンのひとつ</string>
   <string name="yir_community_global_reach_supporting">ウィキペディアはインターネットの知識の支柱です。学生からチャットボットまで、皆ここから学んでいます。</string>
+  <string name="yir_closing_share_action">ハイライトを共有</string>
   <string name="yir_store_discount_headline">ささやかな感謝</string>
   <plurals name="yir_store_discount_supporting">
     <item quantity="other">フリーな知識の維持にご協力いただいたので、ウィキペデアストア %1$d%% オフを提供いたします。コード不要で、チェックアウト時に適用されます。</item>
   </plurals>
   <string name="yir_store_discount_action">ストアを訪問</string>
+  <string name="yir_customize_home_headline">独自のホームを作成</string>
+  <string name="yir_customize_home_supporting">魅力を感じる主題を選んで、あなたの興味に合わせたお勧めを手に入れましょう。</string>
+  <string name="yir_customize_home_action">興味をカスタマイズ</string>
+  <string name="yir_community_recap_headline">私たちの一年の振り返り</string>
+  <string name="yir_feature_card_articles_read">読まれた記事の数:</string>
+  <string name="yir_feature_card_minutes_read">総閲覧分数:</string>
+  <string name="yir_feature_card_created_with">ウィキペディアアプリで作成</string>
   <string name="year_in_review_learn_more">詳細</string>
+  <string name="year_in_review_about_your_insights">あなたの洞察について</string>
+  <string name="year_in_review_share_feedback">フィードバックを共有</string>
   <string name="year_in_review_get_started">始める</string>
+  <string name="year_in_review_announcement_explore">探索</string>
   <string name="year_in_review_topbar_w_icon">ウィキペディア W アイコン</string>
   <string name="year_in_review_navigate_left">左へ移動</string>
   <string name="year_in_review_close">閉じる</string>
@@ -1952,10 +2006,15 @@
   <string name="year_in_review_donate">寄付</string>
   <string name="year_in_review_information_icon">情報アイコン</string>
   <string name="year_in_review_get_started_headline">ウィキペディアでの一年を振り返って見てみましょう</string>
+  <string name="year_in_review_entry_card_title_collective">私たちの一年の振り返りはこちらです</string>
+  <string name="year_in_review_entry_card_title_personalized">あなたの一年の振り返りはこちらです</string>
+  <string name="year_in_review_entry_card_subtitle">あなたのウィキペディアでの一年を再発見しよう。</string>
+  <string name="year_in_review_entry_card_subtitle_collective">ウィキペディアでの一年を再発見しよう。</string>
+  <string name="year_in_review_entry_card_data_low_subtitle">今回あなた自身の一年の振り返りを生成するのには十分なデータがありませんでしたが、世界が発見したものを一緒に探索しましょう。</string>
   <string name="year_in_review_survey_title">一年の振り返りの改善に協力</string>
   <string name="year_in_review_survey_subtitle">この機能に満足しましたか?</string>
-  <string name="year_in_review_reading_list_survey_title">%d年の振り返りコレクションの改善に協力します。</string>
-  <string name="year_in_review_reading_list_survey_subtitle">コレクションに満足していますか?</string>
+  <string name="year_in_review_reading_list_survey_title">%d年の振り返りあとで読むリストの改善に協力します。</string>
+  <string name="year_in_review_reading_list_survey_subtitle">あとで読むリストに満足していますか?</string>
   <string name="year_in_review_survey_very_satisfied">非常に満足</string>
   <string name="year_in_review_survey_satisfied">満足</string>
   <string name="year_in_review_survey_neutral">どちらともいえない</string>
@@ -1968,16 +2027,27 @@
   <string name="year_in_review_disable_positive_button">はい、そうします</string>
   <string name="year_in_review_disable_negative_button">いいえ、結構です</string>
   <string name="year_in_review_setting_subtitle">一年の振り返りをオフにすると、保存済みのパーソナライズされた洞察がすべて消去され、一年の振り返りが非表示になります。</string>
+  <string name="year_in_review_screendeck_image_content_description">一年の振り返りのメインスクリーンデッキ用の画像リソース</string>
   <string name="year_in_review_screenshot_error">スクリーンショットを生成できません: %s</string>
   <string name="year_in_review_share_subject">私のウィキペディア一年の振り返り</string>
   <string name="year_in_review_share_body">私のウィキペディア一年の振り返りはこちら。ウィキペディアAndroidアプリで作成 %1$s %2$s</string>
   <string name="year_in_review_globe_icon">地球儀アイコン</string>
-  <string name="settings_app_icon_title">アプリアイコン</string>
   <string name="year_in_review_slide_app_icon_donor">寄付者</string>
   <string name="year_in_review_slide_app_icon_editor">編集者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">寄付者かつ編集者</string>
+  <string name="year_in_review_login_dialog_title">パーソナライズのためにログインしますか?</string>
+  <string name="year_in_review_login_dialog_body">ログインするとパーソナライズされた洞察を得られます。ログインなしでも全体の洞察を確認できます。</string>
+  <string name="year_in_review_login_dialog_title_nodata">ウィキペディアはアカウントを使うのが最善です</string>
+  <string name="year_in_review_login_dialog_body_nodata">ログインするとアプリの最も良い部分にアクセスできます。今日アカウントを作成して次の年の一年の振り返りの構築を始めましょう。</string>
+  <string name="year_in_review_login_dialog_title_data">一年の振り返りはアカウントを使うのが最善です</string>
   <string name="year_in_review_login_dialog_positive">ログイン / ウィキペディアに参加する</string>
   <string name="year_in_review_login_dialog_negative">ログインしないで続ける</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="other">あなたの上位記事</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="other">こちらがあなたが%1$d年に最も訪問した記事です: %2$s</item>
+  </plurals>
   <string name="year_in_review_slide_most_read_english_articles_headline">英語ウィキペディアの最も読まれている記事</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
     <item quantity="other">%,dバイト追加</item>
@@ -1986,17 +2056,17 @@
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">お気に入りの閲覧時間</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">お気に入りの閲覧日</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">最も閲覧した月</string>
-  <string name="year_in_review_slide_reading_pattern_morning" fuzzy="true">朝</string>
-  <string name="year_in_review_slide_reading_pattern_midday" fuzzy="true">正午</string>
-  <string name="year_in_review_slide_reading_pattern_afternoon" fuzzy="true">午後</string>
-  <string name="year_in_review_slide_reading_pattern_evening" fuzzy="true">夕方</string>
-  <string name="year_in_review_slide_reading_pattern_night" fuzzy="true">夜</string>
-  <string name="year_in_review_slide_reading_pattern_late_night" fuzzy="true">深夜</string>
+  <string name="year_in_review_slide_reading_pattern_morning">朝</string>
+  <string name="year_in_review_slide_reading_pattern_midday">正午</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">午後</string>
+  <string name="year_in_review_slide_reading_pattern_evening">夕方</string>
+  <string name="year_in_review_slide_reading_pattern_night">夜</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="other">私たちは閲覧に%,d時間費やしました</item>
   </plurals>
-  <string name="year_in_review_reading_list_dialog_title">%d年を振り返るコレクションを作成しますか?</string>
-  <string name="year_in_review_reading_list_dialog_message">ウィキペディア一年の振り返りは%1$d年にあなたが最も時間を費やした記事のコレクションを作成します。 &lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title">%d年を振り返るあとで読むリストを作成しますか?</string>
+  <string name="year_in_review_reading_list_dialog_message">ウィキペディア一年の振り返りは%1$d年にあなたが最も時間を費やした記事のあとで読むリストを作成します。 &lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">作成</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">いいえ、結構です</string>
   <string name="year_in_review_reading_list_title">%d年の振り返り</string>
@@ -2037,14 +2107,15 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">ハイライトを共有</string>
   <string name="year_in_review_highlights_logo_description">ウィキペディアロゴ</string>
+  <string name="year_in_review_swipe_tutorial_title">スワイプして探索</string>
   <string name="recommended_reading_list_title">発見</string>
   <string name="recommended_reading_list_onboarding_card_title">あなただけのために選ばれた記事を発見</string>
-  <string name="recommended_reading_list_onboarding_card_message">ウィキペディア記事の週刊コレクションが、あなただけのために収集されます。</string>
+  <string name="recommended_reading_list_onboarding_card_message">ウィキペディア記事の週刊あとで読むリストが、あなただけのために収集されます。</string>
   <string name="recommended_reading_list_onboarding_card_new">New!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">始める</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">いいえ、結構です</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar">後でお勧めのコレクションを設定するには、設定に行ってください。</string>
-  <string name="recommended_reading_list_interest_source_message">どのようにお勧めのコレクションを構築すべきですか？</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">後でお勧めのあとで読むリストを設定するには、設定に行ってください。</string>
+  <string name="recommended_reading_list_interest_source_message">どのようにお勧めのあとで読むリストを構築すべきですか？</string>
   <string name="recommended_reading_list_interest_source_interests">自分の興味に基づいて選ばせてください</string>
   <string name="recommended_reading_list_interest_source_saved">保存済み記事に基づいて選んでください</string>
   <string name="recommended_reading_list_interest_source_history">閲覧履歴に基づいて選んでください</string>
@@ -2066,9 +2137,9 @@
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="other">• %d記事</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">あなたの日刊コレクション。あなただけのために選ばれた新しいトピックについて学びましょう。深夜に更新。</string>
-  <string name="recommended_reading_list_page_description_weekly">あなたの週刊コレクション。あなただけのために選ばれた新しいトピックについて学びましょう。週の初めに更新。</string>
-  <string name="recommended_reading_list_page_description_monthly">あなたの月刊コレクション。あなただけのために選ばれた新しいトピックについて学びましょう。毎月1日に更新。</string>
+  <string name="recommended_reading_list_page_description_daily">あなたの日刊あとで読むリスト。あなただけのために選ばれた新しいトピックについて学びましょう。深夜に更新。</string>
+  <string name="recommended_reading_list_page_description_weekly">あなたの週刊あとで読むリスト。あなただけのために選ばれた新しいトピックについて学びましょう。週の初めに更新。</string>
+  <string name="recommended_reading_list_page_description_monthly">あなたの月刊あとで読むリスト。あなただけのために選ばれた新しいトピックについて学びましょう。毎月1日に更新。</string>
   <string name="recommended_reading_list_page_overflow_customize">カスタマイズ</string>
   <string name="recommended_reading_list_page_overflow_about">この機能について</string>
   <string name="recommended_reading_list_page_snackbar_action">発見をカスタマイズ</string>
@@ -2077,7 +2148,7 @@
   <string name="recommended_reading_list_page_snackbar_month">月</string>
   <string name="recommended_reading_list_settings_section_header">お勧め</string>
   <string name="recommended_reading_list_settings_title">発見の設定</string>
-  <string name="recommended_reading_list_settings_toggle">コレクションを発見</string>
+  <string name="recommended_reading_list_settings_toggle">あとで読むリストを発見</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">発見はオフです。ウィキペディアは読む記事をお勧めしません。</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">発見をオフにしますか？</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">発見をオフにすると、%sウィキペディアから届くお勧めを停止します。</string>
@@ -2112,7 +2183,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">通知をオフにした場合、発見が更新されたときにリマインダーが届かなくなります。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">オフにする</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">いいえ、オンのままにします</string>
-  <string name="recommended_reading_list_notification_title">あなたの %s 発見コレクションが準備できています。</string>
+  <string name="recommended_reading_list_notification_title">あなたの %s 発見あとで読むリストが準備できています。</string>
   <string name="recommended_reading_list_notification_subtitle">タップして最新のお勧めを確認してください。</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">発見が更新されたとき、ウィキペディアはあなたに通知を送ります。</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">発見はオンです。ウィキペディアはあなたが読む記事をお勧めします。</string>
@@ -2128,6 +2199,7 @@
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">記事</string>
   <string name="donation_reminders_settings_option_custom">カスタム…</string>
   <string name="donation_reminders_prompt_positive_button">今すぐ寄付する</string>
+  <string name="donation_reminders_prompt_positive_button_v2">はい、今寄付します</string>
   <string name="donation_reminders_prompt_negative_button">今はしない</string>
   <string name="donation_reminders_gpay_text">Google Payで %s 寄付する</string>
   <string name="donation_reminders_gpay_different_amount_text">Google Payで別の金額を寄付する</string>
@@ -2145,6 +2217,17 @@
   <string name="donation_reminders_settings_report_email_body">寄付リマインダー機能で問題に出くわしました:\n- [具体的な問題の説明]\n- [スクリーンショットまたはリンク]\n\n期待する挙動:\n- [提案する解決策の説明]</string>
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
   <string name="donation_reminders_settings_article_number_selection_label">記事</string>
+  <string name="donation_reminders_settings_update_reminder_button">リマインダーを更新</string>
+  <string name="donation_reminders_beta_label">ベータ版</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">フィードバックを共有</string>
+  <string name="donation_reminders_wrap_up_survey_title">寄付リマインダーに関する簡単な質問</string>
+  <string name="donation_reminders_wrap_up_survey_message">読んだ記事に基づく寄付リマインダーは恒久的な機能にすべきですか？</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">そのままにする</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">除去する</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">わからない</string>
+  <string name="donation_reminders_wrap_up_survey_optional_hint">他に何かありますか？（任意）</string>
+  <string name="donation_reminders_wrap_up_survey_thank_you_message">フィードバックに感謝します。あなたの回答は次に私たちが何を構築するか決定する役に立ちます。</string>
+  <string name="donation_reminders_eoe_title">これで実験は終わりです</string>
   <string name="reading_challenge_widget_name">読書チャレンジ</string>
   <string name="reading_challenge_onboarding_header">ウィキペディア誕生25周年を記念して、25日間閲覧チャレンジに参加しよう！</string>
   <string name="reading_challenge_onboarding_read_title">25日間、1日1記事を読もう</string>
@@ -2211,15 +2294,27 @@
   <string name="reading_challenge_widget_reward_title">好奇心旺盛なあなたは最高！</string>
   <string name="reading_challenge_widget_reward_body">チャレンジ達成を記念して、ウィキペディア・ストアで15%%割引</string>
   <string name="reading_challenge_widget_reward_button_label">ストアで15%% OFFをゲット</string>
+  <string name="explore_feed_new_update_prompt_title">探索は新しい外観のホームになりました</string>
+  <string name="explore_feed_new_update_prompt_new_name_title">新しい名前</string>
+  <string name="explore_feed_new_update_prompt_new_name_description">探索フィードはホームになり、以前と同じ場所にあります。</string>
+  <string name="explore_feed_new_update_prompt_two_ways_title">あなたのフィード、2つの方法</string>
+  <string name="explore_feed_new_update_prompt_two_ways_description">あなた向けであなたの興味にパーソナライズされた記事を発見するか、コミュニティでウィキペディアの最高の編集コンテンツを探索します。</string>
+  <string name="explore_feed_new_update_prompt_control_title">制御を保つ</string>
+  <string name="explore_feed_new_update_prompt_control_description">すべてのお勧めはなぜ表示されているのか示されます。設定でいつでも個人設定を更新できます。</string>
+  <string name="explore_feed_new_update_prompt_language_title">すべての言語、完全なパーソナライズ</string>
+  <string name="explore_feed_new_update_prompt_language_description">複数言語で閲覧しますか？それぞれに独自の体験を得られます。新しいフィードに切り替える準備ができています。</string>
   <string name="explore_feed_new_update_prompt_primary_button_text">自分のフィードをカスタマイズ</string>
   <string name="explore_feed_customize_interests">興味をカスタマイズ</string>
   <string name="explore_feed_customize_discover">発見をカスタマイズ</string>
+  <string name="explore_feed_new_update_prompt_secondary_button_text">私のために設定してください</string>
+  <string name="explore_feed_building_text">あなたのフィードを構築しましょう…</string>
   <string name="explore_feed_community_tab_label">コミュニティ</string>
   <string name="explore_feed_for_you_tab_label">あなた向け</string>
   <string name="explore_feed_date_today">今日 - %s</string>
   <string name="explore_feed_load_previous_day_label">前の日を読み込む</string>
-  <string name="explore_feed_from_reading_list">あなたのコレクションから</string>
+  <string name="explore_feed_from_reading_list">あなたのあとで読むリストから</string>
   <string name="explore_feed_because_of_interest">興味による: %s</string>
+  <string name="explore_feed_onboarding_curiosity_title">好奇心に従って</string>
   <string name="explore_feed_onboarding_curiosity_description">興味のあるトピックを選択すると、あなたのフィードがパーソナライズされます。\n\n我々は匿名化された最小限のデータを収集します。</string>
   <string name="explore_feed_deselect_all_button_label">すべての選択を解除</string>
   <string name="explore_feed_potd_subtitle">ボランティア投稿者によって選ばれた、ウィキメディア・コモンズの今日の一枚</string>
@@ -2243,9 +2338,26 @@
   <string name="home_feed_settings_default_view_title">既定のフィード表示</string>
   <string name="home_feed_settings_default_view_subtitle">アプリを開いたときに最初に表示するフィードを選択してください</string>
   <string name="home_feed_settings_default_view_confirm">この変更は次回アプリを開くときに適用されます。</string>
+  <string name="home_feed_settings_whats_driving_title">あなたのフィードの原動力</string>
   <string name="home_feed_settings_modules_title">モジュール</string>
   <string name="home_feed_settings_community_subtitle">「コミュニティ」フィードモジュールをオンまたはオフにする</string>
   <string name="home_feed_settings_for_you_subtitle">「あなた向け」フィードモジュールをオンまたはオフにする</string>
+  <string name="home_feed_settings_whats_driving_subtitle">あなたのコンテンツを形成するトピックと記事</string>
+  <string name="home_feed_settings_community_modules_description">モジュールをオフにするとコミュニティフィードに表示されなくなります。ここでいつでも再有効化できます。一部のモジュールはあなたの言語で利用できない場合があります。</string>
+  <string name="home_feed_settings_for_you_modules_description">モジュールをオフにすると「あなた向け」フィードに表示されなくなります。ここでいつでも再有効化できます。</string>
+  <string name="home_feed_settings_based_on_interest_title">興味に基づいて</string>
+  <string name="home_feed_settings_based_on_interest_subtitle">あなたの選択するトピックで仕立てた記事。&lt;br /&gt;&lt;a href=\"#drivingFeed\"&gt;あなたのフィードの原動力&lt;/a&gt;</string>
+  <string name="home_feed_new_within_interest_card_heading">あなたの興味の新着</string>
+  <string name="home_feed_new_within_interest_title">あなたが興味のある新しい記事</string>
+  <string name="home_feed_new_within_interest_subtitle">あなたがフォローしているトピック分野内の最近作成された記事</string>
+  <string name="home_feed_settings_read_aloud_lead_section_title">記事冒頭を聞く</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">あなたがフォローしているトピック分野内の記事冒頭について生成された音声</string>
+  <string name="home_feed_settings_because_you_read_subtitle">あなたの最近の記事閲覧履歴に基づく提案</string>
+  <string name="home_feed_settings_continue_reading_title">続けて読む</string>
+  <string name="home_feed_settings_continue_reading_subtitle">読み終わっていない記事に戻ります</string>
+  <string name="home_feed_did_you_know_title">知っていましたか？</string>
+  <string name="home_feed_did_you_know_subtitle">ボランティア編集者が選んだ記事からの興味深い事実</string>
+  <string name="home_feed_did_you_know_more_label">さらに知っていますか</string>
   <string name="home_feed_settings_community_empty_dialog_title">あなたのコミュニティフィードは空になります</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">あなたの「あなた向け」フィードは空になります</string>
   <string name="home_feed_settings_empty_dialog_text">コンテンツを表示するモジュールを少なくとも1つオンにしてください。</string>
@@ -2259,6 +2371,9 @@
   <string name="home_feed_for_you_screen_empty_ways_to_start">始める方法：</string>
   <string name="home_feed_for_you_screen_empty_add_interests">&lt;a href=\"#add_interests\"&gt;興味のあること&lt;/a&gt;を追加する</string>
   <string name="home_feed_for_you_screen_empty_see_community">&lt;a href=\"#community_tab\"&gt;コミュニティ&lt;/a&gt;で起こっていることを確認する</string>
+  <string name="home_feed_random_title">おまかせ表示</string>
+  <string name="home_feed_random_subtitle">あなたの好奇心を刺激するランダムな記事</string>
+  <string name="home_feed_random_shuffle_button">シャッフル</string>
   <string name="home_feed_settings_feed_configuration_description">これらのトピックおよび記事は「あなた向け」フィードに現れるものを形成します。不要になったものを除去したり、新しい興味を追加してください。</string>
   <string name="home_feed_settings_feed_configuration_interest_title">あなたの興味</string>
   <string name="home_feed_settings_feed_configuration_interest_subtitle">あなたの興味のあるトピックを編集してください</string>
@@ -2279,44 +2394,62 @@
   <string name="home_feed_settings_games_title">ゲーム</string>
   <string name="home_feed_settings_games_subtitle">ウィキペディアのコンテンツに基づく毎日のゲーム</string>
   <string name="home_feed_settings_discover_title">発見のお勧め</string>
-  <string name="home_feed_settings_discover_subtitle">あなたの発見コレクションの記事</string>
+  <string name="read_aloud_card_play">再生</string>
+  <string name="read_aloud_card_pause">一時停止</string>
+  <string name="read_aloud_card_retry">再試行</string>
+  <string name="read_aloud_card_error">この記事で音声は利用できません。</string>
+  <string name="read_aloud_card_keep_listening">聞き続けますか？</string>
+  <string name="read_aloud_lead_section_survey_title">どのようにしてウィキペディアを聞くことに興味を持ちましたか？</string>
+  <string name="read_aloud_lead_section_survey_choice1">記事冒頭</string>
+  <string name="read_aloud_lead_section_survey_choice2">記事のいくつかのセクション</string>
+  <string name="read_aloud_lead_section_survey_choice3">記事全体</string>
+  <string name="read_aloud_lead_section_survey_choice4">トピックについて複数の異なる記事からの短い抜粋</string>
+  <string name="read_aloud_lead_section_survey_choice5">その他:</string>
+  <string name="read_aloud_lead_section_beta_label">ベータ版</string>
+  <string name="read_aloud_lead_section_report_subject">問題を報告 - 記事冒頭を聞く</string>
+  <string name="read_aloud_lead_section_report_body">「記事冒頭を聞く」機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]</string>
+  <string name="read_aloud_lead_section_about_experiment">この実験について</string>
+  <string name="read_aloud_lead_section_report_issue">問題を報告</string>
+  <string name="home_feed_settings_discover_subtitle">あなたの発見あとで読むリストの記事</string>
   <string name="home_feed_discover_cta_title">発見から</string>
   <string name="home_feed_discover_cta_description">あなただけのために選ばれた、新しいトピックについて学びます。毎日、毎週、あるいは毎月から更新頻度を選択してください。</string>
-  <string name="home_feed_discover_cta_button">発見コレクションを有効化</string>
+  <string name="home_feed_discover_cta_button">発見あとで読むリストを有効化</string>
   <string name="home_feed_discover_card_footer">発見から • %s更新</string>
   <string name="home_feed_discover_see_all_title">もっと発見があります</string>
-  <string name="home_feed_discover_see_all_description">あなたのパーソナライズされたコレクションには、あなただけのために選ばれた更なるストーリーがあります。</string>
+  <string name="home_feed_discover_see_all_description">あなたのパーソナライズされたあとで読むリストには、あなただけのために選ばれた更なるストーリーがあります。</string>
   <string name="home_feed_discover_see_all_button">すべてのお勧めを探索</string>
   <string name="home_feed_places_of_interest_card_footer">%1$s • あなたの位置に基づく</string>
   <string name="home_feed_for_you_screen_end_of_feed_title">今日はここまでです！</string>
   <string name="home_feed_for_you_screen_end_of_feed_description">明日戻ってきてあなた向けにカスタマイズされた新しい記事を見つけてください。</string>
   <string name="home_feed_for_you_screen_end_of_feed_ways_to_keep_learning">学び続ける方法:</string>
   <string name="home_feed_for_you_screen_end_of_feed_add_interests">&lt;a href=\"#add_interests\"&gt;新しい興味&lt;/a&gt;を追加する</string>
+  <string name="randomizer_shake_prompt_title">振ってシャッフル</string>
+  <string name="randomizer_shake_prompt_message">デバイスを振ってランダムな記事に飛び、予想外のものを発見しましょう。</string>
   <string name="home_feed_games_module_cta_prompt_title">もっとゲームをプレイしたいですか？</string>
+  <string name="random_article_widget_name">おまかせ記事</string>
   <string name="reading_lists_tab_all_articles">すべての記事</string>
-  <string name="reading_lists_tab_collections">コレクション</string>
+  <string name="reading_lists_tab_collections">あとで読むリスト</string>
   <string name="reading_lists_filter_content_description">保存済み記事を絞り込み</string>
-  <string name="reading_lists_filter_not_in_collection">コレクションに含まれない</string>
-  <string name="reading_lists_empty_not_in_collection_title">すべての保存済み記事がコレクションに含まれています。</string>
+  <string name="reading_lists_filter_not_in_collection">あとで読むリストに含まれない</string>
+  <string name="reading_lists_empty_not_in_collection_title">すべての保存済み記事があとで読むリストに含まれています。</string>
   <string name="reading_lists_search_saved_articles">保存済み記事を検索</string>
-  <string name="reading_lists_search_collections">コレクションを検索</string>
-  <string name="reading_lists_empty_collections_title">保存済み記事をコレクションで整理する</string>
-  <string name="reading_lists_empty_collections_description">旅行先の場所、好きなトピック、などについてコレクションを作成します。</string>
-  <string name="reading_lists_create_new_collection">新しいコレクションを作成</string>
+  <string name="reading_lists_search_collections">あとで読むリストを検索</string>
+  <string name="reading_lists_empty_collections_title">保存済み記事をあとで読むリストで整理する</string>
+  <string name="reading_lists_empty_collections_description">旅行先の場所、好きなトピック、などについてあとで読むリストを作成します。</string>
+  <string name="reading_lists_create_new_collection">新しいあとで読むリストを作成</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">記事の保存を解除しますか？</string>
   <string name="reading_lists_remove_articles_confirm_button">保存解除</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
-    <item quantity="other">%d記事がすべての関連付けられたコレクションから除去されます。</item>
+    <item quantity="other">%d記事がすべての関連付けられたあとで読むリストから除去されます。</item>
   </plurals>
   <plurals name="reading_lists_articles_removed_from_collections">
-    <item quantity="other">%d記事がすべての関連付けられたコレクションから除去されました。</item>
+    <item quantity="other">%d記事がすべての関連付けられたあとで読むリストから除去されました。</item>
   </plurals>
   <string name="reading_lists_save_sheet_empty_title">あなたの好きな記事を収集しましょう</string>
-  <string name="reading_lists_save_sheet_empty_message">コレクションに記事を保存します。</string>
+  <string name="reading_lists_save_sheet_empty_message">あとで読むリストに記事を保存します。</string>
   <string name="reading_lists_save_sheet_create">作成</string>
-  <string name="reading_lists_update_tooltip">あとで読むリストはコレクションと呼ばれるようになりました。</string>
   <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
-    <item quantity="other">保存解除すると、すべての関連付けられたコレクションから記事を除去します。</item>
+    <item quantity="other">保存解除すると、すべての関連付けられたあとで読むリストから記事を除去します。</item>
   </plurals>
   <string name="semantic_search_entry_point_card_message">記事内を検索して、関連する箇所に直接移動</string>
   <string name="semantic_search_entry_point_card_text_button">今すぐ試す</string>
@@ -2344,6 +2477,10 @@
   <string name="semantic_search_results_feedback_submitted_message">フィードバックありがとうございます</string>
   <string name="semantic_search_feedback_dialog_title">フィードバック</string>
   <string name="semantic_search_feedback_dialog_close_button_content_description">セマンティック検索のフィードバックを閉じる</string>
+  <string name="preference_heading_semantic_search">検索</string>
+  <string name="preference_title_semantic_search_within_articles">記事内を検索</string>
   <string name="semantic_search_snackbar_message">モジュールが非表示になっています。設定から再度表示できます。</string>
   <string name="semantic_search_snackbar_action_label">変更</string>
+  <string name="notifications_experiment_discover_interests_title">%sに興味があるため</string>
+  <string name="notifications_experiment_discover_saved_or_history_title">%sについて読んだため</string>
 </resources>

@@ -4,6 +4,7 @@ import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.topics.ArticleTopic
+import org.wikipedia.yearinreview.data.YearInReviewTimeOfDay
 
 // Declared in the order the collective flow shows them. Values come from the remote config.
 enum class YearInReviewCollectiveInsight {
@@ -40,7 +41,7 @@ sealed interface YearInReviewPage {
         override val id get() = if (isEmptyState) "reading_streak_empty" else "reading_streak"
     }
 
-    data class ReadingPattern(val isEmptyState: Boolean, val favoriteTime: String, val favoriteTimePercentage: Int) : YearInReviewPage {
+    data class ReadingPattern(val isEmptyState: Boolean, val favoriteTime: YearInReviewTimeOfDay?, val favoriteTimePercentage: Int) : YearInReviewPage {
         override val id get() = if (isEmptyState) "reading_pattern_empty" else "reading_pattern"
     }
 
@@ -64,16 +65,8 @@ sealed interface YearInReviewPage {
         override val id = "longest_read_guess"
     }
 
-    data class LongestReadReveal(val article: PageTitle? = null, val minutesSpent: Int = 0) : YearInReviewPage {
-        override val id = "longest_read_reveal"
-    }
-
     data class RabbitHoleGuess(val articleStart: PageTitle? = null, val articleEnd: PageTitle? = null, val fakeArticleStart: PageTitle? = null, val fakeArticleEnd: PageTitle? = null, val numLinks: Int = 0) : YearInReviewPage {
         override val id = "rabbit_hole_guess"
-    }
-
-    data class RabbitHoleReveal(val articleStart: PageTitle? = null, val articleEnd: PageTitle? = null, val numLinks: Int = 0) : YearInReviewPage {
-        override val id = "rabbit_hole_reveal"
     }
 
     data class Category(val categoryName: String) : YearInReviewPage {

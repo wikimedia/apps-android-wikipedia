@@ -41,6 +41,9 @@ class PersonalizationViewModelTest {
     @Before
     fun setUp() {
         every { interestSelectionRepository.wikiSite } returns wikiSite
+        coEvery { interestSelectionRepository.getPersistedTopics() } returns emptyList()
+        coEvery { interestSelectionRepository.getPersistedArticles("en") } returns emptyList()
+        coEvery { interestSelectionRepository.loadInitialArticles() } returns emptyList()
         coEvery { homePreferenceRepository.getCommunityPreviewContent() } returns communityPreview
     }
 
@@ -52,15 +55,30 @@ class PersonalizationViewModelTest {
     @Test
     fun `loads initial articles when nothing has been saved before`() {
         val articles = listOf(pageTitle("Apple"), pageTitle("Orange"))
-        coEvery { interestSelectionRepository.getPersistedTopics() } returns emptyList()
-        coEvery { interestSelectionRepository.getPersistedArticles("en") } returns emptyList()
         coEvery { interestSelectionRepository.loadInitialArticles() } returns articles
 
         val viewModel = viewModel()
-        viewModel.onPageChanged(PersonalizationPage.INTERESTS)
 
         assertEquals(
             ArticlesState.Success(articles = articles, selectedArticles = emptySet()),
+            viewModel.interestUiState.value.articlesState
+        )
+    }
+
+    @Test
+    fun `an article added from search that is already listed moves to the top instead of repeating`() {
+        val articles = listOf(pageTitle("Apple"), pageTitle("Orange"))
+        coEvery { interestSelectionRepository.loadInitialArticles() } returns articles
+        coJustRun { interestSelectionRepository.saveArticle(any(), any()) }
+
+        val viewModel = viewModel()
+        viewModel.addArticleFromSearch(pageTitle("Orange"))
+
+        assertEquals(
+            ArticlesState.Success(
+                articles = listOf(pageTitle("Orange"), pageTitle("Apple")),
+                selectedArticles = setOf(pageTitle("Orange"))
+            ),
             viewModel.interestUiState.value.articlesState
         )
     }
@@ -75,7 +93,6 @@ class PersonalizationViewModelTest {
         coEvery { interestSelectionRepository.getPersistedArticles("en") } returns listOf(savedArticle)
 
         val viewModel = viewModel()
-        viewModel.onPageChanged(PersonalizationPage.INTERESTS)
 
         coVerify(exactly = 0) { interestSelectionRepository.loadInitialArticles() }
         val interestUiState = viewModel.interestUiState.value
@@ -115,12 +132,30 @@ class PersonalizationViewModelTest {
         val viewModel = viewModel()
         viewModel.onPageChanged(PersonalizationPage.HOME_PREFERENCE)
 
-        coVerify { homePreferenceRepository.getCommunityPreviewContent() }
+        coVerify(exactly = 1) { homePreferenceRepository.getCommunityPreviewContent() }
 
         assertEquals(
             HomeContentState.Success(communityPreview),
             viewModel.feedPreferenceUiState.value.communityState
         )
+    }
+
+    @Test
+    fun `the community preview content is loaded before its page is shown`() {
+        val viewModel = viewModel()
+
+        coVerify(exactly = 1) { homePreferenceRepository.getCommunityPreviewContent() }
+        assertEquals(
+            HomeContentState.Success(communityPreview),
+            viewModel.feedPreferenceUiState.value.communityState
+        )
+    }
+
+    @Test
+    fun `the community preview content is not loaded when only interests are shown`() {
+        viewModel(showInterestsOnly = true)
+
+        coVerify(exactly = 0) { homePreferenceRepository.getCommunityPreviewContent() }
     }
 
     @Test
@@ -175,10 +210,11 @@ class PersonalizationViewModelTest {
         )
     }
 
-    private fun viewModel(): PersonalizationViewModel {
+    private fun viewModel(showInterestsOnly: Boolean = false): PersonalizationViewModel {
         return PersonalizationViewModel(
             interestSelectionRepository = interestSelectionRepository,
-            homePreferenceRepository = homePreferenceRepository
+            homePreferenceRepository = homePreferenceRepository,
+            showInterestsOnly = showInterestsOnly
         )
     }
 

@@ -44,6 +44,9 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
+import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
+import org.wikipedia.notifications.experiment.NotificationsExperimentMostReadAbTest
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
@@ -135,9 +138,17 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                     val subType = when (notificationCategory) {
                         NotificationCategory.GAMES -> "game"
                         NotificationCategory.RECOMMENDED_READING_LISTS -> "discover"
+                        NotificationCategory.WEEKLY_MOST_READ -> "trending"
                         else -> null
                     }
                     TestKitchenAdapter.client.getInstrument("apps-open")
+                        .also { instrument ->
+                            when (notificationCategory) {
+                                NotificationCategory.RECOMMENDED_READING_LISTS -> NotificationsExperimentAbTest().setExperimentIfEligible(instrument)
+                                NotificationCategory.WEEKLY_MOST_READ -> NotificationsExperimentMostReadAbTest().setExperimentIfEligible(instrument)
+                                else -> { }
+                            }
+                        }
                         .submitInteraction(
                             action = "app_open",
                             actionSource = "notification",
@@ -162,6 +173,8 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             Prefs.isReadingListSyncEnabled = true
             ReadingListSyncAdapter.manualSyncWithForce()
         }
+        NotificationsExperimentAbTest().maybeRescheduleRecommendedReadingListNotification(this)
+        NotificationsExperimentHelper.maybeScheduleWeeklyMostReadNotification(this)
 
         WikipediaApp.instance.connectionStateMonitor.registerCallback(this)
 
@@ -170,8 +183,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
         maybeShowAnnouncement(this)
-
-        Prefs.localClassName = localClassName
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {

@@ -38,12 +38,35 @@ import java.util.Locale
 private const val POSITION_POLL_INTERVAL_MILLIS = 50L
 
 /**
- * Playback state of one article's lead-section audio, backed by an [ExoPlayer] that lives exactly as
- * long as the composable that remembers it. Scrolling the card out of the feed therefore stops
- * playback and frees the player.
+ * Playback state of one article's lead-section audio, backed by an [ExoPlayer] that is built on the
+ * first tap on Play and released when the composable that remembers this state leaves composition.
+ * Scrolling the card out of the feed therefore stops playback and frees the player, and a card that
+ * is never played never builds one. [createPlayer] is null in previews, which have no player.
  */
 @Stable
-class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) {
+class ReadAloudPlayerState internal constructor(private val createPlayer: (() -> ExoPlayer)?) {
+    private var player: ExoPlayer? = null
+
+    private val playerListener = object : Player.Listener {
+        override fun onIsPlayingChanged(isPlaying: Boolean) {
+            this@ReadAloudPlayerState.isPlaying = isPlaying
+        }
+
+        override fun onPlaybackStateChanged(playbackState: Int) {
+            isBuffering = playbackState == Player.STATE_BUFFERING
+            when (playbackState) {
+                Player.STATE_READY -> durationMillis = currentPlayerDuration()
+                Player.STATE_ENDED -> onPlaybackEnded()
+            }
+        }
+
+        override fun onPlayerError(error: PlaybackException) {
+            L.e(error)
+            hasError = true
+            isBuffering = false
+        }
+    }
+
     var isPlaying by mutableStateOf(false)
         internal set
     var isBuffering by mutableStateOf(false)
@@ -100,11 +123,13 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     val currentCueIndex by derivedStateOf { cues.indexOfCueStartedAt(displayPositionMillis) }
 
     fun playOrPause() {
-        val player = player ?: return
+        if (createPlayer == null) {
+            return
+        }
         hasStartedPlayback = true
         when {
             hasError -> retry()
-            player.isPlaying -> player.pause()
+            player?.isPlaying == true -> player?.pause()
             // The media is still on its way: hold on to the intent to play and honor it the moment
             // the media lands, or drop it again if the user taps a second time before that.
             audioUrl == null -> {
@@ -113,8 +138,7 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
             }
             else -> {
                 hasFinishedPlayback = false
-                prepareIfNeeded()
-                player.play()
+                startPlayback()
             }
         }
     }
@@ -161,14 +185,12 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
         audioUrl = media.audioUrl
         generatedDate = media.generatedDate
         audioRevisionId = media.revisionId
-        player?.setMediaItem(MediaItem.fromUri(media.audioUrl))
         if (isAwaitingMedia) {
             isAwaitingMedia = false
             hasFinishedPlayback = false
-            prepareIfNeeded()
             // Buffering is left set until the player itself says otherwise, so the spinner carries
             // straight through from waiting on the media into waiting on the audio.
-            player?.play()
+            startPlayback()
         }
     }
 
@@ -186,14 +208,30 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
     }
 
     /**
-     * The audio isn't fetched until the user actually starts playback, so merely scrolling past the
-     * card never pulls down an audio file.
+     * Builds the player if needed and plays the recording. The audio isn't fetched until the user
+     * actually starts playback, so merely scrolling past the card never pulls down an audio file.
      */
-    private fun prepareIfNeeded() {
+    private fun startPlayback() {
+        val url = audioUrl ?: return
+        val player = player ?: createPlayer?.invoke()?.also {
+            it.addListener(playerListener)
+            player = it
+        } ?: return
         if (!isPrepared) {
-            player?.prepare()
+            // Starts from wherever the user scrubbed to, if they did before playing.
+            player.setMediaItem(MediaItem.fromUri(url), positionMillis)
+            player.prepare()
             isPrepared = true
         }
+        player.play()
+    }
+
+    internal fun release() {
+        player?.let {
+            it.removeListener(playerListener)
+            it.release()
+        }
+        player = null
     }
 
     private fun retry() {
@@ -208,8 +246,7 @@ class ReadAloudPlayerState internal constructor(private val player: ExoPlayer?) 
             return
         }
         isPrepared = false
-        prepareIfNeeded()
-        player?.play()
+        startPlayback()
     }
 
     internal fun onPlaybackEnded() {
@@ -249,38 +286,16 @@ fun rememberReadAloudPlayerState(summary: PageSummary, isInFocus: Boolean): Read
     val context = LocalContext.current
     // Previews render without a real player, so @Preview functions don't try to reach the network.
     val isPreview = LocalInspectionMode.current
-    val player = remember(summary.pageId, isPreview) { if (isPreview) null else buildPlayer(context) }
-    val state = remember(player, isPreview) { ReadAloudPlayerState(player) }
+    val state = remember(summary.pageId, isPreview) {
+        ReadAloudPlayerState(if (isPreview) null else { { buildPlayer(context) } })
+    }
 
-    if (player == null) {
+    if (isPreview) {
         return state
     }
 
-    DisposableEffect(player) {
-        val listener = object : Player.Listener {
-            override fun onIsPlayingChanged(isPlaying: Boolean) {
-                state.isPlaying = isPlaying
-            }
-
-            override fun onPlaybackStateChanged(playbackState: Int) {
-                state.isBuffering = playbackState == Player.STATE_BUFFERING
-                when (playbackState) {
-                    Player.STATE_READY -> state.durationMillis = state.currentPlayerDuration()
-                    Player.STATE_ENDED -> state.onPlaybackEnded()
-                }
-            }
-
-            override fun onPlayerError(error: PlaybackException) {
-                L.e(error)
-                state.hasError = true
-                state.isBuffering = false
-            }
-        }
-        player.addListener(listener)
-        onDispose {
-            player.removeListener(listener)
-            player.release()
-        }
+    DisposableEffect(state) {
+        onDispose { state.release() }
     }
 
     LaunchedEffect(state.isPlaying) {

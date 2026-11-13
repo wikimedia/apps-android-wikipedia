@@ -3,6 +3,7 @@ package org.wikipedia.yearinreview.data
 import kotlinx.serialization.Serializable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopic
+import kotlin.time.Duration.Companion.seconds
 
 @Serializable
 data class YearInReviewCachedStats(
@@ -14,7 +15,8 @@ data class YearInReviewCachedStats(
 data class YearInReviewEditingStats(
     val totalEditCount: Int = 0,
     val totalPageViewsCount: Long = 0,
-    val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList()
+    val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList(),
+    val isDonor: Boolean = false
 ) {
     val totalEditCountStatus get() = if (totalEditCount > 0) {
         YearInReviewInsightStatus.PERSONALIZED
@@ -39,6 +41,7 @@ data class YearInReviewEditingStats(
 data class YearInReviewReadingStats(
     val articlesReadCount: Int,
     val visitedDaysCount: Int,
+    val totalTimeSpentSec: Long = 0,
     val peakMonth: Int,
     val peakMonthVisitedDays: Int,
     val articlesRevisited: List<Pair<PageTitle, Int>> = emptyList(),
@@ -83,7 +86,25 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.SUPPRESSED
     }
 
-    val topTopicsStatus get() = if (topTopic != null && topTopicTotalArticles >= 3) {
+    val totalReadingStatus get() = if (totalTimeSpentSec in 61..<18000000) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val streakStatus get() = if (longestStreakDays > 1 && longestStreakStartMonth > 0 && longestStreakStartDay > 0 && longestStreakEndMonth > 0 && longestStreakEndDay > 0) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
+    val readingPatternStatus get() = if (favoriteTimeOfDay != null && favoriteTimeOfDayPercentage > 0) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.EMPTY_STATE
+    }
+
+    val topTopicsStatus get() = if (topTopic != null && topTopicTotalArticles >= 3 && articlesReadCount >= 5) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
@@ -95,13 +116,25 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.SUPPRESSED
     }
 
+    val biggestReadingDayStatus get() = if (biggestReadingDayMonth > 0 && biggestReadingDayOfMonth > 0 && biggestReadingDayTimeSpentSec.seconds.inWholeMinutes >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val biggestReadingDayArticlesStatus get() = if (biggestReadingDayStatus == YearInReviewInsightStatus.PERSONALIZED && biggestReadingDayArticles.size >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
     val articlesRevisitedStatus get() = if (articlesRevisited.size >= 2) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
-    val longestReadArticleStatus get() = if (longestReadArticles.size > 1 && longestReadArticleMinutes > 10) {
+    val longestReadArticleStatus get() = if (longestReadArticles.size > 1 && longestReadArticleMinutes > 1) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.SUPPRESSED

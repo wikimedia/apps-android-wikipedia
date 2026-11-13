@@ -20,3 +20,4 @@ dependencyResolutionManagement {
 
 include(":app")
 include(":analytics:testkitchen")
+include(":baselineprofile")

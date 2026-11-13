@@ -2,8 +2,12 @@ package org.wikipedia.yearinreview.presentation
 
 import org.wikipedia.history.db.MonthVisitedDays
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.DateUtil
 import org.wikipedia.yearinreview.data.YearInReviewInsightStatus
 import org.wikipedia.yearinreview.data.YearInReviewSnapshot
+import java.time.LocalDate
+import kotlin.time.Duration.Companion.minutes
+import kotlin.time.Duration.Companion.seconds
 
 object YearInReviewFlowDecider {
     private const val MIN_PERSONALIZED_PAGES = 2
@@ -16,14 +20,34 @@ object YearInReviewFlowDecider {
         return hasEnoughPersonalizedPages(candidates)
     }
 
+    fun canShareHighlights(snapshot: YearInReviewSnapshot): Boolean {
+        var totalHighlights = 0
+        if (snapshot.readingStats.articlesReadCount > 2) {
+            totalHighlights++
+        }
+        if (snapshot.readingStats.totalTimeSpentSec.minutes > 10.minutes) {
+            totalHighlights++
+        }
+        if (snapshot.readingStats.rabbitHoleStart != null && snapshot.readingStats.rabbitHoleEnd != null) {
+            totalHighlights++
+        }
+        if (snapshot.readingStats.articlesRevisited.size > 1) {
+            totalHighlights++
+        }
+        if (!snapshot.readingStats.topCategory.isNullOrEmpty()) {
+            totalHighlights++
+        }
+        return totalHighlights >= 2
+    }
+
     fun pages(snapshot: YearInReviewSnapshot): List<YearInReviewPage> {
         val candidates = personalizedCandidates(snapshot)
         val isPersonalized = snapshot.isLoggedIn && hasEnoughPersonalizedPages(candidates)
         val flowPages = if (isPersonalized) {
             candidates.filter { it.status != YearInReviewInsightStatus.SUPPRESSED }.map { it.page() } +
-                    listOfNotNull(personalizedClosingPage(snapshot))
+                    listOfNotNull(youMatterPage(candidates, snapshot))
         } else {
-            YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it, snapshot.remoteConfig) } + listOfNotNull(youMatterPage(snapshot))
+            YearInReviewCollectiveInsight.entries.map { YearInReviewPage.Collective(it, snapshot.remoteConfig) } + listOfNotNull(youMatterPage(candidates, snapshot))
         }
         return flowPages + YearInReviewPage.End(isDonor = snapshot.rewardData.isContributor)
     }
@@ -46,6 +70,26 @@ object YearInReviewFlowDecider {
                     peakMonth = if (readingStats.hasPeakMonth) MonthVisitedDays(readingStats.peakMonth, readingStats.peakMonthVisitedDays) else null
                 )
             },
+            CandidatePage(status = readingStats.totalReadingStatus) {
+                YearInReviewPage.TimeSpent(
+                    duration = readingStats.totalTimeSpentSec
+                )
+            },
+            CandidatePage(status = readingStats.streakStatus) {
+                YearInReviewPage.ReadingStreak(
+                    isEmptyState = readingStats.streakStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    longestStreak = readingStats.longestStreakDays,
+                    streakStartDate = if (readingStats.streakStatus != YearInReviewInsightStatus.EMPTY_STATE) DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.longestStreakStartMonth, readingStats.longestStreakStartDay)) else "",
+                    streakEndDate = if (readingStats.streakStatus != YearInReviewInsightStatus.EMPTY_STATE) DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.longestStreakEndMonth, readingStats.longestStreakEndDay)) else ""
+                )
+            },
+            CandidatePage(status = readingStats.readingPatternStatus) {
+                YearInReviewPage.ReadingPattern(
+                    isEmptyState = readingStats.readingPatternStatus == YearInReviewInsightStatus.EMPTY_STATE,
+                    favoriteTime = readingStats.favoriteTimeOfDay,
+                    favoriteTimePercentage = readingStats.favoriteTimeOfDayPercentage
+                )
+            },
             CandidatePage(status = readingStats.topTopicsStatus) {
                 YearInReviewPage.TopTopic(
                     isEmptyState = readingStats.topTopicsStatus == YearInReviewInsightStatus.EMPTY_STATE,
@@ -59,16 +103,21 @@ object YearInReviewFlowDecider {
                     topicArticleCounts = readingStats.topicArticleCountMap
                 )
             },
+            CandidatePage(status = readingStats.biggestReadingDayStatus) {
+                YearInReviewPage.BiggestReadingDay(
+                    date = if (readingStats.biggestReadingDayStatus == YearInReviewInsightStatus.PERSONALIZED) DateUtil.getMonthOnlyDateString(LocalDate.of(LocalDate.now().year, readingStats.biggestReadingDayMonth, readingStats.biggestReadingDayOfMonth)) else "",
+                    minutesSpent = readingStats.biggestReadingDayTimeSpentSec.seconds.inWholeMinutes.toInt(),
+                )
+            },
+            CandidatePage(status = readingStats.biggestReadingDayArticlesStatus) {
+                YearInReviewPage.BiggestReadingDayArticles(
+                    articles = readingStats.biggestReadingDayArticles
+                )
+            },
             CandidatePage(status = readingStats.longestReadArticleStatus) {
                 YearInReviewPage.LongestReadGuess(
                     article = readingStats.longestReadArticles.firstOrNull(),
                     fakeArticle = readingStats.longestReadArticles.getOrNull(1),
-                    minutesSpent = readingStats.longestReadArticleMinutes
-                )
-            },
-            CandidatePage(status = readingStats.longestReadArticleStatus) {
-                YearInReviewPage.LongestReadReveal(
-                    article = readingStats.longestReadArticles.firstOrNull(),
                     minutesSpent = readingStats.longestReadArticleMinutes
                 )
             },
@@ -78,13 +127,6 @@ object YearInReviewFlowDecider {
                     articleEnd = readingStats.rabbitHoleEnd,
                     fakeArticleStart = readingStats.rabbitHoleFakeStart,
                     fakeArticleEnd = readingStats.rabbitHoleFakeEnd,
-                    numLinks = readingStats.rabbitHoleArticleCount
-                )
-            },
-            CandidatePage(status = readingStats.rabbitHoleStatus) {
-                YearInReviewPage.RabbitHoleReveal(
-                    articleStart = readingStats.rabbitHoleStart,
-                    articleEnd = readingStats.rabbitHoleEnd,
                     numLinks = readingStats.rabbitHoleArticleCount
                 )
             },
@@ -130,25 +172,23 @@ object YearInReviewFlowDecider {
                     articles = editingStats.mostViewedArticles
                 )
             }
-        )
-    }
-
-    private fun personalizedClosingPage(snapshot: YearInReviewSnapshot): YearInReviewPage? {
-        val rewardData = snapshot.rewardData
-        return if (rewardData.isContributor) {
-            YearInReviewPage.ThankYou(isEditor = rewardData.isEditor, isDonor = rewardData.isDonor)
-        } else {
-            youMatterPage(snapshot)
-        }
+        ) + (if (snapshot.rewardData.isContributor) {
+                listOf(CandidatePage(status = YearInReviewInsightStatus.PERSONALIZED) {
+                    YearInReviewPage.ThankYou(
+                        isEditor = snapshot.rewardData.isEditor,
+                        isDonor = snapshot.rewardData.isDonor
+                    )
+                })
+            } else emptyList())
     }
 
     private fun hasEnoughPersonalizedPages(candidates: List<CandidatePage>): Boolean {
         return candidates.count { it.status == YearInReviewInsightStatus.PERSONALIZED } >= MIN_PERSONALIZED_PAGES
     }
 
-    private fun youMatterPage(snapshot: YearInReviewSnapshot): YearInReviewPage? {
-        return if (snapshot.isDonationEligible) YearInReviewPage.YouMatter(showLoginPrompt = !snapshot.isLoggedIn) else null
-    }
+    private fun youMatterPage(candidates: List<CandidatePage>, snapshot: YearInReviewSnapshot): YearInReviewPage? {
+        val hasThankYou = candidates.any { it.status == YearInReviewInsightStatus.PERSONALIZED && it.page() is YearInReviewPage.ThankYou }
+         return if (snapshot.isDonationEligible && !hasThankYou) YearInReviewPage.YouMatter(showLoginPrompt = !snapshot.isLoggedIn) else null }
 
     private fun getTopReadPercentile(snapshot: YearInReviewSnapshot): String {
         return snapshot.remoteConfig.topReadPercentages.find {

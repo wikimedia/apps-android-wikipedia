@@ -62,6 +62,8 @@ class YearInReviewRepositoryImpl(
             L.e(e)
             null
         }
+        val isDonor = donationEligibility.isDonor(remoteConfig) || editingStats?.isDonor == true
+
         val updatedStats = YearInReviewCachedStats(readingStats = readingStats, editingStats = editingStats)
         if (updatedStats != cachedStats) {
             cache.put(year, updatedStats)
@@ -78,7 +80,7 @@ class YearInReviewRepositoryImpl(
             readingStats = readingStats,
             editingStats = editingStats ?: YearInReviewEditingStats(),
             rewardData = YearInReviewRewardData(
-                isDonor = donationEligibility.hasDonatedWithinContributionsDateRange(remoteConfig),
+                isDonor = isDonor,
                 isEditor = (editingStats?.totalEditCount ?: 0) > 0
             )
         )
@@ -102,6 +104,7 @@ class YearInReviewRepositoryImpl(
 
         val articlesReadCount = async { historyEntryDao.getDistinctArticlesCountBetween(dateRange.startMillis, dateRange.endMillis, mainPageTitles) }
         val visitedDaysCount = async { historyEntryDao.getDistinctDaysCountBetween(dateRange.startMillis, dateRange.endMillis) }
+        val totalTimeSpentSec = async { historyEntryWithImageDao.getTimeSpentBetween(dateRange.startMillis, dateRange.endMillis) }
         val peakMonthDeferred = async { historyEntryDao.getPeakMonthByVisitedDaysBetween(dateRange.startMillis, dateRange.endMillis) }
         val longestStreakDeferred = async {
             YearInReviewReadingStreak.longestOf(historyEntryDao.getDistinctDaysBetween(dateRange.startMillis, dateRange.endMillis).map { LocalDate.parse(it) })
@@ -147,16 +150,19 @@ class YearInReviewRepositoryImpl(
 
         // The sample articles query depends on the top topic, so the topic queries run in sequence here,
         // while the queries above keep running in parallel.
-        val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis).take(4)
-        val topTopicWithCount = topTopics.firstOrNull { it.articleCount >= 3 }
-        val topTopic = topTopicWithCount?.topic?.let {
-            ArticleTopics.all.find { topic -> topic.taxonIds.contains(it) }
+        // Counts come per taxon id, and several taxon ids can share one topicId
+        // so only the highest-counted taxon id of each topic is kept.
+        val topTopics = pageTopicDao.getTopTopicsByArticleCount(dateRange.startMillis, dateRange.endMillis)
+            .mapNotNull { stats -> ArticleTopics.all.find { it.taxonIds.contains(stats.topic) }?.let { it to stats } }
+            .distinctBy { (topic, _) -> topic.topicId }
+            .take(4)
+        val topTopicWithCount = topTopics.firstOrNull { (_, stats) -> stats.articleCount >= 3 }
+        val topTopic = topTopicWithCount?.first
+        val topTopicSampleArticles = topTopicWithCount?.let { (_, stats) ->
+            pageTopicDao.findEntriesByTopic(stats.topic, dateRange.startMillis, dateRange.endMillis, limit = 3)
+                .map { entry -> StringUtil.fromHtml(entry.displayTitle).toString() }
         }
-        val topTopicSampleArticles = topTopic?.let { topic ->
-            pageTopicDao.findEntriesByTopic(topic.taxonIds.firstOrNull().orEmpty(), dateRange.startMillis, dateRange.endMillis, limit = 3)
-                .map { StringUtil.fromHtml(it.displayTitle).toString() }
-        }
-        val otherTopTopics = topTopics.drop(1).filter { it.articleCount > 1 }
+        val otherTopTopics = topTopics.drop(1).filter { (_, stats) -> stats.articleCount > 1 }
 
         val topCategories = topCategoriesDeferred.await().filter { it.count > 1 }
         val topCategoriesWithSpaces = topCategories.filter { it.title.split(" ").size > 2 }
@@ -210,6 +216,7 @@ class YearInReviewRepositoryImpl(
         YearInReviewReadingStats(
             articlesReadCount = articlesReadCount.await(),
             visitedDaysCount = visitedDaysCount.await(),
+            totalTimeSpentSec = totalTimeSpentSec.await(),
             peakMonth = peakMonth?.month ?: 0,
             peakMonthVisitedDays = peakMonth?.visitedDays ?: 0,
             articlesRevisited = articlesRevisited.await(),
@@ -238,14 +245,9 @@ class YearInReviewRepositoryImpl(
             rabbitHoleFakeEnd = rabbitHole?.fakeEnd,
             rabbitHoleArticleCount = rabbitHole?.articleCount ?: 0,
             topTopic = topTopic,
-            topTopicTotalArticles = topTopicWithCount?.articleCount ?: 0,
+            topTopicTotalArticles = topTopicWithCount?.second?.articleCount ?: 0,
             topTopicSampleArticles = topTopicSampleArticles,
-            topicArticleCountMap = otherTopTopics.associate { entry ->
-                val topic = ArticleTopics.all.find { topic -> topic.taxonIds.contains(entry.topic) }
-                topic to entry.articleCount
-            }.mapNotNull {
-                if (it.key != null) it.key!! to it.value else null
-            }.associate { it.first.topicId to it.second }
+            topicArticleCountMap = otherTopTopics.associate { (topic, stats) -> topic.topicId to stats.articleCount }
         )
     }
 
@@ -330,7 +332,8 @@ class YearInReviewRepositoryImpl(
         YearInReviewEditingStats(
             totalEditCount = totalEditsDeferred.await().items.sumOf { it.editCount },
             totalPageViewsCount = totalPageViewsDeferred.await().items.sumOf { it.viewCount },
-            mostViewedArticles = mostViewedPagesToViews
+            mostViewedArticles = mostViewedPagesToViews,
+            isDonor = userInfoResponse.query?.userInfo?.options?.wikimediaDonorCode?.isRecentDonor == true
         )
     }
 

@@ -81,7 +81,7 @@ class PersonalizationActivity : BaseActivity() {
     }
 
     companion object {
-        private const val EXTRA_SHOW_INTERESTS_ONLY = "show_interests_only"
+        const val EXTRA_SHOW_INTERESTS_ONLY = "show_interests_only"
         const val RESULT_INTERESTS_UPDATED = 100
 
         fun newIntent(context: Context, showInterestsOnly: Boolean = false): Intent {

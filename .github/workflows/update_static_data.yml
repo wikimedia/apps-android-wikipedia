@@ -1,0 +1,38 @@
+name: Periodic update of languages and static data
+
+on:
+  schedule:
+    # Monthly pageview data for the previous month must already be published,
+    # since generate_wiki_languages.py uses it to rank the languages.
+    - cron: '0 6 10 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update_static_data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v7
+    - uses: actions/setup-python@v7
+      with:
+        python-version: '3.12'
+    - name: Install dependencies
+      run: pip install requests jinja2 lxml
+    - name: Generate wiki languages
+      working-directory: scripts
+      run: python generate_wiki_languages.py
+    - name: Generate templates
+      working-directory: scripts
+      run: python make-templates.py
+    - uses: peter-evans/create-pull-request@v8
+      with:
+        branch: automated/update-static-data
+        delete-branch: true
+        commit-message: Periodic update of languages and static data.
+        title: Periodic update of languages and static data.
+        body: |
+          Automated update from running `generate_wiki_languages.py` and `make-templates.py`.

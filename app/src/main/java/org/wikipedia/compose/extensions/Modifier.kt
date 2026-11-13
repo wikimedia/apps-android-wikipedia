@@ -10,7 +10,6 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -28,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.CornerRadius
@@ -36,10 +36,8 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
-import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
@@ -108,26 +106,26 @@ fun Modifier.shimmerEffect(
     transition: InfiniteTransition,
 ): Modifier = composed {
     val colors = shimmerColors ?: WikipediaTheme.colors.shimmerColors()
-    var size by remember { mutableStateOf(IntSize.Zero) }
-
-    val startOffsetX by transition.animateFloat(
-        initialValue = -2 * size.width.toFloat(),
-        targetValue = 2 * size.width.toFloat(),
+    val progress = transition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
         animationSpec = infiniteRepeatable(
             animation = tween(durationMs, easing = easing),
             repeatMode = RepeatMode.Restart
         )
     )
 
-    val brush = Brush.linearGradient(
-        colors = colors,
-        start = Offset(startOffsetX, 0f),
-        end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat() * heightMultiplier)
-    )
-
-    this
-        .onSizeChanged { size = it }
-        .background(brush)
+    // Read the animated value only while drawing, so that each frame redraws without recomposing.
+    drawBehind {
+        val startOffsetX = size.width * (4 * progress.value - 2)
+        drawRect(
+            Brush.linearGradient(
+                colors = colors,
+                start = Offset(startOffsetX, 0f),
+                end = Offset(startOffsetX + size.width, size.height * heightMultiplier)
+            )
+        )
+    }
 }
 
 fun Modifier.lazyColumnScrollbar(

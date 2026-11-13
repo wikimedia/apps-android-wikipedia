@@ -6,6 +6,7 @@ gen
 local.properties
 default.properties
 gen-external-apklibs
+__pycache__/
 
 # Gradle
 .gradle

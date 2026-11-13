@@ -5,7 +5,6 @@ import android.icu.text.RelativeDateTimeFormatter
 import android.text.format.DateFormat
 import org.wikipedia.WikipediaApp
 import org.wikipedia.extensions.getResources
-import org.wikipedia.extensions.toLocalDate
 import org.wikipedia.feed.model.UtcDate
 import java.text.SimpleDateFormat
 import java.time.Instant
@@ -13,11 +12,8 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
-import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
-import java.time.format.TextStyle
-import java.time.temporal.ChronoUnit
 import java.time.temporal.TemporalAccessor
 import java.util.Calendar
 import java.util.Date
@@ -28,7 +24,6 @@ import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
     private val DATE_FORMATS = ConcurrentHashMap<String, SimpleDateFormat>()
-    private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
     fun iso8601DateParse(date: String): Date {
@@ -52,7 +47,7 @@ object DateUtil {
     }
 
     fun getFeedCardShortDateString(date: Calendar): String {
-        return getExtraShortDateString(date.time)
+        return getDateStringWithSkeletonPattern(date.time, "MMM d")
     }
 
     fun getMDYDateString(date: Date): String {
@@ -92,10 +87,6 @@ object DateUtil {
         return getCachedDateFormat("MMMM d, yyyy", Locale.getDefault(), utc).format(date)
     }
 
-    private fun getExtraShortDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MMM d")
-    }
-
     fun getTimeString(context: Context, date: Date): String {
         val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
         return getDateStringWithSkeletonPattern(date, datePattern)
@@ -104,6 +95,11 @@ object DateUtil {
     fun getTimeString(context: Context, localDateTime: LocalDateTime): String {
         val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
         return getDateStringWithSkeletonPattern(localDateTime, datePattern)
+    }
+
+    fun getTimeString(context: Context, localDateTime: LocalDateTime, locale: Locale): String {
+        val timePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
+        return DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(locale, timePattern), locale).format(localDateTime)
     }
 
     fun getShortDayWithTimeString(dateStr: String): String {
@@ -150,10 +146,8 @@ object DateUtil {
     }
 
     private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean, skeleton: Boolean = false): DateTimeFormatter {
-        return DATE_TIME_FORMATTERS.getOrPut(pattern) {
-            val dtf = DateTimeFormatter.ofPattern(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
-            return if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
-        }
+        val dtf = DateTimeFormatter.ofPattern(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
+        return if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
     }
 
     fun getShortDateString(date: Date): String {
@@ -197,39 +191,7 @@ object DateUtil {
         }
     }
 
-    fun startOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
-        val localDate = LocalDate.of(year, 1, 1)
-        return localDate.atStartOfDay(zoneId).toInstant().toEpochMilli()
-    }
-
-    fun endOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
-        val localDate = LocalDate.of(year, 12, 31)
-        return localDate.atTime(0, 0, 0).atZone(zoneId).toInstant().toEpochMilli()
-    }
-
-    fun epochMilliToYear(epochMilli: Long, zoneId: ZoneId = ZoneId.systemDefault()): Int {
-        val zonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochMilli(epochMilli), zoneId)
-        return zonedDateTime.year
-    }
-
-    fun toRelativeDateString(date: Date): String {
-        val localDate = date.toLocalDate()
-        val now = LocalDate.now()
-        val daysDiff = ChronoUnit.DAYS.between(localDate, now)
-
-        return when {
-            daysDiff < 7 -> {
-                val dayOfWeek = localDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
-                dayOfWeek
-            }
-
-            localDate.year == now.year -> {
-                DateUtil.getMonthOnlyDateString(localDate)
-            }
-
-            else -> {
-                DateUtil.getShortDateString(localDate)
-            }
-        }
+    fun getWeekdayMonthDayDateString(date: LocalDate, locale: Locale): String {
+        return DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(locale, "EEEE, MMMM d"), locale).format(date)
     }
 }
