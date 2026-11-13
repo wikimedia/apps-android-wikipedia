@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -84,10 +85,8 @@ fun SearchResultCard(
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = model.title,
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                     color = WikipediaTheme.colors.primaryColor,
-                    fontSize = 16.sp,
-                    lineHeight = 22.sp,
-                    fontWeight = FontWeight.SemiBold,
                     maxLines = TITLE_MAX_LINES,
                     overflow = TextOverflow.Ellipsis
                 )
