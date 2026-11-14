@@ -1832,7 +1832,7 @@
   <string name="email_report_patroller_tasks_subject">Problembericht – Funktion „Patrouille bearbeiten“</string>
   <string name="email_report_patroller_tasks_body">Ich habe ein Problem mit der Funktion „Patrouille bearbeiten“ festgestellt:\n- [Problem beschreiben]\n\nIch wünsche mir folgendes Verhalten:\n- [Lösungsvorschlag beschreiben]\n\n[Screenshots oder Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Wir werden dich morgen erneut erinnern.</string>
-  <string name="donation_campaign_donated_snackbar">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und seine Schwesterprojekte weiter bestehen können.</string>
+  <string name="donation_campaign_donated_snackbar">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und ihre Schwesterprojekte weiter bestehen können.</string>
   <string name="donation_campaign_go_back_button">Zurück</string>
   <string name="menu_single_webview_open_external">Im Systembrowser öffnen</string>
   <string name="donate_gpay_dialog_title">Mit Google Pay spenden?</string>
@@ -2088,7 +2088,7 @@
   <string name="yir_community_global_reach_headline">Die globale Reichweite von Wikipedia: eine der zehn meistbesuchten Websites der Welt</string>
   <string name="yir_community_global_reach_supporting">Wikipedia ist das Rückgrat des Wissens im Internet. Von Schülern bis zu Chatbots – alle lernen von ihr.</string>
   <string name="yir_community_contribute_headline">Du zählst.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia gibt es dank echter Menschen wie dir, die beitragen, was sie können, damit Wikipedia weiter gedeiht. Wenn dir Wikipedia etwas bedeutet, unterstütze sie doch mit einer Spende oder einer Bearbeitung.\n\nDu trägst bereits bei? Melde dich an oder erstelle ein Konto, um deine Erfolge zu sehen.</string>
+  <string name="yir_community_contribute_supporting" fuzzy="true">Wikipedia gibt es dank echter Menschen wie dir, die beitragen, was sie können, damit Wikipedia weiter gedeiht. Wenn dir Wikipedia etwas bedeutet, unterstütze sie doch mit einer Spende oder einer Bearbeitung.\n\nDu trägst bereits bei? Melde dich an oder erstelle ein Konto, um deine Erfolge zu sehen.</string>
   <string name="yir_closing_headline">Bis zum nächsten Abtauchen</string>
   <string name="yir_closing_supporting">Ob du für einen Artikel gekommen bist oder für hundert: Danke, dass du mit uns auf Wikipedia entdeckst, liest und neugierig bleibst.</string>
   <string name="yir_closing_share_action">Highlights teilen</string>
@@ -2215,14 +2215,6 @@
   <string name="year_in_review_share_subject">Mein Wikipedia-Jahresrückblick</string>
   <string name="year_in_review_share_body">Hier ist mein Wikipedia-Jahresrückblick. Erstellt mit der Wikipedia Android-App %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Globus-Symbol</string>
-  <string name="settings_app_icon_title">App-Symbol</string>
-  <string name="settings_app_icon_subtitle">Vorteil für Beitragende</string>
-  <string name="settings_app_icon_preference_subtitle">Du hast Zugriff auf ein benutzerdefiniertes Symbol, das deine %d Beiträge zur Wikipedia in der App feiert. Es bleibt bis zum nächsten Jahresrückblick verfügbar.</string>
-  <string name="settings_app_icon_updated">Dein App-Symbol wurde aktualisiert.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Neues App-Symbol für deinen Startbildschirm freigeschaltet</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Schalte deine Auszeichnung als Beitragender für das nächste Jahr frei!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktiviere dein neues App-Symbol in den Einstellungen unter dem App-Symbol. Vielen Dank für deinen Beitrag zur Zukunft des freien Wissens. Deine %1$s-Beiträge im Jahr %2$d tragen dazu bei, den Weg zu einer Welt freier Informationen zu ebnen, und als Anerkennung hast du ein benutzerdefiniertes Symbol für Beitragende der Wikipedia für deinen Startbildschirm freigeschaltet.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Wir freuen uns, dass Wikipedia Teil deines Jahres %1$d war! Schalte eine besondere Belohnung in deinem Jahresrückblick %2$d frei, indem du selbst beiträgst – sei es durch das &lt;a href=\"%3$s\"&gt;Bearbeiten der Wikipedia&lt;/a&gt; oder durch eine Spende an die &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, die gemeinnützige Organisation dahinter. Wenn Wikipedia für dich nützlich ist, unterstütze bitte die Zukunft der Plattform mit einer Spende, damit sie weiterhin kostenlos, werbefrei, vertrauenswürdig und für alle zugänglich bleibt. Falls du bereits anderweitig gespendet hast, danken wir dir herzlich für deine Unterstützung.</string>
   <string name="year_in_review_slide_app_icon_donor">ein Spender</string>
   <string name="year_in_review_slide_app_icon_editor">ein Autor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">ein Spender und Autor</string>
@@ -2433,6 +2425,7 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Highlights teilen</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia-Logo</string>
+  <string name="year_in_review_swipe_tutorial_title">Wischen zum Entdecken</string>
   <string name="recommended_reading_list_title">Entdecken</string>
   <string name="recommended_reading_list_onboarding_card_title">Entdecke für dich ausgewählte Artikel</string>
   <string name="recommended_reading_list_onboarding_card_message">Deine wöchentliche Leseliste mit Wikipedia-Artikeln, nur für dich zusammengestellt.</string>

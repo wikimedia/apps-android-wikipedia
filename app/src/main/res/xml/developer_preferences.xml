@@ -514,6 +514,10 @@
             android:key="@string/preference_key_yir_activity_tab_dot_seen_year"
             android:title="@string/preference_key_yir_activity_tab_dot_seen_year" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_year_in_review_swipe_tutorial_shown"
+            android:title="@string/preference_key_year_in_review_swipe_tutorial_shown"/>
+
         <ListPreference
             android:key="@string/preference_key_yir_survey_state"
             android:title="Yir Survey State"/>
@@ -605,8 +609,19 @@
             android:key="@string/preference_key_semantic_search_is_test_active"
             android:title="@string/preference_key_semantic_search_is_test_active"/>
 
-    </PreferenceCategory>
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_interleave_search_enabled"
+            android:title="@string/preference_key_interleave_search_enabled"/>
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_interleave_search_override_supported_language"
+            android:title="@string/preference_key_interleave_search_override_supported_language"/>
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_interleave_search_is_test_active"
+            android:title="@string/preference_key_interleave_search_is_test_active"/>
+
+    </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preference_developer_notifications_experiment_heading">
         <org.wikipedia.settings.SwitchPreferenceMultiLine
@@ -620,6 +635,18 @@
         <Preference
             android:key="@string/preference_key_notifications_experiment_discover_dev_trigger_time"
             android:title="@string/preference_key_notifications_experiment_discover_dev_trigger_time"/>
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_notifications_most_read_is_test_active"
+            android:title="@string/preference_key_notifications_most_read_is_test_active"/>
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_notifications_experiment_weekly_most_read_scheduled"
+            android:title="@string/preference_key_notifications_experiment_weekly_most_read_scheduled"/>
+
+        <Preference
+            android:key="@string/preference_key_notifications_experiment_weekly_most_read_dev_trigger_time"
+            android:title="@string/preference_key_notifications_experiment_weekly_most_read_dev_trigger_time"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -27,7 +27,8 @@ import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
-import org.wikipedia.notifications.experiment.showNotificationsExperimentTimePickerDialog
+import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
+import org.wikipedia.notifications.experiment.NotificationsExperimentMostReadAbTest
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -35,12 +36,14 @@ import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
+import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.IntPreference
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
 import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundDialog
+import org.wikipedia.settings.dev.playground.showNotificationsExperimentTimePickerDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
@@ -331,8 +334,24 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preference_key_notifications_experiment_discover_dev_trigger_time).apply {
             summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
             onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
-                showNotificationsExperimentTimePickerDialog(activity) {
-                    pref.summary = getTimestampSummary(Prefs.notificationsExperimentDiscoverDevTriggerTime)
+                showNotificationsExperimentTimePickerDialog(activity) { millis ->
+                    pref.summary = getTimestampSummary(millis)
+                    Prefs.notificationsExperimentDiscoverDevTriggerTime = millis
+                    // Clearing the dev time (0) falls back to the regular weekly send time.
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(activity)
+                }
+                true
+            }
+        }
+
+        findPreference(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time).apply {
+            summary = getTimestampSummary(Prefs.notificationsExperimentWeeklyMostReadDevTriggerTime)
+            onPreferenceClickListener = Preference.OnPreferenceClickListener { pref ->
+                showNotificationsExperimentTimePickerDialog(activity) { millis ->
+                    pref.summary = getTimestampSummary(millis)
+                    Prefs.notificationsExperimentWeeklyMostReadDevTriggerTime = millis
+                    // Clearing the dev time (0) falls back to the regular weekly send time.
+                    NotificationsExperimentHelper.scheduleNotification(activity, fromFiredAlarm = false)
                 }
                 true
             }
@@ -376,7 +395,9 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             ReadAloudLeadSectionABTest(),
             SemanticSearchAbTest(),
             YearInReviewEndScreenABTest(),
-            NotificationsExperimentAbTest()
+            NotificationsExperimentAbTest(),
+            NotificationsExperimentMostReadAbTest(),
+            InterleaveSearchAbTest()
         ).forEach { abTest ->
             category.addPreference(IntPreference(screen.context).apply {
                 key = abTest.preferenceKey

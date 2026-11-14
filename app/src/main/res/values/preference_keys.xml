@@ -187,12 +187,12 @@
     <string name="preference_key_otd_sound_on" translatable="false">isOtdSoundOn</string>
     <string name="preference_key_year_in_review_is_enabled" translatable="false">isYearInReviewEnabled</string>
     <string name="preference_key_year_in_review_visited" translatable="false">yearInReviewVisited2026</string>
+    <string name="preference_key_year_in_review_sound_on" translatable="false">isYearInReviewSoundOn</string>
     <string name="preference_key_yir_activity_tab_dot_seen_year" translatable="false">yearInReviewActivityTabDotSeenYear</string>
     <string name="preference_key_yir_survey_state" translatable="false">yirSurveyState</string>
     <string name="preference_key_yir_playground" translatable="false">yirPlayground</string>
     <string name="preference_key_yir_playground_data" translatable="false">yirPlaygroundData</string>
     <string name="preference_key_yir_playground_entry_point" translatable="false">yirPlaygroundEntryPoint</string>
-    <string name="preference_key_selected_app_icon" translatable="false">selectedAppIcon</string>
     <string name="preference_category_recommended_reading_list" translatable="false">recommendedReadingListSettings</string>
     <string name="preference_key_recommended_reading_list_enabled" translatable="false">recommendedReadingListEnabled</string>
     <string name="preference_key_recommended_reading_list_articles_number" translatable="false">recommendedReadingListArticlesNumber</string>
@@ -230,6 +230,7 @@
     <string name="preference_key_home_preference_selection" translatable="false">exploreFeedPreferenceSelection</string>
     <string name="preference_key_home_for_you_modules_today" translatable="false">homeForYouModulesToday</string>
     <string name="preference_key_home_swipe_to_explore_prompt_shown" translatable="false">homeSwipeToExplorePromptShown</string>
+    <string name="preference_key_year_in_review_swipe_tutorial_shown" translatable="false">yearInReviewSwipeTutorialShown</string>
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>
@@ -242,4 +243,10 @@
     <string name="preference_key_notifications_experiment_notification_rescheduled" translatable="false">notificationsExperimentNotificationRescheduled</string>
     <string name="preference_key_notifications_experiment_discover_source" translatable="false">notificationsExperimentDiscoverSource</string>
     <string name="preference_key_notifications_experiment_discover_dev_trigger_time" translatable="false">notificationsExperimentDiscoverDevTriggerTime</string>
+    <string name="preference_key_notifications_most_read_is_test_active" translatable="false">notificationsMostReadIsTestActive</string>
+    <string name="preference_key_notifications_experiment_weekly_most_read_scheduled" translatable="false">notificationsExperimentWeeklyMostReadScheduled</string>
+    <string name="preference_key_notifications_experiment_weekly_most_read_dev_trigger_time" translatable="false">notificationsExperimentWeeklyMostReadDevTriggerTime</string>
+    <string name="preference_key_interleave_search_enabled" translatable="false">interleaveSearchEnabled</string>
+    <string name="preference_key_interleave_search_override_supported_language" translatable="false">interleaveSearchOverrideSupportedLanguage</string>
+    <string name="preference_key_interleave_search_is_test_active" translatable="false">interleaveSearchIsTestActive</string>
 </resources>

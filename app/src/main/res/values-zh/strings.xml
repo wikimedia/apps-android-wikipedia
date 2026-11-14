@@ -83,6 +83,7 @@
 * 沈澄心
 * 神樂坂秀吉
 * 科劳
+* 薛定谔的呼噜猫
 * 铁桶
 -->
 <resources>
@@ -99,7 +100,7 @@
   <string name="search_back_button_content_description">返回</string>
   <string name="search_clear_query_content_description">清空查询</string>
   <string name="search_icon_content_description">搜索</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">筛选我的收藏</string>
+  <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_activity">活动</string>
   <string name="nav_item_more">更多</string>
@@ -160,16 +161,16 @@
   <string name="menu_page_watched">已监视</string>
   <string name="edit_section_find_in_page">在页面内查找</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
-  <string name="menu_page_add_to_list" fuzzy="true">加入收藏</string>
+  <string name="menu_page_add_to_list">添加至阅读列表</string>
   <string name="menu_page_add_to_default_list">保存</string>
-  <string name="feed_card_add_to_list" fuzzy="true">加入收藏</string>
+  <string name="feed_card_add_to_list">添加至阅读列表</string>
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">分享链接</string>
   <string name="menu_article_share">分享条目</string>
   <string name="menu_page_article_share">分享</string>
   <string name="menu_page_open_a_new_tab">打开新标签页</string>
   <string name="menu_page_new_tab">新标签页</string>
-  <string name="menu_page_reading_lists" fuzzy="true">收藏</string>
+  <string name="menu_page_reading_lists">阅读列表</string>
   <string name="menu_page_recently_viewed">近期浏览</string>
   <string name="menu_page_archive">存档</string>
   <string name="menu_long_press_open_page">打开</string>
@@ -213,9 +214,9 @@
   <string name="menu_show_toc">目录</string>
   <string name="search_no_results_found">找不到结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">在收藏中未找到结果</string>
+  <string name="search_reading_lists_no_results">未从阅读列表中查找到结果</string>
   <string name="search_all_articles_no_results">所有条目中未找到结果</string>
-  <string name="search_collections_no_results" fuzzy="true">在收藏中未找到结果</string>
+  <string name="search_collections_no_results">未从阅读列表中查找到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
   <string name="edit_section_captcha_message">为了防止自动化垃圾信息，请输入下方显示的文字</string>
   <string name="edit_section_captcha_request_an_account_message">无法显示图片？请&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:维基百科:账号请求\"&gt;申请账号&lt;/a&gt;</string>
@@ -283,6 +284,8 @@
   <string name="email_recommendation_dialog_create_without_email_action">不填写电子邮件继续</string>
   <string name="email_recommendation_dialog_create_with_email_action">添加电子邮件地址</string>
   <string name="create_account_button">创建账号</string>
+  <string name="create_account_encourage_title">注册账号有助于您使用维基百科</string>
+  <string name="create_account_encourage_year_in_review_title_zero">在年度回顾中查看您的阅读天数</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
   <string name="create_account_ip_block_message">对不起，您的IP地址目前受到封禁，不能创建新账号。</string>
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
@@ -794,7 +797,7 @@
   <string name="notifications_view_archived_button_text">查看已存档通知</string>
   <string name="notification_preferences_title">通知设置</string>
   <string name="notifications_mark_unread">标记为未读</string>
-  <string name="notifications_mark_all_as_read">标记所有为已读</string>
+  <string name="notifications_mark_all_as_read">全部标记为已读</string>
   <string name="notifications_direct_reply_action">回复</string>
   <string name="notifications_direct_reply_progress">正在向%s发送回复…</string>
   <string name="notifications_direct_reply_success">回复已发布。</string>
@@ -1962,14 +1965,6 @@
   <string name="year_in_review_share_subject">我的维基百科年度回顾</string>
   <string name="year_in_review_share_body">这是我的维基百科年度回顾。使用 Wikipedia Android 应用创建而成。%1$s %2$s</string>
   <string name="year_in_review_globe_icon">地球图标</string>
-  <string name="settings_app_icon_title">应用程序图标</string>
-  <string name="settings_app_icon_subtitle">贡献者福利</string>
-  <string name="settings_app_icon_preference_subtitle">您获得了一个自定义图标，以表彰您于%d年在应用内对维基百科做出的贡献。该图标将保留至下一次年度回顾。</string>
-  <string name="settings_app_icon_updated">您的应用图标已更新。</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">已解锁新的桌面应用图标</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">解锁您明年的贡献者奖励！</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">请在“设置”中的“应用图标”下激活您的新应用图标。感谢您为自由知识的未来贡献力量。您%2$d年作为%1$s的贡献正在帮助我们铺就通往自由信息世界的道路，因此，您已解锁了维基百科贡献者的自定义桌面图标。</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">我们很高兴维基百科成为您%1$d年活动的一部分！成为贡献者，即可在您的%2$d年度回顾中解锁特别奖励——无论是在应用内&lt;a href=\"%3$s\"&gt;编辑维基百科&lt;/a&gt;，还是对其背后的&lt;a href=\"%4$s\"&gt;维基媒体基金会&lt;/a&gt;捐款。如果您认为维基百科对您有所帮助，欢迎考虑捐赠我们，来帮助维基百科的未来发展，保持免费、无广告、值得信赖且人人可访问的运作状态。如果您已通过其他渠道捐款，我们衷心感谢您的支持。</string>
   <string name="year_in_review_slide_app_icon_donor">捐赠者</string>
   <string name="year_in_review_slide_app_icon_editor">编辑者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">捐赠者和编辑者</string>

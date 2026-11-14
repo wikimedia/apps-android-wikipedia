@@ -832,6 +832,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_visited, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_visited, value)
 
+    var isYearInReviewSoundOn
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_sound_on, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_sound_on, value)
+
     var yearInReviewSurveyState: YearInReviewSurveyState
         get() = PrefsIoUtil.getString(R.string.preference_key_yir_survey_state, null)?.let {
             YearInReviewSurveyState.valueOf(it)
@@ -932,10 +936,6 @@ object Prefs {
             ?: emptyMap()
         set(statsByYear) = PrefsIoUtil.setString(R.string.preference_key_yir_cached_stats, JsonUtil.encodeToString(statsByYear))
 
-    var selectedAppIcon
-        get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
-
     var isGameStatsUnavailableSnackbarShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
@@ -1000,6 +1000,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_home_swipe_to_explore_prompt_shown, value)
 
+    var isYearInReviewSwipeTutorialShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_swipe_tutorial_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_swipe_tutorial_shown, value)
+
     var searchWidgetInstallPromptShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_search_widget_install_prompt_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_search_widget_install_prompt_shown, value)
@@ -1059,4 +1063,28 @@ object Prefs {
     var notificationsExperimentDiscoverDevTriggerTime
         get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, value)
+
+    var notificationsMostReadIsTestActive
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_most_read_is_test_active, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_most_read_is_test_active, value)
+
+    var notificationsExperimentWeeklyMostReadScheduled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_experiment_weekly_most_read_scheduled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_experiment_weekly_most_read_scheduled, value)
+
+    var notificationsExperimentWeeklyMostReadDevTriggerTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time, 0L)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time, value)
+
+    var isInterleaveSearchEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_interleave_search_enabled, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_interleave_search_enabled, value)
+
+    var interleaveSearchLanguageOverride
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_interleave_search_override_supported_language, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_interleave_search_override_supported_language, value)
+
+    var interleaveSearchIsTestActive
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_interleave_search_is_test_active, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_interleave_search_is_test_active, value)
 }

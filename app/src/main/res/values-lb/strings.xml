@@ -482,7 +482,7 @@
   <string name="temp_account_end_session">Sessioun ofschléissen</string>
   <string name="temp_account_end_session_confirm">Doduerch gitt Dir aus Ärem temporäre Kont ausgeloggt. Wëllt Dir virufueren?</string>
   <string name="crash_report_activity_title">Feeler vum Programm</string>
-  <string name="crash_report_relaunch_or_quit">Et deet eis Leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
+  <string name="crash_report_relaunch_or_quit">Et deet eis leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
   <string name="crash_report_quit">Erausgoen</string>
   <string name="article_menu_bar_save_button">Späicheren</string>
@@ -1036,7 +1036,7 @@
   <string name="suggested_edits_add_descriptions_task_detail">Resuméiert en Artikel fir dem Lieser ze hëllefen de Sujet op ee Bléck ze verstoen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Den Total vun Äre Kontributioune bis elo.</string>
   <string name="suggested_edits_ip_blocked_message">Et schéngt, wéi wann Är IP-Adress (oder Ären IP-Adressberäich) aktuell gespaart ass, fir op Wikipedia Ännerungen ze maachen.</string>
-  <string name="suggested_edits_gate_message">Et deet ons Leed, %s, mee Dir musst op d\'mannst dräi Ännerungen direkt an engem Artikel maache fir dës Funktioun benotzen ze kënnen.</string>
+  <string name="suggested_edits_gate_message">Et deet ons leed, %s, mee Dir musst op d\'mannst dräi Ännerungen direkt an engem Artikel maache fir dës Funktioun benotzen ze kënnen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tippen an Tricker beim Änneren</string>
   <string name="suggested_edits_help_page_link_text">Hëllefssäit fir d\'Ännerungsvirschléi</string>
   <string name="suggested_edits_edit_streak_label_text">Ännerungsserie</string>
@@ -1147,7 +1147,7 @@
   <string name="image_recommendation_tooltip_3">Entscheet, ob d\'Bild dem Lieser dobäi hëlleft d\'Theema besser ze verstoen</string>
   <string name="image_recommendation_tooltip_next">Nächst</string>
   <string name="image_recommendation_tooltip_warning">Liest Iech wgl. den Artikel duerch, fir d\'Theema ze verstoen, a kuckt Iech d\'Bild un</string>
-  <string name="image_recommendation_depleted">Et deet eis Leed, leider gëtt et am Moment keng weider Billervirschléi. Dir kënnt aner &lt;a href=\"#\"&gt;Ännerungsvirschléi&lt;/a&gt; entdecken oder méi spéit zeréckkommen.</string>
+  <string name="image_recommendation_depleted">Et deet eis leed, leider gëtt et am Moment keng weider Billervirschléi. Dir kënnt aner &lt;a href=\"#\"&gt;Ännerungsvirschléi&lt;/a&gt; entdecken oder méi spéit zeréckkommen.</string>
   <string name="suggested_edits_report_feature">Problem mat der Funktioun</string>
   <string name="suggested_edits_report_feature_subject">Problem mat den Ännerungsvirschléi</string>
   <string name="edit_summary_added_image">Bild derbäigesat</string>
@@ -1974,7 +1974,7 @@
   <string name="yir_community_global_reach_headline">Déi global Reechwäit vun der Wikipedia: Ënnert den Top 10 vun de meeschtbesichte Websäite vun der Welt</string>
   <string name="yir_community_global_reach_supporting">Wikipedia ass d\'Réckgrat vum Wëssen am Internet. Vun Schüler bis Chatbot: Jidderee léiert vun der Wikipedia.</string>
   <string name="yir_community_contribute_headline">Dir sidd wichteg.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia existéiert dank richtege Mënsche wéi Iech, déi bäidroen, wat se kënnen, fir se um lafen ze halen. Wa Wikipedia Iech wichteg ass, consideréiert wgl. se z\'ënnerstëtzen, andeems Dir en Don maacht oder Ännerunge bäidrot.\n\nDir sidd schonn e Contributeur? Loggt Iech an oder maacht e Benotzerkont op, fir Är Errongenschaften ze gesinn.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia existéiert dank richtege Mënsche wéi Iech, déi bäidroen, wat se kënnen, fir se um lafen ze halen. Wa Wikipedia Iech wichteg ass, consideréiert wgl. se z\'ënnerstëtzen, andeems Dir en Don maacht oder Ännerunge bäidrot.\n\nDir sidd schonn e Contributeur? Loggt Iech an oder maacht e Benotzerkont op, fir Äert Contributeur-Symbol ze gesinn.</string>
   <string name="yir_closing_headline">Bis zum nächsten Antauchen</string>
   <string name="yir_closing_supporting">Ob Dir elo fir een oder fir honnert Artikele laanscht komm sidd: Merci, datt Dir mat eis op der Wikipedia entdeckt, liest a virwëtzeg bleift.</string>
   <string name="yir_closing_share_action">Highlights deelen</string>
@@ -1983,10 +1983,13 @@
   <string name="yir_games_headline">Prett fir déi nächst Erausfuerderung?</string>
   <string name="yir_games_supporting">Stellt Äert Wikipedia-Gehier mat kuerze Spiller op d\'Prouf, inspiréiert vum Wësse vun der ganzer Welt.</string>
   <string name="yir_games_action">Ufänke mat Spillen</string>
+  <string name="yir_customize_home_supporting">Wielt déi Theemen aus, déi Iech faszinéieren, an Dir kritt Recommandatiounen, déi op Är Interessen zougeschnidde sinn.</string>
   <string name="yir_customize_home_action">Interessen upassen</string>
   <string name="yir_community_recap_headline">Eise Joresréckbléck</string>
+  <string name="yir_community_recap_supporting">Entdeckt nach eng Kéier, wéi vill d\'Welt gelies, geännert an zesummen exploréiert huet.</string>
   <string name="yir_community_recap_action">Elo entdecken</string>
   <string name="yir_quiz_headline">Wat fir eng Wikipedia sidd Dir?</string>
+  <string name="yir_quiz_supporting">Vun der Modem-Ära bis haut: Eng Rees duerch d\'Geschicht vu Wikipedia.</string>
   <string name="yir_quiz_action">Maacht de Quiz</string>
   <string name="yir_share_text">Hei ass mäi Wikipedia-Joresréckbléck fir %1$d aus der Wikipedia-App: %2$s</string>
   <string name="yir_feature_card_title">Wikipedia-Joresréckbléck %1$d</string>
@@ -2092,14 +2095,6 @@
   <string name="year_in_review_share_subject">Mäi Wikipedia-Joresréckbléck</string>
   <string name="year_in_review_share_body">Hei ass mäi Wikipedia-Joresréckbléck. Mat der Wikipedia-Android-App erstallt %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Globussymbol</string>
-  <string name="settings_app_icon_title">App-Symbol</string>
-  <string name="settings_app_icon_subtitle">Virdeeler fir Contributeuren</string>
-  <string name="settings_app_icon_preference_subtitle">Dir hutt Zougrëff op e personaliséiert Symbol, fir Är %d Wikipedia-Kontributiounen an der App ze feieren. Et wäert bis den nächste Joresréckbléck dobleiwen.</string>
-  <string name="settings_app_icon_updated">Äert App-Symbol gouf aktualiséiert.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Neit App-Symbol fir Äre Startbildschierm fräigeschalt</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Schalt Äert Contributeur-Symbol fir d\'nächst Joer fräi!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivéiert Äert neit App-Symbol an den Astellungen ënner „App-Symbol“. Merci fir Ären Investissement an d\'Zukunft vum fräie Wëssen. Är Kontributiounen als %1$s op %2$d droen dozou bäi, dee Wee a Richtung vun enger Welt voller fräier Informatiounen fräizemaachen, an dofir hutt Dir e personaliséiert Symbol fir Wikipedia-Contributeure fir Äre Startbildschierm fräigeschalt.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Mir si frou, datt Wikipedia Deel vun Ärem Joer %1$d war! Dir kënnt eng speziell Belounung an Ärem Joresréckbléck fir %2$d fräischalten, andeems Dir selwer e Bäitrag leescht – sief et, andeems Dir &lt;a href=\"%3$s\"&gt;Ännerungen op Wikipedia maacht&lt;/a&gt;, oder andeems Dir an der App en Don fir d\'&lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt; maacht, d\'Organisatioun ouni Gewënnzweck hannendrun. Wa Wikipedia fir Iech nëtzlech ass, consideréiert wgl., en Don ze maachen an domat dozou bäizedroen, datt se fräi, och fräi vu Reklammen, zouverléisseg a fir jiddereen accessibel bleift. Wann Dir anerwäerts schonn en Don gemaach hutt, soe mir Iech villmools Merci fir Är Ënnerstëtzung.</string>
   <string name="year_in_review_slide_app_icon_donor">Donateur</string>
   <string name="year_in_review_slide_app_icon_editor">Editeur</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">Donateur an Editeur</string>
@@ -2140,21 +2135,47 @@
     <item quantity="one">Wikipedia gouf %,d Mol pro Minutt geännert</item>
     <item quantity="other">Wikipedia gouf %,d Mol pro Minutt geännert</item>
   </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Artikele gi kollaborativ geschriwwen a mat zouverléissege Source verbessert. Jidderee vun eis huet Wëssen, dat en deele kann. &lt;a href=\"%s\"&gt;Gitt gewuer, wéi Dir matmaache kënnt.&lt;/a&gt;</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
     <item quantity="one">%,d Byte derbäigesat</item>
     <item quantity="other">%,d Byte derbäigesat</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">Am Joer %1$d hu Fräiwëlleger %2$,d\n Byte op der engleschsproocheger Wikipedia bäigedroen. D\'Zomm vun all hirer gemeinsamer Aarbecht féiert zu enger zouverléisseger Wëssensressource, déi op Fakte baséiert an ëmmer besser gëtt an déi se der Welt zur Verfügung stellen.  Jidderee vun eis huet Wëssen, dat en deele kann. &lt;a href=\"%3$s\"&gt;Gitt gewuer, wéi Dir matmaache kënnt.&lt;/a&gt;</item>
+    <item quantity="other">Am Joer %1$d hu Fräiwëlleger %2$,d\n Byte op der engleschsproocheger Wikipedia bäigedroen. D\'Zomm vun all hirer gemeinsamer Aarbecht féiert zu enger zouverléisseger Wëssensressource, déi op Fakte baséiert an ëmmer besser gëtt an déi se der Welt zur Verfügung stellen.  Jidderee vun eis huet Wëssen, dat en deele kann. &lt;a href=\"%3$s\"&gt;Gitt gewuer, wéi Dir matmaache kënnt.&lt;/a&gt;</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">Dir hutt %s Ännerung gemaach</item>
     <item quantity="other">Dir hutt %s Ännerunge gemaach</item>
   </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">Merci, datt Dir ee vun de fräiwëllegen Editeure sidd, déi e wichtege Bäitrag fir Wikimedia-Projete weltwäit maachen. Fräiwëlleger wéi Dir hunn %,d Ännerung op méi wéi 300 verschiddene Sproochversioune vu Wikipedia gemaach.</item>
+    <item quantity="other">Merci, datt Dir ee vun de fräiwëllegen Editeure sidd, déi e wichtege Bäitrag fir Wikimedia-Projete weltwäit maachen. Fräiwëlleger wéi Dir hu(nn) %,d Ännerungen op méi wéi 300 verschiddene Sproochversioune vu Wikipedia gemaach.</item>
+  </plurals>
   <plurals name="year_in_review_slide_app_edited_times_headline">
     <item quantity="one">Auteuren hunn %,d Ännerung mat den offizielle Wikipedia-Appe gemaach</item>
     <item quantity="other">Auteuren hu(nn) %,d Ännerunge mat den offizielle Wikipedia-Appe gemaach</item>
   </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">D\'Häerz an d\'Séil vu Wikipedia sinn eis global Communautéit vu fräiwëllege Contributeuren, Donateuren a Milliarde vu Lieser wéi Iech – all vereent am Zil, fir onbegrenzten Zougang zu zouverléissegen Informatiounen z\'erméiglechen.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">Editeuren hunn dëst Joer %,d Ännerung gemaach.</item>
+    <item quantity="other">Editeuren hunn dëst Joer %,d Ännerunge gemaach.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">Fräiwëlleger hunn %,d Ännerung op méi wéi 300 verschiddene Sproochversioune vu Wikipedia gemaach.</item>
+    <item quantity="other">Fräiwëlleger hu(nn) %,d Ännerungen op méi wéi 300 verschiddene Sproochversioune vu Wikipedia gemaach.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">%,d Ännerung gouf op der engleschsproocheger Wikipedia gemaach. All Dag an all Stonn schaffe Fräiwëlleger drun, fir d\'Wikipedia besser ze maachen.</item>
+    <item quantity="other">%,d Ännerunge goufen op der engleschsproocheger Wikipedia gemaach. All Dag an all Stonn schaffe Fräiwëlleger drun, fir d\'Wikipedia besser ze maachen.</item>
+  </plurals>
   <plurals name="year_in_review_slide_saved_articles_headline">
     <item quantity="one">Dir hutt %,d Artikel gespäichert</item>
     <item quantity="other">Dir hutt %,d Artikele gespäichert</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">Ënner deenen Artikele sinn &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; a(n) &lt;b&gt;%3$s&lt;/b&gt;. Jiddwer gespäicherten Artikel spigelt Är Interessen erëm an hëlleft Iech, eng personaliséiert Wëssensdatebank op Wikipedia opzebauen.&lt;br /&gt;&lt;br /&gt;Aktiv App-Benotzer haten dëst Joer %4$,d Artikel gespäichert.</item>
+    <item quantity="other">Ënner deenen Artikele sinn &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; a(n) &lt;b&gt;%3$s&lt;/b&gt;. Jiddwer gespäicherten Artikel spigelt Är Interessen erëm an hëlleft Iech, eng personaliséiert Wëssensdatebank op Wikipedia opzebauen.&lt;br /&gt;&lt;br /&gt;Aktiv App-Benotzer haten dëst Joer %4$,d Artikele gespäichert.</item>
   </plurals>
   <plurals name="year_in_review_slide_global_saved_articles_headline">
     <item quantity="one">App-Benotzer haten %,d Artikel gespäichert</item>
@@ -2175,19 +2196,65 @@
     <item quantity="one">Mir hunn %,d Stonn mat Liese verbruecht</item>
     <item quantity="other">Mir hu(nn) %,d Stonne mat Liese verbruecht</item>
   </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">D\'Leit hu geschat %,d Stonn domat verbruecht</item>
+    <item quantity="other">D\'Leit hu geschat %,d Stonnen domat verbruecht</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">– ronn %1$,d Joer! – fir d\'Wikipedia op Englesch am Joer %2$d ze liesen. D\'Wikipedia ass prett, wann et drëms geet, fir eppes iwwer eis Welt am Wandel ze léieren, eng Wett tëscht Kolleegen ze gewannen oder d\'Froe vun enger virwëtzege Kand ze beäntweren.</item>
+    <item quantity="other"> – ronn %1$,d Joer! – fir d\'Wikipedia op Englesch am Joer %2$d ze liesen. D\'Wikipedia ass prett, wann et drëms geet, fir eppes iwwer eis Welt am Wandel ze léieren, eng Wett tëscht Kolleegen ze gewannen oder d\'Froe vun enger virwëtzege Kand ze beäntweren.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Wikipedia war op méi wéi %,d Sprooch disponibel</item>
+    <item quantity="other">Wikipedia war op méi wéi %,d Sproochen disponibel</item>
+  </plurals>
   <plurals name="year_in_review_slide_available_languages_body_first">
     <item quantity="one">Wikipedia hat %,d Artikel</item>
     <item quantity="other">Wikipedia hat %,d Artikelen</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">op méi wéi %,d aktiver Sprooch dëst Joer. Dir gehéiert zu de Millioune Mënschen, déi hiert Wëssen erweidert a villfälteg Theemen exploréiert hunn.</item>
+    <item quantity="other">op méi wéi %,d aktive Sproochen dëst Joer. Dir gehéiert zu de Millioune Mënschen, déi hiert Wëssen erweidert a villfälteg Theemen exploréiert hunn.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">Dir hutt %,d Minutt domat verbruecht,</item>
+    <item quantity="other">Dir hutt %,d Minutten domat verbruecht,</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">fir %1$,d Artikel am Joer %2$d ze liesen</item>
+    <item quantity="other">fir %1$,d Artikelen am Joer %2$d ze liesen</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">Mir schätzen, datt Dir domat zu den Top %1$s%% vun de Wikipedia-Lieser weltwäit gehéiert. Eng Persoun liest am Duerchschnëtt %2$,d Artikel am Joer.</item>
+    <item quantity="other">Mir schätzen, datt Dir domat zu den Top %1$s%% vun de Wikipedia-Lieser weltwäit gehéiert. Eng Persoun liest am Duerchschnëtt %2$,d Artikelen am Joer.</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
     <item quantity="one">Wikipedia hat %,d Artikel</item>
     <item quantity="other">Wikipedia hat %,d Artikelen</item>
   </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">op méi wéi %,d aktiver Sprooch dëst Joer. Dir gehéiert zu de Millioune Mënschen, déi hiert Wëssen erweidert a villfälteg Theemen exploréiert hunn.</item>
+    <item quantity="other">op méi wéi %,d aktive Sproochen dëst Joer. Dir gehéiert zu de Millioune Mënschen, déi hiert Wëssen erweidert a villfälteg Theemen exploréiert hunn.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">D\'Leit hu geschat %,d Stonn domat verbruecht</item>
+    <item quantity="other">D\'Leit hu geschat %,d Stonnen domat verbruecht</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">– ronn %1$,d Joer! – fir d\'Wikipedia op Englesch am Joer %2$d ze liesen.</item>
+    <item quantity="other">– ronn %1$,d Joer! – fir d\'Wikipedia op Englesch am Joer %2$d ze liesen.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">App-Benotzer hunn %,d Mol e Wikipedia-Artikel opgeruff.</item>
+    <item quantity="other">App-Benotzer hu(nn) %,d Mol e Wikipedia-Artikel opgeruff.</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Fir Mënschen op der ganzer Welt ass Wikipedia déi éischt Ulafstell, wann et drëms geet, fir eng Äntwert op eng Fro ze fannen, fir Informatioune fir d\'Schoul oder d\'Aarbecht nozesichen oder fir nei Saachen ze léieren.</string>
   <string name="year_in_review_reading_list_dialog_title">Är Lieslëscht fir de Joresréckbléck %d uleeën?</string>
   <string name="year_in_review_reading_list_dialog_message">De Wikipedia-Joresréckbléck leet eng Lieslëscht u mat den Artikelen, op deenen Dir %1$d am meeschten Zäit verbruecht hutt. &lt;a href=\"%2$s\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Uleeën</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nee, merci</string>
   <string name="year_in_review_reading_list_title">Joresréckbléck fir %d</string>
+  <string name="year_in_review_reading_list_description">Erstallt fir: %1$s. Artikelen, op deenen Dir %2$d am meeschten Zäit verbruecht hutt.</string>
   <string name="year_in_review_highlights_thank_you_message">Merci, datt Dir Äert Joer mat Wikipedia verbruecht hutt.</string>
   <string name="year_in_review_highlights_looking_forward_message">Mir freeën eis op d\'nächst Joer!</string>
   <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
@@ -2238,6 +2305,8 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Highlights deelen</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia-Logo</string>
+  <string name="year_in_review_swipe_tutorial_title">Wësche fir z\'entdecken</string>
+  <string name="year_in_review_swipe_tutorial_message">Wëscht no uewen, fir duerch de Joresréckbléck ze navigéieren.</string>
   <string name="recommended_reading_list_title">Entdecken</string>
   <string name="recommended_reading_list_onboarding_card_title">Entdeckt Artikelen, déi just fir Iech erausgesicht goufen</string>
   <string name="recommended_reading_list_onboarding_card_message">Är wéchentlech Lieslëscht vu Wikipedia-Artikelen, déi speziell fir Iech zesummegestallt gouf.</string>
@@ -2293,8 +2362,8 @@
   <string name="recommended_reading_list_settings_updates_frequency_daily">all Dag</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">all Woch</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">all Mount</string>
-  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">All Dag</string>
-  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">All Woch</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Deeglech</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Wéchentlech</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">All Mount</string>
   <string name="recommended_reading_list_settings_updates_base_title">Wéi „Entdecken“ zesummegestallt gëtt</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Baséiert op Ären Interessen</string>

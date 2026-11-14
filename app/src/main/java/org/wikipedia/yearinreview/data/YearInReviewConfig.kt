@@ -18,18 +18,18 @@ object YearInReviewConfig {
         contributionsStartDate = LocalDateTime.of(2025, 12, 1, 0, 0),
         contributionsEndDate = LocalDateTime.of(2026, 11, 30, 23, 59),
         languages = 300,
-        articles = 65667790,
+        articles = 68755256,
         editors = 1234567,
         savedArticlesApps = 46392587,
         viewsApps = 14085467928,
         editsApps = 1936242,
         editsPerMinute = 324,
         averageArticlesReadPerYear = 335,
-        edits = 78952894,
+        edits = 75006197,
         editsEN = 31004338,
         bytesAddedEN = 3471067588,
-        hoursReadEN = 2376881343,
-        yearsReadEN = 270000
+        hoursReadEN = 3986370291,
+        yearsReadEN = 450000
     )
 
     val cachedRemoteConfig get() = RemoteConfig.config.commonv1?.getYirForYear(YEAR)

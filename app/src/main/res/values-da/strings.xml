@@ -2049,7 +2049,7 @@
   <string name="yir_community_global_reach_headline">Wikipedias globale rækkevidde: en af de ti mest besøgte hjemmesider i verden</string>
   <string name="yir_community_global_reach_supporting">Wikipedia er rygraden i internettets viden. Fra studerende til chatbots lærer alle af den.</string>
   <string name="yir_community_contribute_headline">Du betyder noget.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia eksisterer takket være virkelige mennesker som dig, der bidrager med deres evne til at holde den blomstrende. Hvis Wikipedia er værdifuld for dig, så overvej venligst at støtte den ved at donere eller redigere. \n\nEr du allerede bidragyder? Log ind eller opret en konto for at se dine præstationer.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia eksisterer takket være virkelige mennesker som dig, der bidrager med deres evne til at holde den blomstrende. Hvis Wikipedia er værdifuld for dig, så overvej venligst at støtte den ved at donere eller redigere. \n\nEr du allerede bidragyder? Log ind eller opret en konto for at se din bidragyderbelønning.</string>
   <string name="yir_closing_headline">Indtil det næste kaninhul</string>
   <string name="yir_closing_supporting">Uanset om du kom for én artikel eller hundrede, tak fordi du udforskede, læste og forblev nysgerrig sammen med os på Wikipedia.</string>
   <string name="yir_closing_share_action">Del højdepunkter</string>
@@ -2176,14 +2176,6 @@
   <string name="year_in_review_share_subject">Min Wikipedia-årsoversigt</string>
   <string name="year_in_review_share_body">Her er min Wikipedia-årsoversigt. Oprettet med Wikipedia Android-appen %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Globus-ikon</string>
-  <string name="settings_app_icon_title">App-ikon</string>
-  <string name="settings_app_icon_subtitle">Bidragsfordele</string>
-  <string name="settings_app_icon_preference_subtitle">Du har adgang til et brugerdefineret ikon, der hylder dine %d bidrag til Wikipedia i appen. Det forbliver indtil næste Året i tilbageblik.</string>
-  <string name="settings_app_icon_updated">Dit appikon er blevet opdateret.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nyt appikon låses op for din startskærm</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Lås din belønning som bidrager op for næste år!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Aktivér dit nye appikon i Indstillinger under App-ikon. Tak, fordi du investerer i fremtiden for gratis viden. Dine bidrag som %1$s i %2$d er med til at bane vejen for en verden af fri information, og som et resultat har du låst op for et brugerdefineret bidragyderikon til Wikipedia på din startskærm.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Vi er glade for, at Wikipedia var en del af din %1$d ! Få en særlig belønning i dit %2$d år i oversigt ved at blive bidragyder – hvad enten det er ved at &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%3$s \"&gt;editing Wikipedia&lt;/a&gt; eller ved at donere fra appen til &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%4$s \"&gt;Wikimedia Foundation&lt;/a&gt; , den nonprofitorganisation, der står bag den. Hvis Wikipedia er nyttig for dig, så overvej venligst at donere for at hjælpe med at opretholde dens fremtid og holde den gratis, reklamefri, troværdig og tilgængelig for alle. Hvis du har doneret et andet sted, er din støtte dybt værdsat.</string>
   <string name="year_in_review_slide_app_icon_donor">en donor</string>
   <string name="year_in_review_slide_app_icon_editor">en redaktør</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">en donor og redaktør</string>
@@ -2394,6 +2386,8 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Del højdepunkter</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia-logo</string>
+  <string name="year_in_review_swipe_tutorial_title">Stryg for at udforske</string>
+  <string name="year_in_review_swipe_tutorial_message">Stryg op for at navigere gennem Årsoversigt.</string>
   <string name="recommended_reading_list_title">Opdag</string>
   <string name="recommended_reading_list_onboarding_card_title">Opdag artikler udvalgt til dig</string>
   <string name="recommended_reading_list_onboarding_card_message">Din ugentlige læseliste med Wikipedia-artikler, sammensat til dig.</string>

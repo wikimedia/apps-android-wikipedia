@@ -218,6 +218,9 @@
   <string name="create_account_encourage_year_in_review_title_zero">Ел күзәтүендә укучы көннәрегезнең нәтиҗәсен билгеләгез.</string>
   <string name="create_account_encourage_saved_articles_title_zero">Сакланган мәкаләләрегезне синхронлаштырыгыз</string>
   <string name="create_account_encourage_saved_articles_description">Җайланмаларыгыз арасында мөкаләләрегезне синхронлаштыру өчен Википедия хисапъязмасын булдырыгыз.</string>
+  <string name="create_account_encourage_activity_title_zero">«Активлык» функциясе ярдәмендә соңгы укыганыгызны карап чыгыгыз.</string>
+  <string name="create_account_encourage_activity_description">«Активлык» табында укуга киткән вакыт дәвамылылгын, өйрәнелгән темаларны һәм кертемнәрегезнең укучылар арсында популярлыгын карарга була.</string>
+  <string name="create_account_encourage_edits_title">Киләчәк төзәтмәләрегез өчен хуплаулар кабул итегез</string>
   <string name="create_account_name_unavailable">\"%s\" кулланучының исеме укылмый. Зинһар, башка исем сайлагыз.</string>
   <string name="create_account_ip_block_message">Гафу итегез, хәзерге вакытта сезнең IP-адресыгыз яңа хисапъязмаларны булдыру өчен блокланган.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:Мин блокланган</string>
@@ -1820,7 +1823,6 @@
   <string name="year_in_review_disable_positive_button">Әйе, телим</string>
   <string name="year_in_review_disable_negative_button">Юк, теләмим</string>
   <string name="year_in_review_globe_icon">Глобус тамгачыгы</string>
-  <string name="settings_app_icon_title">Кушымта тамгачыгы</string>
   <string name="year_in_review_slide_top_categories_headline">Сезне иң кызыксындырган төркемнәр</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Мәкалә эзләү</string>
   <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Сезнең өчен булдырылган</string>

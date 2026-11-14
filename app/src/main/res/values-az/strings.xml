@@ -29,7 +29,7 @@
   <string name="search_back_button_content_description">Geriyə qayıt</string>
   <string name="search_clear_query_content_description">Sorğunu sil</string>
   <string name="search_icon_content_description">Axtarış</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">Kolleksiyalarımı süzgəcdən keçir</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Siyahılarımı süzgəcdən keçir</string>
   <string name="nav_item_suggested_edits">Redaktələr</string>
   <string name="nav_item_activity">Fəaliyyət</string>
   <string name="nav_item_more">Daha</string>
@@ -96,16 +96,16 @@
   <string name="menu_page_watched">İzlənən</string>
   <string name="edit_section_find_in_page">Səhifədə axtar</string>
   <string name="menu_page_font_and_theme">Şrift və tərtibatı dəyiş</string>
-  <string name="menu_page_add_to_list" fuzzy="true">Kolleksiyaya əlavə et</string>
+  <string name="menu_page_add_to_list">Oxuma siyahısına əlavə et</string>
   <string name="menu_page_add_to_default_list">Saxla</string>
-  <string name="feed_card_add_to_list" fuzzy="true">Kolleksiyaya əlavə et</string>
+  <string name="feed_card_add_to_list">Oxuma siyahısına əlavə et</string>
   <string name="feed_card_add_to_default_list">Qeyd et</string>
   <string name="menu_page_share">İstinadı paylaş</string>
   <string name="menu_article_share">Məqaləni paylaş</string>
   <string name="menu_page_article_share">Paylaş</string>
   <string name="menu_page_open_a_new_tab">Səhifəni yeni pəncərədə aç</string>
   <string name="menu_page_new_tab">Yeni nişan</string>
-  <string name="menu_page_reading_lists" fuzzy="true">Kolleksiyalar</string>
+  <string name="menu_page_reading_lists">Oxuma siyahıları</string>
   <string name="menu_page_recently_viewed">Son vaxtlarda baxıldı</string>
   <string name="menu_page_archive">Arxiv</string>
   <string name="menu_long_press_open_page">Aç</string>
@@ -148,9 +148,9 @@
   <string name="menu_show_toc">Mündəricat</string>
   <string name="search_no_results_found">Nəticələr tapılmadı</string>
   <string name="search_reading_list_no_results">\"%s\"-də heç bir nəticə tapılmadı</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">Kolleksiyada heç bir nəticə tapılmadı</string>
+  <string name="search_reading_lists_no_results">Oxuma siyahılarında heç bir nəticə tapılmadı</string>
   <string name="search_all_articles_no_results">Bütün məqalələrdə heç bir nəticə tapılmadı</string>
-  <string name="search_collections_no_results" fuzzy="true">Kolleksiyalarda heç bir nəticə tapılmadı</string>
+  <string name="search_collections_no_results">Oxuma siyahılarında heç bir nəticə tapılmadı</string>
   <string name="search_history_no_results">Tarixçədə heç bir nəticə tapılmadı</string>
   <string name="edit_section_captcha_message">Avtomatik spamdan qorumağa kömək etmək üçün, aşağıda göstərilən sözləri daxil edin</string>
   <string name="edit_section_captcha_request_an_account_message">Şəkili görə bilmirsiniz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Hesab üçün müraciət edin&lt;/a&gt;</string>
@@ -251,12 +251,12 @@
   <string name="preferences_heading_syncing">Sinxronizasiya olunur</string>
   <string name="preferences_heading_data_usage">Data istifadəsi</string>
   <string name="preferences_heading_experimental">Eksperimental</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Kolleksiya sinxronizasiyası</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">Kolleksiya məqalələrini yüklə</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">Müxtəlif cihazlar arasında Vikipediya hesabını saxlayaraq kolleksiyaları sinxronizasiya et</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">\"%s\" Vikipediya hesabınıza əlavə etməklə müxtəlif cihazlar arasında kolleksiyaları sinxronlaşdırın</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">Sinxronlaşdırılmış kolleksiyalar \"%s\" hesabından silinsin?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Bu, əvvəlcədən sinxronlaşdırılmış kolleksiyaları tamamilə siləcək. Bütün sinxronlaşdırılmış kolleksiyalar \"%s\" hesabınızdan silinsin?</string>
+  <string name="preference_title_sync_reading_lists_from_account">Oxuma siyahısı sinxronizasiyası</string>
+  <string name="preference_title_download_reading_list_articles">Oxuma siyahısı məqalələrini yüklə</string>
+  <string name="preference_summary_sync_reading_lists">Müxtəlif cihazlar arasında Vikipediya hesabını saxlayaraq oxuma siyahılarını sinxronizasiya et</string>
+  <string name="preference_summary_sync_reading_lists_from_account">\"%s\" Vikipediya hesabınıza əlavə etməklə müxtəlif cihazlar arasında oxuma siyahılarını sinxronlaşdırın</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxronlaşdırılmış oxuma siyahıları \"%s\" hesabından silinsin?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Bu, əvvəlcədən sinxronlaşdırılmış oxuma siyahılarını tamamilə siləcək. Bütün sinxronlaşdırılmış siyahılar \"%s\" hesabınızdan silinsin?</string>
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
   <string name="preference_summary_auto_upload_crash_reports">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
   <string name="editing_error_spamblacklist">Bloklanmış domenlərə aid linklər (%s) aşkarlandı. Lütfən onları çıxarın və yenidən cəhd edin.</string>
@@ -402,8 +402,8 @@
   <string name="unnamed_tab_closed">Nişan bağlandı.</string>
   <string name="tab_item_closed">%s bağlandı.</string>
   <string name="all_tab_items_closed">Bütün nişanlar bağlandı.</string>
-  <string name="tool_tip_bookmark_icon_title" fuzzy="true">Kolleksiyaya əlavə et</string>
-  <string name="tool_tip_bookmark_icon_text" fuzzy="true">Məqaləni kolleksiyaya əlavə etmək üçün əlfəcin işarəsinə vurun.</string>
+  <string name="tool_tip_bookmark_icon_title">Oxuma siyahısına əlavə et</string>
+  <string name="tool_tip_bookmark_icon_text">Məqaləni oxuma siyahısına əlavə etmək üçün əlfəcin işarəsinə vurun.</string>
   <string name="page_view_in_browser">Brauzerdə göstər</string>
   <string name="tool_tip_toc_title">Mündəricat</string>
   <string name="tool_tip_toc_text">İndi məzmunu açmaq üçün sola sürüşdürə və eyni zamanda bir məqalənin fərqli hissələrinə sürətlə keçmək üçün bu sürüşdürücü düyməsini vurub sürükləyə bilərsiniz.</string>
@@ -416,9 +416,9 @@
   <string name="button_continue_to_talk_page">Müzakirə səhifəsini göstər</string>
   <string name="button_continue_to_disambiguation">Oxşar səhifələrə baxın</string>
   <string name="link_preview_disambiguation_description">Bu başlıq birdən çox səhifəyə aiddir:</string>
-  <string name="button_add_to_reading_list" fuzzy="true">Kolleksiyaya əlavə et</string>
+  <string name="button_add_to_reading_list">Oxuma siyahısına əlavə et</string>
   <string name="page_offline_notice_cannot_load_while_offline">Məqalə oflayn olarkən yüklənə bilməz.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">İpucu: Məqaləni kolleksiyaya əlavə edin, yenidən onlayn olduqdan sonra yüklənəcəkdir.</string>
+  <string name="page_offline_notice_add_to_reading_list">İpucu: Məqaləni oxuma siyahısına əlavə edin, yenidən onlayn olduqdan sonra yüklənəcək.</string>
   <string name="page_offline_notice_last_date">Siz bu məqalənin %s tarixində yüklənmiş oflayn versiyasını oxuyursunuz.</string>
   <string name="redirected_from_snackbar">\"%s\" səhifəsindən yönləndirildi</string>
   <string name="button_get_directions">İstiqamətləri əldə edin</string>
@@ -529,17 +529,17 @@
   <string name="editing_monospace_font_label">Monospace şriftindən istifadə et</string>
   <string name="editing_typing_suggestions">Yazı təkliflərini göstər</string>
   <string name="nav_item_saved">Saxlanılmışlar</string>
-  <string name="reading_list_save_to" fuzzy="true">Kolleksiyaya əlavə et</string>
-  <string name="reading_list_move_to" fuzzy="true">Kolleksiyaya əlavə et</string>
+  <string name="reading_list_save_to">Oxuma siyahısına əlavə et</string>
+  <string name="reading_list_move_to">Oxuma siyahısına əlavə et</string>
   <string name="reading_list_create_new">Yenisini yarat</string>
-  <string name="reading_list_title_exists" fuzzy="true">\"%s\" kolleksiyası onsuz da mövcuddur.</string>
+  <string name="reading_list_title_exists">\"%s\" siyahısı onsuz da mövcuddur.</string>
   <string name="reading_list_article_added_to_named">%1$s %2$s siyahısına əlavə olundu əlavə edildi.</string>
-  <string name="reading_list_article_added_to_default_list" fuzzy="true">%s saxlanıldı. Onu kolleksiyaya əlavə etmək istəyirsiniz?</string>
+  <string name="reading_list_article_added_to_default_list">%s saxlanıldı. Onu siyahıya əlavə etmək istəyirsiniz?</string>
   <string name="reading_list_article_moved_to_named">%1$s %2$s siyahısına köçürüldü.</string>
   <string name="reading_list_article_already_exists_message">%1$s siyahısında %2$s onsuz da var.</string>
   <string name="reading_list_articles_already_exist_message">%s onsuz da bütün məqalələri ehtiva edir.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Kolleksiyaya bax</string>
-  <string name="reading_list_add_to_list_button" fuzzy="true">Kolleksiyaya əlavə et</string>
+  <string name="reading_list_added_view_button">Siyahıya bax</string>
+  <string name="reading_list_add_to_list_button">Siyahıya əlavə et</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 məqalə</item>
     <item quantity="other">%d məqalə</item>
@@ -564,63 +564,63 @@
   <string name="reading_list_sort_by_recent_desc">Əlavə edilmiş tarixə görə sırala (ən köhnə)</string>
   <string name="reading_list_sort_by_created">Yaradılma tarixinə görə sırala (ən yeni)</string>
   <string name="reading_list_sort_by_created_desc">Yaradılma tarixinə görə sırala (ən köhnə)</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Kolleksiyanı sil</string>
-  <string name="reading_list_menu_export" fuzzy="true">Kolleksiyanı ixrac et</string>
+  <string name="reading_list_menu_delete">Siyahını sil</string>
+  <string name="reading_list_menu_export">Siyahını ixrac et</string>
   <string name="reading_list_menu_select">Seç</string>
   <string name="reading_list_menu_unselect">Seçimi ləğv et</string>
-  <string name="reading_list_export_write_permission_rationale" fuzzy="true">Kolleksiyanı ixrac etmək üçün cihazınızda yaddaşa yazmaq icazəsi tələb olunur.</string>
+  <string name="reading_list_export_write_permission_rationale">Oxuma siyahısını ixrac etmək üçün cihazınızda yaddaşa yazmaq icazəsi tələb olunur.</string>
   <string name="reading_list_menu_rename">Adı/təsviri redaktə edin</string>
   <string name="reading_list_action_menu_remove_from_offline">Oflayndan sil</string>
   <string name="reading_list_action_menu_save_for_offline">Oflayn üçün yadda saxla</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Hamısını oflayndan sil</string>
   <string name="reading_list_action_menu_save_all_for_offline">Hamısını oflayn üçün yadda saxla</string>
-  <string name="reading_list_action_menu_add_to_another_list" fuzzy="true">Başqa kolleksiyaya əlavə et</string>
-  <string name="reading_list_action_menu_move_to_another_list" fuzzy="true">Başqa kolleksiyaya köçür</string>
-  <string name="reading_list_name_sample" fuzzy="true">Mənim kolleksiya</string>
-  <string name="reading_list_name_hint" fuzzy="true">Bu kolleksiyanın adı</string>
+  <string name="reading_list_action_menu_add_to_another_list">Başqa siyahıya əlavə et</string>
+  <string name="reading_list_action_menu_move_to_another_list">Başqa siyahıya köçür</string>
+  <string name="reading_list_name_sample">Mənim oxuma siyahım</string>
+  <string name="reading_list_name_hint">Bu siyahının adı</string>
   <string name="reading_list_description_hint">Təsvir (istəyə görə)</string>
-  <string name="reading_list_item_deleted" fuzzy="true">%s kolleksiyadan silindi</string>
+  <string name="reading_list_item_deleted">%s siyahıdan silindi</string>
   <string name="reading_list_item_deleted_from_list">%1$s %2$s siyahısından silindi</string>
-  <plurals name="reading_list_articles_deleted" fuzzy="true">
-    <item quantity="one">%d məqalə kolleksiyadan silindi</item>
-    <item quantity="other">%d məqalə kolleksiyadan silindi</item>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d məqalə siyahıdan silindi</item>
+    <item quantity="other">%d məqalə siyahıdan silindi</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%1$d məqalə %2$s siyahısından silindi</item>
     <item quantity="other">%1$d məqalə %2$s siyahısından silindi</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message" fuzzy="true">
-    <item quantity="one">%d kolleksiya silindi</item>
-    <item quantity="other">%d kolleksiya silindi</item>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d siyahı silindi</item>
+    <item quantity="other">%d siyahı silindi</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message" fuzzy="true">Defolt kolleksiya (%s) silinə bilməz</string>
-  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s silindi. Defolt kolleksiya (%2$s) silinə bilməz.</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message" fuzzy="true">Kolleksiyalar silindi. Defolt kolleksiya (%s) silinə bilməz.</string>
-  <string name="single_list_json_file_name" fuzzy="true">%s (Vikipediya kolleksiyası).json</string>
-  <string name="multiple_lists_json_file_name" fuzzy="true">Vikipediya kolleksiyaları (%s və daha çox).json</string>
-  <string name="reading_list_items_deleted" fuzzy="true">%d məqalə kolleksiyadan silindi</string>
-  <string name="reading_lists_item_deleted" fuzzy="true">%s kolleksiyalardan silindi</string>
+  <string name="reading_lists_default_list_delete_message">Defolt siyahı (%s) silinə bilməz</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s silindi. Defolt siyahı (%2$s) silinə bilməz.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Siyahılar silindi. Defolt siyahı (%s) silinə bilməz.</string>
+  <string name="single_list_json_file_name">%s (Vikipediya oxuma siyahısı).json</string>
+  <string name="multiple_lists_json_file_name">Vikipediya oxuma siyahıları (%s və daha çox).json</string>
+  <string name="reading_list_items_deleted">%d məqalə siyahıdan silindi</string>
+  <string name="reading_lists_item_deleted">%s siyahılardan silindi</string>
   <string name="reading_list_item_delete_undo">Geri qaytar</string>
   <string name="reading_list_deleted">%s silindi</string>
   <string name="saved_list_empty_title">Hələ yadda saxlanmış məqalə yoxdur</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Hətta oflayn olsanız belə, daha sonra oxumaq üçün məqalələri kolleksiyaya əlavə edin.</string>
+  <string name="reading_lists_empty_message">Oflayn olduqda da oxuya bilmək üçün məqalələri siyahıya əlavə edin.</string>
   <string name="reading_lists_search_empty_articles_title">Yadda saxlanılmış məqalə tapılmadı</string>
   <string name="reading_lists_search_empty_articles_message">Yadda saxlanılan məqalələrinizdə “%s” tapa bilmədik.</string>
-  <string name="reading_lists_search_empty_collections_title" fuzzy="true">Heç bir kolleksiya tapılmadı</string>
-  <string name="reading_lists_search_empty_collections_message" fuzzy="true">Kolleksiyalarınızda “%s” tapa bilmədik.</string>
-  <string name="reading_list_empty" fuzzy="true">Bu kolleksiyaya əlavə edilmiş məqaləniz yoxdur.</string>
+  <string name="reading_lists_search_empty_collections_title">Heç bir siyahı tapılmadı</string>
+  <string name="reading_lists_search_empty_collections_message">Oxuma siyahılarınızda “%s” tapa bilmədik.</string>
+  <string name="reading_list_empty">Bu siyahıya əlavə edilmiş məqaləniz yoxdur.</string>
   <string name="reading_list_article_offline">Oflayn mövcuddur</string>
   <string name="reading_list_article_make_offline">Bu məqaləni oflayn rejimdə əlçatan edin</string>
-  <string name="reading_list_add_to_other_list" fuzzy="true">Digər kolleksiyaya əlavə edin</string>
-  <string name="reading_list_move_to_other_list" fuzzy="true">Digər kolleksiyaya köçür</string>
-  <string name="reading_list_add_to_collection" fuzzy="true">Kolleksiyaya əlavə et</string>
-  <plurals name="reading_list_in_collections" fuzzy="true">
-    <item quantity="one">1 kolleksiyada</item>
-    <item quantity="other">%d kolleksiyada</item>
+  <string name="reading_list_add_to_other_list">Digər siyahıya əlavə et</string>
+  <string name="reading_list_move_to_other_list">Digər siyahıya köçür</string>
+  <string name="reading_list_add_to_collection">Siyahıya əlavə et</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="one">1 siyahıda</item>
+    <item quantity="other">%d siyahıda</item>
   </plurals>
-  <string name="reading_list_move_from_to_other_list" fuzzy="true">%s kolleksiyasından digər kolleksiyaya köçür</string>
+  <string name="reading_list_move_from_to_other_list">%s siyahısından digərinə köçür</string>
   <string name="reading_list_remove_from_list">%s siyahısından silin</string>
-  <string name="reading_list_remove_from_lists" fuzzy="true">Kolleksiyalardan sil</string>
+  <string name="reading_list_remove_from_lists">Siyahılardan sil</string>
   <string name="reading_list_select_item">Seç</string>
   <string name="reading_list_confirm_remove_article_from_offline">Oflayndan sil</string>
   <string name="reading_list_confirm_remove_article_from_offline_title" fuzzy="true">Məqalə bir neçə kolleksiyada görünür</string>
@@ -1962,14 +1962,6 @@
   <string name="year_in_review_share_subject">Vikipediyadakı ilimin icmalı</string>
   <string name="year_in_review_share_body">Mənim Vikipediyada İlimin İcmalı. Vikipediya Android tətbiqi ilə yaradılıb %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Qlobus ikonu</string>
-  <string name="settings_app_icon_title">Tətbiq ikonu</string>
-  <string name="settings_app_icon_subtitle">Töhfəçi faydası</string>
-  <string name="settings_app_icon_preference_subtitle">Töhfəçi ikonası %d-ci ildə Vikipediyaya tətbiqdaxili töhfələrinizi qeyd edir. O, növbəti İlin İcmalına qədər qalacaq.</string>
-  <string name="settings_app_icon_updated">Tətbiq ikonanız yeniləndi.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Əsas ekranınız üçün yeni tətbiq ikonası açıldı</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Gələn il üçün töhfəçi mükafatınızı açın!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Tətbiq ikonasının altındakı Parametrlərdə yeni tətbiq ikonanızı aktivləşdirin. Açıq biliyin gələcəyinə sərmayə qoyduğunuz üçün təşəkkür edirik. %2$dda %1$s kimi verdiyiniz töhfələriniz azad məlumat dünyasına yol açmağa kömək edir və nəticədə siz ana ekranınızda Vikipediya üçün fərdi töhfəçi ikonasını açdınız.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Vikipediyanın %1$d-ci ilinizin bir hissəsi olmasına şadıq! %2$d-cı ilin icmalında xüsusi bir mükafatın kilidini açmaq üçün töhfə verən olun — istər &lt;a href=\"%3$s\"&gt;Vikipediyanı redaktə etməklə&lt;/a&gt;, istərsə də onu dəstəkləyən qeyri-kommersiya təşkilatı &lt;a href=\"%4$s\"&gt;Vikimedia Fondu&lt;/a&gt;na tətbiq vasitəsilə ianə etməklə. Əgər Vikipediya sənin üçün faydalıdırsa, onun gələcəyini qorumaq və onu hər kəs üçün pulsuz, reklamsız, etibarlı və əlçatan saxlamaq üçün ianə etməyi nəzərdən keçirin. Başqa yerdə ianə etmisinizsə, dəstəyiniz üçün dərin minnətdarlığımızı bildiririk.</string>
   <string name="year_in_review_slide_app_icon_donor">donor</string>
   <string name="year_in_review_slide_app_icon_editor">redaktor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donor və redaktor</string>

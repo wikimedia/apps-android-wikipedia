@@ -3,6 +3,7 @@ package org.wikipedia.yearinreview.data
 import kotlinx.serialization.Serializable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopic
+import kotlin.time.Duration.Companion.seconds
 
 @Serializable
 data class YearInReviewCachedStats(
@@ -14,7 +15,8 @@ data class YearInReviewCachedStats(
 data class YearInReviewEditingStats(
     val totalEditCount: Int = 0,
     val totalPageViewsCount: Long = 0,
-    val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList()
+    val mostViewedArticles: List<Pair<PageTitle, Long>> = emptyList(),
+    val isDonor: Boolean = false
 ) {
     val totalEditCountStatus get() = if (totalEditCount > 0) {
         YearInReviewInsightStatus.PERSONALIZED
@@ -114,13 +116,25 @@ data class YearInReviewReadingStats(
         YearInReviewInsightStatus.SUPPRESSED
     }
 
+    val biggestReadingDayStatus get() = if (biggestReadingDayMonth > 0 && biggestReadingDayOfMonth > 0 && biggestReadingDayTimeSpentSec.seconds.inWholeMinutes >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
+    val biggestReadingDayArticlesStatus get() = if (biggestReadingDayStatus == YearInReviewInsightStatus.PERSONALIZED && biggestReadingDayArticles.size >= 2) {
+        YearInReviewInsightStatus.PERSONALIZED
+    } else {
+        YearInReviewInsightStatus.SUPPRESSED
+    }
+
     val articlesRevisitedStatus get() = if (articlesRevisited.size >= 2) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.EMPTY_STATE
     }
 
-    val longestReadArticleStatus get() = if (longestReadArticles.size > 1 && longestReadArticleMinutes > 10) {
+    val longestReadArticleStatus get() = if (longestReadArticles.size > 1 && longestReadArticleMinutes > 1) {
         YearInReviewInsightStatus.PERSONALIZED
     } else {
         YearInReviewInsightStatus.SUPPRESSED

@@ -1653,6 +1653,7 @@
   <string name="on_this_day_game_more_label">Περισσότερα</string>
   <string name="on_this_day_game_card_progress_short_label">Είστε στην ερώτηση %d.</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">Σύνδεση</string>
+  <string name="yir_intro_headline">Η Ανασκόπηση της Χρονιάς της Wikipedia είναι εδώ.</string>
   <string name="year_in_review_learn_more">Μάθετε περισσότερα</string>
   <string name="year_in_review_close">Κλείσιμο</string>
   <string name="year_in_review_share_icon">Εικονίδιο κοινοποίησης</string>
@@ -1661,7 +1662,6 @@
   <string name="year_in_review_donate">Δωρεά</string>
   <string name="year_in_review_information_icon">Εικονίδιο πληροφοριών</string>
   <string name="year_in_review_globe_icon">Εικονίδιο υδρόγειου</string>
-  <string name="settings_app_icon_title">Εικονίδιο εφαρμογής</string>
   <string name="year_in_review_slide_reading_patterns_headline">Έχετε καθαρά μοτίβα ανάγνωσης</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Αγαπημένη ώρα ανάγνωσης</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Αγαπημένη μέρα ανάγνωσης</string>

@@ -14,6 +14,7 @@
 * Festina90
 * Goefie
 * HanV
+* ItsNyoty
 * Jeroen N
 * Jillids
 * Klaas van Buiten
@@ -2076,7 +2077,7 @@
   <string name="yir_community_global_reach_headline">Het wereldwijde bereik van Wikipedia: een van de tien meest bezochte websites ter wereld</string>
   <string name="yir_community_global_reach_supporting">Wikipedia is de ruggengraat van de kennis op het internet. Van studenten tot chatbots, iedereen leert ervan.</string>
   <string name="yir_community_contribute_headline">U doet ertoe.</string>
-  <string name="yir_community_contribute_supporting">Wikipedia bestaat dankzij echte mensen zoals u, die bijdragen wat ze kunnen om het te laten floreren. Als Wikipedia waardevol voor u is, overweeg dan die te steunen door te doneren of te bewerken.\n\nAl een bijdrager? Meld u aan of maak een account aan om uw prestaties te zien.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia bestaat dankzij de bijdragen van echte mensen zoals u. Alleen door uw bijdragen blijft het floreren. Als Wikipedia voor u van waarde is, overweeg dan eens om een donatie te doen of een pagina te bewerken.\n\nAl een bijdrager? Meld u aan of maak een account aan om uw bijdragerbeloning te zien.</string>
   <string name="yir_closing_headline">Tot het volgende konijnenhol</string>
   <string name="yir_closing_supporting">Of u nu voor één artikel of honderd kwam, bedankt dat u samen met ons op Wikipedia heeft verkend, gelezen en nieuwsgierig bent gebleven.</string>
   <string name="yir_closing_share_action">Hoogtepunten delen</string>
@@ -2203,14 +2204,6 @@
   <string name="year_in_review_share_subject">Mijn Wikipedia-jaaroverzicht</string>
   <string name="year_in_review_share_body">Hier is mijn Wikipedia-jaaroverzicht. Gemaakt met de Wikipedia Android-app %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Wereldbol-pictogram</string>
-  <string name="settings_app_icon_title">Apppictogram</string>
-  <string name="settings_app_icon_subtitle">Bijdragervoordeel</string>
-  <string name="settings_app_icon_preference_subtitle">U hebt toegang tot een aangepast pictogram waarmee uw %d via de app gemaakte bijdragen aan Wikipedia worden gevierd. Het blijft staan tot het volgende Jaaroverzicht.</string>
-  <string name="settings_app_icon_updated">Uw apppictogram is bijgewerkt.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nieuw apppictogram ontgrendeld voor uw startscherm</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Ontgrendel uw bijdragersbeloning voor volgend jaar!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Activeer uw nieuwe apppictogram in de Instellingen onder Apppictogram. Bedankt voor het investeren in de toekomst van de vrije kennis. Uw bijdragen als %1$s in %2$d helpen de weg vrij te maken naar een wereld van vrije informatie. Daarom is nu voor u een eigen bijdragerspictogram ontsloten voor Wikipedia op uw startscherm.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Wat fijn dat Wikipedia deel uitmaakte van uw jaar %1$d! Ontgrendel met uw bijdragen een speciale beloning in uw Jaaroverzicht %2$d. Dat doet u door &lt;a href=\"%3$s\"&gt;Wikipedia te bewerken&lt;/a&gt; of door vanuit de app te doneren aan de &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, de non-profitorganisatie erachter. Als Wikipedia dit jaar voor u behulpzaam is geweest, overweeg dan te doneren zodat Wikipedia ook in de toekomst voor iedereen gratis, advertentievrij, betrouwbaar en toegankelijk blijft. Als u ergens anders hebt gedoneerd, stellen we uw steun zeer op prijs.</string>
   <string name="year_in_review_slide_app_icon_donor">donateur</string>
   <string name="year_in_review_slide_app_icon_editor">een bewerker</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donateur en bewerker</string>
@@ -2421,6 +2414,8 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Hoogtepunten delen</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia-logo</string>
+  <string name="year_in_review_swipe_tutorial_title">Veeg om te ontdekken</string>
+  <string name="year_in_review_swipe_tutorial_message">Veeg omhoog om door het jaaroverzicht te navigeren.</string>
   <string name="recommended_reading_list_title">Ontdekken</string>
   <string name="recommended_reading_list_onboarding_card_title">Ontdek pagina\'s die speciaal voor u zijn uitgekozen</string>
   <string name="recommended_reading_list_onboarding_card_message">Uw wekelijkse leeslijst met Wikipedia-artikelen, speciaal voor u samengesteld.</string>
@@ -2827,4 +2822,7 @@
   <string name="preference_summary_semantic_search_jump_to_passage">Spring rechtstreeks naar de relevante passage</string>
   <string name="semantic_search_snackbar_message">Module verborgen. U kunt die via Instellingen weer zichtbaar maken</string>
   <string name="semantic_search_snackbar_action_label">Wijzigen</string>
+  <string name="notifications_experiment_discover_interests_title">Omdat u geïnteresseerd bent in %s</string>
+  <string name="notifications_experiment_discover_saved_or_history_title">Omdat u gelezen hebt over %s</string>
+  <string name="notifications_experiment_discover_message">We hebben een nieuwe leeslijst voor u samengesteld op basis van dit en andere interesses.</string>
 </resources>
