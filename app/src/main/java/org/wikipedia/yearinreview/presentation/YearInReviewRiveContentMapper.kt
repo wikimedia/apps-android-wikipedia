@@ -234,7 +234,7 @@ object YearInReviewRiveContentMapper {
             imageUrls = mapOf(
                 "thumbnailTop" to page.article?.thumbUrl,
                 "thumbnailBot" to page.fakeArticle?.thumbUrl
-            ),
+            ).filterValues { !it.isNullOrEmpty() },
             accessibilityActions = listOf(page.article, page.fakeArticle).map { article ->
                 RiveAccessibilityAction(
                     label = resources.getString(R.string.yir_guess_article_choose_action, StringUtil.fromHtml(article?.displayText).toString()),
@@ -250,7 +250,7 @@ object YearInReviewRiveContentMapper {
                 ),
                 imageUrls = mapOf(
                     "resultThumbnail" to page.article?.thumbUrl
-                )
+                ).filterValues { !it.isNullOrEmpty() }
             )
         )
         is YearInReviewPage.RabbitHoleGuess -> RiveSlideContent(
@@ -273,7 +273,7 @@ object YearInReviewRiveContentMapper {
                 "thumbnailTopB" to page.articleEnd?.thumbUrl,
                 "thumbnailBotT" to page.fakeArticleStart?.thumbUrl,
                 "thumbnailBotB" to page.fakeArticleEnd?.thumbUrl
-            ),
+            ).filterValues { !it.isNullOrEmpty() },
             accessibilityActions = listOf(
                 page.articleStart to page.articleEnd,
                 page.fakeArticleStart to page.fakeArticleEnd
@@ -298,7 +298,7 @@ object YearInReviewRiveContentMapper {
                 imageUrls = mapOf(
                     "resultThumbnailTop" to page.articleStart?.thumbUrl,
                     "resultThumbnailBot" to page.articleEnd?.thumbUrl
-                )
+                ).filterValues { !it.isNullOrEmpty() }
             )
         )
         is YearInReviewPage.Collective -> when (page.insight) {
