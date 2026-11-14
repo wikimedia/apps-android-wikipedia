@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -38,7 +39,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
@@ -250,22 +250,27 @@ private fun SearchResultRelevanceRow(
 ) {
     val context = LocalContext.current
     Row(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .height(58.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
             modifier = Modifier.weight(1f),
             text = context.getString(languageCode, R.string.search_result_relevance_question),
-            fontSize = 12.sp,
+            style = MaterialTheme.typography.bodySmall,
             color = WikipediaTheme.colors.secondaryColor
         )
         listOf(true, false).forEach { isPositive ->
             val isSelected = relevance == isPositive
             IconButton(
-                modifier = Modifier.semantics { selected = isSelected },
+                modifier = Modifier
+                    .size(48.dp)
+                    .semantics { selected = isSelected },
                 onClick = { onRelevanceClick(isPositive) }
             ) {
                 Icon(
+                    modifier = Modifier.size(20.dp),
                     painter = painterResource(
                         when {
                             isPositive && isSelected -> R.drawable.ic_thumb_up_filled
