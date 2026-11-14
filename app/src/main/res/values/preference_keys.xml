@@ -249,4 +249,5 @@
     <string name="preference_key_interleave_search_enabled" translatable="false">interleaveSearchEnabled</string>
     <string name="preference_key_interleave_search_override_supported_language" translatable="false">interleaveSearchOverrideSupportedLanguage</string>
     <string name="preference_key_interleave_search_is_test_active" translatable="false">interleaveSearchIsTestActive</string>
+    <string name="preference_key_search_result_card_playground" translatable="false">searchResultCardPlayground</string>
 </resources>

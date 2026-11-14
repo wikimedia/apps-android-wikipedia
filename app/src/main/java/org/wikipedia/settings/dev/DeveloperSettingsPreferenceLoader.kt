@@ -42,6 +42,7 @@ import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.IntPreference
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
+import org.wikipedia.settings.dev.playground.SearchResultCardPlaygroundActivity
 import org.wikipedia.settings.dev.playground.YearInReviewPlaygroundDialog
 import org.wikipedia.settings.dev.playground.showNotificationsExperimentTimePickerDialog
 import org.wikipedia.setupLeakCanary
@@ -303,6 +304,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             isVisible = ReleaseUtil.isPreProdRelease
             onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager, YearInReviewPlaygroundDialog())
+                true
+            }
+        }
+        findPreference(R.string.preference_key_search_result_card_playground).apply {
+            isVisible = ReleaseUtil.isPreProdRelease
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                activity.startActivity(SearchResultCardPlaygroundActivity.newIntent(activity))
                 true
             }
         }

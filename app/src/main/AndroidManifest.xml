@@ -403,6 +403,7 @@
         <activity android:name=".settings.homefeed.HomeFeedSettingsActivity"/>
 
         <activity android:name=".settings.VisualEditorSettingsActivity"/>
+        <activity android:name=".settings.dev.playground.SearchResultCardPlaygroundActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"
