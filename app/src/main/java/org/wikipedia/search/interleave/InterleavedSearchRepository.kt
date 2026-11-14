@@ -103,7 +103,7 @@ class InterleavedSearchRepository(
     )
 
     companion object {
-        private const val LIST_LENGTH = 50
-        private const val RESULTS_PER_SEARCH = 50
+        private const val LIST_LENGTH = 10
+        private const val RESULTS_PER_SEARCH = 10
     }
 }
