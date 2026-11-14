@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -152,15 +151,21 @@ fun SearchResultCard(
             Text(
                 modifier = Modifier.padding(top = 4.dp),
                 text = context.getString(languageCode, R.string.semantic_search_results_read_in_article_label),
-                fontWeight = FontWeight.Medium,
-                fontSize = 13.sp,
+                style = MaterialTheme.typography.labelMedium,
                 color = WikipediaTheme.colors.secondaryColor
+            )
+        }
+
+        if (model.isAttributionLoading || model.isAttributionVisible) {
+            HorizontalDivider(
+                modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
+                color = WikipediaTheme.colors.borderColor,
+                thickness = 1.dp
             )
         }
 
         if (model.isAttributionLoading) {
             // Keep the row's space while counts load, so the card doesn't grow when they arrive.
-            Spacer(modifier = Modifier.height(16.dp))
             SearchResultAttributionRow(
                 modifier = Modifier
                     .alpha(0f)
@@ -170,7 +175,6 @@ fun SearchResultCard(
                 referenceCount = null
             )
         } else if (model.isAttributionVisible) {
-            Spacer(modifier = Modifier.height(16.dp))
             SearchResultAttributionRow(
                 languageCode = languageCode,
                 contributorCount = model.contributorCount,
@@ -222,14 +226,16 @@ private fun SearchResultAttributionItem(@DrawableRes iconRes: Int, text: String)
     Row(verticalAlignment = Alignment.CenterVertically) {
         Icon(
             painter = painterResource(iconRes),
-            modifier = Modifier.size(15.dp),
+            modifier = Modifier
+                .padding(1.dp)
+                .size(16.dp),
             contentDescription = null,
             tint = WikipediaTheme.colors.secondaryColor
         )
         Spacer(modifier = Modifier.width(4.dp))
         Text(
             text = text,
-            fontSize = 12.sp,
+            style = MaterialTheme.typography.bodySmall,
             color = WikipediaTheme.colors.secondaryColor
         )
     }
