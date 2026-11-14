@@ -40,6 +40,7 @@ import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.databinding.ActivityEditSectionBinding
 import org.wikipedia.databinding.DialogWithCheckboxBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
@@ -143,6 +144,19 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             finish()
         }
     }
+
+    private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
+        override fun onShow() { }
+
+        override fun onSuccess(token: String) {
+            doSave(hCaptchaToken = token)
+        }
+
+        override fun onError(e: Exception, code: Int) {
+            showProgressBar(false)
+            FeedbackUtil.showMessage(this@EditSectionActivity, e.message.orEmpty())
+        }
+    })
 
     private val movementMethod = LinkMovementMethodExt { urlStr ->
         UriUtil.visitInExternalBrowser(this, UriUtil.resolveProtocolRelativeUrl(viewModel.pageTitle.wikiSite, urlStr).toUri())
@@ -268,6 +282,11 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                                             AnonymousNotificationHelper.onEditSubmitted()
                                             viewModel.waitForRevisionUpdate(newRevId)
                                         }
+                                        hasHCaptchaResponse -> {
+                                            showProgressBar(true)
+                                            hCaptchaHelper.cleanup()
+                                            hCaptchaHelper.show(hCaptchaKey)
+                                        }
                                         hasCaptchaResponse -> onEditSuccess(CaptchaResult(captchaId))
                                         hasSpamBlacklistResponse -> onEditFailure(MwException(MwServiceError(code, spamblacklist)))
                                         hasEditErrorCode -> onEditFailure(MwException(MwServiceError(code, info)))
@@ -303,6 +322,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     }
 
     public override fun onDestroy() {
+        hCaptchaHelper.cleanup()
         captchaHandler.dispose()
         binding.editSectionText.removeTextChangedListener(textWatcher)
         syntaxHighlighter.cleanup()
@@ -326,7 +346,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         editLicenseText.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    private fun doSave() {
+    private fun doSave(hCaptchaToken: String? = null) {
         val sectionAnchor = StringUtil.addUnderscores(StringUtil.removeHTMLTags(viewModel.sectionAnchor.orEmpty()))
         val isMinorEdit = if (editSummaryFragment.isMinorEdit) true else null
         val watchThisPage = if (editSummaryFragment.watchThisPage) "watch" else "unwatch"
@@ -346,8 +366,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             watchThisPage = watchThisPage,
             summaryText = summaryText,
             editSectionText = binding.editSectionText.text.toString(),
-            captchaId = captchaHandler.captchaId().toString(),
-            captchaWord = captchaHandler.captchaWord().toString(),
+            captchaId = if (hCaptchaToken != null) null else captchaHandler.captchaId(),
+            captchaWord = hCaptchaToken ?: captchaHandler.captchaWord(),
             editTags = getEditTag()
         )
 
