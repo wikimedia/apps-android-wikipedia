@@ -127,12 +127,13 @@ object NotificationPresenter {
         context: Context, builder: NotificationCompat.Builder, id: Int,
         title: String, text: String, longText: CharSequence?, lang: String?,
         @DrawableRes icon: Int?, @ColorRes color: Int, bodyIntent: Intent,
+        largeIcon: Bitmap? = null,
     ): Boolean {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             return false
         }
         builder.setContentIntent(PendingIntentCompat.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT, false))
-                .setLargeIcon(if (icon != null) drawNotificationBitmap(context, color, icon, lang.orEmpty().uppercase(Locale.getDefault())) else null)
+                .setLargeIcon(largeIcon ?: icon?.let { drawNotificationBitmap(context, color, it, lang.orEmpty().uppercase(Locale.getDefault())) })
                 .setSmallIcon(R.drawable.ic_wikipedia_w)
                 .setColor(ContextCompat.getColor(context, color))
                 .setContentTitle(title)
