@@ -26,17 +26,17 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.search.interleave.InterleavedSearchRepository
-import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.Prefs
 import kotlin.time.Duration.Companion.milliseconds
 
 class SearchResultsViewModel : ViewModel() {
-    private val semanticSearchAbTest = SemanticSearchAbTest()
-    private val semanticSearchEnabledPrefUpdates = Prefs.observeKeys(
-        R.string.preference_key_semantic_search_enabled,
-        R.string.preference_key_semantic_search_is_test_active, // TODO: remove this before release
-        R.string.preference_key_semantic_search_override_supported_language // TODO: remove this before release
+    private val interleaveSearchAbTest = InterleaveSearchAbTest()
+    private val interleaveSearchEnabledPrefUpdates = Prefs.observeKeys(
+        R.string.preference_key_interleave_search_enabled,
+        R.string.preference_key_interleave_search_is_test_active, // TODO: remove this before release
+        R.string.preference_key_interleave_search_override_supported_language // TODO: remove this before release
     )
     private val semanticSearchIsFirstUsePrefUpdates = Prefs.observeKeys(
         R.string.preference_key_semantic_search_first_use
@@ -67,17 +67,17 @@ class SearchResultsViewModel : ViewModel() {
     private var lastXSearchIdPrefix = ""
     private var lastXSearchIdFullText = ""
     var lastXSearchIdSemantic = ""
-    private var isSemanticSearchExposureSent = false
+    private var isInterleaveSearchExposureSent = false
 
     val isSemanticSearchEnabled = combine(
         _languageCode,
-        semanticSearchEnabledPrefUpdates
+        interleaveSearchEnabledPrefUpdates
     ) { currentLanguageCode, _ ->
-        semanticSearchAbTest.isSemanticSearchEnabled(currentLanguageCode)
+        interleaveSearchAbTest.isInterleaveSearchEnabled(currentLanguageCode)
     }.distinctUntilChanged().stateIn(
         viewModelScope,
         SharingStarted.Eagerly,
-        semanticSearchAbTest.isSemanticSearchEnabled(_languageCode.value)
+        interleaveSearchAbTest.isInterleaveSearchEnabled(_languageCode.value)
     )
 
     val isSemanticSearchFirstUse = semanticSearchIsFirstUsePrefUpdates
@@ -101,7 +101,7 @@ class SearchResultsViewModel : ViewModel() {
             if (term == _searchTerm.value) {
                 _searchTermForLogging.emit(term)
                 if (!term.isNullOrBlank()) {
-                    maybeSendSemanticSearchExposure(lang)
+                    maybeSendInterleaveSearchExposure(lang)
                 }
             }
             val repository = if (isInterleavingEnabled(lang)) interleavedSearchRepository else standardSearchRepository
@@ -164,21 +164,22 @@ class SearchResultsViewModel : ViewModel() {
     }
 
     // Sent for both groups at the point where the semantic search entry card can appear.
-    private fun maybeSendSemanticSearchExposure(languageCode: String) {
-        if (isSemanticSearchExposureSent || invokeSource == Constants.InvokeSource.PLACES ||
-            !Prefs.isSemanticSearchEnabled || !semanticSearchAbTest.isSemanticSearchEligible(languageCode)) {
+    private fun maybeSendInterleaveSearchExposure(languageCode: String) {
+        if (isInterleaveSearchExposureSent || invokeSource == Constants.InvokeSource.PLACES ||
+            !Prefs.isInterleaveSearchEnabled || !interleaveSearchAbTest.isInterleaveSearchEligible(languageCode)) {
             return
         }
-        isSemanticSearchExposureSent = true
-        semanticSearchAbTest.maybeSendExposureEvent()
+        isInterleaveSearchExposureSent = true
+        interleaveSearchAbTest.maybeSendExposureEvent()
     }
 
     private fun isInterleavingEnabled(languageCode: String): Boolean {
-        return invokeSource != Constants.InvokeSource.PLACES && semanticSearchAbTest.isSemanticSearchEnabled(languageCode)
+        return invokeSource != Constants.InvokeSource.PLACES && interleaveSearchAbTest.isInterleaveSearchEnabled(languageCode)
     }
 
     fun disableSemanticSearch() {
-        Prefs.isSemanticSearchEnabled = false
+        // TODO: validate this in other ticket or remove before releasing to production
+        Prefs.isInterleaveSearchEnabled = false
     }
 
     class SearchResultsPagingSource(
