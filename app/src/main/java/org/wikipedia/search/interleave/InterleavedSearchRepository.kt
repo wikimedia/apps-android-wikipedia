@@ -9,7 +9,6 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.StandardSearchRepository
 import org.wikipedia.search.StandardSearchResults
 import org.wikipedia.search.semantic.SemanticSearchRepository
-import org.wikipedia.search.semantic.SemanticSearchResults
 import org.wikipedia.util.log.L
 
 /**
@@ -18,7 +17,7 @@ import org.wikipedia.util.log.L
  */
 class InterleavedSearchRepository(
     private val lexicalRepository: SearchRepository<StandardSearchResults> = StandardSearchRepository(),
-    private val semanticRepository: SearchRepository<SemanticSearchResults> = SemanticSearchRepository(),
+    private val semanticRepository: SearchRepository<StandardSearchResults> = SemanticSearchRepository(),
     private val newSeed: () -> ULong = SearchResultsInterleaver::newSeed
 ) : SearchRepository<StandardSearchResults> {
     private var mergedSearchResults: MergedSearchResults? = null
@@ -76,19 +75,19 @@ class InterleavedSearchRepository(
             interleaveResult = SearchResultsInterleaver.merge(lexicalResults, semanticResults, LIST_LENGTH, newSeed()) { it.pageId.toLong() },
             xSearchIdPrefix = lexicalSearch.xSearchIdPrefix,
             xSearchIdFullText = lexicalSearch.xSearchIdFullText,
-            xSearchIdSemantic = semanticSearchResults.xSearchId
+            xSearchIdSemantic = semanticSearchResults.xSearchIdSemantic
         )
     }
 
     // A failed semantic search must not break search, so the reader gets the lexical results instead.
-    private suspend fun searchSemanticOrEmpty(searchTerm: String, languageCode: String, invokeSource: Constants.InvokeSource): SemanticSearchResults {
+    private suspend fun searchSemanticOrEmpty(searchTerm: String, languageCode: String, invokeSource: Constants.InvokeSource): StandardSearchResults {
         return try {
             semanticRepository.search(searchTerm, languageCode, invokeSource, batchSize = RESULTS_PER_SEARCH)
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
             L.w(e)
-            SemanticSearchResults(emptyList())
+            StandardSearchResults(emptyList(), continuation = null)
         }
     }
 
