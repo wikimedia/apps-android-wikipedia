@@ -144,9 +144,8 @@ fun SearchResultCard(
             )
             Text(
                 text = model.excerpt,
+                style = MaterialTheme.typography.bodyMedium,
                 color = WikipediaTheme.colors.primaryColor,
-                fontSize = 14.sp,
-                lineHeight = 20.sp,
                 maxLines = EXCERPT_MAX_LINES,
                 overflow = TextOverflow.Ellipsis
             )
