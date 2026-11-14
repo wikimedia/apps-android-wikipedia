@@ -30,6 +30,7 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.StringUtil
 
 class SearchResultsFragment : Fragment() {
 
@@ -93,7 +94,14 @@ class SearchResultsFragment : Fragment() {
 
                             submitSemanticLexicalResultEvent("click", result)
 
-                            callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
+                            callback()?.navigateToTitle(
+                                item = result.pageTitle,
+                                inNewTab = inNewTab,
+                                position = position,
+                                location = location,
+                                highlightText = if (result.type == SearchResult.SearchResultType.SEMANTIC)
+                                    StringUtil.extractStringFromStyle("searchmatch", result.snippet) else null
+                            )
                         },
                         onItemLongClick = { view, searchResult, position ->
                             val entry =
