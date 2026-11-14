@@ -138,7 +138,7 @@ fun SearchResultCard(
 
         if (model.excerpt.isNotEmpty()) {
             HorizontalDivider(
-                modifier = Modifier.padding(vertical = 12.dp),
+                modifier = Modifier.padding(vertical = 8.dp),
                 color = WikipediaTheme.colors.borderColor,
                 thickness = 1.dp
             )
