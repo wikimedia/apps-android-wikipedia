@@ -1,0 +1,214 @@
+{
+  "warnings": [
+    {
+      "code": "unrecognizedparams",
+      "html": "Paramètre non reconnu : cirrusSemanticSearch.",
+      "module": "main"
+    }
+  ],
+  "batchcomplete": true,
+  "continue": {
+    "gsroffset": 8,
+    "continue": "gsroffset||"
+  },
+  "query": {
+    "pages": [
+      {
+        "pageid": 23171,
+        "ns": 0,
+        "title": "Napoléon III",
+        "snippet": "<span class=\"searchmatch\">Louis-Napoléon Bonaparte, né le 20 avril 1808</span> à Paris (France) et mort le 9 janvier 1873 à Chislehurst (Royaume-Uni), est un monarque et homme d&#039;État français. Il est à la fois l&#039;unique président de la Deuxième République, le premier chef d&#039;État français élu au suffrage universel masculin le 10 décembre 1848, le premier président de la République française et, après la proclamation de l&#039; Empire le 2 décembre 1852, le dernier monarque du pays en tant qu&#039; empereur des Français sous le nom de Napoléon III.",
+        "index": 4,
+        "description": "homme d'État français et dernier monarque de France",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Napol%C3%A9on_III_par_Jean_Hippolyte_Flandrin.jpg/330px-Napol%C3%A9on_III_par_Jean_Hippolyte_Flandrin.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 479
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:01:43Z",
+        "lastrevid": 240809055,
+        "length": 360672,
+        "displaytitle": "Napoléon&#160;<abbr class=\"abbr\" title=\"3\"><span class=\"romain\" style=\"text-transform:uppercase\">III</span></abbr>",
+        "varianttitles": {
+          "fr": "Napoléon&#160;<abbr class=\"abbr\" title=\"3\"><span class=\"romain\" style=\"text-transform:uppercase\">III</span></abbr>"
+        }
+      },
+      {
+        "pageid": 91552,
+        "ns": 0,
+        "title": "Napoléon II",
+        "snippet": "Napoléon François Joseph Charles Bonaparte, né le 20 mars 1811 à Paris et mort le 22 juillet 1832 à Vienne, est le fils et l&#039;héritier de <span class=\"searchmatch\">Napoléon I er</span>, empereur des Français, et de sa seconde épouse, Marie-Louise d&#039;Autriche.",
+        "index": 7,
+        "description": "empereur des Français du 22 juin au 7 juillet 1815 et Grand Aigle de la Légion d'honneur",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Le_duc_de_Reichstadt.jpg/330px-Le_duc_de_Reichstadt.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 490
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:01:53Z",
+        "lastrevid": 240675442,
+        "length": 62107,
+        "displaytitle": "Napoléon&#160;<abbr class=\"abbr\" title=\"2\"><span class=\"romain\" style=\"text-transform:uppercase\">II</span></abbr>",
+        "varianttitles": {
+          "fr": "Napoléon&#160;<abbr class=\"abbr\" title=\"2\"><span class=\"romain\" style=\"text-transform:uppercase\">II</span></abbr>"
+        }
+      },
+      {
+        "pageid": 145646,
+        "ns": 0,
+        "title": "Louis-Napoléon Bonaparte (1856-1879)",
+        "snippet": "Napoléon Eugène Louis Jean Joseph Bonaparte, prince impérial, dit Louis-Napoléon, né le 16 mars 1856 à Paris et mort le 1 er juin 1879 au pays zoulou (actuelle Afrique du Sud), est le fils unique de <span class=\"searchmatch\">Napoléon III</span>, empereur des Français et de son épouse, l&#039; impératrice Eugénie.",
+        "index": 6,
+        "description": "prince français, fils et héritier de Napoléon III",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Prince_Imp%C3%A9rial%2C_1878%2C_Londres%2C_BNF_Gallica_%28cropped%29.jpg/330px-Prince_Imp%C3%A9rial%2C_1878%2C_Londres%2C_BNF_Gallica_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 524
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:02:02Z",
+        "lastrevid": 239769931,
+        "length": 56232,
+        "displaytitle": "Louis-Napoléon Bonaparte (1856-1879)",
+        "varianttitles": {
+          "fr": "Louis-Napoléon Bonaparte (1856-1879)"
+        }
+      },
+      {
+        "pageid": 216474,
+        "ns": 0,
+        "title": "Louis Bonaparte",
+        "snippet": "Louis Bonaparte, né le 2 septembre 1778 à Ajaccio (Corse) et mort le 25 juillet 1846 à Livourne (Toscane), est un prince français qui fut roi de Hollande de 1806 à 1810 sous le nom de Louis Napoléon I er (Lodewijk Napoleon I en néerlandais). Fils de <span class=\"searchmatch\">Charles Bonaparte</span> et de Letizia Ramolino, il est membre de la maison Bonaparte et un des quatre frères de l&#039;empereur Napoléon I er ainsi que le père de Napoléon III.",
+        "index": 3,
+        "description": "roi de Hollande (1806-1810), frère de Napoléon Bonaparte",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Louis_Bonaparte_by_Vogel_von_Vogelstein.jpg/330px-Louis_Bonaparte_by_Vogel_von_Vogelstein.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 465
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:02:15Z",
+        "lastrevid": 240828574,
+        "length": 61897,
+        "displaytitle": "Louis Bonaparte",
+        "varianttitles": {
+          "fr": "Louis Bonaparte"
+        }
+      },
+      {
+        "pageid": 409111,
+        "ns": 0,
+        "title": "Napoléon (mini-série)",
+        "snippet": "Le général Bonaparte épouse Joséphine de Beauharnais et se lance dans la campagne d'Italie avec la fougue de la jeunesse, n'hésitant pas à risquer sa vie dans les combats. Il remarque que Joséphine le trompe avec un autre militaire, mais finit par lui pardonner, abandonnant son projet de divorce. Il se lance par la suite dans la campagne d'Égypte en 1798 et rentre en France en 1799. Son frère Joseph lui propose de faire un coup d'État et choisit comme partenaires Roger Ducos et Emmanuel-Joseph Sieyès pour renverser le Directoire. Le coup d'État du 18 Brumaire manque de peu d'échouer mais Bonaparte devient Premier consul. Réorganisant profondément la société, il établit le Concordat en 1801 et devient consul à vie en 1802.",
+        "sectiontitle": "Synopsis",
+        "index": 2,
+        "description": "mini-série franco-canadienne d’Yves Simoneau, diffusée en 2002",
+        "descriptionsource": "central",
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:02:50Z",
+        "lastrevid": 240776456,
+        "length": 20414,
+        "displaytitle": "<i>Napoléon</i> (mini-série)",
+        "varianttitles": {
+          "fr": "<i>Napoléon</i> (mini-série)"
+        }
+      },
+      {
+        "pageid": 615499,
+        "ns": 0,
+        "title": "Charles Bonaparte",
+        "snippet": "<span class=\"searchmatch\">Carlo Maria Buonaparte</span>, dit aussi Charles-Marie de Bonaparte, né à Ajaccio (république de Gênes) le 27 mars 1746 et mort le 24 février 1785 à Montpellier (France), est un assesseur de la juridiction royale d&#039;Ajaccio, père de l&#039; empereur des Français Napoléon I er, grand-père des empereurs Napoléon II et Napoléon III, et progéniteur de la maison Bonaparte.",
+        "index": 8,
+        "description": "juge corse, père de Napoléon Bonaparte",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Carlo_Maria_Bonaparte.jpg/330px-Carlo_Maria_Bonaparte.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 530
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:03:23Z",
+        "lastrevid": 239087360,
+        "length": 14442,
+        "displaytitle": "Charles Bonaparte",
+        "varianttitles": {
+          "fr": "Charles Bonaparte"
+        }
+      },
+      {
+        "pageid": 676806,
+        "ns": 0,
+        "title": "Napoléon Ier",
+        "snippet": "Napoléon Bonaparte, né le 15 août 1769 à Ajaccio en Corse et mort le 5 mai <span class=\"searchmatch\">1821 à Longwood sur l’île de Sainte-Hélène</span>, est un militaire et homme d&#039;État français. Il est le premier empereur des Français du 18 mai 1804 au 6 avril 1814 et du 20 mars au 22 juin 1815, sous le nom de Napoléon I er.",
+        "index": 1,
+        "description": "militaire, homme d'État et monarque français",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg/330px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 549
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:03:33Z",
+        "lastrevid": 240611359,
+        "length": 260796,
+        "displaytitle": "<span class=\"nowrap\">Napoléon <abbr class=\"abbr\" title=\"premier\"><span class=\"romain\" style=\"text-transform:uppercase\">I</span><sup>er</sup></abbr></span>",
+        "varianttitles": {
+          "fr": "<span class=\"nowrap\">Napoléon <abbr class=\"abbr\" title=\"premier\"><span class=\"romain\" style=\"text-transform:uppercase\">I</span><sup>er</sup></abbr></span>"
+        }
+      },
+      {
+        "pageid": 2016186,
+        "ns": 0,
+        "title": "Napoléon-Charles Bonaparte (1802-1807)",
+        "snippet": "Napoléon Louis Charles Bonaparte, prince français et prince royal de Hollande, né le 10 octobre 1802 à Paris et mort le 5 mai 1807 à La Haye est le fils aîné du roi de Hollande <span class=\"searchmatch\">Louis Bonaparte et d&#039; Hortense de Beauharnais</span>, fille de Joséphine de Beauharnais.",
+        "index": 5,
+        "description": "prince français et prince royal de Hollande",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/9/90/Napol%C3%A9on-Charles_Bonaparte%2C_fils_a%C3%AEn%C3%A9_d%27Horthense_de_Boharnais_%281%29.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+          "width": 188,
+          "height": 268
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:06:22Z",
+        "lastrevid": 239839619,
+        "length": 14496,
+        "displaytitle": "Napoléon-Charles Bonaparte (1802-1807)",
+        "varianttitles": {
+          "fr": "Napoléon-Charles Bonaparte (1802-1807)"
+        }
+      }
+    ]
+  }
+}

@@ -1075,4 +1075,16 @@ object Prefs {
     var notificationsExperimentWeeklyMostReadDevTriggerTime
         get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time, 0L)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time, value)
+
+    var isInterleaveSearchEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_interleave_search_enabled, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_interleave_search_enabled, value)
+
+    var interleaveSearchLanguageOverride
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_interleave_search_override_supported_language, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_interleave_search_override_supported_language, value)
+
+    var interleaveSearchIsTestActive
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_interleave_search_is_test_active, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_interleave_search_is_test_active, value)
 }
