@@ -77,7 +77,7 @@ android {
 
     sourceSets {
 
-        ['prod', 'beta', 'alpha', 'dev', 'custom'].forEach { name ->
+        ['prod', 'beta', 'alpha', 'dev', 'aaos', 'custom'].forEach { name ->
             maybeCreate(name).java.srcDirs += 'src/extra/java'
             maybeCreate(name).kotlin.srcDirs += 'src/extra/java'
             maybeCreate(name).res.srcDirs += 'src/extra/res'
@@ -140,6 +140,10 @@ android {
         }
         fdroid {
             versionName computeVersionName(defaultConfig.versionCode, 'fdroid')
+            signingConfig = signingConfigs.prod
+        }
+        aaos {
+            versionName computeVersionName(defaultConfig.versionCode, 'aaos')
             signingConfig = signingConfigs.prod
         }
         custom {
@@ -248,6 +252,7 @@ dependencies {
     betaImplementation libs.com.google.mlkit.language.id
     alphaImplementation libs.com.google.mlkit.language.id
     devImplementation libs.com.google.mlkit.language.id
+    aaosImplementation libs.com.google.mlkit.language.id
     customImplementation libs.com.google.mlkit.language.id
 
     // For receiving push notifications for logged-in users.
@@ -255,6 +260,7 @@ dependencies {
     betaImplementation libs.com.google.firebase.firebase.messaging
     alphaImplementation libs.com.google.firebase.firebase.messaging
     devImplementation libs.com.google.firebase.firebase.messaging
+    aaosImplementation libs.com.google.firebase.firebase.messaging
     customImplementation libs.com.google.firebase.firebase.messaging
 
     // For integrating with Google Pay for donations
@@ -262,6 +268,7 @@ dependencies {
     betaImplementation libs.com.google.android.gms.play.services.wallet2
     alphaImplementation libs.com.google.android.gms.play.services.wallet2
     devImplementation libs.com.google.android.gms.play.services.wallet2
+    aaosImplementation libs.com.google.android.gms.play.services.wallet2
     customImplementation libs.com.google.android.gms.play.services.wallet2
 
     // For InstallReferrer Library
@@ -269,6 +276,7 @@ dependencies {
     betaImplementation libs.installreferrer
     alphaImplementation libs.installreferrer
     devImplementation libs.installreferrer
+    aaosImplementation libs.installreferrer
     customImplementation libs.installreferrer
 
     debugImplementation libs.leakcanary.android
