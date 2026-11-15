@@ -7,7 +7,6 @@ sealed interface SettingsAction {
     data object HomeFeedClick : SettingsAction
     data object AppThemeClick : SettingsAction
     data object EditorChoiceClick : SettingsAction
-    data object AppIconClick : SettingsAction
     data object RecommendedReadingListClick : SettingsAction
     data object DonationRemindersClick : SettingsAction
     data object DeleteLocalDonationHistoryClick : SettingsAction
@@ -19,6 +18,7 @@ sealed interface SettingsAction {
     data class YearInReviewToggled(val enabled: Boolean) : SettingsAction
     data class LinkPreviewsToggled(val enabled: Boolean) : SettingsAction
     data class CollapseTablesToggled(val enabled: Boolean) : SettingsAction
+    data class SemanticSearchToggled(val enabled: Boolean) : SettingsAction
     data class ReadingListSyncToggled(val enabled: Boolean) : SettingsAction
     data class DownloadReadingListArticlesToggled(val enabled: Boolean) : SettingsAction
     data class DownloadOnlyOverWiFiToggled(val enabled: Boolean) : SettingsAction

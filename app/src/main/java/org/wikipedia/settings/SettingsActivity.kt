@@ -24,20 +24,18 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
-import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.events.ReadingListsEnabledStatusEvent
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
+import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.settings.dev.DeveloperSettingsActivity
 import org.wikipedia.settings.homefeed.HomeFeedSettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -45,7 +43,6 @@ import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class SettingsActivity : BaseActivity() {
     private lateinit var initialLanguageList: String
@@ -61,10 +58,6 @@ class SettingsActivity : BaseActivity() {
         initialFeedCardsEnabled = Prefs.feedCardsEnabled
         initialFeedCardsLangDisabled = Prefs.feedCardsLangDisabled
         initialFeedCardsOrder = Prefs.feedCardsOrder
-
-        if (YearInReviewViewModel.isAccessible) {
-            YearInReviewEvent.submit(action = "impression", slide = "setting")
-        }
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -118,10 +111,11 @@ class SettingsActivity : BaseActivity() {
                 Constants.ACTIVITY_REQUEST_FEED_CONFIGURE
             )
             SettingsAction.AppThemeClick -> startActivity(ThemeFittingRoomActivity.newIntent(this))
-            SettingsAction.EditorChoiceClick -> showEditorChoiceDialog(this, isSettingsScreen = true) { editorChoice, _ ->
-                viewModel.setEditorModeChoice(editorChoice)
+            SettingsAction.EditorChoiceClick -> {
+                TestKitchenAdapter.client.getInstrument("apps-editing")
+                    .submitInteraction(action = "click", actionSource = "settings", elementId = "editing_method")
+                startActivity(VisualEditorSettingsActivity.newIntent(this))
             }
-            SettingsAction.AppIconClick -> ExclusiveBottomSheetPresenter.show(supportFragmentManager, AppIconDialog())
             SettingsAction.RecommendedReadingListClick -> onRecommendedReadingListClick()
             SettingsAction.DonationRemindersClick -> {
                 DonorExperienceEvent.logDonationReminderAction(
@@ -144,6 +138,7 @@ class SettingsActivity : BaseActivity() {
             is SettingsAction.ReadingListSyncToggled -> onReadingListSyncToggled(action.enabled)
             is SettingsAction.LinkPreviewsToggled -> viewModel.setLinkPreviewEnabled(action.enabled)
             is SettingsAction.CollapseTablesToggled -> viewModel.setCollapseTablesEnabled(action.enabled)
+            is SettingsAction.SemanticSearchToggled -> onSemanticSearchToggled(action.enabled)
             is SettingsAction.DownloadReadingListArticlesToggled -> viewModel.setDownloadReadingListArticlesEnabled(action.enabled)
             is SettingsAction.DownloadOnlyOverWiFiToggled -> viewModel.setDownloadOnlyOverWiFiEnabled(action.enabled)
             is SettingsAction.ImageDownloadToggled -> viewModel.setImageDownloadEnabled(action.enabled)
@@ -152,23 +147,39 @@ class SettingsActivity : BaseActivity() {
     }
 
     private fun onYearInReviewToggled(enabled: Boolean) {
+        val instrument = TestKitchenAdapter.client.getInstrument("apps-year-in-review")
+            .setDefaultActionSource("settings")
         if (enabled) {
-            YearInReviewEvent.submit(action = "yir_on_click", slide = "setting")
+            instrument.submitInteraction(action = "click", elementId = "switch_on")
             viewModel.enableYearInReview()
             return
         }
-        YearInReviewEvent.submit(action = "yir_off_click", slide = "setting")
+        instrument.submitInteraction(action = "click", elementId = "switch_off")
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.year_in_review_disable_title)
             .setMessage(R.string.year_in_review_setting_subtitle)
             .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
-                YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
+                instrument.submitInteraction(action = "click", elementId = "switch_off_confirm")
                 viewModel.disableYearInReview()
             }
             .setNegativeButton(R.string.year_in_review_disable_negative_button) { _, _ ->
-                YearInReviewEvent.submit(action = "yir_off_cancel_click", slide = "setting")
+                instrument.submitInteraction(action = "click", elementId = "switch_off_cancel")
             }
             .show()
+    }
+
+    private fun onSemanticSearchToggled(enabled: Boolean) {
+        viewModel.setSemanticSearchEnabled(enabled)
+        val semanticSearchAbTest = SemanticSearchAbTest()
+        semanticSearchAbTest.runIfEligible {
+            TestKitchenAdapter.client.getInstrument("apps-search")
+                .setExperiment(TestKitchenAdapter.getExperiment(semanticSearchAbTest))
+                .submitInteraction(
+                    action = if (enabled) "enable" else "disable",
+                    actionSource = "settings",
+                    actionSubtype = "semantic_search"
+                )
+        }
     }
 
     private fun onReadingListSyncToggled(enabled: Boolean) {

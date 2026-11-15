@@ -14,7 +14,9 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
-import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.search.semantic.SemanticSearchAbTest
+import org.wikipedia.yearinreview.data.PrefsYearInReviewStore
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 class SettingsViewModel : ViewModel() {
     // Bumped on resume, to pick up values that don't live in SharedPreferences
@@ -29,6 +31,7 @@ class SettingsViewModel : ViewModel() {
             R.string.preference_key_editor_mode_choice,
             R.string.preference_key_recommended_reading_list_enabled,
             R.string.preference_key_donation_reminder_config,
+            R.string.preference_key_semantic_search_enabled,
             R.string.preference_key_sync_reading_lists,
             R.string.preference_key_download_reading_list_articles,
             R.string.preference_key_download_only_over_wifi,
@@ -72,8 +75,8 @@ class SettingsViewModel : ViewModel() {
         Prefs.setPreferOfflineContent(enabled)
     }
 
-    fun setEditorModeChoice(editorChoice: Int) {
-        Prefs.editorModeChoice = editorChoice
+    fun setSemanticSearchEnabled(enabled: Boolean) {
+        Prefs.isSemanticSearchEnabled = enabled
     }
 
     fun enableYearInReview() {
@@ -81,7 +84,7 @@ class SettingsViewModel : ViewModel() {
     }
 
     fun disableYearInReview() {
-        Prefs.yearInReviewModelData = emptyMap()
+        PrefsYearInReviewStore.clearAll()
         Prefs.isYearInReviewEnabled = false
     }
 
@@ -132,10 +135,11 @@ class SettingsViewModel : ViewModel() {
             isCollapseTablesEnabled = Prefs.isCollapseTablesEnabled,
             isEditorChoiceVisible = RemoteConfig.config.androidv1?.visualEditorEnabled ?: false,
             editorModeChoice = Prefs.editorModeChoice,
-            isAppIconVisible = YearInReviewViewModel.isCustomIconAllowed,
             isRecommendedReadingListEnabled = Prefs.isRecommendedReadingListEnabled,
             isDonationRemindersVisible = DonationReminderHelper.isEnabled,
             donationReminderConfig = Prefs.donationReminderConfig,
+            isSemanticSearchVisible = SemanticSearchAbTest().isSemanticSearchSettingVisible(),
+            isSemanticSearchEnabled = Prefs.isSemanticSearchEnabled,
             isSyncSectionVisible = !RemoteConfig.config.disableReadingListSync,
             isReadingListSyncEnabled = Prefs.isReadingListSyncEnabled,
             isDownloadReadingListArticlesEnabled = Prefs.isDownloadingReadingListArticlesEnabled,

@@ -1,16 +1,24 @@
 package org.wikipedia.settings
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,6 +26,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
@@ -31,7 +40,6 @@ import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.theme.Theme
-import org.wikipedia.yearinreview.YearInReviewViewModel
 
 @Composable
 fun SettingsScreen(
@@ -71,6 +79,9 @@ fun SettingsScreen(
             GeneralSection(uiState, onAction)
             RecommendationsSection(uiState, onAction)
             DonationsSection(uiState, onAction)
+            if (uiState.isSemanticSearchVisible) {
+                SemanticSearchSection(uiState, onAction)
+            }
             if (uiState.isSyncSectionVisible) {
                 SyncSection(uiState, onAction)
             }
@@ -135,13 +146,6 @@ private fun GeneralSection(uiState: SettingsUiState, onAction: (SettingsAction) 
                 onClick = { onAction(SettingsAction.EditorChoiceClick) }
             )
         }
-        if (uiState.isAppIconVisible) {
-            ClickableSetting(
-                title = stringResource(R.string.settings_app_icon_title),
-                subtitle = stringResource(R.string.settings_app_icon_preference_subtitle, YearInReviewViewModel.YIR_YEAR),
-                onClick = { onAction(SettingsAction.AppIconClick) }
-            )
-        }
     }
 }
 
@@ -182,6 +186,47 @@ private fun DonationsSection(uiState: SettingsUiState, onAction: (SettingsAction
         ClickableSetting(
             title = stringResource(R.string.preference_title_delete_local_donation_history),
             onClick = { onAction(SettingsAction.DeleteLocalDonationHistoryClick) }
+        )
+    }
+}
+
+@Composable
+private fun SemanticSearchSection(uiState: SettingsUiState, onAction: (SettingsAction) -> Unit) {
+    SettingsSection(title = stringResource(R.string.preference_heading_semantic_search)) {
+        BetaPill(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp))
+        SwitchSetting(
+            title = stringResource(R.string.preference_title_semantic_search_within_articles),
+            subtitle = stringResource(R.string.preference_summary_semantic_search_jump_to_passage),
+            checked = uiState.isSemanticSearchEnabled,
+            onCheckedChange = { onAction(SettingsAction.SemanticSearchToggled(it)) }
+        )
+    }
+}
+
+@Composable
+private fun BetaPill(modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier
+            .border(
+                width = 1.dp,
+                color = WikipediaTheme.colors.borderColor,
+                shape = RoundedCornerShape(16.dp)
+            )
+            .padding(horizontal = 8.dp, vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            modifier = Modifier.size(16.dp),
+            painter = painterResource(R.drawable.ic_experiment_24dp),
+            tint = WikipediaTheme.colors.secondaryColor,
+            contentDescription = null
+        )
+        Spacer(modifier = Modifier.width(2.dp))
+        Text(
+            text = stringResource(R.string.semantic_search_beta_label),
+            style = MaterialTheme.typography.labelSmall,
+            fontWeight = FontWeight.Medium,
+            color = WikipediaTheme.colors.primaryColor
         )
     }
 }
@@ -330,10 +375,11 @@ private val previewUiState = SettingsUiState(
     isCollapseTablesEnabled = true,
     isEditorChoiceVisible = true,
     editorModeChoice = EDITOR_CHOICE_VE,
-    isAppIconVisible = false,
     isRecommendedReadingListEnabled = false,
     isDonationRemindersVisible = true,
     donationReminderConfig = DonationReminderConfig(),
+    isSemanticSearchVisible = true,
+    isSemanticSearchEnabled = true,
     isSyncSectionVisible = true,
     isReadingListSyncEnabled = false,
     isDownloadReadingListArticlesEnabled = true,
