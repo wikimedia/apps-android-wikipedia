@@ -368,6 +368,10 @@
             android:name=".games.GamesHubActivity"/>
 
         <activity
+            android:name=".games.WikiRunActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
