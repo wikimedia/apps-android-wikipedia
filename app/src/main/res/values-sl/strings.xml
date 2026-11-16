@@ -2074,4 +2074,8 @@
     <item quantity="few">Odstranitev teh člankov jih bo odstranila iz vseh povezanih zbirk</item>
     <item quantity="other">Odstranitev teh člankov jih bo odstranila iz vseh povezanih zbirk.</item>
   </plurals>
+  <string name="notifications_experiment_weekly_most_read_channel_title">Tedensko najbolj brano</string>
+  <string name="notifications_experiment_weekly_most_read_channel_description">Obvestila o tedensko najbolj branih člankih</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">Trendi tega tedna 📈</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">Št. 1 %s. Ugotovite, kaj berejo vsi drugi.</string>
 </resources>

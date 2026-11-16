@@ -1846,6 +1846,7 @@
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Điều chỉnh</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">Lùi lại</string>
   <string name="recommended_reading_list_settings_notifications_title">Thông báo</string>
+  <string name="recommended_reading_list_notification_title">Danh sách đọc Khám phá %s của bạn đã sẵn sàng.</string>
   <string name="recommended_reading_list_notification_subtitle">Nhấn để xem các đề xuất mới nhất dành cho bạn.</string>
   <string name="donation_settings_section_header">Khoản quyên góp</string>
   <string name="donation_reminders_settings_title" fuzzy="true">Lời nhắc quyên góp</string>
