@@ -2656,6 +2656,6 @@
   <string name="notifications_experiment_discover_message">Notification message informing the user a new reading list is ready</string>
   <string name="notifications_experiment_weekly_most_read_channel_title">Channel title for the most read articles notification</string>
   <string name="notifications_experiment_weekly_most_read_channel_description">Channel description for the most read articles notification</string>
-  <string name="notifications_experiment_weekly_most_read_notification_title">Trending this week</string>
-  <string name="notifications_experiment_weekly_most_read_notification_description">No. 1 %s. Find out what else everyone\'s reading about.</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">Title of notification that says which article is trending this week.</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">Body of notification that says which article is trending this week. %s is the title of the article.</string>
 </resources>
