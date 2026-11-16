@@ -69,7 +69,7 @@ class SearchResultsViewModel : ViewModel() {
     var lastXSearchIdSemantic = ""
     private var isInterleaveSearchExposureSent = false
 
-    val isSemanticSearchEnabled = combine(
+    val isInterleaveSearchEnabled = combine(
         _languageCode,
         interleaveSearchEnabledPrefUpdates
     ) { currentLanguageCode, _ ->

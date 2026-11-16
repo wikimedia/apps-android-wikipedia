@@ -55,8 +55,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.search.semantic.SemanticSearchEntryCard
-import org.wikipedia.settings.Prefs
+import org.wikipedia.search.interleave.InterleaveSearchEntryCard
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -72,18 +71,15 @@ fun SearchResultsScreen(
     onNavigateToTitle: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
-    onSemanticSearchClick: (String?, Boolean) -> Unit,
     onSemanticSearchInfoClick: () -> Unit,
-    onSemanticSearchCloseClick: () -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
-    val isSemanticSearchEnabledState = viewModel.isSemanticSearchEnabled.collectAsState()
-    val isSemanticSearchEnabled = isSemanticSearchEnabledState.value && viewModel.invokeSource != Constants.InvokeSource.PLACES
-    val isSemanticSearchFirstUse = viewModel.isSemanticSearchFirstUse.collectAsState()
+    val isInterleaveSearchEnabledState = viewModel.isInterleaveSearchEnabled.collectAsState()
+    val isInterleaveSearchEnabled = isInterleaveSearchEnabledState.value && viewModel.invokeSource != Constants.InvokeSource.PLACES
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
 
@@ -110,15 +106,15 @@ fun SearchResultsScreen(
         loadState.append is LoadState.NotLoading &&
         loadState.append.endOfPaginationReached &&
         searchResults.itemCount == 0 &&
-        !isSemanticSearchEnabled
+        !isInterleaveSearchEnabled
 
     val shouldLogNoResultsImpression =
         shouldShowNoResults &&
         countsPerLanguageCode.isNotEmpty() &&
         viewModel.invokeSource == Constants.InvokeSource.PLACES
 
-    val shouldShowSemanticSearchEntryPoint =
-        isSemanticSearchEnabled &&
+    val shouldShowInterleaveSearchEntry =
+        isInterleaveSearchEnabled &&
                 !searchTerm.value.isNullOrBlank() &&
                 loadState.refresh !is LoadState.Error &&
                 !isErrorState
@@ -133,24 +129,11 @@ fun SearchResultsScreen(
         LazyColumn(
             modifier = modifier
         ) {
-            if (shouldShowSemanticSearchEntryPoint) {
+            if (shouldShowInterleaveSearchEntry) {
                 item {
-                    SemanticSearchEntryCard(
+                    InterleaveSearchEntryCard(
                         languageCode = languageCode.value,
-                        searchTerm = searchTerm.value,
-                        onCloseClick = {
-                            viewModel.disableSemanticSearch()
-                            onSemanticSearchCloseClick()
-                        },
-                        onInfoBtnClick = { onSemanticSearchInfoClick() },
-                        onSemanticSearchClick = {
-                            val isSemanticSearchFirstUse = isSemanticSearchFirstUse.value
-                            if (isSemanticSearchFirstUse) {
-                                Prefs.isSemanticSearchFirstUse = false
-                            }
-                            onSemanticSearchClick(searchTerm.value, isSemanticSearchFirstUse)
-                        },
-                        isFirstUse = isSemanticSearchFirstUse.value
+                        onInfoButtonClick = { onSemanticSearchInfoClick() }
                     )
                 }
             }
@@ -177,7 +160,7 @@ fun SearchResultsScreen(
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    if (!isSemanticSearchEnabled) {
+                    if (!isInterleaveSearchEnabled) {
                         noSearchResults(
                             countsPerLanguageCode = countsPerLanguageCode,
                             onLanguageClick = onLanguageClick

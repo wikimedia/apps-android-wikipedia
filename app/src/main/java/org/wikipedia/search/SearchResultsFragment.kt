@@ -15,21 +15,16 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
-import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
-import org.wikipedia.settings.SettingsActivity
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 
 class SearchResultsFragment : Fragment() {
@@ -125,21 +120,6 @@ class SearchResultsFragment : Fragment() {
                         onLoading = { enabled ->
                             callback()?.onSearchProgressBar(enabled)
                         },
-                        onSemanticSearchClick = { searchTerm, isFirstUse ->
-                            interleaveSearchAbTest.runIfEligible {
-                                requireActivity().instrument?.submitInteraction("click",
-                                    elementId = "enter_semantic_search"
-                                )
-                                if (isFirstUse) {
-                                    requireActivity().instrument?.submitInteraction("click",
-                                        elementId = "try_now_button"
-                                    )
-                                }
-                            }
-                            searchTerm?.let {
-                                callback()?.showSemanticSearchResultsDialog(it)
-                            }
-                        },
                         onSemanticSearchInfoClick = {
                             interleaveSearchAbTest.runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
@@ -147,21 +127,6 @@ class SearchResultsFragment : Fragment() {
                                 )
                             }
                             callback()?.showSemanticSearchInfoDialog()
-                        },
-                        onSemanticSearchCloseClick = {
-                            interleaveSearchAbTest.runIfEligible {
-                                requireActivity().instrument?.submitInteraction("click",
-                                    elementId = "close_semantic_button"
-                                )
-                            }
-                            val messageText = requireContext().getString(searchLanguageCode, R.string.semantic_search_snackbar_message)
-                            val actionButtonText = requireContext().getString(searchLanguageCode, R.string.semantic_search_snackbar_action_label)
-                            FeedbackUtil.makeSnackbar(requireActivity(), messageText)
-                                .setAction(actionButtonText) {
-                                    startActivity(SettingsActivity.newIntent(requireContext()))
-                                }
-                                .apply { view.setLayoutDirectionByLang(searchLanguageCode) }
-                                .show()
                         }
                     )
                 }
