@@ -275,7 +275,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">メールアドレスなしで先に進む</string>
   <string name="email_recommendation_dialog_create_with_email_action">メールアドレスを追加</string>
   <string name="create_account_button">アカウント作成</string>
-  <string name="create_account_encourage_title">アカウント作成で、ウィキペディアがもっと便利に</string>
+  <string name="create_account_encourage_title">ウィキペディアはアカウントを使うのが最善です</string>
   <string name="create_account_encourage_year_in_review_title_zero">閲覧記録を一年のまとめで確認</string>
   <plurals name="create_account_encourage_year_in_review_title">
     <item quantity="other">%1$d日分の閲覧記録を一年のまとめで確認</item>
@@ -886,7 +886,7 @@
   <string name="view_top_read_card_action">よく読まれている記事をもっと見る</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d百万</string>
-  <string name="view_top_read_card_pageviews_views_suffix">閲覧数</string>
+  <string name="view_top_read_card_pageviews_views_suffix">閲覧</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
   <string name="view_main_page_card_action">メインページを表示</string>
@@ -1943,6 +1943,7 @@
     <item quantity="other">%1$d記事</item>
   </plurals>
   <string name="yir_biggest_reading_day_headline">閲覧が最大の日:</string>
+  <string name="yir_guess_article_choose_action">%sを選択</string>
   <plurals name="yir_saved_articles_headline">
     <item quantity="other">あなたが後で読むために保存した記事数: %1$d記事</item>
   </plurals>
@@ -1989,12 +1990,14 @@
   <string name="yir_customize_home_supporting">魅力を感じる主題を選んで、あなたの興味に合わせたお勧めを手に入れましょう。</string>
   <string name="yir_customize_home_action">興味をカスタマイズ</string>
   <string name="yir_community_recap_headline">私たちの一年の振り返り</string>
+  <string name="yir_community_recap_action">今すぐ探索</string>
   <string name="yir_feature_card_articles_read">読まれた記事の数:</string>
   <string name="yir_feature_card_minutes_read">総閲覧分数:</string>
   <string name="yir_feature_card_created_with">ウィキペディアアプリで作成</string>
   <string name="year_in_review_learn_more">詳細</string>
   <string name="year_in_review_about_your_insights">あなたの洞察について</string>
   <string name="year_in_review_share_feedback">フィードバックを共有</string>
+  <string name="year_in_review_feedback_email_subject">一年の振り返りのフィードバック</string>
   <string name="year_in_review_get_started">始める</string>
   <string name="year_in_review_announcement_explore">探索</string>
   <string name="year_in_review_topbar_w_icon">ウィキペディア W アイコン</string>
@@ -2006,6 +2009,9 @@
   <string name="year_in_review_donate">寄付</string>
   <string name="year_in_review_information_icon">情報アイコン</string>
   <string name="year_in_review_get_started_headline">ウィキペディアでの一年を振り返って見てみましょう</string>
+  <string name="year_in_review_get_started_bodytext">あなたがウィキペディアアプリで読んだり編集したりした記事に関する洞察を確認します。</string>
+  <string name="year_in_review_get_started_info">あなたの閲覧履歴は保護されています。閲覧についての洞察は、あなたのデバイスにローカルに保存されたデータを使って計算されます。</string>
+  <string name="year_in_review_get_started_later_activity">活動で後から一年の振り返りにアクセスできます。</string>
   <string name="year_in_review_entry_card_title_collective">私たちの一年の振り返りはこちらです</string>
   <string name="year_in_review_entry_card_title_personalized">あなたの一年の振り返りはこちらです</string>
   <string name="year_in_review_entry_card_subtitle">あなたのウィキペディアでの一年を再発見しよう。</string>
@@ -2035,6 +2041,8 @@
   <string name="year_in_review_slide_app_icon_donor">寄付者</string>
   <string name="year_in_review_slide_app_icon_editor">編集者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">寄付者かつ編集者</string>
+  <string name="year_in_review_slide_geo_headline">あなたが読んだ記事は%sに最も近いです</string>
+  <string name="year_in_review_slide_geo_body">&lt;b&gt;%2$s&lt;/b&gt;および&lt;b&gt;%3$s&lt;/b&gt;などの記事に基づくと、あなたが読んだ多くの記事に最も近い国は%1$sのようです。</string>
   <string name="year_in_review_login_dialog_title">パーソナライズのためにログインしますか?</string>
   <string name="year_in_review_login_dialog_body">ログインするとパーソナライズされた洞察を得られます。ログインなしでも全体の洞察を確認できます。</string>
   <string name="year_in_review_login_dialog_title_nodata">ウィキペディアはアカウントを使うのが最善です</string>
@@ -2483,4 +2491,7 @@
   <string name="semantic_search_snackbar_action_label">変更</string>
   <string name="notifications_experiment_discover_interests_title">%sに興味があるため</string>
   <string name="notifications_experiment_discover_saved_or_history_title">%sについて読んだため</string>
+  <string name="notifications_experiment_weekly_most_read_channel_title">週刊最多閲覧</string>
+  <string name="notifications_experiment_weekly_most_read_channel_description">1週間の最も多く読んだ記事の通知</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">今週のトレンド 📈</string>
 </resources>

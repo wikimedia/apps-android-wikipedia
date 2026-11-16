@@ -3079,4 +3079,8 @@
   <string name="notifications_experiment_discover_interests_title">Ponieważ interesuje Cię %s</string>
   <string name="notifications_experiment_discover_saved_or_history_title">Po przeczytaniu: %s</string>
   <string name="notifications_experiment_discover_message">Na podstawie tych i innych zainteresowań stworzyliśmy dla Ciebie nową listę zapisanych stron.</string>
+  <string name="notifications_experiment_weekly_most_read_channel_title">Najczęściej czytane w tym tygodniu</string>
+  <string name="notifications_experiment_weekly_most_read_channel_description">Powiadomienia o najczęściej czytanych artykułach tygodnia</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">Najpopularniejsze w tym tygodniu 📈</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">Nr 1 %s. Zobacz, o czym jeszcze czytają inni.</string>
 </resources>
