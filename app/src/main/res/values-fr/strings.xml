@@ -2570,5 +2570,5 @@
   <string name="notifications_experiment_weekly_most_read_channel_title">Articles les plus lus de la semaine</string>
   <string name="notifications_experiment_weekly_most_read_channel_description">Notifications des articles les plus lus de la semaine</string>
   <string name="notifications_experiment_weekly_most_read_notification_title">Tendances de la semaine</string>
-  <string name="notifications_experiment_weekly_most_read_notification_description" fuzzy="true">Avant toute chose, découvrez ce que tout le monde lit.</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">N° 1 : %s. Découvrez ce que tout le monde lit.</string>
 </resources>
