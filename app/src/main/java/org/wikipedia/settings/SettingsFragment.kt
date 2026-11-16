@@ -61,7 +61,7 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
         preferenceLoader.updateRecommendedReadingListSummary()
         preferenceLoader.updateDonationRemindersDescription()
         preferenceLoader.updateVisualEditorPreference()
-        preferenceLoader.updateSemanticSearchPreference()
+        preferenceLoader.updateSemanticSearchPreference() // TODO: visit this for interleave search
         DonationReminderHelper.maybeShowSettingSnackbar(requireActivity())
         requireActivity().invalidateOptionsMenu()
     }

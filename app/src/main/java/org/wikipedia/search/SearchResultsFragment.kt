@@ -27,7 +27,7 @@ import org.wikipedia.extensions.instrument
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.search.semantic.SemanticSearchAbTest
+import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
@@ -36,7 +36,7 @@ class SearchResultsFragment : Fragment() {
 
     private var composeView: ComposeView? = null
     private val viewModel: SearchResultsViewModel by viewModels()
-    private val semanticSearchAbTest = SemanticSearchAbTest()
+    private val interleaveSearchAbTest = InterleaveSearchAbTest() // TODO: need to revisit this for instrumentation.
     val isShowing get() = composeView?.visibility == View.VISIBLE
 
     override fun onCreateView(
@@ -49,7 +49,7 @@ class SearchResultsFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.searchTermForLogging.collectLatest { query ->
                     if (!query.isNullOrEmpty()) {
-                        semanticSearchAbTest.runIfEligible {
+                        interleaveSearchAbTest.runIfEligible {
                             val isFromRecentSearch = viewModel.isFromRecentSearch
                             requireActivity().instrument?.submitInteraction("init",
                                 actionSubtype = if (isFromRecentSearch) "recent_search" else null,
@@ -72,7 +72,7 @@ class SearchResultsFragment : Fragment() {
                             "show_search_result",
                             actionContext = viewModel.getStandardEventActionContext()
                         )
-                        submitSemanticLexicalResultEvent("impression")
+                        submitInterleaveLexicalResultEvent("impression")
                     }
                 }
             }
@@ -92,7 +92,7 @@ class SearchResultsFragment : Fragment() {
                                 actionContext = viewModel.getStandardEventActionContext(result)
                             )
 
-                            submitSemanticLexicalResultEvent("click", result)
+                            submitInterleaveLexicalResultEvent("click", result)
 
                             callback()?.navigateToTitle(
                                 item = result.pageTitle,
@@ -126,7 +126,7 @@ class SearchResultsFragment : Fragment() {
                             callback()?.onSearchProgressBar(enabled)
                         },
                         onSemanticSearchClick = { searchTerm, isFirstUse ->
-                            semanticSearchAbTest.runIfEligible {
+                            interleaveSearchAbTest.runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "enter_semantic_search"
                                 )
@@ -141,7 +141,7 @@ class SearchResultsFragment : Fragment() {
                             }
                         },
                         onSemanticSearchInfoClick = {
-                            semanticSearchAbTest.runIfEligible {
+                            interleaveSearchAbTest.runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "info_button"
                                 )
@@ -149,7 +149,7 @@ class SearchResultsFragment : Fragment() {
                             callback()?.showSemanticSearchInfoDialog()
                         },
                         onSemanticSearchCloseClick = {
-                            semanticSearchAbTest.runIfEligible {
+                            interleaveSearchAbTest.runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "close_semantic_button"
                                 )
@@ -197,9 +197,10 @@ class SearchResultsFragment : Fragment() {
         return getCallback(this, SearchResultCallback::class.java)
     }
 
-    private fun submitSemanticLexicalResultEvent(action: String, result: SearchResult? = null) {
-        semanticSearchAbTest.runIfEligible {
-            val isTreatment = semanticSearchAbTest.group == ABTest.GROUP_2
+    private fun submitInterleaveLexicalResultEvent(action: String, result: SearchResult? = null) {
+        // TODO: need to revisit this for instrumentation.
+        interleaveSearchAbTest.runIfEligible {
+            val isTreatment = interleaveSearchAbTest.group == ABTest.GROUP_2
             requireActivity().instrument?.submitInteraction(action,
                 elementId = "search_result",
                 actionSubtype = "lexical_result",
