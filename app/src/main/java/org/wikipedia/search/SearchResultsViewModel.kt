@@ -19,7 +19,6 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -27,7 +26,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
-import org.wikipedia.search.interleave.InterleavedSearchRepository
+import org.wikipedia.search.interleave.InterleaveSearchRepository
 import org.wikipedia.settings.Prefs
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -35,14 +34,11 @@ class SearchResultsViewModel : ViewModel() {
     private val interleaveSearchAbTest = InterleaveSearchAbTest()
     private val interleaveSearchEnabledPrefUpdates = Prefs.observeKeys(
         R.string.preference_key_interleave_search_enabled,
-        R.string.preference_key_interleave_search_is_test_active, // TODO: remove this before release
-        R.string.preference_key_interleave_search_override_supported_language // TODO: remove this before release
-    )
-    private val semanticSearchIsFirstUsePrefUpdates = Prefs.observeKeys(
-        R.string.preference_key_semantic_search_first_use
+        R.string.preference_key_interleave_search_is_test_active,
+        R.string.preference_key_interleave_search_override_supported_language
     )
     private val standardSearchRepository = StandardSearchRepository()
-    private val interleavedSearchRepository = InterleavedSearchRepository(lexicalRepository = standardSearchRepository)
+    private val interleaveSearchRepository = InterleaveSearchRepository(lexicalRepository = standardSearchRepository)
     private val batchSize = 10
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
@@ -80,15 +76,6 @@ class SearchResultsViewModel : ViewModel() {
         interleaveSearchAbTest.isInterleaveSearchEnabled(_languageCode.value)
     )
 
-    val isSemanticSearchFirstUse = semanticSearchIsFirstUsePrefUpdates
-        .map { Prefs.isSemanticSearchFirstUse }
-        .distinctUntilChanged()
-        .stateIn(
-            viewModelScope,
-            SharingStarted.Eagerly,
-            Prefs.isSemanticSearchFirstUse
-        )
-
     @OptIn(
         FlowPreview::class,
         ExperimentalCoroutinesApi::class
@@ -104,7 +91,7 @@ class SearchResultsViewModel : ViewModel() {
                     maybeSendInterleaveSearchExposure(lang)
                 }
             }
-            val repository = if (isInterleavingEnabled(lang)) interleavedSearchRepository else standardSearchRepository
+            val repository = if (isInterleavingEnabled(lang)) interleaveSearchRepository else standardSearchRepository
             Pager(PagingConfig(pageSize = batchSize)) {
                 SearchResultsPagingSource(
                     searchTerm = term,

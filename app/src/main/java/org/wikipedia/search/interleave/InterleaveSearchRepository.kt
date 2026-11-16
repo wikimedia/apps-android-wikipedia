@@ -15,7 +15,7 @@ import org.wikipedia.util.log.L
  * Fetches lexical and semantic results once per query, merges them with [SearchResultsInterleaver],
  * and serves the merged list page by page, so paging never changes the list that was merged.
  */
-class InterleavedSearchRepository(
+class InterleaveSearchRepository(
     private val lexicalRepository: SearchRepository<StandardSearchResults> = StandardSearchRepository(),
     private val semanticRepository: SearchRepository<StandardSearchResults> = SemanticSearchRepository(),
     private val newSeed: () -> ULong = SearchResultsInterleaver::newSeed

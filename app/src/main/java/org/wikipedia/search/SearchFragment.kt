@@ -34,7 +34,6 @@ import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.search.semantic.SemanticSearchInfoDialog
-import org.wikipedia.search.semantic.SemanticSearchResultsDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -249,12 +248,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun onSearchProgressBar(enabled: Boolean) {
         binding.searchProgressBar.visibility = if (enabled) View.VISIBLE else View.GONE
-    }
-
-    override fun showSemanticSearchResultsDialog(query: String) {
-        DeviceUtil.hideSoftKeyboard(requireActivity())
-        ExclusiveBottomSheetPresenter.show(childFragmentManager, SemanticSearchResultsDialog.newInstance(query, searchLanguageCode, invokeSource,
-            showFeedback = !searchResultsFragment.isSemanticSearchFeedbackShown))
     }
 
     override fun showSemanticSearchInfoDialog() {

@@ -14,7 +14,7 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.StandardSearchResults
 
 @RunWith(RobolectricTestRunner::class)
-class InterleavedSearchRepositoryTest {
+class InterleaveSearchRepositoryTest {
     private val wikiSite = WikiSite.forLanguageCode("en")
 
     @Test
@@ -28,7 +28,7 @@ class InterleavedSearchRepositoryTest {
             searchResult("Eiffel Tower", SearchResult.SearchResultType.SEMANTIC, pageId = 1),
             searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3)
         )
-        val repository = InterleavedSearchRepository(
+        val repository = InterleaveSearchRepository(
             lexicalRepository = FakeSearchRepository(StandardSearchResults(lexicalResults, continuation = null, localResults = listOf(historyResult))),
             semanticRepository = FakeSearchRepository(StandardSearchResults(semanticResults, continuation = null)),
             newSeed = { SEMANTIC_FIRST_SEED }
@@ -44,7 +44,7 @@ class InterleavedSearchRepositoryTest {
         assertTrue(nextPage.localResults.isEmpty())
     }
 
-    private fun search(repository: InterleavedSearchRepository, continuation: Int?, isPrefixSearch: Boolean): StandardSearchResults {
+    private fun search(repository: InterleaveSearchRepository, continuation: Int?, isPrefixSearch: Boolean): StandardSearchResults {
         return runBlocking {
             repository.search("eiffel", wikiSite.languageCode, Constants.InvokeSource.SEARCH, continuation, BATCH_SIZE, isPrefixSearch)
         }
