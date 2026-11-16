@@ -40,15 +40,7 @@ class YearInReviewViewModel(
     private val _uiState = MutableStateFlow<YearInReviewUiState>(YearInReviewUiState.Loading)
     val uiState = _uiState.asStateFlow()
     private var isOnEndPage = false
-    private var hasLogoSoundPlayed = false
-    private val audioPlayer = YearInReviewAudioPlayer(
-        context = WikipediaApp.instance,
-        onPlaybackEnded = { resourceId ->
-            if (resourceId == R.raw.wikipedia_logo_sound) {
-                hasLogoSoundPlayed = true
-            }
-        }
-    )
+    private val audioPlayer = YearInReviewAudioPlayer(context = WikipediaApp.instance)
     val isSoundOn = MutableStateFlow(Prefs.isYearInReviewSoundOn)
 
     val tabArticles: List<PageTitle> = loadTabArticles()
@@ -91,7 +83,7 @@ class YearInReviewViewModel(
 
     fun updateAudio() {
         when {
-            !isSoundOn.value || hasLogoSoundPlayed -> audioPlayer.pause()
+            !isSoundOn.value -> audioPlayer.pause()
             isOnEndPage -> audioPlayer.play(R.raw.wikipedia_logo_sound, loop = false)
             else -> audioPlayer.play(R.raw.dreamy, loop = true)
         }
@@ -99,9 +91,7 @@ class YearInReviewViewModel(
 
     fun onPageSettled(page: YearInReviewPage) {
         isOnEndPage = page is YearInReviewPage.End
-        if (isOnEndPage) {
-            updateAudio()
-        }
+        updateAudio()
     }
 
     fun pauseAudio() {

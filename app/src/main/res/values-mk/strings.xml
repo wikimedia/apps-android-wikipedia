@@ -2786,4 +2786,8 @@
   <string name="notifications_experiment_discover_interests_title">Бидејќи ве интересираше %s</string>
   <string name="notifications_experiment_discover_saved_or_history_title">Бидејќи читавте за %s</string>
   <string name="notifications_experiment_discover_message">Ви создадовме нов список за читање според ова и други интереси.</string>
+  <string name="notifications_experiment_weekly_most_read_channel_title">Неделно најчитани</string>
+  <string name="notifications_experiment_weekly_most_read_channel_description">Известувања за неделно најчитаните статии</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">Актуелно неделава 📈</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">Бр. 1 %s. Дознајте што читаат сите други.</string>
 </resources>
