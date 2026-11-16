@@ -213,6 +213,11 @@
             android:key="@string/preference_key_login_force_email_auth"
             android:title="Force email authentication when logging in." />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_hcaptcha_use_test_site_key"
+            android:title="Use hCaptcha test site key"
+            android:summary="Replaces the hCaptcha site key with one that always shows the challenge dialog." />
+
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             android:key="@string/preference_key_last_background_login_date_time"
             android:title="@string/preference_key_last_background_login_date_time" />

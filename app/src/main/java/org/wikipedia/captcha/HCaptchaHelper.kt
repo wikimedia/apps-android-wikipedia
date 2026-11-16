@@ -7,6 +7,7 @@ import com.hcaptcha.sdk.HCaptchaConfig
 import com.hcaptcha.sdk.HCaptchaDialogFragment
 import com.hcaptcha.sdk.HCaptchaTheme
 import org.wikipedia.WikipediaApp
+import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.log.L
 import kotlin.String
@@ -43,7 +44,7 @@ class HCaptchaHelper(
             hCaptcha?.setup(
                 HCaptchaConfig.builder()
                     .theme(if (WikipediaApp.instance.currentTheme.isDark) HCaptchaTheme.DARK else HCaptchaTheme.LIGHT)
-                    .siteKey(siteKey ?: config.siteKey)
+                    .siteKey(if (Prefs.hCaptchaUseTestSiteKey) TEST_SITE_KEY else siteKey ?: config.siteKey)
                     .host(config.baseURL.toUri().host)
                     .jsSrc(config.jsSrc)
                     .endpoint(config.endpoint)
@@ -93,5 +94,9 @@ class HCaptchaHelper(
                 }
             }
         }
+    }
+
+    companion object {
+        private const val TEST_SITE_KEY = "45205f58-be1c-40f0-b286-07a4498ea3da"
     }
 }
