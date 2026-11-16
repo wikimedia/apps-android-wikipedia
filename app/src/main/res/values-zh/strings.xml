@@ -71,6 +71,7 @@
 * Xxoopiggy
 * Xyb
 * Xzonn
+* YeBoy371
 * Yfdyh000
 * Ywang
 * Zhang8569
@@ -286,6 +287,25 @@
   <string name="create_account_button">创建账号</string>
   <string name="create_account_encourage_title">注册账号有助于您使用维基百科</string>
   <string name="create_account_encourage_year_in_review_title_zero">在年度回顾中查看您的阅读天数</string>
+  <plurals name="create_account_encourage_year_in_review_title">
+    <item quantity="one">在年度回顾中一同查看您的 %1$d 阅读天数</item>
+    <item quantity="other">在年度回顾中一同查看您的 %1$d 阅读天数</item>
+  </plurals>
+  <string name="create_account_encourage_year_in_review_description">每一年，您的阅读天数将会再次显现，带您回顾这一年度过的时光——一切准备好，只待分享。</string>
+  <string name="create_account_encourage_saved_articles_title_zero">同步您已保存的条目</string>
+  <plurals name="create_account_encourage_saved_articles_title">
+    <item quantity="one">同步您保存的 %1$d 篇文章</item>
+    <item quantity="other">同步您保存的 %1$d 篇文章</item>
+  </plurals>
+  <string name="create_account_encourage_saved_articles_description">登陆您的维基百科账号允许您在不同设备间同步已保存的文章。</string>
+  <string name="create_account_encourage_activity_title_zero">通过「活动」功能回顾您近期阅读的文章</string>
+  <plurals name="create_account_encourage_activity_title">
+    <item quantity="one">通过「活动」功能回顾您最近阅读的 %1$d 篇条目</item>
+    <item quantity="other">通过「活动」功能回顾您最近阅读的 %1$d 篇条目</item>
+  </plurals>
+  <string name="create_account_encourage_activity_description">在「活动」标签页中，您可以查看自己的阅读时长，所探索的主题，以及您所做贡献的影响力。</string>
+  <string name="create_account_encourage_edits_title">使编辑归于您的账户下</string>
+  <string name="create_account_encourage_edits_description">建立有一份令您引以为傲的贡献记录，使您在各个维基媒体项目中所做的贡献都归于您账户名下。</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
   <string name="create_account_ip_block_message">对不起，您的IP地址目前受到封禁，不能创建新账号。</string>
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
@@ -298,11 +318,11 @@
   <string name="preferences_heading_syncing">同步</string>
   <string name="preferences_heading_data_usage">数据使用</string>
   <string name="preferences_heading_experimental">实验功能</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">同步收藏</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">下载收藏的条目</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">将收藏保存到您的维基百科账户，即可在不同设备间同步收藏</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">将收藏保存到您的维基百科账户“%s”，以便在不同设备间同步。</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">从“%s”中移除已同步的收藏？</string>
+  <string name="preference_title_sync_reading_lists_from_account">同步阅读列表</string>
+  <string name="preference_title_download_reading_list_articles">下载阅读列表中的条目</string>
+  <string name="preference_summary_sync_reading_lists">将阅读列表保存到您的维基百科账户，即可在不同设备间同步您的阅读列表</string>
+  <string name="preference_summary_sync_reading_lists_from_account">将阅读列表保存到您的维基百科账户“%s”，以便在不同设备间同步</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">是否从您的账户“%s”中移除已同步的阅读列表？</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">这将彻底删除远程存储中所有先前同步的收藏集。是否从您的账户“%s”中移除所有已同步的收藏？</string>
   <string name="preference_title_auto_upload_crash_reports">发送崩溃报告</string>
   <string name="preference_summary_auto_upload_crash_reports">允许应用自动发送崩溃报告至第三方服务提供方，这样我们可以更快、更容易地浏览您的崩溃报告，并修复漏洞。</string>
@@ -2259,7 +2279,7 @@
   <string name="donation_reminders_wrap_up_survey_option_not_sure">不确定</string>
   <string name="donation_reminders_wrap_up_survey_optional_hint">还有其他问题吗？（可选）</string>
   <string name="donation_reminders_wrap_up_survey_thank_you_message">感谢您的反馈。您的回答有助于我们决定下一步的开发方向。</string>
-  <string name="donation_reminders_eoe_title">实验到此结束。</string>
+  <string name="donation_reminders_eoe_title">实验到此结束</string>
   <string name="donation_reminders_eoe_message">我们将不再显示应用内提醒，但您仍然可以通过每月捐赠您承诺的金额%s来支持我们。</string>
   <string name="donation_reminders_eoe_give_monthly_button">每月捐赠</string>
   <string name="donation_reminders_eoe_donate_dialog_title">您希望每月捐赠多少？</string>

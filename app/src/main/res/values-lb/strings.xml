@@ -627,7 +627,7 @@
     <item quantity="one">Sidd Dir sécher, datt Dir %d Lëscht läsche wëllt?</item>
     <item quantity="other">Sidd Dir sécher, datt Dir %d Lëschte läsche wëllt?</item>
   </plurals>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Loggt Iech a fir d\'Synchronisatioun z\'aktivéieren</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Loggt Iech an, fir d\'Synchronisatioun z\'aktivéieren</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Loggt Iech an, fir datt Är Lieslëschten an Ärem Kont gespäichert kënne ginn.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ofbriechen</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aloggen</string>
