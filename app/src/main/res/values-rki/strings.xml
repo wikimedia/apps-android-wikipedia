@@ -21,7 +21,7 @@
   <string name="search_back_button_content_description">နောက်ကို ပြန်လားပါ</string>
   <string name="search_clear_query_content_description">မီးမြန်းမှုကို ရှင်းလင်းပါ။</string>
   <string name="search_icon_content_description">ရှာဖွီပါ</string>
-  <string name="filter_hint_filter_my_lists_and_articles" fuzzy="true">မိမိဧ့စာရင်းတိ စစ်ထုတ်ပါ</string>
+  <string name="filter_hint_filter_my_lists_and_articles">မိမိ၏စာရင်းတိ စစ်ထုတ်ပါ</string>
   <string name="nav_item_suggested_edits">တည်းဖြတ်မှုများ</string>
   <string name="nav_item_activity">လှုပ်ရှားမှု</string>
   <string name="nav_item_more">ပိုလို့</string>
@@ -88,16 +88,16 @@
   <string name="menu_page_watched">စောင့်ကြည့်ပြီးဗျာလ်</string>
   <string name="edit_section_find_in_page">စာမျက်နှာမှာ ရှာဖွီပါ</string>
   <string name="menu_page_font_and_theme">ဖောင့်နန့် အသွင်အပြင်</string>
-  <string name="menu_page_add_to_list" fuzzy="true">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <string name="menu_page_add_to_list">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
   <string name="menu_page_add_to_default_list">သိမ်းပါ</string>
-  <string name="feed_card_add_to_list" fuzzy="true">စုစည်းမှုထဲသို့ ထည့်ပါ</string>
+  <string name="feed_card_add_to_list">ဖတ်စာရင်းထဲသို့ ထည့်ပါ</string>
   <string name="feed_card_add_to_default_list">သိမ်းပါ</string>
   <string name="menu_page_share">လင့်ခ်ကို မျှဝီပါ</string>
   <string name="menu_article_share">ဆောင်းပါးကို မျှဝီပါ</string>
   <string name="menu_page_article_share">မျှဝီ</string>
   <string name="menu_page_open_a_new_tab">tab အသစ် ဖွင့်ပါ</string>
   <string name="menu_page_new_tab">tab အသစ်</string>
-  <string name="menu_page_reading_lists" fuzzy="true">စုစည်းမှုတိ</string>
+  <string name="menu_page_reading_lists">ဖတ်ထားရေစာရင်းတိ</string>
   <string name="menu_page_recently_viewed">တနားက ကြည့်ခပါရေ</string>
   <string name="menu_page_archive">စုစီးမှု</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
@@ -140,9 +140,9 @@
   <string name="menu_show_toc">မာတိကာ</string>
   <string name="search_no_results_found">ရလဒ်ရှာမတွိပါ</string>
   <string name="search_reading_list_no_results">\"%s\" ထဲမှာ ရလဒ်မတွိ့ပါ</string>
-  <string name="search_reading_lists_no_results" fuzzy="true">စုစည်းမှုတိမာ ရလဒ်တိ မတွိ့ပါ</string>
+  <string name="search_reading_lists_no_results">ဖတ်စာရင်းတိမာ ရလဒ်တိ မတွိပါ</string>
   <string name="search_all_articles_no_results">ဆောင်းပါးအားနုံးမာ ရလဒ်တိ မတွိ့ပါ</string>
-  <string name="search_collections_no_results" fuzzy="true">စုစည်းမှုတိမာ ရလဒ်တိ မတွိ့ပါ</string>
+  <string name="search_collections_no_results">ဖတ်စာရင်းတိမာ ရလဒ်တိ မတွိပါ</string>
   <string name="search_history_no_results">ရာဇဝင်ထဲမှာ ရလဒ်မတွိ့ပါ</string>
   <string name="edit_section_captcha_message">အလိုအလိုပီးပို့နီရေ မေးလ်တိရန်က ကာကွယ်ဖို့ အောက်က စာလုံးတိကို လိုက်ရိုက်ကြည့်ပါ။</string>
   <string name="edit_section_captcha_request_an_account_message">ရုပ်ပုံကို မတွိ့ရပါသိလား? &lt;a href=\"https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုဖို့\"&gt;အကောင့်တစ်ခု တောင်းဆိုဖို့&lt;/a&gt;</string>
@@ -243,11 +243,11 @@
   <string name="preferences_heading_syncing">တစ်ထပ်တည်းကျစီခြင်း</string>
   <string name="preferences_heading_data_usage">ဒေတာ အသုံးပြုမှု</string>
   <string name="preferences_heading_experimental">စမ်းသပ်လိ့လာဆဲ</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">စုစည်းမှု စင့်ခ်လုပ်ခြင်း</string>
-  <string name="preference_title_download_reading_list_articles" fuzzy="true">စုစည်းမှုဆောင်းပါးတိကို ဒေါင်းလုဒ်လုပ်ပါ</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">သင့်ဧ့ Wikipedia အကောင့်မာ သိမ်းဆည်းခြင်းအနိန်နန့် မတူညီရေ device တိမာ collection တိကို sync လုပ်ပါ</string>
-  <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">သင့်ဧ့ Wikipedia အကောင့် \"%s\" မာ သိမ်းဆည်းခြင်းအနိန်နန့် မတူညီသော စက်၀န်တိတစ်လျှောက် စုစည်းမှုတိကို ထပ်တူပြုပါ</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">\"%s\" မှ ထပ်တူပြုထားသော စုစည်းမှုတိကို ဖယ်ယှားဖို့လား။</string>
+  <string name="preference_title_sync_reading_lists_from_account">ဖတ်စာရင်းကို sync လုပ်နီရေ</string>
+  <string name="preference_title_download_reading_list_articles">ဖတ်ထားရေ ဆောင်းပါးစာရင်းတိကို ဒေါင်းလုဒ်လုပ်ပါ</string>
+  <string name="preference_summary_sync_reading_lists">မင်း Wikipedia အကောင့်မာ သိမ်းဆည်းခြင်းအနိန်နန့် မတူညီရေ device တိမာ ဖတ်ထားရေ စာရင်းတိကို sync လုပ်ပါ။</string>
+  <string name="preference_summary_sync_reading_lists_from_account">မင်း Wikipedia အကောင့် \"%s\" မာ သိမ်းဆည်းခြင်းအနိန်နန့် မတူညီရေ devices တိမာ ဖတ်ထားရေစာရင်းတိကို ထပ်တူပြုပါ</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s က sync လုပ်ထားရေ စာဖတ်စာရင်းကို ဖယ်ယှားဖို့လား</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">ယင်းစွာရေ အယင်က ထပ်တူပြုထားရေ စုစည်းမှုအားလုံးကို အဝီးထိန်းသိုလှောင်မှုမှ လုံးဝဖျက်ပစ်ပါလိမ့်မေ။ သင့်အကောင့် \"%s\" မှ ထပ်တူပြုထားရေ စုစည်းမှုအားနုံးကို ဖယ်ယှားလိုပါလား။</string>
   <string name="preference_title_auto_upload_crash_reports">ပျက်မှု အစီရင်ခံချက်တိကို ပို့ရန်</string>
   <string name="preference_summary_auto_upload_crash_reports">တတိယဝန်ဆောင်မှုလုပ်ငန်းပသို့ အက်ပ်မှ ပျက်မှု အစီရင်ခံချက်တိကို အလိုအလျောက် ပီးပို့စီခြင်းဖြင့် သင့်အစီရင်ခံချက်ကို လွယ်ကူ‌ကေမြန်စွာ ကြည့်ရှုပြင်ဆင်နိုင်စီဖို့ ခွင့်ပြုပါ။</string>

@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.dataclient.restbase.PageViews
 import org.wikipedia.dataclient.restbase.PreviewRequest
 import org.wikipedia.dataclient.restbase.RbDefinition
+import org.wikipedia.dataclient.restbase.TopPageViews
 import org.wikipedia.dataclient.restbase.UserEdits
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.onthisday.OnThisDay
@@ -213,6 +214,14 @@ interface RestService {
         @Path("fromDate") fromDate: String,
         @Path("toDate") toDate: String
     ): PageViews
+
+    @GET("metrics/pageviews/top/{project}/all-access/{year}/{month}/{day}")
+    suspend fun getTopPageViews(
+        @Path("project") project: String,
+        @Path("year") year: String,
+        @Path("month") month: String,
+        @Path("day") day: String
+    ): TopPageViews
 
     @POST("transform/wikitext/to/mobile-html/{title}")
     suspend fun getHtmlPreviewFromWikitext(

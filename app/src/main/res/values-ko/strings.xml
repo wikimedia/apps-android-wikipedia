@@ -242,7 +242,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">이메일 없이 계속하기</string>
   <string name="email_recommendation_dialog_create_with_email_action">이메일 주소 추가</string>
   <string name="create_account_button">계정 만들기</string>
-  <string name="create_account_encourage_title">계정을 만드면 위키백과를 좀 더 편리하게 사용할 수 있습니다</string>
+  <string name="create_account_encourage_title">위키백과는 계정을 만드는 것이 더 좋습니다</string>
   <string name="create_account_encourage_saved_articles_title_zero">저장된 문서 동기화</string>
   <string name="create_account_name_unavailable">\"%s\" 사용자 이름을 사용할 수 없습니다. 다른 이름을 선택해 주십시오.</string>
   <string name="create_account_ip_block_message">죄송하지만, 당신의 IP 주소가 현재 새로운 계정을 생성하지 못하도록 차단되어 있습니다.</string>
@@ -1878,6 +1878,7 @@
   <string name="year_in_review_learn_more">더 알아보기</string>
   <string name="year_in_review_share_feedback">피드백 공유하기</string>
   <string name="year_in_review_get_started">시작하기</string>
+  <string name="year_in_review_announcement_explore">탐색</string>
   <string name="year_in_review_topbar_w_icon">위키백과 W 아이콘</string>
   <string name="year_in_review_navigate_left">왼쪽으로 이동</string>
   <string name="year_in_review_close">닫기</string>
@@ -1917,6 +1918,7 @@
   <string name="year_in_review_slide_geo_body">당신이 읽으신 여러 문서와 가장 유사한 국가는 %1$s인 것으로 보입니다. &lt;b&gt;%2$s&lt;/b&gt; 및 &lt;b&gt;%3$s&lt;/b&gt; 등의 문서를 기반으로 판단한 결과입니다.</string>
   <string name="year_in_review_login_dialog_title">개인 맞춤 설정을 위해 로그인하시겠습니까?</string>
   <string name="year_in_review_login_dialog_body">로그인하면 개인 맞춤형 분석 정보를 이용할 수 있습니다. 로그인하지 않아도 전체 분석 정보를 볼 수 있습니다.</string>
+  <string name="year_in_review_login_dialog_title_nodata">위키백과는 계정을 만드는 것이 더 좋습니다</string>
   <string name="year_in_review_login_dialog_positive">위키백과에 로그인 / 가입</string>
   <string name="year_in_review_login_dialog_negative">로그인 없이 계속하기</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -2074,6 +2076,7 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">하이라이트 공유</string>
   <string name="year_in_review_highlights_logo_description">위키백과 로고</string>
+  <string name="year_in_review_swipe_tutorial_title">스와이프하여 둘러보세요</string>
   <string name="recommended_reading_list_title">발견</string>
   <string name="recommended_reading_list_onboarding_card_title">당신만을 위한 문서를 발견하세요</string>
   <string name="recommended_reading_list_onboarding_card_message">당신만을 위해 엄선된 이번 주 위키백과의 읽기 읽기 목록입니다.</string>
@@ -2173,6 +2176,7 @@
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">%1$s개를 추가로 읽었습니다!</string>
   <string name="donation_reminders_prompt_message">%2$s 만큼 읽을 때 마다 %3$s 만큼 기부하도록 %1$s에 기부 알림을 설정하셨습니다. 위키백과를 지원하겠다는 약속을 실천할 준비가 되셨나요?</string>
   <string name="donation_reminders_prompt_positive_button">지금 기부하기</string>
+  <string name="donation_reminders_prompt_positive_button_v2">네, 지금 기부합니다</string>
   <string name="donation_reminders_prompt_negative_button">지금은 괜찮습니다</string>
   <string name="donation_reminders_gpay_text">구글 페이로 %s만큼 기부하기</string>
   <string name="donation_reminders_gpay_different_amount_text">구글 페이로 다른 금액을 기부하기</string>
@@ -2190,8 +2194,15 @@
   <string name="donation_reminders_settings_report_email_body">기부 알림 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n- [스크린샷 또는 링크]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="donation_reminders_snackbar_modify_button_label">수정</string>
   <string name="donation_reminders_settings_article_number_selection_label">문서</string>
+  <string name="donation_reminders_settings_custom_amount_label">사용자 지정 금액</string>
+  <string name="donation_reminders_beta_label">베타</string>
   <string name="donation_reminders_wrap_up_title">기부 안내는 여기까지입니다.</string>
+  <string name="donation_reminders_wrap_up_share_feedback_button">피드백 공유하기</string>
+  <string name="donation_reminders_wrap_up_survey_option_keep_it">그대로 둡니다</string>
+  <string name="donation_reminders_wrap_up_survey_option_remove_it">제거합니다</string>
+  <string name="donation_reminders_wrap_up_survey_option_not_sure">확실치 않음</string>
   <string name="donation_reminders_wrap_up_survey_optional_hint">다른 질문 있으신가요? (선택 사항)</string>
+  <string name="donation_reminders_eoe_title">이로써 실험은 끝났습니다</string>
   <string name="reading_challenge_widget_name">읽기 도전</string>
   <string name="reading_challenge_onboarding_header">위키백과 25주년을 기념하여 25일 독서 도전에 참여하세요!</string>
   <string name="reading_challenge_onboarding_read_title">25일 동안 문서를 매일 하나씩 읽으세요</string>
@@ -2359,6 +2370,8 @@
   <string name="read_aloud_card_retry">다시 시도</string>
   <string name="read_aloud_card_error">이 문서는 오디오가 제공되지 않습니다.</string>
   <string name="read_aloud_card_keep_listening">계속 들으시겠어요?</string>
+  <string name="read_aloud_lead_section_survey_choice5">기타:</string>
+  <string name="read_aloud_lead_section_beta_label">베타</string>
   <string name="home_feed_settings_discover_subtitle">읽기 목록 발견에서의 문서</string>
   <string name="home_feed_discover_cta_title">발견으로부터</string>
   <string name="home_feed_discover_cta_description">엄선된 새로운 주제들을 알아보세요. 매일, 매주 또는 매월 업데이트 중에서 선택하세요.</string>
@@ -2390,6 +2403,8 @@
   <plurals name="reading_lists_articles_removed_from_collections">
     <item quantity="other">문서 %d가 관련된 모든 읽기 목록에서 제거되었습니다.</item>
   </plurals>
+  <string name="semantic_search_info_dialog_button_text">더 알아보기</string>
+  <string name="semantic_search_beta_label">베타</string>
   <string name="semantic_search_results_feedback_title">원하던 것을 찾으셨나요?</string>
   <string name="semantic_search_results_feedback_thumb_up_content_description">좋아요</string>
   <string name="semantic_search_results_feedback_thumb_down_content_description">어려워요</string>
