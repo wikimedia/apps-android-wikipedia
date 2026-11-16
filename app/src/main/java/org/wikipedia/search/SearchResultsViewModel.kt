@@ -190,6 +190,7 @@ class SearchResultsViewModel : ViewModel() {
         private val repository: SearchRepository<StandardSearchResults>,
         private val onFirstPageLoaded: (StandardSearchResults) -> Unit
     ) : PagingSource<Int, SearchResult>() {
+        private var localResultTitles = emptySet<String>()
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
             return try {
@@ -208,11 +209,13 @@ class SearchResultsViewModel : ViewModel() {
                 )
 
                 if (params.key == null) {
+                    localResultTitles = result.localResults.map { it.pageTitle.prefixedText }.toSet()
                     onFirstPageLoaded(result)
                 }
 
+                // Local results have no page ID, so their duplicates are matched by title and hidden on every page.
                 return LoadResult.Page(
-                    result.results,
+                    result.localResults + result.results.filterNot { it.pageTitle.prefixedText in localResultTitles },
                     null,
                     result.continuation
                 )

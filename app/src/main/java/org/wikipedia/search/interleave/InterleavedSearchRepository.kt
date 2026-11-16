@@ -37,11 +37,12 @@ class InterleavedSearchRepository(
         val offset = continuation ?: 0
         val pageResults = slots.drop(offset).take(batchSize).map { it.item }
         return StandardSearchResults(
-            results = if (isPrefixSearch) merged.topResults + pageResults else pageResults,
+            results = pageResults,
             continuation = (offset + batchSize).takeIf { it < slots.size },
             xSearchIdPrefix = merged.xSearchIdPrefix,
             xSearchIdFullText = merged.xSearchIdFullText,
-            xSearchIdSemantic = merged.xSearchIdSemantic
+            xSearchIdSemantic = merged.xSearchIdSemantic,
+            localResults = if (isPrefixSearch) merged.localResults else emptyList()
         )
     }
 
@@ -61,18 +62,12 @@ class InterleavedSearchRepository(
         )
         val semanticSearchResults = semanticSearch.await()
 
-        // Tab, history and reading list results stay on top of the list and are never merged.
-        val (lexicalResults, topResults) = lexicalSearch.results.partition {
-            it.type == SearchResult.SearchResultType.PREFIX || it.type == SearchResult.SearchResultType.FULL_TEXT
-        }
-        val topResultTitles = topResults.map { it.pageTitle.prefixedText }.toSet()
-        val semanticResults = semanticSearchResults.results.filterNot { it.pageTitle.prefixedText in topResultTitles }
-
+        // Local results are not merge inputs, so the merged list matches the other platforms for the same lexical and semantic lists.
         MergedSearchResults(
             searchTerm = searchTerm,
             languageCode = languageCode,
-            topResults = topResults,
-            interleaveResult = SearchResultsInterleaver.merge(lexicalResults, semanticResults, LIST_LENGTH, newSeed()) { it.pageId.toLong() },
+            localResults = lexicalSearch.localResults,
+            interleaveResult = SearchResultsInterleaver.merge(lexicalSearch.results, semanticSearchResults.results, LIST_LENGTH, newSeed()) { it.pageId.toLong() },
             xSearchIdPrefix = lexicalSearch.xSearchIdPrefix,
             xSearchIdFullText = lexicalSearch.xSearchIdFullText,
             xSearchIdSemantic = semanticSearchResults.xSearchIdSemantic
@@ -94,7 +89,7 @@ class InterleavedSearchRepository(
     private class MergedSearchResults(
         val searchTerm: String,
         val languageCode: String,
-        val topResults: List<SearchResult>,
+        val localResults: List<SearchResult>,
         val interleaveResult: InterleaveResult<SearchResult>,
         val xSearchIdPrefix: String?,
         val xSearchIdFullText: String?,
