@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
+import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.ArrowOrientationRules
 import com.skydoves.balloon.ArrowPositionRules
 import com.skydoves.balloon.Balloon
@@ -222,6 +223,7 @@ object FeedbackUtil {
         @StringRes dismissButtonText: Int = R.string.onboarding_got_it,
         countNum: Int = 0,
         countTotal: Int = 0,
+        arrowOrientation: ArrowOrientation = ArrowOrientation.BOTTOM,
     ): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
@@ -245,6 +247,7 @@ object FeedbackUtil {
         val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
+            setArrowOrientation(arrowOrientation)
             setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
             setArrowSize(16)
             setMarginLeft(8)
