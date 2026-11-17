@@ -40,12 +40,9 @@ import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.search.interleave.SearchResultCard
-import org.wikipedia.search.interleave.toCardUiModel
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
 
-// Shows the US-2 search result card with sample results for each target wiki, so QA and design can
-// check it against Figma before the card is wired into search (US-1).
 class SearchResultCardPlaygroundActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -121,11 +118,7 @@ fun SearchResultCardPlaygroundScreen(
 
 @Composable
 private fun SearchResultCardPlaygroundList(languageCode: String) {
-    val models = remember(languageCode) {
-        SearchResultCardPlaygroundSamples.results(languageCode).map {
-            it.toCardUiModel(isAttributionLoading = it.pageId in SearchResultCardPlaygroundSamples.attributionLoadingPageIds)
-        }
-    }
+    val results = remember(languageCode) { SearchResultCardPlaygroundSamples.results(languageCode) }
     // Votes are kept only for this wiki's list, so switching wikis clears them.
     val votes = remember(languageCode) { mutableStateMapOf<Int, Boolean>() }
 
@@ -136,11 +129,12 @@ private fun SearchResultCardPlaygroundList(languageCode: String) {
         verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(8.dp)
     ) {
-        items(models, key = { it.pageId }) { model ->
+        items(results, key = { it.pageId }) { result ->
             SearchResultCard(
-                model = model,
-                relevance = votes[model.pageId],
-                onRelevanceClick = { votes[model.pageId] = it },
+                searchResult = result,
+                isAttributionLoading = result.pageId in SearchResultCardPlaygroundSamples.attributionLoadingPageIds,
+                relevance = votes[result.pageId],
+                onRelevanceClick = { votes[result.pageId] = it },
                 onItemClick = {}
             )
         }

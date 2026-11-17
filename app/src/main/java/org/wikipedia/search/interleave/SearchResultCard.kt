@@ -21,6 +21,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -51,22 +52,24 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
-private const val TITLE_MAX_LINES = 2
-private const val DESCRIPTION_MAX_LINES = 2
-private const val TRAIL_MAX_LINES = 2
+private const val HEADER_MAX_LINES = 2
 private const val EXCERPT_MAX_LINES = 8
 
 @Composable
 fun SearchResultCard(
-    model: SearchResultCardUiModel,
+    searchResult: SearchResult,
     modifier: Modifier = Modifier,
+    isAttributionLoading: Boolean = false,
     relevance: Boolean? = null,
     onRelevanceClick: ((Boolean) -> Unit)? = null,
     onItemClick: () -> Unit
 ) {
     val context = LocalContext.current
-    val languageCode = model.languageCode
-    val trail = model.trail ?: context.getString(languageCode, R.string.search_result_trail_lead)
+    val languageCode = searchResult.pageTitle.wikiSite.languageCode
+    val excerpt = remember(searchResult) { searchResult.cardExcerpt() }
+    val contributorCount = searchResult.cardContributorCount()
+    val referenceCount = searchResult.cardReferenceCount()
+    val isAttributionVisible = contributorCount != null || referenceCount != null
 
     Column(
         modifier = modifier
@@ -83,19 +86,19 @@ fun SearchResultCard(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = model.title,
+                    text = remember(searchResult) { searchResult.cardTitle() },
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                     color = WikipediaTheme.colors.primaryColor,
-                    maxLines = TITLE_MAX_LINES,
+                    maxLines = HEADER_MAX_LINES,
                     overflow = TextOverflow.Ellipsis
                 )
-                model.description?.let {
+                searchResult.cardDescription()?.let {
                     Text(
                         modifier = Modifier.padding(top = 2.dp),
                         text = it,
                         style = MaterialTheme.typography.bodyMedium,
                         color = WikipediaTheme.colors.secondaryColor,
-                        maxLines = DESCRIPTION_MAX_LINES,
+                        maxLines = HEADER_MAX_LINES,
                         overflow = TextOverflow.Ellipsis
                     )
                 }
@@ -113,17 +116,18 @@ fun SearchResultCard(
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = trail,
+                        text = remember(searchResult) { searchResult.cardTrail() }
+                            ?: context.getString(languageCode, R.string.search_result_trail_lead),
                         style = MaterialTheme.typography.bodySmall,
                         color = WikipediaTheme.colors.primaryColor,
-                        maxLines = TRAIL_MAX_LINES,
+                        maxLines = HEADER_MAX_LINES,
                         overflow = TextOverflow.Ellipsis
                     )
                 }
             }
-            model.thumbUrl?.let { thumbUrl ->
+            searchResult.cardThumbUrl()?.let { url ->
                 AsyncImage(
-                    model = ImageService.getRequest(context, url = thumbUrl),
+                    model = ImageService.getRequest(context, url = url),
                     placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
                     error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
                     contentScale = ContentScale.Crop,
@@ -135,14 +139,14 @@ fun SearchResultCard(
             }
         }
 
-        if (model.excerpt.isNotEmpty()) {
+        if (excerpt.isNotEmpty()) {
             HorizontalDivider(
                 modifier = Modifier.padding(vertical = 8.dp),
                 color = WikipediaTheme.colors.borderColor,
                 thickness = 1.dp
             )
             Text(
-                text = model.excerpt,
+                text = excerpt,
                 style = MaterialTheme.typography.bodyMedium,
                 color = WikipediaTheme.colors.primaryColor,
                 maxLines = EXCERPT_MAX_LINES,
@@ -156,7 +160,7 @@ fun SearchResultCard(
             )
         }
 
-        if (model.isAttributionLoading || model.isAttributionVisible) {
+        if (isAttributionLoading || isAttributionVisible) {
             HorizontalDivider(
                 modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
                 color = WikipediaTheme.colors.borderColor,
@@ -164,7 +168,7 @@ fun SearchResultCard(
             )
         }
 
-        if (model.isAttributionLoading) {
+        if (isAttributionLoading) {
             // Keep the row's space while counts load, so the card doesn't grow when they arrive.
             SearchResultAttributionRow(
                 modifier = Modifier
@@ -174,11 +178,11 @@ fun SearchResultCard(
                 contributorCount = 0,
                 referenceCount = null
             )
-        } else if (model.isAttributionVisible) {
+        } else if (isAttributionVisible) {
             SearchResultAttributionRow(
                 languageCode = languageCode,
-                contributorCount = model.contributorCount,
-                referenceCount = model.referenceCount
+                contributorCount = contributorCount,
+                referenceCount = referenceCount
             )
         }
 
@@ -326,7 +330,8 @@ private fun previewResult(
 private fun SearchResultCardPreviewList(
     theme: Theme,
     layoutDirection: LayoutDirection,
-    models: List<SearchResultCardUiModel>
+    results: List<SearchResult>,
+    attributionLoading: Set<SearchResult> = emptySet()
 ) {
     BaseTheme(currentTheme = theme) {
         CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
@@ -336,9 +341,10 @@ private fun SearchResultCardPreviewList(
                     .padding(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                models.forEach {
+                results.forEach {
                     SearchResultCard(
-                        model = it,
+                        searchResult = it,
+                        isAttributionLoading = it in attributionLoading,
                         onRelevanceClick = {},
                         onItemClick = {}
                     )
@@ -354,14 +360,14 @@ private fun SearchResultCardPreviewList(
 private fun SearchResultCardPreview() {
     SearchResultCardPreviewList(
         Theme.LIGHT, LayoutDirection.Ltr, listOf(
-            previewResult().toCardUiModel(),
+            previewResult(),
             previewResult(
                 title = "Communications satellite",
                 description = "Artificial satellite that relays radio signals",
                 type = SearchResult.SearchResultType.PREFIX,
                 sectionTitle = null,
                 text = "A communications satellite is an artificial satellite that relays and amplifies radio telecommunication signals via a transponder."
-            ).toCardUiModel()
+            )
         )
     )
 }
@@ -370,13 +376,14 @@ private fun SearchResultCardPreview() {
 @Preview(showBackground = true, widthDp = 360)
 @Composable
 private fun SearchResultCardEdgeCasesPreview() {
+    val loadingResult = previewResult(title = "Communication theory", editCounts = null, referenceCounts = null)
     SearchResultCardPreviewList(
         Theme.DARK, LayoutDirection.Ltr, listOf(
             previewResult(
                 title = "Communication with 2 lines maximum and this is the limit of the title text",
                 description = "Transmission of information with 2 lines maximum and this is the limit of this description",
                 sectionTitle = "What if this is a really long title of a section and this is the limit which should be respected"
-            ).toCardUiModel(),
+            ),
             previewResult(
                 title = "Mercury",
                 description = null,
@@ -384,9 +391,10 @@ private fun SearchResultCardEdgeCasesPreview() {
                 sectionTitle = null,
                 text = "",
                 thumbUrl = null
-            ).toCardUiModel(),
-            previewResult(editCounts = null, referenceCounts = null).toCardUiModel(isAttributionLoading = true)
-        )
+            ),
+            loadingResult
+        ),
+        attributionLoading = setOf(loadingResult)
     )
 }
 
@@ -403,7 +411,7 @@ private fun SearchResultCardRtlPreview() {
                 sectionTitle = "التعريفات والمفاهيم الأساسية في دراسات الاتصال الحديثة",
                 text = "الاتصال هو عملية نقل المعلومات والأفكار والمشاعر بين الأفراد أو الجماعات من خلال وسائل مختلفة مثل الكلام والكتابة والإشارات.",
                 referenceCounts = 12
-            ).toCardUiModel()
+            )
         )
     )
 }
