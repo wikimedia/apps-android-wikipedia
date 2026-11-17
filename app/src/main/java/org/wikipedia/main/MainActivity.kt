@@ -27,6 +27,8 @@ import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.HomeTab
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
+import org.wikipedia.navtab.MainNavigation
+import org.wikipedia.navtab.MainNavigationType
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -91,11 +93,16 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             onboardingLauncher.launch(InitialOnboardingActivity.newIntent(this))
         }
         setNavigationBarColor(Color.TRANSPARENT)
+        binding.mainNavRail.setContent {
+            MainNavigation(MainNavigationType.RAIL, fragment.navigationState, fragment::onNavTabClick)
+        }
         setSupportActionBar(binding.mainToolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.mainToolbar.navigationIcon = null
     }
+
+    fun getNavRail(): View = binding.mainNavRail
 
     override fun onResume() {
         super.onResume()
@@ -116,7 +123,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             applyNavBarTheme(if ((fragment.currentFragment as? HomeFragment)?.getCurrentTab() == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme)
         } else {
             if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
-                FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
+                fragment.showNavTabTooltip(tab = NavTab.SEARCH, text = getString(R.string.search_tab_tooltip), autoDismiss = false, showDismissButton = false)
                 Prefs.showSearchTabTooltip = false
             }
             if (tab == NavTab.EDITS) {
@@ -146,6 +153,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             right = statusBarInsets.right + navBarInsets.right
         )
         fragment.binding.mainNavTabContainer.updatePadding(
+            top = if (fragment.currentFragment is HomeFragment) statusBarInsets.top + navBarInsets.top else 0,
             bottom = statusBarInsets.bottom + navBarInsets.bottom
         )
     }
@@ -153,10 +161,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private fun applyNavBarTheme(theme: Theme) {
         val wrapper = ContextThemeWrapper(this, theme.resourceId)
         val paperColor = ResourceUtil.getThemedColor(wrapper, R.attr.paper_color)
-        val borderColor = ResourceUtil.getThemedColor(wrapper, R.attr.border_color)
-        val colorStateList = AppCompatResources.getColorStateList(wrapper, R.color.color_state_nav_tab)
-        fragment.binding.mainNavTabLayout.applyColors(paperColor, colorStateList)
-        fragment.binding.mainNavTabBorder.setBackgroundColor(borderColor)
+        fragment.navigationState.theme = theme
         fragment.binding.mainNavTabContainer.setBackgroundColor(paperColor)
         setNavigationBarColor(paperColor)
         DeviceUtil.setLightSystemUiVisibility(this@MainActivity, light = !theme.isDark)

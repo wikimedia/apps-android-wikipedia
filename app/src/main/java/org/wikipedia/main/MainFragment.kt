@@ -15,12 +15,9 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
-import androidx.core.view.descendants
-import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -49,7 +46,6 @@ import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
-import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsActivity
@@ -60,6 +56,9 @@ import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.navtab.MainNavigation
+import org.wikipedia.navtab.MainNavigationState
+import org.wikipedia.navtab.MainNavigationType
 import org.wikipedia.navtab.MenuNavTabDialog
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter
@@ -139,6 +138,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         YearInReviewViewModel.canShowEntryPoint && Prefs.yearInReviewActivityTabDotSeenYear != YearInReviewViewModel.YIR_YEAR
 
     var navTabBackStack = mutableListOf<NavTab>()
+    val navigationState = MainNavigationState()
+
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -164,9 +165,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                         is ImportReadingListsEvent -> {
                             maybeShowImportReadingListsNewInstallDialog()
                         }
-                        is NewRecommendedReadingListEvent -> {
-                            binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
-                        }
                     }
                 }
             }
@@ -175,40 +173,21 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         binding.mainViewPager.isUserInputEnabled = false
         binding.mainViewPager.adapter = NavTabFragmentPagerAdapter(this)
         binding.mainViewPager.registerOnPageChangeCallback(pageChangeCallback)
-        binding.mainNavTabLayout.descendants.filterIsInstance<TextView>().forEach {
-            it.maxLines = 2
-            it.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        }
-        val shouldShowRedDotForRecommendedReadingList = (!Prefs.isRecommendedReadingListOnboardingShown) || (Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
-        binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, shouldShowRedDotForRecommendedReadingList)
-        binding.mainNavTabLayout.setOnItemSelectedListener { item ->
-            navTabBackStack.clear()
-            if (item.order == NavTab.EDITS.code()) {
-                binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
-                if (YearInReviewViewModel.canShowEntryPoint) {
-                    Prefs.yearInReviewActivityTabDotSeenYear = YearInReviewViewModel.YIR_YEAR
-                }
 
-                if (!Prefs.isActivityTabOnboardingShown) {
-                    activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
-                    return@setOnItemSelectedListener false
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                Prefs.observeKeys(
+                    R.string.preference_key_recommended_reading_list_onboarding_shown,
+                    R.string.preference_key_recommended_reading_list_enabled,
+                    R.string.preference_key_recommended_reading_list_new_list_generated
+                ).collect {
+                    navigationState.setDot(tab = NavTab.READING_LISTS, enabled = !Prefs.isRecommendedReadingListOnboardingShown || (Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated))
                 }
             }
-            if (item.order == NavTab.MORE.code()) {
-                ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
-                return@setOnItemSelectedListener false
-            }
-            val fragment = currentFragment
-            if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
-                openSearchActivity(InvokeSource.NAV_MENU, null, null)
-                return@setOnItemSelectedListener true
-            }
-            binding.mainViewPager.setCurrentItem(item.order, false)
-            requireActivity().invalidateOptionsMenu()
-            if (item.order == NavTab.SEARCH.code()) {
-                maybeShowSearchWidgetInstallPrompt()
-            }
-            true
+        }
+
+        binding.mainNavBar.setContent {
+            MainNavigation(type = MainNavigationType.BAR, state = navigationState, onTabClick = ::onNavTabClick)
         }
 
         maybeShowFeedNewModulesTooltip()
@@ -232,7 +211,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
-        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown || shouldShowYearInReviewDot)
+        navigationState.setDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown || shouldShowYearInReviewDot)
     }
 
     override fun onDestroyView() {
@@ -364,9 +343,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
             startActivity(PlacesActivity.newIntent(requireActivity()))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             onNavigateTo(NavTab.READING_LISTS)
-        } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB) &&
-                !(binding.mainNavTabLayout.selectedItemId == NavTab.HOME.code() &&
-                        intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HOME.code()) == NavTab.HOME.code())) {
+        } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)) {
             onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HOME.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
             onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
@@ -497,8 +474,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun setBottomNavVisible(visible: Boolean) {
-        binding.mainNavTabBorder.isVisible = visible
-        binding.mainNavTabLayout.isVisible = visible
+        binding.mainNavBar.isVisible = visible
     }
 
     fun onGoOffline() {
@@ -578,8 +554,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                 Prefs.readAloudLeadSectionTooltipShown = true
                 binding.root.post {
                     if (isAdded) {
-                        FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.HOME.id),
-                            getString(R.string.read_aloud_lead_section_tooltip_text), aboveOrBelow = true, autoDismiss = false, showDismissButton = true)
+                        showNavTabTooltip(NavTab.HOME, getString(R.string.read_aloud_lead_section_tooltip_text), autoDismiss = false, showDismissButton = true)
                         // For the purposes of this experiment, explicitly clear today's cache of For You content,
                         // so that the Audio content can be loaded when the user goes to For You.
                         Prefs.homeForYouModulesToday = ""
@@ -605,9 +580,49 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         return getCallback(this, Callback::class.java)
     }
 
+    fun onNavTabClick(tab: NavTab) {
+        navTabBackStack.clear()
+        if (tab == NavTab.EDITS) {
+            navigationState.setDot(NavTab.EDITS, false)
+            if (YearInReviewViewModel.canShowEntryPoint) {
+                Prefs.yearInReviewActivityTabDotSeenYear = YearInReviewViewModel.YIR_YEAR
+            }
+            if (!Prefs.isActivityTabOnboardingShown) {
+                activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
+                return
+            }
+        }
+        if (tab == NavTab.MORE) {
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
+            return
+        }
+        if (currentFragment is HistoryFragment && tab == NavTab.SEARCH) {
+            openSearchActivity(InvokeSource.NAV_MENU, null, null)
+            return
+        }
+        navigationState.selectedTab = tab
+        binding.mainViewPager.setCurrentItem(tab.code(), false)
+        requireActivity().invalidateOptionsMenu()
+        if (tab == NavTab.SEARCH) {
+            maybeShowSearchWidgetInstallPrompt()
+        }
+    }
+
+    fun showNavTabTooltip(tab: NavTab, text: String, autoDismiss: Boolean, showDismissButton: Boolean = autoDismiss): Boolean {
+        val tabBounds = navigationState.tabBounds[tab] ?: return false
+        val host = (requireActivity() as? MainActivity)?.getNavRail()?.takeIf { it.width > 0 } ?: binding.mainNavBar
+        val hostLocation = IntArray(2).also { host.getLocationInWindow(it) }
+        val rootLocation = IntArray(2).also { binding.root.getLocationInWindow(it) }
+        binding.mainNavTooltipAnchor.translationX = hostLocation[0] - rootLocation[0] + tabBounds.center.x
+        binding.mainNavTooltipAnchor.translationY = hostLocation[1] - rootLocation[1] + tabBounds.top
+        FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTooltipAnchor, text,
+            aboveOrBelow = true, autoDismiss = autoDismiss, showDismissButton = showDismissButton)
+        return true
+    }
+
     override fun onNavigateTo(navTab: NavTab) {
-        val lastNavTab = NavTab.entries.find { binding.mainNavTabLayout.selectedItemId == binding.mainNavTabLayout.menu[it.code()].itemId }
-        binding.mainNavTabLayout.selectedItemId = binding.mainNavTabLayout.menu[navTab.code()].itemId
+        val lastNavTab = navigationState.selectedTab
+        onNavTabClick(navTab)
         if (lastNavTab == NavTab.EDITS && navTab != NavTab.EDITS) {
             navTabBackStack.add(NavTab.EDITS)
         }

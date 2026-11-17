@@ -12,7 +12,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/main_nav_tab_border">
+        app:layout_constraintBottom_toTopOf="@id/main_nav_tab_container">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/main_view_pager"
@@ -20,15 +20,6 @@
             android:layout_height="match_parent" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <View
-        android:id="@+id/main_nav_tab_border"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="?attr/border_color"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/main_nav_tab_container"/>
 
     <FrameLayout
         android:id="@+id/main_nav_tab_container"
@@ -38,20 +29,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <org.wikipedia.navtab.NavTabLayout
-            android:id="@+id/main_nav_tab_layout"
-            android:background="?attr/paper_color"
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/main_nav_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:itemIconTint="@color/color_state_nav_tab"
-            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
-            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
-            app:itemTextColor="@color/color_state_nav_tab"
-            app:labelVisibilityMode="labeled"
-            app:tabGravity="fill"
-            app:itemPaddingTop="8dp"
-            app:elevation="0dp"/>
+            android:layout_height="wrap_content" />
 
     </FrameLayout>
+
+    <View
+        android:id="@+id/main_nav_tooltip_anchor"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
