@@ -38,11 +38,6 @@
             android:key="@string/preference_key_editor_mode_choice"
             android:defaultValue="0"
             android:title="@string/editor_select_title_settings_screen" />
-        <org.wikipedia.settings.PreferenceMultiLine
-            android:key="@string/preference_key_selected_app_icon"
-            android:defaultValue="0"
-            android:title="@string/settings_app_icon_title"
-            android:summary="@string/settings_app_icon_preference_subtitle" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/preference_category_recommended_reading_list"

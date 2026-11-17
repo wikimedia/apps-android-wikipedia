@@ -20,7 +20,6 @@ import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
@@ -71,15 +70,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                         elementId = "editing_method"
                     )
                 activity.startActivity(VisualEditorSettingsActivity.newIntent(activity))
-                true
-            }
-        }
-
-        findPreference(R.string.preference_key_selected_app_icon).let {
-            it.isVisible = YearInReviewViewModel.isCustomIconAllowed
-            it.summary = fragment.getString(R.string.settings_app_icon_preference_subtitle, YearInReviewViewModel.YIR_YEAR)
-            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog())
                 true
             }
         }

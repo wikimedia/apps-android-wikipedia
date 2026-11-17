@@ -32,7 +32,7 @@ class MwQueryResult {
     @SerialName("allusers") val allUsers: List<UserInfo>? = null
     @SerialName("globaluserinfo") val globalUserInfo: UserInfo? = null
 
-    private val redirects: List<Redirect>? = null
+    val redirects: List<Redirect>? = null
     private val converted: List<ConvertedTitle>? = null
     private val tokens: Tokens? = null
     private val echomarkread: MarkReadResponse? = null
@@ -149,7 +149,7 @@ class MwQueryResult {
     }
 
     @Serializable
-    private class Redirect(@SerialName("tofragment") val toFragment: String? = null,
+    class Redirect(@SerialName("tofragment") val toFragment: String? = null,
                            private val index: Int = 0,
                            val from: String? = null,
                            val to: String? = null)

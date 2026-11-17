@@ -202,7 +202,8 @@ object StringUtil {
         val indices = IntArray(s.toByteArray(StandardCharsets.UTF_8).size)
         var ptr = 0
         var count = 0
-        for (i in s.indices) {
+        var i = 0
+        while (i < s.length) {
             val c = s.codePointAt(i)
             when {
                 c <= 0x7F -> count = 1
@@ -215,6 +216,7 @@ object StringUtil {
                     indices[ptr++] = i
                 }
             }
+            i += Character.charCount(c)
         }
         return indices
     }

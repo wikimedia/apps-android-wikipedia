@@ -21,4 +21,8 @@ class YearInReviewDonationEligibility(
             }
         }
     }
+
+    fun isDonor(remoteConfig: RemoteConfig.RemoteConfigYearInReview?): Boolean {
+        return hasDonatedWithinContributionsDateRange(remoteConfig)
+    }
 }

@@ -1890,14 +1890,6 @@
   <string name="year_in_review_share_subject">Mi Summario del anno de Wikipedia</string>
   <string name="year_in_review_share_body">Ecce mi Summario del anno de Wikipedia. Create con le app Android de Wikipedia %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Icone de globo</string>
-  <string name="settings_app_icon_title">Icone del app</string>
-  <string name="settings_app_icon_subtitle">Beneficio de contributor</string>
-  <string name="settings_app_icon_preference_subtitle">Tu ha accesso a un icone personalisate que celebra tu contributiones apportate a Wikipedia desde le app in %d. Illo remanera usque le proxime Summario del anno.</string>
-  <string name="settings_app_icon_updated">Tu icone del app ha essite actualisate.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nove icone del app disvelate pro tu schermo initial</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Disvela tu recompensa de contributor pro le proxime anno!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Activa tu nove icone del app in le Parametros sub Icone del app. Gratias pro investir in le futuro del cognoscentia libere. Tu contributiones como %1$s in %2$d adjuta a aperir le via verso un mundo de information libere. Como regratiamento, te ha essite concedite un icone personal de contributor pro Wikipedia sur tu schermo initial.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Nos es felice que Wikipedia ha facite parte de tu anno %1$d! Disvela un recompensa special in tu Summario del anno %2$d deveniente contributor: &lt;a href=\"%3$s\"&gt;modifica Wikipedia&lt;/a&gt; o dona desde le app al &lt;a href=\"%4$s\"&gt;Fundation Wikimedia&lt;/a&gt;, le organisation sin scopo lucrative detra Wikipedia. Si Wikipedia te es utile, per favor considera donar pro adjutar a sustener su futuro e mantener lo libere, sin publicitate, digne de fide e accessibile pro omnes. Si tu ha ja donate in altere loco, tu appoio es profundemente appreciate.</string>
   <string name="year_in_review_slide_app_icon_donor">donator</string>
   <string name="year_in_review_slide_app_icon_editor">redactor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donator e redactor</string>

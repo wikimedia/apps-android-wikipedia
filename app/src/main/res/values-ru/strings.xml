@@ -2096,14 +2096,6 @@
   <string name="year_in_review_share_subject">Мой «Обзора года» в Википедии</string>
   <string name="year_in_review_share_body">Вот мой «Обзор года» в Википедии. Создано в приложении «Википедия» на Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Значок глобуса</string>
-  <string name="settings_app_icon_title">Значок приложения</string>
-  <string name="settings_app_icon_subtitle">Бенефит для авторов</string>
-  <string name="settings_app_icon_preference_subtitle">Вам доступен специальный значок, отмечающий ваш вклад через приложение Википедии в течение %d года. Он сохранится до следующего выпуска «Обзор года».</string>
-  <string name="settings_app_icon_updated">Значок вашего приложения обновлён.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Разблокирован новый значок приложения для вашего домашнего экрана</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Откройте награду за вклад в следующем году!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Активируйте новый значок приложения в Настройках в разделе «Значок приложения». Благодарим вас за вклад в будущее свободных знаний. Ваш вклад в роли «%1$s» в %2$d помогает проложить путь к миру свободной информации, и, как результат, вы разблокировали специальный значок участника Википедии на домашнем экране.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Мы рады, что Википедия была частью вашего %1$d! Получите специальную награду в следующем «Обзоре года %2$d», став участником, будь то &lt;a href=\"%3$s\"&gt;редактирование Википедии&lt;/a&gt; или пожертвование из приложения &lt;a href=\"%4$s\"&gt;Фонду Викимедиа&lt;/a&gt; — некоммерческой организации, стоящей за ней. Если Википедия вам полезна, пожалуйста, рассмотрите возможность пожертвования, чтобы поддержать будущее энциклопедии, помочь ей оставаться бесплатной, без рекламы, надёжной и доступной для всех. Если вы сделали пожертвование в другом месте, мы высоко ценим вашу поддержку.</string>
   <string name="year_in_review_slide_app_icon_donor">жертвователь</string>
   <string name="year_in_review_slide_app_icon_editor">редактор</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">жертвователь и редактор</string>

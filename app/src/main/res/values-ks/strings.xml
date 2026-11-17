@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Ayaat123
+* Iflaq
 -->
 <resources>
   <string name="app_name_prod">وِکیٖپیٖڈیا</string>
@@ -13,10 +14,14 @@
   <string name="search_hint">وِکیٖپیٖڈیاہَس مَنٛز کٕرو تلاش</string>
   <string name="search_hint_voice_search">آواز تلاش</string>
   <string name="search_hint_search_languages">زَبان کٔرِو تَلاش</string>
+  <string name="search_back_button_content_description">واپَس گٔژھِو</string>
+  <string name="search_icon_content_description">تَلاش</string>
   <string name="filter_hint_filter_my_lists_and_articles">میون فِہرِست کٔرِو فِلٹَر</string>
   <string name="nav_item_suggested_edits">تَبدیٖلیہٕ</string>
+  <string name="nav_item_activity">سرگرمی</string>
   <string name="nav_item_more">بێیہِ</string>
   <string name="nav_item_search">ژھانٛڈُن</string>
+  <string name="nav_item_contribute">شَرکژ کرٕنی</string>
   <string name="error_network_error">اِنٹرنؠٹَس سٟتؠ چھُ نَہ جوڑ.</string>
   <string name="page_error_retry">نٔو کوٗشِش</string>
   <string name="card_offline_error_retry">نٔو کوٗشِش</string>
@@ -26,7 +31,7 @@
   <string name="page_error_back_to_main">واپس گَژھن</string>
   <string name="error_back">واپَس گٔژھِو</string>
   <string name="error_next">برٛونٛہہ</string>
-  <string name="menu_clear_all_history" fuzzy="true">تَوأریٖخ مِٹٲیو</string>
+  <string name="menu_clear_all_history">پرنچ ہسٹری کر صاف۔</string>
   <string name="history_item_deleted">%s آو تَوأریٖخ مَنٛز مِٹاونہِ</string>
   <string name="history_items_deleted">%d موضوعات آیہِ توٲریخ منٛز مِٹاونہٕ</string>
   <string name="history_item_delete_undo">رَد کٕرو</string>
@@ -39,7 +44,7 @@
   <string name="wikimedia_commons">وِکیٖمیٖیڈیا کاَمَنٕز</string>
   <string name="wikidata">وِکی ڈیٹا</string>
   <string name="dialog_title_clear_history">توٲریٖخچہٕ مِٹٲوِیو</string>
-  <string name="dialog_message_clear_history" fuzzy="true">یہِ مِٹاوِ تُہنٛز یہ سٲرٕی کامہِ أنہِ مٕژ توأریٖخ ، تہٕ چلَن وٲلی ٹیب تہِ کَرِ بند. تُہہ چھوا یہِ یژھان یہِ کرُن؟</string>
+  <string name="dialog_message_clear_history">یہِ مِٹاوِ تُہنٛز یہ سٲرٕی کامہِ أنہِ مٕژ توأریٖخ. تُہہ چھوا یہِ یژھان یہِ کرُن؟</string>
   <string name="dialog_message_clear_history_yes">آ</string>
   <string name="dialog_message_clear_history_no">نہَ</string>
   <string name="share_via">بٲغرٲوِیو بَذٕریعہ</string>
@@ -121,6 +126,7 @@
   <string name="dialog_message_leaving_edit">تُہٕنٛزٕ تبدیٖلی گٕیی نہٕ وُنہِ تہِ شایعہ کِہین. تُہہ چھوا یژھان زِ تُہہ ترٲوِو یہِ صفہٕ؟</string>
   <string name="dialog_message_leaving_edit_leave">تراوُن/رۄخصت</string>
   <string name="dialog_message_leaving_edit_stay">ٹٕہرُن</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">مَنسوٗخ</string>
   <string name="menu_show_toc">فٕہرست</string>
   <string name="search_no_results_found">کانٛہہ تہِ نتٲیِج آو نہٕ لبنہٕ</string>
   <string name="search_reading_list_no_results">کانٛہہ تہِ نتٲیِج آو نہٕ لبنہٕ \"%s\" منٛز</string>
@@ -473,6 +479,7 @@
   <string name="view_random_article_card_title">کانٛہہ تہِ مَضموٗن</string>
   <string name="view_random_article_card_action">مٔذیٖد مَضموٗن</string>
   <string name="view_top_read_card_title">زیٛادٕ پَرنہٕ آمٔتؠ</string>
+  <string name="view_top_read_card_description">وِکیٖپیٖڈیاہَس پٮ۪ٹھ کیٛاہ چھُ آز ٹرینڈ کران</string>
   <string name="view_top_read_card_action">مٔذیٖد زیٛادٕ پَرنہٕ آمٔتؠ</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ساس</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d مِلیَن</string>
@@ -570,6 +577,7 @@
   <string name="suggested_edits_suggestion_report_submitted">رَپوٹھ آے دِنہٕ</string>
   <string name="image_recommendation_tooltip_next">برٛونٛہہ</string>
   <string name="edit_published_view">وُچھِو</string>
+  <string name="activity_tab_timeline_today">اَز</string>
   <string name="file_page_activity_title">فَیِل صَفہٕ</string>
   <string name="file_page_add_image_caption_button">تصویٖر مُکالمہٕ کٕریٚو درٕج</string>
   <string name="file_page_edit_button_content_description">اؠڈِٹ %s</string>
@@ -584,6 +592,7 @@
   <string name="app_shortcuts_random">کانٛہہ تہِ</string>
   <string name="app_shortcuts_search">ژھانٛڈُن</string>
   <string name="on_this_day_card_title">اَزکِہٕ دۄہ</string>
+  <string name="more_events_text">مٔذیٖد یَتھ تٲریٖخس پؠٹھ</string>
   <string name="this_year">یتھ وٕریَس</string>
   <string name="on_this_day_dialog_next_month">بییِٚس رؠتَس</string>
   <string name="on_this_day_dialog_previous_month">پتٕمِس رؠتَس</string>
@@ -666,6 +675,7 @@
   <string name="talk_user_title">کَتھ: %s</string>
   <string name="talk_new_topic">نٔو موضوٗع</string>
   <string name="talk_new_topic_submitted">موضوٗع آو شایَع کَرنہٕ.</string>
+  <string name="talk_warn_save_dialog_publish">شایع</string>
   <string name="talk_page_empty">یہِ بَحَث صَفہٕ چھُ خٲلی۔</string>
   <string name="talk_add_reply">جَوآب</string>
   <string name="talk_no_subject">(بے موضوع)</string>
@@ -792,4 +802,6 @@
   <string name="data_opt_in_reject">رد کرن</string>
   <string name="places_toggle_buttons_list">فِہرِست</string>
   <string name="survey_dialog_cancel">مَنسوٗخ</string>
+  <string name="explore_feed_date_today">از - %s</string>
+  <string name="explore_feed_community_disclaimer">وِکیٖمیٖڈیا برادٔری ہٕنٛدِ طرفہٕ تہٕ مُتلِق ژارنہٕ آمُت مَواد تہٕ وَسٲیل</string>
 </resources>

@@ -63,7 +63,7 @@ object JavaScriptActionHandler {
 
     fun scrollToAnchor(anchorLink: String): String {
         val anchor = anchorLink.substringAfter('#')
-        return "var el = document.getElementById('$anchor');" +
+        return "var el = document.getElementById(${JSONObject.quote(anchor)});" +
                 "window.scrollTo(0, el.offsetTop - (screen.height / 2));" +
                 "setTimeout(function(){ el.style.backgroundColor='#fc3';" +
                 "    setTimeout(function(){ el.style.backgroundColor=null; }, 500);" +
@@ -71,7 +71,7 @@ object JavaScriptActionHandler {
     }
 
     fun prepareToScrollTo(anchorLink: String, highlight: Boolean): String {
-        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink.replace("\"", "\\\"")}\", { highlight: $highlight } )"
+        return "pcs.c1.Page.prepareForScrollToAnchor(${JSONObject.quote(anchorLink)}, { highlight: $highlight } )"
     }
 
     fun removeHighlights(): String {

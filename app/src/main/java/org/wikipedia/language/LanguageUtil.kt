@@ -87,6 +87,12 @@ object LanguageUtil {
         }
     }
 
+    fun wikiLanguageCodeToLocale(languageCode: String): Locale {
+        return Locale
+            .forLanguageTag(WikipediaApp.instance.languageState.getBcp47LanguageCode(languageCode))
+            .takeIf { it.language.isNotEmpty() } ?: Locale.getDefault()
+    }
+
     fun startsWithArticle(text: String, language: String): Boolean {
         val first = text.split(" ".toRegex()).toTypedArray()[0].lowercase(Locale.getDefault()).trim()
 

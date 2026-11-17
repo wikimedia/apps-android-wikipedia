@@ -3,7 +3,11 @@ package org.wikipedia.dataclient.mwapi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.contentOrNull
+import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
+import org.wikipedia.donate.DonorCode
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.util.DateUtil
 import java.util.Date
 
@@ -54,10 +58,22 @@ class UserInfo : BlockInfo() {
     class Options {
         @SerialName("watchdefault") private val watchDefault: JsonElement? = null
         @SerialName("centralnotice-display-campaign-type-fundraising") private val fundraisingOptIn: JsonElement? = null
+        @SerialName("wikimedia-donor") private val wikimediaDonor: JsonElement? = null
 
         val watchEditedPagesByDefault get() = isExplicitOne(watchDefault)
         val optedInToFundraising get() = isExplicitOne(fundraisingOptIn)
+        val wikimediaDonorPref: WikimediaDonorStatus?
+            get() = JsonUtil.decodeFromString<WikimediaDonorStatus>(wikimediaDonor?.jsonPrimitive?.contentOrNull)
+        val wikimediaDonorCode: DonorCode?
+            get() = wikimediaDonorPref?.value
 
         private fun isExplicitOne(element: JsonElement?) = element?.toString().orEmpty().replace("\"", "") == "1"
+
+        @Serializable
+        class WikimediaDonorStatus(
+            val value: DonorCode? = null,
+            val timestamp: Long? = null,
+            val source: String? = null
+        )
     }
 }

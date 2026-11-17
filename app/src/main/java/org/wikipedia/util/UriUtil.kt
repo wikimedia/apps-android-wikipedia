@@ -98,7 +98,7 @@ object UriUtil {
 
     fun isValidPageLink(uri: Uri): Boolean {
         return ((!uri.authority.isNullOrEmpty() &&
-                uri.authority!!.endsWith(WikiSite.BASE_DOMAIN) &&
+                Service.matchesAuthority(uri.authority!!, WikiSite.BASE_DOMAIN) &&
                 !uri.path.isNullOrEmpty() &&
                 uri.path!!.matches(("^$WIKI_REGEX.*").toRegex())) &&
                 (uri.fragment == null || (uri.fragment!!.isNotEmpty() &&

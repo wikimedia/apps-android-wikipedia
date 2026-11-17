@@ -41,7 +41,7 @@ object YearInReviewRiveContentMapper {
             )
         )
         is YearInReviewPage.Visits -> RiveSlideContent(
-            spec = allTemplatesSlideSpec("frame2", instanceType = RiveInstanceType.Blank),
+            spec = allTemplatesSlideSpec("frame2"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_days_visited_headline, YearInReviewConfig.YEAR),
                 "data" to page.days.toString(),
@@ -85,7 +85,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec(if (page.isEmptyState) "frame6-empty" else "frame6"),
             textProperties = mapOf(
                 "headline" to resources.getString(if (page.isEmptyState) R.string.yir_top_topic_empty_headline else R.string.yir_top_topic_headline, YearInReviewConfig.YEAR),
-                "data" to if (page.isEmptyState) "" else resources.getString(page.topic.msgKey).uppercase(),
+                "data" to if (page.isEmptyState) "" else ArticleTopics.all.find { it.topicId == page.topic.topicId }?.let { resources.getString(it.msgKey).uppercase() } ?: "",
                 "bodyCopy" to if (page.isEmptyState) resources.getString(R.string.yir_top_topic_empty_supporting)
                 else resources.getQuantityString(R.plurals.yir_top_topic_supporting, page.totalArticles,
                     page.sampleArticles.first(), page.sampleArticles.last(), page.totalArticles, getTopicComment(resources, page.topic))
@@ -97,7 +97,7 @@ object YearInReviewRiveContentMapper {
             textProperties = mapOf(
                 "bodyText" to resources.getString(R.string.yir_runner_up_topics_headline, YearInReviewConfig.YEAR)
             ) + listRows(page.topicArticleCounts.map { (topicId, count) ->
-                resources.getString(ArticleTopics.all.find { it.topicId == topicId }?.msgKey ?: 0) to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
+                (ArticleTopics.all.find { it.topicId == topicId }?.let { resources.getString(it.msgKey) } ?: "") to resources.getQuantityString(R.plurals.yir_runner_up_topics_article_count, count, count)
             }),
             numberProperties = listItemCount(page.topicArticleCounts.size),
             imageUrls = listIcons(page.topicArticleCounts.map { ArticleTopics.all.find { topic -> topic.topicId == it.key }?.thumbnailUrl ?: "" })
@@ -106,7 +106,7 @@ object YearInReviewRiveContentMapper {
             spec = allTemplatesSlideSpec("frame8"),
             textProperties = mapOf(
                 "headline" to resources.getString(R.string.yir_biggest_reading_day_headline),
-                "data" to page.date,
+                "data" to page.date.uppercase(),
                 "bodyCopy" to resources.getQuantityString(R.plurals.yir_biggest_reading_day_supporting, page.minutesSpent, page.minutesSpent)
             )
         )
@@ -234,7 +234,7 @@ object YearInReviewRiveContentMapper {
             imageUrls = mapOf(
                 "thumbnailTop" to page.article?.thumbUrl,
                 "thumbnailBot" to page.fakeArticle?.thumbUrl
-            ),
+            ).filterValues { !it.isNullOrEmpty() },
             accessibilityActions = listOf(page.article, page.fakeArticle).map { article ->
                 RiveAccessibilityAction(
                     label = resources.getString(R.string.yir_guess_article_choose_action, StringUtil.fromHtml(article?.displayText).toString()),
@@ -250,7 +250,7 @@ object YearInReviewRiveContentMapper {
                 ),
                 imageUrls = mapOf(
                     "resultThumbnail" to page.article?.thumbUrl
-                )
+                ).filterValues { !it.isNullOrEmpty() }
             )
         )
         is YearInReviewPage.RabbitHoleGuess -> RiveSlideContent(
@@ -273,7 +273,7 @@ object YearInReviewRiveContentMapper {
                 "thumbnailTopB" to page.articleEnd?.thumbUrl,
                 "thumbnailBotT" to page.fakeArticleStart?.thumbUrl,
                 "thumbnailBotB" to page.fakeArticleEnd?.thumbUrl
-            ),
+            ).filterValues { !it.isNullOrEmpty() },
             accessibilityActions = listOf(
                 page.articleStart to page.articleEnd,
                 page.fakeArticleStart to page.fakeArticleEnd
@@ -298,7 +298,7 @@ object YearInReviewRiveContentMapper {
                 imageUrls = mapOf(
                     "resultThumbnailTop" to page.articleStart?.thumbUrl,
                     "resultThumbnailBot" to page.articleEnd?.thumbUrl
-                )
+                ).filterValues { !it.isNullOrEmpty() }
             )
         )
         is YearInReviewPage.Collective -> when (page.insight) {
@@ -369,16 +369,16 @@ private fun allTemplatesGlobalProperties(dataNumberFontSize: Float = 64f) = Rive
         // TODO: determine proper values for all of these:
         // "glyphKerningEM" to 1f,
         // "textkerningEM" to 1f,
-        "dataTextFontSize" to 20f,
-        "dataTextLineHeight" to 22f,
-        "coverGlyphsFontSize" to 40f,
-        "coverGlyphsLineHeight" to 42f,
-        "dataNumberFontSize" to dataNumberFontSize,
-        "dataNumbersLineHeight" to dataNumberFontSize + 2f,
-        "headlineFontSize" to 24f,
-        "headlineLineHeight" to 25.44f,
-        "bodyCopyFontSize" to 18f,
-        "bodyCopyLineHeight" to 20f
+        // "dataTextFontSize" to 20f,
+        // "dataTextLineHeight" to 22f,
+        // "coverGlyphsFontSize" to 40f,
+        // "coverGlyphsLineHeight" to 42f,
+        // "dataNumberFontSize" to dataNumberFontSize,
+        // "dataNumbersLineHeight" to dataNumberFontSize + 2f,
+        // "headlineFontSize" to 24f,
+        // "headlineLineHeight" to 25.44f,
+        // "bodyCopyFontSize" to 18f,
+        // "bodyCopyLineHeight" to 20f
     )
 )
 
@@ -420,7 +420,7 @@ private fun listRows(titlesAndSubtitles: List<Pair<String, String>>): Map<String
 
 // Rows without an image are cleared, so the instance's sample picture doesn't show
 private fun listIcons(imageUrls: List<String?>): Map<String, String?> {
-    return (1..LIST_ROW_COUNT).associate { row -> "icon$row" to imageUrls.getOrNull(row - 1) }
+    return (1..LIST_ROW_COUNT).associate { row -> "icon$row" to imageUrls.getOrNull(row - 1) }.filterValues { !it.isNullOrEmpty() }
 }
 
 // frame7 and frame9 have this property so far.

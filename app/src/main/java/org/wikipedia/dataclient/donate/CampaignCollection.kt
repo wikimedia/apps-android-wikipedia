@@ -11,13 +11,16 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
 import java.time.LocalDateTime
+import java.time.format.TextStyle
 
 object CampaignCollection {
 
-    private const val CAMPAIGN_VERSION = 3
+    private const val CAMPAIGN_VERSION = 4
     private const val CAMPAIGN_PLATFORM = "Android"
 
     private const val CAMPAIGNS_URL = "https://donate.wikimedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
@@ -79,6 +82,9 @@ object CampaignCollection {
     }
 
     private fun replaceParams(message: String, campaignId: String): String {
+        val localDateTime = LocalDateTime.now()
+        val localeByAppLanguage = LanguageUtil.wikiLanguageCodeToLocale(WikipediaApp.instance.appOrSystemLanguageCode)
+
         return message
             .replace("\$platform;", CAMPAIGN_PLATFORM)
             .replace("\$formattedId;", getFormattedCampaignId(campaignId))
@@ -86,6 +92,9 @@ object CampaignCollection {
             .replace("\$language;", WikipediaApp.instance.appOrSystemLanguageCode)
             .replace("\$appVersion;", BuildConfig.VERSION_NAME)
             .replace("\$appInstallId;", WikipediaApp.instance.appInstallID)
+            .replace("%weekday%", localDateTime.dayOfWeek.getDisplayName(TextStyle.FULL, localeByAppLanguage))
+            .replace("%date%", DateUtil.getWeekdayMonthDayDateString(localDateTime.toLocalDate(), localeByAppLanguage))
+            .replace("%HH:MM%", DateUtil.getTimeString(WikipediaApp.instance, localDateTime, localeByAppLanguage))
     }
 
     @Serializable

@@ -2096,14 +2096,6 @@
   <string name="year_in_review_share_subject">Mo Bhliain faoi Athbhreithniú ar Vicipéid</string>
   <string name="year_in_review_share_body">Seo mo Bhliain-Athbhreithniú ar Vicipéid. Cruthaithe leis an aip Android Vicipéid %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Deilbhín cruinne</string>
-  <string name="settings_app_icon_title">Deilbhín aip</string>
-  <string name="settings_app_icon_subtitle">Sochar ranníocóra</string>
-  <string name="settings_app_icon_preference_subtitle">Tá rochtain agat ar dheilbhín saincheaptha a cheiliúrann do %d ranníocaíochtaí san aip chuig Vicipéid. Fanfaidh sé ann go dtí an chéad Bhliain faoi Athbhreithniú eile.</string>
-  <string name="settings_app_icon_updated">Tá deilbhín d’aipe nuashonraithe.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Deilbhín aip nua díghlasáilte do do scáileán baile</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Díghlasáil do luach saothair rannpháirtí don bhliain seo chugainn!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Gníomhachtaigh d’íocón aip nua i Socruithe faoi dheilbhín Aipe. Go raibh maith agat as infheistíocht a dhéanamh i dtodhchaí an eolais shaor. Tá do chuid ranníocaíochtaí mar %1$s i %2$d ag cabhrú leis an mbealach a réiteach do shaol na faisnéise saor in aisce, agus mar thoradh air sin tá deilbhín rannpháirtí saincheaptha díghlasáilte agat do Vicipéid ar do scáileán baile.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Tá áthas orainn gur cuid de do %1$d Vicipéid! Díghlasáil luach saothair speisialta i do %2$d Athbhreithniú ar an mBliain trí bheith i do rannpháirtí—cibé acu trí &lt;a href=\"%3$s\"&gt;Vicipéid a chur in eagar&lt;/a&gt; nó trí bhronnadh ón aip chuig &lt;a href=\"%4$s\"&gt;Fondúireacht Wikimedia&lt;/a&gt;, an eagraíocht neamhbhrabúis atá taobh thiar de. Más úsáideach duit Vicipéid, smaoinigh ar bhronnadh a dhéanamh chun cabhrú lena todhchaí a chothabháil agus í a choinneáil saor in aisce, saor ó fhógraí, iontaofa agus inrochtana do chách. Má thug tú bronntanas in áit eile, táimid an-bhuíoch as do thacaíocht.</string>
   <string name="year_in_review_slide_app_icon_donor">deontóir</string>
   <string name="year_in_review_slide_app_icon_editor">eagarthóir</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">deontóir agus eagarthóir</string>

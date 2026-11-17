@@ -208,6 +208,11 @@ class EditSummaryFragment : Fragment() {
     private fun invokeSource() = (requireActivity() as EditSectionActivity).getInvokeSource()
 
     fun show() {
+        binding.minorEditCheckBox.isEnabled = viewModel.canMarkMinorEdit
+        binding.minorEditCheckBox.alpha = if (viewModel.canMarkMinorEdit) 1f else 0.5f
+        if (!viewModel.canMarkMinorEdit) {
+            binding.minorEditCheckBox.isChecked = false
+        }
         if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
             binding.footerContainer.tempAccountInfoContainer.isVisible = true
             binding.footerContainer.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
@@ -217,6 +222,9 @@ class EditSummaryFragment : Fragment() {
         } else {
             binding.footerContainer.tempAccountInfoContainer.isVisible = false
         }
+        binding.footerContainer.hCaptchaDisclaimer.isVisible = !viewModel.hCaptchaPolicyMessage.isNullOrEmpty()
+        binding.footerContainer.hCaptchaDisclaimer.movementMethod = LinkMovementMethod.getInstance()
+        binding.footerContainer.hCaptchaDisclaimer.text = StringUtil.fromHtml(StringUtil.parseWikitextExternalLinks(viewModel.hCaptchaPolicyMessage.orEmpty()))
         ViewAnimations.fadeIn(binding.root) {
             requireActivity().invalidateOptionsMenu()
             binding.editSummaryText.requestFocus()

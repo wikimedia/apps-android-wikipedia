@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.StringUtil
@@ -46,9 +47,8 @@ class CreateAccountActivityViewModel : ViewModel() {
             if (token.isNullOrEmpty()) {
                 _authManagerState.value = AccountInfoState.InvalidToken
             } else if (response.query?.hasHCaptchaRequest() == true) {
-                val hCaptchaDisclaimerMessage = "hcaptcha-privacy-policy"
-                val message = ServiceFactory.get(WikipediaApp.instance.wikiSite).getMessages(hCaptchaDisclaimerMessage, null)
-                    .query?.allmessages?.find { it.name == hCaptchaDisclaimerMessage }?.content.orEmpty()
+                val message = ServiceFactory.get(WikipediaApp.instance.wikiSite).getMessages(HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE, null)
+                    .query?.allmessages?.find { it.name == HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE }?.content.orEmpty()
                 _authManagerState.value = AccountInfoState.HCaptchaDisclaimer(StringUtil.parseWikitextExternalLinks(message))
             }
         }

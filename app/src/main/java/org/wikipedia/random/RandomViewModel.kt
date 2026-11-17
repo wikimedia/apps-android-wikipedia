@@ -74,7 +74,7 @@ class RandomViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             var tries = 0
             while (tries++ < 5) {
                 val newItems = RandomClient.getRandomPages(wikiSite, BATCH_SIZE)
-                    .filter { !it.thumbUrl.isNullOrEmpty() && !it.extract.isNullOrEmpty() }
+                    .filter { !it.thumbUrl.isNullOrEmpty() && !it.extract.isNullOrEmpty() && it !in items }
                 if (!newItems.isEmpty()) {
                     items.addAll(newItems)
                     break

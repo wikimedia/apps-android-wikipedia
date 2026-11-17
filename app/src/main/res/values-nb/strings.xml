@@ -1907,12 +1907,6 @@
   <string name="year_in_review_share_subject">Min årskavalkade for Wikipedia</string>
   <string name="year_in_review_share_body">Her er min Wikipedia-årskavalkade. Skapt med Android-appen for Wikipedia %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Globusikon</string>
-  <string name="settings_app_icon_title">App-ikon</string>
-  <string name="settings_app_icon_subtitle">Bidragsyterfordeler</string>
-  <string name="settings_app_icon_preference_subtitle">Du har tilgang til et egendefinert ikon som feirer dine %d bidrag gjort i appen til Wikipedia. Det forblir til neste årskavalkade.</string>
-  <string name="settings_app_icon_updated">Ditt app-ikon er oppdatert.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nytt app-ikon låst opp for startskjermen din.</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Lås opp bidragsyterbelønningen din for neste år!</string>
   <string name="year_in_review_slide_app_icon_donor">en giver</string>
   <string name="year_in_review_slide_app_icon_editor">en bidragsyter</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">en giver og bidragsyter</string>

@@ -1969,14 +1969,6 @@
   <string name="year_in_review_share_subject">Vikipedi Yıl Değerlendirmem</string>
   <string name="year_in_review_share_body">İşte Vikipedi Yıl Değerlendirmem. Vikipedi Android uygulaması ile oluşturuldu %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Küre simgesi</string>
-  <string name="settings_app_icon_title">Uygulama simgesi</string>
-  <string name="settings_app_icon_subtitle">Katkıcı avantajı</string>
-  <string name="settings_app_icon_preference_subtitle">Vikipedi\'ye yaptığınız %d uygulama içi katkıyı kutlayan özel bir simgeye erişiminiz var. Bu simge ana ekranınızda görüntülenecektir.</string>
-  <string name="settings_app_icon_updated">Uygulama simgeniz güncellendi.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Ana ekranınız için yeni uygulama simgesi açıldı</string>
-  <string name="year_in_review_slide_app_icon_title_unlock">Gelecek yıl için katkıcı ödülünüzü açın!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked">Ayarlar\'daki Uygulama simgesi bölümünden yeni uygulama simgenizi etkinleştirin. Özgür bilginin geleceğine yatırım yaptığınız için teşekkürler. %2$d yılında %1$s olarak yaptığınız katkılar, özgür bilgi dünyasının yolunu açmaya yardımcı oluyor ve sonuç olarak ana ekranınız için özel bir katkıcı Vikipedi simgesi açtınız.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Vikipedi\'nin %1$d yılınızın bir parçası olmasına sevindik! Bir katkıcı olarak %2$d Yıl Değerlendirmenizde özel bir ödül açın – ister &lt;a href=\"%3$s\"&gt;Vikipedi\'yi düzenleyerek&lt;/a&gt; ister uygulamadan arkasındaki kâr amacı gütmeyen kuruluş &lt;a href=\"%4$s\"&gt;Vikimedia Vakfı\'na&lt;/a&gt; bağış yaparak. Vikipedi sizin için faydalıysa, geleceğini sürdürmeye ve onu ücretsiz, reklamsız, güvenilir ve herkes için erişilebilir tutmaya yardımcı olmak için bağış yapmayı düşünün. Başka bir yerden bağış yaptıysanız desteğiniz derinden takdir edilmektedir.</string>
   <string name="year_in_review_slide_app_icon_donor">bağışçı</string>
   <string name="year_in_review_slide_app_icon_editor">editör</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">bağışçı ve editör</string>

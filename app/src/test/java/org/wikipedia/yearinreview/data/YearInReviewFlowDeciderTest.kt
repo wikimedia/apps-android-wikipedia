@@ -68,9 +68,9 @@ class YearInReviewFlowDeciderTest {
     }
 
     @Test
-    fun `contributor with collective slides gets you matter slide`() {
-        val expected = collectiveSlides + YearInReviewPage.YouMatter(showLoginPrompt = false) + YearInReviewPage.End(isDonor = true)
-        assertEquals(expected, YearInReviewFlowDecider.pages(snapshot(readingStats = onePersonalizedPageStats, rewardData = contributorRewardData)))
+    fun `contributor with just one personalized slide gets THANK slide, since that itself is another personalized slide`() {
+        val slides = YearInReviewFlowDecider.pages(snapshot(readingStats = onePersonalizedPageStats, rewardData = contributorRewardData))
+        assertEquals(YearInReviewPage.ThankYou(isEditor = true, isDonor = true), slides[slides.size - 2])
     }
 
     @Test

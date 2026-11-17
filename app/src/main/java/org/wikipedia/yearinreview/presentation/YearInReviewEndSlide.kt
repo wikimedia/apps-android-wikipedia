@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
@@ -57,7 +58,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
+import org.wikipedia.compose.components.ArticleCard
+import org.wikipedia.compose.components.menu.PageOverflowMenu
+import org.wikipedia.compose.components.menu.PageOverflowMenuItem
+import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 
 private const val STORE_DISCOUNT_PERCENT = 15
@@ -81,6 +89,7 @@ enum class YearInReviewEndCard(
     STORE_DISCOUNT(R.string.yir_store_discount_headline, R.string.yir_store_discount_action),
     GAMES(R.string.yir_games_headline, R.string.yir_games_action),
     CUSTOMIZE_HOME(R.string.yir_customize_home_headline, R.string.yir_customize_home_action),
+    TOP_READ(R.string.yir_top_read_headline, R.string.yir_top_read_action),
     QUIZ(R.string.yir_quiz_headline, R.string.yir_quiz_action)
 }
 
@@ -89,6 +98,7 @@ private fun YearInReviewEndCard.supportingText(): String = when (this) {
     YearInReviewEndCard.STORE_DISCOUNT -> pluralStringResource(R.plurals.yir_store_discount_supporting, STORE_DISCOUNT_PERCENT, STORE_DISCOUNT_PERCENT)
     YearInReviewEndCard.GAMES -> stringResource(R.string.yir_games_supporting)
     YearInReviewEndCard.CUSTOMIZE_HOME -> stringResource(R.string.yir_customize_home_supporting)
+    YearInReviewEndCard.TOP_READ -> stringResource(R.string.yir_top_read_supporting)
     YearInReviewEndCard.QUIZ -> stringResource(R.string.yir_quiz_supporting)
 }
 
@@ -97,9 +107,16 @@ fun YearInReviewEndSlide(
     modifier: Modifier = Modifier,
     isDonor: Boolean = false,
     isTestGroupUser: Boolean = true,
+    hasEnglishAppLanguage: Boolean = true,
     canShareHighlights: Boolean = true,
+    tabArticles: List<PageTitle> = emptyList(),
+    tabArticleOverflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onCardActionClick: (YearInReviewEndCard) -> Unit = {},
-    onShareHighlightsClick: () -> Unit = {}
+    onShareHighlightsClick: () -> Unit = {},
+    onTabArticleClick: (PageTitle) -> Unit = {},
+    onTabArticleOverflowClick: (title: PageTitle, menuKey: String) -> Unit = { _, _ -> },
+    onTabArticleOverflowDismiss: () -> Unit = {},
+    onTabArticleOverflowItemClick: (PageOverflowMenuItem, HistoryEntry) -> Unit = { _, _ -> }
 ) {
     val cards = buildList {
         if (isDonor) {
@@ -109,6 +126,9 @@ fun YearInReviewEndSlide(
             // The user being in the test group implies that the Game card is available.
             add(YearInReviewEndCard.GAMES)
             add(YearInReviewEndCard.CUSTOMIZE_HOME)
+        }
+        if (hasEnglishAppLanguage) {
+            add(YearInReviewEndCard.TOP_READ)
         }
         add(YearInReviewEndCard.QUIZ)
     }
@@ -187,8 +207,79 @@ fun YearInReviewEndSlide(
                 cards = cards,
                 onCardActionClick = onCardActionClick
             )
+            if (tabArticles.isNotEmpty()) {
+                YearInReviewTabArticlesSection(
+                    modifier = Modifier.padding(top = 48.dp),
+                    articles = tabArticles,
+                    overflowMenuState = tabArticleOverflowMenuState,
+                    onArticleClick = onTabArticleClick,
+                    onOverflowClick = onTabArticleOverflowClick,
+                    onOverflowDismiss = onTabArticleOverflowDismiss,
+                    onOverflowItemClick = onTabArticleOverflowItemClick
+                )
+            }
             Spacer(modifier = Modifier.weight(1f))
             Spacer(modifier = Modifier.height(24.dp))
+        }
+    }
+}
+
+@Composable
+private fun YearInReviewTabArticlesSection(
+    articles: List<PageTitle>,
+    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState?,
+    onArticleClick: (PageTitle) -> Unit,
+    onOverflowClick: (title: PageTitle, menuKey: String) -> Unit,
+    onOverflowDismiss: () -> Unit,
+    onOverflowItemClick: (PageOverflowMenuItem, HistoryEntry) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    BaseTheme(currentTheme = Theme.BLACK) {
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(horizontal = EndCardPageSpacing),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(EndCardPageSpacing)
+        ) {
+            Text(
+                modifier = Modifier.padding(bottom = 12.dp),
+                text = stringResource(R.string.yir_open_tabs_headline),
+                color = ComposeColors.White,
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontFamily = FontFamily.Serif,
+                    fontWeight = FontWeight.Medium
+                )
+            )
+            // generates two ArticleCard on each row
+            articles.withIndex().chunked(2).forEach { row ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(EndCardPageSpacing)
+                ) {
+                    row.forEach { (index, title) ->
+                        val menuKey = "tab-article-$index"
+                        ArticleCard(
+                            modifier = Modifier.weight(1f),
+                            item = title,
+                            onItemClick = onArticleClick,
+                            onOverflowClick = { onOverflowClick(title, menuKey) },
+                            overflowMenuContent = {
+                                PageOverflowMenu(
+                                    menuKey = menuKey,
+                                    overflowMenuState = overflowMenuState,
+                                    onDismiss = onOverflowDismiss,
+                                    onItemClick = onOverflowItemClick
+                                )
+                            }
+                        )
+                    }
+                    if (row.size == 1) {
+                        Spacer(modifier = Modifier.weight(1f))
+                    }
+                }
+            }
         }
     }
 }
@@ -320,6 +411,21 @@ private fun YearInReviewEndCardItem(
 private fun YearInReviewEndSlidePreview() {
     BaseTheme(currentTheme = Theme.DARK) {
         YearInReviewEndSlide()
+    }
+}
+
+@Preview(widthDp = 412, heightDp = 1500)
+@Composable
+private fun YearInReviewEndSlideWithTabArticlesPreview() {
+    val wikiSite = WikiSite.preview()
+    BaseTheme(currentTheme = Theme.DARK) {
+        YearInReviewEndSlide(
+            tabArticles = listOf(
+                PageTitle("Toffee_Crisp", wikiSite, null, "British candy bar", "Toffee Crisp"),
+                PageTitle("Salted_Nut_Roll", wikiSite, null, "Nougat and peanut bar", "Salted Nut Roll"),
+                PageTitle("Kit_Kat", wikiSite, null, "Chocolate-covered wafer bar", "Kit Kat")
+            )
+        )
     }
 }
 

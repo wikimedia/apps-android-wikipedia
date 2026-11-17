@@ -159,7 +159,7 @@ object ArticleTopics {
             msgKey = R.string.wikimedia_articletopics_topic_politics_and_government,
             queryTopicId = "politics-and-government",
             taxonIds = listOf("History_and_Society.Politics_and_government"),
-            thumbnailUrl = "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/20_Politics_Government.png/250px-20_Politics_Government.png"
+            thumbnailUrl = "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/01_Architecture.png/250px-01_Architecture.png"
         ),
         ArticleTopic(
             topicId = "society",

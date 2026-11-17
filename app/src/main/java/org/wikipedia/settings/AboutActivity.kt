@@ -30,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -49,6 +50,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 
 class AboutActivity : BaseActivity() {
     private val credits = listOf(
@@ -293,10 +295,20 @@ fun AboutScreenBody(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
-        LinkTextWithHeader(
-            header = stringResource(R.string.about_contributors_heading),
-            html = stringResource(R.string.about_contributors)
-        )
+        Column {
+            LinkTextWithHeader(
+                header = stringResource(R.string.about_contributors_heading),
+                html = stringResource(R.string.about_contributors)
+            )
+            if (LocalInspectionMode.current || YearInReviewViewModel.isAccessible) {
+                Text(
+                    modifier = Modifier.padding(top = 16.dp),
+                    text = stringResource(R.string.year_in_review_illustration_credit),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            }
+        }
 
         LinkTextWithHeader(
             header = stringResource(R.string.about_translators_heading),

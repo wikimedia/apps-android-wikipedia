@@ -26,8 +26,11 @@ class PageOverflowMenuViewModel : ViewModel() {
         source: Int,
         menuKey: String
     ) {
+        onPageOverflowClick(pageSummary.getHistoryEntry(wikiSite, source), menuKey)
+    }
+
+    fun onPageOverflowClick(entry: HistoryEntry, menuKey: String) {
         viewModelScope.launch {
-            val entry = pageSummary.getHistoryEntry(wikiSite, source)
             val isArticleSaved = AppDatabase.instance.readingListPageDao().findPageInAnyList(entry.title) != null
             pageOverflowMenuState = PageOverflowMenuState(
                 entry = entry,

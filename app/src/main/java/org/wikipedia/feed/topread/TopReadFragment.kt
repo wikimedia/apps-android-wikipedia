@@ -21,7 +21,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.SaveArticleSheetDialog
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.TabUtil
@@ -41,10 +40,7 @@ class TopReadFragment : Fragment() {
 
         val card = viewModel.card
 
-        (requireActivity() as AppCompatActivity).run {
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.title = getString(R.string.top_read_activity_title, DateUtil.getShortDateString(card.articles.localDate))
-        }
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.root.setLayoutDirectionByLang(card.site.languageCode)
 

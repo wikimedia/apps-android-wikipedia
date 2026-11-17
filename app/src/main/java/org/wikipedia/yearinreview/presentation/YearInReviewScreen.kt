@@ -1,8 +1,10 @@
 package org.wikipedia.yearinreview.presentation
 
 import android.graphics.Bitmap
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -19,6 +21,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.PagerDefaults
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -52,6 +55,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
@@ -60,24 +64,36 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import app.rive.Result
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.components.menu.PageOverflowMenuItem
+import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
 import org.wikipedia.yearinreview.data.YearInReviewReadingStats
 import kotlin.math.roundToInt
+import kotlin.time.Duration.Companion.milliseconds
 
 private val YearInReviewCardCornerRadius = 28.dp
 internal val TopAppBarHeight = 64.dp
+private const val SWIPE_TUTORIAL_DELAY_MILLIS = 2000L
 
 fun Modifier.placeholderBackground() = background(
     brush = Brush.linearGradient(
@@ -97,18 +113,27 @@ fun Modifier.placeholderBackground() = background(
 @Composable
 fun YearInReviewScreen(
     uiState: YearInReviewUiState,
+    isSoundOn: Boolean,
     modifier: Modifier = Modifier,
+    tabArticles: List<PageTitle> = emptyList(),
+    tabArticleOverflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onCloseClick: (YearInReviewPage?) -> Unit = {},
     onLearnMoreClick: () -> Unit = {},
     onAboutInsightsClick: () -> Unit = {},
     onShareFeedbackClick: () -> Unit = {},
+    onSoundToggleClick: () -> Unit = {},
     onShareClick: (YearInReviewPage, Bitmap) -> Unit = { _, _ -> },
     onDonateClick: (YearInReviewPage) -> Unit = { _ -> },
     onEndCardClick: (YearInReviewEndCard) -> Unit = {},
     onShareHighlightsClick: (Bitmap) -> Unit = {},
+    onTabArticleClick: (PageTitle) -> Unit = {},
+    onTabArticleOverflowClick: (title: PageTitle, menuKey: String) -> Unit = { _, _ -> },
+    onTabArticleOverflowDismiss: () -> Unit = {},
+    onTabArticleOverflowItemClick: (PageOverflowMenuItem, HistoryEntry) -> Unit = { _, _ -> },
     onRetryClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
     onPageImpression: (YearInReviewPage) -> Unit = {},
+    onPageSettled: (YearInReviewPage) -> Unit = {},
     onRiveError: (Throwable) -> Unit = {}
 ) {
     when (uiState) {
@@ -132,16 +157,25 @@ fun YearInReviewScreen(
                 readingStats = uiState.readingStats,
                 showDonateButton = uiState.isDonationEligible,
                 canShareHighlights = uiState.isPersonalized && uiState.canShareHighlights,
+                tabArticles = tabArticles,
+                tabArticleOverflowMenuState = tabArticleOverflowMenuState,
+                isSoundOn = isSoundOn,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
                 onAboutInsightsClick = onAboutInsightsClick,
                 onShareFeedbackClick = onShareFeedbackClick,
+                onSoundToggleClick = onSoundToggleClick,
                 onShareClick = onShareClick,
                 onDonateClick = onDonateClick,
                 onEndCardClick = onEndCardClick,
                 onShareHighlightsClick = onShareHighlightsClick,
+                onTabArticleClick = onTabArticleClick,
+                onTabArticleOverflowClick = onTabArticleOverflowClick,
+                onTabArticleOverflowDismiss = onTabArticleOverflowDismiss,
+                onTabArticleOverflowItemClick = onTabArticleOverflowItemClick,
                 onStatusBarIconColorChange = onStatusBarIconColorChange,
                 onPageImpression = onPageImpression,
+                onPageSettled = onPageSettled,
                 onRiveError = onRiveError
             )
         }
@@ -173,27 +207,85 @@ private fun YearInReviewContent(
     readingStats: YearInReviewReadingStats,
     showDonateButton: Boolean,
     canShareHighlights: Boolean,
+    tabArticles: List<PageTitle>,
+    tabArticleOverflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState?,
+    isSoundOn: Boolean,
     modifier: Modifier = Modifier,
     onCloseClick: (YearInReviewPage) -> Unit,
     onLearnMoreClick: () -> Unit,
     onAboutInsightsClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
+    onSoundToggleClick: () -> Unit,
     onShareClick: (YearInReviewPage, Bitmap) -> Unit,
     onDonateClick: (YearInReviewPage) -> Unit,
     onEndCardClick: (YearInReviewEndCard) -> Unit,
     onShareHighlightsClick: (Bitmap) -> Unit,
+    onTabArticleClick: (PageTitle) -> Unit,
+    onTabArticleOverflowClick: (title: PageTitle, menuKey: String) -> Unit,
+    onTabArticleOverflowDismiss: () -> Unit,
+    onTabArticleOverflowItemClick: (PageOverflowMenuItem, HistoryEntry) -> Unit,
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
     onPageImpression: (YearInReviewPage) -> Unit,
+    onPageSettled: (YearInReviewPage) -> Unit,
     onRiveError: (Throwable) -> Unit
 ) {
     val pagerState = rememberPagerState { pages.size }
-    val coroutineScope = rememberCoroutineScope()
-    val currentOnPageImpression by rememberUpdatedState(onPageImpression)
-    LaunchedEffect(pagerState, pages) {
-        snapshotFlow { pagerState.settledPage }.collect { position ->
-            pages.getOrNull(position)?.let { currentOnPageImpression(it) }
+    // Passes on the fling velocity left over by a slide's scrollable content, like the end slide's, which the default
+    // connection drops, so that a fast fling changes slides there as it does on the other slides
+    val defaultPageNestedScrollConnection = PagerDefaults.pageNestedScrollConnection(pagerState, Orientation.Vertical)
+    val pageNestedScrollConnection = remember(defaultPageNestedScrollConnection) {
+        object : NestedScrollConnection by defaultPageNestedScrollConnection {
+            override suspend fun onPostFling(consumed: Velocity, available: Velocity) = Velocity.Zero
         }
     }
+    val coroutineScope = rememberCoroutineScope()
+    val currentOnPageImpression by rememberUpdatedState(onPageImpression)
+    val currentOnPageSettled by rememberUpdatedState(onPageSettled)
+    LaunchedEffect(pagerState, pages) {
+        snapshotFlow { pagerState.settledPage }.collect { position ->
+            pages.getOrNull(position)?.let {
+                currentOnPageSettled(it)
+                currentOnPageImpression(it)
+            }
+        }
+    }
+
+    var showSwipeTutorial by remember { mutableStateOf(false) }
+    LaunchedEffect(pagerState) {
+        if (!Prefs.isYearInReviewSwipeTutorialShown) {
+            val swipedBeforeTutorial = withTimeoutOrNull(SWIPE_TUTORIAL_DELAY_MILLIS.milliseconds) {
+                snapshotFlow { pagerState.isScrollInProgress }.first { it }
+            } != null
+            if (swipedBeforeTutorial) {
+                Prefs.isYearInReviewSwipeTutorialShown = true
+            } else {
+                showSwipeTutorial = true
+            }
+        }
+    }
+    if (showSwipeTutorial) {
+        val dismissSwipeTutorial = {
+            showSwipeTutorial = false
+            Prefs.isYearInReviewSwipeTutorialShown = true
+        }
+        BaseTheme(currentTheme = Theme.BLACK) {
+            WikipediaAlertDialog(
+                title = stringResource(R.string.year_in_review_swipe_tutorial_title),
+                titleModifier = Modifier.fillMaxWidth(),
+                message = stringResource(R.string.year_in_review_swipe_tutorial_message),
+                image = {
+                    Image(
+                        painter = painterResource(R.drawable.illustration_swipeup),
+                        contentDescription = null
+                    )
+                },
+                confirmButtonText = stringResource(R.string.onboarding_got_it),
+                onDismissRequest = dismissSwipeTutorial,
+                onConfirmButtonClick = dismissSwipeTutorial
+            )
+        }
+    }
+
     // Slides are restarted once they're off screen, so that scrolling back to one plays it from the beginning
     val restartKeysByPageId = remember { mutableStateMapOf<String, Int>() }
     LaunchedEffect(pagerState, pages) {
@@ -290,7 +382,8 @@ private fun YearInReviewContent(
                     )),
                 state = pagerState,
                 beyondViewportPageCount = if (pages.size > 1) 1 else 0,
-                key = { page -> pages[page].id }
+                key = { page -> pages[page].id },
+                pageNestedScrollConnection = pageNestedScrollConnection
             ) { position ->
                 val page = pages[position]
                 val content = riveContents[page.id]
@@ -299,9 +392,16 @@ private fun YearInReviewContent(
                         YearInReviewEndSlide(
                             isDonor = page.isDonor,
                             isTestGroupUser = YearInReviewEndScreenABTest().isUserEligible() && YearInReviewEndScreenABTest().isTestGroupUser(),
+                            hasEnglishAppLanguage = WikipediaApp.instance.languageState.appLanguageCodes.contains("en"),
                             canShareHighlights = canShareHighlights,
+                            tabArticles = tabArticles,
+                            tabArticleOverflowMenuState = tabArticleOverflowMenuState,
                             onCardActionClick = onEndCardClick,
-                            onShareHighlightsClick = { isRenderingShareCard = true }
+                            onShareHighlightsClick = { isRenderingShareCard = true },
+                            onTabArticleClick = onTabArticleClick,
+                            onTabArticleOverflowClick = onTabArticleOverflowClick,
+                            onTabArticleOverflowDismiss = onTabArticleOverflowDismiss,
+                            onTabArticleOverflowItemClick = onTabArticleOverflowItemClick
                         )
                     }
                     // A custom slide, such as an interactive one, gets its own branch above this one
@@ -371,7 +471,9 @@ private fun YearInReviewContent(
                 },
                 onLearnMoreClick = onLearnMoreClick,
                 onShareFeedbackClick = onShareFeedbackClick,
-                onAboutInsightsClick = onAboutInsightsClick
+                onAboutInsightsClick = onAboutInsightsClick,
+                isSoundOn = isSoundOn,
+                onSoundToggleClick = onSoundToggleClick
             )
 
             YearInReviewProgressTracker(
@@ -435,6 +537,8 @@ fun YearInReviewTopBar(
     onAboutInsightsClick: () -> Unit,
     onShareFeedbackClick: () -> Unit,
     showWikipediaLogo: Boolean = true,
+    isSoundOn: Boolean? = null,
+    onSoundToggleClick: () -> Unit = {},
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets
 ) {
     var overflowMenuExpanded by remember { mutableStateOf(false) }
@@ -527,6 +631,28 @@ fun YearInReviewTopBar(
                             onAboutInsightsClick()
                         }
                     )
+                    if (isSoundOn != null) {
+                        DropdownMenuItem(
+                            leadingIcon = {
+                                Icon(
+                                    painter = painterResource(if (isSoundOn) R.drawable.volume_off_24dp else R.drawable.volume_up_24dp),
+                                    tint = WikipediaTheme.colors.secondaryColor,
+                                    contentDescription = null
+                                )
+                            },
+                            text = {
+                                Text(
+                                    text = stringResource(if (isSoundOn) R.string.on_this_day_game_sound_off else R.string.on_this_day_game_sound_on),
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    color = WikipediaTheme.colors.primaryColor
+                                )
+                            },
+                            onClick = {
+                                overflowMenuExpanded = false
+                                onSoundToggleClick()
+                            }
+                        )
+                    }
                     DropdownMenuItem(
                         leadingIcon = {
                             Icon(
