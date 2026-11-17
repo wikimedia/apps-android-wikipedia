@@ -12,8 +12,8 @@ import org.wikipedia.search.semantic.SemanticSearchRepository
 import org.wikipedia.util.log.L
 
 /**
- * Fetches lexical and semantic results once per query, merges them with [SearchResultsInterleaver],
- * and serves the merged list page by page, so paging never changes the list that was merged.
+ * Fetches lexical and semantic results on every first-page load, merges them with [SearchResultsInterleaver],
+ * and serves later pages from that merged list, so paging never changes the list that was merged.
  */
 class InterleaveSearchRepository(
     private val lexicalRepository: SearchRepository<StandardSearchResults> = StandardSearchRepository(),
@@ -30,7 +30,7 @@ class InterleaveSearchRepository(
         batchSize: Int,
         isPrefixSearch: Boolean
     ): StandardSearchResults {
-        val merged = mergedSearchResults?.takeIf { it.searchTerm == searchTerm && it.languageCode == languageCode }
+        val merged = mergedSearchResults?.takeIf { continuation != null && it.searchTerm == searchTerm && it.languageCode == languageCode }
             ?: mergeSearchResults(searchTerm, languageCode, invokeSource).also { mergedSearchResults = it }
         val slots = merged.interleaveResult.slots
         val offset = continuation ?: 0

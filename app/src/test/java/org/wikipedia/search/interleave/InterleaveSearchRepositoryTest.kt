@@ -12,6 +12,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchRepository
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.StandardSearchResults
+import java.io.IOException
 
 @RunWith(RobolectricTestRunner::class)
 class InterleaveSearchRepositoryTest {
@@ -29,8 +30,8 @@ class InterleaveSearchRepositoryTest {
             searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3)
         )
         val repository = InterleaveSearchRepository(
-            lexicalRepository = FakeSearchRepository(StandardSearchResults(lexicalResults, continuation = null, localResults = listOf(historyResult))),
-            semanticRepository = FakeSearchRepository(StandardSearchResults(semanticResults, continuation = null)),
+            lexicalRepository = FakeSearchRepository { StandardSearchResults(lexicalResults, continuation = null, localResults = listOf(historyResult)) },
+            semanticRepository = FakeSearchRepository { StandardSearchResults(semanticResults, continuation = null) },
             newSeed = { SEMANTIC_FIRST_SEED }
         )
 
@@ -44,6 +45,48 @@ class InterleaveSearchRepositoryTest {
         assertTrue(nextPage.localResults.isEmpty())
     }
 
+    @Test
+    fun testLaterPagesReuseTheMergeOfTheFirstPage() {
+        val lexicalRepository = FakeSearchRepository {
+            StandardSearchResults(listOf(
+                searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2),
+                searchResult("Lyon", SearchResult.SearchResultType.PREFIX, pageId = 4)
+            ), continuation = null)
+        }
+        val semanticRepository = FakeSearchRepository {
+            StandardSearchResults(listOf(searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3)), continuation = null)
+        }
+        val repository = InterleaveSearchRepository(lexicalRepository, semanticRepository, newSeed = { SEMANTIC_FIRST_SEED })
+
+        val firstPage = search(repository, continuation = null, isPrefixSearch = true)
+        search(repository, continuation = firstPage.continuation, isPrefixSearch = false)
+
+        assertEquals(1, lexicalRepository.searchCount)
+        assertEquals(1, semanticRepository.searchCount)
+    }
+
+    @Test
+    fun testFirstPageLoadRetriesSemanticSearchThatFailedBefore() {
+        val lexicalResults = listOf(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2))
+        val semanticResults = listOf(searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3))
+        var isSemanticSearchAvailable = false
+        val repository = InterleaveSearchRepository(
+            lexicalRepository = FakeSearchRepository { StandardSearchResults(lexicalResults, continuation = null) },
+            semanticRepository = FakeSearchRepository {
+                if (!isSemanticSearchAvailable) {
+                    throw IOException()
+                }
+                StandardSearchResults(semanticResults, continuation = null)
+            },
+            newSeed = { SEMANTIC_FIRST_SEED }
+        )
+
+        assertEquals(lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
+
+        isSemanticSearchAvailable = true
+        assertEquals(semanticResults + lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
+    }
+
     private fun search(repository: InterleaveSearchRepository, continuation: Int?, isPrefixSearch: Boolean): StandardSearchResults {
         return runBlocking {
             repository.search("eiffel", wikiSite.languageCode, Constants.InvokeSource.SEARCH, continuation, BATCH_SIZE, isPrefixSearch)
@@ -54,7 +97,10 @@ class InterleaveSearchRepositoryTest {
         return SearchResult(PageTitle(title, wikiSite), redirectFrom = null, type = type, pageId = pageId)
     }
 
-    private class FakeSearchRepository(private val results: StandardSearchResults) : SearchRepository<StandardSearchResults> {
+    private class FakeSearchRepository(private val searchResults: () -> StandardSearchResults) : SearchRepository<StandardSearchResults> {
+        var searchCount = 0
+            private set
+
         override suspend fun search(
             searchTerm: String,
             languageCode: String,
@@ -63,7 +109,8 @@ class InterleaveSearchRepositoryTest {
             batchSize: Int,
             isPrefixSearch: Boolean
         ): StandardSearchResults {
-            return results
+            searchCount++
+            return searchResults()
         }
     }
 

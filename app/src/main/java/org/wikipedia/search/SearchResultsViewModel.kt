@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -66,25 +67,29 @@ class SearchResultsViewModel : ViewModel() {
     var lastXSearchIdSemantic = ""
     private var isInterleaveSearchExposureSent = false
 
-    val isInterleaveSearchEnabled = combine(
+    private val languageCodeWithInterleaveSearchEnabled = combine(
         _languageCode,
         interleaveSearchEnabledPrefUpdates
     ) { currentLanguageCode, _ ->
-        interleaveSearchAbTest.isInterleaveSearchEnabled(currentLanguageCode)
-    }.distinctUntilChanged().stateIn(
-        viewModelScope,
-        SharingStarted.Eagerly,
-        interleaveSearchAbTest.isInterleaveSearchEnabled(_languageCode.value)
-    )
+        currentLanguageCode to interleaveSearchAbTest.isInterleaveSearchEnabled(currentLanguageCode)
+    }.distinctUntilChanged()
+
+    val isInterleaveSearchEnabled = languageCodeWithInterleaveSearchEnabled
+        .map { (_, isEnabled) -> isEnabled }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.Eagerly,
+            interleaveSearchAbTest.isInterleaveSearchEnabled(_languageCode.value)
+        )
 
     @OptIn(
         FlowPreview::class,
         ExperimentalCoroutinesApi::class
     ) // TODO: revisit if the debounce method changed.
     val searchResultsFlow =
-        combine(_searchTerm.debounce(delayMillis.milliseconds), _languageCode, _refreshSearchResults) { term, lang, _ ->
-            Pair(term, lang)
-        }.flatMapLatest { (term, lang) ->
+        combine(_searchTerm.debounce(delayMillis.milliseconds), languageCodeWithInterleaveSearchEnabled, _refreshSearchResults) { term, (lang, isInterleaveEnabled), _ ->
+            Triple(term, lang, isInterleaveEnabled)
+        }.flatMapLatest { (term, lang, isInterleaveEnabled) ->
             // A language change or refresh can re-emit the previous debounced term before the new one settles.
             if (term == _searchTerm.value) {
                 _searchTermForLogging.emit(term)
@@ -92,7 +97,7 @@ class SearchResultsViewModel : ViewModel() {
                     maybeSendInterleaveSearchExposure(lang)
                 }
             }
-            val repository = if (isInterleavingEnabled(lang)) interleaveSearchRepository else standardSearchRepository
+            val repository = if (isInterleaveEnabled && invokeSource != Constants.InvokeSource.PLACES) interleaveSearchRepository else standardSearchRepository
             Pager(PagingConfig(pageSize = batchSize)) {
                 SearchResultsPagingSource(
                     searchTerm = term,
@@ -159,10 +164,6 @@ class SearchResultsViewModel : ViewModel() {
         }
         isInterleaveSearchExposureSent = true
         interleaveSearchAbTest.maybeSendExposureEvent()
-    }
-
-    private fun isInterleavingEnabled(languageCode: String): Boolean {
-        return invokeSource != Constants.InvokeSource.PLACES && interleaveSearchAbTest.isInterleaveSearchEnabled(languageCode)
     }
 
     fun disableSemanticSearch() {
