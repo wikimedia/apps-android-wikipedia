@@ -28,7 +28,12 @@ internal fun SearchResult.cardTrail(): String? {
 // without explaintext=1), so they keep the same formatting as semantic passages instead of arriving flattened.
 internal fun SearchResult.cardExcerpt(): AnnotatedString {
     val raw = if (type == SearchResult.SearchResultType.SEMANTIC) snippet else leadText
-    return StringUtil.fromHtml(raw.orEmpty().replace(WHITESPACE_REGEX, " ").trim()).toAnnotatedString()
+    val excerpt = StringUtil.fromHtml(raw.orEmpty().replace(WHITESPACE_REGEX, " ").trim()).toAnnotatedString()
+    return AnnotatedString(
+        text = excerpt.text,
+        spanStyles = excerpt.spanStyles,
+        paragraphStyles = excerpt.paragraphStyles
+    )
 }
 
 internal fun SearchResult.cardThumbUrl(): String? {

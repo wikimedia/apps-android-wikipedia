@@ -24,6 +24,14 @@ class SearchResultCardContentTest {
     }
 
     @Test
+    fun testExcerptHasNoLinks() {
+        val excerpt = result(SearchResult.SearchResultType.SEMANTIC, snippet = "The <a href=\"./Paris\"><i>tower</i></a> is tall.").cardExcerpt()
+        assertEquals("The tower is tall.", excerpt.text)
+        assertTrue(excerpt.getLinkAnnotations(0, excerpt.length).isEmpty())
+        assertTrue(excerpt.spanStyles.any { it.item.fontStyle == FontStyle.Italic })
+    }
+
+    @Test
     fun testExcerptKeepsSuperscripts() {
         val excerpt = result(SearchResult.SearchResultType.SEMANTIC, snippet = "About 10<sup>6</sup> km away.").cardExcerpt()
         assertEquals("About 106 km away.", excerpt.text)
