@@ -16,7 +16,7 @@ class InterleaveSearchAbTest : ABTest("semantic-search-phase-2-interleave", GROU
     }
 
     private fun isTestActive(): Boolean {
-        return Prefs.interleaveSearchIsTestActive || RemoteConfig.config.androidv1?.semanticSearchEnabledv3 ?: false
+        return Prefs.interleaveSearchIsTestActive || RemoteConfig.config.androidv1?.semanticSearchEnabledv2 ?: false
     }
 
     private fun isTestGroupUser(): Boolean {
@@ -27,7 +27,7 @@ class InterleaveSearchAbTest : ABTest("semantic-search-phase-2-interleave", GROU
         return Prefs.interleaveSearchLanguageOverride || supportedLanguages.any { it.equals(languageCode, true) }
     }
 
-    private val supportedLanguages = RemoteConfig.config.androidv1?.semanticSearchLanguagesv3.orEmpty()
+    private val supportedLanguages = RemoteConfig.config.androidv1?.semanticSearchLanguagesv2.orEmpty()
 
     fun isInterleaveSearchSettingVisible(): Boolean {
         return isTestActive() && isTestGroupUser()
