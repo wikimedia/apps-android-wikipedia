@@ -33,6 +33,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var tempAccountsEnabled = true
     var editingAllowed = false
     var editCount = 0
+    var canMarkMinorEdit = false
     val editNotices = mutableListOf<String>()
 
     // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
@@ -61,6 +62,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
             val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
             editCount = infoResponse.query?.userInfo?.editCount ?: 0
+            canMarkMinorEdit = infoResponse.query?.userInfo?.rights?.contains("minoredit") == true
             tempAccountsEnabled = infoResponse.query?.autoCreateTempUser?.enabled == true
 
             infoResponse.query?.firstPage()?.let { firstPage ->

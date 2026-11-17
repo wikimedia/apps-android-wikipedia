@@ -2498,6 +2498,7 @@
     <string name="year_in_review_highlights_logo_description">Wikipedia logo</string>
     <string name="year_in_review_swipe_tutorial_title">Swipe to explore</string>
     <string name="year_in_review_swipe_tutorial_message">Swipe up to navigate through Year in Review.</string>
+    <string name="year_in_review_illustration_credit">Year in Review illustrations by Sharon Park for the Wikimedia Foundation</string>
     <!-- Recommended reading list -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>
@@ -2922,4 +2923,10 @@
     <string name="notifications_experiment_discover_interests_title">Because you\'re interested in %s</string>
     <string name="notifications_experiment_discover_saved_or_history_title">Because you read about %s</string>
     <string name="notifications_experiment_discover_message">We\'ve created a new reading list for you based on this and other interests.</string>
+
+    <!-- Notifications Experiment 2 -->
+    <string name="notifications_experiment_weekly_most_read_channel_title">Weekly Most Read</string>
+    <string name="notifications_experiment_weekly_most_read_channel_description">Notifications for the weekly most read articles</string>
+    <string name="notifications_experiment_weekly_most_read_notification_title">Trending this week 📈</string>
+    <string name="notifications_experiment_weekly_most_read_notification_description">No. 1 %s. Find out what else everyone\'s reading about.</string>
 </resources>

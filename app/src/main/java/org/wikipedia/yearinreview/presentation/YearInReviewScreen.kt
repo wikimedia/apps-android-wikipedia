@@ -78,8 +78,12 @@ import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.components.menu.PageOverflowMenuItem
+import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.data.YearInReviewEndScreenABTest
@@ -111,6 +115,8 @@ fun YearInReviewScreen(
     uiState: YearInReviewUiState,
     isSoundOn: Boolean,
     modifier: Modifier = Modifier,
+    tabArticles: List<PageTitle> = emptyList(),
+    tabArticleOverflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onCloseClick: (YearInReviewPage?) -> Unit = {},
     onLearnMoreClick: () -> Unit = {},
     onAboutInsightsClick: () -> Unit = {},
@@ -120,6 +126,10 @@ fun YearInReviewScreen(
     onDonateClick: (YearInReviewPage) -> Unit = { _ -> },
     onEndCardClick: (YearInReviewEndCard) -> Unit = {},
     onShareHighlightsClick: (Bitmap) -> Unit = {},
+    onTabArticleClick: (PageTitle) -> Unit = {},
+    onTabArticleOverflowClick: (title: PageTitle, menuKey: String) -> Unit = { _, _ -> },
+    onTabArticleOverflowDismiss: () -> Unit = {},
+    onTabArticleOverflowItemClick: (PageOverflowMenuItem, HistoryEntry) -> Unit = { _, _ -> },
     onRetryClick: () -> Unit = {},
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit = {},
     onPageImpression: (YearInReviewPage) -> Unit = {},
@@ -147,6 +157,8 @@ fun YearInReviewScreen(
                 readingStats = uiState.readingStats,
                 showDonateButton = uiState.isDonationEligible,
                 canShareHighlights = uiState.isPersonalized && uiState.canShareHighlights,
+                tabArticles = tabArticles,
+                tabArticleOverflowMenuState = tabArticleOverflowMenuState,
                 isSoundOn = isSoundOn,
                 onCloseClick = onCloseClick,
                 onLearnMoreClick = onLearnMoreClick,
@@ -157,6 +169,10 @@ fun YearInReviewScreen(
                 onDonateClick = onDonateClick,
                 onEndCardClick = onEndCardClick,
                 onShareHighlightsClick = onShareHighlightsClick,
+                onTabArticleClick = onTabArticleClick,
+                onTabArticleOverflowClick = onTabArticleOverflowClick,
+                onTabArticleOverflowDismiss = onTabArticleOverflowDismiss,
+                onTabArticleOverflowItemClick = onTabArticleOverflowItemClick,
                 onStatusBarIconColorChange = onStatusBarIconColorChange,
                 onPageImpression = onPageImpression,
                 onPageSettled = onPageSettled,
@@ -191,6 +207,8 @@ private fun YearInReviewContent(
     readingStats: YearInReviewReadingStats,
     showDonateButton: Boolean,
     canShareHighlights: Boolean,
+    tabArticles: List<PageTitle>,
+    tabArticleOverflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState?,
     isSoundOn: Boolean,
     modifier: Modifier = Modifier,
     onCloseClick: (YearInReviewPage) -> Unit,
@@ -202,6 +220,10 @@ private fun YearInReviewContent(
     onDonateClick: (YearInReviewPage) -> Unit,
     onEndCardClick: (YearInReviewEndCard) -> Unit,
     onShareHighlightsClick: (Bitmap) -> Unit,
+    onTabArticleClick: (PageTitle) -> Unit,
+    onTabArticleOverflowClick: (title: PageTitle, menuKey: String) -> Unit,
+    onTabArticleOverflowDismiss: () -> Unit,
+    onTabArticleOverflowItemClick: (PageOverflowMenuItem, HistoryEntry) -> Unit,
     onStatusBarIconColorChange: (useDarkIcons: Boolean) -> Unit,
     onPageImpression: (YearInReviewPage) -> Unit,
     onPageSettled: (YearInReviewPage) -> Unit,
@@ -372,8 +394,14 @@ private fun YearInReviewContent(
                             isTestGroupUser = YearInReviewEndScreenABTest().isUserEligible() && YearInReviewEndScreenABTest().isTestGroupUser(),
                             hasEnglishAppLanguage = WikipediaApp.instance.languageState.appLanguageCodes.contains("en"),
                             canShareHighlights = canShareHighlights,
+                            tabArticles = tabArticles,
+                            tabArticleOverflowMenuState = tabArticleOverflowMenuState,
                             onCardActionClick = onEndCardClick,
-                            onShareHighlightsClick = { isRenderingShareCard = true }
+                            onShareHighlightsClick = { isRenderingShareCard = true },
+                            onTabArticleClick = onTabArticleClick,
+                            onTabArticleOverflowClick = onTabArticleOverflowClick,
+                            onTabArticleOverflowDismiss = onTabArticleOverflowDismiss,
+                            onTabArticleOverflowItemClick = onTabArticleOverflowItemClick
                         )
                     }
                     // A custom slide, such as an interactive one, gets its own branch above this one
