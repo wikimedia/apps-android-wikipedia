@@ -23,6 +23,7 @@ import kotlinx.coroutines.flow.stateIn
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
@@ -191,8 +192,7 @@ class SearchResultsViewModel : ViewModel() {
                     invokeSource = invokeSource,
                     continuation = params.key,
                     batchSize = params.loadSize,
-                    isPrefixSearch = params.key == null,
-                    countsPerLanguageCode = countsPerLanguageCode
+                    isPrefixSearch = params.key == null
                 )
 
                 if (params.key == null) {
@@ -201,15 +201,32 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 // Local results have no page ID, so their duplicates are matched by title and hidden on every page.
-                return LoadResult.Page(
-                    result.localResults + result.results.filterNot { it.pageTitle.prefixedText in localResultTitles },
-                    null,
-                    result.continuation
-                )
+                val pageResults = result.localResults + result.results.filterNot { it.pageTitle.prefixedText in localResultTitles }
+
+                if (params.key == null && pageResults.isEmpty() && result.continuation == null) {
+                    countsPerLanguageCode.clear()
+                    countsPerLanguageCode.addAll(loadCountsPerLanguageCode(searchTerm, languageCode, params.loadSize))
+                }
+
+                return LoadResult.Page(pageResults, null, result.continuation)
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
                 LoadResult.Error(e)
+            }
+        }
+
+        private suspend fun loadCountsPerLanguageCode(searchTerm: String, languageCode: String, batchSize: Int): List<Pair<String, Int>> {
+            return WikipediaApp.instance.languageState.appLanguageCodes.map { langCode ->
+                if (langCode == languageCode) {
+                    return@map langCode to 0
+                }
+                val service = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                var count = service.prefixSearch(searchTerm, batchSize, 0).query?.pages?.size ?: 0
+                if (count == 0) {
+                    count = service.fullTextSearch(searchTerm, batchSize, null).query?.pages?.size ?: 0
+                }
+                langCode to count
             }
         }
 

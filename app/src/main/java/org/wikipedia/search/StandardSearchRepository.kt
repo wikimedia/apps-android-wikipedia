@@ -19,8 +19,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         invokeSource: Constants.InvokeSource,
         continuation: Int?,
         batchSize: Int,
-        isPrefixSearch: Boolean,
-        countsPerLanguageCode: MutableList<Pair<String, Int>>
+        isPrefixSearch: Boolean
     ): StandardSearchResults {
         val wikiSite = WikiSite.forLanguageCode(languageCode)
         // Local results are kept out of the lexical list so that it is built by the shared lexical list spec, like on iOS.
@@ -60,26 +59,6 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             response = fullTextResponse.body()
             currentContinuation = response?.continuation?.gsroffset
             lexicalResults.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.FULL_TEXT))
-        }
-
-        if (localResults.isEmpty() && lexicalResults.isEmpty() && response?.continuation == null) {
-            countsPerLanguageCode.clear()
-            WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
-                var countResultSize = 0
-                if (langCode != languageCode) {
-                    val prefixSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                        .prefixSearch(searchTerm, batchSize, 0)
-                    prefixSearchResponse.query?.pages?.let {
-                        countResultSize = it.size
-                    }
-                    if (countResultSize == 0) {
-                        val fullTextSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                            .fullTextSearch(searchTerm, batchSize, null)
-                        countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
-                    }
-                }
-                countsPerLanguageCode.add(langCode to countResultSize)
-            }
         }
 
         return StandardSearchResults(

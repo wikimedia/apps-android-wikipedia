@@ -28,11 +28,10 @@ class InterleaveSearchRepository(
         invokeSource: Constants.InvokeSource,
         continuation: Int?,
         batchSize: Int,
-        isPrefixSearch: Boolean,
-        countsPerLanguageCode: MutableList<Pair<String, Int>>
+        isPrefixSearch: Boolean
     ): StandardSearchResults {
         val merged = mergedSearchResults?.takeIf { it.searchTerm == searchTerm && it.languageCode == languageCode }
-            ?: mergeSearchResults(searchTerm, languageCode, invokeSource, countsPerLanguageCode).also { mergedSearchResults = it }
+            ?: mergeSearchResults(searchTerm, languageCode, invokeSource).also { mergedSearchResults = it }
         val slots = merged.interleaveResult.slots
         val offset = continuation ?: 0
         val pageResults = slots.drop(offset).take(batchSize).map { it.item }
@@ -49,16 +48,14 @@ class InterleaveSearchRepository(
     private suspend fun mergeSearchResults(
         searchTerm: String,
         languageCode: String,
-        invokeSource: Constants.InvokeSource,
-        countsPerLanguageCode: MutableList<Pair<String, Int>>
+        invokeSource: Constants.InvokeSource
     ): MergedSearchResults = coroutineScope {
         val semanticSearch = async { searchSemanticOrEmpty(searchTerm, languageCode, invokeSource) }
         val lexicalSearch = lexicalRepository.search(
             searchTerm = searchTerm,
             languageCode = languageCode,
             invokeSource = invokeSource,
-            batchSize = RESULTS_PER_SEARCH,
-            countsPerLanguageCode = countsPerLanguageCode
+            batchSize = RESULTS_PER_SEARCH
         )
         val semanticSearchResults = semanticSearch.await()
 

@@ -16,8 +16,7 @@ class SemanticSearchRepository : SearchRepository<StandardSearchResults> {
         invokeSource: Constants.InvokeSource,
         continuation: Int?,
         batchSize: Int,
-        isPrefixSearch: Boolean,
-        countsPerLanguageCode: MutableList<Pair<String, Int>>
+        isPrefixSearch: Boolean
     ): StandardSearchResults {
         val wikiSite = WikiSite.forLanguageCode(languageCode)
         val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(searchTerm, batchSize, continuation ?: 0, semanticSearchType = "hl")

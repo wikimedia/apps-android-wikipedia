@@ -72,8 +72,7 @@ class SearchResultsPagingSourceTest {
             invokeSource: Constants.InvokeSource,
             continuation: Int?,
             batchSize: Int,
-            isPrefixSearch: Boolean,
-            countsPerLanguageCode: MutableList<Pair<String, Int>>
+            isPrefixSearch: Boolean
         ): StandardSearchResults {
             return pages.getValue(continuation)
         }

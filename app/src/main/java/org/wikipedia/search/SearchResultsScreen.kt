@@ -105,8 +105,7 @@ fun SearchResultsScreen(
     val shouldShowNoResults =
         loadState.append is LoadState.NotLoading &&
         loadState.append.endOfPaginationReached &&
-        searchResults.itemCount == 0 &&
-        !isInterleaveSearchEnabled
+        searchResults.itemCount == 0
 
     val shouldLogNoResultsImpression =
         shouldShowNoResults &&
@@ -160,12 +159,10 @@ fun SearchResultsScreen(
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    if (!isInterleaveSearchEnabled) {
-                        noSearchResults(
-                            countsPerLanguageCode = countsPerLanguageCode,
-                            onLanguageClick = onLanguageClick
-                        )
-                    }
+                    noSearchResults(
+                        countsPerLanguageCode = countsPerLanguageCode,
+                        onLanguageClick = onLanguageClick
+                    )
                 }
 
                 else -> {
