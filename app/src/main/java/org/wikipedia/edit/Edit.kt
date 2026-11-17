@@ -3,7 +3,6 @@ package org.wikipedia.edit
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwPostResponse
-import org.wikipedia.settings.Prefs
 
 @Serializable
 class Edit : MwPostResponse() {
@@ -22,9 +21,9 @@ class Edit : MwPostResponse() {
         val warning: String? = null
         val spamblacklist: String? = null
 
-        val editSucceeded get() = !Prefs.hCaptchaUseTestSiteKeyEnabled && "Success" == status
+        val editSucceeded get() = "Success" == status
 
-        val hasHCaptchaResponse get() = Prefs.hCaptchaUseTestSiteKeyEnabled || (captcha?.type == "hcaptcha" && !captcha.key.isNullOrEmpty())
+        val hasHCaptchaResponse get() = captcha?.type == "hcaptcha" && !captcha.key.isNullOrEmpty()
         val hCaptchaKey get() = captcha?.key.orEmpty()
 
         val hasCaptchaResponse get() = captcha != null
