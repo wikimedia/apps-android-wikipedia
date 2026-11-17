@@ -1,7 +1,11 @@
 package org.wikipedia.search.interleave
 
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.style.BaselineShift
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -14,27 +18,40 @@ class SearchResultCardContentTest {
 
     @Test
     fun testSemanticExcerptIsPassageWithoutHighlight() {
-        val result = result(SearchResult.SearchResultType.SEMANTIC, snippet = "The <span class=\"searchmatch\">tower</span> is  tall.")
-        assertEquals("The tower is tall.", result.cardExcerpt())
+        val excerpt = result(SearchResult.SearchResultType.SEMANTIC, snippet = "The <span class=\"searchmatch\">tower</span> is  tall.").cardExcerpt()
+        assertEquals("The tower is tall.", excerpt.text)
+        assertTrue(excerpt.spanStyles.none { it.item.background != Color.Unspecified })
+    }
+
+    @Test
+    fun testExcerptKeepsSuperscripts() {
+        val excerpt = result(SearchResult.SearchResultType.SEMANTIC, snippet = "About 10<sup>6</sup> km away.").cardExcerpt()
+        assertEquals("About 106 km away.", excerpt.text)
+        assertTrue(excerpt.spanStyles.any { it.item.baselineShift == BaselineShift.Superscript && excerpt.text.substring(it.start, it.end) == "6" })
     }
 
     @Test
     fun testLexicalExcerptIsLeadNotSearchSnippet() {
         val result = result(SearchResult.SearchResultType.FULL_TEXT, snippet = "<span class=\"searchmatch\">match</span>", leadText = "The lead.")
-        assertEquals("The lead.", result.cardExcerpt())
+        assertEquals("The lead.", result.cardExcerpt().text)
     }
 
     @Test
     fun testEmptyLeadHasNoExcerpt() {
-        assertEquals("", result(SearchResult.SearchResultType.PREFIX, leadText = "").cardExcerpt())
-        assertEquals("", result(SearchResult.SearchResultType.PREFIX).cardExcerpt())
+        assertEquals("", result(SearchResult.SearchResultType.PREFIX, leadText = "").cardExcerpt().text)
+        assertEquals("", result(SearchResult.SearchResultType.PREFIX).cardExcerpt().text)
     }
 
     @Test
-    fun testTitleAndDescription() {
-        val result = result(SearchResult.SearchResultType.PREFIX, displayText = "<i>Titanic</i>", description = " ")
-        assertEquals("Titanic", result.cardTitle())
-        assertNull(result.cardDescription())
+    fun testTitleKeepsFormatting() {
+        val title = result(SearchResult.SearchResultType.PREFIX, displayText = "<i>Titanic</i> (film)").cardTitle()
+        assertEquals("Titanic (film)", title.text)
+        assertTrue(title.spanStyles.any { it.item.fontStyle == FontStyle.Italic && it.start == 0 && it.end == "Titanic".length })
+    }
+
+    @Test
+    fun testBlankDescriptionIsHidden() {
+        assertNull(result(SearchResult.SearchResultType.PREFIX, description = " ").cardDescription())
     }
 
     @Test

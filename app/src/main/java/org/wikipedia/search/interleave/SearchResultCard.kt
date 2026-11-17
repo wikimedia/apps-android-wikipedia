@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -79,7 +79,6 @@ fun SearchResultCard(
             .clickable(onClick = onItemClick)
             .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = if (onRelevanceClick != null) 4.dp else 16.dp)
     ) {
-        // Header: title, description and source trail, with the thumbnail beside them when there is one.
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -139,7 +138,7 @@ fun SearchResultCard(
             }
         }
 
-        if (excerpt.isNotEmpty()) {
+        if (excerpt.text.isNotEmpty()) {
             HorizontalDivider(
                 modifier = Modifier.padding(vertical = 8.dp),
                 color = WikipediaTheme.colors.borderColor,
@@ -256,7 +255,7 @@ private fun SearchResultRelevanceRow(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .height(58.dp),
+            .heightIn(min = 58.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
@@ -309,7 +308,7 @@ private fun previewResult(
     editCounts: Int? = 2348,
     referenceCounts: Int? = 35
 ): SearchResult {
-    val pageTitle = PageTitle(title, WikiSite.forLanguageCode(languageCode)).apply {
+    val pageTitle = PageTitle(title, WikiSite.preview(languageCode)).apply {
         this.description = description
         this.thumbUrl = thumbUrl
     }

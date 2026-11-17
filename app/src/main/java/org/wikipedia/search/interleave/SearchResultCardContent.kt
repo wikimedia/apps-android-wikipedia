@@ -1,5 +1,8 @@
 package org.wikipedia.search.interleave
 
+import androidx.compose.ui.text.AnnotatedString
+import org.wikipedia.compose.extensions.toAnnotatedString
+import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.search.SearchResult
 import org.wikipedia.util.StringUtil
 
@@ -7,8 +10,8 @@ import org.wikipedia.util.StringUtil
 private val WIKIS_WITHOUT_REFERENCE_COUNTS = setOf("ar")
 private val WHITESPACE_REGEX = "\\s+".toRegex()
 
-internal fun SearchResult.cardTitle(): String {
-    return StringUtil.removeHTMLTags(pageTitle.displayText).trim()
+internal fun SearchResult.cardTitle(): AnnotatedString {
+    return pageTitle.displayText.toAnnotatedStringWithBoldQuery(query = null)
 }
 
 internal fun SearchResult.cardDescription(): String? {
@@ -20,9 +23,12 @@ internal fun SearchResult.cardTrail(): String? {
     return sectionTitle?.let { StringUtil.removeHTMLTags(it).trim() }?.takeIf { it.isNotEmpty() }
 }
 
-internal fun SearchResult.cardExcerpt(): String {
+// Keeps superscripts, subscripts and italics, but drops the search-match highlight, which only appears in
+// the article after a tap (US-3). Lexical leads should be requested as HTML extracts (prop=extracts&exintro=1,
+// without explaintext=1), so they keep the same formatting as semantic passages instead of arriving flattened.
+internal fun SearchResult.cardExcerpt(): AnnotatedString {
     val raw = if (type == SearchResult.SearchResultType.SEMANTIC) snippet else leadText
-    return StringUtil.removeHTMLTags(raw.orEmpty()).replace(WHITESPACE_REGEX, " ").trim()
+    return StringUtil.fromHtml(raw.orEmpty().replace(WHITESPACE_REGEX, " ").trim()).toAnnotatedString()
 }
 
 internal fun SearchResult.cardThumbUrl(): String? {

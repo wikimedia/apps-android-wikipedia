@@ -14,8 +14,7 @@ object SearchResultCardPlaygroundSamples {
     // Cards whose attribution counts are shown as still loading.
     val attributionLoadingPageIds = setOf(8)
 
-    fun results(languageCode: String): List<SearchResult> {
-        val wikiSite = WikiSite.forLanguageCode(languageCode)
+    fun results(languageCode: String, wikiSite: WikiSite = WikiSite.forLanguageCode(languageCode)): List<SearchResult> {
         return CASES.zip(COPY.getValue(languageCode)).map { (case, copy) ->
             val pageTitle = PageTitle(copy.title, wikiSite).apply {
                 description = copy.description

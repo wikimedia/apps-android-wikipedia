@@ -39,6 +39,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.search.interleave.SearchResultCard
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
@@ -66,6 +67,7 @@ class SearchResultCardPlaygroundActivity : BaseActivity() {
 @Composable
 fun SearchResultCardPlaygroundScreen(
     initialTheme: Theme,
+    wikiSiteFor: (String) -> WikiSite = { WikiSite.forLanguageCode(it) },
     onBackClick: () -> Unit
 ) {
     var languageCode by remember { mutableStateOf(SearchResultCardPlaygroundSamples.languageCodes.first()) }
@@ -109,7 +111,7 @@ fun SearchResultCardPlaygroundScreen(
             BaseTheme(currentTheme = theme) {
                 val layoutDirection = if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
                 CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
-                    SearchResultCardPlaygroundList(languageCode = languageCode)
+                    SearchResultCardPlaygroundList(languageCode = languageCode, wikiSiteFor = wikiSiteFor)
                 }
             }
         }
@@ -117,8 +119,8 @@ fun SearchResultCardPlaygroundScreen(
 }
 
 @Composable
-private fun SearchResultCardPlaygroundList(languageCode: String) {
-    val results = remember(languageCode) { SearchResultCardPlaygroundSamples.results(languageCode) }
+private fun SearchResultCardPlaygroundList(languageCode: String, wikiSiteFor: (String) -> WikiSite) {
+    val results = remember(languageCode) { SearchResultCardPlaygroundSamples.results(languageCode, wikiSiteFor(languageCode)) }
     // Votes are kept only for this wiki's list, so switching wikis clears them.
     val votes = remember(languageCode) { mutableStateMapOf<Int, Boolean>() }
 
@@ -175,6 +177,10 @@ private fun <T> PlaygroundChipRow(
 @Composable
 private fun SearchResultCardPlaygroundScreenPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        SearchResultCardPlaygroundScreen(initialTheme = Theme.LIGHT, onBackClick = {})
+        SearchResultCardPlaygroundScreen(
+            initialTheme = Theme.LIGHT,
+            wikiSiteFor = { WikiSite.preview(it) },
+            onBackClick = {}
+        )
     }
 }
