@@ -255,7 +255,7 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_login_force_email_auth, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_login_force_email_auth, value)
 
-    var hCaptchaUseTestSiteKey
+    var hCaptchaUseTestSiteKeyEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_hcaptcha_use_test_site_key, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hcaptcha_use_test_site_key, value)
 
