@@ -784,11 +784,24 @@ interface Service {
         // Maximum cache time for site-specific data, and other things not likely to change very often.
         const val SITE_INFO_MAXAGE = 86400
 
+        private val WIKIMEDIA_AUTHORITIES = listOf(
+            WikiSite.BASE_DOMAIN,
+            BASE_AUTHORITY_WIKIMEDIA,
+            BASE_AUTHORITY_WIKIDATA,
+            "wikibooks.org",
+            "wikifunctions.org",
+            "wikinews.org",
+            "wikiquote.org",
+            "wikisource.org",
+            "wikiversity.org",
+            "wikivoyage.org",
+            "wiktionary.org",
+            "mediawiki.org"
+        )
+
         fun isWikimediaAuthority(authority: String?): Boolean {
             return !authority.isNullOrEmpty() &&
-                    (matchesAuthority(authority, WikiSite.BASE_DOMAIN) ||
-                            matchesAuthority(authority, BASE_AUTHORITY_WIKIMEDIA) ||
-                            matchesAuthority(authority, BASE_AUTHORITY_WIKIDATA))
+                    WIKIMEDIA_AUTHORITIES.any { matchesAuthority(authority, it) }
         }
 
         fun matchesAuthority(authority: String, match: String): Boolean {
