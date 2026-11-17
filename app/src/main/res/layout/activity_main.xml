@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".main.MainActivity">
 
     <FrameLayout
@@ -24,7 +23,7 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/main_toolbar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/main_nav_rail_container"

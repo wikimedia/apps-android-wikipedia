@@ -36,6 +36,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.ActivityTabFragment
 import org.wikipedia.activitytab.ActivityTabOnboardingActivity
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -610,13 +611,25 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     fun showNavTabTooltip(tab: NavTab, text: String, autoDismiss: Boolean, showDismissButton: Boolean = autoDismiss): Boolean {
         val tabBounds = navigationState.tabBounds[tab] ?: return false
-        val host = (requireActivity() as? MainActivity)?.getNavRail()?.takeIf { it.width > 0 } ?: binding.mainNavBar
+        val navRail = (requireActivity() as? MainActivity)?.getNavRail()?.takeIf { it.width > 0 }
+        val host = navRail ?: binding.mainNavBar
         val hostLocation = IntArray(2).also { host.getLocationInWindow(it) }
         val rootLocation = IntArray(2).also { binding.root.getLocationInWindow(it) }
-        binding.mainNavTooltipAnchor.translationX = hostLocation[0] - rootLocation[0] + tabBounds.center.x
-        binding.mainNavTooltipAnchor.translationY = hostLocation[1] - rootLocation[1] + tabBounds.top
-        FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTooltipAnchor, text,
-            aboveOrBelow = true, autoDismiss = autoDismiss, showDismissButton = showDismissButton)
+        val anchor = binding.mainNavTooltipAnchor
+        anchor.translationX = hostLocation[0] - rootLocation[0] + if (navRail != null) tabBounds.right else tabBounds.center.x
+        anchor.translationY = hostLocation[1] - rootLocation[1] + if (navRail != null) tabBounds.center.y else tabBounds.top
+
+        if (navRail != null) {
+            val balloon = FeedbackUtil.getTooltip(requireContext(), text, autoDismiss, showDismissButton = showDismissButton)
+            balloon.showAlignEnd(anchor)
+            if (!autoDismiss) {
+                (requireActivity() as BaseActivity).setCurrentTooltip(balloon)
+            }
+            BreadCrumbLogEvent.logTooltipShown(requireActivity(), anchor)
+        } else {
+            FeedbackUtil.showTooltip(requireActivity(), anchor, text,
+                aboveOrBelow = true, autoDismiss = autoDismiss, showDismissButton = showDismissButton)
+        }
         return true
     }
 
