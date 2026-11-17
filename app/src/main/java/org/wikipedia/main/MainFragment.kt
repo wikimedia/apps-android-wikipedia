@@ -30,6 +30,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.skydoves.balloon.ArrowOrientation
+import com.skydoves.balloon.ArrowPositionRules
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.BackPressedHandler
@@ -645,7 +646,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         val anchor = binding.mainNavTooltipAnchor
         // Balloon adds the anchor's translation on top of its on-screen position, so move the anchor with margins instead.
         anchor.updateLayoutParams<ConstraintLayout.LayoutParams> {
-            leftMargin = (hostLocation[0] - rootLocation[0] + tabX).roundToInt().coerceAtLeast(0)
+            val x = (hostLocation[0] - rootLocation[0] + tabX).roundToInt()
+            marginStart = (if (isRtl) binding.root.width - x - anchor.width else x).coerceAtLeast(0)
             topMargin = (hostLocation[1] - rootLocation[1] + tabY).roundToInt().coerceAtLeast(0)
         }
         anchor.doOnLayout {
@@ -653,9 +655,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                 return@doOnLayout
             }
             if (navRail != null) {
+                // The balloon is centered on the tab, so a centered arrow points at it. ALIGN_ANCHOR would push
+                // the arrow off short balloons, since Balloon keeps it at least two arrow heights from either edge.
                 val balloon = FeedbackUtil.getTooltip(requireContext(), text, autoDismiss, showDismissButton = showDismissButton,
-                    arrowOrientation = if (isRtl) ArrowOrientation.END else ArrowOrientation.START)
-                if (isRtl) balloon.showAlignStart(anchor) else balloon.showAlignEnd(anchor)
+                    arrowOrientation = ArrowOrientation.START,
+                    arrowPositionRules = ArrowPositionRules.ALIGN_BALLOON)
+                balloon.showAlignEnd(anchor)
                 if (!autoDismiss) {
                     (requireActivity() as BaseActivity).setCurrentTooltip(balloon)
                 }

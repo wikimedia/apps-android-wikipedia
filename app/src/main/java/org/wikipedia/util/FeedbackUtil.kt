@@ -224,6 +224,7 @@ object FeedbackUtil {
         countNum: Int = 0,
         countTotal: Int = 0,
         arrowOrientation: ArrowOrientation = ArrowOrientation.BOTTOM,
+        arrowPositionRules: ArrowPositionRules = ArrowPositionRules.ALIGN_ANCHOR,
     ): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
@@ -246,9 +247,11 @@ object FeedbackUtil {
 
         val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
-            setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
+            setArrowPositionRules(arrowPositionRules)
             setArrowOrientation(arrowOrientation)
-            setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
+            // Balloon's ALIGN_ANCHOR flips START/END by comparing screen positions, which breaks side arrows in RTL.
+            val isSideArrow = arrowOrientation == ArrowOrientation.START || arrowOrientation == ArrowOrientation.END
+            setArrowOrientationRules(if (isSideArrow) ArrowOrientationRules.ALIGN_FIXED else ArrowOrientationRules.ALIGN_ANCHOR)
             setArrowSize(16)
             setMarginLeft(8)
             setMarginRight(8)
