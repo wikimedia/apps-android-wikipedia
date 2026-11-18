@@ -1,10 +1,8 @@
 package org.wikipedia.navtab
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Badge
@@ -274,4 +272,3 @@ private fun MainNavigationRailPreview() {
     val state = MainNavigationState(Theme.DARK).apply { setDot(NavTab.EDITS, true) }
     BaseTheme(currentTheme = state.theme) { MainNavigationRail(state, onTabClick = {}) }
 }
-
