@@ -32,7 +32,7 @@ class RemoteConfigRefreshTask() : RecurringTask() {
     companion object {
         suspend fun refreshFromBackground() {
             try {
-                RemoteConfigRefreshTask().runIfNecessary()
+                RemoteConfigRefreshTask().runIfNecessary(force = true)
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
