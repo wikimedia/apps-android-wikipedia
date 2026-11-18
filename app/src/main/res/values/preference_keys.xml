@@ -69,7 +69,6 @@
     <string name="preference_key_prefer_offline_content" translatable="false">preferOfflineContent</string>
     <string name="preference_key_feed_cards_order" translatable="false">feedCardsOrder</string>
     <string name="preference_key_feed_cards_enabled" translatable="false">feedCardsEnabled</string>
-    <string name="preference_key_feed_cards_lang_supported" translatable="false">feedCardsLangSupported</string>
     <string name="preference_key_feed_cards_lang_disabled" translatable="false">feedCardsLangDisabled</string>
     <string name="preference_key_feed_customize_onboarding_card_enabled" translatable="false">feedCustomizeOnboardingCardEnabled</string>
     <string name="preference_key_add_articles" translatable="false">addArticles</string>
@@ -173,7 +172,6 @@
     <string name="preference_key_payment_methods_merchant_id" translatable="false">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id" translatable="false">paymentMethodsGatewayId</string>
     <string name="preference_key_otd_game_state" translatable="false">otdGameState</string>
-    <string name="preference_key_otd_game_history" translatable="false">otdGameHistory</string>
     <string name="preference_key_otd_last_played_date" translatable="false">otdLastPlayedDate</string>
     <string name="preference_key_otd_game_date_override" translatable="false">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions" translatable="false">otdGameNumQuestions</string>
