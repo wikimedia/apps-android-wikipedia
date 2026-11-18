@@ -136,6 +136,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 withTimeoutOrNull(5000L.milliseconds) {
                     RemoteConfigRefreshTask.refreshFromBackground()
                 }
+                if (!Prefs.isRecommendedReadingListNotificationEnabled) {
+                    // Disabled from Discover settings while the remote config was refreshing.
+                    RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(context)
+                    return@launch
+                }
                 if (!NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
                     // Move from the experiment's weekly alarm back to the regular schedule.
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
