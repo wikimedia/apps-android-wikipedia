@@ -229,6 +229,7 @@ interface Service {
         @Query("grnlimit") count: Int = 10,
     ): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&prop=info|description|imageinfo|revisions|globalusage&inprop=protection&gunamespace=0&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iilocalonly=1&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     suspend fun getRandomImages(
         @Query("grnlimit") count: Int = 10,
@@ -583,7 +584,7 @@ interface Service {
         @Field("token") token: String,
         @Field("assert") user: String?,
         @Field("matags") tags: String? = null,
-        @Field("captchaword") captchaWord: String? = null,
+        @Field("captchaword") captchaWord: String? = null
     ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
@@ -598,7 +599,7 @@ interface Service {
         @Field("token") token: String,
         @Field("assert") user: String?,
         @Field("matags") tags: String? = null,
-        @Field("captchaword") captchaWord: String? = null,
+        @Field("captchaword") captchaWord: String? = null
     ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
@@ -609,7 +610,7 @@ interface Service {
         @Field("data") data: String?,
         @Field("summary") summary: String?,
         @Field("matags") tags: String?,
-        @Field("captchaword") captchaWord: String? = null,
+        @Field("captchaword") captchaWord: String? = null
     ): EntityPostResponse
 
     // ------- Watchlist -------
