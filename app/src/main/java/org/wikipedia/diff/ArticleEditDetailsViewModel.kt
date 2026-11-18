@@ -206,7 +206,7 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
         }
     }
 
-    fun undoEdit(title: PageTitle, user: String, comment: String, revisionId: Long, revisionIdAfter: Long) {
+    fun undoEdit(title: PageTitle, user: String, comment: String, revisionId: Long, revisionIdAfter: Long, captchaWord: String? = null) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             undoEditResponse.postValue(Resource.Error(throwable))
         }) {
@@ -215,7 +215,8 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
             val summary = if (undoMessage != null) "$undoMessage $comment" else comment
             val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
             val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
-                    null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null, tags = getEditTags(EditTags.APP_UNDO))
+                    null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null,
+                tags = getEditTags(EditTags.APP_UNDO), captchaWord = captchaWord)
             undoEditResponse.postValue(Resource.Success(undoResponse))
         }
     }
