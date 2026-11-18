@@ -163,8 +163,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         viewModel.postReplyData.observe(this) {
             if (it is Resource.Success) {
+                if (it.data.hasHCaptchaResponse) {
+                    // TODO: handle hCaptcha
+                    return@observe
+                }
                 savedSuccess = true
-                onSaveSuccess(it.data)
+                onSaveSuccess(it.data.newRevId)
             } else if (it is Resource.Error) {
                 onSaveError(it.throwable)
             }

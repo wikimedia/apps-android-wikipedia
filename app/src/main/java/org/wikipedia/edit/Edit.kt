@@ -20,6 +20,8 @@ class Edit : MwPostResponse() {
         val info: String? = null
         val warning: String? = null
         val spamblacklist: String? = null
+        val content: String = ""
+        val watched: Boolean = false
 
         val editSucceeded get() = "Success" == status
 

@@ -10,6 +10,7 @@ import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.edit.Edit
 import org.wikipedia.edit.EditTags
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.db.TalkTemplate
@@ -34,7 +35,7 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val toRevisionId = savedStateHandle[TalkReplyActivity.TO_REVISION_ID] ?: -1L
     val isNewTopic = topic == null && !isFromDiff
 
-    val postReplyData = SingleLiveData<Resource<Long>>()
+    val postReplyData = SingleLiveData<Resource<Edit.Result>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
     val pageExistsData = MutableLiveData<Resource<Boolean>>()
     var doesPageExist = false
@@ -70,17 +71,19 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         }
     }
 
-    fun postReply(subject: String, body: String) {
+    fun postReply(subject: String, body: String, captchaToken: String? = null) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             postReplyData.postValue(Resource.Error(throwable))
         }) {
             val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
             val response = if (topic != null) {
-                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, topic.id, body, token, tags = EditTags.APP_TALK_REPLY)
+                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, topic.id, body, token,
+                    tags = EditTags.APP_TALK_REPLY, captchaWord = captchaToken)
             } else {
-                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token, tags = EditTags.APP_TALK_TOPIC)
+                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token,
+                    tags = EditTags.APP_TALK_TOPIC, captchaWord = captchaToken)
             }
-            postReplyData.postValue(Resource.Success(response.result!!.newRevId))
+            postReplyData.postValue(Resource.Success(response.result?.edit!!))
         }
     }
 
