@@ -17,10 +17,10 @@ import kotlin.math.min
  * last run times are tracked automatically by the base class.
  */
 abstract class RecurringTask {
-    suspend fun runIfNecessary() {
+    suspend fun runIfNecessary(force: Boolean = false) {
         val lastRunDate = lastRunDate
         val lastExecutionLog = "$name. Last execution was $lastRunDate."
-        if (shouldRun(lastRunDate)) {
+        if (force || shouldRun(lastRunDate)) {
             L.d("Executing recurring task, $lastExecutionLog")
             run(lastRunDate)
             Prefs.setLastRunTime(name, absoluteTime)
