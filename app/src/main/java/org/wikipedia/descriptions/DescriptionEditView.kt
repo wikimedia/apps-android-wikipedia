@@ -437,7 +437,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
     }
 
     fun updateCaptchaDisclaimer(text: String?) {
-        binding.hCaptchaDisclaimer.text = StringUtil.fromHtml(text)
+        binding.hCaptchaDisclaimer.text = StringUtil.fromHtml(StringUtil.parseWikitextExternalLinks(text.orEmpty()))
     }
 
     fun showSuggestedDescriptionsLoadingProgress() {
