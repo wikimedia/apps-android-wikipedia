@@ -7,10 +7,11 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.edit.Edit
 import org.wikipedia.edit.EditTags
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.db.TalkTemplate
@@ -35,12 +36,13 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val toRevisionId = savedStateHandle[TalkReplyActivity.TO_REVISION_ID] ?: -1L
     val isNewTopic = topic == null && !isFromDiff
 
-    val postReplyData = SingleLiveData<Resource<Edit.Result>>()
+    val postReplyData = SingleLiveData<Resource<DiscussionToolsEditResponse.EditResult>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
     val pageExistsData = MutableLiveData<Resource<Boolean>>()
     var doesPageExist = false
     var tempAccountsEnabled = true
     var editCount = 0
+    var hCaptchaPolicyMessage: String? = null
 
     init {
         if (isFromDiff) {
@@ -53,10 +55,11 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
+            ServiceFactory.get(pageTitle.wikiSite).getPageIdsWithMessage(pageTitle.prefixedText, HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE).let {
                 doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
                 tempAccountsEnabled = it.query?.autoCreateTempUser?.enabled == true
                 editCount = it.query?.userInfo?.editCount ?: 0
+                hCaptchaPolicyMessage = it.query?.allmessages?.find { message -> message.name == HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE }?.content
             }
             pageExistsData.postValue(Resource.Success(doesPageExist))
         }
@@ -83,7 +86,7 @@ class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token,
                     tags = EditTags.APP_TALK_TOPIC, captchaWord = captchaToken)
             }
-            postReplyData.postValue(Resource.Success(response.result?.edit!!))
+            postReplyData.postValue(Resource.Success(response.result!!))
         }
     }
 
