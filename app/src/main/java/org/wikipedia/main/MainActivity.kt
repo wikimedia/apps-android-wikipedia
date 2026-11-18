@@ -100,8 +100,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         binding.mainToolbar.navigationIcon = null
     }
 
-    fun getNavRail(): View = binding.mainNavRail
-
     override fun onResume() {
         super.onResume()
         invalidateOptionsMenu()
@@ -120,8 +118,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
             applyNavBarTheme(if ((fragment.currentFragment as? HomeFragment)?.getCurrentTab() == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme)
         } else {
-            if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip &&
-                fragment.showNavTabTooltip(tab = NavTab.SEARCH, text = getString(R.string.search_tab_tooltip), autoDismiss = false, showDismissButton = false)) {
+            if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
+                fragment.showNavTabTooltip(NavTab.SEARCH, getString(R.string.search_tab_tooltip))
                 Prefs.showSearchTabTooltip = false
             }
             if (tab == NavTab.EDITS) {

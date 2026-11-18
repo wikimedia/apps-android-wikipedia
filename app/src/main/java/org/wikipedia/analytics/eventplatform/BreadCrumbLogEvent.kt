@@ -76,8 +76,11 @@ class BreadCrumbLogEvent(
         }
 
         fun logTooltipShown(context: Context, anchor: View) {
-            val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(anchor)
-            EventPlatformClient.submit(BreadCrumbLogEvent(context.javaClass.simpleName.orEmpty(), "$viewReadableName.tooltip"))
+            logTooltipShown(context, BreadCrumbViewUtil.getReadableNameForView(anchor))
+        }
+
+        fun logTooltipShown(context: Context, anchorName: String) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(context.javaClass.simpleName.orEmpty(), "$anchorName.tooltip"))
         }
 
         fun logSettingsSelection(context: Context, title: String, newValue: Any? = null) {

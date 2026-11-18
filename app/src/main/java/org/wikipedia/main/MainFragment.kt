@@ -16,21 +16,15 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
-import androidx.core.view.doOnLayout
-import androidx.core.view.doOnPreDraw
 import androidx.core.view.isVisible
-import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.skydoves.balloon.ArrowOrientation
-import com.skydoves.balloon.ArrowPositionRules
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.BackPressedHandler
@@ -69,6 +63,7 @@ import org.wikipedia.navtab.MainNavigationType
 import org.wikipedia.navtab.MenuNavTabDialog
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter
+import org.wikipedia.navtab.NavTabTooltip
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -101,7 +96,6 @@ import org.wikipedia.widgets.SearchWidgetInstallDialog
 import org.wikipedia.yearinreview.presentation.YearInReviewViewModel
 import java.io.File
 import java.util.concurrent.TimeUnit
-import kotlin.math.roundToInt
 
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
     interface Callback {
@@ -562,7 +556,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
                 Prefs.readAloudLeadSectionTooltipShown = true
                 binding.root.post {
                     if (isAdded) {
-                        showNavTabTooltip(NavTab.HOME, getString(R.string.read_aloud_lead_section_tooltip_text), autoDismiss = false, showDismissButton = true)
+                        showNavTabTooltip(NavTab.HOME, getString(R.string.read_aloud_lead_section_tooltip_text), showDismissButton = true)
                         // For the purposes of this experiment, explicitly clear today's cache of For You content,
                         // so that the Audio content can be loaded when the user goes to For You.
                         Prefs.homeForYouModulesToday = ""
@@ -616,60 +610,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
         }
     }
 
-    fun showNavTabTooltip(tab: NavTab, text: String, autoDismiss: Boolean, showDismissButton: Boolean = autoDismiss): Boolean {
-        if (navigationState.tabBounds[tab] == null) {
-            return false
-        }
-        // Measure on the next frame, after pending layout changes such as the toolbar appearing on a tab change.
-        binding.root.doOnPreDraw {
-            if (isAdded) {
-                placeNavTabTooltip(tab, text, autoDismiss, showDismissButton)
-            }
-        }
-        binding.root.invalidate()
-        return true
-    }
-
-    private fun placeNavTabTooltip(tab: NavTab, text: String, autoDismiss: Boolean, showDismissButton: Boolean) {
-        val tabBounds = navigationState.tabBounds[tab] ?: return
-        val navRail = (requireActivity() as? MainActivity)?.getNavRail()?.takeIf { it.width > 0 }
-        val host = navRail ?: binding.mainNavBar
-        val hostLocation = IntArray(2).also { host.getLocationInWindow(it) }
-        val rootLocation = IntArray(2).also { binding.root.getLocationInWindow(it) }
-        val isRtl = binding.root.layoutDirection == View.LAYOUT_DIRECTION_RTL
-        val tabX = when {
-            navRail == null -> tabBounds.center.x
-            isRtl -> tabBounds.left
-            else -> tabBounds.right
-        }
-        val tabY = if (navRail != null) tabBounds.center.y else tabBounds.top
-        val anchor = binding.mainNavTooltipAnchor
-        // Balloon adds the anchor's translation on top of its on-screen position, so move the anchor with margins instead.
-        anchor.updateLayoutParams<ConstraintLayout.LayoutParams> {
-            val x = (hostLocation[0] - rootLocation[0] + tabX).roundToInt()
-            marginStart = (if (isRtl) binding.root.width - x - anchor.width else x).coerceAtLeast(0)
-            topMargin = (hostLocation[1] - rootLocation[1] + tabY).roundToInt().coerceAtLeast(0)
-        }
-        anchor.doOnLayout {
-            if (!isAdded) {
-                return@doOnLayout
-            }
-            if (navRail != null) {
-                // The balloon is centered on the tab, so a centered arrow points at it. ALIGN_ANCHOR would push
-                // the arrow off short balloons, since Balloon keeps it at least two arrow heights from either edge.
-                val balloon = FeedbackUtil.getTooltip(requireContext(), text, autoDismiss, showDismissButton = showDismissButton,
-                    arrowOrientation = ArrowOrientation.START,
-                    arrowPositionRules = ArrowPositionRules.ALIGN_BALLOON)
-                balloon.showAlignEnd(anchor)
-                if (!autoDismiss) {
-                    (requireActivity() as BaseActivity).setCurrentTooltip(balloon)
-                }
-                BreadCrumbLogEvent.logTooltipShown(requireActivity(), anchor)
-            } else {
-                FeedbackUtil.showTooltip(requireActivity(), anchor, text,
-                    aboveOrBelow = true, autoDismiss = autoDismiss, showDismissButton = showDismissButton)
-            }
-        }
+    fun showNavTabTooltip(tab: NavTab, text: String, showDismissButton: Boolean = false) {
+        navigationState.tooltip = NavTabTooltip(tab, text, showDismissButton)
+        BreadCrumbLogEvent.logTooltipShown(requireActivity(), "nav_tab_${tab.name.lowercase()}")
     }
 
     override fun onNavigateTo(navTab: NavTab) {
