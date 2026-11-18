@@ -286,17 +286,19 @@ object EditingSuggestionsProvider {
             try {
                 if (!imagesWithMissingTagsCache.isEmpty()) {
                     page = imagesWithMissingTagsCache.removeFirst()
+                } else {
+                    var tries = 0
+                    do {
+                        val response = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages()
+                        response.query?.pages?.filter { it.imageInfo()?.mime == "image/jpeg" }
+                            ?.forEach { page ->
+                                if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
+                                    imagesWithMissingTagsCache.addFirst(page)
+                                }
+                            }
+                    } while (tries++ < retryLimit && imagesWithMissingTagsCache.isEmpty())
+                    page = imagesWithMissingTagsCache.removeFirst()
                 }
-                var tries = 0
-                do {
-                    val response = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages()
-                    response.query?.pages?.filter { it.imageInfo()?.mime == "image/jpeg" }?.forEach { page ->
-                        if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
-                            imagesWithMissingTagsCache.addFirst(page)
-                        }
-                    }
-                } while (tries++ < retryLimit && imagesWithMissingTagsCache.isEmpty())
-                page = imagesWithMissingTagsCache.removeFirst()
             } finally {
                 mutex.release()
             }
