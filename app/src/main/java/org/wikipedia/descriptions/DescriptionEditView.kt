@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.text.method.LinkMovementMethod
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
@@ -76,6 +77,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
         FeedbackUtil.setButtonTooltip(binding.viewDescriptionEditSaveButton, binding.viewDescriptionEditCancelButton)
         orientation = VERTICAL
         mlKitLanguageDetector.callback = this
+        binding.hCaptchaDisclaimer.movementMethod = LinkMovementMethod.getInstance()
 
         binding.viewDescriptionEditSaveButton.setOnClickListener {
             validateText()
@@ -432,6 +434,10 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
             if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) context.getString(R.string.description_edit_learn_more)
             else context.getString(R.string.description_edit_image_caption_learn_more)
+    }
+
+    fun updateCaptchaDisclaimer(text: String?) {
+        binding.hCaptchaDisclaimer.text = StringUtil.fromHtml(text)
     }
 
     fun showSuggestedDescriptionsLoadingProgress() {
