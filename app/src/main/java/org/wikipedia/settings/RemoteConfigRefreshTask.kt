@@ -1,10 +1,12 @@
 package org.wikipedia.settings
 
+import kotlinx.coroutines.CancellationException
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.recurring.RecurringTask
+import org.wikipedia.util.log.L
 import java.util.Date
 import java.util.concurrent.TimeUnit
 
@@ -24,6 +26,18 @@ class RemoteConfigRefreshTask() : RecurringTask() {
         if (AccountUtil.isLoggedIn) {
             val userInfo = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo()
             Prefs.donationBannerOptIn = userInfo.query?.userInfo?.options?.optedInToFundraising == true
+        }
+    }
+
+    companion object {
+        suspend fun refreshFromBackground() {
+            try {
+                RemoteConfigRefreshTask().runIfNecessary(force = true)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                L.w(e)
+            }
         }
     }
 }
