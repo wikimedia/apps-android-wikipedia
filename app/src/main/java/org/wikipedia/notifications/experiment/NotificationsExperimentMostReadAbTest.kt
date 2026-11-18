@@ -67,6 +67,7 @@ class NotificationsExperimentMostReadAbTest : ABTest("trending-notifications-tes
                 }
             }
             TestKitchenAdapter.client.getInstrument("apps-notifications")
+                .also { setExperimentIfEligible(it) }
                 .submitInteraction(action = "notification_status", actionContext = actionContext)
         }
     }
