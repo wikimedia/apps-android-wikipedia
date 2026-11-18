@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -28,6 +29,7 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.experiment.NotificationsExperimentAbTest
 import org.wikipedia.notifications.experiment.NotificationsExperimentHelper
 import org.wikipedia.notifications.experiment.NotificationsExperimentMostReadAbTest
 import org.wikipedia.notifications.experiment.WeeklyMostReadNotificationWorker
@@ -35,11 +37,13 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfigRefreshTask
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
+import kotlin.time.Duration.Companion.milliseconds
 
 class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
@@ -103,19 +107,42 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 }
                 // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
                 RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context, fromFiredAlarm = true)
-                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
+                if (!NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+                    RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
+                    return
+                }
+                showRecommendedReadingListNotificationAfterRemoteConfigRefresh(context)
             }
 
             ACTION_WEEKLY_MOST_READ == intent.action -> {
                 if (!NotificationsExperimentMostReadAbTest().isNotificationsExperimentEligible()) {
-                    NotificationsExperimentHelper.cancelNotification(context)
-                    // Allow maybeScheduleWeeklyMostReadNotification() to schedule again once the user becomes eligible again.
-                    Prefs.notificationsExperimentWeeklyMostReadScheduled = false
+                    NotificationsExperimentHelper.stopWeeklyMostReadNotification(context)
                     return
                 }
                 // Re-arm before showing, so that a failure while showing can't break the one-shot alarm chain of the experiment.
                 NotificationsExperimentHelper.scheduleNotification(context, fromFiredAlarm = true)
                 WeeklyMostReadNotificationWorker.enqueue(context)
+            }
+        }
+    }
+
+    // Without a refresh, users who don't open the app would stay in the experiment after it's turned off remotely.
+    private fun showRecommendedReadingListNotificationAfterRemoteConfigRefresh(context: Context) {
+        val pendingResult = goAsync()
+        MainScope().launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            try {
+                withTimeoutOrNull(5000L.milliseconds) {
+                    RemoteConfigRefreshTask.refreshFromBackground()
+                }
+                if (!NotificationsExperimentAbTest().isNotificationsExperimentEligible()) {
+                    // Move from the experiment's weekly alarm back to the regular schedule.
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                }
+                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
+            } finally {
+                pendingResult.finish()
             }
         }
     }
@@ -131,7 +158,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
         const val TYPE_MULTIPLE = "multiple"
-
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
 
