@@ -19,11 +19,12 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         invokeSource: Constants.InvokeSource,
         continuation: Int?,
         batchSize: Int,
-        isPrefixSearch: Boolean,
-        countsPerLanguageCode: MutableList<Pair<String, Int>>
+        isPrefixSearch: Boolean
     ): StandardSearchResults {
         val wikiSite = WikiSite.forLanguageCode(languageCode)
-        val resultList = mutableListOf<SearchResult>()
+        // Local results are kept out of the lexical list so that it is built by the shared lexical list spec, like on iOS.
+        val localResults = mutableListOf<SearchResult>()
+        val lexicalResults = mutableListOf<SearchResult>()
         var response: MwQueryResponse? = null
         var currentContinuation = continuation
         var lastXSearchIdPrefix: String? = null
@@ -39,7 +40,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
                     }, async {
                         AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(wikiSite, searchTerm)
                     }).awaitAll().forEach {
-                        resultList.addAll(it.results.take(1))
+                        localResults.addAll(it.results.take(1))
                     }
                 }
             }
@@ -49,42 +50,23 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             currentContinuation = 0
         }
 
-        resultList.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.PREFIX))
+        lexicalResults.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.PREFIX))
 
-        if (resultList.size < batchSize) {
+        if (lexicalResults.size < batchSize) {
             val fullTextResponse = ServiceFactory.get(wikiSite)
                 .fullTextSearchResponse(searchTerm, batchSize, currentContinuation)
             lastXSearchIdFullText = fullTextResponse.headers()["x-search-id"]
             response = fullTextResponse.body()
             currentContinuation = response?.continuation?.gsroffset
-            resultList.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.FULL_TEXT))
-        }
-
-        if (resultList.isEmpty() && response?.continuation == null) {
-            countsPerLanguageCode.clear()
-            WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
-                var countResultSize = 0
-                if (langCode != languageCode) {
-                    val prefixSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                        .prefixSearch(searchTerm, batchSize, 0)
-                    prefixSearchResponse.query?.pages?.let {
-                        countResultSize = it.size
-                    }
-                    if (countResultSize == 0) {
-                        val fullTextSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                            .fullTextSearch(searchTerm, batchSize, null)
-                        countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
-                    }
-                }
-                countsPerLanguageCode.add(langCode to countResultSize)
-            }
+            lexicalResults.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.FULL_TEXT))
         }
 
         return StandardSearchResults(
-            results = resultList.distinctBy { it.pageTitle.prefixedText }.toMutableList(),
+            results = lexicalResults.distinctBy { it.pageId },
             continuation = currentContinuation,
             xSearchIdPrefix = lastXSearchIdPrefix,
-            xSearchIdFullText = lastXSearchIdFullText
+            xSearchIdFullText = lastXSearchIdFullText,
+            localResults = localResults.distinctBy { it.pageTitle.prefixedText }
         )
     }
 
@@ -104,5 +86,8 @@ data class StandardSearchResults(
     var results: List<SearchResult>,
     val continuation: Int?,
     val xSearchIdPrefix: String? = null,
-    val xSearchIdFullText: String? = null
+    val xSearchIdFullText: String? = null,
+    val xSearchIdSemantic: String? = null,
+    // Tab, history and reading list matches, shown above the results and never merged with them.
+    val localResults: List<SearchResult> = emptyList()
 )

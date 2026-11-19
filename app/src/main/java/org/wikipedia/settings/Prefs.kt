@@ -1031,23 +1031,6 @@ object Prefs {
     var readAloudLeadSectionOverrideConfig
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_override_config, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_override_config, value)
-
-    var isSemanticSearchEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_enabled, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_enabled, value)
-
-    var isSemanticSearchFirstUse
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_first_use, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_first_use, value)
-
-    var semanticSearchLanguageOverride
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_override_supported_language, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_override_supported_language, value)
-
-    var semanticSearchIsTestActive
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_is_test_active, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_is_test_active, value)
-
     var notificationsIsTestActive
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_is_test_active, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_is_test_active, value)

@@ -55,8 +55,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.search.semantic.SemanticSearchEntryCard
-import org.wikipedia.settings.Prefs
+import org.wikipedia.search.interleave.InterleaveSearchEntryCard
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -72,18 +71,15 @@ fun SearchResultsScreen(
     onNavigateToTitle: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
-    onSemanticSearchClick: (String?, Boolean) -> Unit,
     onSemanticSearchInfoClick: () -> Unit,
-    onSemanticSearchCloseClick: () -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
-    val isSemanticSearchEnabledState = viewModel.isSemanticSearchEnabled.collectAsState()
-    val isSemanticSearchEnabled = isSemanticSearchEnabledState.value && viewModel.invokeSource != Constants.InvokeSource.PLACES
-    val isSemanticSearchFirstUse = viewModel.isSemanticSearchFirstUse.collectAsState()
+    val isInterleaveSearchEnabledState = viewModel.isInterleaveSearchEnabled.collectAsState()
+    val isInterleaveSearchEnabled = isInterleaveSearchEnabledState.value && viewModel.invokeSource != Constants.InvokeSource.PLACES
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
 
@@ -109,16 +105,15 @@ fun SearchResultsScreen(
     val shouldShowNoResults =
         loadState.append is LoadState.NotLoading &&
         loadState.append.endOfPaginationReached &&
-        searchResults.itemCount == 0 &&
-        !isSemanticSearchEnabled
+        searchResults.itemCount == 0
 
     val shouldLogNoResultsImpression =
         shouldShowNoResults &&
         countsPerLanguageCode.isNotEmpty() &&
         viewModel.invokeSource == Constants.InvokeSource.PLACES
 
-    val shouldShowSemanticSearchEntryPoint =
-        isSemanticSearchEnabled &&
+    val shouldShowInterleaveSearchEntry =
+        isInterleaveSearchEnabled &&
                 !searchTerm.value.isNullOrBlank() &&
                 loadState.refresh !is LoadState.Error &&
                 !isErrorState
@@ -133,24 +128,11 @@ fun SearchResultsScreen(
         LazyColumn(
             modifier = modifier
         ) {
-            if (shouldShowSemanticSearchEntryPoint) {
+            if (shouldShowInterleaveSearchEntry) {
                 item {
-                    SemanticSearchEntryCard(
+                    InterleaveSearchEntryCard(
                         languageCode = languageCode.value,
-                        searchTerm = searchTerm.value,
-                        onCloseClick = {
-                            viewModel.disableSemanticSearch()
-                            onSemanticSearchCloseClick()
-                        },
-                        onInfoBtnClick = { onSemanticSearchInfoClick() },
-                        onSemanticSearchClick = {
-                            val isSemanticSearchFirstUse = isSemanticSearchFirstUse.value
-                            if (isSemanticSearchFirstUse) {
-                                Prefs.isSemanticSearchFirstUse = false
-                            }
-                            onSemanticSearchClick(searchTerm.value, isSemanticSearchFirstUse)
-                        },
-                        isFirstUse = isSemanticSearchFirstUse.value
+                        onInfoButtonClick = { onSemanticSearchInfoClick() }
                     )
                 }
             }
@@ -177,12 +159,10 @@ fun SearchResultsScreen(
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    if (!isSemanticSearchEnabled) {
-                        noSearchResults(
-                            countsPerLanguageCode = countsPerLanguageCode,
-                            onLanguageClick = onLanguageClick
-                        )
-                    }
+                    noSearchResults(
+                        countsPerLanguageCode = countsPerLanguageCode,
+                        onLanguageClick = onLanguageClick
+                    )
                 }
 
                 else -> {
@@ -240,7 +220,8 @@ fun SearchResultPageItem(
     val iconResId = when (type) {
         SearchResult.SearchResultType.HISTORY -> R.drawable.ic_history_24
         SearchResult.SearchResultType.TAB_LIST -> R.drawable.ic_tab_one_24px
-        else -> R.drawable.ic_bookmark_border_white_24dp
+        SearchResult.SearchResultType.READING_LIST -> R.drawable.ic_bookmark_border_white_24dp
+        else -> null
     }
 
     val showImage =
@@ -323,7 +304,7 @@ fun SearchResultPageItem(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                if (type != SearchResult.SearchResultType.PREFIX && type != SearchResult.SearchResultType.FULL_TEXT) {
+                if (iconResId != null) {
                     Image(
                         modifier = Modifier
                             .size(20.dp),
