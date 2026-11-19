@@ -10,6 +10,7 @@
 * Cobija
 * Cooltey
 * Dbrant
+* Efygz
 * Envlh
 * Fitoschido
 * Gambollar
@@ -1931,6 +1932,7 @@
   <string name="wikipedia_games_title">Vikipedi oyunları</string>
   <string name="wikipedia_games_subtitle">Vikipedi içeriğine dayalı günlük bilgi yarışması oyunları.</string>
   <string name="yir_minutes_read_headline">Okumaya harcanan toplam dakika:</string>
+  <string name="yir_reading_streak_headline">En uzun okuma serinizdeki gün sayısı:</string>
   <string name="yir_contributor_thanks_headline">Teşekkürler!</string>
   <string name="yir_quiz_headline">Sen hangi Vikipedi\'sin?</string>
   <string name="yir_quiz_action">Testi çöz</string>
@@ -2482,6 +2484,7 @@
   <string name="home_feed_games_module_cta_prompt_title">Daha fazla oyun oynamak ister misiniz?</string>
   <string name="home_feed_games_module_cta_prompt_subtitle">Oyun merkezine gidin</string>
   <string name="home_feed_games_module_cta_prompt_button_text">Oyun merkezi</string>
+  <string name="random_article_widget_name">Rastgele makale</string>
   <string name="reading_lists_remove_articles_confirm_button">Kaydetmeyi geri al</string>
   <string name="reading_lists_save_sheet_create">Oluştur</string>
   <string name="semantic_search_results_feedback_input_hint">Bize daha fazla bilgi verin (isteğe bağlı)</string>
