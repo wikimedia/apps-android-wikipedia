@@ -9,12 +9,16 @@ import coil3.transform.Transformation
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 
-class DimImageTransformation : Transformation(), ImageTransformer {
-    override val cacheKey = "DimImageTransformation"
+class DimImageTransformation(
+    private val dimImages: Boolean = WikipediaApp.instance.currentTheme.isDark && Prefs.dimDarkModeImages
+) : Transformation(), ImageTransformer {
+    // The dimming state must be part of the cache key, otherwise a bitmap that was already
+    // transformed for one theme is reused for the other theme.
+    override val cacheKey = "DimImageTransformation:$dimImages"
 
     override suspend fun transform(input: Bitmap, size: Size): Bitmap {
         val result = if (input.isMutable) input else input.copy(input.config ?: android.graphics.Bitmap.Config.ARGB_8888, true)
-        if (WikipediaApp.instance.currentTheme.isDark && Prefs.dimDarkModeImages) {
+        if (dimImages) {
             result.applyCanvas {
                 drawPaint(Paint().apply { color = Color.argb(51, 0, 0, 0) })
             }
