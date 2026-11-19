@@ -2,6 +2,7 @@ package org.wikipedia.search
 
 import android.location.Location
 import android.view.View
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -61,6 +62,7 @@ import org.wikipedia.search.interleave.AttributionKey
 import org.wikipedia.search.interleave.InterleaveSearchEntryCard
 import org.wikipedia.search.interleave.SearchResultAttribution
 import org.wikipedia.search.interleave.SearchResultCard
+import org.wikipedia.search.interleave.SearchResultCardSkeleton
 import org.wikipedia.search.interleave.attributionKey
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
@@ -68,6 +70,8 @@ import org.wikipedia.views.imageservice.ImageService
 import kotlin.time.Duration.Companion.milliseconds
 
 const val SEARCH_LIST_TAG = "search_list"
+
+private const val SKELETON_CARD_COUNT = 3
 
 private val INTERLEAVED_RESULT_TYPES = setOf(
     SearchResult.SearchResultType.PREFIX,
@@ -137,6 +141,8 @@ fun SearchResultsScreen(
         }
     }
 
+    val skeletonTransition = rememberInfiniteTransition(label = "searchResultSkeletonShimmer")
+
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
         LazyColumn(
             modifier = modifier
@@ -151,7 +157,17 @@ fun SearchResultsScreen(
             }
 
             when {
-                loadState.refresh is LoadState.Loading -> {} // when offline prevents UI from loading old list
+                // Showing nothing else while loading also keeps an old list from appearing when offline.
+                loadState.refresh is LoadState.Loading -> {
+                    if (isInterleaveSearchEnabled) {
+                        items(SKELETON_CARD_COUNT) {
+                            SearchResultCardSkeleton(
+                                modifier = Modifier.padding(start = 8.dp, end = 8.dp, bottom = 8.dp),
+                                transition = skeletonTransition
+                            )
+                        }
+                    }
+                }
 
                 loadState.refresh is LoadState.Error -> {
                     val error = (loadState.refresh as LoadState.Error).error
