@@ -134,7 +134,7 @@ class SearchResultsInterleaverRealResultsTest {
     private fun lexicalResults(prefixFile: String, fullTextFile: String): List<SearchResult> {
         val prefixResults = searchResults(prefixFile, SearchResult.SearchResultType.PREFIX)
         val fullTextResults = if (prefixResults.size < BATCH_SIZE) searchResults(fullTextFile, SearchResult.SearchResultType.FULL_TEXT) else emptyList()
-        return (prefixResults + fullTextResults).distinctBy { it.pageTitle.prefixedText }
+        return (prefixResults + fullTextResults).distinctBy { it.pageId }
     }
 
     private fun semanticResults(query: String): List<SearchResult> {

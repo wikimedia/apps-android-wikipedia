@@ -255,6 +255,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_login_force_email_auth, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_login_force_email_auth, value)
 
+    var hCaptchaUseTestSiteKeyEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hcaptcha_use_test_site_key, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hcaptcha_use_test_site_key, value)
+
     var lastBackgroundLoginDateTime
         get() = PrefsIoUtil.getString(R.string.preference_key_last_background_login_date_time, "")
         set(value) = PrefsIoUtil.setString(R.string.preference_key_last_background_login_date_time, value)
@@ -350,11 +354,6 @@ object Prefs {
         get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_order, null))
             ?: emptyList()
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_order, JsonUtil.encodeToString(orderList))
-
-    var feedCardsLangSupported
-        get() = JsonUtil.decodeFromString<Map<Int, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_supported, null))
-            ?: emptyMap()
-        set(langSupportedMap) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_lang_supported, JsonUtil.encodeToString(langSupportedMap))
 
     var feedCardsLangDisabled
         get() = JsonUtil.decodeFromString<Map<Int, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_disabled, null))
@@ -798,10 +797,6 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_state, value)
 
-    var otdGameHistory
-        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_history, null).orEmpty()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_history, value)
-
     var otdLastPlayedDate
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_last_played_date, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_last_played_date, value)
@@ -1031,23 +1026,6 @@ object Prefs {
     var readAloudLeadSectionOverrideConfig
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_read_aloud_lead_section_override_config, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_read_aloud_lead_section_override_config, value)
-
-    var isSemanticSearchEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_enabled, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_enabled, value)
-
-    var isSemanticSearchFirstUse
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_first_use, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_first_use, value)
-
-    var semanticSearchLanguageOverride
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_override_supported_language, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_override_supported_language, value)
-
-    var semanticSearchIsTestActive
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_semantic_search_is_test_active, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_semantic_search_is_test_active, value)
-
     var notificationsIsTestActive
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_is_test_active, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_is_test_active, value)
@@ -1063,6 +1041,18 @@ object Prefs {
     var notificationsExperimentDiscoverDevTriggerTime
         get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_discover_dev_trigger_time, value)
+
+    var notificationsMostReadIsTestActive
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_most_read_is_test_active, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_most_read_is_test_active, value)
+
+    var notificationsExperimentWeeklyMostReadScheduled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notifications_experiment_weekly_most_read_scheduled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_notifications_experiment_weekly_most_read_scheduled, value)
+
+    var notificationsExperimentWeeklyMostReadDevTriggerTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time, 0L)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_notifications_experiment_weekly_most_read_dev_trigger_time, value)
 
     var isInterleaveSearchEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_interleave_search_enabled, true)

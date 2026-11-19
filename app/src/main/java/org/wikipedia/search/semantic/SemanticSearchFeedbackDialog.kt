@@ -18,6 +18,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.search.SearchResult
+import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.util.FeedbackUtil
 
 class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
@@ -35,7 +36,7 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                         selectedRating = viewModel.selectedRating.collectAsState().value,
                         onRatingClick = viewModel::selectRating,
                         onCloseClick = {
-                            SemanticSearchAbTest().runIfEligible {
+                            InterleaveSearchAbTest().runIfEligible {
                                 viewModel.instrument.submitInteraction("click",
                                     actionSubtype = "article_result",
                                     elementId = "close_feedback_button"
@@ -44,7 +45,7 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                             dismiss()
                         },
                         onSubmitClick = { isPositive, feedbackText ->
-                            SemanticSearchAbTest().runIfEligible {
+                            InterleaveSearchAbTest().runIfEligible {
                                 isPositive?.let {
                                     viewModel.instrument.submitInteraction("click",
                                         actionSubtype = "article_result",
@@ -81,11 +82,11 @@ class SemanticSearchFeedbackDialog : ExtendedBottomSheetDialogFragment(startExpa
                 .setDefaultActionSource("search")
                 .setDefaultMediaWikiData(wikiSite.dbName())
                 .continueFunnel(funnel)
-                .also { SemanticSearchAbTest().setExperimentIfEligible(it) }
+                .also { InterleaveSearchAbTest().setExperimentIfEligible(it) }
         }
 
         fun submitSuppressedEvent(instrument: InstrumentImpl?, actionSubtype: String, suppression: FeedbackSuppression) {
-            SemanticSearchAbTest().runIfEligible {
+            InterleaveSearchAbTest().runIfEligible {
                 instrument?.submitInteraction("error",
                     actionSubtype = actionSubtype,
                     elementId = "feedback_prompt",

@@ -219,16 +219,19 @@ interface Service {
         @Query("gcmcontinue") continueStr: String?
     ): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=0&prop=pageprops|description|info&inprop=protection")
     suspend fun getRandomPages(
         @Query("grnlimit") count: Int = 50,
     ): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&grnfilterredir=nonredirects&grnnamespace=0&prop=pageprops|pageimages|description|info|extracts&exchars=500&exintro=1&explaintext=1&piprop=thumbnail&pilicense=any&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getRandomPagesWithExtract(
         @Query("grnlimit") count: Int = 10,
     ): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&prop=info|description|imageinfo|revisions|globalusage&inprop=protection&gunamespace=0&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iilocalonly=1&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     suspend fun getRandomImages(
         @Query("grnlimit") count: Int = 10,
@@ -426,10 +429,17 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo&uiprop=editcount&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo&uiprop=editcount|rights&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
     suspend fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo|allmessages&uiprop=editcount|rights&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
+    suspend fun getWikiTextForSectionWithInfoAndMessages(
+        @Query("titles") title: String,
+        @Query("rvsection") section: Int?,
+        @Query("ammessages") messages: String
     ): MwQueryResponse
 
     @FormUrlEncoded
