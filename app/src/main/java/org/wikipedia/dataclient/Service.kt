@@ -148,6 +148,10 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages|extracts&exchars=500&exintro=1&explaintext=1&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoWithExtractsByPageTitles(@Query("titles") titles: String? = null): MwQueryResponse
 
+    // HTML, not plain text, so superscripts and italics in the lead survive. At most 20 page IDs per request.
+    @GET(MW_API_PREFIX + "action=query&prop=extracts&exchars=500&exintro=1&exlimit=max")
+    suspend fun getLeadExtractsByPageIds(@Query("pageids") pageIds: String): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&assert=user&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoByTitlesWithGlobalUserInfo(@Query("titles") titles: String? = null): MwQueryResponse
 

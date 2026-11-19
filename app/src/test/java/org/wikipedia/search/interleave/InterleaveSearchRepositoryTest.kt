@@ -2,6 +2,7 @@ package org.wikipedia.search.interleave
 
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -34,7 +35,8 @@ class InterleaveSearchRepositoryTest {
         val repository = InterleaveSearchRepository(
             lexicalRepository = FakeSearchRepository { StandardSearchResults(lexicalResults, continuation = null, localResults = listOf(historyResult)) },
             semanticRepository = FakeSearchRepository { StandardSearchResults(semanticResults, continuation = null) },
-            newSeed = { SEMANTIC_FIRST_SEED }
+            newSeed = { SEMANTIC_FIRST_SEED },
+            fetchLeads = NO_LEADS
         )
 
         // The semantic "Eiffel Tower" is placed first even though it is also a local result.
@@ -58,7 +60,7 @@ class InterleaveSearchRepositoryTest {
         val semanticRepository = FakeSearchRepository {
             StandardSearchResults(listOf(searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3)), continuation = null)
         }
-        val repository = InterleaveSearchRepository(lexicalRepository, semanticRepository, newSeed = { SEMANTIC_FIRST_SEED })
+        val repository = InterleaveSearchRepository(lexicalRepository, semanticRepository, newSeed = { SEMANTIC_FIRST_SEED }, fetchLeads = NO_LEADS)
 
         val firstPage = search(repository, continuation = null, isPrefixSearch = true)
         search(repository, continuation = firstPage.continuation, isPrefixSearch = false)
@@ -80,12 +82,51 @@ class InterleaveSearchRepositoryTest {
                 }
                 StandardSearchResults(semanticResults, continuation = null)
             },
-            newSeed = { SEMANTIC_FIRST_SEED }
+            newSeed = { SEMANTIC_FIRST_SEED },
+            fetchLeads = NO_LEADS
         )
 
         assertEquals(lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
 
         isSemanticSearchAvailable = true
+        assertEquals(semanticResults + lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
+    }
+
+    @Test
+    fun testLexicalResultsGetTheirLeads() {
+        var requestedPageIds: List<Int>? = null
+        val repository = InterleaveSearchRepository(
+            lexicalRepository = FakeSearchRepository {
+                StandardSearchResults(listOf(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2)), continuation = null)
+            },
+            semanticRepository = FakeSearchRepository {
+                StandardSearchResults(listOf(searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3)), continuation = null)
+            },
+            newSeed = { SEMANTIC_FIRST_SEED },
+            fetchLeads = { _, pageIds ->
+                requestedPageIds = pageIds
+                mapOf(2 to "<p>Paris is the capital of France.</p>", 3 to "<p>Not used for semantic results.</p>")
+            }
+        )
+
+        val results = search(repository, continuation = null, isPrefixSearch = true).results
+
+        assertEquals(listOf(2), requestedPageIds)
+        assertEquals("<p>Paris is the capital of France.</p>", results.first { it.pageId == 2 }.leadText)
+        assertNull(results.first { it.pageId == 3 }.leadText)
+    }
+
+    @Test
+    fun testFailedLeadRequestStillReturnsTheMergedList() {
+        val lexicalResults = listOf(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2))
+        val semanticResults = listOf(searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3))
+        val repository = InterleaveSearchRepository(
+            lexicalRepository = FakeSearchRepository { StandardSearchResults(lexicalResults, continuation = null) },
+            semanticRepository = FakeSearchRepository { StandardSearchResults(semanticResults, continuation = null) },
+            newSeed = { SEMANTIC_FIRST_SEED },
+            fetchLeads = { _, _ -> throw IOException("offline") }
+        )
+
         assertEquals(semanticResults + lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
     }
 
@@ -117,7 +158,7 @@ class InterleaveSearchRepositoryTest {
 
     private fun attributionRepository(fetchAttribution: suspend (WikiSite, String) -> Attribution): InterleaveSearchRepository {
         val emptySearch = FakeSearchRepository { StandardSearchResults(emptyList(), continuation = null) }
-        return InterleaveSearchRepository(emptySearch, emptySearch, fetchAttribution = fetchAttribution)
+        return InterleaveSearchRepository(emptySearch, emptySearch, fetchAttribution = fetchAttribution, fetchLeads = NO_LEADS)
     }
 
     private fun search(repository: InterleaveSearchRepository, continuation: Int?, isPrefixSearch: Boolean): StandardSearchResults {
@@ -149,6 +190,7 @@ class InterleaveSearchRepositoryTest {
 
     companion object {
         private const val SEMANTIC_FIRST_SEED = 0uL
+        private val NO_LEADS: suspend (WikiSite, List<Int>) -> Map<Int, String> = { _, _ -> emptyMap() }
         private const val BATCH_SIZE = 2
     }
 }
