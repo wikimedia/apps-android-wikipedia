@@ -1,6 +1,5 @@
 package org.wikipedia.compose.components.menu
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -19,11 +18,15 @@ import kotlinx.coroutines.delay
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.readinglist.database.ReadingList
 
 enum class PageOverflowMenuItem {
     OPEN_PAGE,
     OPEN_IN_NEW_TAB,
     SAVE,
+    ADD_TO_ANOTHER_LIST,
+    REMOVE_FROM_LISTS,
+    MOVE_TO_ANOTHER_LIST,
     SHARE,
     COPY_LINK
 }
@@ -61,11 +64,11 @@ fun PageOverflowMenu(
         containerColor = WikipediaTheme.colors.paperColor,
     ) {
         overflowMenuState?.let { state ->
-            PageOverflowMenuItem.entries.forEach { item ->
+            PageOverflowMenuItem.entries.filter { it.isVisible(state.lists) }.forEach { item ->
                 DropdownMenuItem(
                     text = {
                         Text(
-                            text = stringResource(item.labelRes(state.isArticleSaved)),
+                            text = item.label(state.lists),
                             style = MaterialTheme.typography.bodyLarge,
                             color = WikipediaTheme.colors.primaryColor
                         )
@@ -81,14 +84,30 @@ fun PageOverflowMenu(
     }
 }
 
-@StringRes
-private fun PageOverflowMenuItem.labelRes(isArticleSaved: Boolean): Int {
+private fun PageOverflowMenuItem.isVisible(lists: List<ReadingList>): Boolean {
     return when (this) {
-        PageOverflowMenuItem.OPEN_PAGE -> R.string.menu_long_press_open_page
-        PageOverflowMenuItem.OPEN_IN_NEW_TAB -> R.string.menu_long_press_open_in_new_tab
-        // TODO: bring back the old Add to another list / Move / Remove items for saved articles.
-        PageOverflowMenuItem.SAVE -> if (isArticleSaved) R.string.link_preview_dialog_saved_button else R.string.feed_card_add_to_default_list
-        PageOverflowMenuItem.SHARE -> R.string.menu_page_share
-        PageOverflowMenuItem.COPY_LINK -> R.string.menu_long_press_copy_page
+        PageOverflowMenuItem.SAVE -> lists.isEmpty()
+        PageOverflowMenuItem.ADD_TO_ANOTHER_LIST,
+        PageOverflowMenuItem.REMOVE_FROM_LISTS -> lists.isNotEmpty()
+        PageOverflowMenuItem.MOVE_TO_ANOTHER_LIST -> lists.size == 1
+        else -> true
+    }
+}
+
+@Composable
+private fun PageOverflowMenuItem.label(lists: List<ReadingList>): String {
+    return when (this) {
+        PageOverflowMenuItem.OPEN_PAGE -> stringResource(R.string.menu_long_press_open_page)
+        PageOverflowMenuItem.OPEN_IN_NEW_TAB -> stringResource(R.string.menu_long_press_open_in_new_tab)
+        PageOverflowMenuItem.SAVE -> stringResource(R.string.feed_card_add_to_default_list)
+        PageOverflowMenuItem.ADD_TO_ANOTHER_LIST -> stringResource(R.string.reading_list_add_to_other_list)
+        PageOverflowMenuItem.REMOVE_FROM_LISTS -> if (lists.size == 1) {
+            stringResource(R.string.reading_list_remove_from_list, lists[0].title)
+        } else {
+            stringResource(R.string.reading_list_remove_from_lists)
+        }
+        PageOverflowMenuItem.MOVE_TO_ANOTHER_LIST -> stringResource(R.string.reading_list_move_from_to_other_list, lists.firstOrNull()?.title.orEmpty())
+        PageOverflowMenuItem.SHARE -> stringResource(R.string.menu_page_share)
+        PageOverflowMenuItem.COPY_LINK -> stringResource(R.string.menu_long_press_copy_page)
     }
 }

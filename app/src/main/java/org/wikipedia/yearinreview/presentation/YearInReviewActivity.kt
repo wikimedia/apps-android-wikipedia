@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.icu.text.ListFormatter
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
@@ -35,6 +37,8 @@ import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.RemoveFromReadingListsDialog
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
@@ -167,10 +171,13 @@ class YearInReviewActivity : BaseActivity() {
                         pageOverflowMenuViewModel.dismissPageOverflowMenu()
                     },
                     onTabArticleOverflowItemClick = { item, entry ->
+                        val lists = pageOverflowMenuViewModel.pageOverflowMenuState?.lists.orEmpty()
                         val elementId = when (item) {
                             PageOverflowMenuItem.OPEN_PAGE -> "article_open"
                             PageOverflowMenuItem.OPEN_IN_NEW_TAB -> "article_open_new_tab"
-                            PageOverflowMenuItem.SAVE -> "article_save"
+                            PageOverflowMenuItem.SAVE, PageOverflowMenuItem.ADD_TO_ANOTHER_LIST -> "article_save"
+                            PageOverflowMenuItem.REMOVE_FROM_LISTS -> "article_remove"
+                            PageOverflowMenuItem.MOVE_TO_ANOTHER_LIST -> "article_move"
                             PageOverflowMenuItem.SHARE -> "article_share"
                             PageOverflowMenuItem.COPY_LINK -> "article_copy_link"
                         }
@@ -178,8 +185,25 @@ class YearInReviewActivity : BaseActivity() {
                         when (item) {
                             PageOverflowMenuItem.OPEN_PAGE -> openInExistingTab(entry)
                             PageOverflowMenuItem.OPEN_IN_NEW_TAB -> startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
-                            // TODO: restore the old add / move / remove handling once PageOverflowMenu has those items again.
-                            PageOverflowMenuItem.SAVE -> {}
+                            PageOverflowMenuItem.SAVE -> ReadingListBehaviorsUtil.addToDefaultList(this, entry.title, true, Constants.InvokeSource.YEAR_IN_REVIEW)
+                            PageOverflowMenuItem.ADD_TO_ANOTHER_LIST -> ReadingListBehaviorsUtil.addToDefaultList(this, entry.title, false, Constants.InvokeSource.YEAR_IN_REVIEW)
+                            PageOverflowMenuItem.MOVE_TO_ANOTHER_LIST -> lists.firstOrNull()?.let {
+                                ReadingListBehaviorsUtil.moveToList(this, it.id, entry.title, Constants.InvokeSource.YEAR_IN_REVIEW)
+                            }
+                            PageOverflowMenuItem.REMOVE_FROM_LISTS -> {
+                                RemoveFromReadingListsDialog(lists).deleteOrShowDialog(this) { readingLists, _ ->
+                                    if (!this.isDestroyed) {
+                                        val names = readingLists.map { it.title }.run {
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                                ListFormatter.getInstance().format(this)
+                                            } else {
+                                                joinToString(separator = ", ")
+                                            }
+                                        }
+                                        FeedbackUtil.showMessage(this, getString(R.string.reading_list_item_deleted_from_list, entry.title.displayText, names))
+                                    }
+                                }
+                            }
                             PageOverflowMenuItem.SHARE -> ShareUtil.shareText(this, entry.title.displayText, entry.title.uri)
                             PageOverflowMenuItem.COPY_LINK -> {
                                 ClipboardUtil.setPlainText(this, text = entry.title.uri)

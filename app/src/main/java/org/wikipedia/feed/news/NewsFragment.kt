@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentNewsBinding
 import org.wikipedia.dataclient.WikiSite
@@ -22,6 +23,7 @@ import org.wikipedia.feed.view.ListItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -120,8 +122,12 @@ class NewsFragment : Fragment() {
             startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle())
         }
 
-        override fun onSavePage(entry: HistoryEntry) {
-            // TODO: replace with the old onAddPageToList / onMovePageToList.
+        override fun onAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
+            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.NEWS_ACTIVITY)
+        }
+
+        override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
+            ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY)
         }
     }
 

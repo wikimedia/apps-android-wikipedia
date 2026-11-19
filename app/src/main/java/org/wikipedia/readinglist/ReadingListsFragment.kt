@@ -519,7 +519,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 containingLists.size,
                 pageId,
                 actionMode != null,
-                containingLists.count { !it.isDefault }
+                showMoveAction = false
             )
         )
     }
@@ -566,8 +566,22 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    override fun onManageCollections(pageId: Long) {
-        // TODO: replace with the old onAddItemToOther / onMoveItemToOther (AddToReadingListDialog / MoveToReadingListDialog).
+    override fun onAddItemToOther(pageId: Long) {
+        launchWithPage(pageId) { page ->
+            ExclusiveBottomSheetPresenter.show(
+                childFragmentManager,
+                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY)
+            )
+        }
+    }
+
+    override fun onMoveItemToOther(pageId: Long) {
+        launchWithPage(pageId) { page ->
+            ExclusiveBottomSheetPresenter.show(
+                childFragmentManager,
+                MoveToReadingListDialog.newInstance(page.listId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY)
+            )
+        }
     }
 
     override fun onSelectItem(pageId: Long) {

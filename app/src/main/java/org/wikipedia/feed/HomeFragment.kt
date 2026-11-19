@@ -74,6 +74,7 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
@@ -300,8 +301,16 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 (parentFragment as? MainFragment)?.onFeedSelectPage(action.historyEntry, false)
             }
             is HomeAction.PageBookmarkClick -> {
-                // TODO: restore the old toggle: add to the default list, or remove from lists if already saved.
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
+                lifecycleScope.launch {
+                    val page = AppDatabase.instance.readingListPageDao().findPageInAnyList(action.historyEntry.title)
+                    val list = AppDatabase.instance.readingListDao().getListById(page?.listId ?: -1)
+                    if (list == null || page == null) {
+                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), action.historyEntry.title, true, InvokeSource.FEED)
+                    } else {
+                        ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(list), page, {}, {})
+                    }
+                }
             }
             is HomeAction.PageShareClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
@@ -317,10 +326,13 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
             }
             is HomeAction.PageOverflowItemClick -> {
                 val entry = action.historyEntry
+                val lists = pageOverflowMenuViewModel.pageOverflowMenuState?.lists.orEmpty()
                 val elementId = when (action.item) {
                     PageOverflowMenuItem.OPEN_PAGE -> "article_open"
                     PageOverflowMenuItem.OPEN_IN_NEW_TAB -> "article_open_new_tab"
-                    PageOverflowMenuItem.SAVE -> "article_save"
+                    PageOverflowMenuItem.SAVE, PageOverflowMenuItem.ADD_TO_ANOTHER_LIST -> "article_save"
+                    PageOverflowMenuItem.REMOVE_FROM_LISTS -> "article_remove"
+                    PageOverflowMenuItem.MOVE_TO_ANOTHER_LIST -> "article_move"
                     PageOverflowMenuItem.SHARE -> "article_share"
                     PageOverflowMenuItem.COPY_LINK -> "article_copy_link"
                 }
@@ -332,7 +344,10 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                         mainFragment?.onFeedSelectPage(entry, true)
                         viewModel.updateTabCount(true)
                     }
-                    PageOverflowMenuItem.SAVE -> mainFragment?.onFeedSavePage(entry)
+                    PageOverflowMenuItem.SAVE -> mainFragment?.onFeedAddPageToList(entry, true)
+                    PageOverflowMenuItem.ADD_TO_ANOTHER_LIST -> mainFragment?.onFeedAddPageToList(entry, false)
+                    PageOverflowMenuItem.REMOVE_FROM_LISTS -> mainFragment?.onFeedRemovePageFromList(entry, lists)
+                    PageOverflowMenuItem.MOVE_TO_ANOTHER_LIST -> lists.firstOrNull()?.let { mainFragment?.onFeedMovePageToList(it.id, entry) }
                     PageOverflowMenuItem.SHARE -> mainFragment?.onFeedSharePage(entry)
                     PageOverflowMenuItem.COPY_LINK -> mainFragment?.onFeedCopyLink(entry)
                 }

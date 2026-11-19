@@ -51,6 +51,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var isArchiveGame = false
 
     private val events = mutableListOf<OnThisDay.Event>()
+    val savedPages = mutableListOf<PageSummary>()
 
     init {
         loadGameState()
@@ -85,6 +86,13 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             events.addAll(OnThisDayGameProvider.getGameEvents(wikiSite, currentDate))
 
             currentState = buildGameState(gameHistory)
+            savedPages.clear()
+            getArticlesMentioned().forEach { pageSummary ->
+                val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageSummary.getPageTitle(wikiSite)) != null
+                if (inAnyList) {
+                    savedPages.add(pageSummary)
+                }
+            }
             publishGameState(gameHistory)
         }
     }

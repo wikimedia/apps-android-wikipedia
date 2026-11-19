@@ -46,7 +46,6 @@ import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.events.PageDownloadEvent
@@ -745,8 +744,16 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         ShareUtil.shareText(requireContext(), ReadingListPage.toPageTitle(page))
     }
 
-    override fun onManageCollections(pageId: Long) {
-        // TODO: replace with the old onAddItemToOther / onMoveItemToOther (AddToReadingListDialog / MoveToReadingListDialog).
+    override fun onAddItemToOther(pageId: Long) {
+        val page = getPageById(pageId) ?: return
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
+    }
+
+    override fun onMoveItemToOther(pageId: Long) {
+        val page = getPageById(pageId) ?: return
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
     override fun onSelectItem(pageId: Long) {
@@ -1091,20 +1098,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 return false
             }
             item?.let {
-                viewLifecycleOwner.lifecycleScope.launch {
-                    val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(it))
-                    val listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
-                    val listsToRemoveFrom = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!) else listsContainingPage
-
-                    ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                            ReadingListItemActionsDialog.newInstance(
-                                listsToRemoveFrom[0].title,
-                                listsToRemoveFrom.size,
-                                it.id,
-                                actionMode != null,
-                                listsContainingPage.count { list -> !list.isDefault }
-                            ))
-                }
+                val lists = if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
+                        else ReadingListBehaviorsUtil.getListsContainPage(it)
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                        ReadingListItemActionsDialog.newInstance(lists[0].title, lists.size, it.id, actionMode != null))
                 return true
             }
             return false
