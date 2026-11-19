@@ -4,6 +4,8 @@ import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.ReleaseUtil
@@ -49,6 +51,24 @@ class NotificationsExperimentMostReadAbTest : ABTest("trending-notifications-tes
     fun maybeSendExposureEventIfEligible() {
         runIfEligible {
             maybeSendExposureEvent()
+            // Additional event to compare with the experiment 1
+            val isGameNotificationEnabled = Prefs.otdNotificationState == OnThisDayGameNotificationState.ENABLED
+            val isDiscoverNotificationEnabled = Prefs.isRecommendedReadingListNotificationEnabled
+            val frequencyForEvent = when (Prefs.recommendedReadingListUpdateFrequency) {
+                RecommendedReadingListUpdateFrequency.DAILY -> "daily"
+                RecommendedReadingListUpdateFrequency.WEEKLY -> "weekly"
+                RecommendedReadingListUpdateFrequency.MONTHLY -> "monthly"
+            }
+            val actionContext = buildMap<String, Any> {
+                put("game", isGameNotificationEnabled)
+                put("discover", isDiscoverNotificationEnabled)
+                if (isDiscoverNotificationEnabled) {
+                    put("discover_freq", frequencyForEvent)
+                }
+            }
+            TestKitchenAdapter.client.getInstrument("apps-notifications")
+                .also { setExperimentIfEligible(it) }
+                .submitInteraction(action = "notification_status", actionContext = actionContext)
         }
     }
 
