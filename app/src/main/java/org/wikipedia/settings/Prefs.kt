@@ -355,11 +355,6 @@ object Prefs {
             ?: emptyList()
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_order, JsonUtil.encodeToString(orderList))
 
-    var feedCardsLangSupported
-        get() = JsonUtil.decodeFromString<Map<Int, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_supported, null))
-            ?: emptyMap()
-        set(langSupportedMap) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_lang_supported, JsonUtil.encodeToString(langSupportedMap))
-
     var feedCardsLangDisabled
         get() = JsonUtil.decodeFromString<Map<Int, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_disabled, null))
             ?: emptyMap()
@@ -801,10 +796,6 @@ object Prefs {
     var otdGameState
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_state, value)
-
-    var otdGameHistory
-        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_history, null).orEmpty()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_history, value)
 
     var otdLastPlayedDate
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_last_played_date, null).orEmpty()

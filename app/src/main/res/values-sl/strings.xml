@@ -1950,6 +1950,7 @@
   <string name="year_in_review_reading_list_dialog_positive_button_label">Ustvari</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Ne, hvala</string>
   <string name="year_in_review_reading_list_description">Narejeno za %1$s. Članki, s katerimi ste preživeli največ časa v letu %2$d.</string>
+  <string name="year_in_review_illustration_credit">Ilustracije »Pregled leta«, avtorica Sharon Park, za Fundacijo Wikimedia</string>
   <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Vaša tedenska zbirka člankov Wikipedije, pripravljena samo za vas.</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Ne, hvala</string>
   <string name="recommended_reading_list_onboarding_card_negative_snackbar" fuzzy="true">Če želite nastaviti priporočeno zbirko pozneje, pojdite v Nastavitve.</string>

@@ -36,7 +36,7 @@ object LanguageUtil {
             val ims = imm.enabledInputMethodList
             val langTagList = mutableListOf<String>()
             for (method in ims) {
-                val submethods = imm.getEnabledInputMethodSubtypeList(method, true) ?: emptyList()
+                val submethods = imm.getEnabledInputMethodSubtypeList(method, true)
                 for (submethod in submethods) {
                     if (submethod.mode == "keyboard") {
                         var langTag = submethod.languageTag.ifEmpty { submethod.locale }
