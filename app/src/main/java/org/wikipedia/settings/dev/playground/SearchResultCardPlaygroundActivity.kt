@@ -34,14 +34,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.search.interleave.SearchResultCard
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 
 class SearchResultCardPlaygroundActivity : BaseActivity() {
@@ -51,7 +54,10 @@ class SearchResultCardPlaygroundActivity : BaseActivity() {
             BaseTheme {
                 SearchResultCardPlaygroundScreen(
                     initialTheme = WikipediaApp.instance.currentTheme,
-                    onBackClick = { finish() }
+                    onBackClick = { finish() },
+                    onFeedbackSubmit = {
+                        FeedbackUtil.showMessage(this, R.string.semantic_search_results_feedback_submitted_message)
+                    }
                 )
             }
         }
@@ -68,10 +74,12 @@ class SearchResultCardPlaygroundActivity : BaseActivity() {
 fun SearchResultCardPlaygroundScreen(
     initialTheme: Theme,
     wikiSiteFor: (String) -> WikiSite = { WikiSite.forLanguageCode(it) },
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onFeedbackSubmit: () -> Unit = {}
 ) {
     var languageCode by remember { mutableStateOf(SearchResultCardPlaygroundSamples.languageCodes.first()) }
     var theme by remember { mutableStateOf(initialTheme) }
+    var feedbackMode by remember { mutableStateOf(PlaygroundFeedbackMode.ALWAYS) }
 
     Scaffold(
         modifier = Modifier
@@ -106,12 +114,24 @@ fun SearchResultCardPlaygroundScreen(
                 optionLabel = { stringResource(it.nameId) },
                 onSelect = { theme = it }
             )
+            PlaygroundChipRow(
+                label = "Feedback",
+                options = PlaygroundFeedbackMode.entries,
+                selected = feedbackMode,
+                optionLabel = { it.label },
+                onSelect = { feedbackMode = it }
+            )
 
             // The cards use the selected theme and the wiki's text direction, like the real search list.
             BaseTheme(currentTheme = theme) {
                 val layoutDirection = if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
                 CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
-                    SearchResultCardPlaygroundList(languageCode = languageCode, wikiSiteFor = wikiSiteFor)
+                    SearchResultCardPlaygroundList(
+                        languageCode = languageCode,
+                        feedbackMode = feedbackMode,
+                        wikiSiteFor = wikiSiteFor,
+                        onFeedbackSubmit = onFeedbackSubmit
+                    )
                 }
             }
         }
@@ -119,8 +139,25 @@ fun SearchResultCardPlaygroundScreen(
 }
 
 @Composable
-private fun SearchResultCardPlaygroundList(languageCode: String, wikiSiteFor: (String) -> WikiSite) {
+private fun SearchResultCardPlaygroundList(
+    languageCode: String,
+    feedbackMode: PlaygroundFeedbackMode,
+    wikiSiteFor: (String) -> WikiSite,
+    onFeedbackSubmit: () -> Unit
+) {
     val results = remember(languageCode) { SearchResultCardPlaygroundSamples.results(languageCode, wikiSiteFor(languageCode)) }
+    // Like a real results list, the daily check runs once per list, so switching wikis counts as a new list.
+    val isFeedbackShown = remember(languageCode, feedbackMode) {
+        val abTest = InterleaveSearchAbTest()
+        when {
+            feedbackMode == PlaygroundFeedbackMode.ALWAYS -> true
+            abTest.shouldShowDailyPrompt() -> {
+                abTest.markDailyPromptShown()
+                true
+            }
+            else -> false
+        }
+    }
     // Votes are kept only for this wiki's list, so switching wikis clears them.
     val votes = remember(languageCode) { mutableStateMapOf<Int, Boolean>() }
 
@@ -132,15 +169,25 @@ private fun SearchResultCardPlaygroundList(languageCode: String, wikiSiteFor: (S
         contentPadding = PaddingValues(8.dp)
     ) {
         items(results, key = { it.pageId }) { result ->
+            val onRelevanceClick: (Boolean) -> Unit = { isRelevant ->
+                votes[result.pageId] = isRelevant
+                // TODO: send the query, search type and chosen card with the vote, once instrumentation is defined.
+                onFeedbackSubmit()
+            }
             SearchResultCard(
                 searchResult = result,
                 isAttributionLoading = result.pageId in SearchResultCardPlaygroundSamples.attributionLoadingPageIds,
                 relevance = votes[result.pageId],
-                onRelevanceClick = { votes[result.pageId] = it },
+                onRelevanceClick = onRelevanceClick.takeIf { isFeedbackShown },
                 onItemClick = {}
             )
         }
     }
+}
+
+private enum class PlaygroundFeedbackMode(val label: String) {
+    ALWAYS("Always show"),
+    DAILY_LIMIT("Once per day")
 }
 
 @Composable
