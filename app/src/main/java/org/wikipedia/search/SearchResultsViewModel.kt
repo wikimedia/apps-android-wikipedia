@@ -21,14 +21,19 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.search.interleave.AttributionKey
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.search.interleave.InterleaveSearchRepository
+import org.wikipedia.search.interleave.SearchResultAttribution
+import org.wikipedia.search.interleave.attributionKey
 import org.wikipedia.settings.Prefs
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -66,6 +71,10 @@ class SearchResultsViewModel : ViewModel() {
     private var lastXSearchIdFullText = ""
     var lastXSearchIdSemantic = ""
     private var isInterleaveSearchExposureSent = false
+
+    private val _attributions = MutableStateFlow<Map<AttributionKey, SearchResultAttribution>>(emptyMap())
+    val attributions = _attributions.asStateFlow()
+    private val requestedAttributions = mutableSetOf<AttributionKey>()
 
     private val languageCodeWithInterleaveSearchEnabled = combine(
         _languageCode,
@@ -164,6 +173,17 @@ class SearchResultsViewModel : ViewModel() {
         }
         isInterleaveSearchExposureSent = true
         interleaveSearchAbTest.maybeSendExposureEvent()
+    }
+
+    fun loadAttribution(result: SearchResult) {
+        val key = result.attributionKey
+        if (!requestedAttributions.add(key)) {
+            return
+        }
+        viewModelScope.launch {
+            val attribution = interleaveSearchRepository.getAttribution(result)
+            _attributions.update { it + (key to attribution) }
+        }
     }
 
     fun disableSemanticSearch() {

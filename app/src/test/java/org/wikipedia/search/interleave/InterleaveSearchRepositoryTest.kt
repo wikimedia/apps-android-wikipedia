@@ -8,6 +8,8 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.restbase.Attribution
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchRepository
 import org.wikipedia.search.SearchResult
@@ -85,6 +87,37 @@ class InterleaveSearchRepositoryTest {
 
         isSemanticSearchAvailable = true
         assertEquals(semanticResults + lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
+    }
+
+    @Test
+    fun testAttributionCountsComeFromTheArticle() {
+        var requestedTitle: String? = null
+        val attribution = JsonUtil.decodeFromString<Attribution>(
+            "{\"trust_and_relevance\":{\"contributor_counts\":{\"total_unique\":2348},\"reference_count\":0}}"
+        )!!
+        val repository = attributionRepository { _, title ->
+            requestedTitle = title
+            attribution
+        }
+
+        val result = runBlocking { repository.getAttribution(searchResult("Eiffel Tower", SearchResult.SearchResultType.SEMANTIC, pageId = 1)) }
+
+        assertEquals("Eiffel_Tower", requestedTitle)
+        assertEquals(SearchResultAttribution(contributorCount = 2348, referenceCount = 0), result)
+    }
+
+    @Test
+    fun testFailedAttributionRequestHidesTheCounts() {
+        val repository = attributionRepository { _, _ -> throw IOException("offline") }
+
+        val result = runBlocking { repository.getAttribution(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2)) }
+
+        assertEquals(SearchResultAttribution.NONE, result)
+    }
+
+    private fun attributionRepository(fetchAttribution: suspend (WikiSite, String) -> Attribution): InterleaveSearchRepository {
+        val emptySearch = FakeSearchRepository { StandardSearchResults(emptyList(), continuation = null) }
+        return InterleaveSearchRepository(emptySearch, emptySearch, fetchAttribution = fetchAttribution)
     }
 
     private fun search(repository: InterleaveSearchRepository, continuation: Int?, isPrefixSearch: Boolean): StandardSearchResults {

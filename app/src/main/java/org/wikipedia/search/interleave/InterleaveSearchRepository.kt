@@ -4,6 +4,9 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import org.wikipedia.Constants
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.restbase.Attribution
 import org.wikipedia.search.SearchRepository
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.StandardSearchRepository
@@ -18,7 +21,10 @@ import org.wikipedia.util.log.L
 class InterleaveSearchRepository(
     private val lexicalRepository: SearchRepository<StandardSearchResults> = StandardSearchRepository(),
     private val semanticRepository: SearchRepository<StandardSearchResults> = SemanticSearchRepository(),
-    private val newSeed: () -> ULong = SearchResultsInterleaver::newSeed
+    private val newSeed: () -> ULong = SearchResultsInterleaver::newSeed,
+    private val fetchAttribution: suspend (WikiSite, String) -> Attribution = { wikiSite, title ->
+        ServiceFactory.getCoreRest(wikiSite).getAttribution(title)
+    }
 ) : SearchRepository<StandardSearchResults> {
     private var mergedSearchResults: MergedSearchResults? = null
 
@@ -69,6 +75,22 @@ class InterleaveSearchRepository(
             xSearchIdFullText = lexicalSearch.xSearchIdFullText,
             xSearchIdSemantic = semanticSearchResults.xSearchIdSemantic
         )
+    }
+
+    // A failed request must not break the card, so it gets no counts and hides them.
+    suspend fun getAttribution(result: SearchResult): SearchResultAttribution {
+        return try {
+            val trustAndRelevance = fetchAttribution(result.pageTitle.wikiSite, result.pageTitle.prefixedText).trustAndRelevance
+            SearchResultAttribution(
+                contributorCount = trustAndRelevance?.contributorCounts?.totalUnique,
+                referenceCount = trustAndRelevance?.referenceCount
+            )
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            L.w(e)
+            SearchResultAttribution.NONE
+        }
     }
 
     // A failed semantic search must not break search, so the reader gets the lexical results instead.
