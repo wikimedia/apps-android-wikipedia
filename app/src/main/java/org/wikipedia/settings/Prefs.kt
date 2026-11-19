@@ -255,6 +255,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_login_force_email_auth, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_login_force_email_auth, value)
 
+    var hCaptchaUseTestSiteKeyEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hcaptcha_use_test_site_key, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hcaptcha_use_test_site_key, value)
+
     var lastBackgroundLoginDateTime
         get() = PrefsIoUtil.getString(R.string.preference_key_last_background_login_date_time, "")
         set(value) = PrefsIoUtil.setString(R.string.preference_key_last_background_login_date_time, value)
@@ -350,11 +354,6 @@ object Prefs {
         get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_order, null))
             ?: emptyList()
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_order, JsonUtil.encodeToString(orderList))
-
-    var feedCardsLangSupported
-        get() = JsonUtil.decodeFromString<Map<Int, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_supported, null))
-            ?: emptyMap()
-        set(langSupportedMap) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_lang_supported, JsonUtil.encodeToString(langSupportedMap))
 
     var feedCardsLangDisabled
         get() = JsonUtil.decodeFromString<Map<Int, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_disabled, null))
@@ -797,10 +796,6 @@ object Prefs {
     var otdGameState
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_state, value)
-
-    var otdGameHistory
-        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_history, null).orEmpty()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_history, value)
 
     var otdLastPlayedDate
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_last_played_date, null).orEmpty()
