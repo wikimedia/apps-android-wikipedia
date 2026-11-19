@@ -239,6 +239,9 @@ private fun LazyListScope.searchResultItems(
                         attribution?.let { result.copy(editCounts = it.contributorCount, referenceCounts = it.referenceCount) } ?: result
                     },
                     isAttributionLoading = attribution == null,
+                    onItemLongClick = { view ->
+                        onItemLongClick(view, result, index)
+                    },
                     onItemClick = {
                         onItemClick(result, false, index, result.location)
                     }
