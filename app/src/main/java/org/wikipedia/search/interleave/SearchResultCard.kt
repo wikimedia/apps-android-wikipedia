@@ -141,7 +141,7 @@ fun SearchResultCard(
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
                         text = remember(searchResult) { searchResult.cardTrail() }
-                            ?: context.getString(languageCode, R.string.search_result_trail_lead),
+                            ?: context.getString(languageCode, R.string.semantic_search_trail_lead),
                         style = MaterialTheme.typography.bodySmall,
                         color = WikipediaTheme.colors.primaryColor,
                         maxLines = HEADER_MAX_LINES,
@@ -285,7 +285,7 @@ private fun SearchResultRelevanceRow(
     ) {
         Text(
             modifier = Modifier.weight(1f),
-            text = context.getString(languageCode, R.string.search_result_relevance_question),
+            text = context.getString(languageCode, R.string.semantic_search_relevance_question),
             style = MaterialTheme.typography.bodySmall,
             color = WikipediaTheme.colors.secondaryColor
         )
