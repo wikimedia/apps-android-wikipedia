@@ -460,10 +460,6 @@
             android:key="@string/preference_key_otd_game_num_questions"
             android:title="Game questions per day" />
 
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            android:key="@string/preference_key_otd_game_history"
-            android:title="Game history" />
-
         <Preference
             android:key="@string/preferences_developer_otd_show_notification"
             android:title="@string/preferences_developer_otd_show_notification"/>
