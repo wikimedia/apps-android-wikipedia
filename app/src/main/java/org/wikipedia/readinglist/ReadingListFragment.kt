@@ -897,9 +897,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 view.setTitleEllipsis()
                 view.setDescriptionMaxLines(2)
                 view.setDescriptionEllipsis()
-                val collectionsContainingPage = ReadingListBehaviorsUtil.getListsContainPage(page)
-                    .filterNot { it.isDefault }
-                view.setUpChipGroup(collectionsContainingPage)
+                view.setUpChipGroup(ReadingListBehaviorsUtil.getListsContainPage(page))
             } else {
                 view.hideChipGroup()
             }
