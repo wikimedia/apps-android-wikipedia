@@ -2088,7 +2088,7 @@
     <item quantity="other">Пик вашей активности пришёлся на %1$s: в этом месяце вы читали Википедию %2$d дней.</item>
   </plurals>
   <string name="yir_minutes_read_headline">Всего минут за чтением:</string>
-  <string name="yir_minutes_read_supporting" fuzzy="true">Когда увлечён интересной темой, время летит незаметно.</string>
+  <string name="yir_minutes_read_supporting" fuzzy="true">%1$s Когда увлечён интересной темой, время летит незаметно.</string>
   <string name="yir_reading_streak_headline">Самая длинная серия дней чтения:</string>
   <string name="yir_reading_streak_supporting">Начиная с %1$s–%2$s, вы вошли во вкус и читали каждый день.</string>
   <string name="yir_reading_streak_empty_headline">Пока ни одной серии дней чтения.</string>
