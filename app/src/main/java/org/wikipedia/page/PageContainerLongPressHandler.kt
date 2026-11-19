@@ -2,7 +2,6 @@ package org.wikipedia.page
 
 import org.wikipedia.LongPressHandler.WebViewMenuCallback
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 
 class PageContainerLongPressHandler(private val fragment: PageFragment) : WebViewMenuCallback {
 
@@ -15,7 +14,7 @@ class PageContainerLongPressHandler(private val fragment: PageFragment) : WebVie
     }
 
     override fun onSaveRequest(entry: HistoryEntry) {
-        SaveArticleSheetDialog.show(fragment.childFragmentManager, entry.title)
+        // TODO: replace with the old onAddRequest / onMoveRequest.
     }
 
     override val wikiSite = fragment.title?.wikiSite

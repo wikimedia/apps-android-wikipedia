@@ -7,7 +7,6 @@ import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
@@ -18,13 +17,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawBehind
@@ -39,14 +34,11 @@ import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collectLatest
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.compose.theme.shimmerColors
 import org.wikipedia.theme.Theme
-import kotlin.time.Duration.Companion.milliseconds
 
 fun Modifier.pulse(
     fromScale: Float = 1f,
@@ -164,51 +156,6 @@ fun Modifier.lazyColumnScrollbar(
             topLeft = Offset(size.width - 4.dp.toPx(), thumbOffset),
             size = Size(4.dp.toPx(), actualThumbHeight),
             cornerRadius = CornerRadius(2.dp.toPx())
-        )
-    }
-}
-
-/**
- * A [lazyColumnScrollbar] that shows itself while the list is being scrolled and fades out once
- * the user has been idle for [hideDelayMillis]. It also shows briefly when the list can scroll or
- * when the content is hidden below the bottom sheet [hasHiddenContent].
- */
-fun Modifier.autoHidingLazyColumnScrollbar(
-    state: LazyListState,
-    color: Color,
-    thumbHeight: Dp = 120.dp,
-    hideDelayMillis: Long = 1000L,
-    fadeDurationMillis: Int = 250,
-    hasHiddenContent: Boolean = false
-): Modifier = composed {
-    var visible by remember { mutableStateOf(false) }
-    LaunchedEffect(state, hideDelayMillis, hasHiddenContent) {
-        snapshotFlow {
-            val shouldShowScrollbar =
-                hasHiddenContent || state.canScrollForward || state.canScrollBackward
-            state.isScrollInProgress to shouldShowScrollbar
-        }.collectLatest { (isScrolling, shouldShowScrollbar) ->
-            visible = shouldShowScrollbar
-            if (visible && !isScrolling) {
-                delay(hideDelayMillis.milliseconds)
-                visible = false
-            }
-        }
-    }
-    val alpha by animateFloatAsState(
-        targetValue = if (visible) 1f else 0f,
-        animationSpec = tween(fadeDurationMillis),
-        label = "scrollbarAlpha"
-    )
-
-    if (alpha == 0f) {
-        this
-    } else {
-        lazyColumnScrollbar(
-            state = state,
-            color = color.copy(alpha = color.alpha * alpha),
-            thumbHeight = thumbHeight,
-            hasHiddenContent = hasHiddenContent
         )
     }
 }

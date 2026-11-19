@@ -42,7 +42,6 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
@@ -76,7 +75,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
         return@OnMenuItemClickListener when (item.itemId) {
             R.id.menu_link_preview_add_to_list -> {
-                showSaveArticleSheet()
+                // TODO: restore the old doAddToList().
                 true
             }
             R.id.menu_link_preview_share_page -> {
@@ -293,15 +292,11 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     override fun onAddToList() {
-        showSaveArticleSheet()
+        // TODO: restore the old doAddToList().
     }
 
     override fun onDismiss() {
         dismiss()
-    }
-
-    private fun showSaveArticleSheet() {
-        SaveArticleSheetDialog.show(parentFragmentManager, viewModel.pageTitle)
     }
 
     private fun showPreview(contents: LinkPreviewContents) {
@@ -401,7 +396,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         override fun onSecondaryClick() {
             overlayView?.let {
                 sendPlacesEvent("save_click", "detail_toolbar")
-                showSaveArticleSheet()
+                // TODO: restore the old showReadingListPopupMenu().
             }
         }
 

@@ -14,7 +14,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -96,7 +95,7 @@ class OnThisDayPagesViewHolder(
                 }
 
                 override fun onSaveRequest(entry: HistoryEntry) {
-                    SaveArticleSheetDialog.show(activity, entry.title)
+                    // TODO: replace with the old onAddRequest / onMoveRequest.
                 }
             }).show(entry)
         }

@@ -95,7 +95,6 @@ import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
@@ -1410,7 +1409,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     inner class PageActionItemCallback : PageActionItem.Callback {
         override fun onSaveSelected() {
-            title?.let { SaveArticleSheetDialog.show(childFragmentManager, it) }
+            // TODO: restore the old flow: add to the default list, or show LongPressMenu(existsInAnyList = false) if saved.
             articleInteractionEvent?.logSaveClick()
         }
 

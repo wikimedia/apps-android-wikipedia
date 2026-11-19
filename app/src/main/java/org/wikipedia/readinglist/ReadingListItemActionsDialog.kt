@@ -18,6 +18,7 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
         fun onToggleItemOffline(pageId: Long)
         fun onShareItem(pageId: Long)
+        // TODO: replace with the old onAddItemToOther / onMoveItemToOther and the showMoveAction argument.
         fun onManageCollections(pageId: Long)
         fun onSelectItem(pageId: Long)
         fun onDeleteItem(pageId: Long)

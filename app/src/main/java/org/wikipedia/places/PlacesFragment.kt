@@ -81,7 +81,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
@@ -788,7 +787,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 }
 
                 override fun onSaveRequest(entry: HistoryEntry) {
-                    SaveArticleSheetDialog.show(childFragmentManager, entry.title)
+                    // TODO: replace with the old onAddRequest / onMoveRequest.
                 }
             }).show(entry)
             return true

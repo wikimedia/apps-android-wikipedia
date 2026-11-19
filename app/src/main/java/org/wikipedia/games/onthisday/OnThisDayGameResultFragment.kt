@@ -47,7 +47,6 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -358,7 +357,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment() {
 
                     override fun onSaveRequest(entry: HistoryEntry) {
                         WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-                        SaveArticleSheetDialog.show(childFragmentManager, pageTitle)
+                        // TODO: replace with the old onAddRequest / onMoveRequest / onRemoveRequest that keep viewModel.savedPages in sync.
                     }
 
                     override fun onShareRequest() {

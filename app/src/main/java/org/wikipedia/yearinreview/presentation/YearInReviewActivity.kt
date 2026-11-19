@@ -35,7 +35,6 @@ import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
@@ -179,7 +178,8 @@ class YearInReviewActivity : BaseActivity() {
                         when (item) {
                             PageOverflowMenuItem.OPEN_PAGE -> openInExistingTab(entry)
                             PageOverflowMenuItem.OPEN_IN_NEW_TAB -> startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
-                            PageOverflowMenuItem.SAVE -> SaveArticleSheetDialog.show(this, entry.title)
+                            // TODO: restore the old add / move / remove handling once PageOverflowMenu has those items again.
+                            PageOverflowMenuItem.SAVE -> {}
                             PageOverflowMenuItem.SHARE -> ShareUtil.shareText(this, entry.title.displayText, entry.title.uri)
                             PageOverflowMenuItem.COPY_LINK -> {
                                 ClipboardUtil.setPlainText(this, text = entry.title.uri)

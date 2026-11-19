@@ -31,6 +31,7 @@ class LongPressMenu(
         fun onOpenLink(entry: HistoryEntry) {}
         fun onOpenInNewTab(entry: HistoryEntry) {}
         fun onOpenInPlaces(entry: HistoryEntry, location: Location) {}
+        // TODO: replace with the old onAddRequest / onMoveRequest / onRemoveRequest.
         fun onSaveRequest(entry: HistoryEntry)
         fun onShareRequest() {}
     }
@@ -53,8 +54,7 @@ class LongPressMenu(
             menu.menuInflater.inflate(menuRes, menu.menu)
             menu.setOnMenuItemClickListener(PageSaveMenuClickListener())
             menu.gravity = Gravity.END
-            // A single entry either way: both states open the save sheet, which is where adding to
-            // and removing from collections now happens.
+            // TODO: bring back the old Add to another list / Move / Remove items for saved articles.
             menu.menu.findItem(R.id.menu_long_press_add_to_default_list)?.setTitle(
                 if (isArticleSaved) R.string.link_preview_dialog_saved_button
                 else R.string.feed_card_add_to_default_list

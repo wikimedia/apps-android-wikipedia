@@ -28,7 +28,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -105,7 +104,7 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
 
         binding.saveButton.setOnClickListener {
             WikiGamesEvent.submit("save_click", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)
-            SaveArticleSheetDialog.show(parentFragmentManager, pageTitle)
+            // TODO: restore the old onBookmarkIconClick: add to the default list, or show the Add / Move / Remove popup if saved.
         }
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_click", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)

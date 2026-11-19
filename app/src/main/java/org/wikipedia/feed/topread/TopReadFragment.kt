@@ -20,7 +20,6 @@ import org.wikipedia.feed.view.ListItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.TabUtil
@@ -91,7 +90,7 @@ class TopReadFragment : Fragment() {
         }
 
         override fun onSavePage(entry: HistoryEntry) {
-            SaveArticleSheetDialog.show(childFragmentManager, entry.title)
+            // TODO: replace with the old onAddPageToList / onMovePageToList.
         }
     }
 

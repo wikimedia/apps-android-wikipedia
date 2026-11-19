@@ -86,8 +86,7 @@ private fun PageOverflowMenuItem.labelRes(isArticleSaved: Boolean): Int {
     return when (this) {
         PageOverflowMenuItem.OPEN_PAGE -> R.string.menu_long_press_open_page
         PageOverflowMenuItem.OPEN_IN_NEW_TAB -> R.string.menu_long_press_open_in_new_tab
-        // A single entry either way: both states open the save sheet, which is where adding to and
-        // removing from collections now happens.
+        // TODO: bring back the old Add to another list / Move / Remove items for saved articles.
         PageOverflowMenuItem.SAVE -> if (isArticleSaved) R.string.link_preview_dialog_saved_button else R.string.feed_card_add_to_default_list
         PageOverflowMenuItem.SHARE -> R.string.menu_page_share
         PageOverflowMenuItem.COPY_LINK -> R.string.menu_long_press_copy_page

@@ -71,7 +71,6 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListsFragment
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
@@ -398,7 +397,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     }
 
     fun onFeedSavePage(entry: HistoryEntry) {
-        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
+        // TODO: replace with the old onFeedAddPageToList / onFeedMovePageToList / onFeedRemovePageFromList.
     }
 
     fun onFeedSharePage(entry: HistoryEntry) {

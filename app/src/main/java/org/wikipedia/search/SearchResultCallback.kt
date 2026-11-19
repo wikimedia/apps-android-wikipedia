@@ -5,6 +5,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 
 interface SearchResultCallback {
+    // TODO: replace with the old onSearchAddPageToList / onSearchMovePageToList.
     fun onSearchSavePage(entry: HistoryEntry)
     fun onSearchProgressBar(enabled: Boolean)
     fun navigateToTitle(

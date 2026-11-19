@@ -36,7 +36,6 @@ import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 
@@ -107,7 +106,7 @@ class RandomActivity : BaseActivity() {
 
     private fun onSaveClick(title: PageTitle) {
         instrument?.submitInteraction("click", elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = title))
-        SaveArticleSheetDialog.show(this, title)
+        // TODO: restore the old toggle: add to the default list, or RemoveFromReadingListsDialog if already saved.
     }
 
     companion object {

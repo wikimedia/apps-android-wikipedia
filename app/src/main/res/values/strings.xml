@@ -2876,9 +2876,6 @@
         <item quantity="one">Article removed from all associated reading lists.</item>
         <item quantity="other">%d articles removed from all associated reading lists.</item>
     </plurals>
-    <string name="reading_lists_save_sheet_empty_title">Collect the articles you love</string>
-    <string name="reading_lists_save_sheet_empty_message">Save articles in reading lists.</string>
-    <string name="reading_lists_save_sheet_create">Create</string>
     <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
         <item quantity="one">Unsaving this article will remove it from all associated reading lists.</item>
         <item quantity="other">Unsaving these articles will remove it from all associated reading lists.</item>

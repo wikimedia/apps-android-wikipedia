@@ -30,7 +30,6 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.search.semantic.SemanticSearchInfoDialog
@@ -244,7 +243,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     }
 
     override fun onSearchSavePage(entry: HistoryEntry) {
-        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
+        // TODO: replace with the old onSearchAddPageToList / onSearchMovePageToList.
     }
 
     override fun onSearchProgressBar(enabled: Boolean) {

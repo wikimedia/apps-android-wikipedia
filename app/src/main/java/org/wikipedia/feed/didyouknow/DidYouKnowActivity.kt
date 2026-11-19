@@ -31,7 +31,6 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
@@ -72,7 +71,8 @@ class DidYouKnowActivity : BaseActivity() {
                         when (item) {
                             PageOverflowMenuItem.OPEN_PAGE -> startActivity(PageActivity.newIntentForCurrentTab(this, entry, entry.title))
                             PageOverflowMenuItem.OPEN_IN_NEW_TAB -> startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
-                            PageOverflowMenuItem.SAVE -> SaveArticleSheetDialog.show(this, entry.title)
+                            // TODO: restore the old add / move / remove handling once PageOverflowMenu has those items again.
+                            PageOverflowMenuItem.SAVE -> {}
                             PageOverflowMenuItem.SHARE -> ShareUtil.shareText(this, entry.title.displayText, entry.title.uri)
                             PageOverflowMenuItem.COPY_LINK -> {
                                 ClipboardUtil.setPlainText(this, text = entry.title.uri)

@@ -25,6 +25,7 @@ class ListItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLa
     interface Callback {
         fun onSelectPage(title: PageTitle, entry: HistoryEntry, openInNewBackgroundTab: Boolean)
         fun onSelectPage(title: PageTitle, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>)
+        // TODO: replace with the old onAddPageToList / onMovePageToList.
         fun onSavePage(entry: HistoryEntry)
     }
 

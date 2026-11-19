@@ -567,9 +567,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     override fun onManageCollections(pageId: Long) {
-        launchWithPage(pageId) { page ->
-            SaveArticleSheetDialog.show(childFragmentManager, ReadingListPage.toPageTitle(page))
-        }
+        // TODO: replace with the old onAddItemToOther / onMoveItemToOther (AddToReadingListDialog / MoveToReadingListDialog).
     }
 
     override fun onSelectItem(pageId: Long) {

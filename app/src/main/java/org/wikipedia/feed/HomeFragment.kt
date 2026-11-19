@@ -75,7 +75,6 @@ import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
-import org.wikipedia.readinglist.SaveArticleSheetDialog
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.settings.Prefs
@@ -301,8 +300,8 @@ class HomeFragment : Fragment(), LinkPreviewDialog.LoadPageCallback {
                 (parentFragment as? MainFragment)?.onFeedSelectPage(action.historyEntry, false)
             }
             is HomeAction.PageBookmarkClick -> {
+                // TODO: restore the old toggle: add to the default list, or remove from lists if already saved.
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_save", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
-                SaveArticleSheetDialog.show(childFragmentManager, action.historyEntry.title)
             }
             is HomeAction.PageShareClick -> {
                 instrument.submitInteraction("click", actionSource = action.card.javaClass.simpleName, elementId = "article_share", pageData = TestKitchenAdapter.getPageData(pageTitle = action.historyEntry.title))
