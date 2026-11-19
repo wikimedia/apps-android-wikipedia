@@ -42,7 +42,7 @@ class YearInReviewGuessAccessibilityTest {
         assertActionReveals(
             page = YearInReviewPage.LongestReadGuess(article = pageTitle("Moon"), fakeArticle = pageTitle("Sourdough"), minutesSpent = minutesSpent),
             guessHeadline = resources.getString(R.string.yir_most_time_article_headline),
-            actionLabel = resources.getString(R.string.yir_most_time_article_choose_action, "Sourdough"),
+            actionLabel = resources.getString(R.string.yir_guess_article_choose_action, "Sourdough"),
             revealHeadline = resources.getQuantityString(R.plurals.yir_most_time_article_supporting, minutesSpent, minutesSpent, YearInReviewConfig.YEAR)
         )
     }
@@ -59,7 +59,7 @@ class YearInReviewGuessAccessibilityTest {
                 numLinks = numLinks
             ),
             guessHeadline = resources.getString(R.string.yir_rabbit_hole_headline),
-            actionLabel = resources.getString(R.string.yir_rabbit_hole_choose_action, "Moon", "Apollo 11"),
+            actionLabel = resources.getString(R.string.yir_guess_article_choose_action, "Moon"),
             revealHeadline = resources.getQuantityString(R.plurals.yir_rabbit_hole_depth_headline, numLinks, numLinks)
         )
     }

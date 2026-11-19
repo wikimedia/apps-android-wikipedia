@@ -28,6 +28,7 @@
     <string name="preference_key_talk_offline_cleanup_task_name" translatable="false">talkOfflineCleanupTask</string>
     <string name="preference_key_login_groups" translatable="false">groups</string>
     <string name="preference_key_login_force_email_auth" translatable="false">loginForceEmailAuth</string>
+    <string name="preference_key_hcaptcha_use_test_site_key" translatable="false">hCaptchaUseTestSiteKey</string>
     <string name="preference_key_last_background_login_date_time" translatable="false">lastBackgroundLoginDateTime</string>
     <string name="preference_key_show_developer_settings" translatable="false">showDeveloperSettings</string>
     <string name="preference_key_developer_settings_newest_first" translatable="false">developerSettingsNewestFirst</string>
@@ -69,7 +70,6 @@
     <string name="preference_key_prefer_offline_content" translatable="false">preferOfflineContent</string>
     <string name="preference_key_feed_cards_order" translatable="false">feedCardsOrder</string>
     <string name="preference_key_feed_cards_enabled" translatable="false">feedCardsEnabled</string>
-    <string name="preference_key_feed_cards_lang_supported" translatable="false">feedCardsLangSupported</string>
     <string name="preference_key_feed_cards_lang_disabled" translatable="false">feedCardsLangDisabled</string>
     <string name="preference_key_feed_customize_onboarding_card_enabled" translatable="false">feedCustomizeOnboardingCardEnabled</string>
     <string name="preference_key_add_articles" translatable="false">addArticles</string>
@@ -173,7 +173,6 @@
     <string name="preference_key_payment_methods_merchant_id" translatable="false">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id" translatable="false">paymentMethodsGatewayId</string>
     <string name="preference_key_otd_game_state" translatable="false">otdGameState</string>
-    <string name="preference_key_otd_game_history" translatable="false">otdGameHistory</string>
     <string name="preference_key_otd_last_played_date" translatable="false">otdLastPlayedDate</string>
     <string name="preference_key_otd_game_date_override" translatable="false">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions" translatable="false">otdGameNumQuestions</string>
