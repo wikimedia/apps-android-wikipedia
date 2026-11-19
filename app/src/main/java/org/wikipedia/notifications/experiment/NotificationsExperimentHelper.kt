@@ -40,6 +40,7 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfigRefreshTask
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
@@ -129,13 +130,20 @@ object NotificationsExperimentHelper {
     }
 
     suspend fun showNotification(context: Context) {
+        // Without a refresh, users who don't open the app would keep getting the notification after the experiment is turned off remotely.
+        RemoteConfigRefreshTask.refreshFromBackground()
+        val abTest = NotificationsExperimentMostReadAbTest()
+        if (!abTest.isNotificationsExperimentEligible()) {
+            // The refreshed remote config can turn the experiment off after the alarm has already fired.
+            stopWeeklyMostReadNotification(context)
+            return
+        }
         if (!canPostWeeklyMostReadNotification(context)) {
             return
         }
         val languageCode = WikipediaApp.instance.languageState.appLanguageCode
         val articles = getWeeklyMostRead(languageCode)
         val mostReadArticle = articles.firstOrNull() ?: return
-        val abTest = NotificationsExperimentMostReadAbTest()
         if (!abTest.isNotificationsExperimentEnabled()) {
             // Control users don't get the notification, but are exposed at the moment they would have received it.
             // They go through the same fetch as treatment users first, so that a failed or empty fetch leaves both groups unexposed.
@@ -186,6 +194,11 @@ object NotificationsExperimentHelper {
         val channel = notificationManager.getNotificationChannelCompat(NotificationCategory.WEEKLY_MOST_READ.id) ?: return Build.VERSION.SDK_INT < Build.VERSION_CODES.O
         val channelGroup = channel.group?.let { notificationManager.getNotificationChannelGroupCompat(it) }
         return channel.importance != NotificationManagerCompat.IMPORTANCE_NONE && channelGroup?.isBlocked != true
+    }
+
+    fun stopWeeklyMostReadNotification(context: Context) {
+        cancelNotification(context)
+        Prefs.notificationsExperimentWeeklyMostReadScheduled = false
     }
 
     fun cancelNotification(context: Context) {
