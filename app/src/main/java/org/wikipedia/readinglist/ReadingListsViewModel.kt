@@ -437,7 +437,7 @@ class ReadingListsViewModel : ViewModel() {
         sortMode: Int
     ): List<ReadingListRow> {
         ReadingList.sort(lists, sortMode)
-        lists.removeAll { it.isDefault }
+        lists.removeEmptyDefaultList()
         return lists.map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
     }
 
@@ -451,10 +451,7 @@ class ReadingListsViewModel : ViewModel() {
         val normalizedQuery = StringUtils.stripAccents(query)
         return when (tab) {
             SavedTab.COLLECTIONS -> lists
-                .filter {
-                    !it.isDefault &&
-                        it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true)
-                }
+                .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
                 .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
             SavedTab.ALL_ARTICLES -> buildArticleRows(lists, normalizedQuery, articleFilter)
         }
