@@ -29,10 +29,10 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.restbase.Attribution
 import org.wikipedia.search.interleave.AttributionKey
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.search.interleave.InterleaveSearchRepository
-import org.wikipedia.search.interleave.SearchResultAttribution
 import org.wikipedia.search.interleave.attributionKey
 import org.wikipedia.settings.Prefs
 import kotlin.time.Duration.Companion.milliseconds
@@ -72,7 +72,7 @@ class SearchResultsViewModel : ViewModel() {
     var lastXSearchIdSemantic = ""
     private var isInterleaveSearchExposureSent = false
 
-    private val _attributions = MutableStateFlow<Map<AttributionKey, SearchResultAttribution>>(emptyMap())
+    private val _attributions = MutableStateFlow<Map<AttributionKey, Attribution>>(emptyMap())
     val attributions = _attributions.asStateFlow()
     private val requestedAttributions = mutableSetOf<AttributionKey>()
 

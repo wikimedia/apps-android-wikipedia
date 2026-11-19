@@ -58,9 +58,9 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.restbase.Attribution
 import org.wikipedia.search.interleave.AttributionKey
 import org.wikipedia.search.interleave.InterleaveSearchEntryCard
-import org.wikipedia.search.interleave.SearchResultAttribution
 import org.wikipedia.search.interleave.SearchResultCard
 import org.wikipedia.search.interleave.SearchResultCardSkeleton
 import org.wikipedia.search.interleave.attributionKey
@@ -214,7 +214,7 @@ private fun LazyListScope.searchResultItems(
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
     isInterleaveSearchEnabled: Boolean,
-    attributions: State<Map<AttributionKey, SearchResultAttribution>>,
+    attributions: State<Map<AttributionKey, Attribution>>,
     onAttributionNeeded: (SearchResult) -> Unit,
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
@@ -236,7 +236,9 @@ private fun LazyListScope.searchResultItems(
                         .testTag("$SEARCH_LIST_TAG$index")
                         .padding(start = 8.dp, end = 8.dp, bottom = 8.dp),
                     searchResult = remember(result, attribution) {
-                        attribution?.let { result.copy(editCounts = it.contributorCount, referenceCounts = it.referenceCount) } ?: result
+                        attribution?.trustAndRelevance?.let {
+                            result.copy(editCounts = it.contributorCounts?.totalUnique, referenceCounts = it.referenceCount)
+                        } ?: result
                     },
                     isAttributionLoading = attribution == null,
                     onItemLongClick = { view ->

@@ -144,7 +144,8 @@ class InterleaveSearchRepositoryTest {
         val result = runBlocking { repository.getAttribution(searchResult("Eiffel Tower", SearchResult.SearchResultType.SEMANTIC, pageId = 1)) }
 
         assertEquals("Eiffel_Tower", requestedTitle)
-        assertEquals(SearchResultAttribution(contributorCount = 2348, referenceCount = 0), result)
+        assertEquals(2348, result.trustAndRelevance?.contributorCounts?.totalUnique)
+        assertEquals(0, result.trustAndRelevance?.referenceCount)
     }
 
     @Test
@@ -153,7 +154,7 @@ class InterleaveSearchRepositoryTest {
 
         val result = runBlocking { repository.getAttribution(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2)) }
 
-        assertEquals(SearchResultAttribution.NONE, result)
+        assertNull(result.trustAndRelevance)
     }
 
     private fun attributionRepository(fetchAttribution: suspend (WikiSite, String) -> Attribution): InterleaveSearchRepository {

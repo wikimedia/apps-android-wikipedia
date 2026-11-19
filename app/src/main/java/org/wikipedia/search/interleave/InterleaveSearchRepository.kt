@@ -105,18 +105,15 @@ class InterleaveSearchRepository(
     }
 
     // A failed request must not break the card, so it gets no counts and hides them.
-    suspend fun getAttribution(result: SearchResult): SearchResultAttribution {
+    suspend fun getAttribution(result: SearchResult): Attribution {
         return try {
-            val trustAndRelevance = fetchAttribution(result.pageTitle.wikiSite, result.pageTitle.prefixedText).trustAndRelevance
-            SearchResultAttribution(
-                contributorCount = trustAndRelevance?.contributorCounts?.totalUnique,
-                referenceCount = trustAndRelevance?.referenceCount
-            )
+            fetchAttribution(result.pageTitle.wikiSite, result.pageTitle.prefixedText)
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
             L.w(e)
-            SearchResultAttribution.NONE
+            // An empty Attribution has no counts, so the card hides them.
+            Attribution()
         }
     }
 
