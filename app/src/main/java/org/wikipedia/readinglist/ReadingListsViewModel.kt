@@ -383,25 +383,21 @@ class ReadingListsViewModel : ViewModel() {
             return OnboardingState.None
         }
 
-        return when (selectedTab) {
-            SavedTab.ALL_ARTICLES -> when {
-                accountState.isLoggedIn && !accountState.isTemporaryAccount && !Prefs.isReadingListSyncEnabled &&
-                        Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
-                    OnboardingState.SyncReminder
-                }
-                (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
-                        !RemoteConfig.config.disableReadingListSync -> {
-                    OnboardingState.LoginReminder
-                }
-                else -> OnboardingState.None
+        if (selectedTab == SavedTab.ALL_ARTICLES) {
+            return OnboardingState.None
+        }
+
+        return when {
+            !Prefs.isRecommendedReadingListOnboardingShown -> OnboardingState.RecommendedReadingList
+            accountState.isLoggedIn && !accountState.isTemporaryAccount && !Prefs.isReadingListSyncEnabled &&
+                    Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync -> {
+                OnboardingState.SyncReminder
             }
-            SavedTab.COLLECTIONS -> {
-                if (!Prefs.isRecommendedReadingListOnboardingShown) {
-                    OnboardingState.RecommendedReadingList
-                } else {
-                    OnboardingState.None
-                }
+            (!accountState.isLoggedIn || accountState.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled &&
+                    !RemoteConfig.config.disableReadingListSync -> {
+                OnboardingState.LoginReminder
             }
+            else -> OnboardingState.None
         }
     }
 
@@ -601,7 +597,7 @@ data class ReadingListsUiState(
     val pageDownloadProgress: Map<Long, Int> = emptyMap(),
     val listCount: Int = 0,
     val searchQuery: String? = null,
-    val selectedTab: SavedTab = SavedTab.ALL_ARTICLES,
+    val selectedTab: SavedTab = SavedTab.COLLECTIONS,
     val selectedArticleFilter: SavedArticleFilter = SavedArticleFilter.ALL_ARTICLES,
     val sortMode: Int = ReadingList.SORT_BY_NAME_ASC,
     val showCollectionsBadge: Boolean = false,
