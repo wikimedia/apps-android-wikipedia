@@ -56,12 +56,19 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.search.interleave.InterleaveSearchEntryCard
+import org.wikipedia.search.interleave.SearchResultCard
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
 import kotlin.time.Duration.Companion.milliseconds
 
 const val SEARCH_LIST_TAG = "search_list"
+
+private val INTERLEAVED_RESULT_TYPES = setOf(
+    SearchResult.SearchResultType.PREFIX,
+    SearchResult.SearchResultType.FULL_TEXT,
+    SearchResult.SearchResultType.SEMANTIC
+)
 
 @OptIn(FlowPreview::class)
 @Composable
@@ -169,6 +176,7 @@ fun SearchResultsScreen(
                     searchResultItems(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,
+                        isInterleaveSearchEnabled = isInterleaveSearchEnabled,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick
                     )
@@ -181,6 +189,7 @@ fun SearchResultsScreen(
 private fun LazyListScope.searchResultItems(
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
+    isInterleaveSearchEnabled: Boolean,
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
 ) {
@@ -188,18 +197,31 @@ private fun LazyListScope.searchResultItems(
         count = searchResultsPage.itemCount
     ) { index ->
         searchResultsPage[index]?.let { result ->
-            SearchResultPageItem(
-                modifier = Modifier
-                    .testTag("$SEARCH_LIST_TAG$index"),
-                searchResultPage = result,
-                searchTerm = searchTerm,
-                onItemClick = {
-                    onItemClick(result, false, index, result.location)
-                },
-                onItemLongClick = { view ->
-                    onItemLongClick(view, result, index)
-                }
-            )
+            // TODO: decide if local results should be in the list. Current prepended to searchResultsPage from viewModel
+            if (isInterleaveSearchEnabled && result.type in INTERLEAVED_RESULT_TYPES) {
+                SearchResultCard(
+                    modifier = Modifier
+                        .testTag("$SEARCH_LIST_TAG$index")
+                        .padding(start = 8.dp, end = 8.dp, bottom = 8.dp),
+                    searchResult = result,
+                    onItemClick = {
+                        onItemClick(result, false, index, result.location)
+                    }
+                )
+            } else {
+                SearchResultPageItem(
+                    modifier = Modifier
+                        .testTag("$SEARCH_LIST_TAG$index"),
+                    searchResultPage = result,
+                    searchTerm = searchTerm,
+                    onItemClick = {
+                        onItemClick(result, false, index, result.location)
+                    },
+                    onItemLongClick = { view ->
+                        onItemLongClick(view, result, index)
+                    }
+                )
+            }
         }
     }
 }
