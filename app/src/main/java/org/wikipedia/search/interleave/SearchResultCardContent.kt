@@ -8,6 +8,7 @@ import org.wikipedia.util.StringUtil
 
 // Remove a wiki once its reference counts become available.
 private val WIKIS_WITHOUT_REFERENCE_COUNTS = setOf("ar")
+private val BLOCK_TAG_REGEX = "<\\s*/?\\s*(p|br|div|ul|ol|li|dl|dt|dd)\\b[^>]*>".toRegex(RegexOption.IGNORE_CASE)
 private val WHITESPACE_REGEX = "\\s+".toRegex()
 
 internal fun SearchResult.cardTitle(): AnnotatedString {
@@ -33,10 +34,13 @@ internal fun SearchResult.cardTrail(): String? {
 // without explaintext=1), so they keep the same formatting as semantic passages instead of arriving flattened.
 internal fun SearchResult.cardExcerpt(): AnnotatedString {
     val raw = if (type == SearchResult.SearchResultType.SEMANTIC) snippet else leadText
-    val excerpt = StringUtil.fromHtml(raw.orEmpty().replace(WHITESPACE_REGEX, " ").trim()).toAnnotatedString()
+    // Block tags become spaces, so a multi-paragraph lead flows as one passage, like a semantic excerpt.
+    val inlineHtml = raw.orEmpty().replace(BLOCK_TAG_REGEX, " ").replace(WHITESPACE_REGEX, " ").trim()
+    val excerpt = StringUtil.fromHtml(inlineHtml).toAnnotatedString()
+    // Lexical leads bold the article's name and semantic passages never do, so bold is dropped to keep both alike.
     return AnnotatedString(
         text = excerpt.text,
-        spanStyles = excerpt.spanStyles,
+        spanStyles = excerpt.spanStyles.map { it.copy(item = it.item.copy(fontWeight = null)) },
         paragraphStyles = excerpt.paragraphStyles
     )
 }

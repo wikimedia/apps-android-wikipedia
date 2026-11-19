@@ -32,6 +32,20 @@ class SearchResultCardContentTest {
     }
 
     @Test
+    fun testLeadParagraphsFlowAsOnePassage() {
+        val excerpt = result(SearchResult.SearchResultType.PREFIX, leadText = "<p>First paragraph.</p>\n<p>Second<br/>line.</p><ul><li>Item</li></ul>").cardExcerpt()
+        assertEquals("First paragraph. Second line. Item", excerpt.text)
+    }
+
+    @Test
+    fun testExcerptHasNoBold() {
+        val excerpt = result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The <b>Eiffel Tower</b> is a <b><i>tower</i></b>.</p>").cardExcerpt()
+        assertEquals("The Eiffel Tower is a tower.", excerpt.text)
+        assertTrue(excerpt.spanStyles.none { it.item.fontWeight != null })
+        assertTrue(excerpt.spanStyles.any { it.item.fontStyle == FontStyle.Italic })
+    }
+
+    @Test
     fun testExcerptKeepsSuperscripts() {
         val excerpt = result(SearchResult.SearchResultType.SEMANTIC, snippet = "About 10<sup>6</sup> km away.").cardExcerpt()
         assertEquals("About 106 km away.", excerpt.text)
