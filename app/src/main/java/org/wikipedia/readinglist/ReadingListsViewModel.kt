@@ -29,8 +29,8 @@ import org.wikipedia.settings.RemoteConfig
 import kotlin.time.Duration.Companion.milliseconds
 
 enum class SavedTab {
-    ALL_ARTICLES,
-    COLLECTIONS
+    COLLECTIONS,
+    ALL_ARTICLES
 }
 
 enum class SavedArticleFilter {
@@ -45,7 +45,7 @@ class ReadingListsViewModel : ViewModel() {
         .debounce { query -> if (query.isNullOrEmpty()) 0L else SEARCH_DEBOUNCE_MILLIS }
         .distinctUntilChanged()
     private val searchActive = MutableStateFlow(false)
-    private val selectedTab = MutableStateFlow(SavedTab.ALL_ARTICLES)
+    private val selectedTab = MutableStateFlow(SavedTab.COLLECTIONS)
     private val selectedArticleFilter = MutableStateFlow(SavedArticleFilter.ALL_ARTICLES)
 
     // Combine the debounced search query, selected tab, and article filter into a single state flow representing the current content mode.
