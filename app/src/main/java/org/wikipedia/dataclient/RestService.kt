@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.restbase.UserEdits
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.gallery.MediaList
+import org.wikipedia.offline.ArticleCacheRequest
 import org.wikipedia.readinglist.sync.SyncedReadingLists
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponse
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponseBatch
@@ -31,6 +32,7 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
+import retrofit2.http.Tag
 
 interface RestService {
 
@@ -42,7 +44,8 @@ interface RestService {
         @Header("Cache-Control") cacheControl: String? = null,
         @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
         @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null,
+        @Tag cacheRequest: ArticleCacheRequest? = null
     ): PageSummary
 
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
@@ -53,7 +56,8 @@ interface RestService {
         @Header("Cache-Control") cacheControl: String? = null,
         @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
         @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null,
+        @Tag cacheRequest: ArticleCacheRequest? = null
     ): Response<PageSummary>
 
     @Headers("Accept: $ACCEPT_HEADER_DEFINITION")
@@ -70,7 +74,8 @@ interface RestService {
         @Header("Cache-Control") cacheControl: String? = null,
         @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
         @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null,
+        @Tag cacheRequest: ArticleCacheRequest? = null
     ): MediaList
 
     @GET("page/media-list/{title}/{revision}")

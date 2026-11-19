@@ -483,7 +483,7 @@ private fun ReadingListsList(
             key = { _, row ->
                 when (row) {
                     is ReadingListRow.ListRow -> "list-$sortMode-${row.list.id}"
-                    is ReadingListRow.PageRow -> "page-$sortMode-${row.page.id}"
+                    is ReadingListRow.PageRow -> "page-$sortMode-${row.articleKey}"
                 }
             }
         ) { index, row ->

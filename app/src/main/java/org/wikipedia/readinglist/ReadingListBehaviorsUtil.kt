@@ -50,7 +50,7 @@ object ReadingListBehaviorsUtil {
     private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
 
     fun getListsContainPage(readingListPage: ReadingListPage) =
-            allReadingLists.filter { list -> list.pages.any { it.apiTitle == readingListPage.apiTitle } }
+            allReadingLists.filter { list -> list.pages.any { it.articleKey() == readingListPage.articleKey() } }
 
     fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi) {
@@ -220,10 +220,12 @@ object ReadingListBehaviorsUtil {
             .show()
     }
 
-    fun updateReadingListPage(item: ReadingListPage) {
+    fun touchListsForPage(item: ReadingListPage) {
+        val key = item.articleKey()
         MainScope().launch(exceptionHandler) {
-            AppDatabase.instance.readingListDao().updateLists(getListsContainPage(item), false)
-            AppDatabase.instance.readingListPageDao().updateReadingListPage(item)
+            AppDatabase.instance.readingListDao().touchListsForArticle(
+                key.wiki, key.lang, key.namespace, key.apiTitle, System.currentTimeMillis()
+            )
         }
     }
 
@@ -373,7 +375,7 @@ object ReadingListBehaviorsUtil {
         if (page == null) {
             return
         }
-        if (page.offline) {
+        if (page.offlineRequested) {
             MainScope().launch(exceptionHandler) {
                 val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(page))
                 val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
@@ -384,11 +386,11 @@ object ReadingListBehaviorsUtil {
                     MaterialAlertDialogBuilder(activity)
                             .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
                             .setMessage(getConfirmToggleOfflineMessage(activity, page, lists))
-                            .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline) { _, _ -> toggleOffline(activity, page, callback) }
+                            .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline) { _, _ -> changeOffline(activity, page, false, callback) }
                             .setNegativeButton(R.string.reading_list_remove_from_offline_cancel_button_text, null)
                             .show()
                 } else {
-                    toggleOffline(activity, page, callback)
+                    changeOffline(activity, page, false, callback)
                 }
             }
         } else {
@@ -397,14 +399,20 @@ object ReadingListBehaviorsUtil {
     }
 
     fun toggleOffline(activity: Activity, page: ReadingListPage, callback: Callback) {
-        resetPageProgress(page)
-        if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi && !page.offline) {
+        val requested = !page.offlineRequested || page.canRetryOffline ||
+            (page.saving && Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi)
+        changeOffline(activity, page, requested, callback)
+    }
+
+    private fun changeOffline(activity: Activity, page: ReadingListPage, requested: Boolean, callback: Callback) {
+        if (requested) resetPageProgress(page)
+        if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi && requested) {
             showMobileDataWarningDialog(activity) { _, _ ->
-                toggleOffline(activity, page, true)
+                toggleOffline(activity, page, true, requested)
                 callback.onCompleted()
             }
         } else {
-            toggleOffline(activity, page, !Prefs.isDownloadingReadingListArticlesEnabled)
+            toggleOffline(activity, page, !Prefs.isDownloadingReadingListArticlesEnabled, requested)
             callback.onCompleted()
         }
     }
@@ -450,17 +458,17 @@ object ReadingListBehaviorsUtil {
             MoveToReadingListDialog.newInstance(sourceReadingListId, title, source, showDefaultList, listener))
     }
 
-    private fun toggleOffline(activity: Activity, page: ReadingListPage, forcedSave: Boolean) {
+    private fun toggleOffline(activity: Activity, page: ReadingListPage, forcedSave: Boolean, requested: Boolean) {
         MainScope().launch(exceptionHandler) {
             AppDatabase.instance.readingListPageDao()
-                .markPagesForOffline(listOf(page), !page.offline, forcedSave)
+                .markPagesForOffline(listOf(page), requested, forcedSave)
             if (!activity.isStarted) {
                 return@launch
             }
             FeedbackUtil.showMessage(
                 activity,
                 activity.resources.getQuantityString(
-                    if (page.offline) R.plurals.reading_list_article_offline_message else R.plurals.reading_list_article_not_offline_message,
+                    if (requested) R.plurals.reading_list_article_offline_message else R.plurals.reading_list_article_not_offline_message,
                     1
                 )
             )
@@ -484,7 +492,7 @@ object ReadingListBehaviorsUtil {
     }
 
     private fun resetPageProgress(page: ReadingListPage) {
-        if (!page.offline) {
+        if (!page.offlineRequested || page.canRetryOffline) {
             page.downloadProgress = MIN_PROGRESS
         }
     }

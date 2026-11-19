@@ -21,6 +21,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
@@ -57,41 +58,43 @@ class ReadingListsViewModel : ViewModel() {
     private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
 
     private val accountState = MutableStateFlow(readAccountState())
-    private val pageDownloadProgress = MutableStateFlow<Map<Long, Int>>(emptyMap())
+    private val pageDownloadProgress = MutableStateFlow<Map<ArticleKey, Int>>(emptyMap())
 
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
 
     private val _selectionState = MutableStateFlow(ReadingListsSelectionState())
     val selectionState: StateFlow<ReadingListsSelectionState> = _selectionState.asStateFlow()
+    private val selectedArticleKeys = mutableSetOf<ArticleKey>()
 
     private val readingListsContentState = combine(
         AppDatabase.instance.readingListDao().getListsWithPagesFlow(),
+        ArticleOfflineStateStore(AppDatabase.instance).observe(),
         contentMode,
         recentPreviewSavedState,
         Prefs.observeKeys(
             R.string.preference_key_reading_list_sort_mode,
             R.string.preference_key_reading_list_page_sort_mode
         )
-    ) { relations, mode, previewSavedState, _ ->
+    ) { relations, offlineStates, mode, previewSavedState, _ ->
         val sortMode = when (mode.tab) {
             SavedTab.ALL_ARTICLES -> Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
             SavedTab.COLLECTIONS -> Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC)
         }
         // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL)
-        val lists = relations.map { it.toReadingList() }.toMutableList()
+        val lists = relations.map { relation ->
+            relation.toReadingList().apply { pages.withOfflineState(offlineStates) }
+        }.toMutableList()
         val hasSavedArticles = lists.any { it.pages.isNotEmpty() }
+        val rows = buildRows(lists, mode.tab, mode.query, mode.articleFilter, previewSavedState.newBadgeListId, sortMode)
+        val articleIds = lists.flatMap { it.pages }.groupBy { it.articleKey() }
+            .mapValues { (_, pages) -> pages.minOf { it.id } }.toMutableMap()
+        rows.filterIsInstance<ReadingListRow.PageRow>().forEach { articleIds[it.articleKey] = it.page.id }
         ReadingListsUiState(
             isLoading = false,
-            rows = buildRows(
-                lists,
-                mode.tab,
-                mode.query,
-                mode.articleFilter,
-                previewSavedState.newBadgeListId,
-                sortMode
-            ),
+            rows = rows,
             hasSavedArticles = hasSavedArticles,
+            articleIds = articleIds,
             listCount = relations.size,
             searchQuery = mode.query,
             selectedTab = mode.tab,
@@ -114,7 +117,7 @@ class ReadingListsViewModel : ViewModel() {
     ) { contentState, downloadProgress ->
         contentState.copy(
             pageDownloadProgress = if (contentState.selectedTab == SavedTab.ALL_ARTICLES) {
-                downloadProgress
+                contentState.rows.filterIsInstance<ReadingListRow.PageRow>().associate { it.page.id to (downloadProgress[it.articleKey] ?: 0) }
             } else {
                 emptyMap()
             }
@@ -212,19 +215,21 @@ class ReadingListsViewModel : ViewModel() {
 
     fun updatePageDownloadProgress(page: ReadingListPage) {
         pageDownloadProgress.update { progressByPageId ->
-            if (progressByPageId[page.id] == page.downloadProgress) {
+            if (progressByPageId[page.articleKey()] == page.downloadProgress) {
                 progressByPageId
             } else {
-                progressByPageId + (page.id to page.downloadProgress)
+                progressByPageId + (page.articleKey() to page.downloadProgress)
             }
         }
     }
 
     fun setSelectionMode(enabled: Boolean) {
+        selectedArticleKeys.clear()
         _selectionState.value = ReadingListsSelectionState(enabled = enabled)
     }
 
     fun toggleListSelection(listId: Long) {
+        selectedArticleKeys.clear()
         val selectedListIds = _selectionState.value.selectedListIds.toMutableSet()
         if (!selectedListIds.add(listId)) {
             selectedListIds.remove(listId)
@@ -236,17 +241,21 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     fun togglePageSelection(pageId: Long) {
-        val selectedPageIds = _selectionState.value.selectedPageIds.toMutableSet()
-        if (!selectedPageIds.add(pageId)) {
-            selectedPageIds.remove(pageId)
+        val key = uiState.value.rows.filterIsInstance<ReadingListRow.PageRow>()
+            .firstOrNull { it.page.id == pageId }?.articleKey ?: return
+        if (!selectedArticleKeys.add(key)) {
+            selectedArticleKeys.remove(key)
         }
         _selectionState.value = ReadingListsSelectionState(
             enabled = true,
-            selectedPageIds = selectedPageIds
+            selectedArticleKeys = selectedArticleKeys.toSet()
         )
     }
 
+    fun selectedPageIds() = selectionState.value.selectedArticleKeys.mapNotNullTo(mutableSetOf()) { uiState.value.articleIds[it] }
+
     fun selectAllLists() {
+        selectedArticleKeys.clear()
         _selectionState.value = ReadingListsSelectionState(
             enabled = true,
             selectedListIds = uiState.value.rows.filterIsInstance<ReadingListRow.ListRow>()
@@ -259,15 +268,18 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     fun selectAllPages() {
+        selectedArticleKeys.clear()
+        uiState.value.rows.filterIsInstance<ReadingListRow.PageRow>()
+            .mapTo(selectedArticleKeys) { it.articleKey }
         _selectionState.value = ReadingListsSelectionState(
             enabled = true,
-            selectedPageIds = uiState.value.rows.filterIsInstance<ReadingListRow.PageRow>()
-                .mapTo(mutableSetOf()) { it.page.id }
+            selectedArticleKeys = selectedArticleKeys.toSet()
         )
     }
 
     fun clearPageSelection() {
-        _selectionState.value = _selectionState.value.copy(selectedPageIds = emptySet())
+        selectedArticleKeys.clear()
+        _selectionState.value = _selectionState.value.copy(selectedArticleKeys = emptySet())
     }
 
     fun refreshRecentPreviewSavedList() {
@@ -312,12 +324,13 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     suspend fun loadReadingListWithPagesById(listId: Long): ReadingList? {
-        return AppDatabase.instance.readingListDao().getListWithPagesById(listId)?.toReadingList()
+        return AppDatabase.instance.readingListDao().getListById(listId, true)
     }
 
     suspend fun loadReadingListsWithPagesByIds(listIds: Set<Long>): List<ReadingList> {
+        val states = ArticleOfflineStateStore(AppDatabase.instance).snapshot()
         return AppDatabase.instance.readingListDao().getListsWithPagesByIds(listIds)
-            .map { it.toReadingList() }
+            .map { it.toReadingList().apply { pages.withOfflineState(states) } }
     }
 
     suspend fun getReadingListsWithoutContents(): List<ReadingList> {
@@ -328,37 +341,34 @@ class ReadingListsViewModel : ViewModel() {
         AppDatabase.instance.readingListDao().createList(title, description)
     }
 
-    suspend fun getPageById(pageId: Long): ReadingListPage? {
-        return AppDatabase.instance.readingListPageDao().getPageById(pageId)
-    }
+    suspend fun getPageById(pageId: Long): ReadingListPage? =
+        AppDatabase.instance.readingListPageDao().getActivePageWithOfflineState(pageId)
 
     suspend fun getPagesByIds(pageIds: Set<Long>): List<ReadingListPage> {
-        return AppDatabase.instance.readingListPageDao().getPagesByIds(pageIds)
+        return pageIds.toList().chunked(900).flatMap { AppDatabase.instance.readingListPageDao().getPagesByIds(it.toSet()) }
     }
 
-    suspend fun prepareSelectedPagesForDeletion(pageIds: Set<Long> = selectionState.value.selectedPageIds): SelectedPagesDeletion? {
-        val selectedRows = uiState.value.rows
-            .asSequence()
-            .filterIsInstance<ReadingListRow.PageRow>()
-            .filter { it.page.id in pageIds }
-            .toList()
-        if (selectedRows.isEmpty()) {
-            return null
-        }
+    suspend fun getPageTitlesForIds(pageIds: Set<Long>): List<PageTitle> = getPagesByIds(pageIds)
+        .distinctBy { it.articleKey() }
+        .map { ReadingListPage.toPageTitle(it) }
 
-        val selectedPageKeys = selectedRows.mapTo(mutableSetOf()) { it.page.lang to it.page.apiTitle }
-        val containingListIds = selectedRows.flatMapTo(mutableSetOf()) { row ->
-            row.containingLists.map { it.id }
-        }
+    suspend fun prepareSelectedPagesForDeletion(pageIds: Set<Long> = selectedPageIds()): SelectedPagesDeletion? {
+        val selectedPages = getPagesByIds(pageIds).filter { it.status != ReadingListPage.STATUS_QUEUE_FOR_DELETE }
+        val selectedPageKeys = selectedPages.mapTo(mutableSetOf()) { it.articleKey() }
+        if (selectedPageKeys.isEmpty()) return null
+        val currentPages = AppDatabase.instance.readingListPageDao().getActivePages()
+            .filter { it.articleKey() in selectedPageKeys }
+        val containingListIds = currentPages.mapTo(mutableSetOf()) { it.listId }
         if (containingListIds.isEmpty()) {
             return null
         }
 
         val readingLists = mutableListOf<ReadingList>()
-        AppDatabase.instance.readingListDao().getListsWithPagesByIds(containingListIds).forEach { relation ->
+        val relations = AppDatabase.instance.readingListDao().getListsWithPagesByIds(containingListIds)
+        relations.forEach { relation ->
             val pagesToDelete = relation.pages.filter { page ->
                 page.status != ReadingListPage.STATUS_QUEUE_FOR_DELETE &&
-                    (page.lang to page.apiTitle) in selectedPageKeys
+                    page.articleKey() in selectedPageKeys
             }
             if (pagesToDelete.isNotEmpty()) {
                 relation.list.pages.clear()
@@ -368,7 +378,7 @@ class ReadingListsViewModel : ViewModel() {
         }
 
         return SelectedPagesDeletion(
-            selectedPageCount = selectedRows.size,
+            selectedPageCount = selectedPageKeys.size,
             readingLists = readingLists
         )
     }
@@ -461,8 +471,8 @@ class ReadingListsViewModel : ViewModel() {
     }
 
     /**
-     * Every saved article across [lists] as [ReadingListRow.PageRow]s, de-duplicated by lang + API
-     * title so an article on multiple lists appears once, annotated with the lists that contain it.
+     * Every saved article across [lists] as [ReadingListRow.PageRow]s, de-duplicated by full article
+     * identity so an article on multiple lists appears once, annotated with the lists that contain it.
      * When [titleFilter] is non-null, only articles whose title contains it (accent-insensitive) are kept.
      */
     private fun buildArticleRows(
@@ -471,13 +481,17 @@ class ReadingListsViewModel : ViewModel() {
         articleFilter: SavedArticleFilter = SavedArticleFilter.ALL_ARTICLES,
         sortMode: Int? = null
     ): List<ReadingListRow.PageRow> {
-        val selectedArticles = linkedMapOf<Pair<String, String>, ArticleRowData>()
+        val selectedArticles = linkedMapOf<ArticleKey, ArticleRowData>()
         lists.forEach { list ->
             list.pages.forEach { page ->
                 val matches = titleFilter == null ||
                     page.accentInvariantTitle.contains(titleFilter, ignoreCase = true)
                 if (matches) {
-                    selectedArticles.getOrPut(page.lang to page.apiTitle) { ArticleRowData(page) }
+                    val key = page.articleKey()
+                    val current = selectedArticles[key]?.page
+                    if (current == null || page.id < current.id) {
+                        selectedArticles[key] = ArticleRowData(page)
+                    }
                 }
             }
         }
@@ -489,7 +503,7 @@ class ReadingListsViewModel : ViewModel() {
         lists.forEach { list ->
             val containingList = ContainingList(list.id, list.title, list.isDefault)
             list.pages.forEach { page ->
-                selectedArticles[page.lang to page.apiTitle]?.containingLists?.add(containingList)
+                selectedArticles[page.articleKey()]?.containingLists?.add(containingList)
             }
         }
 
@@ -501,10 +515,11 @@ class ReadingListsViewModel : ViewModel() {
         sortMode?.let { sortArticles(orderedPages, it) }
 
         return orderedPages.map { page ->
-            val article = selectedArticles.getValue(page.lang to page.apiTitle)
+            val article = selectedArticles.getValue(page.articleKey())
             ReadingListRow.PageRow(
                 page.toUiModel(),
-                article.containingLists
+                article.containingLists,
+                page.articleKey()
             )
         }
     }
@@ -518,12 +533,6 @@ class ReadingListsViewModel : ViewModel() {
         }
     }
 
-    private fun MutableList<ReadingList>.removeEmptyDefaultList() {
-        if (size == 1 && this[0].isDefault && this[0].pages.isEmpty()) {
-            removeAt(0)
-        }
-    }
-
     private fun ReadingList.toUiModel(recentPreviewSavedId: Long?): ReadingListUiModel {
         return ReadingListUiModel(
             id = id,
@@ -531,6 +540,7 @@ class ReadingListsViewModel : ViewModel() {
             description = description,
             isDefault = isDefault,
             totalPages = pages.size,
+            numPagesOffline = numPagesOffline,
             sizeBytesFromPages = sizeBytesFromPages,
             thumbUrls = pages.mapNotNull { it.thumbUrl }.filterNot { it.isEmpty() },
             isNew = id == recentPreviewSavedId
@@ -546,9 +556,10 @@ class ReadingListsViewModel : ViewModel() {
             thumbUrl = thumbUrl,
             lang = lang,
             apiTitle = apiTitle,
-            offline = offline,
+            offline = offlineRequested,
             saving = saving,
-            isAvailable = WikipediaApp.instance.isOnline || (offline && !saving)
+            availableOffline = availableOffline,
+            isAvailable = WikipediaApp.instance.isOnline || availableOffline
         )
     }
 
@@ -568,6 +579,7 @@ data class ReadingListUiModel(
     val description: String?,
     val isDefault: Boolean,
     val totalPages: Int,
+    val numPagesOffline: Int = 0,
     val sizeBytesFromPages: Long,
     val thumbUrls: List<String> = emptyList(),
     val isNew: Boolean = false
@@ -583,7 +595,8 @@ data class ReadingListPageUiModel(
     val apiTitle: String,
     val offline: Boolean,
     val saving: Boolean,
-    val isAvailable: Boolean
+    val isAvailable: Boolean,
+    val availableOffline: Boolean = offline && !saving
 )
 
 /**
@@ -592,7 +605,7 @@ data class ReadingListPageUiModel(
  */
 sealed interface ReadingListRow {
     data class ListRow(val list: ReadingListUiModel) : ReadingListRow
-    data class PageRow(val page: ReadingListPageUiModel, val containingLists: List<ContainingList>) : ReadingListRow
+    data class PageRow(val page: ReadingListPageUiModel, val containingLists: List<ContainingList>, val articleKey: ArticleKey) : ReadingListRow
 }
 data class ContainingList(val id: Long, val title: String, val isDefault: Boolean = false)
 
@@ -602,6 +615,7 @@ data class ReadingListsUiState(
     val rows: List<ReadingListRow> = emptyList(),
     val hasSavedArticles: Boolean = false,
     val pageDownloadProgress: Map<Long, Int> = emptyMap(),
+    val articleIds: Map<ArticleKey, Long> = emptyMap(),
     val listCount: Int = 0,
     val searchQuery: String? = null,
     val selectedTab: SavedTab = SavedTab.ALL_ARTICLES,
@@ -640,7 +654,7 @@ data class RecommendedReadingListCard(
 data class ReadingListsSelectionState(
     val enabled: Boolean = false,
     val selectedListIds: Set<Long> = emptySet(),
-    val selectedPageIds: Set<Long> = emptySet()
+    val selectedArticleKeys: Set<ArticleKey> = emptySet()
 )
 
 data class SelectedPagesDeletion(

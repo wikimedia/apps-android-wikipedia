@@ -125,7 +125,7 @@ fun ReadingListPageRow(
             }
         }
 
-        if (!isSelectionMode && (!page.offline || page.saving)) {
+        if (!isSelectionMode && !page.availableOffline) {
             Spacer(modifier = Modifier.width(16.dp))
             Box(
                 modifier = Modifier
@@ -134,7 +134,7 @@ fun ReadingListPageRow(
                     .clickable(onClick = onToggleOfflineClick),
                 contentAlignment = Alignment.Center
             ) {
-                if (downloadProgress in 1 until 100) {
+                if (page.saving && downloadProgress in 1 until 100) {
                     CircularProgressIndicator(
                         progress = { downloadProgress / 100f },
                         modifier = Modifier.size(28.dp),

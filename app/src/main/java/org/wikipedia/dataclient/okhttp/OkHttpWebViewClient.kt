@@ -9,8 +9,10 @@ import okhttp3.Request
 import okhttp3.Response
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.RestService
+import org.wikipedia.offline.ArticleCacheRequest
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageViewModel
+import org.wikipedia.readinglist.articleKey
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
@@ -52,19 +54,19 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             return null
         }
         var response: WebResourceResponse
+        var ownedResponse: Response? = null
         try {
             val shouldLogLatency = request.url.encodedPath?.contains(RestService.PAGE_HTML_ENDPOINT) == true
             if (shouldLogLatency) {
                 WikipediaApp.instance.appSessionEvent.pageFetchStart()
             }
-            val rsp = request(request)
+            val rsp = request(request).also { ownedResponse = it }
             if (rsp.networkResponse != null && shouldLogLatency) {
                 WikipediaApp.instance.appSessionEvent.pageFetchEnd()
             }
             val contentType = rsp.header(HEADER_CONTENT_TYPE).orEmpty()
             response = if (contentType.startsWith("audio") || contentType.startsWith("video")) {
                 // One last check to make sure we're not intercepting a media file (see comments above).
-                rsp.close()
                 return null
             } else {
                 // noinspection ConstantConditions
@@ -73,7 +75,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                     rsp.code,
                     rsp.message.ifBlank { "Unknown error" },
                     rsp.headers.toMap(),
-                    rsp.body?.byteStream())
+                    rsp.body?.byteStream()).also { ownedResponse = null }
             }
         } catch (e: Exception) {
             val reasonCode = if (e.message.isNullOrEmpty()) "Unknown error" else UriUtil.encodeURL(e.message!!)
@@ -83,6 +85,8 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                 WebResourceResponse(null, null, 500, reasonCode, null, null)
             }
             L.e(e)
+        } finally {
+            ownedResponse?.close()
         }
         return response
     }
@@ -112,8 +116,9 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         model.title?.let { title ->
             // TODO: Find a common way to set this header between here and RetrofitFactory.
             builder.header("Accept-Language", WikipediaApp.instance.getAcceptLanguage(title.wikiSite))
-            if (model.isInReadingList) {
+            if (model.shouldSaveOffline) {
                 builder.header(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
+                builder.tag(ArticleCacheRequest::class.java, ArticleCacheRequest(title.articleKey()))
             }
             builder.header(OfflineCacheInterceptor.LANG_HEADER, title.wikiSite.languageCode)
             builder.header(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(title.prefixedText))

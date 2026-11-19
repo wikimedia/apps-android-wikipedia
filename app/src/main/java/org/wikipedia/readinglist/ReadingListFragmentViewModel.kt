@@ -3,10 +3,12 @@ package org.wikipedia.readinglist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -20,6 +22,7 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 
 class ReadingListFragmentViewModel : ViewModel() {
+    private var listObservation: Job? = null
 
     private val _updateListByIdFlow = MutableSharedFlow<Resource<ReadingList>>()
     val updateListByIdFlow = _updateListByIdFlow.asSharedFlow()
@@ -40,17 +43,24 @@ class ReadingListFragmentViewModel : ViewModel() {
     val yirListFlow = _yirListFlow.asStateFlow()
 
     fun updateListById(readingListId: Long) {
-         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-             viewModelScope.launch {
-                 _updateListByIdFlow.emit(Resource.Error(throwable))
-             }
+        listObservation?.cancel()
+        listObservation = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            viewModelScope.launch {
+                _updateListByIdFlow.emit(Resource.Error(throwable))
+            }
         }) {
-             val list = AppDatabase.instance.readingListDao().getListById(readingListId, true)
-             if (list == null) {
-                 _updateListByIdFlow.emit(Resource.Error(Throwable(L10nUtil.getString(R.string.error_message_generic))))
-             } else {
-                 _updateListByIdFlow.emit(Resource.Success(list))
-             }
+            combine(
+                AppDatabase.instance.readingListDao().observeListWithPages(readingListId),
+                ArticleOfflineStateStore(AppDatabase.instance).observe()
+            ) { relation, states ->
+                relation?.toReadingList()?.apply { pages.withOfflineState(states) }
+            }.collect { list ->
+                if (list == null) {
+                    _updateListByIdFlow.emit(Resource.Error(Throwable(L10nUtil.getString(R.string.error_message_generic))))
+                } else {
+                    _updateListByIdFlow.emit(Resource.Success(list))
+                }
+            }
         }
     }
 

@@ -338,14 +338,14 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                         if (localPages.size == 1) {
                             L.d("Creating new remote page " + localPages[0].displayTitle)
                             localPages[0].remoteId = client.addPageToList(csrfToken, localList.remoteId, newEntries[0])
-                            AppDatabase.instance.readingListPageDao().updateReadingListPage(localPages[0])
+                            AppDatabase.instance.readingListPageDao().updateRemoteId(localPages[0].id, localPages[0].remoteId)
                         } else {
                             L.d("Creating " + newEntries.size + " new remote pages")
                             val ids = client.addPagesToList(csrfToken, localList.remoteId, newEntries)
                             for (i in ids.indices) {
                                 localPages[i].remoteId = ids[i]
                             }
-                            AppDatabase.instance.readingListPageDao().updateReadingListPages(localPages)
+                            AppDatabase.instance.readingListPageDao().updateRemoteIds(localPages)
                         }
                     } catch (t: Throwable) {
                         // TODO: optimization opportunity -- if the server can return the ID
@@ -391,7 +391,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                                 }
                             }
                         }
-                        AppDatabase.instance.readingListPageDao().updateReadingListPages(localPages)
+                        AppDatabase.instance.readingListPageDao().updateRemoteIds(localPages)
                     }
                 }
             } catch (e: CancellationException) {
@@ -460,16 +460,19 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         var updateOnly = localPage != null
 
         if (localPage == null) {
-            localPage = ReadingListPage(pageTitleFromRemoteEntry(remotePage))
-            localPage.listId = listForPage.id
-            updateOnly = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, remoteTitle) != null
+            localPage = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, remoteTitle)
+            updateOnly = localPage != null
+            if (localPage == null) {
+                localPage = ReadingListPage(remoteTitle)
+                localPage.listId = listForPage.id
+            }
         }
         localPage.remoteId = remotePage.id
         localPage.atime = remotePage.created.toInstant(ZoneOffset.UTC).toEpochMilli()
         localPage.mtime = remotePage.updated.toInstant(ZoneOffset.UTC).toEpochMilli()
         if (updateOnly) {
             L.d("Updating local page " + localPage.apiTitle)
-            AppDatabase.instance.readingListPageDao().updateReadingListPage(localPage)
+            AppDatabase.instance.readingListPageDao().updateSyncMetadata(localPage.id, localPage.remoteId, localPage.atime, localPage.mtime)
         } else {
             L.d("Creating local page " + localPage.apiTitle)
             AppDatabase.instance.readingListPageDao().addPagesToList(listForPage, listOf(localPage), false)

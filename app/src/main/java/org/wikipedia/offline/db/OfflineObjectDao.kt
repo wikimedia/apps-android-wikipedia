@@ -7,14 +7,27 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.page.PageTitle
-import org.wikipedia.util.log.L
+import org.wikipedia.offline.OfflineCacheWrite
+import org.wikipedia.page.Namespace
 import java.io.File
 
 @Dao
 interface OfflineObjectDao {
+    @Query("SELECT * FROM OfflineObject")
+    suspend fun getAllObjects(): List<OfflineObject>
+
+    @Query("SELECT * FROM OfflineObject")
+    fun observeAllObjects(): Flow<List<OfflineObject>>
+
+    suspend fun attachObjectsToPages(objects: List<OfflineObject>, sourceIds: Set<Long>, targetIds: Set<Long>) {
+        objects.filter { obj -> obj.usedBy.any { it in sourceIds } }.forEach { obj ->
+            targetIds.forEach { obj.addUsedBy(it) }
+            updateOfflineObject(obj)
+        }
+    }
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOfflineObject(obj: OfflineObject)
 
@@ -32,9 +45,6 @@ interface OfflineObjectDao {
 
     @Query("SELECT * FROM OfflineObject WHERE url LIKE '%' || :urlFragment || '%'")
     suspend fun searchForOfflineObjects(urlFragment: String): List<OfflineObject>
-
-    @Query("SELECT * FROM OfflineObject WHERE usedByStr LIKE '%|' || :id || '|%'")
-    suspend fun getFromUsedById(id: Long): List<OfflineObject>
 
     @Delete
     suspend fun deleteOfflineObject(obj: OfflineObject)
@@ -55,75 +65,72 @@ interface OfflineObjectDao {
         return obj
     }
 
+    @Query("SELECT * FROM OfflineObject WHERE url = :url")
+    suspend fun getObjectsByUrl(url: String): List<OfflineObject>
+
+    @Query("SELECT * FROM OfflineObject WHERE lang = :lang AND url IN (:urls)")
+    suspend fun getObjectsByUrls(lang: String, urls: Set<String>): List<OfflineObject>
+
+    @Query("SELECT DISTINCT path FROM OfflineObject WHERE path IN (:paths)")
+    suspend fun getReferencedPaths(paths: List<String>): List<String>
+
+    @Query("SELECT * FROM OfflineObject WHERE EXISTS (SELECT 1 FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle AND offline = 1 AND status != 2 AND OfflineObject.usedByStr LIKE '%|' || ReadingListPage.id || '|%')")
+    suspend fun getObjectsForArticle(wiki: String, lang: String, namespace: Namespace, apiTitle: String): List<OfflineObject>
+
     @Transaction
-    suspend fun addObject(url: String, lang: String, path: String, pageTitle: String) {
-        // first find this item if it already exists in the db
-        var obj = getOfflineObject(url, lang)
-
-        var doInsert = false
-        var doModify = false
-        if (obj == null) {
-            obj = OfflineObject(url = url, lang = lang, path = path, status = 0)
-            doInsert = true
+    suspend fun publishResponse(staged: OfflineObject, path: String, write: OfflineCacheWrite?, sharedImage: Boolean): Set<String>? {
+        // Untagged responses are from Talk, which has its own cache lifecycle.
+        val owners = if (write == null) emptyList() else {
+            if (!write.isCurrent()) return null
+            AppDatabase.instance.readingListPageDao().getAllPageOccurrences(write.key).filter { it.offline }
+                .also { if (it.isEmpty()) return null }
         }
+        val previous = if (sharedImage) getObjectsByUrl(staged.url) else listOfNotNull(getOfflineObject(staged.url, staged.lang))
+        if (write?.isCurrent() == false || File(staged.path + ".1").length() == 0L) return null
 
-        // try to find the associated title in a reading list, and add its id to the usedBy list.
-        val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(
-            PageTitle(pageTitle, WikiSite.forLanguageCode(lang))
-        )
+        if (!File(staged.path + ".0").renameTo(File(path + ".0")) ||
+            !File(staged.path + ".1").renameTo(File(path + ".1"))) return null
 
-        pages.forEach {
-            if (!obj.usedBy.contains(it.id)) {
-                obj.addUsedBy(it.id)
-                doModify = true
-            }
-        }
-        if (doInsert) {
-            insertOfflineObject(obj)
-        } else if (doModify) {
-            if (path != obj.path) {
-                L.w("Existing offline object path is inconsistent.")
-            }
-            updateOfflineObject(obj)
+        val existing = previous.firstOrNull { it.lang == staged.lang }
+        val published = (existing ?: staged).copy(path = path)
+        owners.forEach { published.addUsedBy(it.id) }
+        if (existing == null) insertOfflineObject(published) else updateOfflineObject(published)
+        previous.filter { it.id != existing?.id }.forEach { updateOfflineObject(it.copy(path = path)) }
+        return previous.mapTo(mutableSetOf()) { it.path }
+    }
+
+    @Transaction
+    suspend fun deleteUnreferencedFiles(paths: Set<String>) {
+        paths.chunked(900).forEach { batch ->
+            val referenced = getReferencedPaths(batch).toSet()
+            batch.filterNot { it in referenced }.forEach { deleteFilesAtPath(it) }
         }
     }
 
     @Transaction
-    suspend fun deleteObjectsForPageId(ids: List<Long>) {
-        ids.forEach { id ->
-            getFromUsedById(id).forEach { obj ->
-                if (obj.usedBy.contains(id)) {
-                    obj.removeUsedBy(id)
-                    if (obj.usedBy.isEmpty()) {
-                        // the object is now an orphan, so remove it!
-                        deleteOfflineObject(obj)
-                        deleteFilesForObject(obj)
-                    } else {
-                        updateOfflineObject(obj)
-                    }
+    suspend fun detachObjectsFromPages(ids: List<Long>): Set<String> {
+        if (ids.isEmpty()) return emptySet()
+        val removedIds = ids.toSet()
+        val detachedPaths = mutableSetOf<String>()
+        getAllObjects().forEach { obj ->
+            val ownersToRemove = obj.usedBy.filter { it in removedIds }
+            if (ownersToRemove.isNotEmpty()) {
+                ownersToRemove.forEach { obj.removeUsedBy(it) }
+                if (obj.usedBy.isEmpty()) {
+                    deleteOfflineObject(obj)
+                    detachedPaths.add(obj.path)
+                } else {
+                    updateOfflineObject(obj)
                 }
             }
         }
+        return detachedPaths
     }
 
-    suspend fun getTotalBytesForPageId(id: Long): Long {
-        var totalBytes: Long = 0
-        try {
-            totalBytes = getFromUsedById(id).sumOf { File("${it.path}.1").length() }
-        } catch (e: Exception) {
-            L.w(e)
-        }
-        return totalBytes
-    }
+    fun deleteFilesForObject(obj: OfflineObject) = deleteFilesAtPath(obj.path)
 
-    fun deleteFilesForObject(obj: OfflineObject) {
-        try {
-            val metadataFile = File(obj.path + ".0")
-            val contentsFile = File(obj.path + ".1")
-            metadataFile.delete()
-            contentsFile.delete()
-        } catch (e: Exception) {
-            // ignore
-        }
+    private fun deleteFilesAtPath(path: String) {
+        File(path + ".0").delete()
+        File(path + ".1").delete()
     }
 }
