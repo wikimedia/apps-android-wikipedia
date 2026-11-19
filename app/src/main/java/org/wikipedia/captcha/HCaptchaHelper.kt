@@ -23,17 +23,6 @@ class HCaptchaHelper(
 
     private var hCaptcha: HCaptcha? = null
 
-    private val configDefault get() = RemoteConfig.RemoteConfigHCaptcha(
-        baseURL = "https://meta.wikimedia.org",
-        jsSrc = "https://assets-hcaptcha.wikimedia.org/1/api.js",
-        endpoint = "https://hcaptcha.wikimedia.org",
-        assetHost = "https://assets-hcaptcha.wikimedia.org",
-        imgHost = "https://imgs-hcaptcha.wikimedia.org",
-        reportApi = "https://report-hcaptcha.wikimedia.org",
-        sentry = false,
-        siteKey = "e11698d6-51ca-4980-875c-72309c6678cc"
-    )
-
     private val dialogCancelableRunnable = MakeHCaptchaDialogCancelable()
 
     fun show(siteKey: String? = null) {
@@ -93,5 +82,20 @@ class HCaptchaHelper(
                 }
             }
         }
+    }
+
+    companion object {
+        const val HCAPTCHA_POLICY_MESSAGE = "hcaptcha-privacy-policy"
+
+        private val configDefault get() = RemoteConfig.RemoteConfigHCaptcha(
+            baseURL = "https://meta.wikimedia.org",
+            jsSrc = "https://assets-hcaptcha.wikimedia.org/1/api.js",
+            endpoint = "https://hcaptcha.wikimedia.org",
+            assetHost = "https://assets-hcaptcha.wikimedia.org",
+            imgHost = "https://imgs-hcaptcha.wikimedia.org",
+            reportApi = "https://report-hcaptcha.wikimedia.org",
+            sentry = false,
+            siteKey = "e11698d6-51ca-4980-875c-72309c6678cc"
+        )
     }
 }
