@@ -33,6 +33,7 @@
 * Kaganer
 * Kareyac
 * Katunchik
+* Lilitik22
 * Lutece398
 * Lvova
 * Mailman
@@ -2062,6 +2063,217 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Просматривайте свои серии побед, результаты и многое другое.</string>
   <string name="wikipedia_games_title">Игры Википедии</string>
   <string name="wikipedia_games_subtitle">Ежедневные викторины на основе содержимого Википедии.</string>
+  <string name="yir_intro_headline">Ваши итоги года в Википедии готовы</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">Спасибо, что в %2$d году вы провели %1$d день с вашим надёжным приложением Википедии.</item>
+    <item quantity="few">Спасибо, что в %2$d году вы провели %1$d дня с вашим надёжным приложением Википедии.</item>
+    <item quantity="many">Спасибо, что в %2$d году вы провели %1$d дней с вашим надёжным приложением Википедии.</item>
+    <item quantity="other">Спасибо, что в %2$d году вы провели %1$d дней с вашим надёжным приложением Википедии.</item>
+  </plurals>
+  <string name="yir_article_count_headline">Всего прочитано статей:</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="one">Это значит, что вы входите в число %1$s%% самых активных читателей Википедии в мире. В среднем человек читает %2$d статью в год.</item>
+    <item quantity="few">Это значит, что вы входите в число %1$s%% самых активных читателей Википедии в мире. В среднем человек читает %2$d статьи в год.</item>
+    <item quantity="many">Это значит, что вы входите в число %1$s%% самых активных читателей Википедии в мире. В среднем человек читает %2$d статей в год.</item>
+    <item quantity="other">Это значит, что вы входите в число %1$s%% самых активных читателей Википедии в мире. В среднем человек читает %2$d статей в год.</item>
+  </plurals>
+  <string name="yir_article_count_supporting">Весь год вы открывали для себя что-то новое. Каждая прочитанная статья пополняла ваши знания.</string>
+  <string name="yir_article_count_empty_headline">Впереди ещё миллионы статей.</string>
+  <string name="yir_article_count_empty_supporting">Вы даже не представляете, сколько интересного ещё можно узнать в Википедии.</string>
+  <string name="yir_days_visited_headline">Дней в Википедии в %1$d году:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">Пик вашей активности пришёлся на %1$s: в этом месяце вы читали Википедию %2$d день.</item>
+    <item quantity="few">Пик вашей активности пришёлся на %1$s: в этом месяце вы читали Википедию %2$d дня.</item>
+    <item quantity="many">Пик вашей активности пришёлся на %1$s: в этом месяце вы читали Википедию %2$d дней.</item>
+    <item quantity="other">Пик вашей активности пришёлся на %1$s: в этом месяце вы читали Википедию %2$d дней.</item>
+  </plurals>
+  <string name="yir_minutes_read_headline">Всего минут за чтением:</string>
+  <string name="yir_minutes_read_supporting" fuzzy="true">Когда увлечён интересной темой, время летит незаметно.</string>
+  <string name="yir_reading_streak_headline">Самая длинная серия дней чтения:</string>
+  <string name="yir_reading_streak_supporting">Начиная с %1$s–%2$s, вы вошли во вкус и читали каждый день.</string>
+  <string name="yir_reading_streak_empty_headline">Пока ни одной серии дней чтения.</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">Чтобы получилась серия, нужно читать хотя бы %1$d день подряд. Почему бы не начать прямо сейчас?</item>
+    <item quantity="few">Чтобы получилась серия, нужно читать хотя бы %1$d дня подряд. Почему бы не начать прямо сейчас?</item>
+    <item quantity="many">Чтобы получилась серия, нужно читать хотя бы %1$d дней подряд. Почему бы не начать прямо сейчас?</item>
+    <item quantity="other">Чтобы получилась серия, нужно читать хотя бы %1$d дней подряд. Почему бы не начать прямо сейчас?</item>
+  </plurals>
+  <string name="yir_reading_time_headline">Любимое время для чтения:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">Именно на это время суток пришлось %1$d%% ваших посещений Википедии. Совпадение? Вряд ли!</item>
+    <item quantity="few">Именно на это время суток пришлось %1$d%% ваших посещений Википедии. Совпадение? Вряд ли!</item>
+    <item quantity="many">Именно на это время суток пришлось %1$d%% ваших посещений Википедии. Совпадение? Вряд ли!</item>
+    <item quantity="other">Именно на это время суток пришлось %1$d%% ваших посещений Википедии. Совпадение? Вряд ли!</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">Вы читаете в любое время.</string>
+  <string name="yir_reading_time_empty_supporting">У вас нет определённых дней или часов для чтения Википедии.</string>
+  <string name="yir_top_topic_headline">Ваша главная тема %1$d года:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">От %1$s до %2$s с этой темой была связана %3$d из прочитанных вами статей. %4$s</item>
+    <item quantity="few">От %1$s до %2$s с этой темой были связаны %3$d из прочитанных вами статей. %4$s</item>
+    <item quantity="many">От %1$s до %2$s с этой темой были связаны %3$d из прочитанных вами статей. %4$s</item>
+    <item quantity="other">От %1$s до %2$s с этой темой были связаны %3$d из прочитанных вами статей. %4$s</item>
+  </plurals>
+  <string name="yir_top_topic_empty_headline">Ваша главная тема %1$d года — все темы сразу!</string>
+  <string name="yir_top_topic_empty_supporting">Ваши интересы так разнообразны, что выбрать одну главную тему просто невозможно.</string>
+  <string name="yir_runner_up_topics_headline">А вот кто был в числе лидеров в %1$d году:</string>
+  <string name="yir_biggest_reading_day_headline">Самый активный день чтения:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">В общей сложности вы провели в Википедии %1$d минуту. Вот это продуктивность!</item>
+    <item quantity="few">В общей сложности вы провели в Википедии %1$d минуты. Вот это продуктивность!</item>
+    <item quantity="many">В общей сложности вы провели в Википедии %1$d минут. Вот это продуктивность!</item>
+    <item quantity="other">В общей сложности вы провели в Википедии %1$d минут. Вот это продуктивность!</item>
+  </plurals>
+  <string name="yir_articles_read_headline">Небольшая подборка прочитанных вами статей:</string>
+  <string name="yir_most_time_article_headline">На какую из них вы потратили больше всего времени?</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">За %2$d год вы потратили на чтение этой статьи в общей сложности %1$d минуту!</item>
+    <item quantity="few">За %2$d год вы потратили на чтение этой статьи в общей сложности %1$d минуты!</item>
+    <item quantity="many">За %2$d год вы потратили на чтение этой статьи в общей сложности %1$d минут!</item>
+    <item quantity="other">За %2$d год вы потратили на чтение этой статьи в общей сложности %1$d минут!</item>
+  </plurals>
+  <string name="yir_rabbit_hole_headline">В какую тему вы погрузились глубже всего?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">Вы перешли по %1$d ссылке — впечатляющий результат!</item>
+    <item quantity="few">Вы перешли по %1$d ссылкам — впечатляющий результат!</item>
+    <item quantity="many">Вы перешли по %1$d ссылкам — впечатляющий результат!</item>
+    <item quantity="other">Вы перешли по %1$d ссылкам — впечатляющий результат!</item>
+  </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">Какая тема увлечёт вас в следующий раз?</string>
+  <string name="yir_niche_category_headline">А ещё у вас есть весьма необычные интересы. Например:</string>
+  <string name="yir_niche_category_supporting">Что-то в этой категории вас особенно зацепило!</string>
+  <string name="yir_reread_articles_headline">Статьи, к которым вы возвращались:</string>
+  <string name="yir_reread_articles_empty_headline">Перечитывать — не про вас.</string>
+  <string name="yir_reread_articles_empty_supporting">Читать одну статью дважды? Не ваш стиль. Вам больше по душе узнавать новое и с головой погружаться в незнакомые темы.</string>
+  <string name="yir_places_headline">Благодаря чтению вы словно побывали в этих местах:</string>
+  <string name="yir_places_empty_headline">Благодаря чтению вы побывали в самых разных уголках мира.</string>
+  <string name="yir_places_empty_supporting">В %1$d году вы немало попутешествовали по страницам Википедии. Загляните в раздел «Места», чтобы найти идеи для настоящих путешествий.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Статья, которую вы сохранили на потом: %1$d</item>
+    <item quantity="few">Статьи, которые вы сохранили на потом: %1$d</item>
+    <item quantity="many">Статьи, которые вы сохранили на потом: %1$d</item>
+    <item quantity="other">Статьи, которые вы сохранили на потом: %1$d</item>
+  </plurals>
+  <string name="yir_saved_articles_empty_headline">Сохранённых статей пока нет.</string>
+  <string name="yir_saved_articles_empty_supporting">Вы пока не сохранили ни одной статьи. Чтобы отложить интересную статью на потом, нажмите на значок закладки. Так вы сможете вернуться к ней, когда захотите.</string>
+  <string name="yir_edits_headline">Ваши правки:</string>
+  <string name="yir_edits_supporting">Спасибо за ваш вклад в Википедию, Викисклад или Викиданные! Благодаря вам знания человечества становятся доступнее для всех.</string>
+  <string name="yir_edits_empty_headline">Вы пока не внесли ни одной правки.</string>
+  <string name="yir_edits_empty_supporting">Вы ещё не внесли ни одной правки, но научиться редактировать Википедию совсем несложно. Самое время присоединиться к сообществу, которое создаёт Википедию.</string>
+  <string name="yir_edit_views_headline">Просмотры статей с вашими правками:</string>
+  <string name="yir_edit_views_supporting">В %1$d году читатели со всего мира увидели ваши правки.</string>
+  <string name="yir_most_viewed_edited_articles_headline">Статьи, набравшие больше всего просмотров после ваших правок:</string>
+  <string name="yir_contributor_thanks_headline">Спасибо!</string>
+  <string name="yir_contributor_thanks_supporting">Как %1$s, вы помогаете Википедии оставаться свободной от рекламы, надёжной и доступной для всех. Мы безмерно благодарны вам за поддержку Википедии!</string>
+  <string name="yir_non_contributor_headline">Ваш вклад важен.</string>
+  <string name="yir_non_contributor_supporting">Википедия существует благодаря таким людям, как вы, каждый из которых вносит посильный вклад. Если Википедия важна для вас, поддержите её пожертвованием или правками.</string>
+  <string name="yir_community_intro_headline">Итоги года Википедии готовы</string>
+  <string name="yir_community_intro_supporting">В этом году вашей активности не хватило для персональных итогов. Но вы всё равно можете узнать, что нового открыли для себя люди по всему миру.</string>
+  <string name="yir_community_reading_hours_headline">Часов, проведённых за чтением Википедии в %1$d году:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">В общей сложности читатели со всего мира, такие как вы, потратили на чтение Википедии на всех языках около %1$,d года.</item>
+    <item quantity="few">В общей сложности читатели со всего мира, такие как вы, потратили на чтение Википедии на всех языках около %1$,d лет.</item>
+    <item quantity="many">В общей сложности читатели со всего мира, такие как вы, потратили на чтение Википедии на всех языках около %1$,d лет.</item>
+    <item quantity="other">В общей сложности читатели со всего мира, такие как вы, потратили на чтение Википедии на всех языках около %1$,d лет.</item>
+  </plurals>
+  <string name="yir_community_languages_title">Языков, на которых доступна Википедия:</string>
+  <string name="yir_community_languages_supporting">Википедию создают и поддерживают сообщества добровольцев со всего мира. Это доказывает, что знания человечества говорят далеко не на одном языке.</string>
+  <string name="yir_community_articles_headline">Статей в Википедии:</string>
+  <string name="yir_community_articles_supporting">Википедию по-прежнему создают люди: добровольцы со всего мира, которые пишут, редактируют и проверяют статьи, опираясь на надёжные источники.</string>
+  <string name="yir_community_saved_articles_headline">Статей, сохранённые в %1$d году:</string>
+  <string name="yir_community_saved_articles_supporting">Читатели добавили в закладки тысячи и тысячи статей, чтобы прочитать их в первый, третий или сотый раз.</string>
+  <string name="yir_community_editors_headline">Редакторов-добровольцев:</string>
+  <string name="yir_community_editors_supporting">Знаете ли вы, что все проекты Викимедиа создаются добровольцами? Они пишут новые статьи и улучшают уже существующие.</string>
+  <string name="yir_community_edits_headline">Правок, внесённых добровольцами:</string>
+  <string name="yir_community_edits_supporting">Каждый день, час за часом, добровольцы со всего мира делают Википедию лучше: обновляют информацию в статьях, фотографируют исторические памятники и исправляют опечатки.</string>
+  <string name="yir_community_global_reach_title">Популярность Википедии в мире:</string>
+  <string name="yir_community_global_reach_subtitle">Один из десяти самых посещаемых сайтов в мире</string>
+  <string name="yir_community_global_reach_supporting">Википедия — одна из главных основ знаний в интернете. Ею пользуются все: от школьников до чат-ботов.</string>
+  <string name="yir_community_contribute_headline">Ваш вклад важен.</string>
+  <string name="yir_community_contribute_supporting">Википедия существует благодаря таким людям, как вы, каждый из которых вносит посильный вклад. Если Википедия важна для вас, поддержите её пожертвованием или правками. \n\nУже вносите вклад в Википедию? Войдите в учётную запись или создайте новую, чтобы получить подарок в знак благодарности за ваш вклад.</string>
+  <string name="yir_closing_headline">До новых открытий!</string>
+  <string name="yir_closing_supporting">Неважно, прочитали вы одну статью или сотню. Спасибо, что исследуете Википедию вместе с нами и не перестаёте интересоваться новым.</string>
+  <string name="yir_closing_share_action">Поделиться самым интересным</string>
+  <string name="yir_store_discount_headline">Небольшой подарок в знак благодарности</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">Вы помогаете сохранять знания свободными и доступными для всех, и в благодарность мы дарим вам скидку %1$d%% в магазине Википедии. Промокод не нужен: скидка применится автоматически при оформлении заказа.</item>
+    <item quantity="few">Вы помогаете сохранять знания свободными и доступными для всех, и в благодарность мы дарим вам скидку %1$d%% в магазине Википедии. Промокод не нужен: скидка применится автоматически при оформлении заказа.</item>
+    <item quantity="many">Вы помогаете сохранять знания свободными и доступными для всех, и в благодарность мы дарим вам скидку %1$d%% в магазине Википедии. Промокод не нужен: скидка применится автоматически при оформлении заказа.</item>
+    <item quantity="other">Вы помогаете сохранять знания свободными и доступными для всех, и в благодарность мы дарим вам скидку %1$d%% в магазине Википедии. Промокод не нужен: скидка применится автоматически при оформлении заказа.</item>
+  </plurals>
+  <string name="yir_games_headline">Готовы к новому испытанию?</string>
+  <string name="yir_games_supporting">Проверьте свои знания в коротких играх, вдохновлённых необъятным миром Википедии.</string>
+  <string name="yir_games_action">Начать игру</string>
+  <string name="yir_customize_home_headline">Настройте главную страницу под себя</string>
+  <string name="yir_customize_home_supporting">Выберите интересные вам темы и получайте персональные рекомендации.</string>
+  <string name="yir_customize_home_action">Настроить интересы</string>
+  <string name="yir_community_recap_headline">Итоги года Википедии</string>
+  <string name="yir_quiz_headline">Какая вы эпоха Википедии?</string>
+  <string name="yir_quiz_supporting">От эпохи модемного интернета до наших дней: отправьтесь в путешествие по истории Википедии.</string>
+  <string name="yir_quiz_action">Пройти тест</string>
+  <string name="yir_open_tabs_headline">Вернуться к открытым вкладкам</string>
+  <string name="yir_share_text">Вот мои итоги %1$d года в приложении Википедии: %2$s</string>
+  <string name="yir_feature_card_title">Итоги %1$d года в Википедии</string>
+  <string name="yir_feature_card_articles_read">Прочитано статей:</string>
+  <string name="yir_feature_card_minutes_read">Всего минут за чтением:</string>
+  <string name="yir_feature_card_articles_reread">Статьи, к которым я возвращался(-ась):</string>
+  <string name="yir_feature_card_longest_rabbit_hole">Тема, которой я уделил(а) больше всего внимания</string>
+  <string name="yir_feature_card_top_category">Моя необычная тема года:</string>
+  <string name="yir_feature_card_created_with">Создано в приложении Википедии</string>
+  <string name="yir_topic_comment_architecture">Весь год вас интересовало то, что создано на века.</string>
+  <string name="yir_topic_comment_art">Вас привлекало всё красивое, смелое, а порой и совершенно непостижимое.</string>
+  <string name="yir_topic_comment_comics_and_anime">Кадр за кадром вы всё глубже погружались в мир комиксов и аниме.</string>
+  <string name="yir_topic_comment_entertainment">В этом году вас особенно манил мир развлечений.</string>
+  <string name="yir_topic_comment_fashion">Мода и стиль интересовали вас заметно больше, чем большинство читателей.</string>
+  <string name="yir_topic_comment_literature">В этом году в вашем чтении нашлось много места для литературы.</string>
+  <string name="yir_topic_comment_music">В этом году ваше любопытство сопровождалось музыкой.</string>
+  <string name="yir_topic_comment_performing_arts">Вас привлекало сценическое искусство во всём его многообразии.</string>
+  <string name="yir_topic_comment_sports">В этом году вы следили за событиями в мире спорта.</string>
+  <string name="yir_topic_comment_tv_and_film">В этом году ваше чтение заодно служило списком «что посмотреть».</string>
+  <string name="yir_topic_comment_video_games">Вы заметно прокачали свои знания о видеоиграх.</string>
+  <string name="yir_topic_comment_biography">Весь год вы знакомились с историями жизни самых разных людей.</string>
+  <string name="yir_topic_comment_women">Весь год вы знакомились с историями жизни самых разных людей.</string>
+  <string name="yir_topic_comment_business_and_economics">Вы держали руку на пульсе мирового бизнеса.</string>
+  <string name="yir_topic_comment_education">«Учиться учиться» — в этом году это определённо ваша фишка.</string>
+  <string name="yir_topic_comment_food_and_drink">В этом году ваше любопытство разыгралось не на шутку!</string>
+  <string name="yir_topic_comment_history">Похоже, вас по-настоящему увлекает история.</string>
+  <string name="yir_topic_comment_military_and_warfare">Вы углубились в историю войн и военного дела.</string>
+  <string name="yir_topic_comment_philosophy_and_religion">В этом году вы искали ответы на вечные вопросы.</string>
+  <string name="yir_topic_comment_politics_and_government">Вы следили за тем, как устроен этот мир.</string>
+  <string name="yir_topic_comment_society">Вам было интересно, как живут люди и как устроено общество.</string>
+  <string name="yir_topic_comment_transportation">Вы изучали, как мир перемещается из точки А в точку Б.</string>
+  <string name="yir_topic_comment_biology">Вы изучали науки о живой природе.</string>
+  <string name="yir_topic_comment_chemistry">В этом году в вашем чтении нашлось место и для химии.</string>
+  <string name="yir_topic_comment_computers_and_internet">Вы немало времени посвятили технологиям, благодаря которым работают ваши устройства.</string>
+  <string name="yir_topic_comment_earth_and_environment">В своём чтении вы не отрывались от земли — буквально.</string>
+  <string name="yir_topic_comment_engineering">Вам нравилось разбираться, как устроены и как работают разные вещи.</string>
+  <string name="yir_topic_comment_general_science">Вас интересовали самые разные области науки.</string>
+  <string name="yir_topic_comment_mathematics">В этом году вы уделили немало внимания числам и математике.</string>
+  <string name="yir_topic_comment_medicine_and_health">Вы много времени посвятили тому, как устроен и работает человеческий организм.</string>
+  <string name="yir_topic_comment_physics">Вы изучали законы, по которым устроена Вселенная.</string>
+  <string name="yir_topic_comment_technology">Вы держали руку на пульсе перемен.</string>
+  <string name="yir_topic_comment_africa">В этом году чтение отправило вас в путешествие по Африке.</string>
+  <string name="yir_topic_comment_asia">В этом году чтение отправило вас в путешествие по Азии.</string>
+  <string name="yir_topic_comment_central_america">В этом году чтение отправило вас в путешествие по Центральной Америке.</string>
+  <string name="yir_topic_comment_europe">В этом году чтение отправило вас в путешествие по Европе.</string>
+  <string name="yir_topic_comment_north_america">Чтение держало вас ближе к дому в Северной Америке (или помогало исследовать её издалека).</string>
+  <string name="yir_topic_comment_oceania">В этом году чтение отправило вас в путешествие по Океании.</string>
+  <string name="yir_topic_comment_south_america">В этом году чтение отправило вас в путешествие по Южной Америке.</string>
+  <string name="yir_time_spent_comment_1">Это дольше, чем сердцу колибри нужно, чтобы сделать 1200 ударов.</string>
+  <string name="yir_time_spent_comment_9">Это дольше, чем солнечному свету нужно, чтобы долететь от Солнца до Земли.</string>
+  <string name="yir_time_spent_comment_13">Это дольше, чем варится яйцо вкрутую.</string>
+  <string name="yir_time_spent_comment_19">Это дольше, чем человеку в среднем требуется, чтобы заснуть.</string>
+  <string name="yir_time_spent_comment_31">Это дольше, чем серия ситкома, даже с рекламными паузами.</string>
+  <string name="yir_time_spent_comment_93">Это дольше, чем Международной космической станции нужно, чтобы сделать виток вокруг Земли.</string>
+  <string name="yir_time_spent_comment_121">Это дольше, чем действующий мировой рекорд по марафонскому бегу.</string>
+  <string name="yir_time_spent_comment_540">Это дольше, чем длится полноценный ночной сон.</string>
+  <string name="yir_time_spent_comment_1441">Это дольше, чем пчелиной матке нужно, чтобы отложить до 2000 яиц.</string>
+  <plurals name="yir_time_spent_comment_2800">
+    <item quantity="one">Это больше, чем %1$d целый день.</item>
+    <item quantity="few">Это больше, чем %1$d целых дня.</item>
+    <item quantity="many">Это больше, чем %1$d целых дней.</item>
+    <item quantity="other">Это больше, чем %1$d целых дней.</item>
+  </plurals>
   <string name="year_in_review_learn_more">Подробнее</string>
   <string name="year_in_review_get_started">Начать</string>
   <string name="year_in_review_topbar_w_icon">Значок Википедии W</string>
@@ -2075,6 +2287,10 @@
   <string name="year_in_review_get_started_headline">Изучите ваш «Обзор года» в Википедии</string>
   <string name="year_in_review_get_started_bodytext">Смотрите вашу статистику о прочитанных статьях в приложении Википедии и внесённых правках.</string>
   <string name="year_in_review_get_started_info">Ваша история чтения защищена. Аналитика чтения рассчитывается на основе данных, сохранённых локально на вашем устройстве.</string>
+  <string name="year_in_review_entry_card_title_collective">Итоги года Википедии готовы</string>
+  <string name="year_in_review_entry_card_title_personalized">Ваши итоги года готовы</string>
+  <string name="year_in_review_entry_card_subtitle">Вспомните, каким был ваш год в Википедии</string>
+  <string name="year_in_review_entry_card_subtitle_collective">Вспомните, каким был этот год в Википедии</string>
   <string name="year_in_review_survey_title">Помогите улучшить «Обзор года»</string>
   <string name="year_in_review_survey_subtitle">Вы довольны этой функцией?</string>
   <string name="year_in_review_reading_list_survey_title">Помогите улучшить список для чтения в «Обзоре года %d».</string>
@@ -2103,8 +2319,10 @@
   <string name="year_in_review_slide_geo_body">Похоже, что страна, которая ближе всего к большинству прочитанных вами статей: %1$s, судя по таким статьям, как &lt;b&gt;%2$s&lt;/b&gt; и &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">Авторизоваться для персонализации?</string>
   <string name="year_in_review_login_dialog_body">Авторизация открывает вам доступ к персонализированным данным. Вы по-прежнему сможете просматривать общие данные без авторизации.</string>
+  <string name="year_in_review_login_dialog_title_nodata">С учётной записью итоги года будут ещё интереснее.</string>
+  <string name="year_in_review_login_dialog_body_nodata">Войдя в учётную запись, вы получите доступ к самым интересным возможностям приложения. Создайте её уже сегодня, чтобы начать собирать итоги следующего года.</string>
   <string name="year_in_review_login_dialog_positive">Войти / Присоединиться к Википедии</string>
-  <string name="year_in_review_login_dialog_negative">Продолжить без авторизации</string>
+  <string name="year_in_review_login_dialog_negative">Продолжить без входа</string>
   <plurals name="year_in_review_slide_top_articles_headline">
     <item quantity="one">Ваша лучшая статья</item>
     <item quantity="few">Ваши лучшие статьи</item>
