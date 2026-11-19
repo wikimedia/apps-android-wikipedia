@@ -365,7 +365,6 @@ object EditingSuggestionsProvider {
         }
     }
 
-    @Suppress("KotlinConstantConditions")
     suspend fun getNextRevertCandidate(lang: String): MwQueryResult.RecentChange {
         return withContext(Dispatchers.IO) {
             try {
@@ -424,7 +423,7 @@ object EditingSuggestionsProvider {
                                 throw ListEmptyException()
                             }
                             break
-                        } catch (e: ListEmptyException) {
+                        } catch (_: ListEmptyException) {
                             // continue indefinitely until new data comes in.
                             Thread.sleep(3000)
                         }

@@ -2388,6 +2388,7 @@
   <string name="year_in_review_highlights_logo_description">Wikipedia-logo</string>
   <string name="year_in_review_swipe_tutorial_title">Stryg for at udforske</string>
   <string name="year_in_review_swipe_tutorial_message">Stryg op for at navigere gennem Årsoversigt.</string>
+  <string name="year_in_review_illustration_credit">Illustrationer af Sharon Park til Wikimedia Foundation, årsoversigt</string>
   <string name="recommended_reading_list_title">Opdag</string>
   <string name="recommended_reading_list_onboarding_card_title">Opdag artikler udvalgt til dig</string>
   <string name="recommended_reading_list_onboarding_card_message">Din ugentlige læseliste med Wikipedia-artikler, sammensat til dig.</string>
@@ -2797,4 +2798,8 @@
   <string name="notifications_experiment_discover_interests_title">Fordi du er interesseret i %s</string>
   <string name="notifications_experiment_discover_saved_or_history_title">Fordi du læste om %s</string>
   <string name="notifications_experiment_discover_message">Vi har lavet en ny læseliste til dig baseret på dette og andre interesser.</string>
+  <string name="notifications_experiment_weekly_most_read_channel_title">Ugentligt mest læste</string>
+  <string name="notifications_experiment_weekly_most_read_channel_description">Notifikationer om de mest læste artikler ugentligt</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">Trending denne uge 📈</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">Nr. 1 %s. Find ud af, hvad alle ellers læser om.</string>
 </resources>

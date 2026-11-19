@@ -2715,4 +2715,7 @@
   <string name="notifications_experiment_discover_interests_title">Koska olet kiinnostunut aiheesta %s</string>
   <string name="notifications_experiment_discover_saved_or_history_title">Koska luit aiheesta %s</string>
   <string name="notifications_experiment_discover_message">Olemme luoneet sinulle uuden lukulistan tämän ja muiden kiinnostuksen kohteidesi perusteella.</string>
+  <string name="notifications_experiment_weekly_most_read_channel_title">Viikon luetuimmat</string>
+  <string name="notifications_experiment_weekly_most_read_channel_description">Ilmoitukset viikon luetuimmista artikkeleista</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">Tämän viikon trendit 📈</string>
 </resources>
