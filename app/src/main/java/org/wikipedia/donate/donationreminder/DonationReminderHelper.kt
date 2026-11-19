@@ -20,11 +20,11 @@ object DonationReminderHelper {
 
     private val isTestGroupUser = DonationReminderAbTest().isTestGroupUser()
     private val enabledCountries = listOf(
-        "NL"
+        "US"
     )
-    private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 9)
-    val isInWrapUpDateRange get() = LocalDate.now() <= LocalDate.of(2026, 11, 15) &&
-            LocalDate.now() >= LocalDate.of(2026, 11, 10)
+    private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2027, 2, 2)
+    val isInWrapUpDateRange get() = LocalDate.now() <= LocalDate.of(2027, 2, 9) &&
+            LocalDate.now() >= LocalDate.of(2027, 2, 3)
     val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
     val defaultReadFrequencyOptions = listOf(5, 10, 20)
     val presetsToRemoveFromConfig = listOf(2f, 10f, 15f) // V3 only.

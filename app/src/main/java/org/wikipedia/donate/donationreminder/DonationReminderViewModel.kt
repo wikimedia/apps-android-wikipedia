@@ -149,7 +149,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
 
         val presets = (donationConfig?.currencyAmountPresets[currencyCode]?.take(maxPresetItemsInDropdown) ?: listOf(minimumAmount)).toMutableSet()
-        // TODO: remove this when experiment is completed in November 2026.
+        // TODO: remove this when experiment is completed in February 2027.
         DonationReminderHelper.updateDonationPresets(presets)
         val sortedPresets = presets.sorted().take(maxPresetItemsInDropdown)
         val options = sortedPresets.map {

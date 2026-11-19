@@ -2,7 +2,7 @@ package org.wikipedia.donate.donationreminder
 
 import org.wikipedia.analytics.ABTest
 
-class DonationReminderAbTest : ABTest("donationReminderV3", GROUP_SIZE_3) {
+class DonationReminderAbTest : ABTest("donationReminderV3US", GROUP_SIZE_3) {
 
     override fun getGroupName(): String {
         return when (group) {

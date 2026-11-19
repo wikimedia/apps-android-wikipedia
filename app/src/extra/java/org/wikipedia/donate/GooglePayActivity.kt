@@ -263,7 +263,7 @@ class GooglePayActivity : BaseActivity() {
 
         val viewIds = mutableListOf<Int>()
         val presets = donationConfig.currencyAmountPresets[DonateUtil.currencyCode]?.toMutableSet()
-        // TODO: remove this when experiment is completed in November 2026.
+        // TODO: remove this when experiment is completed in February 2027.
         DonationReminderHelper.updateDonationPresets(presets)
         if (viewModel.filledAmount > 0f) {
             presets?.add(viewModel.filledAmount)
