@@ -38,11 +38,17 @@ internal fun SearchResult.cardExcerpt(): AnnotatedString {
     val inlineHtml = raw.orEmpty().replace(BLOCK_TAG_REGEX, " ").replace(WHITESPACE_REGEX, " ").trim()
     val excerpt = StringUtil.fromHtml(inlineHtml).toAnnotatedString()
     // Lexical leads bold the article's name and semantic passages never do, so bold is dropped to keep both alike.
-    return AnnotatedString(
+    val styled = AnnotatedString(
         text = excerpt.text,
         spanStyles = excerpt.spanStyles.map { it.copy(item = it.item.copy(fontWeight = null)) },
         paragraphStyles = excerpt.paragraphStyles
     )
+    if (type == SearchResult.SearchResultType.SEMANTIC) {
+        return styled
+    }
+    // The API ends a lead it cut short with an ellipsis; the card adds its own when it runs out of lines.
+    val end = styled.text.trimEnd().removeSuffix("...").removeSuffix("\u2026").trimEnd().length
+    return styled.subSequence(0, end)
 }
 
 internal fun SearchResult.cardThumbUrl(): String? {

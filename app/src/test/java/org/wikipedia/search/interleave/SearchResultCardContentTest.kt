@@ -38,6 +38,13 @@ class SearchResultCardContentTest {
     }
 
     @Test
+    fun testLeadCutByTheApiHasNoEllipsis() {
+        assertEquals("The tower was", result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The <i>tower</i> was...</p>").cardExcerpt().text)
+        assertEquals("The tower was", result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The tower was\u2026</p>").cardExcerpt().text)
+        assertEquals("To be continued...", result(SearchResult.SearchResultType.SEMANTIC, snippet = "To be continued...").cardExcerpt().text)
+    }
+
+    @Test
     fun testExcerptHasNoBold() {
         val excerpt = result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The <b>Eiffel Tower</b> is a <b><i>tower</i></b>.</p>").cardExcerpt()
         assertEquals("The Eiffel Tower is a tower.", excerpt.text)
