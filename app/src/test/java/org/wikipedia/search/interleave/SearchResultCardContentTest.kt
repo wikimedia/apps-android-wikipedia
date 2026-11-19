@@ -70,6 +70,11 @@ class SearchResultCardContentTest {
     }
 
     @Test
+    fun testLexicalTrailIsLeadEvenWithASectionTitle() {
+        assertNull(result(SearchResult.SearchResultType.FULL_TEXT, sectionTitle = "Tour Eiffel").cardTrail())
+    }
+
+    @Test
     fun testThumbnail() {
         assertEquals("https://example", result(SearchResult.SearchResultType.SEMANTIC, thumbUrl = "https://example").cardThumbUrl())
         assertNull(result(SearchResult.SearchResultType.PREFIX, thumbUrl = "").cardThumbUrl())
