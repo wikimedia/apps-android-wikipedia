@@ -52,9 +52,9 @@ object DonationReminderHelper {
     fun getCampaignId(campaignIdOriginal: String = "appmenu"): String {
         return if (isInEligibleCountry && (isInDateRange || isInWrapUpDateRange)) {
             campaignIdOriginal + when (DonationReminderAbTest().group) {
-                GROUP_3 -> "_reminderC"
-                GROUP_2 -> "_reminderB"
-                else -> "_reminderA"
+                GROUP_3 -> "_reminderF"
+                GROUP_2 -> "_reminderE"
+                else -> "_reminderD"
             }
         } else {
             campaignIdOriginal
