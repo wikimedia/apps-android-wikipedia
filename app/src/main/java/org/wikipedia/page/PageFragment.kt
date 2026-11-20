@@ -167,6 +167,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private lateinit var bridge: CommunicationBridge
     private lateinit var leadImagesHandler: LeadImagesHandler
     private lateinit var pageFragmentLoadState: PageFragmentLoadState
+    private lateinit var pageLoadMaskHandler: PageLoadMaskHandler
     private lateinit var bottomBarHideHandler: ViewHideHandler
     internal var articleInteractionEvent: ArticleInteractionEvent? = null
     private var pageRefreshed = false
@@ -253,6 +254,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         editHandler = EditHandler(this, bridge)
         sidePanelHandler = SidePanelHandler(this, bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView, callback())
+        pageLoadMaskHandler = PageLoadMaskHandler(binding.pageLoadMask) { updateProgressBar(false) }
         shareHandler = ShareHandler(this, bridge)
         pageFragmentLoadState = PageFragmentLoadState(model, this, webView, bridge, leadImagesHandler, currentTab)
 
@@ -460,6 +462,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         updateProgressBar(false)
         webView.visibility = View.VISIBLE
+        pageLoadMaskHandler.onWebContentReady()
         bridge.evaluate(JavaScriptActionHandler.getRevision()) { value ->
             if (!isAdded || value == null || value == "null") {
                 return@evaluate
@@ -591,7 +594,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun updateProgressBar(visible: Boolean) {
-        callback()?.onPageUpdateProgressBar(visible)
+        // Never hide the progress bar while the page is still covered, so that it doesn't look blank.
+        callback()?.onPageUpdateProgressBar(visible || pageLoadMaskHandler.isCovering)
     }
 
     private fun startLangLinksActivity() {
@@ -934,6 +938,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun onPageMetadataLoaded(redirectedFrom: String? = null, editCount: Int = -1) {
         this.editCount = editCount
+        pageLoadMaskHandler.onMetadataReady()
         updateQuickActionsAndMenuOptions()
         if (model.page == null) {
             return
@@ -1065,6 +1070,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         pageRefreshed = isRefresh
         references = null
         revision = 0
+        // Hide the previous article's lead image, so that it can't appear over the new article's
+        // content if the content is revealed before the new page summary arrives.
+        leadImagesHandler.hide()
+        pageLoadMaskHandler.onLoadStarted(waitForScrollRestore = stagedScrollY > 0)
         pageFragmentLoadState.load(pushBackStack)
         scrollTriggerListener.stagedScrollY = stagedScrollY
     }
@@ -1202,6 +1211,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 pageRefreshed = false
             }
             hidePageContent()
+            pageLoadMaskHandler.onLoadFailed()
             bridge.onMetadataReady()
             if (binding.pageError.visibility != View.VISIBLE) {
                 binding.pageError.setError(caught, it)
@@ -1352,6 +1362,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (stagedScrollY > 0 && contentHeight * DimenUtil.densityScalar - webView.height > stagedScrollY) {
                 webView.scrollY = stagedScrollY
                 stagedScrollY = 0
+                pageLoadMaskHandler.onScrollRestored()
             }
         }
     }

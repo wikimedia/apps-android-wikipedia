@@ -28,6 +28,16 @@
             android:transitionName="@string/transition_page_gallery"
             android:contentDescription="@null"/>
 
+        <View
+            android:id="@+id/page_load_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/paper_color"
+            android:clickable="true"
+            android:focusable="false"
+            android:importantForAccessibility="no"
+            android:visibility="gone" />
+
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/page_error"
             android:layout_width="match_parent"
