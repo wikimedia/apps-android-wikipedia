@@ -164,6 +164,9 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
     fun setSearchQuery(searchQuery: String?) {
         // highlight search term within the text
         StringUtil.boldenKeywordText(binding.pageListItemTitle, binding.pageListItemTitle.text.toString(), searchQuery)
+        if (!binding.pageListItemDescription.text.isNullOrEmpty()) {
+            StringUtil.boldenKeywordText(binding.pageListItemDescription, binding.pageListItemDescription.text.toString(), searchQuery)
+        }
     }
 
     fun setViewsGreyedOut(greyedOut: Boolean) {

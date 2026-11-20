@@ -155,6 +155,9 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
     fun setSearchQuery(searchQuery: String?) {
         // highlight search term within the text
         StringUtil.boldenKeywordText(binding.itemTitle, binding.itemTitle.text.toString(), searchQuery)
+        if (!binding.itemDescription.text.isNullOrEmpty()) {
+            StringUtil.boldenKeywordText(binding.itemDescription, binding.itemDescription.text.toString(), searchQuery)
+        }
     }
 
     fun setOverflowViewVisibility(isVisible: Boolean) {
