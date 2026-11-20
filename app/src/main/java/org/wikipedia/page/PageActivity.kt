@@ -260,7 +260,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             pageFragment.articleInteractionEvent?.logTabsClick()
             requestBrowseTabLauncher.launch(TabActivity.newIntentFromPageActivity(this))
         }
-        toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP) { isTooltipShowing }
+        toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP) { isTooltipShowing || binding.pageProgressBar.isVisible }
         FeedbackUtil.setButtonTooltip(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             pageFragment.showOverflowMenu(it)
@@ -849,6 +849,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     private fun updateProgressBar(visible: Boolean) {
         binding.pageProgressBar.visibility = if (visible) View.VISIBLE else View.GONE
+        if (visible) {
+            // The progress bar lives in the toolbar, so bring the toolbar back if it was scrolled away.
+            toolbarHideHandler.ensureDisplayed()
+        }
     }
 
     private fun hideLinkPreview() {
