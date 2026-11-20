@@ -116,7 +116,7 @@ open class SyntaxHighlightableEditText : EditText {
             val lastLine = if (scrollView != null) layout.getLineForVertical(scrollView!!.scrollY + scrollView!!.height) else layout.lineCount - 1
 
             // paint the gutter area with a slightly different color than text background.
-            canvas?.drawRect(gutterRect, lineNumberBackgroundPaint)
+            canvas.drawRect(gutterRect, lineNumberBackgroundPaint)
 
             // paint the line numbers, by getting each line position from the Layout.
             var prevNum = -1
@@ -124,10 +124,10 @@ open class SyntaxHighlightableEditText : EditText {
                 val num = actualLineFromRenderedLine[i]
                 if (!wrapContent || prevNum != num) {
                     prevNum = num
-                    canvas?.drawText(num.toString(),
-                            (if (isRtl) width - paddingWithLineNumbers + lineNumberGapWidth else paddingWithLineNumbers - lineNumberGapWidth).toFloat(),
-                            layout.getLineBottom(i).toFloat(),
-                            lineNumberPaint)
+                    canvas.drawText(num.toString(),
+                        (if (isRtl) width - paddingWithLineNumbers + lineNumberGapWidth else paddingWithLineNumbers - lineNumberGapWidth).toFloat(),
+                        layout.getLineBottom(i).toFloat(),
+                        lineNumberPaint)
                 }
             }
         }
@@ -178,7 +178,7 @@ open class SyntaxHighlightableEditText : EditText {
     override fun getText(): Editable {
         // A bug pre-P makes getText() crash if called before the first setText due to a cast, so
         // retrieve the editable text.
-        return (if (Build.VERSION.SDK_INT >= 28) {
+        return (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             super.getText()
         } else super.getEditableText()) ?: Editable.Factory.getInstance().newEditable("")
     }

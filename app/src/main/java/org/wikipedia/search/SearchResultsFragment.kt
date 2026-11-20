@@ -15,27 +15,23 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
-import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.search.semantic.SemanticSearchAbTest
-import org.wikipedia.settings.SettingsActivity
-import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.search.interleave.InterleaveSearchAbTest
+import org.wikipedia.util.StringUtil
 
 class SearchResultsFragment : Fragment() {
 
     private var composeView: ComposeView? = null
     private val viewModel: SearchResultsViewModel by viewModels()
-    private val semanticSearchAbTest = SemanticSearchAbTest()
+    private val interleaveSearchAbTest = InterleaveSearchAbTest() // TODO: need to revisit this for instrumentation.
     val isShowing get() = composeView?.visibility == View.VISIBLE
 
     override fun onCreateView(
@@ -48,7 +44,7 @@ class SearchResultsFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.searchTermForLogging.collectLatest { query ->
                     if (!query.isNullOrEmpty()) {
-                        semanticSearchAbTest.runIfEligible {
+                        interleaveSearchAbTest.runIfEligible {
                             val isFromRecentSearch = viewModel.isFromRecentSearch
                             requireActivity().instrument?.submitInteraction("init",
                                 actionSubtype = if (isFromRecentSearch) "recent_search" else null,
@@ -71,7 +67,7 @@ class SearchResultsFragment : Fragment() {
                             "show_search_result",
                             actionContext = viewModel.getStandardEventActionContext()
                         )
-                        submitSemanticLexicalResultEvent("impression")
+                        submitInterleaveLexicalResultEvent("impression")
                     }
                 }
             }
@@ -91,9 +87,16 @@ class SearchResultsFragment : Fragment() {
                                 actionContext = viewModel.getStandardEventActionContext(result)
                             )
 
-                            submitSemanticLexicalResultEvent("click", result)
+                            submitInterleaveLexicalResultEvent("click", result)
 
-                            callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
+                            callback()?.navigateToTitle(
+                                item = result.pageTitle,
+                                inNewTab = inNewTab,
+                                position = position,
+                                location = location,
+                                highlightText = if (result.type == SearchResult.SearchResultType.SEMANTIC)
+                                    StringUtil.extractStringFromStyle("searchmatch", result.snippet) else null
+                            )
                         },
                         onItemLongClick = { view, searchResult, position ->
                             val entry =
@@ -117,43 +120,13 @@ class SearchResultsFragment : Fragment() {
                         onLoading = { enabled ->
                             callback()?.onSearchProgressBar(enabled)
                         },
-                        onSemanticSearchClick = { searchTerm, isFirstUse ->
-                            semanticSearchAbTest.runIfEligible {
-                                requireActivity().instrument?.submitInteraction("click",
-                                    elementId = "enter_semantic_search"
-                                )
-                                if (isFirstUse) {
-                                    requireActivity().instrument?.submitInteraction("click",
-                                        elementId = "try_now_button"
-                                    )
-                                }
-                            }
-                            searchTerm?.let {
-                                callback()?.showSemanticSearchResultsDialog(it)
-                            }
-                        },
                         onSemanticSearchInfoClick = {
-                            semanticSearchAbTest.runIfEligible {
+                            interleaveSearchAbTest.runIfEligible {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = "info_button"
                                 )
                             }
                             callback()?.showSemanticSearchInfoDialog()
-                        },
-                        onSemanticSearchCloseClick = {
-                            semanticSearchAbTest.runIfEligible {
-                                requireActivity().instrument?.submitInteraction("click",
-                                    elementId = "close_semantic_button"
-                                )
-                            }
-                            val messageText = requireContext().getString(searchLanguageCode, R.string.semantic_search_snackbar_message)
-                            val actionButtonText = requireContext().getString(searchLanguageCode, R.string.semantic_search_snackbar_action_label)
-                            FeedbackUtil.makeSnackbar(requireActivity(), messageText)
-                                .setAction(actionButtonText) {
-                                    startActivity(SettingsActivity.newIntent(requireContext()))
-                                }
-                                .apply { view.setLayoutDirectionByLang(searchLanguageCode) }
-                                .show()
                         }
                     )
                 }
@@ -189,9 +162,10 @@ class SearchResultsFragment : Fragment() {
         return getCallback(this, SearchResultCallback::class.java)
     }
 
-    private fun submitSemanticLexicalResultEvent(action: String, result: SearchResult? = null) {
-        semanticSearchAbTest.runIfEligible {
-            val isTreatment = semanticSearchAbTest.group == ABTest.GROUP_2
+    private fun submitInterleaveLexicalResultEvent(action: String, result: SearchResult? = null) {
+        // TODO: need to revisit this for instrumentation.
+        interleaveSearchAbTest.runIfEligible {
+            val isTreatment = interleaveSearchAbTest.group == ABTest.GROUP_2
             requireActivity().instrument?.submitInteraction(action,
                 elementId = "search_result",
                 actionSubtype = "lexical_result",

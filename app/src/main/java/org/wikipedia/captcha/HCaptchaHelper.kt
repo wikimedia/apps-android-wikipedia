@@ -7,6 +7,7 @@ import com.hcaptcha.sdk.HCaptchaConfig
 import com.hcaptcha.sdk.HCaptchaDialogFragment
 import com.hcaptcha.sdk.HCaptchaTheme
 import org.wikipedia.WikipediaApp
+import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.log.L
 import kotlin.String
@@ -23,17 +24,6 @@ class HCaptchaHelper(
 
     private var hCaptcha: HCaptcha? = null
 
-    private val configDefault get() = RemoteConfig.RemoteConfigHCaptcha(
-        baseURL = "https://meta.wikimedia.org",
-        jsSrc = "https://assets-hcaptcha.wikimedia.org/1/api.js",
-        endpoint = "https://hcaptcha.wikimedia.org",
-        assetHost = "https://assets-hcaptcha.wikimedia.org",
-        imgHost = "https://imgs-hcaptcha.wikimedia.org",
-        reportApi = "https://report-hcaptcha.wikimedia.org",
-        sentry = false,
-        siteKey = "e11698d6-51ca-4980-875c-72309c6678cc"
-    )
-
     private val dialogCancelableRunnable = MakeHCaptchaDialogCancelable()
 
     fun show(siteKey: String? = null) {
@@ -43,7 +33,7 @@ class HCaptchaHelper(
             hCaptcha?.setup(
                 HCaptchaConfig.builder()
                     .theme(if (WikipediaApp.instance.currentTheme.isDark) HCaptchaTheme.DARK else HCaptchaTheme.LIGHT)
-                    .siteKey(siteKey ?: config.siteKey)
+                    .siteKey(if (Prefs.hCaptchaUseTestSiteKeyEnabled) HCAPTCHA_TEST_SITE_KEY else siteKey ?: config.siteKey)
                     .host(config.baseURL.toUri().host)
                     .jsSrc(config.jsSrc)
                     .endpoint(config.endpoint)
@@ -93,5 +83,21 @@ class HCaptchaHelper(
                 }
             }
         }
+    }
+
+    companion object {
+        const val HCAPTCHA_POLICY_MESSAGE = "hcaptcha-privacy-policy"
+        const val HCAPTCHA_TEST_SITE_KEY = "45205f58-be1c-40f0-b286-07a4498ea3da"
+
+        private val configDefault get() = RemoteConfig.RemoteConfigHCaptcha(
+            baseURL = "https://meta.wikimedia.org",
+            jsSrc = "https://assets-hcaptcha.wikimedia.org/1/api.js",
+            endpoint = "https://hcaptcha.wikimedia.org",
+            assetHost = "https://assets-hcaptcha.wikimedia.org",
+            imgHost = "https://imgs-hcaptcha.wikimedia.org",
+            reportApi = "https://report-hcaptcha.wikimedia.org",
+            sentry = false,
+            siteKey = "e11698d6-51ca-4980-875c-72309c6678cc"
+        )
     }
 }

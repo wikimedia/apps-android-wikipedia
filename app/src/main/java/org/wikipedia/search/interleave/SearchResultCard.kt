@@ -1,8 +1,9 @@
 package org.wikipedia.search.interleave
 
+import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
@@ -21,7 +22,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -40,6 +44,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
@@ -50,6 +55,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.views.imageservice.ImageService
 
 private const val HEADER_MAX_LINES = 2
@@ -62,9 +68,11 @@ fun SearchResultCard(
     isAttributionLoading: Boolean = false,
     relevance: Boolean? = null,
     onRelevanceClick: ((Boolean) -> Unit)? = null,
+    onItemLongClick: ((View) -> Unit)? = null,
     onItemClick: () -> Unit
 ) {
     val context = LocalContext.current
+    var anchorView by remember { mutableStateOf<View?>(null) }
     val languageCode = searchResult.pageTitle.wikiSite.languageCode
     val excerpt = remember(searchResult) { searchResult.cardExcerpt() }
     val contributorCount = searchResult.cardContributorCount()
@@ -74,11 +82,27 @@ fun SearchResultCard(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
             .background(WikipediaTheme.colors.backgroundColor)
-            .clickable(onClick = onItemClick)
+            .combinedClickable(
+                onClick = onItemClick,
+                onLongClick = onItemLongClick?.let { callback ->
+                    {
+                        anchorView?.let {
+                            DeviceUtil.hideSoftKeyboard(it)
+                            callback(it)
+                        }
+                    }
+                }
+            )
             .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = if (onRelevanceClick != null) 4.dp else 16.dp)
     ) {
+        // Invisible anchor for the long-press menu
+        AndroidView(
+            factory = { ctx -> View(ctx).apply { anchorView = this } },
+            modifier = Modifier
+                .fillMaxWidth()
+                .size(0.dp)
+        )
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -116,7 +140,7 @@ fun SearchResultCard(
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
                         text = remember(searchResult) { searchResult.cardTrail() }
-                            ?: context.getString(languageCode, R.string.search_result_trail_lead),
+                            ?: context.getString(languageCode, R.string.semantic_search_trail_lead),
                         style = MaterialTheme.typography.bodySmall,
                         color = WikipediaTheme.colors.primaryColor,
                         maxLines = HEADER_MAX_LINES,
@@ -260,7 +284,7 @@ private fun SearchResultRelevanceRow(
     ) {
         Text(
             modifier = Modifier.weight(1f),
-            text = context.getString(languageCode, R.string.search_result_relevance_question),
+            text = context.getString(languageCode, R.string.semantic_search_relevance_question),
             style = MaterialTheme.typography.bodySmall,
             color = WikipediaTheme.colors.secondaryColor
         )
@@ -337,7 +361,7 @@ private fun SearchResultCardPreviewList(
             Column(
                 modifier = Modifier
                     .background(WikipediaTheme.colors.paperColor)
-                    .padding(8.dp),
+                    .padding(vertical = 8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 results.forEach {

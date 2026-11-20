@@ -52,12 +52,15 @@ interface Service {
                              @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
 
     @GET(
-        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|coordinates|info&piprop=thumbnail" +
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&piprop=thumbnail" +
                 "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     suspend fun prefixSearchResponse(@Query("gpssearch") searchTerm: String?,
                              @Query("gpslimit") maxResults: Int,
-                             @Query("gpsoffset") gpsOffset: Int?): Response<MwQueryResponse>
+                             @Query("gpsoffset") gpsOffset: Int?,
+                             @Query("prop") prop: String = PREFIX_SEARCH_PROPS,
+                             @Query("exintro") exIntro: Boolean? = null,
+                             @Query("exchars") exChars: Int? = null): Response<MwQueryResponse>
 
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
@@ -75,7 +78,7 @@ interface Service {
 
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
-                "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
+                "&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
                 "&inprop=varianttitles|displaytitle" +
                 "&gsrinfo=&gsrprop=redirecttitle|snippet|sectiontitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
@@ -85,7 +88,10 @@ interface Service {
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("gsroffset") gsrOffset: Int?,
-        @Query("cirrusSemanticSearch") semanticSearchType: String? = null
+        @Query("cirrusSemanticSearch") semanticSearchType: String? = null,
+        @Query("prop") prop: String = FULL_TEXT_SEARCH_PROPS,
+        @Query("exintro") exIntro: Boolean? = null,
+        @Query("exchars") exChars: Int? = null
     ): Response<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
@@ -219,16 +225,19 @@ interface Service {
         @Query("gcmcontinue") continueStr: String?
     ): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=0&prop=pageprops|description|info&inprop=protection")
     suspend fun getRandomPages(
         @Query("grnlimit") count: Int = 50,
     ): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&grnfilterredir=nonredirects&grnnamespace=0&prop=pageprops|pageimages|description|info|extracts&exchars=500&exintro=1&explaintext=1&piprop=thumbnail&pilicense=any&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getRandomPagesWithExtract(
         @Query("grnlimit") count: Int = 10,
     ): MwQueryResponse
 
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&prop=info|description|imageinfo|revisions|globalusage&inprop=protection&gunamespace=0&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iilocalonly=1&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     suspend fun getRandomImages(
         @Query("grnlimit") count: Int = 10,
@@ -426,10 +435,17 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo&uiprop=editcount&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo&uiprop=editcount|rights&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
     suspend fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo|userinfo|allmessages&uiprop=editcount|rights&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
+    suspend fun getWikiTextForSectionWithInfoAndMessages(
+        @Query("titles") title: String,
+        @Query("rvsection") section: Int?,
+        @Query("ammessages") messages: String
     ): MwQueryResponse
 
     @FormUrlEncoded
@@ -780,6 +796,8 @@ interface Service {
         const val URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/"
         const val MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&"
         const val PREFERRED_THUMB_SIZE = 330
+        const val PREFIX_SEARCH_PROPS = "description|pageimages|coordinates|info"
+        const val FULL_TEXT_SEARCH_PROPS = "description|pageimages|pageprops|coordinates|info"
 
         // Maximum cache time for site-specific data, and other things not likely to change very often.
         const val SITE_INFO_MAXAGE = 86400

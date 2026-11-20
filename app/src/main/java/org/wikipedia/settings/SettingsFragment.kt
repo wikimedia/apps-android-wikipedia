@@ -61,7 +61,7 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
         preferenceLoader.updateRecommendedReadingListSummary()
         preferenceLoader.updateDonationRemindersDescription()
         preferenceLoader.updateVisualEditorPreference()
-        preferenceLoader.updateSemanticSearchPreference()
+        preferenceLoader.updateInterleaveSearchPreference()
         DonationReminderHelper.maybeShowSettingSnackbar(requireActivity())
         requireActivity().invalidateOptionsMenu()
     }

@@ -28,6 +28,7 @@
     <string name="preference_key_talk_offline_cleanup_task_name" translatable="false">talkOfflineCleanupTask</string>
     <string name="preference_key_login_groups" translatable="false">groups</string>
     <string name="preference_key_login_force_email_auth" translatable="false">loginForceEmailAuth</string>
+    <string name="preference_key_hcaptcha_use_test_site_key" translatable="false">hCaptchaUseTestSiteKey</string>
     <string name="preference_key_last_background_login_date_time" translatable="false">lastBackgroundLoginDateTime</string>
     <string name="preference_key_show_developer_settings" translatable="false">showDeveloperSettings</string>
     <string name="preference_key_developer_settings_newest_first" translatable="false">developerSettingsNewestFirst</string>
@@ -69,7 +70,6 @@
     <string name="preference_key_prefer_offline_content" translatable="false">preferOfflineContent</string>
     <string name="preference_key_feed_cards_order" translatable="false">feedCardsOrder</string>
     <string name="preference_key_feed_cards_enabled" translatable="false">feedCardsEnabled</string>
-    <string name="preference_key_feed_cards_lang_supported" translatable="false">feedCardsLangSupported</string>
     <string name="preference_key_feed_cards_lang_disabled" translatable="false">feedCardsLangDisabled</string>
     <string name="preference_key_feed_customize_onboarding_card_enabled" translatable="false">feedCustomizeOnboardingCardEnabled</string>
     <string name="preference_key_add_articles" translatable="false">addArticles</string>
@@ -173,7 +173,6 @@
     <string name="preference_key_payment_methods_merchant_id" translatable="false">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id" translatable="false">paymentMethodsGatewayId</string>
     <string name="preference_key_otd_game_state" translatable="false">otdGameState</string>
-    <string name="preference_key_otd_game_history" translatable="false">otdGameHistory</string>
     <string name="preference_key_otd_last_played_date" translatable="false">otdLastPlayedDate</string>
     <string name="preference_key_otd_game_date_override" translatable="false">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions" translatable="false">otdGameNumQuestions</string>
@@ -234,18 +233,16 @@
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>
-    <string name="preference_key_semantic_search_enabled" translatable="false">semanticSearchEnabled</string>
-    <string name="preference_key_semantic_search_first_use" translatable="false">semanticSearchFirstUse</string>
-    <string name="preference_key_semantic_search_override_supported_language" translatable="false">semanticSearchOverrideSupportedLanguage</string>
-    <string name="preference_key_semantic_search_is_test_active" translatable="false">semanticSearchIsTestActive</string>
-    <string name="preference_key_semantic_search_settings_category" translatable="false">semanticSearchSettingsCategory</string>
     <string name="preference_key_notifications_is_test_active" translatable="false">notificationsIsTestActive</string>
     <string name="preference_key_notifications_experiment_notification_rescheduled" translatable="false">notificationsExperimentNotificationRescheduled</string>
     <string name="preference_key_notifications_experiment_discover_source" translatable="false">notificationsExperimentDiscoverSource</string>
     <string name="preference_key_notifications_experiment_discover_dev_trigger_time" translatable="false">notificationsExperimentDiscoverDevTriggerTime</string>
+    <string name="preference_key_notifications_most_read_is_test_active" translatable="false">notificationsMostReadIsTestActive</string>
+    <string name="preference_key_notifications_experiment_weekly_most_read_scheduled" translatable="false">notificationsExperimentWeeklyMostReadScheduled</string>
+    <string name="preference_key_notifications_experiment_weekly_most_read_dev_trigger_time" translatable="false">notificationsExperimentWeeklyMostReadDevTriggerTime</string>
+    <string name="preference_key_interleave_search_settings_category" translatable="false">interleaveSearchSettingsCategory</string>
     <string name="preference_key_interleave_search_enabled" translatable="false">interleaveSearchEnabled</string>
     <string name="preference_key_interleave_search_override_supported_language" translatable="false">interleaveSearchOverrideSupportedLanguage</string>
     <string name="preference_key_interleave_search_is_test_active" translatable="false">interleaveSearchIsTestActive</string>
     <string name="preference_key_interleave_search_feedback_last_shown_day" translatable="false">interleaveSearchFeedbackLastShownDay</string>
-    <string name="preference_key_search_result_card_playground" translatable="false">searchResultCardPlayground</string>
 </resources>

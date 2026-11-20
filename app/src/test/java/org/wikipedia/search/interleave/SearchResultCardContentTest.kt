@@ -32,6 +32,27 @@ class SearchResultCardContentTest {
     }
 
     @Test
+    fun testLeadParagraphsFlowAsOnePassage() {
+        val excerpt = result(SearchResult.SearchResultType.PREFIX, leadText = "<p>First paragraph.</p>\n<p>Second<br/>line.</p><ul><li>Item</li></ul>").cardExcerpt()
+        assertEquals("First paragraph. Second line. Item", excerpt.text)
+    }
+
+    @Test
+    fun testLeadCutByTheApiHasNoEllipsis() {
+        assertEquals("The tower was", result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The <i>tower</i> was...</p>").cardExcerpt().text)
+        assertEquals("The tower was", result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The tower was\u2026</p>").cardExcerpt().text)
+        assertEquals("To be continued...", result(SearchResult.SearchResultType.SEMANTIC, snippet = "To be continued...").cardExcerpt().text)
+    }
+
+    @Test
+    fun testExcerptHasNoBold() {
+        val excerpt = result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The <b>Eiffel Tower</b> is a <b><i>tower</i></b>.</p>").cardExcerpt()
+        assertEquals("The Eiffel Tower is a tower.", excerpt.text)
+        assertTrue(excerpt.spanStyles.none { it.item.fontWeight != null })
+        assertTrue(excerpt.spanStyles.any { it.item.fontStyle == FontStyle.Italic })
+    }
+
+    @Test
     fun testExcerptKeepsSuperscripts() {
         val excerpt = result(SearchResult.SearchResultType.SEMANTIC, snippet = "About 10<sup>6</sup> km away.").cardExcerpt()
         assertEquals("About 106 km away.", excerpt.text)
@@ -67,6 +88,11 @@ class SearchResultCardContentTest {
         assertEquals("History", result(SearchResult.SearchResultType.SEMANTIC, sectionTitle = "<b>History</b>").cardTrail())
         assertNull(result(SearchResult.SearchResultType.SEMANTIC, sectionTitle = " ").cardTrail())
         assertNull(result(SearchResult.SearchResultType.PREFIX).cardTrail())
+    }
+
+    @Test
+    fun testLexicalTrailIsLeadEvenWithASectionTitle() {
+        assertNull(result(SearchResult.SearchResultType.FULL_TEXT, sectionTitle = "Tour Eiffel").cardTrail())
     }
 
     @Test

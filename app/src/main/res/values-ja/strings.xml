@@ -61,6 +61,7 @@
 * Wicklo
 * Wrai
 * WwLMvmT
+* YShibata
 * YeBoy371
 * Yusuke1109
 * おはぐろ蜻蛉
@@ -275,7 +276,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">メールアドレスなしで先に進む</string>
   <string name="email_recommendation_dialog_create_with_email_action">メールアドレスを追加</string>
   <string name="create_account_button">アカウント作成</string>
-  <string name="create_account_encourage_title">アカウント作成で、ウィキペディアがもっと便利に</string>
+  <string name="create_account_encourage_title">ウィキペディアはアカウントを使うのが最善です</string>
   <string name="create_account_encourage_year_in_review_title_zero">閲覧記録を一年のまとめで確認</string>
   <plurals name="create_account_encourage_year_in_review_title">
     <item quantity="other">%1$d日分の閲覧記録を一年のまとめで確認</item>
@@ -886,7 +887,7 @@
   <string name="view_top_read_card_action">よく読まれている記事をもっと見る</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d百万</string>
-  <string name="view_top_read_card_pageviews_views_suffix">閲覧数</string>
+  <string name="view_top_read_card_pageviews_views_suffix">閲覧</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
   <string name="view_main_page_card_action">メインページを表示</string>
@@ -936,8 +937,11 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">キャンセル</string>
   <string name="feed_accessibility_card_text">フィード一覧はこれで最後です。</string>
   <string name="feed_accessibility_card_load_more_button">さらに読み込む</string>
+  <string name="feed_language_variants_removal_dialog_title">閲覧改善のために地域言語の変数を選択する</string>
+  <string name="feed_language_variants_removal_dialog_message">現在、あなたは、主言語としてサポートされていない一般的な中国語変数を使用しています</string>
   <string name="feed_language_variants_removal_dialog_save">保存</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">第二言語を更新してください</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">現在、中文としてサポートされていない一般的な中国語変異を使用しています。 新しい副言語を選択するか、言語リストを確認するには、設定に移動してください。</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">設定に移動</string>
   <string name="top_read_activity_title">%sのよく読まれている記事</string>
   <string name="tabs_activity_title">タブ</string>
@@ -1429,6 +1433,7 @@
   <string name="templates_insert_button">挿入</string>
   <string name="templates_param_suggested_value">例: %s</string>
   <string name="templates_param_optional_hint">%s (省略可能)</string>
+  <string name="templates_param_suggested_hint">%s (提案)</string>
   <string name="templates_learn_more_link">詳細</string>
   <string name="templates_description_incomplete">テンプレートは利用者が生成したものであり、完全な説明ではない可能性があります。</string>
   <string name="templates_description_empty">「%s」テンプレートには、まだ説明がありません。</string>
@@ -1750,14 +1755,21 @@
   <string name="patroller_tasks_overflow_learn">詳細</string>
   <string name="patroller_onboarding_one_title">ウィキペディアの編集の管理と確認に貢献する。</string>
   <string name="patroller_onboarding_one_content">最近の編集のフィードを積極的にレビューし、他の編集者にガイダンス、品質管理、励ましを提供することで、Wikipedia コンテンツの品質を向上させます。</string>
+  <string name="patroller_onboarding_two_title">意見の返信、編集をモニターし、diff画面で行動</string>
   <string name="patroller_onboarding_two_thank_title">感謝</string>
   <string name="patroller_onboarding_two_thank_content">生産的な編集を見かけましたか? 利用者の貢献に感謝しましょう。</string>
   <string name="patroller_onboarding_two_watch_title">ウォッチ</string>
+  <string name="patroller_onboarding_two_watch_content">記事編集を追跡しますか? ウォッチリストに追加するには右上あるいは\'縦3点リーダー\'の中をご覧ください。</string>
   <string name="patroller_onboarding_two_talk_title">トーク</string>
+  <string name="patroller_onboarding_two_talk_content">他の編集者とコミュニケーションをとるには、普段使っているノートページのメッセージを保存するかテンプレートを使用します。</string>
   <string name="patroller_onboarding_two_undo_title">取り消し/巻き戻し</string>
+  <string name="patroller_onboarding_two_undo_content">取り消しまたはロールバックするには\'Undo\'を選択してください。これにより、破壊的な編集を元に戻すことができます。</string>
+  <string name="patroller_diff_tooltip_one">Damageは、編集によってWikiに損害が生じるかどうかを予測します。</string>
+  <string name="patroller_diff_tooltip_two">Intentは、編集が善意で保存される可能性を予測します。</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">どうすれば機能を改善できるでしょうか?</string>
   <string name="patroller_diff_menu_edit_history_title">記事の編集履歴</string>
   <string name="patroller_diff_feedback_dialog_input_hint">フィードバック</string>
+  <string name="patroller_diff_feedback_tooltip">オーバーフローメニューをタップして\'機能に関する問題\'の項目からいつでもフィードバックを送信できます。</string>
   <string name="patroller_saved_message_title_vandalism">荒らし警告</string>
   <string name="patroller_saved_message_title_editing_tests">編集テスト</string>
   <string name="patroller_saved_message_title_npov">中立的な視点</string>
@@ -1772,12 +1784,14 @@
   <string name="patroller_saved_message_body_editing_tests">こんにちは{{{username}}}さん、ウィキペディアに注目し、編集方法を学ぶことに興味を持っていただいたことを嬉しく思います。編集テストはうまくいっていますが、このプロジェクトの目標は、誰もが活用できる信頼性が高く完成された百科事典を作ることであることを覚えておく必要があります。あなたの編集はコンテンツに影響を与えたため、除去されました。\nウィキペディアの編集方法を学びたい場合は、[[Wikipedia:サンドボックス|サンドボックス]]が自由に使えます。特定の記事についてのコメントの場合、記事のトークページが適切な場所です。</string>
   <string name="patroller_saved_message_body_npov">こんにちは{{{username}}}さん、あなたが行った投稿の一部はこのウィキペディアで従う必要がある[[Wikipedia:NPOV|中立的な観点]]の方針を満たしていません。このため、一部の内容が修正または除去されました。偏った観点を示す段落や節を修正し、百科事典で求められるより中立で客観的な文章に置き換えてください。</string>
   <string name="patroller_saved_message_body_auto_trans">こんにちは{{{username}}}さん、あなたが行った投稿の一部は機械翻訳の可能性があるため、修正またはテンプレートが付与されました。記事が改善されない場合、削除される可能性があります。\n\nこの情報をすべて見て、なおも質問がある場合は、[[User talk:{{{senderUserName}}}|私のトークページ]]に遠慮なくメッセージを残してください。この小さな出来事に落ち込まないでください。あなたの貢献はウィキペディアにとって非常に重要です。</string>
+  <string name="patroller_saved_message_body_coi_rem">こんにちは {{{username}}}さん、Wikipedia でのご協力に感謝いたします。しかし、あなたは [[Wikipedia:Conflict_of_interest|利益相反]] の状態にあることに気づきました。利益相反とは、Wikipedia の中立性と信頼性という目標と、特定の編集者、個人、団体、またはあらゆる種類の企業の特定の目標との間の不適合のことです。\n\nメインスペースへのすべての投稿は、この Wikipedia のコンテンツ基準 ([[Wikipedia:What_Wikipedia_is_not|Wikipedia ではないもの]])、百科事典的品質 ([[Wikipedia:Verifiability|検証可能性]] および [[Wikipedia:No_original_research|オリジナル調査なし]])、編集方法 ([[Wikipedia:Neutral_point_of_view|中立的な視点]])、およびコンテンツの正当性 ([[Wikipedia:Copyrights|著作権]]) のポリシーに従います。すべてのパブリッシャーは、コンテンツの作成と評価を行う際にこれらのポリシーを遵守し、他のパブリッシャーの行動を尊重し、誠意をもってこれらのポリシーが遵守されていると想定することが求められます。\n\n利益相反の下で編集を行う場合は、該当するポリシーを特に注意して適用する必要があります。そうしないと、利用者アカウントが私的目的とみなされ、ブロックされる可能性があります。ご質問がある場合は、私のトークページでお気軽にお問い合わせください。</string>
   <string name="patroller_saved_message_body_final_warning">あなたは複数の破壊的編集を行ったため、これは最終警告となります。ウィキペディアを再び荒らした場合には、編集が禁止されます。</string>
   <string name="patroller_saved_message_body_copy_vio">あなたの最近の編集には著作権で保護されている素材が許可なく含まれているようです。除去されないためには、すべてのコンテンツがこのウィキペディアの[[Wikipedia:著作権|著作権]]の方針に従っていることを確認してください。</string>
   <string name="patroller_saved_message_body_edit_summary">こんにちは{{{username}}}さん、編集の要約を残さずにウィキペディアからコンテンツを除去されたように見受けられます。ウィキペディアにコンテンツを追加または除去するときには、常に編集の要約を残してください。</string>
   <string name="patroller_saved_message_body_do_not_censor">こんにちは{{{username}}}さん、記事のトークページで議論することなくコンテンツを除去したように見受けられます。ウィキペディアでは検閲をせず、物議を醸すためにコンテンツを除去すべきではありません。情報が不正確であると思われる場合は、記事のトークページで合意を形成してください。</string>
   <string name="talk_warn_learn_more_label">メッセージプレースホルダーについてもっと知る</string>
   <string name="talk_warn_saved_messages_usage_instruction">以下のメッセージ例を使用して、自分のメッセージをカスタマイズ、送信および保存します</string>
+  <string name="patroller_saved_message_body_art_imp">こんにちは、{{{username}}}さん。素晴らしい記事ですね!さらに良くするために、信頼できる情報源への参照を追加することを検討してみてください。そうすることで情報の妥当性が検証され、記事の質が向上します。詳しくは、Wikipediaのガイドライン[[Wikipedia:Reliable_sources|信頼できる情報源]]をご覧ください。</string>
   <string name="talk_templates_menu_edit_title">編集</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
@@ -1796,9 +1810,12 @@
   <string name="donate_gpay_dialog_pay_button">Google Pay で寄付する</string>
   <string name="donate_gpay_dialog_other_button">その他の支払方法</string>
   <string name="donate_gpay_activity_title">金額を選択する</string>
+  <string name="donate_gpay_activity_title_with_currency">金額を選択する (%s)</string>
   <string name="donate_gpay_check_transaction_fee">寄付の100%%が確実に届くよう、手数料として%sを追加してお支払いします。</string>
   <string name="donate_gpay_check_recurring">毎月、この金額を定期的に寄付します。</string>
   <string name="donate_gpay_check_send_email">はい、ウィキメディア財団はごく稀に私にメールを送ることができます。</string>
+  <string name="donate_gpay_minimum_amount">金額を選択してください (少なくとも%sのご寄付が必要です)</string>
+  <string name="donate_gpay_maximum_amount">当ウェブサイトでは%sを超える金額のご寄付は受け付けておりません。高額のご寄付に関する担当者（benefactors@wikimedia.org）までご連絡ください。</string>
   <string name="donate_gpay_success_message">&lt;b&gt;ありがとうございます!&lt;/b&gt; あなたのウィキペディアへの寛大な行いは私たちにとって大きな意味を持ちます。</string>
   <string name="donate_gpay_help_problems">寄付の際に何か問題がありましたか?</string>
   <string name="donate_gpay_help_other_ways">その他の寄付方法</string>
@@ -1926,6 +1943,7 @@
     <item quantity="other">あなたの活動ピークは%1$sで、%2$d日閲覧しました。</item>
   </plurals>
   <string name="yir_minutes_read_headline">閲覧に費やした合計分数:</string>
+  <string name="yir_minutes_read_supporting">%1$s ウサギの穴に落ちていくと時間はあっという間に過ぎます。</string>
   <string name="yir_reading_streak_headline">最長連続閲覧記録の日:</string>
   <string name="yir_reading_streak_supporting">%1$s–%2$sの期間、毎日の閲覧が習慣になっていました。</string>
   <string name="yir_reading_streak_empty_headline">連続閲覧記録は0です… まだ</string>
@@ -1939,10 +1957,26 @@
   <string name="yir_reading_time_empty_headline">あなたは基本的にいつでも閲覧します</string>
   <string name="yir_reading_time_empty_supporting">ウィキペディアのページを探索すると決めている日または時間は設定されていせん。</string>
   <string name="yir_top_topic_headline">あなたの%1$d年の上位トピック:</string>
+  <string name="yir_top_topic_empty_headline">あなたの%1$dの最重要テーマは…すべてです</string>
+  <string name="yir_top_topic_empty_supporting">興味の対象が多岐にわたるため、あなたの閲覧習慣を決定づけるような特定のテーマがありません。</string>
+  <string name="yir_runner_up_topics_headline">そして%1$d年の次点はこちらです。</string>
   <plurals name="yir_runner_up_topics_article_count">
     <item quantity="other">%1$d記事</item>
   </plurals>
   <string name="yir_biggest_reading_day_headline">閲覧が最大の日:</string>
+  <string name="yir_articles_read_headline">あなたが閲覧した記事の例:</string>
+  <string name="yir_most_time_article_headline">どれに一番時間をかけましたか?</string>
+  <string name="yir_guess_article_choose_action">%sを選択</string>
+  <string name="yir_rabbit_hole_headline">あなたが掘り下げた探求の中で、最も深かったのはどれですか?</string>
+  <string name="yir_rabbit_hole_depth_supporting">次にあなたはどのウサギの穴に落ちていくのでしょうか?</string>
+  <string name="yir_niche_category_headline">ニッチな趣味について話しましょう。例えば、次のようなものです。</string>
+  <string name="yir_niche_category_supporting">何らかの理由で、このカテゴリーに関しては、あなたは全力投球しましたね!</string>
+  <string name="yir_reread_articles_headline">あなたのローテーションに含まれる記事の一部:</string>
+  <string name="yir_reread_articles_empty_headline">あなたは再読する人ではないですね</string>
+  <string name="yir_reread_articles_empty_supporting">記事を二度読むなんてことはもうしない。君は目新しさや、新たな探求の旅を好むんだね。</string>
+  <string name="yir_places_headline">あなたの閲覧体験は、実質的にあなたを次の場所へと導きました。</string>
+  <string name="yir_places_empty_headline">あなたの閲覧はあなたを世界各地へと連れて行きました。</string>
+  <string name="yir_places_empty_supporting">%1$d年、あなたはウィキペディアのあらゆる場所を旅しました。外出先を探す際は、「場所」機能を使ってアイデアを探してみてください。</string>
   <plurals name="yir_saved_articles_headline">
     <item quantity="other">あなたが後で読むために保存した記事数: %1$d記事</item>
   </plurals>
@@ -1960,8 +1994,11 @@
   <string name="yir_most_viewed_edited_articles_headline">あなたの編集以降最も閲覧された記事:</string>
   <string name="yir_contributor_thanks_headline">ありがとうございます!</string>
   <string name="yir_contributor_thanks_supporting">%1$sとして、あなたはウィキペディアを広告なしで、信頼に値し、誰でも利用できるように維持することに貢献しました。ウィキペディアを支援していただいたことに感謝してもしきれません!</string>
+  <string name="yir_non_contributor_headline">あなたは大切な存在です。</string>
   <string name="yir_non_contributor_supporting">ウィキペディアが発展し続けられるように貢献してくださる、あなたのような実在の人々のおかげでウィキペディアは存在します。ウィキペディアがあなたにとって価値のあるものならば、寄付あるいは編集によって支援することをご検討ください。</string>
   <string name="yir_community_intro_headline">私たちの一年の振り返りはこちらです</string>
+  <string name="yir_community_intro_supporting">今回あなた自身の一年の振り返りを生成するのには十分なデータがありませんでしたが、世界が発見したものを一緒に探索しましょう。</string>
+  <string name="yir_community_reading_hours_headline">%1$d年に私たちがウィキペディア閲覧にかけた時間:</string>
   <string name="yir_community_languages_title">ウィキペディアが利用可能な言語数:</string>
   <plurals name="yir_community_languages_headline">
     <item quantity="other">ウィキペディアの知識が利用可能な言語数: %1$d言語以上</item>
@@ -1979,22 +2016,89 @@
   <string name="yir_community_global_reach_subtitle">世界の最も訪問されたウェブサイトのトップテンのひとつ</string>
   <string name="yir_community_global_reach_headline">ウィキペディアの世界的な影響範囲: 世界の最も訪問されたウェブサイトトップテンのひとつ</string>
   <string name="yir_community_global_reach_supporting">ウィキペディアはインターネットの知識の支柱です。学生からチャットボットまで、皆ここから学んでいます。</string>
+  <string name="yir_community_contribute_headline">あなたは大切な存在です。</string>
+  <string name="yir_community_contribute_supporting">ウィキペディアは、あなたのような人々が貢献し、その発展を支えているおかげで存在しています。ウィキペディアがあなたにとって価値のあるものであれば、寄付や編集で支援することを検討してください。\n\nすでに貢献者ですか？ログインするかアカウントを作成して、貢献者特典を確認してください。</string>
+  <string name="yir_closing_headline">次のウサギの穴まで</string>
+  <string name="yir_closing_supporting">記事を1つだけ閲覧に来た方も、100本閲覧に来た方も、ウィキペディアで探求し、読み、好奇心を持ち続けてくださり、ありがとうございます。</string>
   <string name="yir_closing_share_action">ハイライトを共有</string>
   <string name="yir_store_discount_headline">ささやかな感謝</string>
   <plurals name="yir_store_discount_supporting">
     <item quantity="other">フリーな知識の維持にご協力いただいたので、ウィキペデアストア %1$d%% オフを提供いたします。コード不要で、チェックアウト時に適用されます。</item>
   </plurals>
   <string name="yir_store_discount_action">ストアを訪問</string>
+  <string name="yir_games_headline">次の挑戦の準備はできていますか?</string>
+  <string name="yir_games_supporting">世界の知識に触発されたクイックゲームで、あなたのウィキペディア知識を試してみましょう。</string>
+  <string name="yir_games_action">プレイを開始する</string>
   <string name="yir_customize_home_headline">独自のホームを作成</string>
   <string name="yir_customize_home_supporting">魅力を感じる主題を選んで、あなたの興味に合わせたお勧めを手に入れましょう。</string>
   <string name="yir_customize_home_action">興味をカスタマイズ</string>
   <string name="yir_community_recap_headline">私たちの一年の振り返り</string>
+  <string name="yir_community_recap_supporting">世界中の人々が共にどれほど多くのものを閲覧し、編集し、探求してきたかを再発見しましょう。</string>
+  <string name="yir_community_recap_action">今すぐ探索</string>
+  <string name="yir_quiz_headline">あなたはどのウィキペディアに似ていますか?</string>
+  <string name="yir_quiz_supporting">ダイヤルアップ接続の時代から現在まで、ウィキペディアの歴史を辿ってみましょう。</string>
+  <string name="yir_quiz_action">クイズに挑戦する</string>
+  <string name="yir_open_tabs_headline">開いているタブをもう一度確認してください</string>
+  <string name="yir_share_text">Wikipediaアプリから、私の%1$d年のWikipedia年間レビューをご紹介します: %2$s</string>
+  <string name="yir_feature_card_title">ウィキペディア年間レビュー %1$d</string>
   <string name="yir_feature_card_articles_read">読まれた記事の数:</string>
   <string name="yir_feature_card_minutes_read">総閲覧分数:</string>
+  <string name="yir_feature_card_articles_reread">私がローテーションで使用している記事:</string>
+  <string name="yir_feature_card_longest_rabbit_hole">最も長いウサギの穴:</string>
+  <string name="yir_feature_card_top_category">ニッチなカテゴリーを探求:</string>
   <string name="yir_feature_card_created_with">ウィキペディアアプリで作成</string>
+  <string name="yir_topic_comment_architecture">あなたは今年、長く使えるように作られたものの良さを実感して過ごしました。</string>
+  <string name="yir_topic_comment_art">あなたは美しく、大胆で、そして時折不可解なものに惹かれる人でした。</string>
+  <string name="yir_topic_comment_comics_and_anime">あなたはコマごとに、漫画とアニメの世界を深く掘り下げていきました。</string>
+  <string name="yir_topic_comment_entertainment">今年はエンターテインメントの世界から離れることはできなかったようです。</string>
+  <string name="yir_topic_comment_fashion">あなたは多くの人よりもずっとファッションの世界に深く入り込んでいます。</string>
+  <string name="yir_topic_comment_literature">今年のあなたの閲覧は文学的な傾向が強かったですね。</string>
+  <string name="yir_topic_comment_music">今年のあなたの好奇心にはサウンドトラックがありました。</string>
+  <string name="yir_topic_comment_performing_arts">あなたは何らかの形で舞台に惹かれていたのです。</string>
+  <string name="yir_topic_comment_sports">あなたは今年、世界のスポーツ界の動向をしっかり把握していたのですね。</string>
+  <string name="yir_topic_comment_tv_and_film">今年は閲覧が同時にウォッチリストの役割も果たしましたね。</string>
+  <string name="yir_topic_comment_video_games">あなたのビデオゲームに関する知識はレベルアップしました。</string>
+  <string name="yir_topic_comment_biography">あなたは一年を通して、他の人々の物語を知ることに時間をかけました。</string>
+  <string name="yir_topic_comment_women">あなたは一年を通して、他の人々の物語を知ることに時間をかけました。</string>
+  <string name="yir_topic_comment_business_and_economics">あなたは世界のビジネスのやり方を常に注視していました。</string>
+  <string name="yir_topic_comment_education">今年は、学習について学ぶことがあなたの得意分野だったようですね。</string>
+  <string name="yir_topic_comment_food_and_drink">今年はあなたの好奇心はとても旺盛だったようですね。</string>
+  <string name="yir_topic_comment_history">あなたは明らかに過去に魅了されているようですね。</string>
+  <string name="yir_topic_comment_military_and_warfare">あなたは紛争と防衛の歴史を深く掘り下げました。</string>
+  <string name="yir_topic_comment_philosophy_and_religion">あなたは今年、重要な問題について時間をかけて考えましたね。</string>
+  <string name="yir_topic_comment_politics_and_government">あなたは世界の仕組みを常に把握していました。</string>
+  <string name="yir_topic_comment_society">あなたは人々の暮らし方や社会の仕組みに興味を持っていました。</string>
+  <string name="yir_topic_comment_transportation">あなたは、世界がどのように移動するのかを調べました。</string>
+  <string name="yir_topic_comment_biology">あなたは生物の科学を探求しました。</string>
+  <string name="yir_topic_comment_chemistry">今年は閲覧に少し化学の要素を取り入れたんですね。</string>
+  <string name="yir_topic_comment_computers_and_internet">あなたは画面の背後にある技術を理解することに実際に時間をかけました。</string>
+  <string name="yir_topic_comment_earth_and_environment">あなたは文字通り、地に足の着いた読書をしていました。</string>
+  <string name="yir_topic_comment_engineering">あなたは物事がどのように作られ、どのように機能するのかを学ぶのが好きだったのですね。</string>
+  <string name="yir_topic_comment_general_science">あなたの好奇心は科学全般に及んでいました。</string>
+  <string name="yir_topic_comment_mathematics">あなたは今年、数字にふさわしい評価を与えてくれました。</string>
+  <string name="yir_topic_comment_medicine_and_health">あなたは人体の仕組みを学ぶことに時間をかけました。</string>
+  <string name="yir_topic_comment_physics">あなたは宇宙を支配する法則を探求しました。</string>
+  <string name="yir_topic_comment_technology">あなたは物事の変化を常に把握していましたね。</string>
+  <string name="yir_topic_comment_africa">今年の閲覧であなたはアフリカ各地を巡りました。</string>
+  <string name="yir_topic_comment_asia">今年の閲覧であなたはアジア各地を巡りました。</string>
+  <string name="yir_topic_comment_central_america">今年の閲覧であなたは中央アメリカを旅しました。</string>
+  <string name="yir_topic_comment_europe">今年の閲覧であなたはヨーロッパ各地を巡りました。</string>
+  <string name="yir_topic_comment_north_america">閲覧を通して、あなたは北米という身近な場所に留まることができました（あるいは遠くから北米を探検していました）。</string>
+  <string name="yir_topic_comment_oceania">今年の閲覧であなたはオセアニアへと旅しました。</string>
+  <string name="yir_topic_comment_south_america">今年の閲覧であなたは南米各地を巡りました。</string>
+  <string name="yir_time_spent_comment_1">それはハチドリの心臓が1200回鼓動するのにかかる時間よりも長いです。</string>
+  <string name="yir_time_spent_comment_9">それは太陽光が太陽から地球に届くのにかかる時間よりも長いのです。</string>
+  <string name="yir_time_spent_comment_13">それは卵を固ゆでにするよりも長い時間です。</string>
+  <string name="yir_time_spent_comment_19">それは人が眠りにつくまでの平均時間よりも長いのです。</string>
+  <string name="yir_time_spent_comment_31">それはコマーシャルも含めてシットコムの1話分よりも長いのです。</string>
+  <string name="yir_time_spent_comment_93">それは国際宇宙ステーションが地球を一周するのにかかる時間よりも長いのです。</string>
+  <string name="yir_time_spent_comment_121">それは現在のマラソン世界記録よりも長いのです。</string>
+  <string name="yir_time_spent_comment_540">それは一晩ぐっすり眠るよりも長い時間です。</string>
+  <string name="yir_time_spent_comment_1441">それは女王蜂が最大2000個の卵を産むのにかかる時間よりも長いのです。</string>
   <string name="year_in_review_learn_more">詳細</string>
   <string name="year_in_review_about_your_insights">あなたの洞察について</string>
   <string name="year_in_review_share_feedback">フィードバックを共有</string>
+  <string name="year_in_review_feedback_email_subject">一年の振り返りのフィードバック</string>
   <string name="year_in_review_get_started">始める</string>
   <string name="year_in_review_announcement_explore">探索</string>
   <string name="year_in_review_topbar_w_icon">ウィキペディア W アイコン</string>
@@ -2006,6 +2110,9 @@
   <string name="year_in_review_donate">寄付</string>
   <string name="year_in_review_information_icon">情報アイコン</string>
   <string name="year_in_review_get_started_headline">ウィキペディアでの一年を振り返って見てみましょう</string>
+  <string name="year_in_review_get_started_bodytext">あなたがウィキペディアアプリで読んだり編集したりした記事に関する洞察を確認します。</string>
+  <string name="year_in_review_get_started_info">あなたの閲覧履歴は保護されています。閲覧についての洞察は、あなたのデバイスにローカルに保存されたデータを使って計算されます。</string>
+  <string name="year_in_review_get_started_later_activity">活動で後から一年の振り返りにアクセスできます。</string>
   <string name="year_in_review_entry_card_title_collective">私たちの一年の振り返りはこちらです</string>
   <string name="year_in_review_entry_card_title_personalized">あなたの一年の振り返りはこちらです</string>
   <string name="year_in_review_entry_card_subtitle">あなたのウィキペディアでの一年を再発見しよう。</string>
@@ -2035,11 +2142,14 @@
   <string name="year_in_review_slide_app_icon_donor">寄付者</string>
   <string name="year_in_review_slide_app_icon_editor">編集者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">寄付者かつ編集者</string>
+  <string name="year_in_review_slide_geo_headline">あなたが読んだ記事は%sに最も近いです</string>
+  <string name="year_in_review_slide_geo_body">&lt;b&gt;%2$s&lt;/b&gt;および&lt;b&gt;%3$s&lt;/b&gt;などの記事に基づくと、あなたが読んだ多くの記事に最も近い国は%1$sのようです。</string>
   <string name="year_in_review_login_dialog_title">パーソナライズのためにログインしますか?</string>
   <string name="year_in_review_login_dialog_body">ログインするとパーソナライズされた洞察を得られます。ログインなしでも全体の洞察を確認できます。</string>
   <string name="year_in_review_login_dialog_title_nodata">ウィキペディアはアカウントを使うのが最善です</string>
   <string name="year_in_review_login_dialog_body_nodata">ログインするとアプリの最も良い部分にアクセスできます。今日アカウントを作成して次の年の一年の振り返りの構築を始めましょう。</string>
   <string name="year_in_review_login_dialog_title_data">一年の振り返りはアカウントを使うのが最善です</string>
+  <string name="year_in_review_login_dialog_body_data">ログインすると、あなたの人気トピック、記事、最も深く掘り下げた記事などを確認できます。ログインしなくても、全体の分析結果を見ることは可能です。</string>
   <string name="year_in_review_login_dialog_positive">ログイン / ウィキペディアに参加する</string>
   <string name="year_in_review_login_dialog_negative">ログインしないで続ける</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -2048,10 +2158,16 @@
   <plurals name="year_in_review_slide_top_articles_body">
     <item quantity="other">こちらがあなたが%1$d年に最も訪問した記事です: %2$s</item>
   </plurals>
+  <string name="year_in_review_slide_top_categories_headline">あなたが最も興味を持ったカテゴリー</string>
+  <string name="year_in_review_slide_top_categories_body">カテゴリーは類似のテーマに関する記事をグループ化します。 %1$d年では以下の興味深いカテゴリの記事を複数回閲覧しました: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">英語ウィキペディアの最も読まれている記事</string>
+  <string name="year_in_review_slide_most_read_english_articles_body">{{PLURAL|one=誰かが世界について学びたいときはウィキペディアに頼ります。Englishウィキペディアで最も閲覧された%1$d本の記事は %2$sでした。&lt;br /&gt;詳しくは&lt;a href=\"%3$s \"&gt;この点についてのブログ&lt;/a&gt;をご覧ください。|誰かが世界について学びたいときはウィキペディアに頼ります。Englishウィキペディアで最も閲覧された%1$d本の記事は %2$sでした。&lt;br /&gt;詳しくは&lt;a href=\"%3$s \"&gt;この点についてのブログ&lt;/a&gt;をご覧ください。</string>
+  <string name="year_in_review_slide_edited_per_minute_body">記事は信頼できる情報源を使用して共同で作成、改訂されています。私達は皆、共有すべき知識を持っていますから &lt;a href=\"%s\"&gt;参加方法をご覧ください。&lt;/a&gt;</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
     <item quantity="other">%,dバイト追加</item>
   </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">ウィキペディアの心臓部とも魂ともいうべきはボランティアの貢献者、寄付者、そしてあなたのような何十億もの閲覧者です – 信頼できる情報への無制限のアクセスを共有しようと集まったのです。</string>
+  <string name="year_in_review_slide_global_saved_articles_body">あとで読むリストに記事を追加しておくと、オフラインの状態でも記事にアクセスできます。また、ログインすると複数の端末間であとで読むリストの同期もできます。</string>
   <string name="year_in_review_slide_reading_patterns_headline">あなたには明確な閲覧パターンがあります</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">お気に入りの閲覧時間</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">お気に入りの閲覧日</string>
@@ -2065,6 +2181,7 @@
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="other">私たちは閲覧に%,d時間費やしました</item>
   </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">世界中の人々にとってウィキペディアは、 疑問に答えたり、学校や仕事で情報を調べたり、新しい事実を学んだりする際に最初に訪れる場所です。</string>
   <string name="year_in_review_reading_list_dialog_title">%d年を振り返るあとで読むリストを作成しますか?</string>
   <string name="year_in_review_reading_list_dialog_message">ウィキペディア一年の振り返りは%1$d年にあなたが最も時間を費やした記事のあとで読むリストを作成します。 &lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">作成</string>
@@ -2108,6 +2225,8 @@
   <string name="year_in_review_highlights_share_button_title">ハイライトを共有</string>
   <string name="year_in_review_highlights_logo_description">ウィキペディアロゴ</string>
   <string name="year_in_review_swipe_tutorial_title">スワイプして探索</string>
+  <string name="year_in_review_swipe_tutorial_message">上にスワイプして年間レビューをご覧ください。</string>
+  <string name="year_in_review_illustration_credit">ウィキメディア財団の「年間回顧」、シャロン・パークによるイラストレーション</string>
   <string name="recommended_reading_list_title">発見</string>
   <string name="recommended_reading_list_onboarding_card_title">あなただけのために選ばれた記事を発見</string>
   <string name="recommended_reading_list_onboarding_card_message">ウィキペディア記事の週刊あとで読むリストが、あなただけのために収集されます。</string>
@@ -2142,6 +2261,7 @@
   <string name="recommended_reading_list_page_description_monthly">あなたの月刊あとで読むリスト。あなただけのために選ばれた新しいトピックについて学びましょう。毎月1日に更新。</string>
   <string name="recommended_reading_list_page_overflow_customize">カスタマイズ</string>
   <string name="recommended_reading_list_page_overflow_about">この機能について</string>
+  <string name="recommended_reading_list_page_snackbar">Discoverは%2$sごとに%1$d件の新しい記事で更新されます。おすすめ記事はデバイスにローカルに保存されます。</string>
   <string name="recommended_reading_list_page_snackbar_action">発見をカスタマイズ</string>
   <string name="recommended_reading_list_page_snackbar_day">日</string>
   <string name="recommended_reading_list_page_snackbar_week">週</string>
@@ -2193,11 +2313,19 @@
   <string name="donation_reminders_settings_option_title">寄付リマインダー</string>
   <string name="donation_reminders_settings_thank_you_message">あなたのご厚意によってウィキペディアの発展が支えられています。あなたが読んだ記事の数に基づく寄付リマインダーを設定してください。</string>
   <string name="donation_reminders_settings_donation_info">寄付はウィキペディアおよびその姉妹サイトのホストであるウィキメディア財団および提携団体に渡ります。</string>
+  <string name="donation_reminders_settings_article_frequency_label">閲覧ごと</string>
   <string name="donation_reminders_settings_amount_label">寄付をリマインドする</string>
   <string name="donation_reminders_settings_confirm_btn_label">リマインダーを確認</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">この実験について</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">記事</string>
+  <string name="donation_reminders_settings_warning_min_amount">少なくとも%sを入力してください</string>
+  <string name="donation_reminders_settings_warning_max_amount">最大%sが許可されます</string>
   <string name="donation_reminders_settings_option_custom">カスタム…</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">ありがとうございます!この実験の実施中は%2$sご覧になった際に、 %1$s寄付をお願いするリマインダーをお送りします。</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">%2$sを支援して以来、あなたは%1$s本を閲覧しました!</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">あなたはさらに%1$s閲覧しました!</string>
+  <string name="donation_reminders_prompt_message">%1$sに%2$s本閲覧するごとに%3$s寄付するようリマインダーを設定しました。ウィキペディアを支援する準備はできていますか？</string>
+  <string name="donation_reminders_prompt_message_v2">%1$s日に、%2$s本の記事を読んだ後にご寄付を検討するお知らせをする操作をいただきました。もしウィキペディアがあなたに%3$s分の知識をもたらしたなら、ぜひ寄付を行う読者の2%%の仲間入りをし、本日、ご寄付のお手続きを完了させてください。</string>
   <string name="donation_reminders_prompt_positive_button">今すぐ寄付する</string>
   <string name="donation_reminders_prompt_positive_button_v2">はい、今寄付します</string>
   <string name="donation_reminders_prompt_negative_button">今はしない</string>
@@ -2217,8 +2345,11 @@
   <string name="donation_reminders_settings_report_email_body">寄付リマインダー機能で問題に出くわしました:\n- [具体的な問題の説明]\n- [スクリーンショットまたはリンク]\n\n期待する挙動:\n- [提案する解決策の説明]</string>
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
   <string name="donation_reminders_settings_article_number_selection_label">記事</string>
+  <string name="donation_reminders_settings_custom_amount_label">任意の金額</string>
   <string name="donation_reminders_settings_update_reminder_button">リマインダーを更新</string>
   <string name="donation_reminders_beta_label">ベータ版</string>
+  <string name="donation_reminders_wrap_up_title">寄付のお願いは以上です。</string>
+  <string name="donation_reminders_wrap_up_message">閲覧した記事に関連した寄付リマインダーをテストしていただき、ありがとうございます。皆様からいただくフィードバックをもとに、この仕組みをウィキペディアにおける恒久的な寄付の手段として導入するかどうかを決定します。所要時間はわずか1分ほどで、寄付をしていただく必要はありません。</string>
   <string name="donation_reminders_wrap_up_share_feedback_button">フィードバックを共有</string>
   <string name="donation_reminders_wrap_up_survey_title">寄付リマインダーに関する簡単な質問</string>
   <string name="donation_reminders_wrap_up_survey_message">読んだ記事に基づく寄付リマインダーは恒久的な機能にすべきですか？</string>
@@ -2228,9 +2359,13 @@
   <string name="donation_reminders_wrap_up_survey_optional_hint">他に何かありますか？（任意）</string>
   <string name="donation_reminders_wrap_up_survey_thank_you_message">フィードバックに感謝します。あなたの回答は次に私たちが何を構築するか決定する役に立ちます。</string>
   <string name="donation_reminders_eoe_title">これで実験は終わりです</string>
+  <string name="donation_reminders_eoe_message">今後はアプリ内でリマインダーを表示しなくなりますが、これまで通り、月額%sの寄付を通じて引き続きご支援いただけます。</string>
+  <string name="donation_reminders_eoe_give_monthly_button">月額で</string>
+  <string name="donation_reminders_eoe_donate_dialog_title">毎月の寄付の場合、どのような方法で行いたいですか？</string>
   <string name="reading_challenge_widget_name">読書チャレンジ</string>
   <string name="reading_challenge_onboarding_header">ウィキペディア誕生25周年を記念して、25日間閲覧チャレンジに参加しよう！</string>
   <string name="reading_challenge_onboarding_read_title">25日間、1日1記事を読もう</string>
+  <string name="reading_challenge_onboarding_read_description">5月1日から5月31日までの期間中であればいつでもチャレンジに参加でき、25日間を自分のペースで進めることができます。</string>
   <string name="reading_challenge_onboarding_read_subtitle">%1$sから%2$sまでの間、いつでもチャレンジに参加できます。自分のペースで25日連続記録を達成しましょう。</string>
   <string name="reading_challenge_onboarding_win_title">賞品をゲット</string>
   <string name="reading_challenge_onboarding_win_description">チャレンジ開催中に25日連続閲覧記録を達成すると、特別な賞品をゲットできます</string>
@@ -2399,6 +2534,9 @@
   <string name="read_aloud_card_retry">再試行</string>
   <string name="read_aloud_card_error">この記事で音声は利用できません。</string>
   <string name="read_aloud_card_keep_listening">聞き続けますか？</string>
+  <string name="read_aloud_card_audio_date">この音声は、 %sの記事コンテンツに基づいて、&lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;テキスト読み上げモデル&lt;/a&gt;を使用して生成されました。</string>
+  <string name="read_aloud_card_audio_attribution">この音声は&lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;テキスト読み上げモデル&lt;/a&gt;を使用して生成されました。</string>
+  <string name="read_aloud_lead_section_tooltip_text">新機能（ベータ版）:おすすめ記事の冒頭部分を音声で聞くことができます</string>
   <string name="read_aloud_lead_section_survey_title">どのようにしてウィキペディアを聞くことに興味を持ちましたか？</string>
   <string name="read_aloud_lead_section_survey_choice1">記事冒頭</string>
   <string name="read_aloud_lead_section_survey_choice2">記事のいくつかのセクション</string>
@@ -2426,6 +2564,8 @@
   <string name="randomizer_shake_prompt_title">振ってシャッフル</string>
   <string name="randomizer_shake_prompt_message">デバイスを振ってランダムな記事に飛び、予想外のものを発見しましょう。</string>
   <string name="home_feed_games_module_cta_prompt_title">もっとゲームをプレイしたいですか？</string>
+  <string name="home_feed_games_module_cta_prompt_subtitle">ゲームハブへ移動</string>
+  <string name="home_feed_games_module_cta_prompt_button_text">ゲームハブ</string>
   <string name="random_article_widget_name">おまかせ記事</string>
   <string name="reading_lists_tab_all_articles">すべての記事</string>
   <string name="reading_lists_tab_collections">あとで読むリスト</string>
@@ -2479,8 +2619,14 @@
   <string name="semantic_search_feedback_dialog_close_button_content_description">セマンティック検索のフィードバックを閉じる</string>
   <string name="preference_heading_semantic_search">検索</string>
   <string name="preference_title_semantic_search_within_articles">記事内を検索</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">該当する箇所に直接ジャンプ</string>
   <string name="semantic_search_snackbar_message">モジュールが非表示になっています。設定から再度表示できます。</string>
   <string name="semantic_search_snackbar_action_label">変更</string>
   <string name="notifications_experiment_discover_interests_title">%sに興味があるため</string>
   <string name="notifications_experiment_discover_saved_or_history_title">%sについて読んだため</string>
+  <string name="notifications_experiment_discover_message">私たちはあなたの興味関心に基づいて新しい閲覧リストを作成しました。</string>
+  <string name="notifications_experiment_weekly_most_read_channel_title">週刊最多閲覧</string>
+  <string name="notifications_experiment_weekly_most_read_channel_description">1週間の最も多く読んだ記事の通知</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">今週のトレンド 📈</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">No. 1 %s。みんなが他にどんな記事を読んでいるか調べてみましょう。</string>
 </resources>
