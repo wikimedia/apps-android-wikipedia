@@ -84,6 +84,13 @@ class SearchResultCardContentTest {
     }
 
     @Test
+    fun testRedirectFrom() {
+        assertEquals("JFK", result(SearchResult.SearchResultType.PREFIX, redirectFrom = " JFK ").cardRedirectFrom())
+        assertNull(result(SearchResult.SearchResultType.PREFIX, redirectFrom = " ").cardRedirectFrom())
+        assertNull(result(SearchResult.SearchResultType.SEMANTIC).cardRedirectFrom())
+    }
+
+    @Test
     fun testTrail() {
         assertEquals("History", result(SearchResult.SearchResultType.SEMANTIC, sectionTitle = "<b>History</b>").cardTrail())
         assertNull(result(SearchResult.SearchResultType.SEMANTIC, sectionTitle = " ").cardTrail())
@@ -130,7 +137,8 @@ class SearchResultCardContentTest {
         sectionTitle: String? = null,
         thumbUrl: String? = null,
         editCounts: Int? = null,
-        referenceCounts: Int? = null
+        referenceCounts: Int? = null,
+        redirectFrom: String? = null
     ): SearchResult {
         val pageTitle = PageTitle("Test", WikiSite.forLanguageCode(languageCode)).apply {
             displayText?.let { this.displayText = it }
@@ -139,7 +147,7 @@ class SearchResultCardContentTest {
         }
         return SearchResult(
             pageTitle = pageTitle,
-            redirectFrom = null,
+            redirectFrom = redirectFrom,
             type = type,
             snippet = snippet,
             sectionTitle = sectionTitle,

@@ -19,6 +19,10 @@ internal fun SearchResult.cardDescription(): String? {
     return pageTitle.description?.trim()?.takeIf { it.isNotEmpty() }
 }
 
+internal fun SearchResult.cardRedirectFrom(): String? {
+    return redirectFrom?.trim()?.takeIf { it.isNotEmpty() }
+}
+
 // The section name for section matches, or null for lead matches, where the card shows "Lead".
 // Only a semantic excerpt comes from the matched section. Lexical cards show the lead, so their trail is "Lead"
 // even when full-text search reports the section where the words matched.

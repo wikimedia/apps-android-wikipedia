@@ -182,7 +182,10 @@ class SearchResultsViewModel : ViewModel() {
         }
         viewModelScope.launch {
             val attribution = interleaveSearchRepository.getAttribution(result)
-            _attributions.update { it + (key to attribution) }
+            if (attribution == null) {
+                requestedAttributions.remove(key)
+            }
+            _attributions.update { it + (key to (attribution ?: Attribution())) }
         }
     }
 

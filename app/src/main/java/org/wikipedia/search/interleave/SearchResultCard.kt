@@ -115,15 +115,28 @@ fun SearchResultCard(
                     maxLines = HEADER_MAX_LINES,
                     overflow = TextOverflow.Ellipsis
                 )
-                searchResult.cardDescription()?.let {
+                // A redirect replaces the short description, as in the standard search row.
+                val redirectFrom = searchResult.cardRedirectFrom()
+                if (redirectFrom != null) {
                     Text(
                         modifier = Modifier.padding(top = 2.dp),
-                        text = it,
+                        text = context.getString(languageCode, R.string.search_redirect_from, redirectFrom),
                         style = MaterialTheme.typography.bodyMedium,
                         color = WikipediaTheme.colors.secondaryColor,
                         maxLines = HEADER_MAX_LINES,
                         overflow = TextOverflow.Ellipsis
                     )
+                } else {
+                    searchResult.cardDescription()?.let {
+                        Text(
+                            modifier = Modifier.padding(top = 2.dp),
+                            text = it,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = WikipediaTheme.colors.secondaryColor,
+                            maxLines = HEADER_MAX_LINES,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
                 }
                 Row(
                     modifier = Modifier.padding(top = 4.dp),
@@ -330,7 +343,8 @@ private fun previewResult(
             "individuals but it is also possible for an individual to communicate with themselves.",
     thumbUrl: String? = "https://example",
     editCounts: Int? = 2348,
-    referenceCounts: Int? = 35
+    referenceCounts: Int? = 35,
+    redirectFrom: String? = null
 ): SearchResult {
     val pageTitle = PageTitle(title, WikiSite.preview(languageCode)).apply {
         this.description = description
@@ -339,7 +353,7 @@ private fun previewResult(
     val isSemantic = type == SearchResult.SearchResultType.SEMANTIC
     return SearchResult(
         pageTitle = pageTitle,
-        redirectFrom = null,
+        redirectFrom = redirectFrom,
         type = type,
         snippet = text.takeIf { isSemantic },
         sectionTitle = sectionTitle,
@@ -422,6 +436,23 @@ private fun SearchResultCardEdgeCasesPreview() {
 }
 
 // Right-to-left layout. Arabic has no reference counts yet, so only contributors are shown.
+@Preview(showBackground = true, widthDp = 360)
+@Composable
+private fun SearchResultCardRedirectPreview() {
+    SearchResultCardPreviewList(
+        Theme.LIGHT, LayoutDirection.Ltr, listOf(
+            previewResult(
+                title = "John F. Kennedy",
+                description = "President of the United States from 1961 to 1963",
+                type = SearchResult.SearchResultType.PREFIX,
+                sectionTitle = null,
+                text = "John Fitzgerald Kennedy, often referred to as JFK, was the 35th president of the United States.",
+                redirectFrom = "JFK"
+            )
+        )
+    )
+}
+
 @Preview(showBackground = true, widthDp = 360, locale = "ar")
 @Composable
 private fun SearchResultCardRtlPreview() {

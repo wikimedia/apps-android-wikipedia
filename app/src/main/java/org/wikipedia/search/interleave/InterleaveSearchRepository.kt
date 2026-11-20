@@ -74,15 +74,15 @@ class InterleaveSearchRepository(
     }
 
     // A failed request must not break the card, so it gets no counts and hides them.
-    suspend fun getAttribution(result: SearchResult): Attribution {
+    // Null means the request failed, as opposed to an article that has no counts, so the caller can retry later.
+    suspend fun getAttribution(result: SearchResult): Attribution? {
         return try {
             ServiceFactory.getCoreRest(result.pageTitle.wikiSite).getAttribution(result.pageTitle.prefixedText)
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
             L.w(e)
-            // An empty Attribution has no counts, so the card hides them.
-            Attribution()
+            null
         }
     }
 
