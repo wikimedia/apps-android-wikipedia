@@ -82,7 +82,6 @@ fun SearchResultCard(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
             .background(WikipediaTheme.colors.backgroundColor)
             .combinedClickable(
                 onClick = onItemClick,
@@ -362,7 +361,7 @@ private fun SearchResultCardPreviewList(
             Column(
                 modifier = Modifier
                     .background(WikipediaTheme.colors.paperColor)
-                    .padding(8.dp),
+                    .padding(vertical = 8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 results.forEach {

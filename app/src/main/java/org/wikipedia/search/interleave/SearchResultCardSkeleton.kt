@@ -47,7 +47,6 @@ fun SearchResultCardSkeleton(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
             .background(WikipediaTheme.colors.backgroundColor)
             .clearAndSetSemantics {}
             .padding(16.dp)
@@ -100,7 +99,7 @@ private fun SearchResultCardSkeletonPreviewList(theme: Theme) {
         Column(
             modifier = Modifier
                 .background(WikipediaTheme.colors.paperColor)
-                .padding(8.dp),
+                .padding(vertical = 8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             repeat(3) { SearchResultCardSkeleton(transition = transition) }

@@ -162,7 +162,7 @@ fun SearchResultsScreen(
                     if (isInterleaveSearchEnabled) {
                         items(SKELETON_CARD_COUNT) {
                             SearchResultCardSkeleton(
-                                modifier = Modifier.padding(start = 8.dp, end = 8.dp, bottom = 8.dp),
+                                modifier = Modifier.padding(bottom = 8.dp),
                                 transition = skeletonTransition
                             )
                         }
@@ -234,7 +234,7 @@ private fun LazyListScope.searchResultItems(
                 SearchResultCard(
                     modifier = Modifier
                         .testTag("$SEARCH_LIST_TAG$index")
-                        .padding(start = 8.dp, end = 8.dp, bottom = 8.dp),
+                        .padding(bottom = 8.dp),
                     searchResult = remember(result, attribution) {
                         attribution?.trustAndRelevance?.let {
                             result.copy(editCounts = it.contributorCounts?.totalUnique, referenceCounts = it.referenceCount)

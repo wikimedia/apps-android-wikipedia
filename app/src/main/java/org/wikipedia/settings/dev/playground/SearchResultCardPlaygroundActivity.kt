@@ -129,7 +129,7 @@ private fun SearchResultCardPlaygroundList(languageCode: String, wikiSiteFor: (S
             .fillMaxSize()
             .background(WikipediaTheme.colors.paperColor),
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(8.dp)
+        contentPadding = PaddingValues(vertical = 8.dp)
     ) {
         items(results, key = { it.pageId }) { result ->
             SearchResultCard(
