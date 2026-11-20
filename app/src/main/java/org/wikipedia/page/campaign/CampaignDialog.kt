@@ -76,9 +76,9 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
         if (DonationReminderHelper.isInEligibleCountry) {
             val groupAssigned = when (DonationReminderAbTest().group) {
-                GROUP_3 -> "android_remind_c"
-                GROUP_2 -> "android_remind_b"
-                else -> "android_remind_a"
+                GROUP_3 -> "android_remind_f"
+                GROUP_2 -> "android_remind_e"
+                else -> "android_remind_d"
             }
             DonorExperienceEvent.logDonationReminderAction(
                 action = "group_assigned",

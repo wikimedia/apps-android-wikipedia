@@ -2,13 +2,13 @@ package org.wikipedia.donate.donationreminder
 
 import org.wikipedia.analytics.ABTest
 
-class DonationReminderAbTest : ABTest("donationReminderV3", GROUP_SIZE_3) {
+class DonationReminderAbTest : ABTest("donationReminderV4", GROUP_SIZE_3) {
 
     override fun getGroupName(): String {
         return when (group) {
-            GROUP_3 -> "c" // Variant C
-            GROUP_2 -> "b" // Variant B
-            else -> "a" // control
+            GROUP_3 -> "f" // Variant F
+            GROUP_2 -> "e" // Variant E
+            else -> "d" // Variant D (control)
         }
     }
 
