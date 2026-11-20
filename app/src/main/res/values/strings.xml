@@ -623,7 +623,7 @@
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>
-    <string name="saved_list_empty_title">No saved articles yet</string>
+    <string name="saved_list_empty_title">No saved pages yet</string>
     <string name="reading_lists_empty_message">Add articles to a list for reading later, even when you\'re offline.</string>
     <string name="reading_lists_search_empty_articles_title">No saved articles found</string>
     <string name="reading_lists_search_empty_articles_message">We couldn\'t find “%s” in your saved articles.</string>
@@ -2855,9 +2855,6 @@
     <string name="reading_lists_tab_collections">Reading lists</string>
     <string name="reading_lists_search_saved_articles">Search saved articles</string>
     <string name="reading_lists_search_collections">Search reading lists</string>
-    <string name="reading_lists_empty_collections_title">Organize saved articles with reading lists</string>
-    <string name="reading_lists_empty_collections_description">Create reading lists for places to travel to, favorite topics, and more.</string>
-    <string name="reading_lists_create_new_collection">Create a new reading list</string>
     <string name="reading_lists_remove_articles_confirm_dialog_title">Unsave article?</string>
     <string name="reading_lists_remove_articles_confirm_button">Unsave</string>
     <plurals name="reading_lists_remove_articles_confirm_dialog_message">
