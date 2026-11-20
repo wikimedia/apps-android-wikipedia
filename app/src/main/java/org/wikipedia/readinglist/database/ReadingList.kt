@@ -30,6 +30,11 @@ class ReadingList(
         StringUtils.stripAccents(title)
     }
 
+    @delegate:Transient
+    val accentInvariantDescription: String by lazy {
+        StringUtils.stripAccents(description.orEmpty())
+    }
+
     @Transient
     var selected = false
 

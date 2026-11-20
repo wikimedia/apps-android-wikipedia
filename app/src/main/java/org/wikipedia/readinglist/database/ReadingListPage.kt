@@ -44,6 +44,11 @@ data class ReadingListPage(
         StringUtils.stripAccents(StringUtil.fromHtml(displayTitle).toString())
     }
 
+    @delegate:Transient
+    val accentInvariantDescription: String by lazy {
+        StringUtils.stripAccents(StringUtil.fromHtml(description.orEmpty()).toString())
+    }
+
     @Transient var downloadProgress = 0
 
     @Transient var selected = false

@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.icu.text.ListFormatter
 import android.os.Build
 import android.text.Spanned
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -506,7 +507,8 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    private fun applySearchQuery(searchQuery: String?, lists: List<ReadingList>): MutableList<Any> {
+    @VisibleForTesting
+    fun applySearchQuery(searchQuery: String?, lists: List<ReadingList>): MutableList<Any> {
         val result = mutableListOf<Any>()
 
         if (searchQuery.isNullOrEmpty()) {
@@ -517,11 +519,13 @@ object ReadingListBehaviorsUtil {
         val normalizedQuery = StringUtils.stripAccents(searchQuery)
         var lastListItemIndex = 0
         lists.forEach { list ->
-            if (StringUtils.stripAccents(list.title).contains(normalizedQuery, true)) {
+            if (StringUtils.stripAccents(list.title).contains(normalizedQuery, true) ||
+                list.accentInvariantDescription.contains(normalizedQuery, true)) {
                 result.add(lastListItemIndex++, list)
             }
             list.pages.forEach { page ->
-                if (page.accentInvariantTitle.contains(normalizedQuery, true)) {
+                if (page.accentInvariantTitle.contains(normalizedQuery, true) ||
+                    page.accentInvariantDescription.contains(normalizedQuery, true)) {
                     if (result.none { it is ReadingListPage && it.lang == page.lang && it.apiTitle == page.apiTitle }) {
                         result.add(page)
                     }
