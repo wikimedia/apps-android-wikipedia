@@ -637,10 +637,6 @@
   <string name="reading_list_add_to_other_list">Aggiungi a un altro elenco di lettura</string>
   <string name="reading_list_move_to_other_list">Sposta in un altro elenco di lettura</string>
   <string name="reading_list_add_to_collection">Aggiungi a un elenco di lettura</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">In 1 elenco di lettura</item>
-    <item quantity="other">In %d elenchi di lettura</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Sposta da %s a un altro elenco di lettura</string>
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
   <string name="reading_list_remove_from_lists">Rimuovi dagli elenchi di lettura</string>

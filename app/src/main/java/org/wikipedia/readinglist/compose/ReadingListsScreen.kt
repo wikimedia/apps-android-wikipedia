@@ -21,11 +21,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
@@ -38,7 +35,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,7 +50,6 @@ import org.wikipedia.readinglist.ReadingListUiModel
 import org.wikipedia.readinglist.ReadingListsUiState
 import org.wikipedia.readinglist.RecommendedReadingListCard
 import org.wikipedia.readinglist.RecommendedReadingListDiscoverCardView
-import org.wikipedia.readinglist.SavedArticleFilter
 import org.wikipedia.readinglist.SavedTab
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.theme.Theme
@@ -82,8 +77,7 @@ fun ReadingListsScreen(
     onPageLongClick: (Long) -> Unit = {},
     onPageChipClick: (Long) -> Unit = {},
     onPageToggleOfflineClick: (Long) -> Unit = {},
-    onDiscoverCardClick: () -> Unit = {},
-    onCreateCollectionClick: () -> Unit = {}
+    onDiscoverCardClick: () -> Unit = {}
 ) {
     LaunchedEffect(uiState.onboarding) {
         if (uiState.onboarding == OnboardingState.RecommendedReadingList) {
@@ -131,8 +125,7 @@ fun ReadingListsScreen(
                     onPageLongClick = onPageLongClick,
                     onPageChipClick = onPageChipClick,
                     onPageToggleOfflineClick = onPageToggleOfflineClick,
-                    onDiscoverCardClick = onDiscoverCardClick,
-                    onCreateCollectionClick = onCreateCollectionClick
+                    onDiscoverCardClick = onDiscoverCardClick
                 )
             }
         } else {
@@ -150,8 +143,7 @@ fun ReadingListsScreen(
                 onPageLongClick = onPageLongClick,
                 onPageChipClick = onPageChipClick,
                 onPageToggleOfflineClick = onPageToggleOfflineClick,
-                onDiscoverCardClick = onDiscoverCardClick,
-                onCreateCollectionClick = onCreateCollectionClick
+                onDiscoverCardClick = onDiscoverCardClick
             )
         }
     }
@@ -241,7 +233,6 @@ private fun ReadingListsContent(
     onPageChipClick: (Long) -> Unit,
     onPageToggleOfflineClick: (Long) -> Unit,
     onDiscoverCardClick: () -> Unit,
-    onCreateCollectionClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     when {
@@ -255,49 +246,17 @@ private fun ReadingListsContent(
                 )
             }
         }
-
-        // empty state
         uiState.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() &&
             uiState.onboarding == OnboardingState.None && uiState.discoverCard == null -> {
-            val isAllArticlesTab = uiState.selectedTab == SavedTab.ALL_ARTICLES
-            val allSavedArticlesAreInCollections = isAllArticlesTab &&
-                uiState.selectedArticleFilter == SavedArticleFilter.NOT_IN_COLLECTION && uiState.hasSavedArticles
-            EmptyReadingListsContent(
-                title = stringResource(
-                    when {
-                        allSavedArticlesAreInCollections -> R.string.reading_lists_empty_not_in_collection_title
-                        isAllArticlesTab -> R.string.saved_list_empty_title
-                        else -> R.string.reading_lists_empty_collections_title
-                    }
-                ),
-                description = when {
-                    allSavedArticlesAreInCollections -> null
-                    isAllArticlesTab -> stringResource(R.string.reading_lists_empty_message)
-                    else -> stringResource(R.string.reading_lists_empty_collections_description)
-                },
-                buttonText = if (isAllArticlesTab) {
-                    null
-                } else {
-                    stringResource(R.string.reading_lists_create_new_collection)
-                },
-                onButtonClick = onCreateCollectionClick,
+            EmptyReadingLists(
+                selectedTab = uiState.selectedTab,
                 modifier = modifier
             )
         }
-
-        // searching but no results
         uiState.rows.isEmpty() && !uiState.searchQuery.isNullOrEmpty() -> {
-            val isAllArticlesTab = uiState.selectedTab == SavedTab.ALL_ARTICLES
-            EmptyReadingListsContent(
-                title = stringResource(
-                    if (isAllArticlesTab) R.string.reading_lists_search_empty_articles_title
-                    else R.string.reading_lists_search_empty_collections_title
-                ),
-                description = stringResource(
-                    if (isAllArticlesTab) R.string.reading_lists_search_empty_articles_message
-                    else R.string.reading_lists_search_empty_collections_message,
-                    uiState.searchQuery
-                ),
+            EmptyReadingLists(
+                selectedTab = uiState.selectedTab,
+                searchQuery = uiState.searchQuery,
                 modifier = modifier
             )
         }
@@ -520,13 +479,22 @@ private fun ReadingListsList(
 }
 
 @Composable
-private fun EmptyReadingListsContent(
-    title: String,
-    description: String?,
+private fun EmptyReadingLists(
+    selectedTab: SavedTab,
     modifier: Modifier = Modifier,
-    buttonText: String? = null,
-    onButtonClick: () -> Unit = {}
+    searchQuery: String? = null
 ) {
+    val query = searchQuery.orEmpty()
+    val title = when {
+        query.isEmpty() -> stringResource(R.string.saved_list_empty_title)
+        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_search_empty_articles_title)
+        else -> stringResource(R.string.reading_lists_search_empty_collections_title)
+    }
+    val description = when {
+        query.isEmpty() -> stringResource(R.string.reading_lists_empty_message)
+        selectedTab == SavedTab.ALL_ARTICLES -> stringResource(R.string.reading_lists_search_empty_articles_message, query)
+        else -> stringResource(R.string.reading_lists_search_empty_collections_message, query)
+    }
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -541,38 +509,15 @@ private fun EmptyReadingListsContent(
             style = MaterialTheme.typography.titleSmall,
             textAlign = TextAlign.Center
         )
-        description?.let { descriptionText ->
-            Spacer(modifier = Modifier.size(12.dp))
-            Text(
-                text = descriptionText,
-                color = WikipediaTheme.colors.secondaryColor,
-                style = MaterialTheme.typography.bodyMedium.copy(
-                    letterSpacing = 0.25.sp,
-                ),
-                textAlign = TextAlign.Center
-            )
-        }
-        buttonText?.let { buttonLabel ->
-            Button(
-                modifier = Modifier
-                    .padding(top = 16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = WikipediaTheme.colors.progressiveColor,
-                    contentColor = Color.White,
-                ),
-                onClick = onButtonClick
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_add_gray_white_24dp),
-                    contentDescription = null
-                )
-                Text(
-                    modifier = Modifier.padding(start = 6.dp, top = 4.dp, bottom = 4.dp),
-                    text = buttonLabel,
-                    style = MaterialTheme.typography.labelLarge
-                )
-            }
-        }
+        Spacer(modifier = Modifier.size(12.dp))
+        Text(
+            text = description,
+            color = WikipediaTheme.colors.secondaryColor,
+            style = MaterialTheme.typography.bodyMedium.copy(
+                letterSpacing = 0.25.sp,
+            ),
+            textAlign = TextAlign.Center
+        )
     }
 }
 
@@ -580,9 +525,9 @@ private fun EmptyReadingListsContent(
 @Composable
 private fun EmptyReadingListsSearchPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        EmptyReadingListsContent(
-            title = stringResource(R.string.reading_lists_search_empty_articles_title),
-            description = stringResource(R.string.reading_lists_search_empty_articles_message, "Einstein")
+        EmptyReadingLists(
+            selectedTab = SavedTab.ALL_ARTICLES,
+            searchQuery = "Einstein"
         )
     }
 }

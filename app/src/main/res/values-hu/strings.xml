@@ -631,10 +631,6 @@
   <string name="reading_list_add_to_other_list" fuzzy="true">Hozzáadás egy másik gyűjteményhez</string>
   <string name="reading_list_move_to_other_list" fuzzy="true">Áthelyezés másik gyűjteménybe</string>
   <string name="reading_list_add_to_collection" fuzzy="true">Hozzáadás egy gyűjteményhez</string>
-  <plurals name="reading_list_in_collections" fuzzy="true">
-    <item quantity="one">1 gyűjteményben</item>
-    <item quantity="other">%d gyűjteményben</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list" fuzzy="true">Áthelyezés a(z) %s gyűjteményből egy másik gyűjteménybe</string>
   <string name="reading_list_remove_from_list">Eltávolítás a következőről: %s</string>
   <string name="reading_list_remove_from_lists" fuzzy="true">Eltávolítás a gyűjteményekből</string>

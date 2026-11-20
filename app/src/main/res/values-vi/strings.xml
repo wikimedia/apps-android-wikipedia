@@ -600,9 +600,6 @@
   <string name="reading_list_add_to_other_list">Thêm vào danh sách đọc khác</string>
   <string name="reading_list_move_to_other_list">Thêm vào danh sách đọc khác.</string>
   <string name="reading_list_add_to_collection">Thêm vào danh sách đọc</string>
-  <plurals name="reading_list_in_collections" fuzzy="true">
-    <item quantity="other">Trong %d bộ sưu tập</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list" fuzzy="true">Di chuyển từ %s sang bộ sưu tập khác</string>
   <string name="reading_list_remove_from_list">Xóa khỏi %s</string>
   <string name="reading_list_remove_from_lists">Xóa khỏi các danh sách đọc</string>

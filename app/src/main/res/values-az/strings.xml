@@ -614,10 +614,6 @@
   <string name="reading_list_add_to_other_list">Digər siyahıya əlavə et</string>
   <string name="reading_list_move_to_other_list">Digər siyahıya köçür</string>
   <string name="reading_list_add_to_collection">Siyahıya əlavə et</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">1 siyahıda</item>
-    <item quantity="other">%d siyahıda</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">%s siyahısından digərinə köçür</string>
   <string name="reading_list_remove_from_list">%s siyahısından silin</string>
   <string name="reading_list_remove_from_lists">Siyahılardan sil</string>

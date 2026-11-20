@@ -655,10 +655,6 @@
   <string name="reading_list_add_to_other_list">Aan een andere leeslijst toevoegen</string>
   <string name="reading_list_move_to_other_list">Naar een andere leeslijst verplaatsen</string>
   <string name="reading_list_add_to_collection">Aan een leeslijst toevoegen</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">In één leeslijst</item>
-    <item quantity="other">In %d leeslijsten</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Van %s naar een andere leeslijst verplaatsen</string>
   <string name="reading_list_remove_from_list">Uit %s verwijderen</string>
   <string name="reading_list_remove_from_lists">Uit leeslijsten verwijderen</string>
