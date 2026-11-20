@@ -328,17 +328,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     @Serializable
-    data class TotalGameHistory(
-        val langToHistory: Map<String, GameHistory> = emptyMap()
-    )
-
-    @Serializable
-    data class GameHistory(
-        // map of:   year: month: day: list of answers
-        val history: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap()
-    )
-
-    @Serializable
     data class TotalGameState(
         val langToState: Map<String, GameState> = emptyMap(),
     )

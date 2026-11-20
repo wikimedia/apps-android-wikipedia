@@ -161,13 +161,11 @@ class OfflineCacheInterceptor : Interceptor {
             return response
         }
 
-        return response.body?.let {
-            val obj = OfflineObject(url = request.url.toString(), lang = lang, path = filePath, status = 0)
-            val cacheWritingSource = CacheWritingSource(it.source(), sink, obj, title)
-            response.newBuilder()
-                .body(CacheWritingResponseBody(cacheWritingSource, contentType, contentLength))
-                .build()
-        } ?: response
+        val obj = OfflineObject(url = request.url.toString(), lang = lang, path = filePath, status = 0)
+        val cacheWritingSource = CacheWritingSource(response.body.source(), sink, obj, title)
+        return response.newBuilder()
+            .body(CacheWritingResponseBody(cacheWritingSource, contentType, contentLength))
+            .build()
     }
 
     private inner class CacheWritingSource(private val source: BufferedSource, private val cacheSink: BufferedSink,

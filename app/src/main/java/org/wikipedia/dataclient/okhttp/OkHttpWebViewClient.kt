@@ -68,12 +68,14 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                 return null
             } else {
                 // noinspection ConstantConditions
-                WebResourceResponse(rsp.body!!.contentType()!!.type + "/" + rsp.body!!.contentType()!!.subtype,
-                    rsp.body!!.contentType()!!.charset(Charset.defaultCharset())!!.name(),
+                WebResourceResponse(
+                    rsp.body.contentType()!!.type + "/" + rsp.body.contentType()!!.subtype,
+                    rsp.body.contentType()!!.charset(Charset.defaultCharset())!!.name(),
                     rsp.code,
                     rsp.message.ifBlank { "Unknown error" },
                     rsp.headers.toMap(),
-                    rsp.body?.byteStream())
+                    rsp.body.byteStream()
+                )
             }
         } catch (e: Exception) {
             val reasonCode = if (e.message.isNullOrEmpty()) "Unknown error" else UriUtil.encodeURL(e.message!!)

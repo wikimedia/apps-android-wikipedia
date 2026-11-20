@@ -2648,6 +2648,7 @@
   <string name="year_in_review_highlights_logo_description">Logo Wikipedii</string>
   <string name="year_in_review_swipe_tutorial_title">Przesuń, aby odkrywać</string>
   <string name="year_in_review_swipe_tutorial_message">Przesuń palcem w górę, aby przeglądać podsumowanie roku.</string>
+  <string name="year_in_review_illustration_credit">Ilustracje do podsumowania roku: Sharon Park dla Wikimedia Foundation</string>
   <string name="recommended_reading_list_title">Odkrywaj</string>
   <string name="recommended_reading_list_onboarding_card_title">Odkryj artykuły wybrane specjalnie dla Ciebie</string>
   <string name="recommended_reading_list_onboarding_card_message" fuzzy="true">Twoja cotygodniowa kolekcja artykułów z Wikipedii przygotowana specjalnie dla Ciebie.</string>
