@@ -115,18 +115,18 @@ class InterleaveSearchRepositoryTest {
         val result = runBlocking { emptyRepository().getAttribution(searchResult("Eiffel Tower", SearchResult.SearchResultType.SEMANTIC, pageId = 1)) }
 
         coVerify { coreRestService.getAttribution("Eiffel_Tower") }
-        assertEquals(2348, result.trustAndRelevance?.contributorCounts?.totalUnique)
-        assertEquals(0, result.trustAndRelevance?.referenceCount)
+        assertEquals(2348, result?.trustAndRelevance?.contributorCounts?.totalUnique)
+        assertEquals(0, result?.trustAndRelevance?.referenceCount)
     }
 
     @Test
-    fun testFailedAttributionRequestHidesTheCounts() {
+    fun testFailedAttributionRequestReturnsNull() {
         val coreRestService = mockCoreRestService()
         coEvery { coreRestService.getAttribution(any()) } throws IOException("offline")
 
         val result = runBlocking { emptyRepository().getAttribution(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2)) }
 
-        assertNull(result.trustAndRelevance)
+        assertNull(result)
     }
 
     private fun mockCoreRestService(): CoreRestService {
