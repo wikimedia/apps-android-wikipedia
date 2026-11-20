@@ -455,7 +455,7 @@ class ReadingListsViewModel : ViewModel() {
         }
 
         lists.forEach { list ->
-            val containingList = ContainingList(list.id, list.title, list.isDefault)
+            val containingList = ContainingList(list.id, list.title)
             list.pages.forEach { page ->
                 selectedArticles[page.lang to page.apiTitle]?.containingLists?.add(containingList)
             }
@@ -558,7 +558,7 @@ sealed interface ReadingListRow {
     data class ListRow(val list: ReadingListUiModel) : ReadingListRow
     data class PageRow(val page: ReadingListPageUiModel, val containingLists: List<ContainingList>) : ReadingListRow
 }
-data class ContainingList(val id: Long, val title: String, val isDefault: Boolean = false)
+data class ContainingList(val id: Long, val title: String)
 
 data class ReadingListsUiState(
     val isLoading: Boolean = true,

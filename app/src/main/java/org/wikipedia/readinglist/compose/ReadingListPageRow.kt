@@ -107,13 +107,12 @@ fun ReadingListPageRow(
                 )
             }
 
-            val customLists = containingLists.filterNot { it.isDefault }
-            if (customLists.isNotEmpty()) {
+            if (containingLists.isNotEmpty()) {
                 FlowRow(
                     modifier = Modifier.padding(top = 8.dp),
                     horizontalArrangement = spacedBy(8.dp)
                 ) {
-                    customLists.forEach { list ->
+                    containingLists.forEach { list ->
                         ListChip(
                             title = list.title,
                             onClick = {
