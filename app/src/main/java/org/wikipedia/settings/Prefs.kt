@@ -1065,8 +1065,4 @@ object Prefs {
     var interleaveSearchIsTestActive
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_interleave_search_is_test_active, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_interleave_search_is_test_active, value)
-
-    var interleaveSearchFeedbackLastShownDay
-        get() = PrefsIoUtil.getLong(R.string.preference_key_interleave_search_feedback_last_shown_day, -1)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_interleave_search_feedback_last_shown_day, value)
 }

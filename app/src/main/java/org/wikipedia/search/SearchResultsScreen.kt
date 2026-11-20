@@ -86,6 +86,7 @@ fun SearchResultsScreen(
     viewModel: SearchResultsViewModel,
     onNavigateToTitle: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
+    onRelevanceClick: (SearchResult, Boolean) -> Unit,
     onLanguageClick: (Int) -> Unit,
     onSemanticSearchInfoClick: () -> Unit,
     onCloseSearch: () -> Unit,
@@ -98,6 +99,7 @@ fun SearchResultsScreen(
     val isInterleaveSearchEnabled = isInterleaveSearchEnabledState.value && viewModel.invokeSource != Constants.InvokeSource.PLACES
     val loadState = searchResults.loadState
     val attributions = viewModel.attributions.collectAsState()
+    val relevanceRatings = viewModel.relevanceRatings.collectAsState()
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
 
     val languageCode = viewModel.languageCode.collectAsState()
@@ -201,6 +203,8 @@ fun SearchResultsScreen(
                         isInterleaveSearchEnabled = isInterleaveSearchEnabled,
                         attributions = attributions,
                         onAttributionNeeded = viewModel::loadAttribution,
+                        relevanceRatings = relevanceRatings,
+                        onRelevanceClick = onRelevanceClick,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick
                     )
@@ -216,6 +220,8 @@ private fun LazyListScope.searchResultItems(
     isInterleaveSearchEnabled: Boolean,
     attributions: State<Map<AttributionKey, Attribution>>,
     onAttributionNeeded: (SearchResult) -> Unit,
+    relevanceRatings: State<Map<Int, Boolean>>,
+    onRelevanceClick: (SearchResult, Boolean) -> Unit,
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
 ) {
@@ -245,6 +251,10 @@ private fun LazyListScope.searchResultItems(
                         } ?: result
                     },
                     isAttributionLoading = attribution == null,
+                    relevance = relevanceRatings.value[result.pageId],
+                    onRelevanceClick = { isRelevant ->
+                        onRelevanceClick(result, isRelevant)
+                    },
                     onItemLongClick = { view ->
                         onItemLongClick(view, navigationResult, index)
                     },

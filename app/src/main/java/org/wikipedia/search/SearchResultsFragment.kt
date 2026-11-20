@@ -15,6 +15,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.ABTest
@@ -25,6 +26,7 @@ import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 
 class SearchResultsFragment : Fragment() {
@@ -105,6 +107,12 @@ class SearchResultsFragment : Fragment() {
                                 view,
                                 callback = SearchResultLongPressHandler(callback(), position)
                             ).show(entry)
+                        },
+                        onRelevanceClick = { result, isRelevant ->
+                            if (viewModel.rateResult(result.pageId, isRelevant)) {
+                                // TODO: send the query, search type and chosen card with the rating, once instrumentation is defined.
+                                FeedbackUtil.showMessage(this@SearchResultsFragment, R.string.semantic_search_results_feedback_submitted_message)
+                            }
                         },
                         onCloseSearch = { requireActivity().finish() },
                         onRetrySearch = {

@@ -6,7 +6,6 @@ import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import java.time.LocalDate
 
 class InterleaveSearchAbTest : ABTest("semantic-search-phase-2-interleave", GROUP_SIZE_2) {
     override fun getGroupName(): String {
@@ -52,14 +51,5 @@ class InterleaveSearchAbTest : ABTest("semantic-search-phase-2-interleave", GROU
         runIfEligible {
             instrument.setExperiment(TestKitchenAdapter.getExperiment(this))
         }
-    }
-
-    // TODO: consider moving to a helper or point of use
-    fun shouldShowDailyPrompt(today: LocalDate = LocalDate.now()): Boolean {
-        return Prefs.interleaveSearchFeedbackLastShownDay != today.toEpochDay()
-    }
-
-    fun markDailyPromptShown(today: LocalDate = LocalDate.now()) {
-        Prefs.interleaveSearchFeedbackLastShownDay = today.toEpochDay()
     }
 }
