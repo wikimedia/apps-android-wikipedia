@@ -1,6 +1,13 @@
 package org.wikipedia.search.interleave
 
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.mockkObject
+import io.mockk.unmockkAll
 import kotlinx.coroutines.runBlocking
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
@@ -8,6 +15,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.Constants
+import org.wikipedia.dataclient.CoreRestService
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.Attribution
 import org.wikipedia.json.JsonUtil
@@ -35,8 +44,7 @@ class InterleaveSearchRepositoryTest {
         val repository = InterleaveSearchRepository(
             lexicalRepository = FakeSearchRepository { StandardSearchResults(lexicalResults, continuation = null, localResults = listOf(historyResult)) },
             semanticRepository = FakeSearchRepository { StandardSearchResults(semanticResults, continuation = null) },
-            newSeed = { SEMANTIC_FIRST_SEED },
-            fetchLeads = NO_LEADS
+            newSeed = { SEMANTIC_FIRST_SEED }
         )
 
         // The semantic "Eiffel Tower" is placed first even though it is also a local result.
@@ -60,7 +68,7 @@ class InterleaveSearchRepositoryTest {
         val semanticRepository = FakeSearchRepository {
             StandardSearchResults(listOf(searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3)), continuation = null)
         }
-        val repository = InterleaveSearchRepository(lexicalRepository, semanticRepository, newSeed = { SEMANTIC_FIRST_SEED }, fetchLeads = NO_LEADS)
+        val repository = InterleaveSearchRepository(lexicalRepository, semanticRepository, newSeed = { SEMANTIC_FIRST_SEED })
 
         val firstPage = search(repository, continuation = null, isPrefixSearch = true)
         search(repository, continuation = firstPage.continuation, isPrefixSearch = false)
@@ -82,8 +90,7 @@ class InterleaveSearchRepositoryTest {
                 }
                 StandardSearchResults(semanticResults, continuation = null)
             },
-            newSeed = { SEMANTIC_FIRST_SEED },
-            fetchLeads = NO_LEADS
+            newSeed = { SEMANTIC_FIRST_SEED }
         )
 
         assertEquals(lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
@@ -92,74 +99,46 @@ class InterleaveSearchRepositoryTest {
         assertEquals(semanticResults + lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
     }
 
-    @Test
-    fun testLexicalResultsGetTheirLeads() {
-        var requestedPageIds: List<Int>? = null
-        val repository = InterleaveSearchRepository(
-            lexicalRepository = FakeSearchRepository {
-                StandardSearchResults(listOf(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2)), continuation = null)
-            },
-            semanticRepository = FakeSearchRepository {
-                StandardSearchResults(listOf(searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3)), continuation = null)
-            },
-            newSeed = { SEMANTIC_FIRST_SEED },
-            fetchLeads = { _, pageIds ->
-                requestedPageIds = pageIds
-                mapOf(2 to "<p>Paris is the capital of France.</p>", 3 to "<p>Not used for semantic results.</p>")
-            }
-        )
-
-        val results = search(repository, continuation = null, isPrefixSearch = true).results
-
-        assertEquals(listOf(2), requestedPageIds)
-        assertEquals("<p>Paris is the capital of France.</p>", results.first { it.pageId == 2 }.leadText)
-        assertNull(results.first { it.pageId == 3 }.leadText)
-    }
-
-    @Test
-    fun testFailedLeadRequestStillReturnsTheMergedList() {
-        val lexicalResults = listOf(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2))
-        val semanticResults = listOf(searchResult("Gustave Eiffel", SearchResult.SearchResultType.SEMANTIC, pageId = 3))
-        val repository = InterleaveSearchRepository(
-            lexicalRepository = FakeSearchRepository { StandardSearchResults(lexicalResults, continuation = null) },
-            semanticRepository = FakeSearchRepository { StandardSearchResults(semanticResults, continuation = null) },
-            newSeed = { SEMANTIC_FIRST_SEED },
-            fetchLeads = { _, _ -> throw IOException("offline") }
-        )
-
-        assertEquals(semanticResults + lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
+    @After
+    fun tearDown() {
+        unmockkAll()
     }
 
     @Test
     fun testAttributionCountsComeFromTheArticle() {
-        var requestedTitle: String? = null
         val attribution = JsonUtil.decodeFromString<Attribution>(
             "{\"trust_and_relevance\":{\"contributor_counts\":{\"total_unique\":2348},\"reference_count\":0}}"
         )!!
-        val repository = attributionRepository { _, title ->
-            requestedTitle = title
-            attribution
-        }
+        val coreRestService = mockCoreRestService()
+        coEvery { coreRestService.getAttribution(any()) } returns attribution
 
-        val result = runBlocking { repository.getAttribution(searchResult("Eiffel Tower", SearchResult.SearchResultType.SEMANTIC, pageId = 1)) }
+        val result = runBlocking { emptyRepository().getAttribution(searchResult("Eiffel Tower", SearchResult.SearchResultType.SEMANTIC, pageId = 1)) }
 
-        assertEquals("Eiffel_Tower", requestedTitle)
+        coVerify { coreRestService.getAttribution("Eiffel_Tower") }
         assertEquals(2348, result.trustAndRelevance?.contributorCounts?.totalUnique)
         assertEquals(0, result.trustAndRelevance?.referenceCount)
     }
 
     @Test
     fun testFailedAttributionRequestHidesTheCounts() {
-        val repository = attributionRepository { _, _ -> throw IOException("offline") }
+        val coreRestService = mockCoreRestService()
+        coEvery { coreRestService.getAttribution(any()) } throws IOException("offline")
 
-        val result = runBlocking { repository.getAttribution(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2)) }
+        val result = runBlocking { emptyRepository().getAttribution(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2)) }
 
         assertNull(result.trustAndRelevance)
     }
 
-    private fun attributionRepository(fetchAttribution: suspend (WikiSite, String) -> Attribution): InterleaveSearchRepository {
+    private fun mockCoreRestService(): CoreRestService {
+        val coreRestService = mockk<CoreRestService>()
+        mockkObject(ServiceFactory)
+        every { ServiceFactory.getCoreRest(any()) } returns coreRestService
+        return coreRestService
+    }
+
+    private fun emptyRepository(): InterleaveSearchRepository {
         val emptySearch = FakeSearchRepository { StandardSearchResults(emptyList(), continuation = null) }
-        return InterleaveSearchRepository(emptySearch, emptySearch, fetchAttribution = fetchAttribution, fetchLeads = NO_LEADS)
+        return InterleaveSearchRepository(emptySearch, emptySearch)
     }
 
     private fun search(repository: InterleaveSearchRepository, continuation: Int?, isPrefixSearch: Boolean): StandardSearchResults {
@@ -191,7 +170,6 @@ class InterleaveSearchRepositoryTest {
 
     companion object {
         private const val SEMANTIC_FIRST_SEED = 0uL
-        private val NO_LEADS: suspend (WikiSite, List<Int>) -> Map<Int, String> = { _, _ -> emptyMap() }
         private const val BATCH_SIZE = 2
     }
 }

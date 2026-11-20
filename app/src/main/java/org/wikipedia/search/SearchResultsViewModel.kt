@@ -45,7 +45,7 @@ class SearchResultsViewModel : ViewModel() {
         R.string.preference_key_interleave_search_override_supported_language
     )
     private val standardSearchRepository = StandardSearchRepository()
-    private val interleaveSearchRepository = InterleaveSearchRepository(lexicalRepository = standardSearchRepository)
+    private val interleaveSearchRepository = InterleaveSearchRepository(lexicalRepository = StandardSearchRepository(includesLeads = true))
     private val batchSize = 10
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()

@@ -53,7 +53,8 @@ data class SearchResult(val pageTitle: PageTitle,
         editCounts = editCounts,
         referenceCounts = referenceCounts,
         lastUpdated = lastUpdated,
-        pageId = page.pageId
+        pageId = page.pageId,
+        leadText = page.extract
     )
 
     constructor(pageTitle: PageTitle, searchResultType: SearchResultType = SearchResultType.PREFIX, snippet: String? = null, indexInApiCall: Int = 0) :

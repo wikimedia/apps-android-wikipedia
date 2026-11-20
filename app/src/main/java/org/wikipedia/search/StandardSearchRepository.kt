@@ -7,12 +7,15 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
 
-class StandardSearchRepository : SearchRepository<StandardSearchResults> {
+class StandardSearchRepository(
+    private val includesLeads: Boolean = false
+) : SearchRepository<StandardSearchResults> {
     override suspend fun search(
         searchTerm: String,
         languageCode: String,
@@ -29,6 +32,10 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         var currentContinuation = continuation
         var lastXSearchIdPrefix: String? = null
         var lastXSearchIdFullText: String? = null
+        // Leads come with the search as HTML intros, so superscripts and italics survive. Null values are left out of the request.
+        val leadProp = if (includesLeads) "|extracts" else ""
+        val exIntro = true.takeIf { includesLeads }
+        val exChars = LEAD_EXTRACT_CHARS.takeIf { includesLeads }
 
         if (isPrefixSearch) {
             if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
@@ -44,7 +51,12 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
                     }
                 }
             }
-            val prefixResponse = ServiceFactory.get(wikiSite).prefixSearchResponse(searchTerm, batchSize, 0)
+            val prefixResponse = ServiceFactory.get(wikiSite).prefixSearchResponse(
+                searchTerm, batchSize, 0,
+                prop = Service.PREFIX_SEARCH_PROPS + leadProp,
+                exIntro = exIntro,
+                exChars = exChars
+            )
             lastXSearchIdPrefix = prefixResponse.headers()["x-search-id"]
             response = prefixResponse.body()
             currentContinuation = 0
@@ -53,8 +65,12 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         lexicalResults.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.PREFIX))
 
         if (lexicalResults.size < batchSize) {
-            val fullTextResponse = ServiceFactory.get(wikiSite)
-                .fullTextSearchResponse(searchTerm, batchSize, currentContinuation)
+            val fullTextResponse = ServiceFactory.get(wikiSite).fullTextSearchResponse(
+                searchTerm, batchSize, currentContinuation,
+                prop = Service.FULL_TEXT_SEARCH_PROPS + leadProp,
+                exIntro = exIntro,
+                exChars = exChars
+            )
             lastXSearchIdFullText = fullTextResponse.headers()["x-search-id"]
             response = fullTextResponse.body()
             currentContinuation = response?.continuation?.gsroffset
@@ -79,6 +95,11 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             }
         }
         return SearchResults()
+    }
+
+    companion object {
+        // fetch enough chars to fill 8 lines on the card for different devices and orientations
+        private const val LEAD_EXTRACT_CHARS = 800
     }
 }
 
