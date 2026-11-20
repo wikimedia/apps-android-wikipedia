@@ -70,7 +70,6 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
-import org.wikipedia.views.ReadingListsAllArticlesFilterOverflowView
 import org.wikipedia.views.ReadingListsOverflowView
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
@@ -296,7 +295,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         actionMode?.takeIf(::isTagType)?.finish()
         viewModel.setSelectedTab(tab)
         searchActionModeCallback.updateSearchHint(getSearchHint(tab))
-        requireActivity().invalidateOptionsMenu()
     }
 
     private fun getSearchHint(tab: SavedTab): String {
@@ -339,22 +337,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun getParentContext(): Context {
             return requireContext()
         }
-    }
-
-    fun isAllArticlesSelected(): Boolean {
-        return viewModel.isSelectedTab(SavedTab.ALL_ARTICLES)
-    }
-
-    fun showReadingListsFilterMenu() {
-        if (!isAllArticlesSelected()) {
-            return
-        }
-        ReadingListsAllArticlesFilterOverflowView(requireContext()).show(
-            anchorView = (requireActivity() as MainActivity).getToolbar()
-                .findViewById(R.id.menu_filter_reading_lists_articles),
-            selectedOption = viewModel.getSelectedArticleFilter(),
-            callback = viewModel::setArticleFilter
-        )
     }
 
     // Overflow menu

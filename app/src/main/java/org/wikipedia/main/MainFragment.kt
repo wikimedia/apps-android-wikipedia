@@ -287,12 +287,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         val fragment = currentFragment
         return when (menuItem.itemId) {
-            R.id.menu_filter_reading_lists_articles -> {
-                if (fragment is ReadingListsFragment) {
-                    fragment.showReadingListsFilterMenu()
-                }
-                true
-            }
             R.id.menu_search_lists -> {
                 if (fragment is ReadingListsFragment) {
                     fragment.startSearchActionMode()
@@ -311,8 +305,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, HistoryFragme
 
     override fun onPrepareMenu(menu: Menu) {
         val readingListsFragment = currentFragment as? ReadingListsFragment
-        menu.findItem(R.id.menu_filter_reading_lists_articles).isVisible =
-            readingListsFragment?.isAllArticlesSelected() == true
         menu.findItem(R.id.menu_search_lists).isVisible = readingListsFragment != null
         menu.findItem(R.id.menu_overflow_button).isVisible = readingListsFragment != null
 

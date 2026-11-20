@@ -2589,9 +2589,6 @@
   <string name="random_article_widget_name">Display name for the Random Article home screen widget.</string>
   <string name="reading_lists_tab_all_articles">Label for the tab in the Saved screen that shows every saved article across all reading lists.</string>
   <string name="reading_lists_tab_collections">Label for the tab in the Saved screen that shows the user\'s reading lists.</string>
-  <string name="reading_lists_filter_content_description">Accessibility label for the toolbar button that opens the saved-article filter menu.</string>
-  <string name="reading_lists_filter_not_in_collection">Label for filtering the All articles tab to show articles that have not been added to a custom reading list.</string>
-  <string name="reading_lists_empty_not_in_collection_title">Title shown when the Not in a reading list filter has no results because every saved article belongs to a reading list.</string>
   <string name="reading_lists_search_saved_articles">Hint text for searching saved article titles in the All articles tab.</string>
   <string name="reading_lists_search_collections">Hint text for searching reading list titles in the Reading lists tab.</string>
   <string name="reading_lists_empty_collections_title">Title shown in the empty state of the Reading lists tab when the user has no reading lists.</string>

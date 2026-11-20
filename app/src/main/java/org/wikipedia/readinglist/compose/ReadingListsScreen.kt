@@ -54,7 +54,6 @@ import org.wikipedia.readinglist.ReadingListUiModel
 import org.wikipedia.readinglist.ReadingListsUiState
 import org.wikipedia.readinglist.RecommendedReadingListCard
 import org.wikipedia.readinglist.RecommendedReadingListDiscoverCardView
-import org.wikipedia.readinglist.SavedArticleFilter
 import org.wikipedia.readinglist.SavedTab
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.theme.Theme
@@ -260,21 +259,15 @@ private fun ReadingListsContent(
         uiState.rows.isEmpty() && uiState.searchQuery.isNullOrEmpty() &&
             uiState.onboarding == OnboardingState.None && uiState.discoverCard == null -> {
             val isAllArticlesTab = uiState.selectedTab == SavedTab.ALL_ARTICLES
-            val allSavedArticlesAreInCollections = isAllArticlesTab &&
-                uiState.selectedArticleFilter == SavedArticleFilter.NOT_IN_COLLECTION && uiState.hasSavedArticles
             EmptyReadingListsContent(
                 title = stringResource(
-                    when {
-                        allSavedArticlesAreInCollections -> R.string.reading_lists_empty_not_in_collection_title
-                        isAllArticlesTab -> R.string.saved_list_empty_title
-                        else -> R.string.reading_lists_empty_collections_title
-                    }
+                    if (isAllArticlesTab) R.string.saved_list_empty_title
+                    else R.string.reading_lists_empty_collections_title
                 ),
-                description = when {
-                    allSavedArticlesAreInCollections -> null
-                    isAllArticlesTab -> stringResource(R.string.reading_lists_empty_message)
-                    else -> stringResource(R.string.reading_lists_empty_collections_description)
-                },
+                description = stringResource(
+                    if (isAllArticlesTab) R.string.reading_lists_empty_message
+                    else R.string.reading_lists_empty_collections_description
+                ),
                 buttonText = if (isAllArticlesTab) {
                     null
                 } else {

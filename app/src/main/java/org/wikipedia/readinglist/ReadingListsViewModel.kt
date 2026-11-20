@@ -33,11 +33,6 @@ enum class SavedTab {
     ALL_ARTICLES
 }
 
-enum class SavedArticleFilter {
-    ALL_ARTICLES,
-    NOT_IN_COLLECTION
-}
-
 @OptIn(FlowPreview::class)
 class ReadingListsViewModel : ViewModel() {
     private val searchQuery = MutableStateFlow<String?>(null)
@@ -46,12 +41,11 @@ class ReadingListsViewModel : ViewModel() {
         .distinctUntilChanged()
     private val searchActive = MutableStateFlow(false)
     private val selectedTab = MutableStateFlow(SavedTab.COLLECTIONS)
-    private val selectedArticleFilter = MutableStateFlow(SavedArticleFilter.ALL_ARTICLES)
 
-    // Combine the debounced search query, selected tab, and article filter into a single state flow representing the current content mode.
+    // Combine the debounced search query and selected tab into a single state flow representing the current content mode.
     // this reduces the number of flows needed in the main combine() call for uiState
-    private val contentMode = combine(debouncedSearchQuery, selectedTab, selectedArticleFilter) { query, tab, filter ->
-        ContentMode(query, tab, filter)
+    private val contentMode = combine(debouncedSearchQuery, selectedTab) { query, tab ->
+        ContentMode(query, tab)
     }.distinctUntilChanged()
 
     private val recentPreviewSavedState = MutableStateFlow(RecentPreviewSavedState())
@@ -80,22 +74,18 @@ class ReadingListsViewModel : ViewModel() {
         }
         // toReadingList() drops pages queued for deletion (Room @Relation can't filter children in SQL)
         val lists = relations.map { it.toReadingList() }.toMutableList()
-        val hasSavedArticles = lists.any { it.pages.isNotEmpty() }
         ReadingListsUiState(
             isLoading = false,
             rows = buildRows(
                 lists,
                 mode.tab,
                 mode.query,
-                mode.articleFilter,
                 previewSavedState.newBadgeListId,
                 sortMode
             ),
-            hasSavedArticles = hasSavedArticles,
             listCount = relations.size,
             searchQuery = mode.query,
             selectedTab = mode.tab,
-            selectedArticleFilter = mode.articleFilter,
             sortMode = sortMode,
             showCollectionsBadge = previewSavedState.newBadgeListId != null,
             pendingPreviewSavedListId = previewSavedState.pendingSnackbarListId
@@ -184,18 +174,6 @@ class ReadingListsViewModel : ViewModel() {
 
     fun setSelectedTab(tab: SavedTab) {
         selectedTab.value = tab
-    }
-
-    fun isSelectedTab(tab: SavedTab): Boolean {
-        return selectedTab.value == tab
-    }
-
-    fun setArticleFilter(filter: SavedArticleFilter) {
-        selectedArticleFilter.value = filter
-    }
-
-    fun getSelectedArticleFilter(): SavedArticleFilter {
-        return selectedArticleFilter.value
     }
 
     fun setSearchActive(active: Boolean) {
@@ -413,17 +391,16 @@ class ReadingListsViewModel : ViewModel() {
         allLists: MutableList<ReadingList>,
         tab: SavedTab,
         query: String?,
-        articleFilter: SavedArticleFilter,
         recentPreviewSavedId: Long?,
         sortMode: Int
     ): List<ReadingListRow> {
         if (!query.isNullOrEmpty()) {
-            return buildSearchRows(allLists, tab, query, articleFilter, recentPreviewSavedId)
+            return buildSearchRows(allLists, tab, query, recentPreviewSavedId)
         }
 
         return when (tab) {
             SavedTab.COLLECTIONS -> buildCollectionsRows(allLists, recentPreviewSavedId, sortMode)
-            SavedTab.ALL_ARTICLES -> buildArticleRows(allLists, articleFilter = articleFilter, sortMode = sortMode)
+            SavedTab.ALL_ARTICLES -> buildArticleRows(allLists, sortMode = sortMode)
         }
     }
 
@@ -441,7 +418,6 @@ class ReadingListsViewModel : ViewModel() {
         lists: List<ReadingList>,
         tab: SavedTab,
         query: String,
-        articleFilter: SavedArticleFilter,
         recentPreviewSavedId: Long?
     ): List<ReadingListRow> {
         val normalizedQuery = StringUtils.stripAccents(query)
@@ -449,7 +425,7 @@ class ReadingListsViewModel : ViewModel() {
             SavedTab.COLLECTIONS -> lists
                 .filter { it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) }
                 .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
-            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, normalizedQuery, articleFilter)
+            SavedTab.ALL_ARTICLES -> buildArticleRows(lists, normalizedQuery)
         }
     }
 
@@ -461,7 +437,6 @@ class ReadingListsViewModel : ViewModel() {
     private fun buildArticleRows(
         lists: List<ReadingList>,
         titleFilter: String? = null,
-        articleFilter: SavedArticleFilter = SavedArticleFilter.ALL_ARTICLES,
         sortMode: Int? = null
     ): List<ReadingListRow.PageRow> {
         val selectedArticles = linkedMapOf<Pair<String, String>, ArticleRowData>()
@@ -486,11 +461,7 @@ class ReadingListsViewModel : ViewModel() {
             }
         }
 
-        val filteredArticles = selectedArticles.values.filter { article ->
-            articleFilter == SavedArticleFilter.ALL_ARTICLES ||
-                article.containingLists.all { it.isDefault }
-        }
-        val orderedPages = filteredArticles.mapTo(mutableListOf()) { it.page }
+        val orderedPages = selectedArticles.values.mapTo(mutableListOf()) { it.page }
         sortMode?.let { sortArticles(orderedPages, it) }
 
         return orderedPages.map { page ->
@@ -593,12 +564,10 @@ data class ReadingListsUiState(
     val isLoading: Boolean = true,
     val isSearchActive: Boolean = false,
     val rows: List<ReadingListRow> = emptyList(),
-    val hasSavedArticles: Boolean = false,
     val pageDownloadProgress: Map<Long, Int> = emptyMap(),
     val listCount: Int = 0,
     val searchQuery: String? = null,
     val selectedTab: SavedTab = SavedTab.COLLECTIONS,
-    val selectedArticleFilter: SavedArticleFilter = SavedArticleFilter.ALL_ARTICLES,
     val sortMode: Int = ReadingList.SORT_BY_NAME_ASC,
     val showCollectionsBadge: Boolean = false,
     val onboarding: OnboardingState = OnboardingState.None,
@@ -608,8 +577,7 @@ data class ReadingListsUiState(
 
 private data class ContentMode(
     val query: String?,
-    val tab: SavedTab,
-    val articleFilter: SavedArticleFilter
+    val tab: SavedTab
 )
 
 private data class ArticleRowData(
