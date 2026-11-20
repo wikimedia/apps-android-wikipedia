@@ -231,6 +231,10 @@ private fun LazyListScope.searchResultItems(
                 val attribution by remember(result.attributionKey) {
                     derivedStateOf { attributions.value[result.attributionKey] }
                 }
+
+                val navigationResult = remember(result) {
+                    if (result.type == SearchResult.SearchResultType.SEMANTIC) result else result.copy(pageTitle = result.pageTitle.copy(fragment = null))
+                }
                 SearchResultCard(
                     modifier = Modifier
                         .testTag("$SEARCH_LIST_TAG$index")
@@ -242,10 +246,10 @@ private fun LazyListScope.searchResultItems(
                     },
                     isAttributionLoading = attribution == null,
                     onItemLongClick = { view ->
-                        onItemLongClick(view, result, index)
+                        onItemLongClick(view, navigationResult, index)
                     },
                     onItemClick = {
-                        onItemClick(result, false, index, result.location)
+                        onItemClick(navigationResult, false, index, result.location)
                     }
                 )
             } else {
