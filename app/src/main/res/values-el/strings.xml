@@ -598,10 +598,6 @@
   <string name="reading_list_add_to_other_list" fuzzy="true">Προσθήκη σε άλλη συλλογή</string>
   <string name="reading_list_move_to_other_list" fuzzy="true">Μετακίνηση σε άλλη συλλογή</string>
   <string name="reading_list_add_to_collection" fuzzy="true">Προσθήκη σε μια συλλογή</string>
-  <plurals name="reading_list_in_collections" fuzzy="true">
-    <item quantity="one">Σε 1 συλλογή</item>
-    <item quantity="other">Σε %d συλλογές</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list" fuzzy="true">Μετακίνηση από %s σε άλλη συλλογή</string>
   <string name="reading_list_remove_from_list">Αφαίρεση από το %s</string>
   <string name="reading_list_remove_from_lists" fuzzy="true">Αφαίρεση από συλλογές</string>

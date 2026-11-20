@@ -668,13 +668,6 @@
   <string name="reading_list_add_to_other_list" fuzzy="true">Ouzhpennañ d\'ur roll all</string>
   <string name="reading_list_move_to_other_list" fuzzy="true">Dilec\'hiañ d\'ur roll all</string>
   <string name="reading_list_add_to_collection" fuzzy="true">Ouzhpennañ d\'ur roll</string>
-  <plurals name="reading_list_in_collections" fuzzy="true">
-    <item quantity="one">En 1 roll</item>
-    <item quantity="two">E %d roll</item>
-    <item quantity="few">E %d roll</item>
-    <item quantity="many">E %d roll</item>
-    <item quantity="other">E %d roll</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list" fuzzy="true">Dilec\'hiañ eus %s d\'ur roll all</string>
   <string name="reading_list_remove_from_list">Dilemel diwar %s</string>
   <string name="reading_list_remove_from_lists" fuzzy="true">Dilemel diouzh ar rolloù</string>

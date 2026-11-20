@@ -638,10 +638,6 @@
   <string name="reading_list_add_to_other_list">Lisää toiselle lukulistalle</string>
   <string name="reading_list_move_to_other_list">Siirrä toiselle lukulistalle</string>
   <string name="reading_list_add_to_collection">Lisää lukulistalle</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">Yhdellä lukulistalla</item>
-    <item quantity="other">%d lukulistalla</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Siirrä lukulistalta %s toiselle listalle</string>
   <string name="reading_list_remove_from_list">Poista lukulistasta %s</string>
   <string name="reading_list_remove_from_lists">Poista lukulistoilta</string>

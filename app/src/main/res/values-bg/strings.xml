@@ -580,10 +580,6 @@
   <string name="reading_list_add_to_other_list" fuzzy="true">Добавяне в друа сбирка</string>
   <string name="reading_list_move_to_other_list" fuzzy="true">Преместване в друга сбирка</string>
   <string name="reading_list_add_to_collection" fuzzy="true">Добавяне към сбирка</string>
-  <plurals name="reading_list_in_collections" fuzzy="true">
-    <item quantity="one">В 1 сбирка</item>
-    <item quantity="other">В %d сбирки</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list" fuzzy="true">Преместване от %s към друга сбирка</string>
   <string name="reading_list_remove_from_list">Премахване от %s</string>
   <string name="reading_list_remove_from_lists" fuzzy="true">Премахване от сбирки</string>

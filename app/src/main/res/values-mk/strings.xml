@@ -615,10 +615,6 @@
   <string name="reading_list_add_to_other_list">Стави во друг список за читање</string>
   <string name="reading_list_move_to_other_list">Премести во друг список за читање</string>
   <string name="reading_list_add_to_collection">Додај во список за читање</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">Во 1 список за читање</item>
-    <item quantity="other">Во %d списоци за читање</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Премести од %s во друг список за читање</string>
   <string name="reading_list_remove_from_list">Отстрани од %s</string>
   <string name="reading_list_remove_from_lists">Отстрани од списоци за читање</string>

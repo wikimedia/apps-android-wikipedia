@@ -542,10 +542,6 @@
   <string name="reading_list_add_to_other_list" fuzzy="true">दोसर सङ्ग्रहमे जोड़थिन</string>
   <string name="reading_list_move_to_other_list" fuzzy="true">दोसर सङ्ग्रहमे स्थानान्तरित करथिन</string>
   <string name="reading_list_add_to_collection" fuzzy="true">एगो सङ्ग्रहमे जोड़थिन</string>
-  <plurals name="reading_list_in_collections" fuzzy="true">
-    <item quantity="one">१ सङ्ग्रहमे</item>
-    <item quantity="other">%d सङ्ग्रहमे</item>
-  </plurals>
   <string name="reading_list_remove_from_list">%s से हटावथिन</string>
   <string name="reading_list_remove_from_lists" fuzzy="true">सङ्ग्रहसे हटावथिन</string>
   <string name="reading_list_select_item">चुनथिन</string>
