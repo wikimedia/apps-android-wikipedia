@@ -62,7 +62,6 @@ interface Service {
                              @Query("exintro") exIntro: Boolean? = null,
                              @Query("exchars") exChars: Int? = null): Response<MwQueryResponse>
 
-
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
                 "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +

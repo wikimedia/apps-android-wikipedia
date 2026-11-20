@@ -73,7 +73,6 @@ class InterleaveSearchRepository(
         )
     }
 
-
     // A failed request must not break the card, so it gets no counts and hides them.
     suspend fun getAttribution(result: SearchResult): Attribution {
         return try {
