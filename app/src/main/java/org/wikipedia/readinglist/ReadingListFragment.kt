@@ -344,7 +344,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent)
         val sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
         sortByNameItem.setTitle(if (sortMode == ReadingList.SORT_BY_NAME_ASC) R.string.reading_list_sort_by_name_desc else R.string.reading_list_sort_by_name)
-        sortByRecentItem.setTitle(if (sortMode == ReadingList.SORT_BY_RECENT_DESC) R.string.reading_list_sort_by_recent_desc else R.string.reading_list_sort_by_recent)
+        sortByRecentItem.setTitle(if (sortMode == ReadingList.SORT_BY_RECENT_ASC) R.string.reading_list_sort_by_recent_desc else R.string.reading_list_sort_by_recent)
         val searchItem = menu.findItem(R.id.menu_search_lists)
         val sortOptionsItem = menu.findItem(R.id.menu_sort_options)
         val iconColor = if (toolbarExpanded) AppCompatResources.getColorStateList(requireContext(), android.R.color.white)
@@ -374,7 +374,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 true
             }
             R.id.menu_sort_by_recent -> {
-                setSortMode(ReadingList.SORT_BY_RECENT_DESC, ReadingList.SORT_BY_RECENT_ASC)
+                setSortMode(ReadingList.SORT_BY_RECENT_ASC, ReadingList.SORT_BY_RECENT_DESC)
                 true
             }
             R.id.menu_reading_list_rename -> {
