@@ -65,8 +65,9 @@ class SearchResultCardContentTest {
     }
 
     @Test
-    fun testLexicalTrailIsLeadEvenWithASectionTitle() {
-        assertNull(result(SearchResult.SearchResultType.FULL_TEXT, sectionTitle = "Tour Eiffel").cardTrail())
+    fun testFullTextTrailIsMatchedSection() {
+        assertEquals("Tour Eiffel", result(SearchResult.SearchResultType.FULL_TEXT, sectionTitle = "Tour Eiffel").cardTrail())
+        assertNull(result(SearchResult.SearchResultType.PREFIX).cardTrail())
     }
 
     @Test
