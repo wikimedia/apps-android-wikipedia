@@ -373,6 +373,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options&assert=user")
     suspend fun getUserInfo(): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo|allmessages&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options&assert=user")
+    suspend fun localUserInfoWithMessages(@Query("ammessages") messages: String): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=userinfo|globaluserinfo&guiprop=editcount&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options&assert=user")
     suspend fun getLocalAndGlobalUserInfo(): MwQueryResponse
 
@@ -582,7 +585,8 @@ interface Service {
         @Field("summary") summary: String?,
         @Field("token") token: String,
         @Field("assert") user: String?,
-        @Field("matags") tags: String? = null
+        @Field("matags") tags: String? = null,
+        @Field("captchaword") captchaWord: String? = null
     ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
@@ -596,7 +600,8 @@ interface Service {
         @Field("summary") summary: String?,
         @Field("token") token: String,
         @Field("assert") user: String?,
-        @Field("matags") tags: String? = null
+        @Field("matags") tags: String? = null,
+        @Field("captchaword") captchaWord: String? = null
     ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
@@ -606,7 +611,8 @@ interface Service {
         @Field("token") token: String,
         @Field("data") data: String?,
         @Field("summary") summary: String?,
-        @Field("matags") tags: String?
+        @Field("matags") tags: String?,
+        @Field("captchaword") captchaWord: String? = null
     ): EntityPostResponse
 
     // ------- Watchlist -------

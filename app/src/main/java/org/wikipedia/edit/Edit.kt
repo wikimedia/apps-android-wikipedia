@@ -23,7 +23,7 @@ class Edit : MwPostResponse() {
 
         val editSucceeded get() = "Success" == status
 
-        val hasHCaptchaResponse get() = captcha?.type == "hcaptcha" && !captcha.key.isNullOrEmpty()
+        val hasHCaptchaResponse get() = captcha?.isHCaptcha == true
         val hCaptchaKey get() = captcha?.key.orEmpty()
 
         val hasCaptchaResponse get() = captcha != null
@@ -34,11 +34,13 @@ class Edit : MwPostResponse() {
     }
 
     @Serializable
-    private class Captcha {
+    class Captcha {
         val type: String? = null
         val key: String? = null
         val error: String? = null
         // Legacy FancyCaptcha ID:
         val id: String? = null
+
+        val isHCaptcha get() = type == "hcaptcha" && !key.isNullOrEmpty()
     }
 }

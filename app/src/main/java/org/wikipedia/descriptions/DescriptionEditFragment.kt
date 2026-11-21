@@ -26,6 +26,7 @@ import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptions
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
@@ -59,6 +60,7 @@ class DescriptionEditFragment : Fragment() {
     val binding get() = _binding!!
 
     private lateinit var captchaHandler: CaptchaHandler
+    private lateinit var hCaptchaHelper: HCaptchaHelper
 
     private val analyticsHelper = MachineGeneratedArticleDescriptionsAnalyticsHelper()
 
@@ -120,6 +122,18 @@ class DescriptionEditFragment : Fragment() {
         }
         captchaHandler = CaptchaHandler(requireActivity() as AppCompatActivity, viewModel.pageTitle.wikiSite, binding.fragmentDescriptionEditView.getCaptchaContainer().root,
             binding.fragmentDescriptionEditView.getDescriptionEditTextView(), "", null)
+        hCaptchaHelper = HCaptchaHelper(requireActivity(), object : HCaptchaHelper.Callback {
+            override fun onShow() { }
+
+            override fun onSuccess(token: String) {
+                postDescription(hCaptchaToken = token)
+            }
+
+            override fun onError(e: Exception, code: Int) {
+                binding.fragmentDescriptionEditView.setSaveState(false)
+                FeedbackUtil.showMessage(this@DescriptionEditFragment, e.message.orEmpty())
+            }
+        })
         return binding.root
     }
 
@@ -136,6 +150,9 @@ class DescriptionEditFragment : Fragment() {
                             editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
                             editCount = if (it is Resource.Success) it.data else 0
                         )
+                        if (it is Resource.Success) {
+                            binding.fragmentDescriptionEditView.updateCaptchaDisclaimer(viewModel.hCaptchaPolicyMessage)
+                        }
                     }
                 }
                 launch {
@@ -206,8 +223,11 @@ class DescriptionEditFragment : Fragment() {
                                                 analyticsHelper.logSuccess(requireContext(), viewModel.pageTitle, newRevId)
                                                 ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, newRevId)
                                             }
+                                            hasHCaptchaResponse -> {
+                                                showHCaptcha(hCaptchaKey)
+                                            }
                                             hasEditErrorCode -> {
-                                                editFailed(MwException(MwServiceError(code, spamblacklist)), false)
+                                                editFailed(MwException(MwServiceError(code, info)), false)
                                             }
                                             hasCaptchaResponse -> {
                                                 binding.fragmentDescriptionEditView.showProgressBar(false)
@@ -215,7 +235,7 @@ class DescriptionEditFragment : Fragment() {
                                                 captchaHandler.handleCaptcha(null, CaptchaResult(captchaId))
                                             }
                                             hasSpamBlacklistResponse -> {
-                                                editFailed(MwException(MwServiceError(code, info)), false)
+                                                editFailed(MwException(MwServiceError(code, spamblacklist)), false)
                                             }
                                             else -> {
                                                 editFailed(IOException("Received unrecognized edit response"), true)
@@ -245,20 +265,18 @@ class DescriptionEditFragment : Fragment() {
                                 }
                             }
                             is Resource.Error -> {
-                                if (viewModel.shouldWriteToLocalWiki() || it.throwable !is MwException) {
-                                    editFailed(it.throwable, true)
+                                // Wikibase reports a required captcha as an API error, rather than in the edit result.
+                                val throwable = it.throwable
+                                if (throwable is MwException && throwable.error.hasHCaptchaResponse) {
+                                    showHCaptcha(throwable.error.hCaptchaKey)
+                                } else if (viewModel.shouldWriteToLocalWiki() || throwable !is MwException) {
+                                    editFailed(throwable, true)
                                 } else {
-                                    val error = it.throwable.error
+                                    val error = throwable.error
                                     if (error.badLoginState() || error.badToken()) {
-                                        viewModel.postDescription(
-                                            currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
-                                            editComment = getEditComment(),
-                                            editTags = getEditTags(),
-                                            captchaId = if (captchaHandler.isActive) captchaHandler.captchaId() else null,
-                                            captchaWord = if (captchaHandler.isActive) captchaHandler.captchaWord() else null
-                                        )
+                                        postDescription()
                                     } else {
-                                        editFailed(it.throwable, true)
+                                        editFailed(throwable, true)
                                     }
                                 }
                             }
@@ -285,6 +303,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        hCaptchaHelper.cleanup()
         captchaHandler.dispose()
         binding.fragmentDescriptionEditView.callback = null
         _binding = null
@@ -351,13 +370,7 @@ class DescriptionEditFragment : Fragment() {
                     editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
                     editCount = viewModel.totalEditCount
                 )
-                viewModel.postDescription(
-                    currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
-                    editComment = getEditComment(),
-                    editTags = getEditTags(),
-                    captchaId = if (captchaHandler.isActive) captchaHandler.captchaId() else null,
-                    captchaWord = if (captchaHandler.isActive) captchaHandler.captchaWord() else null
-                )
+                postDescription()
             }
         }
 
@@ -388,6 +401,22 @@ class DescriptionEditFragment : Fragment() {
         override fun getAnalyticsHelper(): MachineGeneratedArticleDescriptionsAnalyticsHelper {
             return analyticsHelper
         }
+    }
+
+    private fun postDescription(hCaptchaToken: String? = null) {
+        viewModel.postDescription(
+            currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
+            editComment = getEditComment(),
+            editTags = getEditTags(),
+            captchaId = if (hCaptchaToken == null && captchaHandler.isActive) captchaHandler.captchaId() else null,
+            captchaWord = hCaptchaToken ?: if (captchaHandler.isActive) captchaHandler.captchaWord() else null
+        )
+    }
+
+    private fun showHCaptcha(siteKey: String) {
+        binding.fragmentDescriptionEditView.setSaveState(true)
+        hCaptchaHelper.cleanup()
+        hCaptchaHelper.show(siteKey)
     }
 
     private fun getEditComment(): String? {

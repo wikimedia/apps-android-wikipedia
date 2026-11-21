@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.liftwing.DescriptionSuggestion
@@ -57,13 +58,15 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     private val _editCount = MutableStateFlow<Resource<Int>>(Resource.Loading())
     val editCount = _editCount.asStateFlow()
     var totalEditCount = 0
+    var hCaptchaPolicyMessage: String? = null
 
     init {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             _editCount.value = Resource.Error(throwable)
         }) {
-            val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getUserInfo()
+            val userInfoResponse = ServiceFactory.get(pageTitle.wikiSite).localUserInfoWithMessages(messages = HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE)
+            hCaptchaPolicyMessage = userInfoResponse.query?.allmessages?.find { message -> message.name == HCaptchaHelper.HCAPTCHA_POLICY_MESSAGE }?.content
             totalEditCount = userInfoResponse.query?.userInfo?.editCount ?: 0
             _editCount.value = Resource.Success(totalEditCount)
         }
@@ -112,8 +115,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     fun postDescription(currentDescription: String,
                         editComment: String?,
                         editTags: String?,
-                        captchaId: String?,
-                        captchaWord: String?) {
+                        captchaId: String? = null,
+                        captchaWord: String? = null) {
         clientJob?.cancel()
         clientJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
@@ -135,7 +138,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                 // should be written directly to the article instead of Wikidata.
                 postDescriptionToArticle(csrfToken, currentDescription, editComment, editTags, captchaId, captchaWord)
             } else {
-                postDescriptionToWikidata(csrfToken, currentDescription, editComment, editTags)
+                postDescriptionToWikidata(csrfToken, currentDescription, editComment, editTags, captchaWord)
             }
 
             _postDescriptionState.value = Resource.Success(response)
@@ -165,8 +168,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                                                  currentDescription: String,
                                                  editComment: String?,
                                                  editTags: String?,
-                                                 captchaId: String?,
-                                                 captchaWord: String?): Edit {
+                                                 captchaId: String? = null,
+                                                 captchaWord: String? = null): Edit {
         val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
             .getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
@@ -206,7 +209,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     private suspend fun postDescriptionToWikidata(csrfToken: String,
                                                   currentDescription: String,
                                                   editComment: String?,
-                                                  editTags: String?): EntityPostResponse {
+                                                  editTags: String?,
+                                                  captchaWord: String? = null): EntityPostResponse {
         val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
         totalEditCount = wikiSectionInfoResponse.query?.userInfo?.editCount ?: 0
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
@@ -236,7 +240,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                 summary = editComment,
                 token = csrfToken,
                 user = AccountUtil.assertUser,
-                tags = editTags
+                tags = editTags,
+                captchaWord = captchaWord
             )
         } else {
             ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(
@@ -248,7 +253,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                 summary = editComment,
                 token = csrfToken,
                 user = AccountUtil.assertUser,
-                tags = editTags
+                tags = editTags,
+                captchaWord = captchaWord
             )
         }
     }

@@ -5,6 +5,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.ServiceError
+import org.wikipedia.edit.Edit
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
@@ -32,6 +33,9 @@ class MwServiceError(val code: String? = null,
         return data?.messages?.first { it.name == messageName }?.html
     }
 
+    val hasHCaptchaResponse get() = data?.captcha?.isHCaptcha == true
+    val hCaptchaKey get() = data?.captcha?.key.orEmpty()
+
     override val key: String get() = code.orEmpty()
 
     override val message: String get() = StringUtil.removeStyleTags(html.orEmpty())
@@ -47,8 +51,9 @@ class MwServiceError(val code: String? = null,
         }
     }
 
+    // Edit-filter extensions such as ConfirmEdit can attach a captcha descriptor to the error data.
     @Serializable
-    class Data(val messages: List<Message>? = null, val blockinfo: BlockInfo? = null)
+    class Data(val messages: List<Message>? = null, val blockinfo: BlockInfo? = null, val captcha: Edit.Captcha? = null)
 
     @Serializable
     class Message(val name: String?, val html: String = "")
