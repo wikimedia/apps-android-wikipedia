@@ -14,7 +14,8 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
 
 class StandardSearchRepository(
-    private val includesLeads: Boolean = false
+    private val includesLeads: Boolean = false,
+    private val includesLocalResults: Boolean = true
 ) : SearchRepository<StandardSearchResults> {
     override suspend fun search(
         searchTerm: String,
@@ -38,7 +39,7 @@ class StandardSearchRepository(
         val exChars = LEAD_EXTRACT_CHARS.takeIf { includesLeads }
 
         if (isPrefixSearch) {
-            if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
+            if (includesLocalResults && searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
                 withContext(Dispatchers.IO) {
                     listOf(async {
                         getSearchResultsFromTabs(wikiSite, searchTerm)

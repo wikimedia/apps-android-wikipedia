@@ -16,6 +16,7 @@ import org.wikipedia.util.log.L
 /**
  * Fetches lexical and semantic results on every first-page load, merges them with [SearchResultsInterleaver],
  * and serves later pages from that merged list, so paging never changes the list that was merged.
+ * Tab, history and reading list matches are left out of the interleaved list.
  */
 class InterleaveSearchRepository(
     private val lexicalRepository: SearchRepository<StandardSearchResults> = StandardSearchRepository(),
@@ -42,8 +43,7 @@ class InterleaveSearchRepository(
             continuation = (offset + batchSize).takeIf { it < slots.size },
             xSearchIdPrefix = merged.xSearchIdPrefix,
             xSearchIdFullText = merged.xSearchIdFullText,
-            xSearchIdSemantic = merged.xSearchIdSemantic,
-            localResults = if (isPrefixSearch) merged.localResults else emptyList()
+            xSearchIdSemantic = merged.xSearchIdSemantic
         )
     }
 
@@ -61,11 +61,9 @@ class InterleaveSearchRepository(
         )
         val semanticSearchResults = semanticSearch.await()
 
-        // Local results are not merge inputs, so the merged list matches the other platforms for the same lexical and semantic lists.
         MergedSearchResults(
             searchTerm = searchTerm,
             languageCode = languageCode,
-            localResults = lexicalSearch.localResults,
             interleaveResult = SearchResultsInterleaver.merge(lexicalSearch.results, semanticSearchResults.results, LIST_LENGTH, newSeed()) { it.pageId.toLong() },
             xSearchIdPrefix = lexicalSearch.xSearchIdPrefix,
             xSearchIdFullText = lexicalSearch.xSearchIdFullText,
@@ -101,7 +99,6 @@ class InterleaveSearchRepository(
     private class MergedSearchResults(
         val searchTerm: String,
         val languageCode: String,
-        val localResults: List<SearchResult>,
         val interleaveResult: InterleaveResult<SearchResult>,
         val xSearchIdPrefix: String?,
         val xSearchIdFullText: String?,

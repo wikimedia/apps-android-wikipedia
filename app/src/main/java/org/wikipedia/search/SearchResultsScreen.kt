@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -51,6 +52,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.drop
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PlacesEvent
@@ -104,6 +106,13 @@ fun SearchResultsScreen(
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode.value)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
+    val listState = rememberLazyListState()
+    LaunchedEffect(listState) {
+        snapshotFlow { searchTerm.value to languageCode.value }
+            .drop(1)
+            .collect { listState.scrollToItem(0) }
+    }
+
     // this is a callback to show loading indicator in the SearchFragment.
     // It is placed outside the UI logic to prevent flickering. We need to show the loader both initial load (refresh) and pagination (append) without hiding the list or conflicting with other UI states.
     val isLoading = loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading
@@ -145,7 +154,8 @@ fun SearchResultsScreen(
 
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
         LazyColumn(
-            modifier = modifier
+            modifier = modifier,
+            state = listState
         ) {
             if (shouldShowInterleaveSearchEntry) {
                 item {
@@ -223,7 +233,6 @@ private fun LazyListScope.searchResultItems(
         count = searchResultsPage.itemCount
     ) { index ->
         searchResultsPage[index]?.let { result ->
-            // TODO: decide if local results should be in the list. Current prepended to searchResultsPage from viewModel
             if (isInterleaveSearchEnabled && result.type in INTERLEAVED_RESULT_TYPES) {
                 LaunchedEffect(result.attributionKey) {
                     onAttributionNeeded(result)
