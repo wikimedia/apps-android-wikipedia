@@ -1,0 +1,264 @@
+{
+  "batchcomplete": true,
+  "continue": {
+    "gsroffset": 10,
+    "continue": "gsroffset||"
+  },
+  "query": {
+    "pages": [
+      {
+        "pageid": 23171,
+        "ns": 0,
+        "title": "Napoléon III",
+        "snippet": "Louis-<span class=\"searchmatch\">Napoléon</span> <span class=\"searchmatch\">Bonaparte</span> (homonymie), <span class=\"searchmatch\">Napoléon</span> (homonymie) et <span class=\"searchmatch\">Bonaparte</span> (homonymie). Vous lisez un « article de qualité » labellisé en 2011. Louis-<span class=\"searchmatch\">Napoléon</span>",
+        "sectiontitle": "Personnalité de Napoléon III",
+        "index": 2,
+        "description": "homme d'État français et dernier monarque de France",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Napol%C3%A9on_III_par_Jean_Hippolyte_Flandrin.jpg/330px-Napol%C3%A9on_III_par_Jean_Hippolyte_Flandrin.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 479
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:01:43Z",
+        "lastrevid": 240809055,
+        "length": 360672,
+        "displaytitle": "Napoléon&#160;<abbr class=\"abbr\" title=\"3\"><span class=\"romain\" style=\"text-transform:uppercase\">III</span></abbr>",
+        "varianttitles": {
+          "fr": "Napoléon&#160;<abbr class=\"abbr\" title=\"3\"><span class=\"romain\" style=\"text-transform:uppercase\">III</span></abbr>"
+        }
+      },
+      {
+        "pageid": 57261,
+        "ns": 0,
+        "title": "Pierre-Napoléon Bonaparte",
+        "snippet": "Pour les articles homonymes, voir <span class=\"searchmatch\">Bonaparte</span>. Pierre-<span class=\"searchmatch\">Napoléon</span> <span class=\"searchmatch\">Bonaparte</span> Portrait en pied de Pierre-<span class=\"searchmatch\">Napoléon</span> <span class=\"searchmatch\">Bonaparte</span>, photographie d&#039;Eugène Disdéri, musée",
+        "index": 10,
+        "description": "prince d'Empire français",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Pierre-Napol%C3%A9on_Bonaparte.jpg/330px-Pierre-Napol%C3%A9on_Bonaparte.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 542
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:01:48Z",
+        "lastrevid": 240780250,
+        "length": 22024,
+        "displaytitle": "Pierre-Napoléon Bonaparte",
+        "varianttitles": {
+          "fr": "Pierre-Napoléon Bonaparte"
+        }
+      },
+      {
+        "pageid": 79106,
+        "ns": 0,
+        "title": "Maison Bonaparte",
+        "snippet": "<span class=\"searchmatch\">Bonaparte</span> (1746-1785) <span class=\"searchmatch\">Napoléon</span> Ier (1769-1821) <span class=\"searchmatch\">Napoléon</span> II (1811-1832) Louis <span class=\"searchmatch\">Bonaparte</span> (1778-1846) <span class=\"searchmatch\">Napoléon</span> III (1808-1873) Louis-<span class=\"searchmatch\">Napoléon</span> <span class=\"searchmatch\">Bonaparte</span>,",
+        "sectiontitle": "La famille Bonaparte en Corse",
+        "index": 4,
+        "description": "famille de petite noblesse corse puis dynastie impériale française",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Grandes_Armes_Imp%C3%A9riales_%281804-1815%292.svg/330px-Grandes_Armes_Imp%C3%A9riales_%281804-1815%292.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 365
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:01:51Z",
+        "lastrevid": 240329998,
+        "length": 154106,
+        "displaytitle": "Maison Bonaparte",
+        "varianttitles": {
+          "fr": "Maison Bonaparte"
+        }
+      },
+      {
+        "pageid": 91552,
+        "ns": 0,
+        "title": "Napoléon II",
+        "snippet": "Pour les articles homonymes, voir <span class=\"searchmatch\">Napoléon</span> (homonymie) et Aiglon. <span class=\"searchmatch\">Napoléon</span> François Joseph Charles <span class=\"searchmatch\">Bonaparte</span>, né le 20 mars 1811 à Paris et mort le 22",
+        "index": 7,
+        "description": "empereur des Français du 22 juin au 7 juillet 1815 et Grand Aigle de la Légion d'honneur",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Le_duc_de_Reichstadt.jpg/330px-Le_duc_de_Reichstadt.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 490
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:01:53Z",
+        "lastrevid": 240675442,
+        "length": 62107,
+        "displaytitle": "Napoléon&#160;<abbr class=\"abbr\" title=\"2\"><span class=\"romain\" style=\"text-transform:uppercase\">II</span></abbr>",
+        "varianttitles": {
+          "fr": "Napoléon&#160;<abbr class=\"abbr\" title=\"2\"><span class=\"romain\" style=\"text-transform:uppercase\">II</span></abbr>"
+        }
+      },
+      {
+        "pageid": 145658,
+        "ns": 0,
+        "title": "Napoléon-Jérôme Bonaparte",
+        "snippet": "voir <span class=\"searchmatch\">Napoléon</span> (homonymie). <span class=\"searchmatch\">Napoléon</span> Joseph Charles Paul <span class=\"searchmatch\">Bonaparte</span>, dit <span class=\"searchmatch\">Napoléon</span>-Jérôme, surnommé « Plon-Plon », prince français, dit le prince <span class=\"searchmatch\">Napoléon</span>, prince",
+        "index": 5,
+        "description": "prince Napoléon, général, prince et comte français, membre de la famille Bonaparte",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Napol%C3%A9on_Joseph_Charles_Paul_Bonaparte_painting.jpg/330px-Napol%C3%A9on_Joseph_Charles_Paul_Bonaparte_painting.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 434
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:02:02Z",
+        "lastrevid": 240840969,
+        "length": 38937,
+        "displaytitle": "Napoléon-Jérôme Bonaparte",
+        "varianttitles": {
+          "fr": "Napoléon-Jérôme Bonaparte"
+        }
+      },
+      {
+        "pageid": 330031,
+        "ns": 0,
+        "title": "Charles Bonaparte (1950)",
+        "snippet": "Charles <span class=\"searchmatch\">Bonaparte</span> (homonymie), <span class=\"searchmatch\">Bonaparte</span> (homonymie), Maison <span class=\"searchmatch\">Bonaparte</span> et <span class=\"searchmatch\">Napoléon</span> (homonymie). Charles <span class=\"searchmatch\">Bonaparte</span> (Charles Marie Jérôme Victor <span class=\"searchmatch\">Napoléon</span> Bonaparte)",
+        "index": 9,
+        "description": "politicien français, membre de la dynastie Bonaparte",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Charles-bonaparte.jpg/330px-Charles-bonaparte.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 415
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:02:35Z",
+        "lastrevid": 239207513,
+        "length": 20439,
+        "displaytitle": "Charles Bonaparte (1950)",
+        "varianttitles": {
+          "fr": "Charles Bonaparte (1950)"
+        }
+      },
+      {
+        "pageid": 540618,
+        "ns": 0,
+        "title": "Louis Napoléon",
+        "snippet": "Maison <span class=\"searchmatch\">Bonaparte</span>, Louis-<span class=\"searchmatch\">Napoléon</span> <span class=\"searchmatch\">Bonaparte</span> (homonymie), <span class=\"searchmatch\">Napoléon</span> (homonymie) et <span class=\"searchmatch\">Bonaparte</span> (homonymie). Ne doit pas être confondu avec Louis-<span class=\"searchmatch\">Napoléon</span> Bonaparte",
+        "index": 8,
+        "description": "militaire français",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Louis_Bonaparte.jpg/330px-Louis_Bonaparte.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 403
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:03:11Z",
+        "lastrevid": 240790634,
+        "length": 22136,
+        "displaytitle": "Louis Napoléon",
+        "varianttitles": {
+          "fr": "Louis Napoléon"
+        }
+      },
+      {
+        "pageid": 676806,
+        "ns": 0,
+        "title": "Napoléon Ier",
+        "snippet": "« <span class=\"searchmatch\">Napoléon</span> » redirige ici. Pour les autres significations, voir <span class=\"searchmatch\">Napoléon</span> (homonymie) et <span class=\"searchmatch\">Bonaparte</span> (homonymie). <span class=\"searchmatch\">Napoléon</span> <span class=\"searchmatch\">Bonaparte</span>Écouter, né le 15 août",
+        "sectiontitle": "Réalisations de Napoléon Bonaparte",
+        "index": 1,
+        "description": "militaire, homme d'État et monarque français",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg/330px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 549
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:03:33Z",
+        "lastrevid": 240611359,
+        "length": 260796,
+        "displaytitle": "<span class=\"nowrap\">Napoléon <abbr class=\"abbr\" title=\"premier\"><span class=\"romain\" style=\"text-transform:uppercase\">I</span><sup>er</sup></abbr></span>",
+        "varianttitles": {
+          "fr": "<span class=\"nowrap\">Napoléon <abbr class=\"abbr\" title=\"premier\"><span class=\"romain\" style=\"text-transform:uppercase\">I</span><sup>er</sup></abbr></span>"
+        }
+      },
+      {
+        "pageid": 5358353,
+        "ns": 0,
+        "title": "Jean-Christophe Napoléon",
+        "snippet": "Jean-Christophe <span class=\"searchmatch\">Napoléon</span> <span class=\"searchmatch\">Bonaparte</span>, dit Jean-Christophe <span class=\"searchmatch\">Napoléon</span>, né le 11 juillet 1986 à Saint-Raphaël (France), est un membre de la famille <span class=\"searchmatch\">Bonaparte</span>. Il est",
+        "index": 6,
+        "description": "banquier d'affaires français, descendant de la dynastie Bonaparte et Prince Napoléon",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Prince_Napol%C3%A9on.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+          "width": 165,
+          "height": 262
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:11:20Z",
+        "lastrevid": 240790502,
+        "length": 28909,
+        "displaytitle": "Jean-Christophe Napoléon",
+        "varianttitles": {
+          "fr": "Jean-Christophe Napoléon"
+        }
+      },
+      {
+        "pageid": 17678531,
+        "ns": 0,
+        "title": "Napoléon Bonaparte (policier)",
+        "snippet": "Ne doit pas être confondu avec <span class=\"searchmatch\">Napoléon</span> Ier. Pour les articles homonymes, voir <span class=\"searchmatch\">Bonaparte</span>. <span class=\"searchmatch\">Napoléon</span> <span class=\"searchmatch\">Bonaparte</span>, né le 26 octobre 1965 et mort le 18 octobre",
+        "index": 3,
+        "description": "policier indonésien",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Irjen_Napoleon_Bonaparte.jpg/330px-Irjen_Napoleon_Bonaparte.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 440
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:28:21Z",
+        "lastrevid": 240906373,
+        "length": 2675,
+        "displaytitle": "Napoléon Bonaparte (policier)",
+        "varianttitles": {
+          "fr": "Napoléon Bonaparte (policier)"
+        }
+      }
+    ]
+  }
+}

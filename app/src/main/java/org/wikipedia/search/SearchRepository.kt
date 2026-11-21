@@ -9,7 +9,6 @@ interface SearchRepository<T> {
         invokeSource: Constants.InvokeSource,
         continuation: Int? = null,
         batchSize: Int = 0,
-        isPrefixSearch: Boolean = true,
-        countsPerLanguageCode: MutableList<Pair<String, Int>> = mutableListOf()
+        isPrefixSearch: Boolean = true
     ): T
 }

@@ -1,0 +1,228 @@
+{
+  "warnings": [
+    {
+      "code": "unrecognizedparams",
+      "html": "Paramètre non reconnu : cirrusSemanticSearch.",
+      "module": "main"
+    }
+  ],
+  "batchcomplete": true,
+  "continue": {
+    "gsroffset": 8,
+    "continue": "gsroffset||"
+  },
+  "query": {
+    "pages": [
+      {
+        "pageid": 614905,
+        "ns": 0,
+        "title": "Fréquentation de la tour Eiffel",
+        "snippet": "La tour Eiffel est en 2022 le lieu français le plus visité sur Google Street View.",
+        "sectiontitle": "Visites en ligne",
+        "index": 8,
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Fr%C3%A9quentation_Tour_Eiffel.JPG/330px-Fr%C3%A9quentation_Tour_Eiffel.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 245
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:03:23Z",
+        "lastrevid": 238836072,
+        "length": 25049,
+        "displaytitle": "Fréquentation de la tour Eiffel",
+        "varianttitles": {
+          "fr": "Fréquentation de la tour Eiffel"
+        }
+      },
+      {
+        "pageid": 688954,
+        "ns": 0,
+        "title": "Histoire de la tour Eiffel",
+        "snippet": "La tour Eiffel, quant à elle, ouvre ses portes au public le 15 mai 1889. La première semaine, les ascenseurs ne sont pas encore mis en service, toutefois 28 922 entrées seront enregistrées. Le rythme de visiteurs descendra ensuite un peu. Sur un total d'environ 32 millions d'entrées, 1 953 122 visiteurs escaladeront la tour Eiffel, ce qui représente 6,1 % des entrées de l'Exposition ou encore une moyenne d' 11 300 entrées par jour pour la seule tour Eiffel.",
+        "sectiontitle": "La tour pendant l'Exposition universelle de 1889",
+        "index": 6,
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:03:35Z",
+        "lastrevid": 239695806,
+        "length": 114289,
+        "displaytitle": "Histoire de la tour Eiffel",
+        "varianttitles": {
+          "fr": "Histoire de la tour Eiffel"
+        }
+      },
+      {
+        "pageid": 1359783,
+        "ns": 0,
+        "title": "Tour Eiffel",
+        "snippet": "Construite en deux ans par Gustave Eiffel et ses collaborateurs pour l' Exposition universelle de Paris de 1889, célébrant le centenaire de la Révolution française, et initialement nommée « tour de 300 mètres », elle est devenue le symbole de la capitale française et un site touristique de premier plan : il s’agit du quatrième site culturel français payant le plus visité en 2016, avec 5,9 millions de visiteurs. Depuis son ouverture au public, elle a accueilli plus de 300 millions de visiteurs.",
+        "index": 1,
+        "description": "tour de fer puddlé de 330 mètres à Paris, France",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/330px-Tour_Eiffel_Wikimedia_Commons.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 611
+        },
+        "coordinates": [
+          {
+            "lat": 48.858296,
+            "lon": 2.294479,
+            "primary": true,
+            "globe": "earth"
+          }
+        ],
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:05:17Z",
+        "lastrevid": 240706197,
+        "length": 157527,
+        "displaytitle": "Tour Eiffel",
+        "varianttitles": {
+          "fr": "Tour Eiffel"
+        }
+      },
+      {
+        "pageid": 4181276,
+        "ns": 0,
+        "title": "Féru des Sciences",
+        "snippet": "L'exposition temporaire Tour Eiffel, made in Lorraine a ouvert au public du 24 février 2018 au 7 janvier 2019. Cette exposition s'est tenue à l'occasion de la restauration d’une œuvre majeure du musée : le tronçon de l'escalier de la tour Eiffel, exposé dans le jardin du musée. L'exposition présentait l'histoire de la tour Eiffel, de l'extraction du minerai de fer en Lorraine, à Ludres, en passant par la production des fers aux Fonderies Fould-Dupont de la Société des hauts fourneaux, forges et aciéries de Pompey puis à son élévation sur le Champ-de-Mars à Paris.",
+        "sectiontitle": "Tour Eiffel, made in Lorraine",
+        "index": 7,
+        "description": "musée du fer, des sciences et des technologies situé à Jarville-la-Malgrange, en France",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Logo_FeruDesSciences.jpg/330px-Logo_FeruDesSciences.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 179
+        },
+        "coordinates": [
+          {
+            "lat": 48.66667,
+            "lon": 6.20889,
+            "primary": true,
+            "globe": "earth"
+          }
+        ],
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:09:12Z",
+        "lastrevid": 238176359,
+        "length": 46117,
+        "displaytitle": "Féru des Sciences",
+        "varianttitles": {
+          "fr": "Féru des Sciences"
+        }
+      },
+      {
+        "pageid": 6364782,
+        "ns": 0,
+        "title": "Tour Eiffel (Delaunay, 1911)",
+        "snippet": "<span class=\"searchmatch\">Tour Eiffel</span> est un tableau de l&#039;artiste français Robert Delaunay, réalisé en 1911. Robert Delaunay a peint plus d&#039;une cinquantaine de tableaux où la Tour Eiffel est représentée en sujet principal ou en sujet annexe.",
+        "index": 5,
+        "description": "tableau de Robert Delaunay",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Delaunay_-_Tour_Eiffel.jpeg/330px-Delaunay_-_Tour_Eiffel.jpeg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 414
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:13:06Z",
+        "lastrevid": 235838387,
+        "length": 2298,
+        "displaytitle": "<i>Tour Eiffel</i> (Delaunay, 1911)",
+        "varianttitles": {
+          "fr": "<i>Tour Eiffel</i> (Delaunay, 1911)"
+        }
+      },
+      {
+        "pageid": 7186932,
+        "ns": 0,
+        "title": "Société d'exploitation de la tour Eiffel",
+        "snippet": "<span class=\"searchmatch\">La Société d&#039;exploitation de la tour Eiffel</span> (SETE), créée le 13 décembre 2005, est la société publique locale (SPL) chargée de l&#039;exploitation de la tour Eiffel à Paris, un site touristique français important et le monument payant le plus visité au monde avec près de 7 millions de visiteurs chaque année.",
+        "index": 2,
+        "description": "société publique locale",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/01-eiffelturm_paris_froschperspektive.JPG/330px-01-eiffelturm_paris_froschperspektive.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 220
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:14:21Z",
+        "lastrevid": 239919489,
+        "length": 13245,
+        "displaytitle": "Société d'exploitation de la tour Eiffel",
+        "varianttitles": {
+          "fr": "Société d'exploitation de la tour Eiffel"
+        }
+      },
+      {
+        "pageid": 12280099,
+        "ns": 0,
+        "title": "Tour Eiffel (Delaunay, 1926)",
+        "snippet": "Tour Eiffel est un tableau peint par Robert Delaunay en 1926. Cette huile sur toile représente la tour Eiffel et le Champ-de-Mars. Elle est conservée au <span class=\"searchmatch\">musée d&#039;Art moderne de Paris</span>. Robert Delaunay a peint plus d&#039;une cinquantaine de tableaux où la Tour Eiffel est représentée en sujet principal ou en sujet annexe.",
+        "index": 3,
+        "description": "tableau de Robert Delaunay (musée d'art moderne de la Ville de Paris)",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Robert_Delaunay%2C_1926%2C_Tour_Eiffel%2C_oil_on_canvas%2C_169_%C3%97_86_cm%2C_Mus%C3%A9e_d%27Art_Moderne_de_la_ville_de_Paris.jpg/330px-Robert_Delaunay%2C_1926%2C_Tour_Eiffel%2C_oil_on_canvas%2C_169_%C3%97_86_cm%2C_Mus%C3%A9e_d%27Art_Moderne_de_la_ville_de_Paris.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 538
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:20:46Z",
+        "lastrevid": 235072443,
+        "length": 960,
+        "displaytitle": "<i>Tour Eiffel</i> (Delaunay, 1926)",
+        "varianttitles": {
+          "fr": "<i>Tour Eiffel</i> (Delaunay, 1926)"
+        }
+      },
+      {
+        "pageid": 15829449,
+        "ns": 0,
+        "title": "Vue de la tour Eiffel",
+        "snippet": "<span class=\"searchmatch\">Vue de la tour Eiffel</span> est un tableau réalisé par le peintre français Henri Rousseau en 1896 - 1898. Cette huile sur toile naïve est un paysage urbain parisien. Elle représente le sommet de la tour Eiffel et le palais du Trocadéro émergeant d&#039;un bouquet d&#039; arbres derrière un pont sur la Seine qui barre la partie inférieure de la composition. L&#039;œuvre est conservée au musée Pola de Hakone, au Japon.",
+        "index": 4,
+        "description": "tableau d'Henri Rousseau",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Henri_Rousseau_-_Seine_und_Eiffelturm_in_der_Abendsonne_-_1910.jpeg/330px-Henri_Rousseau_-_Seine_und_Eiffelturm_in_der_Abendsonne_-_1910.jpeg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 249
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:25:38Z",
+        "lastrevid": 207119200,
+        "length": 1509,
+        "displaytitle": "<i>Vue de la tour Eiffel</i>",
+        "varianttitles": {
+          "fr": "<i>Vue de la tour Eiffel</i>"
+        }
+      }
+    ]
+  }
+}

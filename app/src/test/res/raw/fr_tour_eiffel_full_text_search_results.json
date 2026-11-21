@@ -1,0 +1,256 @@
+{
+  "batchcomplete": true,
+  "continue": {
+    "gsroffset": 10,
+    "continue": "gsroffset||"
+  },
+  "query": {
+    "pages": [
+      {
+        "pageid": 12801,
+        "ns": 0,
+        "title": "Gustave Eiffel",
+        "snippet": "Gustave et <span class=\"searchmatch\">Eiffel</span>. Gustave <span class=\"searchmatch\">Eiffel</span> Gustave <span class=\"searchmatch\">Eiffel</span> photographié par Nadar en 1888. Signature. Plaque commémorative. Tombeau de Gustave <span class=\"searchmatch\">Eiffel</span> au cimetière",
+        "sectiontitle": "Tour Eiffel",
+        "index": 3,
+        "description": "architecte, ingénieur et constructeur français",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Gustave_Eiffel_1888_Nadar2.jpg/330px-Gustave_Eiffel_1888_Nadar2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 489
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:01:41Z",
+        "lastrevid": 240491525,
+        "length": 69823,
+        "displaytitle": "Gustave Eiffel",
+        "varianttitles": {
+          "fr": "Gustave Eiffel"
+        }
+      },
+      {
+        "pageid": 341714,
+        "ns": 0,
+        "title": "Radio Tour Eiffel",
+        "snippet": "doit pas être confondu avec Radio Service <span class=\"searchmatch\">Tour</span> <span class=\"searchmatch\">Eiffel</span> ou <span class=\"searchmatch\">Tour</span> <span class=\"searchmatch\">Eiffel</span> 95.2. Radio <span class=\"searchmatch\">Tour</span> <span class=\"searchmatch\">Eiffel</span> Radio <span class=\"searchmatch\">Tour</span> <span class=\"searchmatch\">Eiffel</span> est la première station de radio créée en",
+        "index": 4,
+        "description": "première station de radio créée en France",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Logo_Vectoriel_de_La_Radio_Tour_Eiffel.jpg/330px-Logo_Vectoriel_de_La_Radio_Tour_Eiffel.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 418
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:02:37Z",
+        "lastrevid": 239934019,
+        "length": 11521,
+        "displaytitle": "Radio Tour Eiffel",
+        "varianttitles": {
+          "fr": "Radio Tour Eiffel"
+        }
+      },
+      {
+        "pageid": 361546,
+        "ns": 0,
+        "title": "Savants dont le nom est inscrit sur la tour Eiffel",
+        "snippet": "sur la <span class=\"searchmatch\">tour</span> <span class=\"searchmatch\">Eiffel</span> sont 72 hommes, scientifiques, ingénieurs ou industriels, dont Gustave <span class=\"searchmatch\">Eiffel</span> a fait inscrire les noms sur la <span class=\"searchmatch\">tour</span> <span class=\"searchmatch\">Eiffel</span> à Paris",
+        "index": 6,
+        "description": "72 noms inscrits sur la tour Eiffel de scientifiques, ingénieurs ou industriels qui ont honoré la France de 1789 à 1889",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Eiffel_Tower_%2872_names%29.jpg/330px-Eiffel_Tower_%2872_names%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 296
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:02:42Z",
+        "lastrevid": 238663018,
+        "length": 66255,
+        "displaytitle": "Savants dont le nom est inscrit sur la tour Eiffel",
+        "varianttitles": {
+          "fr": "Savants dont le nom est inscrit sur la tour Eiffel"
+        }
+      },
+      {
+        "pageid": 573472,
+        "ns": 0,
+        "title": "Liste de répliques et imitations de la tour Eiffel",
+        "snippet": "Les répliques et imitations de la <span class=\"searchmatch\">tour</span> <span class=\"searchmatch\">Eiffel</span> sont les différentes copies du monument parisien. Elles sont en grande majorité plus petites que l&#039;original",
+        "sectiontitle": "Imitations de la tour Eiffel (tours à structure similaire)",
+        "index": 7,
+        "description": "page de liste de Wikimédia",
+        "descriptionsource": "central",
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:03:17Z",
+        "lastrevid": 240638833,
+        "length": 27298,
+        "displaytitle": "Liste de répliques et imitations de la tour Eiffel",
+        "varianttitles": {
+          "fr": "Liste de répliques et imitations de la tour Eiffel"
+        }
+      },
+      {
+        "pageid": 688954,
+        "ns": 0,
+        "title": "Histoire de la tour Eiffel",
+        "snippet": "comprendront parfaitement Gustave <span class=\"searchmatch\">Eiffel</span> et son équipe d&#039;ingénieurs, grâce aux expériences passées des ateliers <span class=\"searchmatch\">Eiffel</span>. La <span class=\"searchmatch\">tour</span> de Babel vue par Pieter Brueghel",
+        "sectiontitle": "Périodes de conception et de construction de la tour Eiffel (avant le 31 mars 1889)",
+        "index": 2,
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:03:35Z",
+        "lastrevid": 239695806,
+        "length": 114289,
+        "displaytitle": "Histoire de la tour Eiffel",
+        "varianttitles": {
+          "fr": "Histoire de la tour Eiffel"
+        }
+      },
+      {
+        "pageid": 1359783,
+        "ns": 0,
+        "title": "Tour Eiffel",
+        "snippet": "Pour les articles homonymes, voir <span class=\"searchmatch\">Tour</span> <span class=\"searchmatch\">Eiffel</span> (homonymie). <span class=\"searchmatch\">Tour</span> <span class=\"searchmatch\">Eiffel</span> Le Champ-de-Mars au premier plan, la <span class=\"searchmatch\">tour</span> <span class=\"searchmatch\">Eiffel</span> au deuxième, puis le palais de Chaillot",
+        "sectiontitle": "Tour Eiffel de 1889 à la Première Guerre mondiale",
+        "index": 1,
+        "description": "tour de fer puddlé de 330 mètres à Paris, France",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/330px-Tour_Eiffel_Wikimedia_Commons.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 611
+        },
+        "coordinates": [
+          {
+            "lat": 48.858296,
+            "lon": 2.294479,
+            "primary": true,
+            "globe": "earth"
+          }
+        ],
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:05:17Z",
+        "lastrevid": 240706197,
+        "length": 157527,
+        "displaytitle": "Tour Eiffel",
+        "varianttitles": {
+          "fr": "Tour Eiffel"
+        }
+      },
+      {
+        "pageid": 1662824,
+        "ns": 0,
+        "title": "La Tour Eiffel",
+        "snippet": "correspondants. La <span class=\"searchmatch\">Tour</span> <span class=\"searchmatch\">Eiffel</span> (La torre <span class=\"searchmatch\">Eiffel</span>) est une nouvelle de Dino Buzzati, incluse dans le recueil Le K publié en 1966. L&#039;ingénieur Gustave <span class=\"searchmatch\">Eiffel</span>, avant",
+        "index": 8,
+        "description": "nouvelle de Dino Buzzati",
+        "descriptionsource": "central",
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:05:49Z",
+        "lastrevid": 236885058,
+        "length": 2022,
+        "displaytitle": "<i>La Tour Eiffel</i>",
+        "varianttitles": {
+          "fr": "<i>La Tour Eiffel</i>"
+        }
+      },
+      {
+        "pageid": 7186932,
+        "ns": 0,
+        "title": "Société d'exploitation de la tour Eiffel",
+        "snippet": "construction, la <span class=\"searchmatch\">tour</span> <span class=\"searchmatch\">Eiffel</span> a été exploitée jusqu&#039;en 1979 par la Société de la <span class=\"searchmatch\">Tour</span> <span class=\"searchmatch\">Eiffel</span> (STE), structure fondée par Gustave <span class=\"searchmatch\">Eiffel</span>. À l&#039;expiration",
+        "index": 5,
+        "description": "société publique locale",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/01-eiffelturm_paris_froschperspektive.JPG/330px-01-eiffelturm_paris_froschperspektive.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 220
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:14:21Z",
+        "lastrevid": 239919489,
+        "length": 13245,
+        "displaytitle": "Société d'exploitation de la tour Eiffel",
+        "varianttitles": {
+          "fr": "Société d'exploitation de la tour Eiffel"
+        }
+      },
+      {
+        "pageid": 13443582,
+        "ns": 0,
+        "title": "Eiffel (film)",
+        "snippet": "les articles homonymes, voir <span class=\"searchmatch\">Eiffel</span>. <span class=\"searchmatch\">Eiffel</span> Logo du film. Pour plus de détails, voir Fiche technique et Distribution. <span class=\"searchmatch\">Eiffel</span> est un film franco-allemand",
+        "index": 10,
+        "description": "film réalisé par Martin Bourboulon et sorti en 2021",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/fr/thumb/9/9a/Eiffel_%28film%29.png/330px-Eiffel_%28film%29.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 128
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:22:26Z",
+        "lastrevid": 234916921,
+        "length": 16256,
+        "displaytitle": "<i>Eiffel</i> (film)",
+        "varianttitles": {
+          "fr": "<i>Eiffel</i> (film)"
+        }
+      },
+      {
+        "pageid": 16519386,
+        "ns": 0,
+        "title": "Le Crime de la tour Eiffel",
+        "snippet": "Le Crime de la <span class=\"searchmatch\">tour</span> <span class=\"searchmatch\">Eiffel</span> Pour plus de détails, voir Fiche technique et Distribution. Le Crime de la <span class=\"searchmatch\">tour</span> <span class=\"searchmatch\">Eiffel</span> est un téléfilm franco-belge réalisé",
+        "index": 9,
+        "description": "Téléfilm franco-belge réalisé par Julien Seri",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Flore_Bonaventura_Cabourg_2014.jpg/330px-Flore_Bonaventura_Cabourg_2014.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 466
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:26:38Z",
+        "lastrevid": 239102622,
+        "length": 11271,
+        "displaytitle": "<i>Le Crime de la tour Eiffel</i>",
+        "varianttitles": {
+          "fr": "<i>Le Crime de la tour Eiffel</i>"
+        }
+      }
+    ]
+  }
+}
