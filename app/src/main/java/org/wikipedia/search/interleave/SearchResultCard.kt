@@ -175,7 +175,7 @@ fun SearchResultCard(
             }
         }
 
-        if (excerpt.text.isNotEmpty()) {
+        if (excerpt.isNotEmpty()) {
             HorizontalDivider(
                 modifier = Modifier.padding(vertical = 8.dp),
                 color = WikipediaTheme.colors.borderColor,

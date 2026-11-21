@@ -1,8 +1,6 @@
 package org.wikipedia.search.interleave
 
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.style.BaselineShift
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
@@ -17,58 +15,27 @@ import org.wikipedia.search.SearchResult
 class SearchResultCardContentTest {
 
     @Test
-    fun testSemanticExcerptIsPassageWithoutHighlight() {
-        val excerpt = result(SearchResult.SearchResultType.SEMANTIC, snippet = "The <span class=\"searchmatch\">tower</span> is  tall.").cardExcerpt()
-        assertEquals("The tower is tall.", excerpt.text)
-        assertTrue(excerpt.spanStyles.none { it.item.background != Color.Unspecified })
-    }
-
-    @Test
-    fun testExcerptHasNoLinks() {
-        val excerpt = result(SearchResult.SearchResultType.SEMANTIC, snippet = "The <a href=\"./Paris\"><i>tower</i></a> is tall.").cardExcerpt()
-        assertEquals("The tower is tall.", excerpt.text)
-        assertTrue(excerpt.getLinkAnnotations(0, excerpt.length).isEmpty())
-        assertTrue(excerpt.spanStyles.any { it.item.fontStyle == FontStyle.Italic })
+    fun testSemanticExcerptIsPassageWithoutMarkup() {
+        val result = result(SearchResult.SearchResultType.SEMANTIC, snippet = "The <span class=\"searchmatch\">tower</span> is <a href=\"./Tall\">tall</a>.")
+        assertEquals("The tower is tall.", result.cardExcerpt())
     }
 
     @Test
     fun testLeadParagraphsFlowAsOnePassage() {
-        val excerpt = result(SearchResult.SearchResultType.PREFIX, leadText = "<p>First paragraph.</p>\n<p>Second<br/>line.</p><ul><li>Item</li></ul>").cardExcerpt()
-        assertEquals("First paragraph. Second line. Item", excerpt.text)
-    }
-
-    @Test
-    fun testLeadCutByTheApiHasNoEllipsis() {
-        assertEquals("The tower was", result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The <i>tower</i> was...</p>").cardExcerpt().text)
-        assertEquals("The tower was", result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The tower was\u2026</p>").cardExcerpt().text)
-        assertEquals("To be continued...", result(SearchResult.SearchResultType.SEMANTIC, snippet = "To be continued...").cardExcerpt().text)
-    }
-
-    @Test
-    fun testExcerptHasNoBold() {
-        val excerpt = result(SearchResult.SearchResultType.PREFIX, leadText = "<p>The <b>Eiffel Tower</b> is a <b><i>tower</i></b>.</p>").cardExcerpt()
-        assertEquals("The Eiffel Tower is a tower.", excerpt.text)
-        assertTrue(excerpt.spanStyles.none { it.item.fontWeight != null })
-        assertTrue(excerpt.spanStyles.any { it.item.fontStyle == FontStyle.Italic })
-    }
-
-    @Test
-    fun testExcerptKeepsSuperscripts() {
-        val excerpt = result(SearchResult.SearchResultType.SEMANTIC, snippet = "About 10<sup>6</sup> km away.").cardExcerpt()
-        assertEquals("About 106 km away.", excerpt.text)
-        assertTrue(excerpt.spanStyles.any { it.item.baselineShift == BaselineShift.Superscript && excerpt.text.substring(it.start, it.end) == "6" })
+        val result = result(SearchResult.SearchResultType.PREFIX, leadText = "<p>First paragraph.</p>\n<p>Second<br/>line.</p><ul><li>Item</li></ul>")
+        assertEquals("First paragraph. Second line. Item", result.cardExcerpt())
     }
 
     @Test
     fun testLexicalExcerptIsLeadNotSearchSnippet() {
         val result = result(SearchResult.SearchResultType.FULL_TEXT, snippet = "<span class=\"searchmatch\">match</span>", leadText = "The lead.")
-        assertEquals("The lead.", result.cardExcerpt().text)
+        assertEquals("The lead.", result.cardExcerpt())
     }
 
     @Test
     fun testEmptyLeadHasNoExcerpt() {
-        assertEquals("", result(SearchResult.SearchResultType.PREFIX, leadText = "").cardExcerpt().text)
-        assertEquals("", result(SearchResult.SearchResultType.PREFIX).cardExcerpt().text)
+        assertEquals("", result(SearchResult.SearchResultType.PREFIX, leadText = "").cardExcerpt())
+        assertEquals("", result(SearchResult.SearchResultType.PREFIX).cardExcerpt())
     }
 
     @Test

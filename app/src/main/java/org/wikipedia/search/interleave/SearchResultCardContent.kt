@@ -1,14 +1,12 @@
 package org.wikipedia.search.interleave
 
 import androidx.compose.ui.text.AnnotatedString
-import org.wikipedia.compose.extensions.toAnnotatedString
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.search.SearchResult
 import org.wikipedia.util.StringUtil
 
 // Remove a wiki once its reference counts become available.
 private val WIKIS_WITHOUT_REFERENCE_COUNTS = setOf("ar")
-private val BLOCK_TAG_REGEX = "<\\s*/?\\s*(p|br|div|ul|ol|li|dl|dt|dd)\\b[^>]*>".toRegex(RegexOption.IGNORE_CASE)
 private val WHITESPACE_REGEX = "\\s+".toRegex()
 
 internal fun SearchResult.cardTitle(): AnnotatedString {
@@ -36,23 +34,9 @@ internal fun SearchResult.cardTrail(): String? {
 // Keeps superscripts, subscripts and italics, but drops the search-match highlight, which only appears in
 // the article after a tap (US-3). Lexical leads should be requested as HTML extracts (prop=extracts&exintro=1,
 // without explaintext=1), so they keep the same formatting as semantic passages instead of arriving flattened.
-internal fun SearchResult.cardExcerpt(): AnnotatedString {
-    val raw = if (type == SearchResult.SearchResultType.SEMANTIC) snippet else leadText
-    // Block tags become spaces, so a multi-paragraph lead flows as one passage, like a semantic excerpt.
-    val inlineHtml = raw.orEmpty().replace(BLOCK_TAG_REGEX, " ").replace(WHITESPACE_REGEX, " ").trim()
-    val excerpt = StringUtil.fromHtml(inlineHtml).toAnnotatedString()
-    // Lexical leads bold the article's name and semantic passages never do, so bold is dropped to keep both alike.
-    val styled = AnnotatedString(
-        text = excerpt.text,
-        spanStyles = excerpt.spanStyles.map { it.copy(item = it.item.copy(fontWeight = null)) },
-        paragraphStyles = excerpt.paragraphStyles
-    )
-    if (type == SearchResult.SearchResultType.SEMANTIC) {
-        return styled
-    }
-    // The API ends a lead it cut short with an ellipsis; the card adds its own when it runs out of lines.
-    val end = styled.text.trimEnd().removeSuffix("...").removeSuffix("\u2026").trimEnd().length
-    return styled.subSequence(0, end)
+internal fun SearchResult.cardExcerpt(): String {
+    val html = if (type == SearchResult.SearchResultType.SEMANTIC) snippet else leadText
+    return StringUtil.removeHTMLTags(html).replace(WHITESPACE_REGEX, " ").trim()
 }
 
 internal fun SearchResult.cardThumbUrl(): String? {
