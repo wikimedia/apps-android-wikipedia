@@ -2,6 +2,7 @@ package org.wikipedia.search
 
 import android.location.Location
 import android.view.View
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -19,7 +20,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -55,13 +58,26 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.restbase.Attribution
+import org.wikipedia.search.interleave.AttributionKey
 import org.wikipedia.search.interleave.InterleaveSearchEntryCard
+import org.wikipedia.search.interleave.SearchResultCard
+import org.wikipedia.search.interleave.SearchResultCardSkeleton
+import org.wikipedia.search.interleave.attributionKey
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
 import kotlin.time.Duration.Companion.milliseconds
 
 const val SEARCH_LIST_TAG = "search_list"
+
+private const val SKELETON_CARD_COUNT = 3
+
+private val INTERLEAVED_RESULT_TYPES = setOf(
+    SearchResult.SearchResultType.PREFIX,
+    SearchResult.SearchResultType.FULL_TEXT,
+    SearchResult.SearchResultType.SEMANTIC
+)
 
 @OptIn(FlowPreview::class)
 @Composable
@@ -81,6 +97,7 @@ fun SearchResultsScreen(
     val isInterleaveSearchEnabledState = viewModel.isInterleaveSearchEnabled.collectAsState()
     val isInterleaveSearchEnabled = isInterleaveSearchEnabledState.value && viewModel.invokeSource != Constants.InvokeSource.PLACES
     val loadState = searchResults.loadState
+    val attributions = viewModel.attributions.collectAsState()
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
 
     val languageCode = viewModel.languageCode.collectAsState()
@@ -124,6 +141,8 @@ fun SearchResultsScreen(
         }
     }
 
+    val skeletonTransition = rememberInfiniteTransition(label = "searchResultSkeletonShimmer")
+
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
         LazyColumn(
             modifier = modifier
@@ -138,7 +157,17 @@ fun SearchResultsScreen(
             }
 
             when {
-                loadState.refresh is LoadState.Loading -> {} // when offline prevents UI from loading old list
+                // Showing nothing else while loading also keeps an old list from appearing when offline.
+                loadState.refresh is LoadState.Loading -> {
+                    if (isInterleaveSearchEnabled) {
+                        items(SKELETON_CARD_COUNT) {
+                            SearchResultCardSkeleton(
+                                modifier = Modifier.padding(bottom = 8.dp),
+                                transition = skeletonTransition
+                            )
+                        }
+                    }
+                }
 
                 loadState.refresh is LoadState.Error -> {
                     val error = (loadState.refresh as LoadState.Error).error
@@ -169,6 +198,9 @@ fun SearchResultsScreen(
                     searchResultItems(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,
+                        isInterleaveSearchEnabled = isInterleaveSearchEnabled,
+                        attributions = attributions,
+                        onAttributionNeeded = viewModel::loadAttribution,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick
                     )
@@ -181,6 +213,9 @@ fun SearchResultsScreen(
 private fun LazyListScope.searchResultItems(
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
+    isInterleaveSearchEnabled: Boolean,
+    attributions: State<Map<AttributionKey, Attribution>>,
+    onAttributionNeeded: (SearchResult) -> Unit,
     onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
 ) {
@@ -188,18 +223,46 @@ private fun LazyListScope.searchResultItems(
         count = searchResultsPage.itemCount
     ) { index ->
         searchResultsPage[index]?.let { result ->
-            SearchResultPageItem(
-                modifier = Modifier
-                    .testTag("$SEARCH_LIST_TAG$index"),
-                searchResultPage = result,
-                searchTerm = searchTerm,
-                onItemClick = {
-                    onItemClick(result, false, index, result.location)
-                },
-                onItemLongClick = { view ->
-                    onItemLongClick(view, result, index)
+            // TODO: decide if local results should be in the list. Current prepended to searchResultsPage from viewModel
+            if (isInterleaveSearchEnabled && result.type in INTERLEAVED_RESULT_TYPES) {
+                LaunchedEffect(result.attributionKey) {
+                    onAttributionNeeded(result)
                 }
-            )
+                val attribution by remember(result.attributionKey) {
+                    derivedStateOf { attributions.value[result.attributionKey] }
+                }
+
+                SearchResultCard(
+                    modifier = Modifier
+                        .testTag("$SEARCH_LIST_TAG$index")
+                        .padding(bottom = 8.dp),
+                    searchResult = remember(result, attribution) {
+                        attribution?.trustAndRelevance?.let {
+                            result.copy(editCounts = it.contributorCounts?.totalUnique, referenceCounts = it.referenceCount)
+                        } ?: result
+                    },
+                    isAttributionLoading = attribution == null,
+                    onItemLongClick = { view ->
+                        onItemLongClick(view, result, index)
+                    },
+                    onItemClick = {
+                        onItemClick(result, false, index, result.location)
+                    }
+                )
+            } else {
+                SearchResultPageItem(
+                    modifier = Modifier
+                        .testTag("$SEARCH_LIST_TAG$index"),
+                    searchResultPage = result,
+                    searchTerm = searchTerm,
+                    onItemClick = {
+                        onItemClick(result, false, index, result.location)
+                    },
+                    onItemLongClick = { view ->
+                        onItemLongClick(view, result, index)
+                    }
+                )
+            }
         }
     }
 }

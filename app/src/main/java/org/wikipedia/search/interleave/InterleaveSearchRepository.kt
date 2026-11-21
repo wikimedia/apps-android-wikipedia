@@ -4,6 +4,8 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import org.wikipedia.Constants
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.restbase.Attribution
 import org.wikipedia.search.SearchRepository
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.StandardSearchRepository
@@ -69,6 +71,19 @@ class InterleaveSearchRepository(
             xSearchIdFullText = lexicalSearch.xSearchIdFullText,
             xSearchIdSemantic = semanticSearchResults.xSearchIdSemantic
         )
+    }
+
+    // A failed request must not break the card, so it gets no counts and hides them.
+    // Null means the request failed, as opposed to an article that has no counts, so the caller can retry later.
+    suspend fun getAttribution(result: SearchResult): Attribution? {
+        return try {
+            ServiceFactory.getCoreRest(result.pageTitle.wikiSite).getAttribution(result.pageTitle.prefixedText)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            L.w(e)
+            null
+        }
     }
 
     // A failed semantic search must not break search, so the reader gets the lexical results instead.

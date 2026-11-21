@@ -1,13 +1,25 @@
 package org.wikipedia.search.interleave
 
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.mockkObject
+import io.mockk.unmockkAll
 import kotlinx.coroutines.runBlocking
+import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.Constants
+import org.wikipedia.dataclient.CoreRestService
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.restbase.Attribution
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchRepository
 import org.wikipedia.search.SearchResult
@@ -85,6 +97,48 @@ class InterleaveSearchRepositoryTest {
 
         isSemanticSearchAvailable = true
         assertEquals(semanticResults + lexicalResults, search(repository, continuation = null, isPrefixSearch = true).results)
+    }
+
+    @After
+    fun tearDown() {
+        unmockkAll()
+    }
+
+    @Test
+    fun testAttributionCountsComeFromTheArticle() {
+        val attribution = JsonUtil.decodeFromString<Attribution>(
+            "{\"trust_and_relevance\":{\"contributor_counts\":{\"total_unique\":2348},\"reference_count\":0}}"
+        )!!
+        val coreRestService = mockCoreRestService()
+        coEvery { coreRestService.getAttribution(any()) } returns attribution
+
+        val result = runBlocking { emptyRepository().getAttribution(searchResult("Eiffel Tower", SearchResult.SearchResultType.SEMANTIC, pageId = 1)) }
+
+        coVerify { coreRestService.getAttribution("Eiffel_Tower") }
+        assertEquals(2348, result?.trustAndRelevance?.contributorCounts?.totalUnique)
+        assertEquals(0, result?.trustAndRelevance?.referenceCount)
+    }
+
+    @Test
+    fun testFailedAttributionRequestReturnsNull() {
+        val coreRestService = mockCoreRestService()
+        coEvery { coreRestService.getAttribution(any()) } throws IOException("offline")
+
+        val result = runBlocking { emptyRepository().getAttribution(searchResult("Paris", SearchResult.SearchResultType.PREFIX, pageId = 2)) }
+
+        assertNull(result)
+    }
+
+    private fun mockCoreRestService(): CoreRestService {
+        val coreRestService = mockk<CoreRestService>()
+        mockkObject(ServiceFactory)
+        every { ServiceFactory.getCoreRest(any()) } returns coreRestService
+        return coreRestService
+    }
+
+    private fun emptyRepository(): InterleaveSearchRepository {
+        val emptySearch = FakeSearchRepository { StandardSearchResults(emptyList(), continuation = null) }
+        return InterleaveSearchRepository(emptySearch, emptySearch)
     }
 
     private fun search(repository: InterleaveSearchRepository, continuation: Int?, isPrefixSearch: Boolean): StandardSearchResults {
