@@ -123,7 +123,7 @@
   <string name="edit_save_action_license_logged_in">خپرولو سره، تاسو له &lt;a href=\"%1$s\"&gt; کارولو منښتونه&lt;/a&gt; منئ او د &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; منښتليک لاندې خپلې ونډې په نه بدلېدونکي ډول خپروئ.</string>
   <string name="edit_save_action_license_anon">د خپرولو سره تاسو د &lt;a href=\"%1$s\"&gt;کارولو منښتونه&lt;/a&gt; منئ او په نه بدلېدونکي ډول خپلې ونډې د &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; منښتليک لاندې خپروئ. سمونونه به ستاسو د سولگر وېبپتې ته منسوب شي. که تاسو &lt;a href=\"https://#login\"&gt;ننوځئ&lt;/a&gt;؛ نو تاسو به ډېره پټنتيا ولرئ.</string>
   <string name="edit_anon_warning">سمونونه به ستاسو د سولگر وېبپتې ته منسوب شي، که چېرې تاسو &lt;a href=\"https://#login\"&gt;ننوځئ&lt;/a&gt;؛ نو تاسو به ډېر خونديتوب ولرئ.</string>
-  <string name="preference_title_language">د ويکيپېډيا ژبې</string>
+  <string name="preference_title_language">د ويکي‌پېډيا ژبې</string>
   <string name="langlinks_filter_hint">پلټل</string>
   <string name="langlinks_empty">دا مخ په نورو ژبو کې نشته.</string>
   <string name="langlinks_no_match">هېڅ ژبې ونه موندل شوې</string>
@@ -813,7 +813,7 @@
   <string name="preference_title_customize_push_notifications">هڅونکې خبرتياوې دوديزول</string>
   <string name="preference_category_display_settings">د ښکارېدو اوڼنې</string>
   <string name="preference_title_hide_read_notifications">لوستې خبرتياوې پټول</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">ويکيپېډيا</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ويکي‌پېډيا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">د ويکيپېډيا څخه خبرتياوې</string>
   <string name="notifications_channel_group_other_title">بل</string>
   <string name="notifications_channel_group_other_description">له کارياله نورې خبرتياوې</string>
@@ -1332,7 +1332,7 @@
   <string name="languages_list_activity_title">ژبه ورگډول</string>
   <string name="languages_list_suggested_text">وړانديزشوی</string>
   <string name="languages_list_all_text">ټولې ژبې</string>
-  <string name="wikipedia_languages_title">د ويکيپېډيا ژبې</string>
+  <string name="wikipedia_languages_title">د ويکي‌پېډيا ژبې</string>
   <string name="wikipedia_languages_your_languages_text">ستاسې ژبې</string>
   <string name="wikipedia_languages_add_language_text">ژبه ورگډول</string>
   <string name="wikipedia_languages_remove_text">ژبه لرې‌کول</string>
@@ -1937,10 +1937,22 @@
   <string name="yir_reading_streak_headline">ستاسو د لوست ورځو تر ټولو اوږده لړۍ:</string>
   <string name="yir_reading_streak_supporting">له %1$s څخه تر %2$s پورې، تاسو په رښتيا هره ورځ د لوست روږدي کېږئ.</string>
   <string name="yir_reading_streak_empty_headline">۰ لوست لړئ... تر دې مهاله</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">دا تر هغې يو لړۍ نه گڼل کېږي؛ ترڅو چې تاسو دا %1$d ورځ پرله‌پسې ترسرکړې نه وي. ولې يې همدا اوس نه پيلوئ؟</item>
+    <item quantity="other">دا تر هغې يو لړۍ نه گڼل کېږي؛ ترڅو چې تاسو دا %1$d ورځې پرله‌پسې ترسرکړې نه وي. ولې يې همدا اوس نه پيلوئ؟</item>
+  </plurals>
   <string name="yir_reading_time_headline">د پلټنې لپاره خواپورې وخت:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">%1$d سپړنې مو د ورځې همدې وخت کې ترسره شوې دي. ايا دا يوه پېښه وه که نه؟</item>
+    <item quantity="other">%1$d سپړنې مو د ورځې همدې وخت کې ترسره شوې دي. ايا دا يوه پېښه وه که نه؟</item>
+  </plurals>
   <string name="yir_reading_time_empty_headline">تاسو نږدې هر وخت لوست کوئ</string>
   <string name="yir_reading_time_empty_supporting">د ويکي‌پېډيا د مخونو سپړلو لپاره کومه ټاکلې ورځ يا وخت نشته.</string>
   <string name="yir_top_topic_headline">ستاسو د %1$d غوره سکالو:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">له %1$s څخه تر %2$s پورې ستاسو %3$d ليکنې %4$s پورې تړاو درلود.</item>
+    <item quantity="other">له %1$s څخه تر %2$s پورې ستاسو %3$d ليکنو %4$s پورې تړاو درلود.</item>
+  </plurals>
   <string name="yir_top_topic_empty_headline">په %1$d کې ستاسو #1 سکالو...داټولې سکالوگانې دي</string>
   <string name="yir_top_topic_empty_supporting">د دومره ډېرو لېوالتياوو سره، هېڅ داسې سکالو نشته چې ستاسو د لوست روږدتياوې څرگندې کړي.</string>
   <string name="yir_runner_up_topics_headline">او په %1$d کې ستاسو د دوهمې درجې سکالو دا ده:</string>
@@ -1949,6 +1961,10 @@
     <item quantity="other">%1$d ليکنې</item>
   </plurals>
   <string name="yir_biggest_reading_day_headline">ترټولو لويه لوست ورځ:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">تاسو ويکي‌پېډيا کې ټولټال %1$d دقيقه تېره کړې. دا ډېر گټور کار دی!</item>
+    <item quantity="other">تاسو ويکي‌پېډيا کې ټولټال %1$d دقيقې تېرې کړې. دا ډېر گټور کار دی!</item>
+  </plurals>
   <string name="yir_articles_read_headline">د هغو ليکنو خوند چې تاسو يې لولئ:</string>
   <string name="yir_most_time_article_headline">تاسو ډېر وخت په کومو څيزونو تېر کړ؟</string>
   <string name="yir_guess_article_choose_action">%s خوښول</string>
@@ -1996,36 +2012,65 @@
   <string name="yir_edit_views_supporting">په %1$d کې، د نړۍ له گوټ گوټ څخه لوستونکو هغه بدلونونه وليدل چې تاسو کړې دي.</string>
   <string name="yir_most_viewed_edited_articles_headline">ستاسو د سمون راهيسې تر ټولو ډېرې ليدل شوې ليکنې:</string>
   <string name="yir_contributor_thanks_headline">مننه!</string>
+  <string name="yir_contributor_thanks_supporting">د يو %1$s په توگه، ستاسو ونډو ويکي‌پېډيا له خبرتياوو سپا، باور وړ او لاسرسي وړ ساتلې ده. موږ له ويکي‌پېډيا څخه ستاسو د ملاتړ کافي مننه نشو کولی</string>
   <string name="yir_non_contributor_headline">ته مهم يې.</string>
+  <string name="yir_non_contributor_supporting">ويکي‌پېډيا ستاسو په څېر رښتينو خلکو له کبله شتون لري، چې  د هغې د هرمختگ لپاره هر څه چې کولی شي، ونډه اخلي. که ويکي مېډيا ستاسو لپاره ارزښتناکه وي؛ نو مهرباني وکړئ بسپنې ورکولو يا سمولو له لارې يې ملاتړ وکړئ.</string>
   <string name="yir_community_intro_headline">زموږ د کال بياکتنه دلته ده</string>
+  <string name="yir_community_intro_supporting">دا ځل دومره کارندتيا نه وه چې ستاسو د کال بياکتنه جوړه کړي؛ خو تاسو لا هم کولی شئ هغه څه وپلټئ چې نړۍ يوځای وموندل.</string>
   <string name="yir_community_reading_hours_headline">%1$d کې موږ د ويکي‌پېډيا په لوستلو تېرې کړې گړئ:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">په ټوله کې په ټولو ژبو کې د اټکل له مخې ستاسو په څېر لوستونکو د ويکي‌پېډيا لوستلو کې %1$,d کال تېر کړی.</item>
+    <item quantity="other">په ټوله کې په ټولو ژبو کې د اټکل له مخې ستاسو په څېر لوستونکو د ويکي‌پېډيا لوستلو کې %1$,d کاله تېر کړي.</item>
+  </plurals>
   <string name="yir_community_languages_title">ويکي‌پېډيا په دې ژبو د لاسرسي وړ ده:</string>
+  <plurals name="yir_community_languages_headline">
+    <item quantity="one">هغه ژبې چې ويکي‌پېډيا پکې شتون لري:%1$d څخه زياتې</item>
+    <item quantity="other">هغه ژبې چې ويکي‌پېډيا پکې شتون لري:%1$d څخه زياتې</item>
+  </plurals>
+  <string name="yir_community_languages_supporting">ويکي‌پېډيا د نړۍ له گوټ گوټ څخه د خپل‌خوښو کارنانو ټولنې ليکل کېږي او ساتل کېږي -دا د دې ثبوت دی چې بشر پوهنه له يوه څخه په ډېرو ژبو خبرې کوي.</string>
   <string name="yir_community_articles_headline">په ويکي‌پېډيا کې ليکنې:</string>
+  <string name="yir_community_articles_supporting">ويکي‌پېډيا په پرله‌پسې ډول د نړۍ له گوټ گوټ څخه د انساني خپل‌خوښو کارنانو له‌خوا جوړېږي چې د باور وړ سرچينو  څخه کار اخلي؛ ترڅو د هغې ټوله منځپانگه جوړه او ترتيب کړي.</string>
   <string name="yir_community_saved_articles_headline">%1$d کې خوندي‌شوې ليکنې:</string>
+  <string name="yir_community_saved_articles_supporting">لوستونکو په زرونه ځله زرگونه ليکنې د لومړي، درېيم يا سلم ځل بيا لوستلو لپاره په نښه کړې دي.</string>
   <string name="yir_community_editors_headline">خپل‌خوښي سمونگران:</string>
+  <string name="yir_community_editors_supporting">ايا پوهېدی چې د ويکي‌رسنۍ ټولې پروژې د خپل‌خوښو کارنانو له‌خوا جوړېږي؟ سمونگران د نوې ليکنو جوړولو او شته ليکنو ښه کولو کې ونډه اخلي.</string>
   <string name="yir_community_edits_headline">هغه سمونونه چې خپل‌خوښي سمونگرانو ترسره کړې دي:</string>
+  <string name="yir_community_edits_supporting">د ورځې هره گړۍ، په ټوله نړۍ کې خپل‌خوښي کارنان د ويکي‌پېډيا ښه‌کولو لپاره د ليکنې د رښتينولۍ هم‌مهالولو، د تاريخي ځايونو انځور اخيستلو او املايي تېروتنو سمولو سره، کار کوي.</string>
   <string name="yir_community_global_reach_title">د ويکي‌پېډيا نړۍ‌وال لاسرسی:</string>
   <string name="yir_community_global_reach_subtitle">په نړۍ کې د لسو ډېر ليدل شويو وېبپاڼو څخه يوه</string>
   <string name="yir_community_global_reach_headline">د ويکي‌پېډيا نړۍ‌وال لاسرسی: په نړۍ کې د لسو ډېر ليدل شويو وېبپاڼو څخه يوه</string>
   <string name="yir_community_global_reach_supporting">ويکي‌پېډيا د اينټرنېټ د پوهې د ملا تير دی. له زده کوونکو څخه تر بنډار روباټونو پورې، هرڅوک ترې زده کړه کوي.</string>
   <string name="yir_community_contribute_headline">ته مهم يې.</string>
+  <string name="yir_community_contribute_supporting">ويکي‌پېډيا ستاسو په څېر رښتينو خلکو له کبله شتون لري، چې  د هغې د هرمختگ لپاره هر څه چې کولی شي، ونډه اخلي. که ويکي مېډيا ستاسو لپاره ارزښتناکه وي؛ نو مهرباني وکړئ بسپنې ورکولو يا سمولو له لارې يې ملاتړ وکړئ.\n\nلادمخه ونډه‌اخيستونکی ياست؟ د خپلو ونډو د جایزې ليدلو لپاره ننوځئ يا گڼون جوړ کړئ.</string>
   <string name="yir_closing_headline">تر بلې يوې داسې سکالو چې په کې ورک شئ</string>
+  <string name="yir_closing_supporting">که تاسو د يوې يا سلو ليکنو لپاره راغلي ياست، په ويکي‌پېډيا کې سپړلو، لوستلو او زموږ سره لېوال پاتې کېدلو لپاره مننه.</string>
   <string name="yir_closing_share_action">سرټکي شريکول</string>
   <string name="yir_store_discount_headline">يوه کوچنۍ مننه</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">دا چې تاسو د پوهې وړيا ساتلو کې مرسته کوئ؛ نو موږ تاسو ته په ويکي‌پېډيا پلورنځي کې %1$d تخفيف درکوو. هېڅ کوډ ته اړتيا نشته، دا د بسپنې ورکولو وروسته پلی کېږي.</item>
+    <item quantity="other">دا چې تاسو د پوهې وړيا ساتلو کې مرسته کوئ؛ نو موږ تاسو ته په ويکي‌پېډيا پلورنځي کې %1$d تخفيف درکوو. هېڅ کوډ ته اړتيا نشته، دا د بسپنې ورکولو وروسته پلی کېږي.</item>
+  </plurals>
   <string name="yir_store_discount_action">هټۍ نه ليدنه وکړئ</string>
   <string name="yir_games_headline">بلې ننگونې ته چمتو ياست؟</string>
+  <string name="yir_games_supporting">د نړۍ له پوهې څخه الهام اخيستل شويو چټکو لوبو سره خپل د ويکي‌پېډيا پوهه مو ازمېښت کړئ.</string>
   <string name="yir_games_action">لوبول پيلول</string>
   <string name="yir_customize_home_headline">کور مخ په خپله خوښه جوړ کړئ</string>
+  <string name="yir_customize_home_supporting">د خپلې خوښې سکالوگانې غوره کړئ؛ ترڅو د خپلې خوښې سره سم وړانديزونه ترلاسه کړئ.</string>
   <string name="yir_customize_home_action">لېوالتياوې دوديزول</string>
   <string name="yir_community_recap_headline">زموږ کال بياکتنه کې</string>
+  <string name="yir_community_recap_supporting">بيامومئ چې نړۍ څومره لوستلي، سمې کړي او يوځای سپرلی دي.</string>
   <string name="yir_community_recap_action">اوس يې وسپړئ</string>
   <string name="yir_quiz_headline">له کومې ويکي‌پېډيا ياست؟</string>
+  <string name="yir_quiz_supporting">د شمېره‌نيونې اينټرنيټ له ورځو تر نن پورې د ويکي‌پېډيا پېښليک ته يون وکړئ.</string>
+  <string name="yir_quiz_action">ازمون کې برخه واخلئ</string>
   <string name="yir_open_tabs_headline">د خپلو پرانېستو ريښکو بياليدنه وکړئ</string>
+  <string name="yir_share_text">دلته زما د ويکي‌پېډيا کاريال څخه د ويکي‌پېډيا %1$d کال بیاکتنه ده: %2$s</string>
   <string name="yir_feature_card_title">%1$d ويکي‌پېډيا کال بياکتنه</string>
   <string name="yir_feature_card_articles_read">د لوستل شوو ليکنو شمېر:</string>
   <string name="yir_feature_card_minutes_read">د لوستلو شويو دقيقو ټولټال:</string>
   <string name="yir_feature_card_articles_reread">زما په گرځون کې ليکنې:</string>
   <string name="yir_feature_card_longest_rabbit_hole">تر ټولو اوږده سکالو چې تاسو پکې ډوب شوي ياست:</string>
+  <string name="yir_feature_card_top_category">يوه ځانگړې وېشنيزه وپلټل شوه:</string>
   <string name="yir_feature_card_created_with">ويکي‌پېډيا کاريال سره جوړ شوی</string>
   <string name="yir_topic_comment_architecture">تاسو کال د هغه څيزونو په ستاينه تېر کړ چې د دوام لپاره جوړ شوي وو.</string>
   <string name="yir_topic_comment_art">تاسو د ښکلا، زړه‌ورتيا او کله ناکله د اريانوونکو څيزونو په لور متوجه شوې ياست.</string>
@@ -2131,6 +2176,7 @@
   <string name="year_in_review_login_dialog_title">ځانواله کولو لپاره ننوځي؟</string>
   <string name="year_in_review_login_dialog_body">ننوتل تاسو ته ځانواله‌شويو پوه‌ليدونو ته لاسرسی درکوي. تاسو لا هم کولی شئ پرته ننوتلو څخه ډله‌ييز پوه‌ليدونه وگورئ.</string>
   <string name="year_in_review_login_dialog_title_nodata">ويکي‌پېډيا له گڼون سره غوره ده</string>
+  <string name="year_in_review_login_dialog_body_nodata">ننوتل تاسو ته د کاريال غوره برخو ته لاسرسی درکوي. نن ورځ د گڼون جوړولو سره د راتلونکي کال د کال بياکتنې د جوړولو پيل وکړئ.</string>
   <string name="year_in_review_login_dialog_title_data">ستاسو د کال بياکتنه له گڼون سره غوره ده</string>
   <string name="year_in_review_login_dialog_body_data">د خپلو غوره سکالوگانو، ليکنو او تر ټولو اوږدو ورکېدنو او نورو ليدلو لپاره ننوځئ. تاسو لا هم کولی شئ پرته له ننوتلو ډله‌ييز پوه‌ليد وگورئ.</string>
   <string name="year_in_review_login_dialog_positive">ويکيپېډيا ته ننوتل / يوځای‌کېدل</string>
@@ -2435,6 +2481,7 @@
   <string name="donation_reminders_first_milestone_reached_prompt_title">تاسو د %2$s ژمنې کولو راهيسې %1$s لوستی دی!</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">تاسو نور %1$s لوستې دي!</string>
   <string name="donation_reminders_prompt_message">تاسو په %1$s د بسپنې يادښت اوڼلی دی؛ ترڅو په هرو %2$s لوستنو %3$s ورکړئ. ايا تاسو چمتو ياست چې د ويکي‌پډيا د ملاتړ لپاره خپله ژمنه پوره کړئ؟</string>
+  <string name="donation_reminders_prompt_message_v2">په %1$s کې تاسو له موږ غوښتي وو، چې د %2$s لوستنو وروسته تاسو ته د بسپنې ورکولو خبر درکړي. که ويکي‌پېډيا ستاسو د پوهې %3$s لوړه کړې وي؛ نو له 2%% هغه لوستونکو سره يوځای شئ چې بسپنه ورکوئ او خپله ژمنه پوره کړئ.</string>
   <string name="donation_reminders_prompt_positive_button">اوس بسپنه ورکول</string>
   <string name="donation_reminders_prompt_positive_button_v2">هو، اوس بسپنه ورکړئ</string>
   <string name="donation_reminders_prompt_negative_button">اوس نه</string>
@@ -2459,6 +2506,7 @@
   <string name="donation_reminders_settings_update_reminder_button">يادوونکی هم‌مهالول</string>
   <string name="donation_reminders_beta_label">ازمېښتي</string>
   <string name="donation_reminders_wrap_up_title">دا د بسپنې د يادونې يو لنډيز دی</string>
+  <string name="donation_reminders_wrap_up_message">د هغه ليکنو پر بنسټ چې تاسو يې لولئ د بسپنې يادگېرنو د ازمېښت لپاره مننه. ستاسو غبرگون د دې پرېکړه کوي چې دا بايد په ويکي‌پېډيا کې د بسپنې تلپاتې لار شي. دا يوازې يوه دقيقه وخت نيسي او هېڅ بسپنې ورکولو ته اړتيا نلري.</string>
   <string name="donation_reminders_wrap_up_share_feedback_button">غبرگون شريکول</string>
   <string name="donation_reminders_wrap_up_survey_title">د بسپنې يادوونکي په اړه يو چټکه پوښتنه</string>
   <string name="donation_reminders_wrap_up_survey_message">ايا د هغه ليکنو پربنسټ چې تاسو يې لولئ د بسپنې يادونې بايد دايمي ځانگړنه شي؟</string>
@@ -2598,6 +2646,7 @@
   <string name="home_feed_new_within_interest_title">ستاسو خواپورو کې نوې ليکنه</string>
   <string name="home_feed_new_within_interest_subtitle">دې وروستيو کې جوړې شوې ليکنې د هغه ليکنو په څېر چې تاسو يې څارئ</string>
   <string name="home_feed_settings_read_aloud_lead_section_title">د ليکنې سريزه واورئ</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">د هغه سکالوگانو د ليکنو لپاره چې تاسو څارئ، د ليکنې پېژندون غږ وپنځوئ</string>
   <string name="home_feed_settings_because_you_read_subtitle">وړانديزونه ستاسو د پېښليک د وروستيو ليکنې پربنسټ دي</string>
   <string name="home_feed_settings_continue_reading_title">لوستلو ته دوام ورکول</string>
   <string name="home_feed_settings_continue_reading_subtitle">بېرته هغه ليکنو ته ورشئ؛ چې پای ته رسولې مو نه دي</string>
@@ -2645,6 +2694,7 @@
   <string name="read_aloud_card_retry">بيا هڅه‌کول</string>
   <string name="read_aloud_card_error">د دې ليکنې غږ شتون نلري.</string>
   <string name="read_aloud_card_keep_listening">غوږ نيسئ؟</string>
+  <string name="read_aloud_card_audio_date">دا غږ د %s څخه د ليکنې د منځپانگې پربنسټ د &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt; ليک غږاړې رغبېلگې&lt;/a&gt; کارولو سره پنځول شوی.</string>
   <string name="read_aloud_card_audio_attribution">دا غږ د &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;د ليک غږاړې رغبېلگې&lt;/a&gt; کارولو سره زېږول شوی.</string>
   <string name="read_aloud_lead_section_tooltip_text">نوې ازمېښتي ځانگړنه: د \"ستاسو لپاره\" برخه کې د ليکنې سريزې واورئ</string>
   <string name="read_aloud_lead_section_survey_title">تاسو د ويکي‌پېډيا اورېدو سره څومره لېوالتيا لرئ؟</string>
