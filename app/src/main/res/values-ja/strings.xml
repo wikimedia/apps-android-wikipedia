@@ -666,6 +666,9 @@
   <string name="reading_list_add_to_other_list">別のあとで読むリストに追加</string>
   <string name="reading_list_move_to_other_list">別のあとで読むリストに移動</string>
   <string name="reading_list_add_to_collection">あとで読むリストに追加</string>
+  <plurals name="reading_list_in_collections">
+    <item quantity="other">%d本の閲覧リスト</item>
+  </plurals>
   <string name="reading_list_move_from_to_other_list">%sから別のあとで読むリストに移動</string>
   <string name="reading_list_remove_from_list">%sから削除</string>
   <string name="reading_list_remove_from_lists">あとで読むリストから除去</string>
@@ -1931,6 +1934,9 @@
   <string name="wikipedia_games_title">ウィキペディアゲーム</string>
   <string name="wikipedia_games_subtitle">ウィキペディアのコンテンツに基づく毎日のトリビアゲーム。</string>
   <string name="yir_intro_headline">あなたのウィキペディアの一年の振り返りはこちらです</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="other"> %2$d年に信頼できるウィキペディア アプリで%1$d日を過ごしていただきありがとうございます。</item>
+  </plurals>
   <string name="yir_article_count_headline">あなたの総記事数:</string>
   <plurals name="yir_article_count_supporting_top">
     <item quantity="other">あなたはグローバルなウィキペディア読者の上位%1$s%%です。平均的な人は年に%2$d記事を読みます。</item>
@@ -1957,6 +1963,9 @@
   <string name="yir_reading_time_empty_headline">あなたは基本的にいつでも閲覧します</string>
   <string name="yir_reading_time_empty_supporting">ウィキペディアのページを探索すると決めている日または時間は設定されていせん。</string>
   <string name="yir_top_topic_headline">あなたの%1$d年の上位トピック:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="other"> %1$sから%2$sまで、 %3$d本の記事がこのテーマに関連していました。 %4$s </item>
+  </plurals>
   <string name="yir_top_topic_empty_headline">あなたの%1$dの最重要テーマは…すべてです</string>
   <string name="yir_top_topic_empty_supporting">興味の対象が多岐にわたるため、あなたの閲覧習慣を決定づけるような特定のテーマがありません。</string>
   <string name="yir_runner_up_topics_headline">そして%1$d年の次点はこちらです。</string>
@@ -1964,17 +1973,32 @@
     <item quantity="other">%1$d記事</item>
   </plurals>
   <string name="yir_biggest_reading_day_headline">閲覧が最大の日:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="other">あなたはウィキペディアに合計%1$d分をかけました。これは生産的ではないでしょうか?</item>
+  </plurals>
   <string name="yir_articles_read_headline">あなたが閲覧した記事の例:</string>
   <string name="yir_most_time_article_headline">どれに一番時間をかけましたか?</string>
   <string name="yir_guess_article_choose_action">%sを選択</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="other">この記事に合計%1$d分をかけました（ %2$d年に）!</item>
+  </plurals>
   <string name="yir_rabbit_hole_headline">あなたが掘り下げた探求の中で、最も深かったのはどれですか?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="other"> %1$d個のリンクの深さは印象的です。</item>
+  </plurals>
   <string name="yir_rabbit_hole_depth_supporting">次にあなたはどのウサギの穴に落ちていくのでしょうか?</string>
   <string name="yir_niche_category_headline">ニッチな趣味について話しましょう。例えば、次のようなものです。</string>
   <string name="yir_niche_category_supporting">何らかの理由で、このカテゴリーに関しては、あなたは全力投球しましたね!</string>
   <string name="yir_reread_articles_headline">あなたのローテーションに含まれる記事の一部:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="other">%1$d ビュー</item>
+  </plurals>
   <string name="yir_reread_articles_empty_headline">あなたは再読する人ではないですね</string>
   <string name="yir_reread_articles_empty_supporting">記事を二度読むなんてことはもうしない。君は目新しさや、新たな探求の旅を好むんだね。</string>
   <string name="yir_places_headline">あなたの閲覧体験は、実質的にあなたを次の場所へと導きました。</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="other"> %1$d本の記事に基づく</item>
+  </plurals>
   <string name="yir_places_empty_headline">あなたの閲覧はあなたを世界各地へと連れて行きました。</string>
   <string name="yir_places_empty_supporting">%1$d年、あなたはウィキペディアのあらゆる場所を旅しました。外出先を探す際は、「場所」機能を使ってアイデアを探してみてください。</string>
   <plurals name="yir_saved_articles_headline">
@@ -1999,6 +2023,9 @@
   <string name="yir_community_intro_headline">私たちの一年の振り返りはこちらです</string>
   <string name="yir_community_intro_supporting">今回あなた自身の一年の振り返りを生成するのには十分なデータがありませんでしたが、世界が発見したものを一緒に探索しましょう。</string>
   <string name="yir_community_reading_hours_headline">%1$d年に私たちがウィキペディア閲覧にかけた時間:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="other">あなたのような読者は、すべての言語を合わせて推定%1$,d年間相当の時間ウィキペディアを読んでいます。</item>
+  </plurals>
   <string name="yir_community_languages_title">ウィキペディアが利用可能な言語数:</string>
   <plurals name="yir_community_languages_headline">
     <item quantity="other">ウィキペディアの知識が利用可能な言語数: %1$d言語以上</item>
@@ -2095,6 +2122,9 @@
   <string name="yir_time_spent_comment_121">それは現在のマラソン世界記録よりも長いのです。</string>
   <string name="yir_time_spent_comment_540">それは一晩ぐっすり眠るよりも長い時間です。</string>
   <string name="yir_time_spent_comment_1441">それは女王蜂が最大2000個の卵を産むのにかかる時間よりも長いのです。</string>
+  <plurals name="yir_time_spent_comment_2800">
+    <item quantity="other">それは%1$d日よりも長いのです。</item>
+  </plurals>
   <string name="year_in_review_learn_more">詳細</string>
   <string name="year_in_review_about_your_insights">あなたの洞察について</string>
   <string name="year_in_review_share_feedback">フィードバックを共有</string>
@@ -2162,11 +2192,50 @@
   <string name="year_in_review_slide_top_categories_body">カテゴリーは類似のテーマに関する記事をグループ化します。 %1$d年では以下の興味深いカテゴリの記事を複数回閲覧しました: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">英語ウィキペディアの最も読まれている記事</string>
   <string name="year_in_review_slide_most_read_english_articles_body">{{PLURAL|one=誰かが世界について学びたいときはウィキペディアに頼ります。Englishウィキペディアで最も閲覧された%1$d本の記事は %2$sでした。&lt;br /&gt;詳しくは&lt;a href=\"%3$s \"&gt;この点についてのブログ&lt;/a&gt;をご覧ください。|誰かが世界について学びたいときはウィキペディアに頼ります。Englishウィキペディアで最も閲覧された%1$d本の記事は %2$sでした。&lt;br /&gt;詳しくは&lt;a href=\"%3$s \"&gt;この点についてのブログ&lt;/a&gt;をご覧ください。</string>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="other">あなたの編集は最近%,d回以上閲覧されました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="other">世界中の読者があなたの貢献を高く評価しています。過去2か月間で、あなたが編集した記事は合計%,d回の閲覧数を獲得しました。あなたのような編集者のおかげでウィキペディアは着実に改善され、事実に基づいた信頼できる世界のための知識リソースとなっています。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="other">ウィキペディアは1分間に%,d回編集されました</item>
+  </plurals>
   <string name="year_in_review_slide_edited_per_minute_body">記事は信頼できる情報源を使用して共同で作成、改訂されています。私達は皆、共有すべき知識を持っていますから &lt;a href=\"%s\"&gt;参加方法をご覧ください。&lt;/a&gt;</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
     <item quantity="other">%,dバイト追加</item>
   </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="other"> %1$d年に、ボランティアが %2$,d バイトをEnglishウィキペディアに追加しました。彼らの共同作業の総和は、着実に改善され、事実に基づいた信頼できる知識リソースを世界に提供することになります。私たち全員が共有できる知識を持っています。 &lt;a href=\"%3$s \"&gt;参加の仕方&lt;/a&gt; 。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="other">あなたは %s回編集しました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="other">世界中のウィキメディアプロジェクトに貢献してくださっているボランティア編集者の皆様、ありがとうございます。皆様のようなボランティアの方々のおかげで、300以上の言語版ウィキペディアで%,d件の変更が実現しました。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="other">公式ウィキペディアアプリの編集者が%,d本の編集を行いました</item>
+  </plurals>
   <string name="year_in_review_slide_app_edited_times_body">ウィキペディアの心臓部とも魂ともいうべきはボランティアの貢献者、寄付者、そしてあなたのような何十億もの閲覧者です – 信頼できる情報への無制限のアクセスを共有しようと集まったのです。</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="other">編集者は今年%,dの変更を行いました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="other">ボランティアはウィキペディアの300以上の言語版で%,d件の変更を行いました。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="other">%,d 件の変更がEnglishウィキペディアで行われました。毎日毎時間、ボランティアがウィキペディアの改善に取り組んでいます。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="other">%,d 本の記事を保存しました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="other">これらの記事には、 &lt;b&gt;%1$s&lt;/b&gt; 、 &lt;b&gt;%2$s&lt;/b&gt; 、 &lt;b&gt;%3$s&lt;/b&gt;が含まれていました。保存された各記事はあなたの興味を反映しておりウィキペディア上でパーソナライズされた知識ベースを構築するのに役立ちます。&lt;br /&gt;&lt;br /&gt;今年、アプリのアクティブユーザーは%4$,d本の記事を保存しました。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="other">アプリユーザーが%,d本の記事を保存しました</item>
+  </plurals>
   <string name="year_in_review_slide_global_saved_articles_body">あとで読むリストに記事を追加しておくと、オフラインの状態でも記事にアクセスできます。また、ログインすると複数の端末間であとで読むリストの同期もできます。</string>
   <string name="year_in_review_slide_reading_patterns_headline">あなたには明確な閲覧パターンがあります</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">お気に入りの閲覧時間</string>
@@ -2180,6 +2249,45 @@
   <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="other">私たちは閲覧に%,d時間費やしました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="other">皆さんは推定%,d時間をかけました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="other">—約%1$,d年間分!—Englishウィキペディアを%2$d年に閲覧したことになります。ウィキペディアは、変化する世界について学びたいとき、友達との賭けに勝ちたいとき、好奇心旺盛な子供の質問に答えたいときに役立ちます。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="other">ウィキペディアは%,d以上の言語で利用可能でした</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="other">ウィキペディアには%,d本の記事がありました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="other">今年、 %,d以上のアクティブな言語がありました。あなたは何百万人もの人々と共に知識を広げ、多様なトピックを探求したことになります。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="other">あなたは%,d分をかけました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="other"> %2$d年に %1$,d本の記事を閲覧</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="other">あなたはグローバルなウィキペディア読者の上位%1$s%%です。平均的な人は年に%2$,d本の記事を読みます。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="other">ウィキペディアには%,d本の記事がありました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="other">今年、 %,d以上のアクティブな言語がありました。あなたは何百万人もの人々と共に知識を広げ、多様なトピックを探求したことになります。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="other">皆さんは推定%,d時間をかけました</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="other">—約%1$,d年分!—Englishウィキペディアを%2$d年に読んだことになります。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="other">アプリユーザーはウィキペディアの記事を%,d回閲覧しました</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">世界中の人々にとってウィキペディアは、 疑問に答えたり、学校や仕事で情報を調べたり、新しい事実を学んだりする際に最初に訪れる場所です。</string>
   <string name="year_in_review_reading_list_dialog_title">%d年を振り返るあとで読むリストを作成しますか?</string>
@@ -2221,6 +2329,9 @@
   </plurals>
   <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
     <item quantity="other">興味を持ったカテゴリ</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="other">編集回数</item>
   </plurals>
   <string name="year_in_review_highlights_share_button_title">ハイライトを共有</string>
   <string name="year_in_review_highlights_logo_description">ウィキペディアロゴ</string>

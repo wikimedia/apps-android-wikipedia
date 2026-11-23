@@ -22,6 +22,7 @@
 * Djiboun
 * DreZhsh
 * Easmit
+* Eihel
 * Elodark
 * Eneelk
 * Envlh
@@ -2567,8 +2568,8 @@
   <string name="semantic_search_feedback_dialog_close_button_content_description">Fermer le retour de recherche sémantique</string>
   <string name="semantic_search_snackbar_message">Module masqué. Vous pouvez le rendre de nouveau visible dans les paramètres</string>
   <string name="semantic_search_snackbar_action_label">Modifier</string>
-  <string name="notifications_experiment_weekly_most_read_channel_title">Articles les plus lus de la semaine</string>
+  <string name="notifications_experiment_weekly_most_read_channel_title">Chaînes les plus lus de la semaine</string>
   <string name="notifications_experiment_weekly_most_read_channel_description">Notifications des articles les plus lus de la semaine</string>
-  <string name="notifications_experiment_weekly_most_read_notification_title">Tendances de la semaine</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">Tendances de la semaine 📈</string>
   <string name="notifications_experiment_weekly_most_read_notification_description">N° 1 : %s. Découvrez ce que tout le monde lit.</string>
 </resources>
