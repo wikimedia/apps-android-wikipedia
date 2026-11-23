@@ -151,7 +151,7 @@
   <string name="search_empty_message_multilingual_upgrade">ⵔⵣⵓ ⴳ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ ⵙ ⵡⵓⴳⴳⴰⵔ ⵏ ⵜⵓⵜⵍⴰⵢⵉⵏ</string>
   <string name="delete_selected_items">ⴽⴽⵙ ⵉⴼⵔⴷⵉⵙⵏ ⵜⵜⵓⵙⵜⴰⵢⵏⵉⵏ</string>
   <string name="wp_stylized">&lt;big&gt;ⵡ&lt;/big&gt;ⵉⴽⵉⴱⵉⴷⵢ&lt;big&gt;ⴰ&lt;/big&gt;</string>
-  <string name="create_account_username_hint">ⵉⵙⵎ ⵏ ⵓⵙⵎⵔⴰⵙ</string>
+  <string name="create_account_username_hint">ⵉⵙⵎ ⵏ ⵓⵏⵙⵎⵔⴰⵙ</string>
   <string name="login_dont_have_account">ⵓⵔ ⵖⵓⵔⴽ ⵉⵍⵍⵉ ⵓⵎⵉⴹⴰⵏ?</string>
   <string name="login_join_wikipedia">ⵍⴽⵎ ⵉ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
   <string name="login_forgot_password">ⵜⴻⵜⵜⵓⴷ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵏⵏⴽ/ⵎ?</string>
@@ -305,8 +305,10 @@
   <string name="description_edit_save">ⴼⵙⵔ</string>
   <string name="description_edit_read">ⵖⵔ</string>
   <string name="description_edit_cancel_hint">ⵙⵔ</string>
-  <string name="description_edit_success_done">ⵙⵖⵣⵏ</string>
+  <string name="description_edit_success_done">ⵉⵎⴷⴰ</string>
   <string name="description_edit_success_did_you_know">ⵉⵙ ⵜⵙⵙⵏⴷ?</string>
+  <string name="suggested_edits_edit_patrol_review">ⵣⵣⵔⵉ</string>
+  <string name="suggested_edits_review_description">ⵣⵣⵔⵉ ⴰⴳⵍⴰⵎ ⵏ ⵓⵎⴳⵔⴰⴷ</string>
   <string name="suggested_edits_add_description_button">ⵔⵏⵓ ⴰⴳⵍⴰⵎ</string>
   <string name="suggested_edits_edit_description_button">ⵙⵏⴼⵍ ⴰⴳⵍⴰⵎ</string>
   <string name="suggested_edits_add_translation_button">ⵔⵏⵓ ⴰⴳⵍⴰⵎ</string>
@@ -356,6 +358,7 @@
   <string name="content_description_for_page_indicator">ⵜⴰⵙⵏⴰ ⵜⵉⵙ %1$d ⵙⴳ %2$d</string>
   <string name="wikitext_link">ⴰⵙⵖⵏ</string>
   <string name="wikitext_template">ⴰⵍⴱⵓⴹ</string>
+  <string name="wikitext_reference">ⴰⵙⴰⵖⵓⵍ</string>
   <string name="main_drawer_help">ⵜⵉⵡⵉⵙⵉ</string>
   <string name="custom_date_picker_dialog_ok_button_text">ⵡⴰⵅⵅⴰ</string>
   <string name="text_input_dialog_ok_button_text">ⵡⴰⵅⵅⴰ</string>
@@ -368,13 +371,17 @@
   <string name="talk_list_item_overflow_share">ⴷⵔⵓ</string>
   <string name="watchlist_filter_pages">ⵜⴰⵙⵏⵉⵡⵉⵏ</string>
   <string name="watchlist_filter_other">ⵢⴰⴹⵏ</string>
+  <string name="watchlist_filter_automated_contributions_bot">ⴰⴱⵓⵜ</string>
   <string name="watchlist_filter_type_of_change_new_users">ⵉⵏⵙⵙⵎⵔⴰⵙ ⵉⵎⴰⵢⵏⵓⵜⵏ</string>
   <string name="action_item_categories">ⵉⵙⵎⵉⵍⵏ</string>
+  <string name="category_tab_articles">ⵉⵎⴳⵔⴰⴷⵏ</string>
   <string name="namespace_article">ⴰⵎⴳⵔⴰⴷ</string>
+  <string name="talk_templates_new_message_title">ⵜⵓⵣⵉⵏⵜ ⵜⴰⵎⴰⵢⵏⵓⵜ</string>
   <string name="talk_templates_edit_message_dialog_title">ⴰⵙⵏⴼⵍ ⵏ ⵜⴱⵔⴰⵜ</string>
   <string name="talk_templates_menu_remove_message">ⴽⴽⵙ ⵜⵓⵣⵉⵏⵜ</string>
   <string name="patroller_tasks_filters_all_text">ⴰⴽⴽⵯ</string>
   <string name="patroller_onboarding_two_talk_title">ⴰⵎⵙⴰⵡⴰⵍ</string>
+  <string name="places_toggle_buttons_list">ⵜⴰⵍⴳⴰⵎⵜ</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">ⴰⵙⵙ ⵢⵓⴼⵏ ⵉ ⵜⵉⵖⵔⵉ</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">ⵙⵏⵓⵍⴼⵓ</string>
   <string name="year_in_review_highlights_logo_description">ⵜⴰⵎⴰⵜⴰⵔⵜ ⵏ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
@@ -407,6 +414,7 @@
   <string name="reading_lists_tab_all_articles">ⵉⵎⴳⵔⴰⴷⵏ ⴰⴽⴽⵯ</string>
   <string name="reading_lists_save_sheet_create">ⵙⵏⵓⵍⴼⵓ</string>
   <string name="semantic_search_info_dialog_button_text">ⵍⵎⴷ ⵓⴳⴳⴰⵔ</string>
+  <string name="semantic_search_results_last_updated_label">ⴰⵙⴷⵖⵉ ⴰⵏⴳⴳⴰⵔⵓ %s</string>
   <string name="semantic_search_feedback_dialog_title">ⴰⵖⴼⴰⵡⴰⵍ</string>
   <string name="preference_heading_semantic_search">ⵔⵣⵓ</string>
 </resources>

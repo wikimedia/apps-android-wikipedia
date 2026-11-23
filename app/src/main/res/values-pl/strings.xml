@@ -3077,5 +3077,5 @@
   <string name="notifications_experiment_weekly_most_read_channel_title">Najczęściej czytane w tym tygodniu</string>
   <string name="notifications_experiment_weekly_most_read_channel_description">Powiadomienia o najczęściej czytanych artykułach tygodnia</string>
   <string name="notifications_experiment_weekly_most_read_notification_title">Najpopularniejsze w tym tygodniu 📈</string>
-  <string name="notifications_experiment_weekly_most_read_notification_description">Nr 1 %s. Zobacz, o czym jeszcze czytają inni.</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">Numer 1: „%s”. Zobacz, o czym jeszcze czytają inni.</string>
 </resources>

@@ -2398,6 +2398,10 @@
     <item quantity="one">Artigo lido</item>
     <item quantity="other">Artigos lidos</item>
   </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">Categoria que me interessou</item>
+    <item quantity="other">Categorias que me interessaram</item>
+  </plurals>
   <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">Tempo editado</item>
     <item quantity="other">Tempos editados</item>
@@ -2760,6 +2764,7 @@
   <string name="semantic_search_entry_point_card_text_button">Experimente agora</string>
   <string name="semantic_search_info_dialog_button_text">Saiba mais</string>
   <string name="semantic_search_beta_label">Beta</string>
+  <string name="semantic_search_no_results_message">Nenhum resultado para esta pesquisa</string>
   <string name="semantic_search_results_last_updated_label">Última atualização: %s</string>
   <string name="semantic_search_results_feedback_submit_button_text">Enviar</string>
   <string name="semantic_search_feedback_dialog_title">Comentário</string>

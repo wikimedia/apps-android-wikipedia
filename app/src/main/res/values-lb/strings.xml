@@ -1130,6 +1130,7 @@
   <string name="image_recommendation_reject_subtitle">Den Ofleenungsgrond ass anonym a wäert zukünfteg Bildvirschléi besser maachen.</string>
   <string name="image_recommendation_reject_not_relevant">D\'Bild ass net relevant</string>
   <string name="image_recommendation_reject_no_info">Net genuch Informatioune fir ze decidéieren</string>
+  <string name="image_recommendation_reject_offensive">Bild ass verletzend</string>
   <string name="image_recommendation_reject_low_quality">Bild huet eng niddreg Qualitéit</string>
   <string name="image_recommendation_reject_dont_know">Ech kenne mech mat dësem Theema net aus</string>
   <string name="image_recommendation_reject_other">Anerer</string>

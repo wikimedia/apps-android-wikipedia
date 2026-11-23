@@ -323,7 +323,7 @@
   <string name="preference_summary_sync_reading_lists">将阅读列表保存到您的维基百科账户，即可在不同设备间同步您的阅读列表</string>
   <string name="preference_summary_sync_reading_lists_from_account">将阅读列表保存到您的维基百科账户“%s”，以便在不同设备间同步</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">是否从您的账户“%s”中移除已同步的阅读列表？</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">这将彻底删除远程存储中所有先前同步的收藏集。是否从您的账户“%s”中移除所有已同步的收藏？</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将彻底删除远程存储中所有已同步的阅读列表，是否从您的账户“%s”中移除所有已同步的阅读列表？</string>
   <string name="preference_title_auto_upload_crash_reports">发送崩溃报告</string>
   <string name="preference_summary_auto_upload_crash_reports">允许应用自动发送崩溃报告至第三方服务提供方，这样我们可以更快、更容易地浏览您的崩溃报告，并修复漏洞。</string>
   <string name="editing_error_spamblacklist">检测到受封禁域名（%s）的链接。请移除它们并重试。</string>
@@ -476,8 +476,8 @@
   <string name="unnamed_tab_closed">已关闭标签页。</string>
   <string name="tab_item_closed">已关闭%s。</string>
   <string name="all_tab_items_closed">所有标签页均已关闭。</string>
-  <string name="tool_tip_bookmark_icon_title" fuzzy="true">添加到收藏</string>
-  <string name="tool_tip_bookmark_icon_text" fuzzy="true">点击书签图标，将条目保存到收藏中。</string>
+  <string name="tool_tip_bookmark_icon_title">添加至阅读列表</string>
+  <string name="tool_tip_bookmark_icon_text">点击书签图标，将条目保存到您的阅读列表中。</string>
   <string name="page_view_in_browser">在浏览器中查看页面</string>
   <string name="tool_tip_toc_title">快速访问目录</string>
   <string name="tool_tip_toc_text">现在您可以向左滑动打开目录，还可以点击并拖动这个滚动按钮快速跳到条目的不同部分。</string>
@@ -490,9 +490,9 @@
   <string name="button_continue_to_talk_page">打开讨论页</string>
   <string name="button_continue_to_disambiguation">查看相似的页面</string>
   <string name="link_preview_disambiguation_description">该标题涉及多个页面：</string>
-  <string name="button_add_to_reading_list" fuzzy="true">添加到收藏</string>
+  <string name="button_add_to_reading_list">添加至阅读列表</string>
   <string name="page_offline_notice_cannot_load_while_offline">条目不能在离线时加载。</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">提示：将条目添加到收藏，一旦您重新联网，条目就会被下载。</string>
+  <string name="page_offline_notice_add_to_reading_list">提示：将条目添加到阅读列表，条目会在您重新连接网络后下载。</string>
   <string name="page_offline_notice_last_date">您正在阅读该条目的离线版本，其保存于%s。</string>
   <string name="redirected_from_snackbar">重定向自 “%s”</string>
   <string name="button_get_directions">路线导航</string>
@@ -594,17 +594,17 @@
   <string name="editing_monospace_font_label">使用等宽字体</string>
   <string name="editing_typing_suggestions">显示输入建议</string>
   <string name="nav_item_saved">已保存</string>
-  <string name="reading_list_save_to" fuzzy="true">保存到收藏</string>
-  <string name="reading_list_move_to" fuzzy="true">移至收藏</string>
+  <string name="reading_list_save_to">保存至阅读列表</string>
+  <string name="reading_list_move_to">移动至阅读列表</string>
   <string name="reading_list_create_new">新建</string>
-  <string name="reading_list_title_exists" fuzzy="true">收藏“%s”已存在。</string>
+  <string name="reading_list_title_exists">已有名为“%s”的阅读列表。</string>
   <string name="reading_list_article_added_to_named">已添加%1$s至%2$s。</string>
-  <string name="reading_list_article_added_to_default_list" fuzzy="true">已保存 %s。是否将其添加到收藏吗？</string>
+  <string name="reading_list_article_added_to_default_list">已保存 %s。是否将其添加至阅读列表？</string>
   <string name="reading_list_article_moved_to_named">已移动%1$s至%2$s。</string>
   <string name="reading_list_article_already_exists_message">太好了！%1$s中已经有%2$s了。</string>
   <string name="reading_list_articles_already_exist_message">太好了！%s中已经有全部条目了。</string>
-  <string name="reading_list_added_view_button" fuzzy="true">查看收藏</string>
-  <string name="reading_list_add_to_list_button" fuzzy="true">添加到收藏</string>
+  <string name="reading_list_added_view_button">查看阅读列表</string>
+  <string name="reading_list_add_to_list_button">添加至阅读列表</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1篇条目</item>
     <item quantity="other">%d篇条目</item>
@@ -627,8 +627,8 @@
   <string name="reading_list_sort_by_recent_desc">按添加日期排序（最早优先）</string>
   <string name="reading_list_sort_by_created">按创建日期排序（最近优先）</string>
   <string name="reading_list_sort_by_created_desc">按创建日期排序（最早优先）</string>
-  <string name="reading_list_menu_delete" fuzzy="true">删除收藏</string>
-  <string name="reading_list_menu_export" fuzzy="true">导出收藏</string>
+  <string name="reading_list_menu_delete">删除该阅读列表</string>
+  <string name="reading_list_menu_export">导出阅读列表</string>
   <string name="reading_list_menu_select">选择</string>
   <string name="reading_list_menu_unselect">取消选择</string>
   <string name="reading_list_export_write_permission_rationale" fuzzy="true">导出您的收藏需要设备存储写入权限。</string>
