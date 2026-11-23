@@ -227,6 +227,7 @@ fun SearchResultCard(
         if (onRelevanceClick != null) {
             SearchResultRelevanceRow(
                 modifier = Modifier.padding(top = 8.dp),
+                languageCode = languageCode,
                 relevance = relevance,
                 onRelevanceClick = onRelevanceClick
             )
@@ -285,6 +286,7 @@ private fun SearchResultAttributionItem(@DrawableRes iconRes: Int, text: String)
 @Composable
 private fun SearchResultRelevanceRow(
     modifier: Modifier = Modifier,
+    languageCode: String,
     relevance: Boolean?,
     onRelevanceClick: (Boolean) -> Unit
 ) {
