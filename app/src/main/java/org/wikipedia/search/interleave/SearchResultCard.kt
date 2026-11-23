@@ -37,7 +37,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.selected
@@ -291,6 +290,7 @@ private fun SearchResultRelevanceRow(
     relevance: Boolean?,
     onRelevanceClick: (Boolean) -> Unit
 ) {
+    val context = LocalContext.current
     val isRated = relevance != null
     Row(
         modifier = modifier
@@ -300,7 +300,7 @@ private fun SearchResultRelevanceRow(
     ) {
         Text(
             modifier = Modifier.weight(1f),
-            text = stringResource(R.string.semantic_search_relevance_question),
+            text = context.getString(languageCode, R.string.semantic_search_relevance_question),
             style = MaterialTheme.typography.bodySmall,
             color = WikipediaTheme.colors.secondaryColor
         )
@@ -328,7 +328,8 @@ private fun SearchResultRelevanceRow(
                                 else -> R.drawable.ic_thumb_down
                             }
                         ),
-                        contentDescription = stringResource(
+                        contentDescription = context.getString(
+                            languageCode,
                             if (isPositive) R.string.semantic_search_results_feedback_thumb_up_content_description
                             else R.string.semantic_search_results_feedback_thumb_down_content_description
                         ),
