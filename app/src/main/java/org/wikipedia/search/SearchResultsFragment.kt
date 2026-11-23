@@ -22,6 +22,7 @@ import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.instrument
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
@@ -29,7 +30,6 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.extensions.getString
 
 class SearchResultsFragment : Fragment() {
 
