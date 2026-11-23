@@ -2481,7 +2481,7 @@
   <string name="donation_reminders_first_milestone_reached_prompt_title">تاسو د %2$s ژمنې کولو راهيسې %1$s لوستی دی!</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">تاسو نور %1$s لوستې دي!</string>
   <string name="donation_reminders_prompt_message">تاسو په %1$s د بسپنې يادښت اوڼلی دی؛ ترڅو په هرو %2$s لوستنو %3$s ورکړئ. ايا تاسو چمتو ياست چې د ويکي‌پډيا د ملاتړ لپاره خپله ژمنه پوره کړئ؟</string>
-  <string name="donation_reminders_prompt_message_v2">په %1$s کې تاسو له موږ غوښتي وو، چې د %2$s لوستنو وروسته تاسو ته د بسپنې ورکولو خبر درکړي. که ويکي‌پېډيا ستاسو د پوهې %3$s لوړه کړې وي؛ نو له %2$s هغه لوستونکو سره يوځای شئ چې بسپنه ورکوئ او خپله ژمنه پوره کړئ.</string>
+  <string name="donation_reminders_prompt_message_v2">په %1$s کې تاسو له موږ غوښتي وو، چې د %2$s لوستنو وروسته تاسو ته د بسپنې ورکولو خبر درکړي. که ويکي‌پېډيا ستاسو د پوهې %3$s لوړه کړې وي؛ نو له 2%% هغه لوستونکو سره يوځای شئ چې بسپنه ورکوئ او خپله ژمنه پوره کړئ.</string>
   <string name="donation_reminders_prompt_positive_button">اوس بسپنه ورکول</string>
   <string name="donation_reminders_prompt_positive_button_v2">هو، اوس بسپنه ورکړئ</string>
   <string name="donation_reminders_prompt_negative_button">اوس نه</string>
