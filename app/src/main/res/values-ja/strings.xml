@@ -666,9 +666,6 @@
   <string name="reading_list_add_to_other_list">別のあとで読むリストに追加</string>
   <string name="reading_list_move_to_other_list">別のあとで読むリストに移動</string>
   <string name="reading_list_add_to_collection">あとで読むリストに追加</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="other">%d本の閲覧リスト</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">%sから別のあとで読むリストに移動</string>
   <string name="reading_list_remove_from_list">%sから削除</string>
   <string name="reading_list_remove_from_lists">あとで読むリストから除去</string>
