@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -37,6 +38,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -289,6 +291,7 @@ private fun SearchResultRelevanceRow(
     onRelevanceClick: (Boolean) -> Unit
 ) {
     val context = LocalContext.current
+    val isRated = relevance != null
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -301,31 +304,38 @@ private fun SearchResultRelevanceRow(
             style = MaterialTheme.typography.bodySmall,
             color = WikipediaTheme.colors.secondaryColor
         )
-        listOf(true, false).forEach { isPositive ->
-            val isSelected = relevance == isPositive
-            IconButton(
-                modifier = Modifier
-                    .size(48.dp)
-                    .semantics { selected = isSelected },
-                onClick = { onRelevanceClick(isPositive) }
-            ) {
-                Icon(
-                    modifier = Modifier.size(20.dp),
-                    painter = painterResource(
-                        when {
-                            isPositive && isSelected -> R.drawable.ic_thumb_up_filled
-                            isPositive -> R.drawable.ic_thumb_up
-                            isSelected -> R.drawable.ic_thumb_down_filled
-                            else -> R.drawable.ic_thumb_down
-                        }
-                    ),
-                    contentDescription = context.getString(
-                        languageCode,
-                        if (isPositive) R.string.semantic_search_results_feedback_thumb_up_content_description
-                        else R.string.semantic_search_results_feedback_thumb_down_content_description
-                    ),
-                    tint = WikipediaTheme.colors.primaryColor
-                )
+        CompositionLocalProvider(LocalRippleConfiguration provides if (isRated) null else LocalRippleConfiguration.current) {
+            listOf(true, false).forEach { isPositive ->
+                val isSelected = relevance == isPositive
+                IconButton(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .semantics {
+                            selected = isSelected
+                            if (isRated) disabled()
+                        },
+                    // A rating can't be changed. The button stays enabled so that it keeps consuming the tap,
+                    // which would otherwise fall through to the card and open the article.
+                    onClick = { if (!isRated) onRelevanceClick(isPositive) }
+                ) {
+                    Icon(
+                        modifier = Modifier.size(20.dp),
+                        painter = painterResource(
+                            when {
+                                isPositive && isSelected -> R.drawable.ic_thumb_up_filled
+                                isPositive -> R.drawable.ic_thumb_up
+                                isSelected -> R.drawable.ic_thumb_down_filled
+                                else -> R.drawable.ic_thumb_down
+                            }
+                        ),
+                        contentDescription = context.getString(
+                            languageCode,
+                            if (isPositive) R.string.semantic_search_results_feedback_thumb_up_content_description
+                            else R.string.semantic_search_results_feedback_thumb_down_content_description
+                        ),
+                        tint = WikipediaTheme.colors.primaryColor
+                    )
+                }
             }
         }
     }

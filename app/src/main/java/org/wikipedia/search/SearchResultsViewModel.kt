@@ -75,6 +75,8 @@ class SearchResultsViewModel : ViewModel() {
     private val _attributions = MutableStateFlow<Map<AttributionKey, Attribution>>(emptyMap())
     val attributions = _attributions.asStateFlow()
     private val requestedAttributions = mutableSetOf<AttributionKey>()
+    private val _relevanceRatings = MutableStateFlow<Map<Int, Boolean>>(emptyMap())
+    val relevanceRatings = _relevanceRatings.asStateFlow()
 
     private val languageCodeWithInterleaveSearchEnabled = combine(
         _languageCode,
@@ -99,6 +101,7 @@ class SearchResultsViewModel : ViewModel() {
         combine(_searchTerm.debounce(delayMillis.milliseconds), languageCodeWithInterleaveSearchEnabled, _refreshSearchResults) { term, (lang, isInterleaveEnabled), _ ->
             Triple(term, lang, isInterleaveEnabled)
         }.flatMapLatest { (term, lang, isInterleaveEnabled) ->
+            _relevanceRatings.value = emptyMap()
             // A language change or refresh can re-emit the previous debounced term before the new one settles.
             if (term == _searchTerm.value) {
                 _searchTermForLogging.emit(term)
@@ -187,6 +190,14 @@ class SearchResultsViewModel : ViewModel() {
             }
             _attributions.update { it + (key to (attribution ?: Attribution())) }
         }
+    }
+
+    fun rateResult(pageId: Int, isRelevant: Boolean): Boolean {
+        if (_relevanceRatings.value.containsKey(pageId)) {
+            return false
+        }
+        _relevanceRatings.update { it + (pageId to isRelevant) }
+        return true
     }
 
     fun disableSemanticSearch() {
