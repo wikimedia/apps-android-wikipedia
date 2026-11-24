@@ -165,19 +165,17 @@ private fun SemanticSearchInfoDialogContent(
                                 fontWeight = FontWeight.SemiBold,
                             )
                         }
-
+                        Spacer(modifier = Modifier.height(16.dp))
                         SearchResultCard(
                             searchResult = searchResult
                         )
-
+                        Spacer(modifier = Modifier.height(32.dp))
                         InfoDialogButton(
                             text = context.getString(languageCode, R.string.on_this_day_game_menu_info),
                             iconRes = R.drawable.ic_open_in_new_black_24px,
                             onClick = onLearnMoreClick
                         )
-
                         Spacer(modifier = Modifier.height(8.dp))
-
                         InfoDialogButton(
                             text = context.getString(languageCode, R.string.semantic_search_turn_feature_off_btn_text),
                             onClick = onTurnOffFeatureClick
