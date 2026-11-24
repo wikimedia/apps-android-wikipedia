@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -43,6 +44,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResult.SearchResultType
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
+import org.wikipedia.search.interleave.SearchResultCard
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UriUtil
 
@@ -81,6 +83,9 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
                         UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_learn_more_link).toUri())
                         dismiss()
                     },
+                    onTurnOffFeatureClick = {
+                        // TODO: Add action here.
+                    },
                     languageCode = requireArguments().getString(ARG_LANGUAGE_CODE).orEmpty()
                 )
             }
@@ -104,6 +109,7 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
 private fun SemanticSearchInfoDialogContent(
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
+    onTurnOffFeatureClick: () -> Unit,
     languageCode: String
 ) {
     val context = LocalContext.current
@@ -158,36 +164,60 @@ private fun SemanticSearchInfoDialogContent(
                             )
                         }
 
-                        // TODO: for the new design
+                        SearchResultCard(
+                            searchResult = searchResult
+                        )
 
-                        AppButton(
-                            onClick = onLearnMoreClick,
-                            backgroundColor = WikipediaTheme.colors.backgroundColor,
-                            modifier = Modifier.fillMaxWidth(),
-                        ) {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.Center
-                            ) {
-                                Text(
-                                    text = context.getString(languageCode, R.string.on_this_day_game_menu_info),
-                                    color = WikipediaTheme.colors.progressiveColor,
-                                    style = MaterialTheme.typography.titleMedium
-                                )
-                                Spacer(modifier = Modifier.width(8.dp))
-                                Icon(
-                                    painter = painterResource(id = R.drawable.ic_open_in_new_black_24px),
-                                    tint = WikipediaTheme.colors.progressiveColor,
-                                    contentDescription = null
-                                )
-                            }
-                        }
+                        InfoDialogButton(
+                            text = context.getString(languageCode, R.string.on_this_day_game_menu_info),
+                            iconRes = R.drawable.ic_open_in_new_black_24px,
+                            onClick = onLearnMoreClick
+                        )
+
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        InfoDialogButton(
+                            text = context.getString(languageCode, R.string.semantic_search_turn_feature_off_btn_text),
+                            onClick = onTurnOffFeatureClick
+                        )
                     }
                 },
                 modifier = Modifier
                     .fillMaxWidth()
                     .nestedScroll(rememberNestedScrollInteropConnection())
             )
+        }
+    }
+}
+
+@Composable
+private fun InfoDialogButton(
+    text: String,
+    @DrawableRes iconRes: Int? = null,
+    onClick: () -> Unit
+) {
+    AppButton(
+        onClick = onClick,
+        backgroundColor = WikipediaTheme.colors.backgroundColor,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = text,
+                color = WikipediaTheme.colors.progressiveColor,
+                style = MaterialTheme.typography.titleMedium
+            )
+            iconRes?.let {
+                Spacer(modifier = Modifier.width(8.dp))
+                Icon(
+                    painter = painterResource(id = it),
+                    tint = WikipediaTheme.colors.progressiveColor,
+                    contentDescription = null
+                )
+            }
         }
     }
 }
