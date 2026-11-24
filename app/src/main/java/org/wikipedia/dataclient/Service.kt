@@ -454,7 +454,8 @@ interface Service {
             @Field("token") token: String,
             @Field("undo") undoRevId: Long,
             @Field("undoafter") undoRevAfter: Long? = null,
-            @Field("matags") tags: String? = null
+            @Field("matags") tags: String? = null,
+            @Field("captchaword") captchaWord: String? = null
     ): Edit
 
     @FormUrlEncoded
