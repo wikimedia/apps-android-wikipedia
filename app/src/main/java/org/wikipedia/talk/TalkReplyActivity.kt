@@ -21,6 +21,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkReplyBinding
 import org.wikipedia.dataclient.WikiSite
@@ -83,6 +84,20 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
         }
     }
+
+    private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
+        override fun onShow() { }
+
+        override fun onSuccess(token: String) {
+            postReply(captchaToken = token)
+        }
+
+        override fun onError(e: Exception, code: Int) {
+            binding.progressBar.isVisible = false
+            setSaveButtonEnabled(true)
+            FeedbackUtil.showMessage(this@TalkReplyActivity, e.message.orEmpty())
+        }
+    })
 
     private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
@@ -163,8 +178,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         viewModel.postReplyData.observe(this) {
             if (it is Resource.Success) {
+                if (it.data.hasHCaptchaResponse) {
+                    binding.progressBar.isVisible = true
+                    hCaptchaHelper.cleanup()
+                    hCaptchaHelper.show(it.data.edit?.hCaptchaKey)
+                    return@observe
+                }
                 savedSuccess = true
-                onSaveSuccess(it.data)
+                onSaveSuccess(it.data.newRevId)
             } else if (it is Resource.Error) {
                 onSaveError(it.throwable)
             }
@@ -196,6 +217,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 } else {
                     binding.footerContainer.tempAccountInfoContainer.isVisible = false
                 }
+                binding.footerContainer.hCaptchaDisclaimer.isVisible = !viewModel.hCaptchaPolicyMessage.isNullOrEmpty()
+                binding.footerContainer.hCaptchaDisclaimer.movementMethod = LinkMovementMethod.getInstance()
+                binding.footerContainer.hCaptchaDisclaimer.text = StringUtil.fromHtml(StringUtil.parseWikitextExternalLinks(viewModel.hCaptchaPolicyMessage.orEmpty()))
                 maybeShowTempAccountDialog()
                 EditAttemptStepEvent.logInit(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
             }
@@ -232,6 +256,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
         binding.replySubjectText.removeTextChangedListener(textWatcher)
         binding.replyInputView.editText.removeTextChangedListener(textWatcher)
+        hCaptchaHelper.cleanup()
         super.onDestroy()
     }
 
@@ -416,9 +441,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         if (messagePreviewFragment.isActive) {
             EditAttemptStepEvent.logSaveAttempt(pageTitle = viewModel.pageTitle, editCount = viewModel.editCount)
             sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages")
-            binding.progressBar.isVisible = true
-            setSaveButtonEnabled(false)
-            viewModel.postReply(subject, getWikitextBody())
+            postReply()
             return
         }
 
@@ -458,6 +481,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             showEditPreview()
             setSaveButtonEnabled(true)
         }
+    }
+
+    private fun postReply(captchaToken: String? = null) {
+        binding.progressBar.isVisible = true
+        setSaveButtonEnabled(false)
+        viewModel.postReply(binding.replySubjectText.text.toString().trim(), getWikitextBody(), captchaToken)
     }
 
     private fun showEditPreview() {

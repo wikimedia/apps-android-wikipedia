@@ -160,6 +160,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo|userinfo&uiprop=editcount&siprop=general|autocreatetempuser")
     suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo|userinfo|allmessages&uiprop=editcount&siprop=general|autocreatetempuser")
+    suspend fun getPageIdsWithMessage(@Query("titles") titles: String, @Query("ammessages") messages: String): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|metadata|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     suspend fun getImageInfo(
         @Query("titles") titles: String,
@@ -457,7 +460,8 @@ interface Service {
             @Field("token") token: String,
             @Field("undo") undoRevId: Long,
             @Field("undoafter") undoRevAfter: Long? = null,
-            @Field("matags") tags: String? = null
+            @Field("matags") tags: String? = null,
+            @Field("captchaword") captchaWord: String? = null
     ): Edit
 
     @FormUrlEncoded
