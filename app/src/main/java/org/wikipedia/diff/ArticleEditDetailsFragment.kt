@@ -34,6 +34,7 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
@@ -78,6 +79,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     private val binding get() = _binding!!
     private val viewModel: ArticleEditDetailsViewModel by viewModels()
     private var editAttemptInitLogged = false
+    private var undoComment: String? = null
+    private lateinit var hCaptchaHelper: HCaptchaHelper
 
     private val actionBarOffsetChangedListener =
         AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
@@ -121,6 +124,18 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
+        hCaptchaHelper = HCaptchaHelper(requireActivity(), object : HCaptchaHelper.Callback {
+            override fun onShow() { }
+
+            override fun onSuccess(token: String) {
+                postUndo(undoComment.orEmpty(), hCaptchaToken = token)
+            }
+
+            override fun onError(e: Exception, code: Int) {
+                binding.progressBar.isVisible = false
+                FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, e.message.orEmpty())
+            }
+        })
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonTooltip(binding.newerIdButton, binding.olderIdButton)
         return binding.root
@@ -194,7 +209,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         viewModel.undoEditResponse.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
-                val revisionId = it.data.edit!!.newRevId
+                val edit = it.data.edit!!
+                if (edit.hasHCaptchaResponse) {
+                    binding.progressBar.isVisible = true
+                    hCaptchaHelper.cleanup()
+                    hCaptchaHelper.show(edit.hCaptchaKey)
+                    return@observe
+                }
+                val revisionId = edit.newRevId
                 setLoadingState()
                 viewModel.getRevisionDetails(revisionId)
                 sendPatrollerExperienceEvent("undo_success", "pt_edit",
@@ -282,6 +304,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     override fun onDestroyView() {
         binding.appBarLayout.removeOnOffsetChangedListener(actionBarOffsetChangedListener)
         binding.root.removeCallbacks(sequentialTooltipRunnable)
+        hCaptchaHelper.cleanup()
         _binding = null
         super.onDestroyView()
     }
@@ -639,10 +662,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                         editorInterface = EditAttemptStepEvent.INTERFACE_OTHER,
                         editCount = viewModel.editCount
                     )
-                    viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
+                    postUndo(text.toString())
                 }
         }
         dialog.show()
+    }
+
+    private fun postUndo(comment: String, hCaptchaToken: String? = null) {
+        viewModel.revisionTo?.let {
+            undoComment = comment
+            viewModel.undoEdit(viewModel.pageTitle, it.user, comment, viewModel.revisionToId, 0, hCaptchaToken)
+        }
     }
 
     private fun showUndoSnackbar() {

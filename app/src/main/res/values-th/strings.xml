@@ -32,9 +32,11 @@
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
   <string name="search_back_button_content_description">ย้อนกลับ</string>
+  <string name="search_clear_query_content_description">ล้างคำสั่งค้นหา</string>
   <string name="search_icon_content_description">ค้นหา</string>
   <string name="filter_hint_filter_my_lists_and_articles">กรองรายการของฉัน</string>
   <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>
+  <string name="nav_item_activity">กิจกรรม</string>
   <string name="nav_item_more">เพิ่มเติม</string>
   <string name="nav_item_search">ค้นหา</string>
   <string name="nav_item_contribute">ส่วนร่วม</string>
@@ -47,7 +49,7 @@
   <string name="page_error_back_to_main">ย้อนกลับ</string>
   <string name="error_back">ย้อนกลับ</string>
   <string name="error_next">ถัดไป</string>
-  <string name="menu_clear_all_history" fuzzy="true">ล้างประวัติ</string>
+  <string name="menu_clear_all_history">ล้างประวัติการอ่าน</string>
   <string name="history_item_deleted">ลบ %s ออกจากประวัติแล้ว</string>
   <string name="history_items_deleted">ลบบทความ %d เรื่องออกจากประวัติแล้ว</string>
   <string name="history_item_delete_undo">เลิกทำ</string>
@@ -60,7 +62,7 @@
   <string name="wikimedia_commons">วิกิมีเดียคอมมอนส์</string>
   <string name="wikidata">วิกิสนเทศ</string>
   <string name="dialog_title_clear_history">ล้างประวัติการเข้าชม</string>
-  <string name="dialog_message_clear_history" fuzzy="true">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมดและปิดแท็บปัจจุบัน คุณแน่ใจหรือไม่?</string>
+  <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมด ต้องการดำเนินการต่อหรือไม่</string>
   <string name="dialog_message_clear_history_yes">ใช่</string>
   <string name="dialog_message_clear_history_no">ไม่</string>
   <string name="share_via">แบ่งปันผ่าน</string>
@@ -73,8 +75,12 @@
   <string name="page_edit_history_filter_by">กรองตาม</string>
   <string name="page_edit_history_filter_by_all">การแก้ไขทั้งหมด (%s)</string>
   <string name="page_edit_history_filter_by_user">การแก้ไขโดยผู้ใช้ (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">การแก้ไขนิรนาม (%s)</string>
+  <string name="page_edit_history_filter_by_anon">การแก้ไขจากผู้ใช้ไม่ได้ลงทะเบียน (%s)</string>
   <string name="page_edit_history_filter_by_bot">การแก้ไขโดยบอต (%s)</string>
+  <string name="page_edit_history_metrics_content_description">สถิติตั้งแต่ %1$s ถึง %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="other">แก้ไข %1$d ครั้ง ตั้งแต่ %2$s</item>
+  </plurals>
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
   <string name="menu_page_find_in_page">ค้นหาในบทความ</string>
@@ -367,6 +373,7 @@
   <string name="preference_title_collapse_tables">ยุบตาราง</string>
   <string name="preference_summary_collapse_tables">ยุบตารางในบทความ เช่น กล่องข้อมูล แหล่งอ้างอิง และหมายเหตุโดยอัตโนมัติ</string>
   <string name="nav_item_donate">บริจาค</string>
+  <string name="nav_item_year_in_review">รวบยอดประจำปี</string>
   <string name="error_voice_search_not_available">ขออภัย การรับรองเสียงไม่พร้อมให้บริการ</string>
   <string name="location_service_disabled">บริการที่ตั้งถูกปิดใช้งาน</string>
   <string name="enable_location_service">เปิดใช้งาน</string>
@@ -379,6 +386,11 @@
   <string name="multi_select_items_selected">เลือกอยู่ %d</string>
   <string name="error_message_generic">เกิดข้อผิดพลาด</string>
   <string name="view_link_preview_error_button_dismiss">รับทราบ</string>
+  <string name="link_preview_dialog_read_button">อ่าน</string>
+  <string name="link_preview_dialog_save_button">บันทึก</string>
+  <string name="link_preview_dialog_saved_button">บันทึกแล้ว</string>
+  <string name="link_preview_dialog_share_button">แบ่งปัน</string>
+  <string name="link_preview_stub_placeholder_text">บทความนี้ยังเป็นโครง คือยังมีเนื้อหาในหน้าไม่มากพอจะสร้างการแสดงตัวอย่าง แต่คุณก็สามารถช่วยได้</string>
   <string name="error_page_does_not_exist">ไม่มีหน้านี้อยู่</string>
   <string name="view_wiki_error_message_offline">ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้</string>
   <string name="view_wiki_error_message_timeout">ไม่สามารถเชื่อมต่อไปยังวิกิพีเดียได้ โปรดตรวจสอบการเชื่อมต่อเครือข่ายของคุณ หรือลองอีกครั้งในภายหลัง</string>
@@ -473,6 +485,7 @@
   <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
     <item quantity="other">เอา %1$d บทความออกจาก %2$s แล้ว</item>
   </plurals>
+  <string name="single_list_json_file_name">%s (รายการอ่านวิกิพีเดีย)</string>
   <string name="reading_list_items_deleted">ลบ %d บทความออกจากรายการแล้ว</string>
   <string name="reading_lists_item_deleted">เอา %s ออกจากรายการแล้ว</string>
   <string name="reading_list_item_delete_undo">เลิกทำ</string>
@@ -1010,6 +1023,17 @@
   <string name="category_empty">ไม่พบบทความในหมวดหมู่นี้</string>
   <string name="subcategory_empty">ไม่พบหมวดหมู่ย่อยในหมวดหมู่นี้</string>
   <string name="revision_initial_none">ไม่มี (นี่คือรุ่นแก้ไขแรก)</string>
+  <string name="yir_intro_headline">สรุปรอบปีวิกิพีเดียของคุณมาแล้ว</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="other">ขอบคุณที่ใช้เวลามานั่งอ่านแอปวิกิพีเดียตั้ง %1$d วันในปี %2$d นี้</item>
+  </plurals>
+  <string name="yir_article_count_headline">อ่านบทความไปแล้ว</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="other">โห คุณเป็นหนึ่งใน %1$s%% ของคนที่อ่านวิกิพีเดียทั่วโลกนะนี่ เฉลี่ยแล้วแต่ละปีคนทั่วไปอ่านประมาณ %2$d บทความ</item>
+  </plurals>
+  <string name="yir_article_count_supporting">ปีนี้ก็เจออะไรใหม่ ๆ มาทั้งปี แต่ละหน้าที่อ่านก็ทำให้รู้อะไรเพิ่มขึ้นอีกเยอะ</string>
+  <string name="yir_article_count_empty_headline">มีบทความอีกเป็นล้าน (เลยหรอพี่) ให้คุณได้ลองค้น</string>
+  <string name="yir_article_count_empty_supporting">รอแค่คุณจะเจอพวกมันบนวิกิพีเดียเมื่อไหร่เท่านั้นเอง</string>
   <string name="year_in_review_learn_more">เรียนรู้เพิ่มเติม</string>
   <string name="year_in_review_get_started">เริ่มต้น</string>
   <string name="year_in_review_topbar_w_icon">ไอคอน W ของวิกิพีเดีย</string>
