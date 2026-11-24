@@ -243,6 +243,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">이메일 주소 추가</string>
   <string name="create_account_button">계정 만들기</string>
   <string name="create_account_encourage_title">위키백과는 계정을 만드는 것이 더 좋습니다</string>
+  <string name="create_account_encourage_year_in_review_title_zero">한 해 돌아보기에서 독서한 날들을 확인해 보세요</string>
   <string name="create_account_encourage_saved_articles_title_zero">저장된 문서 동기화</string>
   <string name="create_account_name_unavailable">\"%s\" 사용자 이름을 사용할 수 없습니다. 다른 이름을 선택해 주십시오.</string>
   <string name="create_account_ip_block_message">죄송하지만, 당신의 IP 주소가 현재 새로운 계정을 생성하지 못하도록 차단되어 있습니다.</string>
