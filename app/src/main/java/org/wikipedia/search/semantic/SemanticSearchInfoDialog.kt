@@ -45,6 +45,7 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResult.SearchResultType
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.search.interleave.SearchResultCard
+import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UriUtil
 
@@ -84,7 +85,8 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
                         dismiss()
                     },
                     onTurnOffFeatureClick = {
-                        // TODO: Add action here.
+                        startActivity(SettingsActivity.newIntent(requireContext(), getString(R.string.preference_key_interleave_search_settings_category)))
+                        dismiss()
                     },
                     languageCode = requireArguments().getString(ARG_LANGUAGE_CODE).orEmpty()
                 )
