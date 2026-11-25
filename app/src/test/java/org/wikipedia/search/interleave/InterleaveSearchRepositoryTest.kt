@@ -31,7 +31,7 @@ class InterleaveSearchRepositoryTest {
     private val wikiSite = WikiSite.forLanguageCode("en")
 
     @Test
-    fun testLocalResultsAreNotMergedAndDoNotChangeTheMergeInputs() {
+    fun testLocalResultsAreLeftOutOfTheInterleavedList() {
         val historyResult = searchResult("Eiffel Tower", SearchResult.SearchResultType.HISTORY, pageId = 0)
         val lexicalResults = listOf(
             searchResult("Eiffel Tower", SearchResult.SearchResultType.PREFIX, pageId = 1),
@@ -50,7 +50,7 @@ class InterleaveSearchRepositoryTest {
         // The semantic "Eiffel Tower" is placed first even though it is also a local result.
         val firstPage = search(repository, continuation = null, isPrefixSearch = true)
         assertEquals(listOf(semanticResults[0], lexicalResults[1]), firstPage.results)
-        assertEquals(listOf(historyResult), firstPage.localResults)
+        assertTrue(firstPage.localResults.isEmpty())
 
         val nextPage = search(repository, continuation = firstPage.continuation, isPrefixSearch = false)
         assertEquals(listOf(semanticResults[1]), nextPage.results)
