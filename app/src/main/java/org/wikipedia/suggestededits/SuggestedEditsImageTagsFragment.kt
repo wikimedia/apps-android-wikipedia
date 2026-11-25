@@ -32,9 +32,11 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.extensions.setLayoutDirectionByLang
@@ -56,6 +58,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private var _binding: FragmentSuggestedEditsImageTagsItemBinding? = null
     private val binding get() = _binding!!
     private val viewModel: SuggestedEditsImageTagsViewModel by viewModels()
+    private lateinit var hCaptchaHelper: HCaptchaHelper
 
     var publishing = false
     private var publishSuccess = false
@@ -73,6 +76,19 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsImageTagsItemBinding.inflate(inflater, container, false)
+        hCaptchaHelper = HCaptchaHelper(requireActivity(), object : HCaptchaHelper.Callback {
+            override fun onShow() { }
+
+            override fun onSuccess(token: String) {
+                postImageTags(hCaptchaToken = token)
+            }
+
+            override fun onError(e: Exception, code: Int) {
+                publishing = false
+                binding.publishOverlayContainer.visibility = GONE
+                FeedbackUtil.showMessage(this@SuggestedEditsImageTagsFragment, e.message.orEmpty())
+            }
+        })
         return binding.root
     }
 
@@ -161,7 +177,15 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                                     "commons", it.data?.lastRevId ?: 0)
                                 onSuccess()
                             }
-                            is Resource.Error -> onError(it.throwable)
+                            is Resource.Error -> {
+                                val throwable = it.throwable
+                                if (throwable is MwException && throwable.error.hasHCaptchaResponse) {
+                                    hCaptchaHelper.cleanup()
+                                    hCaptchaHelper.show(throwable.error.hCaptchaKey)
+                                } else {
+                                    onError(throwable)
+                                }
+                            }
                         }
                     }
                 }
@@ -176,6 +200,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     override fun onDestroyView() {
         super.onDestroyView()
+        hCaptchaHelper.cleanup()
         _binding = null
     }
 
@@ -385,8 +410,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
+        postImageTags()
+    }
+
+    private fun postImageTags(hCaptchaToken: String? = null) {
         page?.let {
-            viewModel.publishImageTags(it, acceptedLabels)
+            viewModel.publishImageTags(it, tagList.filter { tag -> tag.isSelected }, hCaptchaToken)
         }
     }
 
@@ -433,6 +462,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 editCount = viewModel.editCount
             )
         }
+        publishing = false
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }

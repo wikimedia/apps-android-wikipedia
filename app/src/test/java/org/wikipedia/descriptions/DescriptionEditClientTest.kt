@@ -7,6 +7,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
+import org.junit.Assert.fail
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
@@ -90,6 +91,21 @@ class DescriptionEditClientTest : MockRetrofitTest() {
                 requestPostDescription()
             } catch (e: Exception) {
                 assertTrue(testErrorWithExpectedCodeAndMessage(e, expectedCode, expectedMessage))
+            }
+        }
+    }
+
+    @Test
+    @Throws(Throwable::class)
+    fun testRequestHCaptchaRequired() {
+        enqueueFromFile("description_edit_hcaptcha.json")
+        runBlocking {
+            try {
+                requestPostDescription()
+                fail("Expected an MwException for a required hCaptcha.")
+            } catch (e: MwException) {
+                assertTrue(e.error.hasHCaptchaResponse)
+                assertEquals("5d0c670e-a5f4-4258-ad16-1f42792c9c62", e.error.hCaptchaKey)
             }
         }
     }

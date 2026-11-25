@@ -1,0 +1,31 @@
+{
+  "errors": [
+    {
+      "code": "failed-save",
+      "html": "The save has failed.",
+      "data": {
+        "messages": [
+          {
+            "name": "wikibase-api-failed-save",
+            "parameters": [],
+            "html": "The save has failed."
+          },
+          {
+            "name": "captcha-edit-fail",
+            "parameters": [],
+            "html": "Incorrect or missing CAPTCHA."
+          }
+        ],
+        "captcha": {
+          "type": "hcaptcha",
+          "mime": "application/javascript",
+          "key": "5d0c670e-a5f4-4258-ad16-1f42792c9c62",
+          "error": "missing-token"
+        }
+      },
+      "module": "main"
+    }
+  ],
+  "docref": "See https://test.wikidata.org/w/api.php for API usage. Subscribe to the mediawiki-api-announce mailing list at &lt;https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/&gt; for notice of API deprecations and breaking changes.",
+  "servedby": "mw-api-ext.codfw.main-5b4d588fd6-kmc9p"
+}
