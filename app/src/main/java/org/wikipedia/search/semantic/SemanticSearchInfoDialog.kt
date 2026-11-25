@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -43,6 +44,8 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResult.SearchResultType
 import org.wikipedia.search.interleave.InterleaveSearchAbTest
+import org.wikipedia.search.interleave.SearchResultCard
+import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UriUtil
 
@@ -81,6 +84,10 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
                         UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.semantic_search_info_learn_more_link).toUri())
                         dismiss()
                     },
+                    onTurnOffFeatureClick = {
+                        startActivity(SettingsActivity.newIntent(requireContext(), getString(R.string.preference_key_interleave_search_settings_category)))
+                        dismiss()
+                    },
                     languageCode = requireArguments().getString(ARG_LANGUAGE_CODE).orEmpty()
                 )
             }
@@ -104,25 +111,26 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
 private fun SemanticSearchInfoDialogContent(
     onCloseClick: () -> Unit,
     onLearnMoreClick: () -> Unit,
+    onTurnOffFeatureClick: () -> Unit,
     languageCode: String
 ) {
     val context = LocalContext.current
-    val dialogTextData = getSampleContent(languageCode)
+    val dialogContent = getLocalizedDialogContent(languageCode)
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode)) LayoutDirection.Rtl else LayoutDirection.Ltr
     val pageTitle = PageTitle(
-        stringResource(id = dialogTextData.title),
+        stringResource(id = dialogContent.articleTitle),
         WikiSite.forLanguageCode(languageCode)
     ).apply {
-        thumbUrl = stringResource(id = dialogTextData.thumbnailUrl)
+        thumbUrl = stringResource(id = dialogContent.thumbnailUrl)
     }
 
     val searchResult = SearchResult(
         pageTitle = pageTitle,
         redirectFrom = null,
         type = SearchResultType.SEMANTIC,
-        snippet = stringResource(id = dialogTextData.snippet),
-        sectionTitle = stringResource(id = dialogTextData.sectionTitle),
+        snippet = stringResource(id = dialogContent.snippet),
+        sectionTitle = stringResource(id = dialogContent.sectionTitle),
         editCounts = 2348,
         referenceCounts = 35,
         lastUpdated = "2026-10-05T12:00:00Z"
@@ -132,7 +140,7 @@ private fun SemanticSearchInfoDialogContent(
         BaseTheme {
             InfoActionScreen(
                 title = context.getString(languageCode, R.string.semantic_search_info_dialog_title),
-                message = context.getString(languageCode, R.string.semantic_search_info_dialog_message),
+                message = context.getString(languageCode, dialogContent.message),
                 onCloseClick = onCloseClick,
                 bottomContent = {
                     Column(
@@ -151,37 +159,27 @@ private fun SemanticSearchInfoDialogContent(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = stringResource(id = dialogTextData.searchString),
+                                text = stringResource(id = dialogContent.searchString),
                                 color = WikipediaTheme.colors.primaryColor,
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.SemiBold,
                             )
                         }
-
-                        // TODO: for the new design
-
-                        AppButton(
-                            onClick = onLearnMoreClick,
-                            backgroundColor = WikipediaTheme.colors.backgroundColor,
-                            modifier = Modifier.fillMaxWidth(),
-                        ) {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.Center
-                            ) {
-                                Text(
-                                    text = context.getString(languageCode, R.string.on_this_day_game_menu_info),
-                                    color = WikipediaTheme.colors.progressiveColor,
-                                    style = MaterialTheme.typography.titleMedium
-                                )
-                                Spacer(modifier = Modifier.width(8.dp))
-                                Icon(
-                                    painter = painterResource(id = R.drawable.ic_open_in_new_black_24px),
-                                    tint = WikipediaTheme.colors.progressiveColor,
-                                    contentDescription = null
-                                )
-                            }
-                        }
+                        Spacer(modifier = Modifier.height(16.dp))
+                        SearchResultCard(
+                            searchResult = searchResult
+                        )
+                        Spacer(modifier = Modifier.height(32.dp))
+                        InfoDialogButton(
+                            text = context.getString(languageCode, R.string.on_this_day_game_menu_info),
+                            iconRes = R.drawable.ic_open_in_new_black_24px,
+                            onClick = onLearnMoreClick
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        InfoDialogButton(
+                            text = context.getString(languageCode, dialogContent.turnOffButton),
+                            onClick = onTurnOffFeatureClick
+                        )
                     }
                 },
                 modifier = Modifier
@@ -192,40 +190,82 @@ private fun SemanticSearchInfoDialogContent(
     }
 }
 
-private data class InfoDialogTextConfig(
-    @StringRes val title: Int,
+@Composable
+private fun InfoDialogButton(
+    text: String,
+    @DrawableRes iconRes: Int? = null,
+    onClick: () -> Unit
+) {
+    AppButton(
+        onClick = onClick,
+        backgroundColor = WikipediaTheme.colors.backgroundColor,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = text,
+                color = WikipediaTheme.colors.progressiveColor,
+                style = MaterialTheme.typography.titleMedium
+            )
+            iconRes?.let {
+                Spacer(modifier = Modifier.width(8.dp))
+                Icon(
+                    painter = painterResource(id = it),
+                    tint = WikipediaTheme.colors.progressiveColor,
+                    contentDescription = null
+                )
+            }
+        }
+    }
+}
+
+private data class InfoDialogContent(
+    @StringRes val articleTitle: Int,
     @StringRes val sectionTitle: Int,
     @StringRes val snippet: Int,
     @StringRes val thumbnailUrl: Int,
-    @StringRes val searchString: Int
+    @StringRes val searchString: Int,
+    @StringRes val message: Int,
+    @StringRes val turnOffButton: Int
 )
 
-private fun getSampleContent(languageCode: String): InfoDialogTextConfig {
+private fun getLocalizedDialogContent(languageCode: String): InfoDialogContent {
 
     return when (languageCode) {
-        "ja" -> InfoDialogTextConfig(
-                    title = R.string.semantic_search_info_dialog_article_title_ja,
+        "ja" -> InfoDialogContent(
+                    articleTitle = R.string.semantic_search_info_dialog_article_title_ja,
                     sectionTitle = R.string.semantic_search_info_dialog_article_section_title_ja,
                     snippet = R.string.semantic_search_info_dialog_sample_snippet_ja,
                     thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_ja,
-                    searchString = R.string.semantic_search_info_dialog_search_string_ja)
-        "fr" -> InfoDialogTextConfig(
-                    title = R.string.semantic_search_info_dialog_article_title_fr,
+                    searchString = R.string.semantic_search_info_dialog_search_string_ja,
+                    message = R.string.semantic_search_info_dialog_message_ja,
+                    turnOffButton = R.string.semantic_search_info_dialog_turn_off_btn_ja)
+        "fr" -> InfoDialogContent(
+                    articleTitle = R.string.semantic_search_info_dialog_article_title_fr,
                     sectionTitle = R.string.semantic_search_info_dialog_article_section_title_fr,
                     snippet = R.string.semantic_search_info_dialog_sample_snippet_fr,
                     thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_fr,
-                    searchString = R.string.semantic_search_info_dialog_search_string_fr)
-        "ar" -> InfoDialogTextConfig(
-                    title = R.string.semantic_search_info_dialog_article_title_ar,
+                    searchString = R.string.semantic_search_info_dialog_search_string_fr,
+                    message = R.string.semantic_search_info_dialog_message_fr,
+                    turnOffButton = R.string.semantic_search_info_dialog_turn_off_btn_fr)
+        "ar" -> InfoDialogContent(
+                    articleTitle = R.string.semantic_search_info_dialog_article_title_ar,
                     sectionTitle = R.string.semantic_search_info_dialog_article_section_title_ar,
                     snippet = R.string.semantic_search_info_dialog_sample_snippet_ar,
                     thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_ar,
-                    searchString = R.string.semantic_search_info_dialog_search_string_ar)
-        else -> InfoDialogTextConfig(
-                    title = R.string.semantic_search_info_dialog_article_title_en,
+                    searchString = R.string.semantic_search_info_dialog_search_string_ar,
+                    message = R.string.semantic_search_info_dialog_message_ar,
+                    turnOffButton = R.string.semantic_search_info_dialog_turn_off_btn_ar)
+        else -> InfoDialogContent(
+                    articleTitle = R.string.semantic_search_info_dialog_article_title_en,
                     sectionTitle = R.string.semantic_search_info_dialog_article_section_title_en,
                     snippet = R.string.semantic_search_info_dialog_sample_snippet_en,
                     thumbnailUrl = R.string.semantic_search_info_dialog_article_thumbnail_url_en,
-                    searchString = R.string.semantic_search_info_dialog_search_string_en)
+                    searchString = R.string.semantic_search_info_dialog_search_string_en,
+                    message = R.string.semantic_search_info_dialog_message,
+                    turnOffButton = R.string.semantic_search_turn_feature_off_btn_text)
     }
 }

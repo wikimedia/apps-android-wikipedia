@@ -69,7 +69,7 @@ fun SearchResultCard(
     relevance: Boolean? = null,
     onRelevanceClick: ((Boolean) -> Unit)? = null,
     onItemLongClick: ((View) -> Unit)? = null,
-    onItemClick: () -> Unit
+    onItemClick: (() -> Unit)? = null
 ) {
     val context = LocalContext.current
     var anchorView by remember { mutableStateOf<View?>(null) }
@@ -83,15 +83,21 @@ fun SearchResultCard(
         modifier = modifier
             .fillMaxWidth()
             .background(WikipediaTheme.colors.backgroundColor)
-            .combinedClickable(
-                onClick = onItemClick,
-                onLongClick = onItemLongClick?.let { callback ->
-                    {
-                        anchorView?.let {
-                            DeviceUtil.hideSoftKeyboard(it)
-                            callback(it)
+            .then(
+                if (onItemClick != null || onItemLongClick != null) {
+                    Modifier.combinedClickable(
+                        onClick = { onItemClick?.invoke() },
+                        onLongClick = onItemLongClick?.let { callback ->
+                            {
+                                anchorView?.let {
+                                    DeviceUtil.hideSoftKeyboard(it)
+                                    callback(it)
+                                }
+                            }
                         }
-                    }
+                    )
+                } else {
+                    Modifier
                 }
             )
             .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = if (onRelevanceClick != null) 4.dp else 16.dp)

@@ -15,7 +15,7 @@ class SettingsActivity : BaseSettingsActivity<SettingsFragment>() {
     private lateinit var initialFeedCardsOrder: List<Int>
     private val app = WikipediaApp.instance
 
-    public override fun createFragment() = SettingsFragment.newInstance()
+    public override fun createFragment() = SettingsFragment.newInstance(intent.getStringExtra(EXTRA_SCROLL_TO_PREFERENCE_KEY))
     override val title = R.string.settings_activity_title
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,12 @@ class SettingsActivity : BaseSettingsActivity<SettingsFragment>() {
         const val ACTIVITY_RESULT_LANGUAGE_CHANGED = 1
         const val ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED = 2
         const val ACTIVITY_RESULT_LOG_OUT = 3
+        private const val EXTRA_SCROLL_TO_PREFERENCE_KEY = "scrollToPreferenceKey"
 
-        fun newIntent(ctx: Context) = Intent(ctx, SettingsActivity::class.java)
+        fun newIntent(ctx: Context, scrollToPreferenceKey: String? = null): Intent {
+            return Intent(ctx, SettingsActivity::class.java).apply {
+                scrollToPreferenceKey?.let { putExtra(EXTRA_SCROLL_TO_PREFERENCE_KEY, it) }
+            }
+        }
     }
 }

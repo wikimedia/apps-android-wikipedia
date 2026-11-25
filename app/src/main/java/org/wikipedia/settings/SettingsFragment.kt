@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -43,6 +44,10 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
                     }
                 }
             }
+        }
+
+        if (savedInstanceState == null) {
+            arguments?.getString(ARG_SCROLL_TO_PREFERENCE_KEY)?.let { scrollToPreference(it) }
         }
 
         // TODO: Kick off a sync of reading lists, which will call back to us whether lists
@@ -97,8 +102,12 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
     }
 
     companion object {
-        fun newInstance(): SettingsFragment {
-            return SettingsFragment()
+        private const val ARG_SCROLL_TO_PREFERENCE_KEY = "scrollToPreferenceKey"
+
+        fun newInstance(scrollToPreferenceKey: String? = null): SettingsFragment {
+            return SettingsFragment().apply {
+                scrollToPreferenceKey?.let { arguments = bundleOf(ARG_SCROLL_TO_PREFERENCE_KEY to it) }
+            }
         }
     }
 }
