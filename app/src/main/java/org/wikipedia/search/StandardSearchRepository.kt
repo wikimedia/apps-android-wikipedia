@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.search.interleave.EmptyLeadResolver
 import org.wikipedia.util.StringUtil
 
 class StandardSearchRepository(
@@ -36,6 +37,8 @@ class StandardSearchRepository(
         val leadProp = if (includesLeads) "|extracts" else ""
         val exIntro = true.takeIf { includesLeads }
         val exChars = LEAD_EXTRACT_CHARS.takeIf { includesLeads }
+        // Full-text props already include pageprops. Prefix results need them too, so EmptyLeadResolver can skip disambiguation pages.
+        val prefixLeadProp = if (includesLeads) "$leadProp|pageprops" else ""
 
         if (isPrefixSearch) {
             if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
@@ -53,7 +56,7 @@ class StandardSearchRepository(
             }
             val prefixResponse = ServiceFactory.get(wikiSite).prefixSearchResponse(
                 searchTerm, batchSize, 0,
-                prop = Service.PREFIX_SEARCH_PROPS + leadProp,
+                prop = Service.PREFIX_SEARCH_PROPS + prefixLeadProp,
                 exIntro = exIntro,
                 exChars = exChars
             )
@@ -77,8 +80,11 @@ class StandardSearchRepository(
             lexicalResults.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.FULL_TEXT))
         }
 
+        val results = lexicalResults.distinctBy { it.pageId }
+            .let { if (includesLeads) EmptyLeadResolver.resolve(wikiSite, it) else it }
+
         return StandardSearchResults(
-            results = lexicalResults.distinctBy { it.pageId },
+            results = results,
             continuation = currentContinuation,
             xSearchIdPrefix = lastXSearchIdPrefix,
             xSearchIdFullText = lastXSearchIdFullText,
