@@ -211,6 +211,15 @@
                             android:textAlignment="viewStart"
                             app:icon="@drawable/ic_open_in_new_black_24px"
                             app:iconGravity="end" />
+
+                        <TextView
+                            android:id="@+id/hCaptchaDisclaimer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:lineSpacingExtra="4dp"
+                            android:textColor="?attr/secondary_color"
+                            tools:text="Lorem ipsum" />
                     </LinearLayout>
                 </ScrollView>
 

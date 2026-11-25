@@ -19,6 +19,10 @@ abstract class MwResponse {
             errors.firstOrNull { it.key.contains("assertuserfailed") || it.key.contains("notloggedin") }?.let {
                 throw MwNotLoggedInException(it)
             }
+            // then prioritize errors that have a "data" object
+            errors.firstOrNull { it.data != null }?.let {
+                throw MwException(it)
+            }
             throw MwException(errors.first())
         }
     }

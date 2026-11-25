@@ -42,7 +42,7 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
         }
     }
 
-    fun publishImageTags(page: MwQueryPage, acceptedLabels: List<ImageTag>) {
+    fun publishImageTags(page: MwQueryPage, acceptedLabels: List<ImageTag>, captchaWord: String? = null) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _actionState.value = Resource.Error(throwable)
         }) {
@@ -71,7 +71,8 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
             }
             claimStr += "]}"
             commentStr += " */"
-            val postResult = ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, csrfToken, claimStr, commentStr, tags = EditTags.APP_IMAGE_TAG_ADD)
+            val postResult = ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, csrfToken, claimStr, commentStr,
+                tags = EditTags.APP_IMAGE_TAG_ADD, captchaWord = captchaWord)
             _actionState.value = Resource.Success(postResult.entity)
         }
     }
