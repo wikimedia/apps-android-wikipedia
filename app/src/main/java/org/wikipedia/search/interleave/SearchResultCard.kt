@@ -153,7 +153,7 @@ fun SearchResultCard(
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
                         text = remember(searchResult) { searchResult.cardTrail() }
-                            ?: context.getString(languageCode, R.string.semantic_search_trail_lead),
+                            ?: context.getString(languageCode, trailLeadLabelRes(languageCode)),
                         style = MaterialTheme.typography.bodySmall,
                         color = WikipediaTheme.colors.primaryColor,
                         maxLines = HEADER_MAX_LINES,
