@@ -20,8 +20,11 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
@@ -43,6 +46,7 @@ fun SettingsRow(
     subtitle: String? = null,
     onClick: (() -> Unit)? = null,
     onSubtitleLinkClick: ((String) -> Unit)? = null,
+    verticalAlignment: Alignment.Vertical = Alignment.Top,
     trailingContent: @Composable (() -> Unit)? = null
 ) {
     Row(
@@ -50,6 +54,7 @@ fun SettingsRow(
             .fillMaxWidth()
             .then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier)
             .padding(horizontal = 16.dp, vertical = 8.dp),
+        verticalAlignment = verticalAlignment
     ) {
         Column(
             modifier = Modifier.weight(1f)
@@ -99,7 +104,9 @@ fun SettingsSection(
             text = title,
             style = MaterialTheme.typography.labelLarge,
             color = WikipediaTheme.colors.progressiveColor,
-            modifier = Modifier.padding(horizontal = 16.dp)
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .semantics { heading() }
         )
         Spacer(modifier = Modifier.height(8.dp))
         content()
@@ -147,18 +154,11 @@ fun ToggleListScreen(
                     title = stringResource(module.title),
                     subtitle = stringResource(module.subtitle),
                     trailingContent = {
-                        Switch(
+                        SettingsSwitch(
                             checked = isVisible,
                             onCheckedChange = { newChecked ->
                                 onToggle(module.key, newChecked)
-                            },
-                            colors = SwitchDefaults.colors(
-                                uncheckedTrackColor = WikipediaTheme.colors.paperColor,
-                                uncheckedThumbColor = MaterialTheme.colorScheme.outline,
-                                uncheckedBorderColor = MaterialTheme.colorScheme.outline,
-                                checkedTrackColor = WikipediaTheme.colors.progressiveColor,
-                                checkedThumbColor = WikipediaTheme.colors.paperColor,
-                            ),
+                            }
                         )
                     },
                     onSubtitleLinkClick = { href ->
@@ -168,6 +168,26 @@ fun ToggleListScreen(
             }
         }
     }
+}
+
+@Composable
+fun SettingsSwitch(
+    checked: Boolean,
+    onCheckedChange: ((Boolean) -> Unit)?,
+    modifier: Modifier = Modifier
+) {
+    Switch(
+        modifier = modifier,
+        checked = checked,
+        onCheckedChange = onCheckedChange,
+        colors = SwitchDefaults.colors(
+            uncheckedTrackColor = WikipediaTheme.colors.paperColor,
+            uncheckedThumbColor = MaterialTheme.colorScheme.outline,
+            uncheckedBorderColor = MaterialTheme.colorScheme.outline,
+            checkedTrackColor = WikipediaTheme.colors.progressiveColor,
+            checkedThumbColor = WikipediaTheme.colors.paperColor,
+        ),
+    )
 }
 
 data class ToggleSettingItem(
