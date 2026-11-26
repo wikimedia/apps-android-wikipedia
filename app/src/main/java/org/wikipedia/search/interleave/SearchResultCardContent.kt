@@ -1,6 +1,8 @@
 package org.wikipedia.search.interleave
 
+import androidx.annotation.StringRes
 import androidx.compose.ui.text.AnnotatedString
+import org.wikipedia.R
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.search.SearchResult
 import org.wikipedia.util.StringUtil
@@ -21,9 +23,21 @@ internal fun SearchResult.cardRedirectFrom(): String? {
     return redirectFrom?.trim()?.takeIf { it.isNotEmpty() }
 }
 
-// The section name for section matches, or null for lead matches, where the card shows "Lead".
+// The section name for section matches, including articles with no lead, where EmptyLeadResolver
+// fills in the first section. Null when the excerpt is the lead, where the card shows "Lead".
 internal fun SearchResult.cardTrail(): String? {
     return sectionTitle?.let { StringUtil.removeHTMLTags(it).trim() }?.takeIf { it.isNotEmpty() }
+}
+
+// "Lead" in the wiki's language. The experiment's wikis use copy-doc translations until the string is translated on translatewiki.
+@StringRes
+internal fun trailLeadLabelRes(languageCode: String): Int {
+    return when (languageCode) {
+        "ar" -> R.string.semantic_search_trail_lead_ar
+        "fr" -> R.string.semantic_search_trail_lead_fr
+        "ja" -> R.string.semantic_search_trail_lead_ja
+        else -> R.string.semantic_search_trail_lead
+    }
 }
 
 // Keeps superscripts, subscripts and italics, but drops the search-match highlight, which only appears in

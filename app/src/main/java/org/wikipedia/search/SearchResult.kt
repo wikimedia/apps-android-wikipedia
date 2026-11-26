@@ -19,7 +19,8 @@ data class SearchResult(val pageTitle: PageTitle,
                         val referenceCounts: Int? = null,
                         val lastUpdated: String? = null,
                         val pageId: Int = 0,
-                        val leadText: String? = null) {
+                        val leadText: String? = null,
+                        val isDisambiguation: Boolean = false) {
 
     @Serializable
     enum class SearchResultType {
@@ -54,7 +55,8 @@ data class SearchResult(val pageTitle: PageTitle,
         referenceCounts = referenceCounts,
         lastUpdated = lastUpdated,
         pageId = page.pageId,
-        leadText = page.extract
+        leadText = page.extract,
+        isDisambiguation = page.pageProps?.disambiguation != null
     )
 
     constructor(pageTitle: PageTitle, searchResultType: SearchResultType = SearchResultType.PREFIX, snippet: String? = null, indexInApiCall: Int = 0) :

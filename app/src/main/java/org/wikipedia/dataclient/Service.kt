@@ -205,6 +205,12 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|magicwords")
     suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&prop=extracts")
+    suspend fun getArticleStartExtract(
+        @Query("pageids") pageId: Int,
+        @Query("exchars") exChars: Int
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
     suspend fun parsePage(@Query("page") pageTitle: String): MwParseResponse
 
