@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * -jem-
+* ARamadan-WMF
 * AVIADOR71
 * Agent
 * Agusbou2015
@@ -108,6 +109,7 @@
 * Wrai
 * Yllelder
 * ZealousBlaze
+* ZebaX2010
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -314,6 +316,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">Añadir dirección de correo electrónico</string>
   <string name="create_account_button">Crear cuenta</string>
   <string name="create_account_encourage_title">Wikipedia es mejor con una cuenta</string>
+  <string name="create_account_encourage_edits_title">Obtén reconocimiento por tus ediciones</string>
   <string name="create_account_name_unavailable">No está disponible el nombre de usuario «%s». Elige otro.</string>
   <string name="create_account_ip_block_message">Lo sentimos, en este momento tu dirección IP está bloqueada para crear nuevas cuentas.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -552,9 +555,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personalice su barra de herramientas</string>
   <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
   <string name="temp_account_not_logged_in">No has iniciado sesión</string>
-  <string name="temp_account_anon_ip_dialog_body">Una vez que realice una edición, su dirección IP se asociará con sus ediciones.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Inicie sesión&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;cree una cuenta&lt;/a&gt; para obtener crédito por futuras ediciones y acceder a otras funciones.</string>
-  <string name="temp_account_anon_dialog_body">Una vez que realice una edición, se creará una &lt;b&gt;cuenta temporal&lt;/b&gt; para proteger su privacidad. &lt;a href=\"%1$s\"&gt;Aprenda más&lt;/a&gt;. &lt;a href=\"https://#login\"&gt;Ingrese&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crear una cuenta&lt;/a&gt; para obtener crédito por futuras ediciones y para acceder a otras funciones.&lt;br/&gt;&lt;br/&gt;</string>
-  <string name="temp_account_temp_dialog_body">Tu edición se atribuirá a %1$s . Su dirección IP será visible para los administradores.&lt;br /&gt;&lt;br /&gt; Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;creas una cuenta&lt;/a&gt; , tus ediciones se atribuirán al nombre que elijas, entre otros beneficios.</string>
+  <string name="temp_account_anon_ip_dialog_body">Una vez que realices una edición, tu dirección IP quedará asociada a tus ediciones.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Inicia sesión&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea una cuenta&lt;/a&gt; para obtener reconocimiento por futuras ediciones y acceder a otras funciones.</string>
+  <string name="temp_account_anon_dialog_body">Una vez que realices una edición, se creará una &lt;b&gt;cuenta temporal&lt;/b&gt; para proteger tu privacidad. &lt;a href=\"%1$s\"&gt;Aprende más&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Inicia sesión&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea una cuenta&lt;/a&gt; para obtener reconocimiento por futuras ediciones y acceder a otras funciones.</string>
+  <string name="temp_account_temp_dialog_body">Tu edición se atribuirá a %1$s. Tu dirección IP será visible para los administradores.&lt;br /&gt;&lt;br /&gt; Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;creas una cuenta&lt;/a&gt; , tus ediciones se atribuirán al nombre que elijas, entre otros beneficios.</string>
   <string name="temp_account_dialog_ok">Conseguido</string>
   <string name="temp_account_using_title">Estás usando una cuenta temporal</string>
   <string name="temp_account_dialog_discard">Descartar cambios e iniciar sesión</string>
@@ -569,7 +572,7 @@
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;No has iniciado sesión.&lt;/b&gt; Una vez que realices una edición, tu dirección IP se asociará con tus ediciones.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;No estás conectado.&lt;/b&gt; Una vez que realice una edición, se creará una cuenta temporal para proteger su privacidad. &lt;a href=\"%1$s\"&gt;Aprenda más&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Estás usando una cuenta temporal.&lt;/b&gt; Su edición se atribuirá a %1$s. &lt;a href=\"%2$s\"&gt;Aprenda más&lt;/a&gt;.</string>
-  <string name="temp_account_login_status">&lt;b&gt;Actualmente estás utilizando una cuenta temporal.&lt;/b&gt; Las ediciones realizadas con la cuenta temporal %1$s no se transferirán a su cuenta permanente cuando inicie sesión. Inicie sesión o cree una cuenta para obtener crédito para su nombre de usuario, entre otros beneficios.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Actualmente estás utilizando una cuenta temporal.&lt;/b&gt; Las ediciones realizadas con la cuenta temporal %1$s no se transferirán a su cuenta permanente cuando inicies sesión. Inicia sesión o crea una cuenta para obtener reconocimiento en tu nombre de usuario, entre otros beneficios.</string>
   <string name="temp_account_end_session">Finalizar sesión</string>
   <string name="temp_account_end_session_confirm">Esto cerrará la sesión de su cuenta temporal. ¿Quieres continuar?</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
@@ -1124,18 +1127,18 @@
   <string name="suggested_edits_image_tags_add_tag">Añadir etiqueta</string>
   <string name="suggested_edits_image_tags_exit_dialog_message">Las etiquetas no publicadas no se guardarán</string>
   <string name="suggested_edits_image_zoom_tooltip">Para ampliar esta imagen, utiliza dos dedos.</string>
-  <string name="suggested_edits_encouragement_message">%s, gracias por tus ediciones. Más abajo puedes encontrar otras formas de contribuir con la Wikipedia.</string>
+  <string name="suggested_edits_encouragement_message">%s, gracias por tus ediciones. Más abajo puedes encontrar otras formas de contribuir a Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola, %s&lt;/b&gt;, abajo puedes encontrar algunas formas rápidas y fáciles para ayuda a mejorar Wikipedia. Verás la diferencia que estás haciendo tan pronto como empieces. ¡Feliz edición!</string>
   <string name="suggested_edits_image_captions_task_detail">Describe una imagen para ayudar a los lectores a comprender su significado y contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resume un artículo para ayudar a los lectores a comprender el tema en un vistazo.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Número total de contribuciones hasta ahora.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Cuántos días seguidos has contribuido. Si hace tiempo que no lo haces, muestra la fecha de tu última contribución.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total de páginas vistas de elementos a los que hayas contribuido en los últimos 30 días.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Basado en la cantidad de veces que una de tus contribuciones ha sido revertida (anulado por otro editor). Ediciones revertidas: %d.</string>
-  <string name="suggested_edits_paused_message">Las ediciones sugeridas están pausadas hasta %1$s. Lo sentimos %2$s, algunas de tus contribuciones recientes se han revertido.</string>
-  <string name="suggested_edits_disabled_message">Las ediciones sugeridas están desactivadas. Lo sentimos %s, muchas de tus contribuciones recientes se han revertido.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Basado en la cantidad de veces que una de tus contribuciones ha sido revertida (deshecha por otro editor). Ediciones revertidas: %d.</string>
+  <string name="suggested_edits_paused_message">Las ediciones sugeridas están pausadas hasta %1$s. Lo sentimos %2$s, algunas de tus contribuciones recientes han sido revertidas.</string>
+  <string name="suggested_edits_disabled_message">Las ediciones sugeridas están desactivadas. Lo sentimos %s, muchas de tus contribuciones recientes han sido revertidas.</string>
   <string name="suggested_edits_ip_blocked_message">Parece que tu dirección IP (o rango de direcciones IP) está actualmente bloqueada para la edición en Wikipedia.</string>
-  <string name="suggested_edits_gate_message">Disculpa, %s, debes hacer al menos tres ediciones directamente en un artículo para usar esta función.</string>
+  <string name="suggested_edits_gate_message">Lo sentimos, %s, debes hacer al menos tres ediciones directamente en un artículo para usar esta función.</string>
   <string name="suggested_edits_editing_tips_link_text">Trucos y consejos de edición</string>
   <string name="suggested_edits_help_page_link_text">Página de ayuda de ediciones sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Racha de ediciones</string>
@@ -1248,7 +1251,7 @@
   <string name="image_recommendation_tooltip_3">Decide si la imagen ayuda a los lectores a comprender mejor este tema.</string>
   <string name="image_recommendation_tooltip_next">Siguiente</string>
   <string name="image_recommendation_tooltip_warning">Revisa el artículo para entender el tema e inspecciona la imagen</string>
-  <string name="image_recommendation_depleted">Disculpa, ya no hay más imágenes sugeridas disponibles en este momento. Explora otras &lt;a href=\"#\"&gt;ediciones sugeridas&lt;/a&gt; o regresa más tarde.</string>
+  <string name="image_recommendation_depleted">Lo sentimos, ya no hay más imágenes sugeridas disponibles en este momento. Explora otras &lt;a href=\"#\"&gt;ediciones sugeridas&lt;/a&gt; o regresa más tarde.</string>
   <string name="suggested_edits_report_feature">Problema con función</string>
   <string name="suggested_edits_report_feature_subject">Problema con Ediciones sugeridas</string>
   <string name="edit_summary_added_image">Imagen agregada</string>
@@ -1276,46 +1279,46 @@
   <string name="activity_tab_menu_feedback">Reportar problema</string>
   <string name="activity_tab_menu_info">Más información</string>
   <string name="activity_tab_menu_customize">Personalizar</string>
-  <string name="activity_tab_menu_customize_description">Los conocimientos de lectura se basan en los idiomas de la aplicación en las configuraciones, y los conocimientos de edición se limitan a su idioma principal de la aplicación. Los datos locales se aprovechan para obtener información, excepto las ediciones que son públicas.</string>
+  <string name="activity_tab_menu_customize_description">Los conocimientos de lectura se basan en los idiomas de la aplicación en las configuraciones, y los conocimientos de edición se limitan a tu idioma principal de la aplicación. Los datos locales se aprovechan para obtener información, excepto las ediciones que son públicas.</string>
   <string name="activity_tab_highlights">Destacados</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Historial de lectura</string>
-  <string name="activity_tab_impact">Su impacto</string>
+  <string name="activity_tab_impact">Tu impacto</string>
   <string name="activity_tab_impact_most_viewed">Lo más visto desde tu edición</string>
   <string name="activity_tab_impact_contributions_this_month">Contribuciones de este mes</string>
   <plurals name="activity_tab_impact_edits_this_month">
-    <item quantity="one">edit this month</item>
-    <item quantity="other">edits this month</item>
+    <item quantity="one">edición este mes</item>
+    <item quantity="other">ediciones este mes</item>
   </plurals>
   <plurals name="activity_tab_impact_edits_last_month">
-    <item quantity="one">edit last month</item>
-    <item quantity="other">edits last month</item>
+    <item quantity="one">edición el mes pasado</item>
+    <item quantity="other">ediciones el mes pasado</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Impacto en todo el tiempo</string>
   <plurals name="activity_tab_impact_total_edits">
-    <item quantity="one">total edit</item>
-    <item quantity="other">total edits</item>
+    <item quantity="one">edición total</item>
+    <item quantity="other">ediciones totales</item>
   </plurals>
   <plurals name="activity_tab_impact_thanks">
-    <item quantity="one">thank</item>
-    <item quantity="other">thanks</item>
+    <item quantity="one">agradecimiento</item>
+    <item quantity="other">agradecimientos</item>
   </plurals>
   <plurals name="activity_tab_impact_best_streak_text">
-    <item quantity="one">%d day</item>
-    <item quantity="other">%d days</item>
+    <item quantity="one">%d día</item>
+    <item quantity="other">%d días</item>
   </plurals>
   <string name="activity_tab_impact_best_streak">Mejor racha</string>
   <string name="activity_tab_impact_last_edited">Última edición</string>
   <string name="activity_tab_impact_suggested_edits_title">0 ediciones recientes de artículos</string>
   <string name="activity_tab_impact_suggested_edits_message">Parece que no has hecho ninguna edición este mes. Expande el conocimiento libre editando temas que te interesen.</string>
   <string name="activity_tab_impact_suggested_edits_button">Hacer una edición</string>
-  <string name="activity_tab_impact_recent_activity">Su actividad reciente (últimos 30 días)</string>
+  <string name="activity_tab_impact_recent_activity">Tu actividad reciente (últimos 30 días)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
-    <item quantity="one">Edit</item>
-    <item quantity="other">Edits</item>
+    <item quantity="one">Edición</item>
+    <item quantity="other">Ediciones</item>
   </plurals>
   <plurals name="activity_tab_impact_recent_activity_views">
-    <item quantity="one">View on articles you\'ve edited</item>
-    <item quantity="other">Views on articles you\'ve edited</item>
+    <item quantity="one">Vista en los artículos que has editado</item>
+    <item quantity="other">Vistas en los artículos que has editado</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Tiempo dedicado a la lectura</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">Leer información</string>
@@ -1517,9 +1520,9 @@
   <string name="talk_message_empty">El mensaje no puede estar vacío.</string>
   <string name="talk_subject_empty">El asunto no puede estar vacío.</string>
   <string name="talk_subject_duplicate">El nombre del sujeto ya existe. Prueba con uno diferente.</string>
-  <string name="talk_response_submitted">Respuesta posted.</string>
+  <string name="talk_response_submitted">Respuesta publicada.</string>
   <string name="talk_snackbar_undo">Deshacer</string>
-  <string name="talk_last_modified">&lt;b&gt;Último editado&lt;/b&gt; %1$s por %2$s</string>
+  <string name="talk_last_modified">&lt;b&gt;Última edición %1$s&lt;/b&gt; por %2$s</string>
   <string name="talk_snackbar_survey_text">Gracias por usar las páginas de discusión. ¿Nos ayudas a mejorar la aplicación participando en una encuesta?</string>
   <string name="talk_snackbar_survey_action_text">Empezar</string>
   <string name="talk_share_discussion_subject">Wikipedia - discusión sobre el tema de la página de discusión \"%s\"</string>
@@ -1575,10 +1578,10 @@
   <string name="thank_label">Agradecer</string>
   <string name="view_user_page">Ver página de usuario</string>
   <string name="thank_dialog_title_text">Agradecer públicamente</string>
-  <string name="thank_dialog_text">\'Gracias\' es una manera fácil de mostrar agradecimiento por el trabajo de un editor en Wikipedia. Dar las \'Gracias\' no se puede deshacer y es públicamente visible.</string>
+  <string name="thank_dialog_text">Los \'Agradecimientos\' son una manera fácil de mostrar aprecio por el trabajo de un editor en Wikipedia. Los \'Agradecimientos\' no se pueden deshacer y son públicamente visibles.</string>
   <string name="thank_dialog_positive_button_text">Agradecer</string>
   <string name="thank_dialog_negative_button_text">Cancelar</string>
-  <string name="thank_success_message">Tu \'Gracias\' ha sido enviado a %s 👍</string>
+  <string name="thank_success_message">Tu \'Agradecimiento\' ha sido enviado a %s 👍</string>
   <string name="menu_option_view_user_profile">Ver página de usuario</string>
   <string name="menu_option_view_user_talk">Ver página de discusión</string>
   <string name="menu_option_view_user_contributions">Ver contribuciones del usuario</string>
@@ -1789,7 +1792,7 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Con precisión media, encuentra una fracción intermedia de ediciones de mala fe.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Muy probablemente de mala fe</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Encuentra con gran precisión las ediciones de mala fe más obvias.</string>
-  <string name="patroller_tasks_filters_empty_search_message">Intente eliminar %s para ver más ediciones</string>
+  <string name="patroller_tasks_filters_empty_search_message">Intenta eliminar %s para ver más ediciones</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtros</item>
@@ -1833,7 +1836,7 @@
   <string name="patroller_saved_message_body_npov">Hola {{{username}}}, algunas contribuciones que has realizado no cumplen con la neutralidad requerida para cumplir con la política de [[Wikipedia:NPOV|punto de vista neutral]] de Wikipedia. Por este motivo, se han modificado o eliminados algunos contenidos.\n\nPor favor, modifique los párrafos o apartados que muestren un punto de vista parcial, reemplazándolos por un texto más neutral y objetivo, acorde con lo esperado en una enciclopedia.</string>
   <string name="patroller_saved_message_body_auto_trans">Hola {{{username}}}, algunas aportaciones que has realizado posiblemente sean traducciones automáticas, por lo que se han modificado o marcado con la plantilla. Si no se realizan mejoras en el artículo, es posible que se elimine.\n\nSi, a pesar de toda esta información, todavía tienes alguna pregunta, no dudes en dejar un mensaje [[Usuario discusión:{{{senderUserName}}}|mi página de discusión]]. No te desanimes por este pequeño incidente. Tus contribuciones son muy importantes para Wikipedia.</string>
   <string name="patroller_saved_message_body_coi_rem">Hola {{{username}}}, agradezco tu colaboración en Wikipedia; Sin embargo, noté que estás en un [[Wikipedia:Conflict_of_interest|conflicto de intereses]]. Un conflicto de intereses es la incompatibilidad entre los objetivos de neutralidad y confiabilidad de Wikipedia y los objetivos particulares de ciertos editores, individuos, entidades o empresas de cualquier tipo.\n\nTodas las contribuciones en el espacio principal están sujetas a las políticas de criterios de contenido de esta Wikipedia ([[Wikipedia:What_Wikipedia_is_not|lo que Wikipedia no es]]), calidad enciclopédica ([[Wikipedia:Verifiability|verifiability ]] y [[Wikipedia:No_original_research|sin investigación original]]), método editorial ([[Wikipedia:Neutral_point_of_view|punto de vista neutral]]) y legitimidad del contenido ([[Wikipedia:Copyrights|copyrights]]). Se espera que todos los editores cumplan con estas políticas al crear y evaluar contenido y que respeten y asuman buena fe en las acciones de otros editores para garantizar que se sigan estas políticas.\n\nSi edita bajo un conflicto de intereses, deberá aplicar la política correspondiente con especial cuidado; De lo contrario, su cuenta de usuario podría considerarse privada y bloquearse. No dude en comunicarse con mi página de discusión si tiene alguna pregunta.</string>
-  <string name="patroller_saved_message_body_final_warning">Debido a que ha hecho varias modificaciones destructivas, esto le servirá como advertencia final. Si vuelve a vandalizar Wikipedia, se le prohibirá editar.</string>
+  <string name="patroller_saved_message_body_final_warning">Debido a que has hecho varias modificaciones destructivas, esto te servirá como advertencia final. Si vuelves a vandalizar Wikipedia, se te prohibirá editar.</string>
   <string name="patroller_saved_message_body_copy_vio">Su edición reciente parece incluir material protegido por derechos de autor sin permiso. Asegúrese de que todo el contenido cumpla con las políticas de [[Wikipedia:Copyrights|copyright]]para evitar su eliminación.</string>
   <string name="patroller_saved_message_body_edit_summary">Hola, {{{nombre de usuario}}}, parece que eliminaste contenido de Wikipedia sin dejar un resumen de edición. Deje un resumen de edición cada vez que agregue o elimine contenido en Wikipedia.</string>
   <string name="patroller_saved_message_body_do_not_censor">Hola, {{{username}}}, parece que eliminaste contenido sin comentarlo en la página de discusión del artículo. Tenga en cuenta que Wikipedia no tiene censura y el contenido no se debe eliminar porque sea controvertido. Si cree que la información es inexacta, llegue a un consenso en la página de discusión del artículo.</string>
@@ -1979,6 +1982,216 @@
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Ver tus rachas, puntuaciones y más</string>
   <string name="wikipedia_games_title">Juegos de Wikipedia</string>
   <string name="wikipedia_games_subtitle">Juegos de trivia diarios basados en el contenido de Wikipedia.</string>
+  <string name="yir_intro_headline">Su Resumen Anual Wikipedia está listo</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">Le agradecemos por el %1$d día en su aplicación de confianza, Wikipedia, en %2$d.</item>
+    <item quantity="other">Le agradecemos por los %1$d días en su aplicación de confianza, Wikipedia, en %2$d.</item>
+  </plurals>
+  <string name="yir_article_count_headline">Conteo total de artículos:</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="one">Esto le sitúa en el top %1$s%% de lectores de Wikipedia a nivel global. En promedio, las personas leen %2$d artículo por año.</item>
+    <item quantity="other">Esto le sitúa en el top %1$s%% de lectores de Wikipedia a nivel global. En promedio, las personas leen %2$d artículos por año.</item>
+  </plurals>
+  <string name="yir_article_count_supporting">Su exploración ha durado todo el año, y cada artículo ha agregado algún conocimiento nuevo para usted.</string>
+  <string name="yir_article_count_empty_headline">Aún quedan millones de artículos por descubrir</string>
+  <string name="yir_article_count_empty_supporting">Solo espere a ver qué es lo que falta aprender en Wikipedia.</string>
+  <string name="yir_days_visited_headline">Los días en los que visitó Wikipedia este %1$d</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">Su actividad aumentó en %1$s, pues nos visitó %2$d día.</item>
+    <item quantity="other">Su actividad aumentó en %1$s, pues nos visitó %2$d días diferentes.</item>
+  </plurals>
+  <string name="yir_minutes_read_headline">Cantidad total de minutos de lectura:</string>
+  <string name="yir_minutes_read_supporting">%1$s El tiempo vuela al clavarse en un tema.</string>
+  <string name="yir_reading_streak_headline">Mayor racha de días seguidos de lectura:</string>
+  <string name="yir_reading_streak_supporting">Desde %1$s-%2$s, empezó a leer cada día.</string>
+  <string name="yir_reading_streak_empty_headline">0 rachas de lectura… por lo pronto</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">Una racha empieza solo cuando lee %1$d día consecutivo. ¡Empecemos ahora!</item>
+    <item quantity="other">Una racha empieza solo cuando lee %1$d días consecutivos. ¡Empecemos ahora!</item>
+  </plurals>
+  <string name="yir_reading_time_headline">Horario favorito de exploración:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">El %1$d%% de sus exploraciones ocurrió a esta hora. ¿Será coincidencia?</item>
+    <item quantity="other">El %1$d%% de sus exploraciones ocurrió a esta hora. ¿Será coincidencia?</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">Ha leído en todo momento, básicamente.</string>
+  <string name="yir_reading_time_empty_supporting">No hay un momento o un día específicos para explorar páginas de Wikipedia.</string>
+  <string name="yir_top_topic_headline">Su tema principal de %1$d:</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">De %1$s a %2$s, %3$d de sus artículos tuvo relación con este tema. %4$s</item>
+    <item quantity="other">De %1$s a %2$s, %3$d de sus artículos tuvieron relación con este tema. %4$s</item>
+  </plurals>
+  <string name="yir_top_topic_empty_headline">Su tema #1 de %1$d es… todos ellos</string>
+  <string name="yir_top_topic_empty_supporting">Con tantos intereses, no puede decirse que haya uno solo que defina sus hábitos de lectura.</string>
+  <string name="yir_runner_up_topics_headline">Y sus finalistas de %1$d:</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d artículo</item>
+    <item quantity="other">%1$d artículos</item>
+  </plurals>
+  <string name="yir_biggest_reading_day_headline">El día con más tiempo de lectura:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">En total, ha estado %1$d minuto en Wikipedia. ¡Cuánta productividad!</item>
+    <item quantity="other">En total, ha estado %1$d minutos en Wikipedia. ¡Cuánta productividad!</item>
+  </plurals>
+  <string name="yir_articles_read_headline">Ejemplos de los artículos que ha leído:</string>
+  <string name="yir_most_time_article_headline">¿En cuál ha invertido la mayor cantidad de tiempo?</string>
+  <string name="yir_guess_article_choose_action">Seleccione %s</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">En este artículo, ¡ha permanecido %1$d minuto durante el %2$d!</item>
+    <item quantity="other">En este artículo, ¡ha permanecido %1$d minutos durante el %2$d!</item>
+  </plurals>
+  <string name="yir_rabbit_hole_headline">¿Cuál fue el tema que más le atrajo?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">%1$d enlace. Impresionante.</item>
+    <item quantity="other">%1$d enlaces. Impresionante.</item>
+  </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">¿Qué temas le provocarán un fuerte interés en el futuro?</string>
+  <string name="yir_niche_category_headline">Hablando de intereses peculiares:</string>
+  <string name="yir_niche_category_supporting">Por alguna razón, ¡se metió de lleno en esta categoría!</string>
+  <string name="yir_reread_articles_headline">Algunos artículos que ha visitado:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d visitas</item>
+    <item quantity="other">%1$d visitas</item>
+  </plurals>
+  <string name="yir_reread_articles_empty_headline">Usted no suele volver a leer</string>
+  <string name="yir_reread_articles_empty_supporting">Ni pensar en consultar dos veces un mismo artículo, y prefiere las novedades y oportunidades de clavarse con nuevos temas.</string>
+  <string name="yir_places_headline">Prácticamente, sus lecturas le llevaron a:</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">Basado en %1$d artículo</item>
+    <item quantity="other">Basado en %1$d artículos</item>
+  </plurals>
+  <string name="yir_places_empty_headline">Sus lecturas le llevaron a recorrer todo el mapa</string>
+  <string name="yir_places_empty_supporting">En %1$d, usted ha viajado por toda la Wikipedia. Para más ideas, ingrese a la función Lugares.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Artículo guardado para verlo después: %1$d</item>
+    <item quantity="other">Artículos guardados para verlos después: %1$d</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s vista</item>
+    <item quantity="other">%1$s vistas</item>
+  </plurals>
+  <string name="yir_saved_articles_empty_headline">Usted tiene 0 artículos guardados</string>
+  <string name="yir_saved_articles_empty_supporting">Actualmente, tiene 0 artículos guardados. Para guardar lecturas, busque el ícono de marcador de libros en cada artículo.</string>
+  <string name="yir_edits_headline">Tus ediciones:</string>
+  <string name="yir_edits_supporting">Le agradecemos por mejorar el acceso de todas las personas al conocimiento humano, ya sea contribuyendo a Wikipedia, Wikimedia Commons o Wikidata.</string>
+  <string name="yir_edits_empty_headline">Hasta el momento, has realizado 0 ediciones.</string>
+  <string name="yir_edits_empty_supporting">Aún no has realizado ninguna edición, pero es fácil aprender a hacerlo. Es un buen momento para unirse a la comunidad que compone Wikipedia.</string>
+  <string name="yir_edit_views_headline">Cantidad de vistas de tus ediciones:</string>
+  <string name="yir_edit_views_supporting">En %1$d, las personas de todo el mundo pudieron ver los cambios hechos por usted.</string>
+  <string name="yir_most_viewed_edited_articles_headline">Los más vistos desde que los editó:</string>
+  <string name="yir_contributor_thanks_headline">¡Gracias!</string>
+  <string name="yir_contributor_thanks_supporting">Como %1$s, sus contribuciones ayudan a mantener Wikipedia libre de publicidad, fiable y accesible para todas las personas. ¡Le agradecemos muchísimo por apoyar a Wikipedia!</string>
+  <string name="yir_non_contributor_headline">Usted es importante.</string>
+  <string name="yir_non_contributor_supporting">Wikipedia existe gracias a personas reales que contribuyen lo que pueden, aportando a su vitalidad. Si la Wikipedia es valiosa para usted, por favor considere brindar apoyo editando o efectuando una donación.</string>
+  <string name="yir_community_intro_headline">Nuestro Resumen Anual está listo</string>
+  <string name="yir_community_intro_supporting">Esta vez, no hay suficiente actividad como para generar un Resumen Anual; sin embargo, aún puede explorar lo que descubrimos en conjunto.</string>
+  <string name="yir_community_reading_hours_headline">Cantidad de horas de lectura de Wikipedia en %1$d:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">De forma colectiva, a través de todas las lenguas, nuestros lectores y lectoras invirtieron cerca de %1$,d año leyendo Wikipedia.</item>
+    <item quantity="other">De forma colectiva, a través de todas las lenguas, nuestros lectores y lectoras invirtieron cerca de %1$,d años leyendo Wikipedia.</item>
+  </plurals>
+  <string name="yir_community_languages_title">Idiomas en los que está disponible Wikipedia:</string>
+  <plurals name="yir_community_languages_headline">
+    <item quantity="one">Idiomas en los que está disponible Wikipedia: más de %1$d</item>
+    <item quantity="other">Idiomas en los que está disponible Wikipedia: más de %1$d</item>
+  </plurals>
+  <string name="yir_community_languages_supporting">A Wikipedia la escriben y mantienen las comunidades de voluntarios de todas partes del mundo. Esto es prueba de que el conocimiento humano habla mucho más que un solo idioma.</string>
+  <string name="yir_community_articles_headline">Artículos en Wikipedia:</string>
+  <string name="yir_community_articles_supporting">Wikipedia continúa siendo edificada por seres humanos. Nuestros voluntarios de todas partes del mundo utilizan fuentes para crear y mantener su contenido.</string>
+  <string name="yir_community_saved_articles_headline">Artículos guardados en %1$d :</string>
+  <string name="yir_community_saved_articles_supporting">Miles y miles de artículos fueron marcados para leerlos por primera, tercera, o milésima vez.</string>
+  <string name="yir_community_editors_headline">Editores y editoras voluntarios:</string>
+  <string name="yir_community_editors_supporting">¿Sabía usted que todos los proyectos Wikimedia son hechos por voluntarios y voluntarias? Estas personas contribuyen con nuevos y mejorados artículos.</string>
+  <string name="yir_community_edits_headline">Ediciones de nuestros voluntarios:</string>
+  <string name="yir_community_edits_supporting">Cada hora, cada día, personas alrededor del mundo trabajan ampliando Wikipedia al actualizar datos en artículos, fotografiando sitios históricos y corrigiendo errores ortográficos.</string>
+  <string name="yir_community_global_reach_title">Alcance mundial de Wikipedia:</string>
+  <string name="yir_community_global_reach_subtitle">Es uno de los sitios web más visitados en el mundo.</string>
+  <string name="yir_community_global_reach_headline">Alcance mundial de Wikipedia: Es uno de los sitios web más visitados en el mundo.</string>
+  <string name="yir_community_global_reach_supporting">Wikipedia es la columna vertebral del conocimiento en internet. Todos aprenden algo allí, desde estudiantes hasta chatbots.</string>
+  <string name="yir_community_contribute_headline">Usted es importante.</string>
+  <string name="yir_community_contribute_supporting">Wikipedia existe gracias a personas reales como tú, que contribuyen con lo que pueden para que siga prosperando. Si Wikipedia te resulta valiosa, considera apoyarla donando o editando. ¿Ya eres colaborador? Inicia sesión o crea una cuenta para ver tu recompensa.</string>
+  <string name="yir_closing_headline">Hasta el próximo clavado</string>
+  <string name="yir_closing_supporting">Ya sea por un artículo o por cien, le damos gracias por explorar, leer y mantener viva la curiosidad aquí, en Wikipedia.</string>
+  <string name="yir_closing_share_action">Comparta sus hallazgos</string>
+  <string name="yir_store_discount_headline">Un pequeño agradecimiento.</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">Dado que usted ha aportado a la libertad del conocimiento, tiene un descuento del %1$d%% en la tienda de Wikipedia. Este descuento no requiere ningún código y se aplica al momento de la compra.</item>
+    <item quantity="other">Dado que usted ha aportado a la libertad del conocimiento, tiene un descuento del %1$d%% en la tienda de Wikipedia. Este descuento no requiere ningún código y se aplica al momento de la compra.</item>
+  </plurals>
+  <string name="yir_store_discount_action">Visita la tienda</string>
+  <string name="yir_games_headline">¿Listos para más desafíos?</string>
+  <string name="yir_games_supporting">Pon a prueba tu cerebro en Wikipedia con los juegos rápidos que creamos inspirándonos en el conocimiento mundial.</string>
+  <string name="yir_games_action">Jugar</string>
+  <string name="yir_customize_home_headline">Desarrollar un propio inicio</string>
+  <string name="yir_customize_home_supporting">Escoger los temas que le fascinan, para recibir recomendaciones ajustadas a sus intereses.</string>
+  <string name="yir_customize_home_action">Personalizar intereses</string>
+  <string name="yir_community_recap_headline">Nuestro Resumen Anual está listo</string>
+  <string name="yir_community_recap_supporting">Juntos, volvamos a descubrir el modo en que el mundo lee, edita y explora.</string>
+  <string name="yir_community_recap_action">Explorar ahora</string>
+  <string name="yir_quiz_headline">¿Cuál Wikipedia es usted?</string>
+  <string name="yir_quiz_supporting">Desde los días de la conexión dial-up hasta el presente, recorramos la historia de Wikipedia.</string>
+  <string name="yir_quiz_action">Complete el cuestionario</string>
+  <string name="yir_open_tabs_headline">Visite de vuelta sus pestañas abiertas</string>
+  <string name="yir_share_text">A continuación, mi Resumen Anual %1$d de Wikipedia, de la app de Wikipedia: %2$s</string>
+  <string name="yir_feature_card_title">Resumen Anual Wikipedia %1$d</string>
+  <string name="yir_feature_card_articles_read">Cantidad de artículos leídos:</string>
+  <string name="yir_feature_card_minutes_read">Cantidad total de minutos de lectura:</string>
+  <string name="yir_feature_card_articles_reread">Artículos en rotación:</string>
+  <string name="yir_feature_card_longest_rabbit_hole">Tema de mayor interés:</string>
+  <string name="yir_feature_card_top_category">Categoría más específica explorada:</string>
+  <string name="yir_feature_card_created_with">Creado con la App de Wikipedia</string>
+  <string name="yir_topic_comment_architecture">Pasó el año contemplando cosas creadas para perdurar.</string>
+  <string name="yir_topic_comment_art">Y se aproximó a la belleza, el atrevimiento y la ocasional perplejidad.</string>
+  <string name="yir_topic_comment_comics_and_anime">Panel por panel, se sumergió en el mundo de los cómics y el anime.</string>
+  <string name="yir_topic_comment_entertainment">No pudo alejarse del mundo del entretenimiento este año.</string>
+  <string name="yir_topic_comment_fashion">Hizo más clics hacia el mundo del estilo que la mayoría.</string>
+  <string name="yir_topic_comment_literature">Sus lecturas le hicieron hallar una veta literaria este año.</string>
+  <string name="yir_topic_comment_music">Este año, su curiosidad tuvo una banda sonora.</string>
+  <string name="yir_topic_comment_performing_arts">Le atrajo la palestra, de una forma u otra.</string>
+  <string name="yir_topic_comment_sports">Estuvo atento a los marcadores en temas de deportes.</string>
+  <string name="yir_topic_comment_tv_and_film">Así, sus listas le sirvieron de lista de seguimiento.</string>
+  <string name="yir_topic_comment_video_games">Su conocimiento de videojuegos subió de nivel.</string>
+  <string name="yir_topic_comment_biography">Pasó el año conociendo las historias de otras personas.</string>
+  <string name="yir_topic_comment_women">Pasó el año conociendo las historias de otras personas.</string>
+  <string name="yir_topic_comment_business_and_economics">Y analizó de cerca el modo en que el mundo hace negocios.</string>
+  <string name="yir_topic_comment_education">Aprender sobre aprendizaje fue lo suyo este año.</string>
+  <string name="yir_topic_comment_food_and_drink">Su curiosidad tuvo buen apetito este año.</string>
+  <string name="yir_topic_comment_history">Claramente, el pasado le fascina.</string>
+  <string name="yir_topic_comment_military_and_warfare">Se sumergió en la historia de conflictos y defensas.</string>
+  <string name="yir_topic_comment_philosophy_and_religion">Este año, invirtió tiempo pensando en las grandes preguntas.</string>
+  <string name="yir_topic_comment_politics_and_government">Siguió los rastros que le permitieron entender el funcionamiento del mundo.</string>
+  <string name="yir_topic_comment_society">Tuvo curiosidad sobre los modos de vida y organización de las personas.</string>
+  <string name="yir_topic_comment_transportation">Tomó interés en la forma de moverse del mundo, de lugar a lugar.</string>
+  <string name="yir_topic_comment_biology">Exploró la ciencia de los seres vivos.</string>
+  <string name="yir_topic_comment_chemistry">Algo de química se mezcló en sus lecturas anuales.</string>
+  <string name="yir_topic_comment_computers_and_internet">Pasó una cantidad importante de tiempo tratando de comprender la tecnología que yace tras la pantalla.</string>
+  <string name="yir_topic_comment_earth_and_environment">Y leyó con los pies bien plantados en tierra, literalmente.</string>
+  <string name="yir_topic_comment_engineering">Le gustó aprender el modo en que las cosas se construyen y el modo en que operan.</string>
+  <string name="yir_topic_comment_general_science">Su curiosidad se expandió hacia las ciencias.</string>
+  <string name="yir_topic_comment_mathematics">Los números entran en sus cuentas de este año.</string>
+  <string name="yir_topic_comment_medicine_and_health">Pasó tiempo aprendiendo sobre el funcionamiento del cuerpo.</string>
+  <string name="yir_topic_comment_physics">Analizó las normas que rigen el universo.</string>
+  <string name="yir_topic_comment_technology">Se mantuvo informado sobre los cambios que sufren algunas cosas.</string>
+  <string name="yir_topic_comment_africa">Sus lecturas le llevaron a recorrer África este año.</string>
+  <string name="yir_topic_comment_asia">Sus lecturas le llevaron a recorrer Asia este año.</string>
+  <string name="yir_topic_comment_central_america">Sus lecturas le llevaron a recorrer América Central este año.</string>
+  <string name="yir_topic_comment_europe">Sus lecturas le llevaron a recorrer Europa este año.</string>
+  <string name="yir_topic_comment_north_america">Sus lecturas le llevaron a explorar un lugar más cercano al hogar: Norteamérica (aunque lo estudie desde lejos).</string>
+  <string name="yir_topic_comment_oceania">Sus lecturas le llevaron a recorrer Oceanía este año.</string>
+  <string name="yir_topic_comment_south_america">Sus lecturas le llevaron a recorrer Sudamérica este año.</string>
+  <string name="yir_time_spent_comment_1">Más tiempo del que le toma al corazón de un colibrí latir unas 1200 veces.</string>
+  <string name="yir_time_spent_comment_9">Más de lo que le toma a la luz del sol llegar a la Tierra.</string>
+  <string name="yir_time_spent_comment_13">Es más tiempo del que se necesita para preparar un huevo duro.</string>
+  <string name="yir_time_spent_comment_19">Es más tiempo que el promedio de tiempo que toma caer dormido o dormida.</string>
+  <string name="yir_time_spent_comment_31">Más que el episodio de una sitcom, con comerciales y todo.</string>
+  <string name="yir_time_spent_comment_93">Más de lo que le toma a la Estación Espacial Internacional darle una vuelta completa a la Tierra.</string>
+  <string name="yir_time_spent_comment_121">Más que récord actual mundial en maratón.</string>
+  <string name="yir_time_spent_comment_540">Más que una noche entera de descanso.</string>
+  <string name="yir_time_spent_comment_1441">Más tiempo del que le toma a una abeja reina poner hasta 2000 huevos.</string>
+  <plurals name="yir_time_spent_comment_2800">
+    <item quantity="one">Esto equivale a más de %1$d día entero.</item>
+    <item quantity="other">Esto equivale a más de %1$d días enteros.</item>
+  </plurals>
   <string name="year_in_review_learn_more">Más información</string>
   <string name="year_in_review_get_started">Comenzar</string>
   <string name="year_in_review_topbar_w_icon">Icono W de Wikipedia</string>
@@ -2047,6 +2260,10 @@
     <item quantity="other">Editaste %s veces</item>
   </plurals>
   <string name="year_in_review_slide_edited_times_body">{{PLURAL|one=Gracias por ser uno de los editores voluntarios haciendo una diferencia en los projectos de Wikimedia en todo el mundo. Los voluntarios como used hizo %1$,d cambio en más de 300 ediciones de idiomas diferentes de Wikipedia.|Gracias por ser uno de los editores voluntarios haciendo una diferencia en los projectos de Wikimedia en todo el mundo. Los voluntarios como usted hicieron %1$,d cambios en más de 300 ediciones de idiomas diferentes de Wikipedia.</string>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">Editores en las aplicaciones oficiales de Wikipedia hicieron %,d edición</item>
+    <item quantity="other">Editores en las aplicaciones oficiales de Wikipedia hicieron %,d ediciones</item>
+  </plurals>
   <string name="year_in_review_slide_reading_patterns_headline">Tienes patrones de lectura claros</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Tiempo favorito para leer</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Día favorito para leer</string>
@@ -2065,6 +2282,10 @@
   <string name="year_in_review_reading_list_dialog_positive_button_label">Crear</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">No, gracias</string>
   <string name="year_in_review_highlights_looking_forward_message">¡Nos vemos el año que viene!</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Edición en la aplicación</item>
+    <item quantity="other">Ediciones en la aplicación</item>
+  </plurals>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Cuántas veces se editó Wikipedia</string>
   <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
     <item quantity="one">Minuto leído</item>
@@ -2076,6 +2297,7 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Comparte lo más destacado</string>
   <string name="year_in_review_highlights_logo_description">Logo de Wikipedia</string>
+  <string name="year_in_review_swipe_tutorial_title">Desliza para explorar</string>
   <string name="recommended_reading_list_title">Descubrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubre artículos seleccionados especialmente para ti</string>
   <string name="recommended_reading_list_onboarding_card_message">Lista de lectura semanal de artículos de Wikipedia, seleccionada especialmente para ti.</string>
@@ -2169,7 +2391,7 @@
   <string name="donation_reminders_settings_confirm_btn_label">Confirmar recordatorio</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Acerca de este experimento</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">artículos</string>
-  <string name="donation_reminders_settings_warning_min_amount">Por favor, introduzca al menos %s</string>
+  <string name="donation_reminders_settings_warning_min_amount">Por favor, introduce al menos %s</string>
   <string name="donation_reminders_settings_warning_max_amount">Se permite un máximo de %s</string>
   <string name="donation_reminders_settings_option_custom">Personalizado...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">¡Gracias! Te recordaremos que dones %1$s cuando leas %2$s mientras se realiza este experimento.</string>
@@ -2210,6 +2432,7 @@
   <string name="reading_challenge_widget_name">Reto de lectura</string>
   <string name="reading_challenge_onboarding_header">¡Celebra el 25.º aniversario de Wikipedia participando en el reto de lectura de 25 días!</string>
   <string name="reading_challenge_onboarding_read_title">Lee 1 artículo al día durante 25 días.</string>
+  <string name="reading_challenge_onboarding_read_description">Puedes unirte en cualquier momento entre el 1 de mayo y el 31 de mayo, y completar los 25 días a tu propio ritmo.</string>
   <string name="reading_challenge_onboarding_read_subtitle">Puedes unirte en cualquier momento entre el %1$s y el %2$s y completar los 25 días a tu propio ritmo.</string>
   <string name="reading_challenge_onboarding_win_title">Gana premios</string>
   <string name="reading_challenge_onboarding_win_description">Completa una racha de lectura de 25 días mientras el reto esté activo y obtén premios especiales.</string>
