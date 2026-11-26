@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* ARamadan-WMF
 * Aaribaud
 * Allylly
 * Alno
@@ -1984,16 +1985,215 @@
   <string name="wikipedia_games_title">Jeux de Wikipédia</string>
   <string name="wikipedia_games_subtitle">Jeux quotidiens basés sur le contenu de Wikipédia.</string>
   <string name="yir_intro_headline">Votre bilan annuel Wikipédia est ici.</string>
+  <plurals name="yir_intro_supporting">
+    <item quantity="one">Merci d\'avoir passé %1$d jours sur votre fidèle application Wikipédia en %2$d .</item>
+    <item quantity="other">Merci d\'avoir passé %1$d jours sur votre fidèle application Wikipédia en %2$d .</item>
+  </plurals>
   <string name="yir_article_count_headline">Votre nombre total d\'articles:</string>
+  <plurals name="yir_article_count_supporting_top">
+    <item quantity="one">Cela vous place parmi les %1$s%% des lecteurs de Wikipédia au niveau mondial. En moyenne, une personne lit %2$d article par an.</item>
+    <item quantity="other">Cela vous place parmi les %1$s%% des lecteurs de Wikipédia au niveau mondial. En moyenne, une personne lit %2$d articles par an.</item>
+  </plurals>
   <string name="yir_article_count_supporting">Vous avez exploré toute l\'année. Chaque article a enrichi vos connaissances.</string>
   <string name="yir_article_count_empty_headline">Vous avez des millions d\'articles à découvrir</string>
   <string name="yir_article_count_empty_supporting">Attends juste de découvrir tout ce qu\'il y a à apprendre sur Wikipedia.</string>
+  <string name="yir_days_visited_headline">Jours où vous avez consulté Wikipédia en %1$d:</string>
+  <plurals name="yir_days_visited_supporting">
+    <item quantity="one">Votre activité a atteint un pic en %1$s, période durant laquelle vous avez lu pendant %2$d jour.</item>
+    <item quantity="other">Votre activité a atteint un pic en %1$s, période durant laquelle vous avez lu pendant %2$d jours différents.</item>
+  </plurals>
   <string name="yir_minutes_read_headline">Durée totale de lecture (en minutes) :</string>
+  <string name="yir_minutes_read_supporting">%1$s Le temps file quand on s\'enfonce dans une recherche interminable.</string>
+  <string name="yir_reading_streak_headline">Nombre de jours de votre plus longue série de lecture:</string>
+  <string name="yir_reading_streak_supporting">Du %1$s au %2$s, vous avez vraiment pris l’habitude de lire chaque jour.</string>
+  <string name="yir_reading_streak_empty_headline">0 séries de lecture... pour l\'instant</string>
+  <plurals name="yir_reading_streak_empty_supporting">
+    <item quantity="one">On ne peut pas parler de série tant qu’on ne l’a pas fait pendant %1$d jour consécutif. Pourquoi ne pas commencer maintenant ?</item>
+    <item quantity="other">On ne peut pas parler de série tant qu’on ne l’a pas fait pendant %1$d jours consécutifs. Pourquoi ne pas commencer maintenant ?</item>
+  </plurals>
+  <string name="yir_reading_time_headline">Moment privilégié pour explorer:</string>
+  <plurals name="yir_reading_time_supporting">
+    <item quantity="one">%1$d%% de vos découvertes ont eu lieu à ce moment de la journée. Coïncidence ou... pas ?</item>
+    <item quantity="other">%1$d%% de vos découvertes ont eu lieu à ce moment de la journée. Coïncidence ou... pas ?</item>
+  </plurals>
+  <string name="yir_reading_time_empty_headline">Vous lisez pratiquement tout le temps</string>
+  <string name="yir_reading_time_empty_supporting">Il n’y a pas de jour ni d’heure définis pour décider de découvrir les pages de Wikipédia.</string>
   <string name="yir_top_topic_headline">Votre sujet principal en %1$d :</string>
+  <plurals name="yir_top_topic_supporting">
+    <item quantity="one">Du %1$s au %2$s, %3$d de vos articles était lié à ce sujet. %4$s</item>
+    <item quantity="other">Du %1$s au %2$s, %3$d de vos articles étaient liés à ce sujet. %4$s</item>
+  </plurals>
   <string name="yir_top_topic_empty_headline">Votre sujet numéro 1 en %1$d est… tous</string>
   <string name="yir_top_topic_empty_supporting">Avec tant d\'intérêts, il n\'y a aucun sujet qui a défini vos habitudes de lecture.</string>
+  <string name="yir_runner_up_topics_headline">Et voici vos finalistes pour %1$d:</string>
+  <plurals name="yir_runner_up_topics_article_count">
+    <item quantity="one">%1$d article</item>
+    <item quantity="other">%1$d articles</item>
+  </plurals>
+  <string name="yir_biggest_reading_day_headline">Plus grand jour de lecture:</string>
+  <plurals name="yir_biggest_reading_day_supporting">
+    <item quantity="one">Vous avez passé au total %1$d minute sur Wikipédia. N’est-ce pas une belle preuve de productivité ?</item>
+    <item quantity="other">Vous avez passé au total %1$d minutes sur Wikipédia. N’est-ce pas une belle preuve de productivité ?</item>
+  </plurals>
+  <string name="yir_articles_read_headline">Un aperçu des articles que vous lisez:</string>
+  <string name="yir_most_time_article_headline">Sur lequel avez-vous passé le plus de temps?</string>
+  <string name="yir_guess_article_choose_action">Choisir %s</string>
+  <plurals name="yir_most_time_article_supporting">
+    <item quantity="one">Vous avez passé un total de %1$d minute sur cet article au cours de %2$d !</item>
+    <item quantity="other">Vous avez passé un total de %1$d minutes sur cet article au cours de %2$d !</item>
+  </plurals>
+  <string name="yir_rabbit_hole_headline">Laquelle de vos recherches était la plus interminable?</string>
+  <plurals name="yir_rabbit_hole_depth_headline">
+    <item quantity="one">Une profondeur de %1$d lien est impressionnante.</item>
+    <item quantity="other">Une profondeur de %1$d liens est impressionnante.</item>
+  </plurals>
+  <string name="yir_rabbit_hole_depth_supporting">Dans quelle recherche interminable allez-vous vous aventurer ensuite?</string>
+  <string name="yir_niche_category_headline">Parlons d’avoir des centres d’intérêt très spécifiques, par exemple:</string>
+  <string name="yir_niche_category_supporting">Pour une raison ou une autre, quand il a été question de cette catégorie, vous avez mis le paquet!</string>
+  <string name="yir_reread_articles_headline">Quelques articles que vous consultez:</string>
+  <plurals name="yir_reread_articles_visits_count">
+    <item quantity="one">%1$d visite</item>
+    <item quantity="other">%1$d visites</item>
+  </plurals>
+  <string name="yir_reread_articles_empty_headline">Vous n\'avez pas l’air de relire les articles</string>
+  <string name="yir_reread_articles_empty_supporting">Vous ne consultez pas deux fois le même article. Vous privilégiez la nouveauté et le fait de vous laisser entraîner dans des recherches interminables.</string>
+  <string name="yir_places_headline">Elles vous ont, en quelque sorte, transporté vers :</string>
+  <plurals name="yir_places_article_count">
+    <item quantity="one">Basé sur %1$d article</item>
+    <item quantity="other">Basé sur %1$d articles</item>
+  </plurals>
+  <string name="yir_places_empty_headline">Vos lectures vous ont fait voyager aux quatre coins du monde.</string>
+  <string name="yir_places_empty_supporting">En %1$d, vous avez parcouru Wikipédia en long et en large. Découvrez la fonctionnalité “Lieux” pour trouver des idées de destinations lors de vos déplacements.</string>
+  <plurals name="yir_saved_articles_headline">
+    <item quantity="one">Article que vous avez enregistré pour plus tard : %1$d</item>
+    <item quantity="other">Articles que vous avez enregistrés pour plus tard : %1$d</item>
+  </plurals>
+  <plurals name="yir_article_view_count">
+    <item quantity="one">%1$s vue</item>
+    <item quantity="other"> %1$s vues</item>
+  </plurals>
+  <string name="yir_saved_articles_empty_headline">Vous avez 0 articles enregistrés</string>
+  <string name="yir_saved_articles_empty_supporting">Vous avez actuellement 0 articles enregistrés. Repérez l’icône en forme de signet sur un article pour pouvoir le consulter plus tard.</string>
+  <string name="yir_edits_headline">Vos modifications:</string>
+  <string name="yir_edits_supporting">Que vous contribuiez à Wikipédia, Wikimedia Commons ou Wikidata, merci de votre effort à améliorer l’accès de tous à la connaissance humaine.</string>
+  <string name="yir_edits_empty_headline">Vous avez effectué 0 modification jusqu’à présent.</string>
+  <string name="yir_edits_empty_supporting">Vous n’avez pas encore effectué de modification, mais il est très facile d’apprendre comment le faire. C’est le moment idéal pour rejoindre la communauté qui construit Wikipédia.</string>
+  <string name="yir_edit_views_headline">Nombre de vues de vos modifications:</string>
+  <string name="yir_edit_views_supporting">En %1$d, des lecteurs du monde entier ont consulté les modifications que vous avez apportées.</string>
+  <string name="yir_most_viewed_edited_articles_headline">Les articles les plus consultés depuis votre modification:</string>
+  <string name="yir_contributor_thanks_headline">Merci!</string>
+  <string name="yir_contributor_thanks_supporting">En tant que %1$s, vos contributions permettent à Wikipédia de rester sans publicité, fiable et accessible à tous. Nous ne saurions trop vous remercier pour votre soutien à Wikipédia !</string>
+  <string name="yir_non_contributor_headline">Vous comptez.</string>
+  <string name="yir_non_contributor_supporting">Wikipédia existe grâce à des personnes réelles comme vous, qui apportent leur contribution pour assurer sa pérennité. Si Wikipédia vous est utile, pensez à la soutenir en faisant un don ou en participant à sa rédaction.</string>
+  <string name="yir_community_intro_headline">Notre bilan de l’année est ici</string>
+  <string name="yir_community_intro_supporting">L\'activité a été insuffisante pour générer votre propre bilan de l\'année, mais vous pouvez tout de même découvrir ce que le monde a exploré collectivement.</string>
+  <string name="yir_community_reading_hours_headline">Nombre d’heures passées à lire Wikipédia en %1$d:</string>
+  <plurals name="yir_community_reading_hours_supporting">
+    <item quantity="one">Au total, toutes langues confondues, les lecteurs comme vous ont passé environ %1$,d an à lire Wikipédia.</item>
+    <item quantity="other">Au total, toutes langues confondues, les lecteurs comme vous ont passé environ %1$,d ans à lire Wikipédia.</item>
+  </plurals>
+  <string name="yir_community_languages_title">Langues dans lesquelles Wikipédia est disponible:</string>
+  <plurals name="yir_community_languages_headline">
+    <item quantity="one">Langues dans lesquelles Wikipédia est disponible : plus de %1$d</item>
+    <item quantity="other">Langues dans lesquelles Wikipédia est disponible : plus de %1$d</item>
+  </plurals>
+  <string name="yir_community_languages_supporting">Wikipédia est modifiée et entretenue par des communautés de bénévoles du monde entier, preuve que la connaissance humaine ne se limite pas à une seule langue.</string>
+  <string name="yir_community_articles_headline">Articles sur Wikipédia</string>
+  <string name="yir_community_articles_supporting">Wikipédia continue d’être construite par des humains: Des bénévoles venus du monde entier qui utilisent des sources fiables pour créer et enrichir l’ensemble de son contenu.</string>
+  <string name="yir_community_saved_articles_headline">Articles enregistrés en %1$d :</string>
+  <string name="yir_community_saved_articles_supporting">Les lecteurs ont mis en favoris des milliers d’articles, pour les lire une première, une troisième ou une centième fois.</string>
+  <string name="yir_community_editors_headline">Rédacteurs.trices volontaires:</string>
+  <string name="yir_community_editors_supporting">Saviez-vous que tous les projets Wikimedia sont entretenus par des bénévoles? Les contributeurs rédigent de nouveaux articles et améliorent ceux qui existent déjà.</string>
+  <string name="yir_community_edits_headline">Modifications faites par des bénévoles:</string>
+  <string name="yir_community_edits_supporting">À toute heure de la journée, des bénévoles à travers le monde améliorent Wikipédia en mettant à jour les informations contenues dans les articles, en photographiant des monuments historiques et en corrigeant des erreurs d’orthographe.</string>
+  <string name="yir_community_global_reach_title">Portée mondiale de Wikipédia :</string>
+  <string name="yir_community_global_reach_subtitle">Un des dix sites web les plus visités au monde</string>
+  <string name="yir_community_global_reach_headline">Portée mondiale de Wikipédia :\nUn des dix sites web les plus visités au monde</string>
+  <string name="yir_community_global_reach_supporting">Wikipédia constitue la colonne vertébrale du savoir sur Internet. Des étudiants aux agents conversationnels, tout le monde y puise des connaissances.</string>
+  <string name="yir_community_contribute_headline">Vous comptez.</string>
+  <string name="yir_community_contribute_supporting">Wikipédia existe grâce à des personnes réelles comme vous, qui apportent leur contribution pour assurer sa pérennité. Si Wikipédia vous est utile, pensez à la soutenir en faisant un don ou en participant à sa rédaction. Vous contribuez déjà? Connectez-vous ou créez un compte pour accéder à votre récompense de contributeur.</string>
+  <string name="yir_closing_headline">Jusqu’à la prochaine recherche interminable</string>
+  <string name="yir_closing_supporting">Que vous soyez venu(e) pour un seul article ou pour une centaine, merci d’explorer, de lire et de rester curieux.se avec nous sur Wikipédia.</string>
+  <string name="yir_closing_share_action">Partager les moments forts</string>
+  <string name="yir_store_discount_headline">Un petit remerciement</string>
+  <plurals name="yir_store_discount_supporting">
+    <item quantity="one">Parce que vous contribuez à préserver la liberté du savoir, nous vous offrons une réduction de %1$d%% sur la boutique Wikipédia. Aucun code n’est nécessaire. La remise s’applique automatiquement au moment du paiement.</item>
+    <item quantity="other">Parce que vous contribuez à préserver la liberté du savoir, nous vous offrons une réduction de %1$d%% sur la boutique Wikipédia. Aucun code n’est nécessaire. La remise s’applique automatiquement au moment du paiement.</item>
+  </plurals>
+  <string name="yir_store_discount_action">Visitez le magasin</string>
+  <string name="yir_games_headline">Prêt pour un autre défi ?</string>
+  <string name="yir_games_supporting">Mettez vos cerveau de Wikipédia à l’épreuve grâce à des jeux rapides inspirés par la connaissance mondiale.</string>
+  <string name="yir_games_action">Commencer à jouer</string>
   <string name="yir_customize_home_headline">Faites de ce fil d\'actualité le vôtre</string>
+  <string name="yir_customize_home_supporting">Choisissez les sujets qui vous passionnent et obtenez des recommandations adaptées à vos centres d’intérêt.</string>
+  <string name="yir_customize_home_action">Personnaliser les centres d’intérêt</string>
+  <string name="yir_community_recap_headline">Notre bilan de l’année</string>
+  <string name="yir_community_recap_supporting">Redécouvrir à quel point, à travers le monde, nous avons lu, modifié et exploré ensemble.</string>
+  <string name="yir_community_recap_action">Explorer maintenant</string>
+  <string name="yir_quiz_headline">Quelle Wikipédia êtes-vous?</string>
+  <string name="yir_quiz_supporting">De l’époque des connexions par ligne commutée à aujourd’hui, parcourez l’histoire de Wikipédia.</string>
+  <string name="yir_quiz_action">Faire le quiz</string>
+  <string name="yir_open_tabs_headline">Revoir vos fenêtres ouvertes</string>
+  <string name="yir_share_text">Voici mon bilan de l’année %1$d de Wikipédia, tiré de l\'application Wikipédia : %2$s</string>
+  <string name="yir_feature_card_title">Bilan de l’année de Wikipédia %1$d</string>
+  <string name="yir_feature_card_articles_read">Nombre d’articles lus:</string>
+  <string name="yir_feature_card_minutes_read">Nombre total de minutes de lecture :</string>
+  <string name="yir_feature_card_articles_reread">Articles que je consulte régulièrement:</string>
+  <string name="yir_feature_card_longest_rabbit_hole">Recherche interminable la plus longue:</string>
+  <string name="yir_feature_card_top_category">Catégorie niche explorée:</string>
+  <string name="yir_feature_card_created_with">Créé avec l’application Wikipédia</string>
+  <string name="yir_topic_comment_architecture">Vous avez passé l’année à apprécier des choses conçues pour durer.</string>
+  <string name="yir_topic_comment_art">Vous étiez attiré par ce qui est beau, audacieux et, parfois, déroutant.</string>
+  <string name="yir_topic_comment_comics_and_anime">Pas à pas, vous avez exploré en profondeur les univers des bandes dessinées et des animes.</string>
+  <string name="yir_topic_comment_entertainment">Vous n\'avez pas pu rester à l\'écart du monde du divertissement cette année.</string>
+  <string name="yir_topic_comment_fashion">Vous avez exploré l’univers de la mode plus que la plupart des gens.</string>
+  <string name="yir_topic_comment_literature">Vos lectures ont pris une tournure littéraire cette année.</string>
+  <string name="yir_topic_comment_music">Votre curiosité a été accompagnée d’une bande-son cette année.</string>
+  <string name="yir_topic_comment_performing_arts">Vous vous êtes tourné vers la scène, sous une forme ou une autre.</string>
+  <string name="yir_topic_comment_sports">Cette année, vous avez suivi de près l’actualité sportive.</string>
+  <string name="yir_topic_comment_tv_and_film">Vos lectures ont également servi de liste de suggestions à visionner cette année.</string>
+  <string name="yir_topic_comment_video_games">Vous avez approfondi vos connaissances sur les jeux vidéo.</string>
+  <string name="yir_topic_comment_biography">Vous avez passé l’année à découvrir les histoires d’autres personnes.</string>
+  <string name="yir_topic_comment_women">Vous avez passé l’année à découvrir les histoires d’autres personnes.</string>
+  <string name="yir_topic_comment_business_and_economics">Vous avez gardé un œil sur comment le monde fonctionne.</string>
+  <string name="yir_topic_comment_education">S’intéresser à l’apprentissage, c’était quelque chose qui vous a intéressé cette année.</string>
+  <string name="yir_topic_comment_food_and_drink">Votre curiosité a fait preuve d’un bel appétit cette année.</string>
+  <string name="yir_topic_comment_history">Vous êtes manifestement fasciné.e par le passé.</string>
+  <string name="yir_topic_comment_military_and_warfare">Vous vous êtes penché sur l’histoire des conflits et de la défense.</string>
+  <string name="yir_topic_comment_philosophy_and_religion">Vous vous êtes penché sur les grandes questions, cette année.</string>
+  <string name="yir_topic_comment_politics_and_government">Vous avez exploré les règles qui régissent l’univers.</string>
+  <string name="yir_topic_comment_society">Vous vous êtes intéressé à la façon dont les êtres humains vivent et s’organisent.</string>
+  <string name="yir_topic_comment_transportation">Vous vous êtes penché(e) sur la manière dont le monde se déplace.</string>
+  <string name="yir_topic_comment_biology">Vous avez exploré la science des êtres vivants.</string>
+  <string name="yir_topic_comment_chemistry">Vous avez intégré un peu de chimie à vos lectures cette année.</string>
+  <string name="yir_topic_comment_computers_and_internet">Vous avez consacré un bon moment à comprendre la technologie qui se cache derrière votre écran.</string>
+  <string name="yir_topic_comment_earth_and_environment">Vous avez gardé vos lectures bien ancrées au sol, littéralement.</string>
+  <string name="yir_topic_comment_engineering">Vous avez aimé apprendre comment les choses sont construites et comment elles fonctionnent.</string>
+  <string name="yir_topic_comment_general_science">Votre curiosité s’est déployée dans des domaines scientifiques très variés.</string>
+  <string name="yir_topic_comment_mathematics">Vous avez accordé aux chiffres une place de prédilection cette année.</string>
+  <string name="yir_topic_comment_medicine_and_health">Vous avez consacré du temps à comprendre le fonctionnement du corps.</string>
+  <string name="yir_topic_comment_physics">Vous avez exploré les règles qui régissent l’univers.</string>
+  <string name="yir_topic_comment_technology">Vous avez gardé un œil sur l’évolution des choses.</string>
+  <string name="yir_topic_comment_africa">Vos lectures vous ont fait parcourir l’Afrique cette année.</string>
+  <string name="yir_topic_comment_asia">Vos lectures vous ont fait parcourir l’Asie cette année.</string>
+  <string name="yir_topic_comment_central_america">Vos lectures vous ont fait parcourir l’Amérique centrale cette année.</string>
+  <string name="yir_topic_comment_europe">Vos lectures vous ont fait parcourir l’Europe cette année.</string>
   <string name="yir_topic_comment_north_america">Vos lectures vous ont permis de rester près de chez vous en Amérique du Nord (ou de la découvrir à distance).</string>
+  <string name="yir_topic_comment_oceania">Vos lectures vous ont fait parcourir l’Océanie cette année.</string>
+  <string name="yir_topic_comment_south_america">Vos lectures vous ont fait parcourir l’Amérique du Sud cette année.</string>
+  <string name="yir_time_spent_comment_1">C’est plus que le temps qu’il faut au cœur d’un colibri pour battre 1200 fois.</string>
+  <string name="yir_time_spent_comment_9">C’est plus que le temps qu’il faut à la lumière du Soleil pour arriver jusqu’à la Terre.</string>
+  <string name="yir_time_spent_comment_13">C\'est plus que le temps nécessaire pour cuire un œuf dur.</string>
+  <string name="yir_time_spent_comment_19">C’est plus que le temps qu’il faut en moyenne aux gens pour s’endormir.</string>
+  <string name="yir_time_spent_comment_31">C’est plus qu’un épisode de sitcom, publicités incluses.</string>
+  <string name="yir_time_spent_comment_93">C\'est plus long que la Station spatiale internationale ne doit orbiter une fois autour de la Terre.</string>
+  <string name="yir_time_spent_comment_121">C\'est plus que le record du monde actuel du marathon.</string>
+  <string name="yir_time_spent_comment_540">C\'est plus qu\'une nuit de sommeil complète.</string>
+  <string name="yir_time_spent_comment_1441">C’est plus que le temps qu’il faut à une reine des abeilles pour pondre jusqu’à 2000 œufs.</string>
+  <plurals name="yir_time_spent_comment_2800">
+    <item quantity="one">C’est plus que %1$d journée entière.</item>
+    <item quantity="other">C’est plus que %1$d journées entières.</item>
+  </plurals>
   <string name="year_in_review_learn_more">En savoir plus</string>
   <string name="year_in_review_get_started">Commencer</string>
   <string name="year_in_review_topbar_w_icon">Icône de Wikipédia W</string>

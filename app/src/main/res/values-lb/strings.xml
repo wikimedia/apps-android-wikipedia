@@ -1303,6 +1303,7 @@
     <item quantity="one">Erausgesicht Sprooch ewechhuelen?</item>
     <item quantity="other">Erausgesicht Sproochen ewechhuelen?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Dir wäert de Contenu vum Start-Feed a vun de Schnellsichfilteren nëmme fir d\'Wikipedia-Sproochen ugewise kréien, déi Dir iwwereggelooss hutt.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">D\'Sprooche kënnen net all ewechgeholl ginn</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Loosst op d\'mannst eng Wikipedia-Sprooch iwwreg fir Inhalter ze sichen an ze liesen.</string>
   <string name="more_language_options">méi</string>
@@ -1335,6 +1336,7 @@
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
+  <string name="wikitext_preview_link">Linkvirschau</string>
   <string name="wikitext_mention_user">E Benotzer ernimmen</string>
   <string name="insert_media_title">Medien drasetzen</string>
   <string name="insert_media_search_description">Wielt e Fichier vu Wikimedia Commons</string>
@@ -1758,6 +1760,7 @@
   <string name="places_empty_message_snackbar">Et gëtt keng Artikelen an der Géigend. Probéiert d\'Kaart ze verklengeren oder ze verréckelen.</string>
   <string name="survey_dialog_title">Hëlleft eis dës Funktioun ze verbesseren</string>
   <string name="survey_dialog_message">Sidd Dir zefridde mat dëser Funktioun?</string>
+  <string name="home_feed_survey_title">Hëlleft mat, Är Startsäit ze verbesseren</string>
   <string name="home_feed_survey_message">Sidd Dir zefridde mam „Communautéit“- a mam „Fir Iech“-Feed?</string>
   <string name="survey_dialog_option_satisfied">Zefridden</string>
   <string name="survey_dialog_option_neutral">Neutral</string>
@@ -1984,6 +1987,7 @@
   <string name="yir_games_headline">Prett fir déi nächst Erausfuerderung?</string>
   <string name="yir_games_supporting">Stellt Äert Wikipedia-Gehier mat kuerze Spiller op d\'Prouf, inspiréiert vum Wësse vun der ganzer Welt.</string>
   <string name="yir_games_action">Ufänke mat Spillen</string>
+  <string name="yir_customize_home_headline">Riicht Är Startsäit an</string>
   <string name="yir_customize_home_supporting">Wielt déi Theemen aus, déi Iech faszinéieren, an Dir kritt Recommandatiounen, déi op Är Interessen zougeschnidde sinn.</string>
   <string name="yir_customize_home_action">Interessen upassen</string>
   <string name="yir_community_recap_headline">Eise Joresréckbléck</string>
@@ -1992,6 +1996,7 @@
   <string name="yir_quiz_headline">Wat fir eng Wikipedia sidd Dir?</string>
   <string name="yir_quiz_supporting">Vun der Modem-Ära bis haut: Eng Rees duerch d\'Geschicht vu Wikipedia.</string>
   <string name="yir_quiz_action">Maacht de Quiz</string>
+  <string name="yir_open_tabs_headline">Zeréck bei Är oppen Tabs</string>
   <string name="yir_share_text">Hei ass mäi Wikipedia-Joresréckbléck fir %1$d aus der Wikipedia-App: %2$s</string>
   <string name="yir_feature_card_title">Wikipedia-Joresréckbléck %1$d</string>
   <string name="yir_feature_card_articles_read">Artikele gelies:</string>
@@ -2308,6 +2313,7 @@
   <string name="year_in_review_highlights_logo_description">Wikipedia-Logo</string>
   <string name="year_in_review_swipe_tutorial_title">Wësche fir z\'entdecken</string>
   <string name="year_in_review_swipe_tutorial_message">Wëscht no uewen, fir duerch de Joresréckbléck ze navigéieren.</string>
+  <string name="year_in_review_illustration_credit">Illustratioune fir de Joresréckbléck vum Sharon Park fir d\'Wikimedia Foundation</string>
   <string name="recommended_reading_list_title">Entdecken</string>
   <string name="recommended_reading_list_onboarding_card_title">Entdeckt Artikelen, déi just fir Iech erausgesicht goufen</string>
   <string name="recommended_reading_list_onboarding_card_message">Är wéchentlech Lieslëscht vu Wikipedia-Artikelen, déi speziell fir Iech zesummegestallt gouf.</string>
@@ -2706,4 +2712,8 @@
   <string name="notifications_experiment_discover_interests_title">Well Dir Iech fir %s interesséiert</string>
   <string name="notifications_experiment_discover_saved_or_history_title">Well Dir iwwer %s gelies hutt</string>
   <string name="notifications_experiment_discover_message">Mir hunn op Basis vun dësem an aneren Interessen eng Lieslëscht fir Iech ugeluecht.</string>
+  <string name="notifications_experiment_weekly_most_read_channel_title">Am meeschte gelies dës Woch</string>
+  <string name="notifications_experiment_weekly_most_read_channel_description">Notifikatioune fir d\'Artikelen, déi dës Woch am meeschte gelies goufen</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">Dës Woch am Trend 📈</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">Nr. 1 %s. Fannt eraus, wat all déi aner Leit liesen.</string>
 </resources>

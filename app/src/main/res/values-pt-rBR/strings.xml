@@ -166,6 +166,7 @@
   <string name="map_view_link_text">Ver em um mapa</string>
   <string name="other_languages_indication_text">Ler em outro idioma</string>
   <string name="language_count_link_text">Disponível em outros %d idiomas</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Ao publicar, você declara que aceita os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e autoriza publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao publicar, você declara que aceita os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e autoriza publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
   <string name="edit_anon_warning">As edições serão atribuídas ao endereço IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
@@ -320,10 +321,11 @@
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="legal_safety_contacts_description">Contato sobre questões jurídicas e de segurança</string>
   <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pt-br</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt_BR</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
@@ -948,7 +950,7 @@
   <string name="feed_accessibility_card_text">Você atingiu o fim do feed.</string>
   <string name="feed_accessibility_card_load_more_button">Carregar mais</string>
   <string name="feed_language_variants_removal_dialog_title">Selecione uma variante regional do idioma para uma melhor experiência de leitura</string>
-  <string name="feed_language_variants_removal_dialog_message">No momento, você está usando uma variante genérica do chinês não suportada como seu idioma principal da Wikipédia.</string>
+  <string name="feed_language_variants_removal_dialog_message">No momento, você está usando uma variante genérica do chinês não suportada como seu idioma principal da Wikipédia</string>
   <string name="feed_language_variants_removal_dialog_save">Salvar</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Atualize seus idiomas secundários</string>
   <string name="feed_language_variants_removal_secondary_dialog_message">No momento, você está usando uma variante genérica do chinês não suportada como idioma secundário. Acesse suas configurações para selecionar um novo idioma secundário ou para confirmar sua lista de idiomas.</string>
@@ -975,7 +977,7 @@
   <string name="description_edit_help_title">Informações: descrições de artigos</string>
   <string name="description_edit_help_about_wikidata">Sobre o Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guia do Wikidata para escrever descrições</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Agradecemos o seu interesse contínuo em editar descrições de artigos! Para fazer edições adicionais, inicie sessão na sua conta da Wikipédia.</string>
   <string name="description_edit_license_notice">Ao alterar a descrição do artigo, concordo com os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições sob a licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">geralmente começa com uma letra minúscula</string>
@@ -1168,6 +1170,7 @@
     <item quantity="one">Você adicionou %d marcação</item>
     <item quantity="other">Você adicionou %d marcações</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ontem</string>
   <string name="suggested_edits_encourage_account_creation_title">Você sabia que todos podem editar a Wikipédia?</string>
   <string name="suggested_edits_encourage_account_creation_message">As edições sugeridas são uma nova maneira de editar a Wikipédia no Android. Elas ajudam você a fazer contribuições pequenas, mas vitais, para a Wikipédia.\nNosso objetivo é tornar o processo de edição mais fácil e acessível para todos! Entre ou junte-se à Wikipédia para começar.</string>
@@ -1816,6 +1819,7 @@
   <string name="patroller_saved_message_body_edit_summary">Olá, {{{username}}}. Parece que você removeu conteúdo da Wikipédia sem deixar um resumo de edição. Deixe-o sempre que adicionar ou remover conteúdo da Wikipédia.</string>
   <string name="patroller_saved_message_body_do_not_censor">Olá, {{{username}}}. Parece que você removeu conteúdo sem discutir na página de discussão do artigo. Observe que a Wikipédia não é censurada e o conteúdo não deve ser removido por ser controverso. Se você acredita que as informações são imprecisas, chegue a um consenso na página de discussão do artigo.</string>
   <string name="talk_warn_learn_more_label">Saiba mais sobre os espaços reservados para mensagens</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">Use uma mensagem exemplo abaixo para personalizar, enviar e salvar suas mensagens.</string>
   <string name="patroller_saved_message_body_art_imp">Olá, {{{username}}}. Seu artigo é um ótimo começo! Para torná-lo ainda melhor, considere adicionar mais referências de fontes confiáveis. Isso ajuda a verificar as informações e melhora a qualidade do artigo. Confira as diretrizes da Wikipédia sobre [[Wikipédia:Fontes confiáveis|fontes confiáveis]] para mais detalhes.</string>
   <string name="talk_templates_menu_edit_title">Editar</string>
@@ -2414,6 +2418,7 @@
   <string name="year_in_review_highlights_logo_description">Logotipo da Wikipédia</string>
   <string name="year_in_review_swipe_tutorial_title">Deslize para explorar</string>
   <string name="year_in_review_swipe_tutorial_message">Deslize para cima para navegar pela Respectiva do ano.</string>
+  <string name="year_in_review_illustration_credit">Ilustrações da “Retrospectiva do Ano”, de Sharon Park, para a Fundação Wikimedia</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos selecionados especialmente para você</string>
   <string name="recommended_reading_list_onboarding_card_message">Sua lista de leitura semanal de artigos da Wikipédia, selecionados especialmente para você.</string>
@@ -2514,6 +2519,7 @@
   <string name="donation_reminders_first_milestone_reached_prompt_title">Você leu %1$s desde que se comprometeu com %2$s!</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Você leu mais um %1$s!</string>
   <string name="donation_reminders_prompt_message">Você configurou um lembrete de doação em %1$s para doar %3$s a cada %2$s que você ler. Pronto para cumprir sua promessa de apoiar a Wikipédia?</string>
+  <string name="donation_reminders_prompt_message_v2">Em %1$s, você nos pediu para lembrá-lo de fazer uma doação depois de ler %2$s. Se a Wikipédia lhe proporcionou %3$s de conhecimento, junte-se aos 2%% de leitores que contribuem e cumpra sua promessa de doação hoje mesmo.</string>
   <string name="donation_reminders_prompt_positive_button">Doar agora</string>
   <string name="donation_reminders_prompt_positive_button_v2">Sim, faça uma doação agora</string>
   <string name="donation_reminders_prompt_negative_button">Agora não</string>
@@ -2521,7 +2527,7 @@
   <string name="donation_reminders_gpay_different_amount_text">Doe um valor diferente com o Google Pay</string>
   <string name="donation_reminders_settings_description_on">Os lembretes de doação estão ativados. A Wikipédia irá lembrá-lo de doar %1$s a cada %2$s que você ler enquanto esta experiência estiver em andamento.</string>
   <string name="donation_reminders_settings_description_off">Os lembretes de doação estão desativados.</string>
-  <string name="donation_reminders_settings_tooltip_info_label">A contagem de artigos é armazenada localmente no seu dispositivo.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">A contagem de artigos é armazenada localmente no seu dispositivo</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">%d artigo</item>
     <item quantity="other">%d artigos</item>
@@ -2531,8 +2537,10 @@
   <string name="donation_reminders_settings_learn_more_button">Saiba mais</string>
   <string name="donation_reminders_settings_report_button">Problema com a funcionalidade</string>
   <string name="donation_reminders_settings_report_email_subject">Relatório de Problemas – Lembretes de Doações</string>
+  <string name="donation_reminders_settings_report_email_body">Encontrei um problema com o recurso de lembretes de doação:\n- [Descreva o problema específico]\n- [Capturas de tela ou links]\n\nO comportamento que eu gostaria de ver é:\n- [Descreva a solução proposta]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
   <string name="donation_reminders_settings_article_number_selection_label">Artigos</string>
+  <string name="donation_reminders_settings_custom_amount_label">Quantia Personalizada</string>
   <string name="donation_reminders_settings_update_reminder_button">Lembrete de atualização</string>
   <string name="donation_reminders_beta_label">Beta</string>
   <string name="donation_reminders_wrap_up_title">É isso aí: encerramos os lembretes de doação</string>
@@ -2547,6 +2555,7 @@
   <string name="donation_reminders_wrap_up_survey_thank_you_message">Agradecemos seu comentário. Sua resposta nos ajuda a decidir o que desenvolver em seguida.</string>
   <string name="donation_reminders_eoe_title">Este é o fim do experimento</string>
   <string name="donation_reminders_eoe_message">Não exibiremos mais lembretes no aplicativo, mas você ainda pode nos apoiar doando mensalmente o valor prometido de %s.</string>
+  <string name="donation_reminders_eoe_give_monthly_button">Faça uma doação mensal</string>
   <string name="donation_reminders_eoe_donate_dialog_title">O que você acha de fazer doações mensais?</string>
   <string name="reading_challenge_widget_name">Desafio de leitura</string>
   <string name="reading_challenge_onboarding_header">Comemore o 25º aniversário da Wikipédia participando do desafio de leitura de 25 dias!</string>
@@ -2616,7 +2625,7 @@
   <string name="reading_challenge_widget_concluded_incomplete">Desafio concluído</string>
   <string name="reading_challenge_widget_concluded_complete">Você conseguiu!</string>
   <string name="reading_challenge_widget_reward_title">A curiosidade fica bem em você! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">Comemore a conclusão do desafio com 15%% de desconto na Loja da Wikipédia</string>
+  <string name="reading_challenge_widget_reward_body">Comemore a conclusão do desafio com 15%% de desconto na Loja da Wikipédia.</string>
   <string name="reading_challenge_widget_reward_button_label">Ganhe 15%% de desconto na loja</string>
   <string name="explore_feed_new_update_prompt_title">O Explore agora é a Página Inicial, com um novo visual</string>
   <string name="explore_feed_new_update_prompt_new_name_title">Um novo nome</string>
@@ -2675,12 +2684,13 @@
   <string name="home_feed_new_within_interest_title">Novos artigos de seu interesse</string>
   <string name="home_feed_new_within_interest_subtitle">Artigos publicados recentemente nas áreas temáticas que você acompanha</string>
   <string name="home_feed_settings_read_aloud_lead_section_title">Ouça as introduções dos artigos</string>
+  <string name="home_feed_settings_read_aloud_lead_section_subtitle">Áudio gerado para introduções de artigos nas áreas temáticas que você acompanha</string>
   <string name="home_feed_settings_because_you_read_subtitle">Sugestões com base em um artigo recente do seu histórico</string>
   <string name="home_feed_settings_continue_reading_title">Continue lendo</string>
   <string name="home_feed_settings_continue_reading_subtitle">Volte aos artigos que você não terminou de ler</string>
   <string name="home_feed_did_you_know_title">Você sabia?</string>
   <string name="home_feed_did_you_know_subtitle">Curiosidades extraídas de artigos selecionados por editores voluntários</string>
-  <string name="home_feed_did_you_know_more_label">Você sabia que...</string>
+  <string name="home_feed_did_you_know_more_label">Você sabia</string>
   <string name="home_feed_settings_community_empty_dialog_title">Seu feed da Comunidade estará vazio</string>
   <string name="home_feed_settings_for_you_empty_dialog_title">Seu feed \"Para você\" estará vazio</string>
   <string name="home_feed_settings_empty_dialog_text">Ative pelo menos um módulo para visualizar o conteúdo.</string>
@@ -2710,7 +2720,7 @@
   <string name="home_feed_settings_feed_configuration_languages_subtitle">Edite seus idiomas preferidos</string>
   <string name="home_feed_settings_feed_configuration_interests_updated_message">Interesses atualizados. Atualize seu feed para ver as novidades.</string>
   <string name="home_feed_places_of_interest_cta_title">Histórias de lugares que você adora</string>
-  <string name="home_feed_places_of_interest_cta_description">Atualize sua localização nos Locais para ver artigos nas proximidades</string>
+  <string name="home_feed_places_of_interest_cta_description">Atualize sua localização nos Locais para ver artigos nas proximidades.</string>
   <string name="home_feed_places_of_interest_cta_button">Ir para Locais</string>
   <string name="home_feed_settings_places_of_interest_title">Lugares de interesse</string>
   <string name="home_feed_settings_places_of_interest_subtitle">Artigos próximos à sua última localização nos Locais</string>
@@ -2720,12 +2730,20 @@
   <string name="read_aloud_card_play">Reproduzir</string>
   <string name="read_aloud_card_pause">Pausar</string>
   <string name="read_aloud_card_retry">Tentar novamente</string>
+  <string name="read_aloud_card_error">Não há áudio disponível para este artigo.</string>
+  <string name="read_aloud_card_keep_listening">Continuar ouvindo?</string>
+  <string name="read_aloud_card_audio_date">Este áudio foi gerado por meio de &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;um modelo de conversão de texto em fala&lt;/a&gt;, com base no conteúdo do artigo %s.</string>
+  <string name="read_aloud_card_audio_attribution">Este áudio foi gerado usando &lt;a href=\"https://www.mediawiki.org/wiki/Readers/Listening_to_Wikipedia/Model\"&gt;um modelo de conversão de texto em fala&lt;/a&gt;.</string>
   <string name="read_aloud_lead_section_tooltip_text">Novo recurso da versão beta: ouça as introduções dos artigos na seção \"Para você\"</string>
   <string name="read_aloud_lead_section_survey_title">De que maneira você tem interesse em ouvir a Wikipédia?</string>
+  <string name="read_aloud_lead_section_survey_choice1">Introduções dos artigos</string>
   <string name="read_aloud_lead_section_survey_choice2">Algumas seções de um artigo</string>
   <string name="read_aloud_lead_section_survey_choice3">Artigos completos</string>
   <string name="read_aloud_lead_section_survey_choice4">Vários trechos curtos de diferentes artigos sobre um mesmo tema</string>
+  <string name="read_aloud_lead_section_survey_choice5">Outros:</string>
   <string name="read_aloud_lead_section_beta_label">Beta</string>
+  <string name="read_aloud_lead_section_report_subject">Relatório da edição - Ouça as introduções dos artigos</string>
+  <string name="read_aloud_lead_section_report_body">Encontrei um problema com o recurso “Ouvir introduções dos artigos”:\n- [Descreva o problema específico]\n\nO comportamento que eu gostaria de ver é:\n- [Descreva a solução proposta]</string>
   <string name="read_aloud_lead_section_about_experiment">Sobre esse experimento</string>
   <string name="read_aloud_lead_section_report_issue">Comunicar um problema</string>
   <string name="home_feed_settings_discover_subtitle">Artigos da sua lista de leitura do Descobrir</string>
@@ -2749,6 +2767,7 @@
   <string name="random_article_widget_name">Artigo aleatório</string>
   <string name="reading_lists_tab_all_articles">Todos os artigos</string>
   <string name="reading_lists_tab_collections">Listas de leitura</string>
+  <string name="reading_lists_filter_content_description">Filtrar artigos salvos</string>
   <string name="reading_lists_filter_not_in_collection">Não faz parte de uma lista de leitura</string>
   <string name="reading_lists_empty_not_in_collection_title">Todos os artigos salvos estão em listas de leitura.</string>
   <string name="reading_lists_search_saved_articles">Pesquisar artigos salvos</string>
@@ -2762,16 +2781,53 @@
     <item quantity="one">Este artigo será removido de todas as listas de leitura associadas.</item>
     <item quantity="other">Esses %d artigos serão removidos de todas as listas de leitura associadas.</item>
   </plurals>
+  <plurals name="reading_lists_articles_removed_from_collections">
+    <item quantity="one">Artigo removido de todas as listas de leitura associadas.</item>
+    <item quantity="other">%d artigos removidos de todas as listas de leitura associadas.</item>
+  </plurals>
   <string name="reading_lists_save_sheet_empty_title">Reúna os artigos que você adora</string>
   <string name="reading_lists_save_sheet_empty_message">Salve artigos em listas de leitura.</string>
   <string name="reading_lists_save_sheet_create">Criar</string>
+  <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
+    <item quantity="one">Se você remover este artigo da lista de favoritos, ele será excluído de todas as listas de leitura associadas.</item>
+    <item quantity="other">Se você remover esses artigos da lista de favoritos, eles serão excluídos de todas as listas de leitura associadas.</item>
+  </plurals>
+  <string name="semantic_search_entry_point_card_message">Pesquise nos artigos e vá diretamente para a passagem relevante</string>
   <string name="semantic_search_entry_point_card_text_button">Experimente agora</string>
+  <string name="semantic_search_info_dialog_title">O que é esse recurso?</string>
+  <string name="semantic_search_info_dialog_message">Encontre respostas para suas perguntas nos artigos da Wikipédia e acesse diretamente a passagem relevante. \n\nAs passagens são extraídas de artigos que foram pesquisados, escritos e editados por pessoas, sendo que cada uma delas é respaldada por fontes citadas que você pode verificar.</string>
   <string name="semantic_search_info_dialog_button_text">Saiba mais</string>
+  <string name="semantic_search_info_btn_content_description">Botão com ícone de informações sobre pesquisa semântica</string>
+  <string name="semantic_search_close_btn_content_description">Botão de desativação e fechamento da pesquisa semântica</string>
   <string name="semantic_search_beta_label">Beta</string>
   <string name="semantic_search_no_results_message">Nenhum resultado para esta pesquisa</string>
+  <string name="semantic_search_results_close_button_content_description">Fechar os resultados da pesquisa semântica</string>
+  <string name="semantic_search_results_read_in_article_label">Leia o artigo</string>
+  <plurals name="semantic_search_result_contributors" fuzzy="true">
+    <item quantity="other">um=%d colaborador</item>
+  </plurals>
+  <plurals name="semantic_search_result_references" fuzzy="true">
+    <item quantity="other">um=%d referência</item>
+  </plurals>
   <string name="semantic_search_results_last_updated_label">Última atualização: %s</string>
+  <string name="semantic_search_results_feedback_title">Encontrou o que estava procurando?</string>
+  <string name="semantic_search_results_feedback_thumb_up_content_description">Curtir</string>
+  <string name="semantic_search_results_feedback_thumb_down_content_description">Não curti</string>
+  <string name="semantic_search_results_feedback_input_hint">Conte-nos mais (opcional)</string>
   <string name="semantic_search_results_feedback_submit_button_text">Enviar</string>
+  <string name="semantic_search_results_feedback_submitted_message">Obrigado pelo seu feedback</string>
   <string name="semantic_search_feedback_dialog_title">Comentário</string>
+  <string name="semantic_search_feedback_dialog_close_button_content_description">Fechar o feedback da pesquisa semântica</string>
   <string name="preference_heading_semantic_search">Pesquisar</string>
+  <string name="preference_title_semantic_search_within_articles">Pesquisar nos artigos</string>
+  <string name="preference_summary_semantic_search_jump_to_passage">Ir direto para a passagem relevante</string>
+  <string name="semantic_search_snackbar_message">Módulo oculto. Você pode torná-lo visível novamente em “Configurações”</string>
   <string name="semantic_search_snackbar_action_label">Modificar</string>
+  <string name="notifications_experiment_discover_interests_title">Porque você está interessado em %s</string>
+  <string name="notifications_experiment_discover_saved_or_history_title">Porque você leu sobre %s</string>
+  <string name="notifications_experiment_discover_message">Criamos uma nova lista de leitura para você com base nesse e em outros interesses.</string>
+  <string name="notifications_experiment_weekly_most_read_channel_title">Os artigos mais lidos da semana</string>
+  <string name="notifications_experiment_weekly_most_read_channel_description">Notificações sobre os artigos mais lidos da semana</string>
+  <string name="notifications_experiment_weekly_most_read_notification_title">Em alta esta semana 📈</string>
+  <string name="notifications_experiment_weekly_most_read_notification_description">Nº 1 %s. Descubra o que mais as pessoas estão lendo.</string>
 </resources>
