@@ -62,21 +62,21 @@ object EmptyLeadResolver {
         return leadText.isNullOrBlank() || Jsoup.parseBodyFragment(leadText).text().isBlank()
     }
 
-    // The extract is flat HTML, already free of references, links and tables:
-    // <p class="mw-empty-elt"></p><h2 data-mw-anchor="Ernest_Scott_Prize">Ernest Scott Prize</h2><p>...</p>
-    // The excerpt is the text between the first heading and the next h2, so a short section doesn't run into the next one.
+    // The first section starts at the first heading of any level and ends at the next heading of the same or higher level.
+    // The extract is flat HTML: <h2 data-mw-anchor="Ernest_Scott_Prize">Ernest Scott Prize</h2><p>...</p>
     internal fun parseFirstSection(extract: String): FirstSection? {
-        val heading = Jsoup.parseBodyFragment(extract).body().selectFirst("h2") ?: return null
-        val title = heading.text().trim().takeIf { it.isNotEmpty() } ?: return null
+        val heading = Jsoup.parseBodyFragment(extract).body().selectFirst(HEADING_TAGS.joinToString()) ?: return null
+        val level = heading.tagName().last().digitToInt()
+        val sectionEnd = HEADING_TAGS.take(level - 1)
         val excerpt = heading.nextElementSiblings()
-            .takeWhile { it.tagName() != "h2" }
-            .filter { !it.tagName().matches(HEADING_TAG) && it.text().isNotBlank() }
+            .takeWhile { it.tagName() !in sectionEnd }
+            .filter { it.tagName() !in HEADING_TAGS && it.hasText() }
             .joinToString("") { it.outerHtml() }
-            .takeIf { it.isNotEmpty() } ?: return null
-        return FirstSection(title, heading.attr("data-mw-anchor").takeIf { it.isNotEmpty() }, excerpt)
+        return FirstSection(heading.text().trim(), heading.attr("data-mw-anchor").ifEmpty { null }, excerpt)
+            .takeIf { it.title.isNotEmpty() && it.excerpt.isNotEmpty() }
     }
 
     internal data class FirstSection(val title: String, val anchor: String?, val excerpt: String)
 
-    private val HEADING_TAG = "h[1-6]".toRegex()
+    private val HEADING_TAGS = (2..6).map { "h$it" } // h2..h6
 }
