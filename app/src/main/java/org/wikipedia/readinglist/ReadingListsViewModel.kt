@@ -453,7 +453,8 @@ class ReadingListsViewModel : ViewModel() {
             SavedTab.COLLECTIONS -> lists
                 .filter {
                     !it.isDefault &&
-                        it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true)
+                        (it.accentInvariantTitle.contains(normalizedQuery, ignoreCase = true) ||
+                            it.accentInvariantDescription.contains(normalizedQuery, ignoreCase = true))
                 }
                 .map { ReadingListRow.ListRow(it.toUiModel(recentPreviewSavedId)) }
             SavedTab.ALL_ARTICLES -> buildArticleRows(lists, normalizedQuery, articleFilter)
@@ -463,19 +464,20 @@ class ReadingListsViewModel : ViewModel() {
     /**
      * Every saved article across [lists] as [ReadingListRow.PageRow]s, de-duplicated by lang + API
      * title so an article on multiple lists appears once, annotated with the lists that contain it.
-     * When [titleFilter] is non-null, only articles whose title contains it (accent-insensitive) are kept.
+     * When [searchQuery] is non-null, only articles whose title or short description contains it (accent-insensitive) are kept.
      */
     private fun buildArticleRows(
         lists: List<ReadingList>,
-        titleFilter: String? = null,
+        searchQuery: String? = null,
         articleFilter: SavedArticleFilter = SavedArticleFilter.ALL_ARTICLES,
         sortMode: Int? = null
     ): List<ReadingListRow.PageRow> {
         val selectedArticles = linkedMapOf<Pair<String, String>, ArticleRowData>()
         lists.forEach { list ->
             list.pages.forEach { page ->
-                val matches = titleFilter == null ||
-                    page.accentInvariantTitle.contains(titleFilter, ignoreCase = true)
+                val matches = searchQuery == null ||
+                    page.accentInvariantTitle.contains(searchQuery, ignoreCase = true) ||
+                    page.accentInvariantDescription.contains(searchQuery, ignoreCase = true)
                 if (matches) {
                     selectedArticles.getOrPut(page.lang to page.apiTitle) { ArticleRowData(page) }
                 }
