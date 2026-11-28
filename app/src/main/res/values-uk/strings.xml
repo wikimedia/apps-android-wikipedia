@@ -670,12 +670,6 @@
   <string name="reading_list_add_to_other_list">Додати до іншої колекції</string>
   <string name="reading_list_move_to_other_list">Перенести до іншої колекції</string>
   <string name="reading_list_add_to_collection">Додати до колекції</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">В 1 колекції</item>
-    <item quantity="few">У %d колекціях</item>
-    <item quantity="many">У %d колекціях</item>
-    <item quantity="other">У %d колекціях</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Перенести з %s до іншої колекції</string>
   <string name="reading_list_remove_from_list">Вилучити з %s</string>
   <string name="reading_list_remove_from_lists">Вилучити з колекцій</string>

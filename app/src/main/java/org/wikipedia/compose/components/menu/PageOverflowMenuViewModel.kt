@@ -10,11 +10,12 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.readinglist.database.ReadingList
 
 class PageOverflowMenuViewModel : ViewModel() {
     data class PageOverflowMenuState(
         val entry: HistoryEntry,
-        val isArticleSaved: Boolean,
+        val lists: List<ReadingList>,
         val menuKey: String
     )
 
@@ -31,10 +32,12 @@ class PageOverflowMenuViewModel : ViewModel() {
 
     fun onPageOverflowClick(entry: HistoryEntry, menuKey: String) {
         viewModelScope.launch {
-            val isArticleSaved = AppDatabase.instance.readingListPageDao().findPageInAnyList(entry.title) != null
+            val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
+                AppDatabase.instance.readingListPageDao().getAllPageOccurrences(entry.title)
+            )
             pageOverflowMenuState = PageOverflowMenuState(
                 entry = entry,
-                isArticleSaved = isArticleSaved,
+                lists = lists,
                 menuKey = menuKey
             )
         }

@@ -47,7 +47,8 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.SaveArticleSheetDialog
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -66,7 +67,7 @@ import java.time.MonthDay
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-class OnThisDayGameResultFragment : OnThisDayGameBaseFragment() {
+class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameResultBinding? = null
     val binding get() = _binding!!
 
@@ -356,9 +357,20 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment() {
                         startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
                     }
 
-                    override fun onSaveRequest(entry: HistoryEntry) {
+                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                        viewModel.savedPages.add(page)
                         WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-                        SaveArticleSheetDialog.show(childFragmentManager, pageTitle)
+                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, addToDefault, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
+                    }
+
+                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                        page?.let {
+                            ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, pageTitle, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
+                        }
+                    }
+                    override fun onRemoveRequest() {
+                        super.onRemoveRequest()
+                        viewModel.savedPages.remove(page)
                     }
 
                     override fun onShareRequest() {
@@ -379,6 +391,12 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment() {
         override fun onClick(v: View) {
             WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
             ExclusiveBottomSheetPresenter.show(childFragmentManager, OnThisDayGameArticleBottomSheet.newInstance(page))
+        }
+    }
+
+    override fun onPageBookmarkChanged(page: PageSummary) {
+        (binding.resultArticlesList.adapter as? RecyclerViewAdapter)?.pages?.find { it.apiTitle == page.apiTitle }?.let {
+            binding.resultArticlesList.adapter?.notifyItemChanged(viewModel.getArticlesMentioned().indexOf(it))
         }
     }
 

@@ -666,12 +666,6 @@
   <string name="reading_list_add_to_other_list">Pridať do ďalšieho zoznamu na čítanie</string>
   <string name="reading_list_move_to_other_list">Presunúť do ďalšieho zoznamu na čítanie</string>
   <string name="reading_list_add_to_collection">Pridať do zoznamu na čítanie</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">V 1 zozname na čítanie</item>
-    <item quantity="few">V %d zoznamoch na čítanie</item>
-    <item quantity="many">V %d zoznamu na čítanie</item>
-    <item quantity="other">V %d zoznamoch na čítanie</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Presunúť z %s do iného zoznamu na čítanie</string>
   <string name="reading_list_remove_from_list">Odstrániť zo zoznamu %s</string>
   <string name="reading_list_remove_from_lists">Odstrániť zo zoznamov na čítanie</string>

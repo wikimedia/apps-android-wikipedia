@@ -628,10 +628,6 @@
   <string name="reading_list_add_to_other_list">Tilføj til en anden læseliste</string>
   <string name="reading_list_move_to_other_list">Flyt til en anden læseliste</string>
   <string name="reading_list_add_to_collection">Tilføj til en læseliste</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">I 1 læseliste</item>
-    <item quantity="other">I %d læselister</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Flyt fra %s til en anden læseliste</string>
   <string name="reading_list_remove_from_list">Fjern fra %s</string>
   <string name="reading_list_remove_from_lists">Fjern fra læselister</string>

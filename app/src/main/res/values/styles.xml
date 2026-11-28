@@ -675,16 +675,6 @@
         <item name="behavior_peekHeight">@dimen/bottomSheetPeekHeight</item>
     </style>
 
-    <!-- When gesture navigation is enabled, for sheets where the content draws its own background to the bottom edge of the screen
-    and handles the navigation bar inset itself. -->
-    <style name="App.BottomSheetDialogTheme.EdgeToEdgeContent">
-        <item name="bottomSheetStyle">@style/App.BottomSheetStyle.EdgeToEdgeContent</item>
-    </style>
-
-    <style name="App.BottomSheetStyle.EdgeToEdgeContent">
-        <item name="paddingBottomSystemWindowInsets">false</item>
-    </style>
-
     <!-- For sheets that should stop below the status bar when fully expanded, instead of extending behind it. -->
     <style name="App.BottomSheetDialogTheme.BelowStatusBar">
         <item name="bottomSheetStyle">@style/App.BottomSheetStyle.BelowStatusBar</item>

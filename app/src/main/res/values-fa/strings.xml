@@ -651,10 +651,6 @@
   <string name="reading_list_add_to_other_list">افزودن به فهرست مطالعهٔ دیگر</string>
   <string name="reading_list_move_to_other_list">انتقال به فهرست مطالعهٔ دیگر</string>
   <string name="reading_list_add_to_collection">افزودن به فهرست مطالعه</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">در ۱ فهرست مطالعه</item>
-    <item quantity="other">در %d فهرست مطالعه</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">انتقال از %s به فهرست مطالعهٔ دیگر</string>
   <string name="reading_list_remove_from_list">حذف از %s</string>
   <string name="reading_list_remove_from_lists">حذف از فهرست‌های مطالعه</string>

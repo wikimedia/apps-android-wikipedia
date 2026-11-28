@@ -598,10 +598,6 @@
   <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht setzen</string>
   <string name="reading_list_move_to_other_list">Op eng aner Lieslëscht réckelen</string>
   <string name="reading_list_add_to_collection">Op eng Lieslëscht setzen</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">Op 1 Lieslëscht</item>
-    <item quantity="other">Op %d Lieslëschten</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Vu(n) %s op eng aner Lieslëscht réckelen</string>
   <string name="reading_list_remove_from_list">Vu(n) %s erofhuelen</string>
   <string name="reading_list_remove_from_lists">Vu Lieslëschten erofhuelen</string>

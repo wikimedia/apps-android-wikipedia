@@ -651,11 +651,6 @@
   <string name="reading_list_article_make_offline">Hint for button that makes a reading list article available for offline use.</string>
   <string name="reading_list_add_to_other_list">Menu item to add an article to another reading list (when the article already exists in one or more lists).</string>
   <string name="reading_list_move_to_other_list">Menu item to move an article to another reading list (when the article already exists in one or more lists).</string>
-  <string name="reading_list_add_to_collection">Menu item shown after long-pressing a saved article when it is not in any custom reading list. Opens the reading list selection sheet.</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">Menu item shown after long-pressing a saved article when it is in one custom reading list. Opens the reading list selection sheet.</item>
-    <item quantity="other">Menu item shown after long-pressing a saved article when it is in multiple custom reading lists. The \"%d\" symbol is replaced with the number of reading lists. Opens the reading list selection sheet.</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Menu item to move an article from a specific reading list to another reading list. The %s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_remove_from_list">Menu item to remove an article from a specific reading list. The %s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_remove_from_lists">Menu item to remove an article from multiple reading lists to which it might belong.</string>
@@ -2594,14 +2589,8 @@
   <string name="random_article_widget_name">Display name for the Random Article home screen widget.</string>
   <string name="reading_lists_tab_all_articles">Label for the tab in the Saved screen that shows every saved article across all reading lists.</string>
   <string name="reading_lists_tab_collections">Label for the tab in the Saved screen that shows the user\'s reading lists.</string>
-  <string name="reading_lists_filter_content_description">Accessibility label for the toolbar button that opens the saved-article filter menu.</string>
-  <string name="reading_lists_filter_not_in_collection">Label for filtering the All articles tab to show articles that have not been added to a custom reading list.</string>
-  <string name="reading_lists_empty_not_in_collection_title">Title shown when the Not in a reading list filter has no results because every saved article belongs to a reading list.</string>
   <string name="reading_lists_search_saved_articles">Hint text for searching saved article titles in the All articles tab.</string>
   <string name="reading_lists_search_collections">Hint text for searching reading list titles in the Reading lists tab.</string>
-  <string name="reading_lists_empty_collections_title">Title shown in the empty state of the Reading lists tab when the user has no reading lists.</string>
-  <string name="reading_lists_empty_collections_description">Description shown in the empty state of the Reading lists tab explaining how reading lists can organize saved articles.</string>
-  <string name="reading_lists_create_new_collection">Button label for creating a reading list from the empty state of the Reading lists tab.</string>
   <string name="reading_lists_remove_articles_confirm_dialog_title">Title of the confirmation dialog shown before removing saved articles from all associated reading lists.</string>
   <string name="reading_lists_remove_articles_confirm_button">Label for the button that confirms removing the selected saved articles from all associated reading lists.</string>
   <plurals name="reading_lists_remove_articles_confirm_dialog_message">
@@ -2612,9 +2601,6 @@
     <item quantity="one">Message shown after one article is removed from all associated reading lists.</item>
     <item quantity="other">Message shown after multiple articles are removed from all associated reading lists. The \"%d\" symbol is replaced with the number of articles removed.</item>
   </plurals>
-  <string name="reading_lists_save_sheet_empty_title">Title of the empty state in the bottom sheet for saving an article, shown when the user has no reading lists yet.</string>
-  <string name="reading_lists_save_sheet_empty_message">Message below the empty state title in the bottom sheet for saving an article, explaining that articles are saved into reading lists.</string>
-  <string name="reading_lists_save_sheet_create">Text of the action beside the Reading lists heading in the bottom sheet for saving an article, which creates a new reading list.</string>
   <plurals name="reading_lists_unsave_articles_confirm_dialog_message">
     <item quantity="one">Confirmation message explaining that unsaving one article will remove it from all associated reading lists.</item>
     <item quantity="other">Confirmation message explaining that unsaving multiple articles will remove them from all associated reading lists.</item>

@@ -30,7 +30,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.readinglist.SaveArticleSheetDialog
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.semantic.SemanticSearchAbTest
 import org.wikipedia.search.semantic.SemanticSearchInfoDialog
@@ -243,8 +243,12 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         DeviceUtil.hideSoftKeyboard(requireView())
     }
 
-    override fun onSearchSavePage(entry: HistoryEntry) {
-        SaveArticleSheetDialog.show(childFragmentManager, entry.title)
+    override fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
+        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.SEARCH)
+    }
+
+    override fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
+        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.SEARCH)
     }
 
     override fun onSearchProgressBar(enabled: Boolean) {

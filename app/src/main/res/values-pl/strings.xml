@@ -685,12 +685,6 @@
   <string name="reading_list_add_to_other_list">Dodaj do innej listy</string>
   <string name="reading_list_move_to_other_list">Przenieś do innej listy</string>
   <string name="reading_list_add_to_collection">Dodaj do listy zapisanych</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">W 1 liście</item>
-    <item quantity="few">W %d listach</item>
-    <item quantity="many">W %d listach</item>
-    <item quantity="other">W %d listy</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">Przenieś z „%s” do innej listy</string>
   <string name="reading_list_remove_from_list">Usuń z „%s”</string>
   <string name="reading_list_remove_from_lists">Usuń z listy</string>

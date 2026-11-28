@@ -618,10 +618,6 @@
   <string name="reading_list_add_to_other_list">بل لوستلړ ته ورگډول</string>
   <string name="reading_list_move_to_other_list">بل لوستلړ ته لېږدول</string>
   <string name="reading_list_add_to_collection">لوستلړ ته ورگډول</string>
-  <plurals name="reading_list_in_collections">
-    <item quantity="one">۱ لوستلړ کې</item>
-    <item quantity="other"> %d لوستلړونو کې</item>
-  </plurals>
   <string name="reading_list_move_from_to_other_list">له %s څخه بل لوستلړ ته لېږدول</string>
   <string name="reading_list_remove_from_list">له %s نه لرې‌کول</string>
   <string name="reading_list_remove_from_lists">له لوستلړونو لرې‌کول</string>

@@ -2,6 +2,8 @@ package org.wikipedia.feed.didyouknow
 
 import android.content.Context
 import android.content.Intent
+import android.icu.text.ListFormatter
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -16,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -31,7 +34,8 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.SaveArticleSheetDialog
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.RemoveFromReadingListsDialog
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
@@ -69,10 +73,29 @@ class DidYouKnowActivity : BaseActivity() {
                         )
                     },
                     onPageOverflowItemClick = { item, entry ->
+                        val lists = pageOverflowMenuViewModel.pageOverflowMenuState?.lists.orEmpty()
                         when (item) {
                             PageOverflowMenuItem.OPEN_PAGE -> startActivity(PageActivity.newIntentForCurrentTab(this, entry, entry.title))
                             PageOverflowMenuItem.OPEN_IN_NEW_TAB -> startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
-                            PageOverflowMenuItem.SAVE -> SaveArticleSheetDialog.show(this, entry.title)
+                            PageOverflowMenuItem.SAVE -> ReadingListBehaviorsUtil.addToDefaultList(this, entry.title, true, InvokeSource.DID_YOU_KNOW)
+                            PageOverflowMenuItem.ADD_TO_ANOTHER_LIST -> ReadingListBehaviorsUtil.addToDefaultList(this, entry.title, false, InvokeSource.DID_YOU_KNOW)
+                            PageOverflowMenuItem.MOVE_TO_ANOTHER_LIST -> lists.firstOrNull()?.let {
+                                ReadingListBehaviorsUtil.moveToList(this, it.id, entry.title, InvokeSource.FEED)
+                            }
+                            PageOverflowMenuItem.REMOVE_FROM_LISTS -> {
+                                RemoveFromReadingListsDialog(lists).deleteOrShowDialog(this) { readingLists, _ ->
+                                    if (!this.isDestroyed) {
+                                        val names = readingLists.map { it.title }.run {
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                                ListFormatter.getInstance().format(this)
+                                            } else {
+                                                joinToString(separator = ", ")
+                                            }
+                                        }
+                                        FeedbackUtil.showMessage(this, getString(R.string.reading_list_item_deleted_from_list, entry.title.displayText, names))
+                                    }
+                                }
+                            }
                             PageOverflowMenuItem.SHARE -> ShareUtil.shareText(this, entry.title.displayText, entry.title.uri)
                             PageOverflowMenuItem.COPY_LINK -> {
                                 ClipboardUtil.setPlainText(this, text = entry.title.uri)
