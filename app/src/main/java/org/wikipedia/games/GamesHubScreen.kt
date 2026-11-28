@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
@@ -64,6 +66,7 @@ fun GamesHubScreen(
     onThisDayGameUiState: UiState<List<OnThisDayCardGameState>>,
     onThisDayGameArchiveCalendarHelper: OnThisDayGameArchiveCalendarHelper,
     onPlay: (LocalDate, OnThisDayGameAction) -> Unit,
+    onPlayWikiRun: () -> Unit,
     onShowArchive: () -> Unit,
     onShowDisabledMessage: (String) -> Unit,
     languageList: List<String>,
@@ -135,6 +138,24 @@ fun GamesHubScreen(
                         .fillMaxWidth()
                         .padding(vertical = 8.dp)
                 ) {
+                    item {
+                        FilledTonalButton(
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                            colors = ButtonDefaults.filledTonalButtonColors(
+                                containerColor = WikipediaTheme.colors.backgroundColor,
+                                contentColor = WikipediaTheme.colors.progressiveColor
+                            ),
+                            onClick = onPlayWikiRun
+                        ) {
+                            Text(
+                                text = stringResource(R.string.wikirun_game_title),
+                                style = MaterialTheme.typography.bodyLarge.copy(
+                                    fontWeight = FontWeight.Medium
+                                ),
+                                textAlign = TextAlign.Center
+                            )
+                        }
+                    }
                     items(WikiGames.entries.size) { index ->
                         when (WikiGames.entries[index]) {
                             WikiGames.WHICH_CAME_FIRST -> {
