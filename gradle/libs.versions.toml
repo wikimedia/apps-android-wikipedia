@@ -1,6 +1,6 @@
 [versions]
 appcompat = "1.8.0"
-balloon = "1.7.6"
+balloon = "2.0.1"
 benchmark = "1.5.0"
 browser = "1.10.0"
 coilCompose = "3.6.3"
