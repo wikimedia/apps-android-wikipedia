@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -43,6 +42,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResult.SearchResultType
+import org.wikipedia.search.interleave.InterleaveSearchAbTest
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UriUtil
 
@@ -51,7 +51,7 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         if (savedInstanceState == null) {
-            SemanticSearchAbTest().runIfEligible {
+            InterleaveSearchAbTest().runIfEligible {
                 requireActivity().instrument?.submitInteraction("impression",
                     actionSubtype = "feature_info",
                     elementId = "feature_info"
@@ -63,7 +63,7 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
             setContent {
                 SemanticSearchInfoDialogContent(
                     onCloseClick = {
-                        SemanticSearchAbTest().runIfEligible {
+                        InterleaveSearchAbTest().runIfEligible {
                             requireActivity().instrument?.submitInteraction("click",
                                 actionSubtype = "feature_info",
                                 elementId = "close_info_button"
@@ -72,7 +72,7 @@ class SemanticSearchInfoDialog : ExtendedBottomSheetDialogFragment(startExpanded
                         dismiss()
                     },
                     onLearnMoreClick = {
-                        SemanticSearchAbTest().runIfEligible {
+                        InterleaveSearchAbTest().runIfEligible {
                             requireActivity().instrument?.submitInteraction("click",
                                 actionSubtype = "feature_info",
                                 elementId = "learn_more_button"
@@ -157,16 +157,8 @@ private fun SemanticSearchInfoDialogContent(
                                 fontWeight = FontWeight.SemiBold,
                             )
                         }
-                        SemanticSearchResultCard(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 16.dp),
-                            searchResult = searchResult,
-                            languageCode = languageCode,
-                            prefixQuotationMark = SemanticSearchResultsViewModel.getQuotationMark(languageCode),
-                            showLastUpdatedTime = languageCode == "ar",
-                            showReadInArticleText = false
-                        )
+
+                        // TODO: for the new design
 
                         AppButton(
                             onClick = onLearnMoreClick,

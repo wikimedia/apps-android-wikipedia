@@ -233,11 +233,6 @@
     <string name="preference_key_search_widget_install_prompt_shown" translatable="false">searchWidgetInstallPromptShown</string>
     <string name="preference_key_randomizer_shake_prompt_shown" translatable="false">randomizerShakePromptShown</string>
     <string name="preference_key_home_feed_survey_shown" translatable="false">homeFeedSurveyShown</string>
-    <string name="preference_key_semantic_search_enabled" translatable="false">semanticSearchEnabled</string>
-    <string name="preference_key_semantic_search_first_use" translatable="false">semanticSearchFirstUse</string>
-    <string name="preference_key_semantic_search_override_supported_language" translatable="false">semanticSearchOverrideSupportedLanguage</string>
-    <string name="preference_key_semantic_search_is_test_active" translatable="false">semanticSearchIsTestActive</string>
-    <string name="preference_key_semantic_search_settings_category" translatable="false">semanticSearchSettingsCategory</string>
     <string name="preference_key_notifications_is_test_active" translatable="false">notificationsIsTestActive</string>
     <string name="preference_key_notifications_experiment_notification_rescheduled" translatable="false">notificationsExperimentNotificationRescheduled</string>
     <string name="preference_key_notifications_experiment_discover_source" translatable="false">notificationsExperimentDiscoverSource</string>
@@ -245,4 +240,8 @@
     <string name="preference_key_notifications_most_read_is_test_active" translatable="false">notificationsMostReadIsTestActive</string>
     <string name="preference_key_notifications_experiment_weekly_most_read_scheduled" translatable="false">notificationsExperimentWeeklyMostReadScheduled</string>
     <string name="preference_key_notifications_experiment_weekly_most_read_dev_trigger_time" translatable="false">notificationsExperimentWeeklyMostReadDevTriggerTime</string>
+    <string name="preference_key_interleave_search_settings_category" translatable="false">interleaveSearchSettingsCategory</string>
+    <string name="preference_key_interleave_search_enabled" translatable="false">interleaveSearchEnabled</string>
+    <string name="preference_key_interleave_search_override_supported_language" translatable="false">interleaveSearchOverrideSupportedLanguage</string>
+    <string name="preference_key_interleave_search_is_test_active" translatable="false">interleaveSearchIsTestActive</string>
 </resources>

@@ -1,4 +1,4 @@
-package org.wikipedia.search.semantic
+package org.wikipedia.search.interleave
 
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.WikipediaApp
@@ -7,7 +7,7 @@ import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 
-class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
+class InterleaveSearchAbTest : ABTest("semantic-search-phase-2-interleave", GROUP_SIZE_2) {
     override fun getGroupName(): String {
         return when (group) {
             GROUP_2 -> "treatment"
@@ -16,7 +16,7 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
     }
 
     private fun isTestActive(): Boolean {
-        return Prefs.semanticSearchIsTestActive || RemoteConfig.config.androidv1?.semanticSearchEnabledv2 ?: false
+        return Prefs.interleaveSearchIsTestActive || RemoteConfig.config.androidv1?.semanticSearchEnabledv2 ?: false
     }
 
     private fun isTestGroupUser(): Boolean {
@@ -24,25 +24,25 @@ class SemanticSearchAbTest : ABTest("semantic-search-phase-2", GROUP_SIZE_2) {
     }
 
     private fun isLanguageSupported(languageCode: String?): Boolean {
-        return Prefs.semanticSearchLanguageOverride || supportedLanguages.any { it.equals(languageCode, true) }
+        return Prefs.interleaveSearchLanguageOverride || supportedLanguages.any { it.equals(languageCode, true) }
     }
 
     private val supportedLanguages = RemoteConfig.config.androidv1?.semanticSearchLanguagesv2.orEmpty()
 
-    fun isSemanticSearchSettingVisible(): Boolean {
+    fun isInterleaveSearchSettingVisible(): Boolean {
         return isTestActive() && isTestGroupUser()
     }
 
-    fun isSemanticSearchEligible(languageCode: String?): Boolean {
+    fun isInterleaveSearchEligible(languageCode: String?): Boolean {
         return isTestActive() && isLanguageSupported(languageCode)
     }
 
-    fun isSemanticSearchEnabled(languageCode: String?): Boolean {
-        return isSemanticSearchEligible(languageCode) && isTestGroupUser() && Prefs.isSemanticSearchEnabled
+    fun isInterleaveSearchEnabled(languageCode: String?): Boolean {
+        return isInterleaveSearchEligible(languageCode) && isTestGroupUser() && Prefs.isInterleaveSearchEnabled
     }
 
     fun runIfEligible(function: () -> Unit) {
-        if (WikipediaApp.instance.languageState.appLanguageCodes.any { isSemanticSearchEligible(it) }) {
+        if (WikipediaApp.instance.languageState.appLanguageCodes.any { isInterleaveSearchEligible(it) }) {
             function.invoke()
         }
     }

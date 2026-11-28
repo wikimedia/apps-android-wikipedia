@@ -1,0 +1,209 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "pages": [
+      {
+        "pageid": 1359783,
+        "ns": 0,
+        "title": "Tour Eiffel",
+        "index": 1,
+        "description": "tour de fer puddlé de 330 mètres à Paris, France",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/330px-Tour_Eiffel_Wikimedia_Commons.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 611
+        },
+        "coordinates": [
+          {
+            "lat": 48.858296,
+            "lon": 2.294479,
+            "primary": true,
+            "globe": "earth"
+          }
+        ],
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:05:17Z",
+        "lastrevid": 240706197,
+        "length": 157527,
+        "displaytitle": "Tour Eiffel",
+        "varianttitles": {
+          "fr": "Tour Eiffel"
+        }
+      },
+      {
+        "pageid": 1662824,
+        "ns": 0,
+        "title": "La Tour Eiffel",
+        "index": 8,
+        "description": "nouvelle de Dino Buzzati",
+        "descriptionsource": "central",
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:05:49Z",
+        "lastrevid": 236885058,
+        "length": 2022,
+        "displaytitle": "<i>La Tour Eiffel</i>",
+        "varianttitles": {
+          "fr": "<i>La Tour Eiffel</i>"
+        }
+      },
+      {
+        "pageid": 1662883,
+        "ns": 0,
+        "title": "Tour Eiffel (homonymie)",
+        "index": 6,
+        "description": "page d'homonymie de Wikimédia",
+        "descriptionsource": "central",
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2025-06-03T07:57:00Z",
+        "lastrevid": 219989849,
+        "length": 864,
+        "displaytitle": "Tour Eiffel (homonymie)",
+        "varianttitles": {
+          "fr": "Tour Eiffel (homonymie)"
+        }
+      },
+      {
+        "pageid": 5049769,
+        "ns": 0,
+        "title": "Tour Eiffel 95.2",
+        "index": 5,
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:10:46Z",
+        "lastrevid": 198379702,
+        "length": 2112,
+        "displaytitle": "Tour Eiffel 95.2",
+        "varianttitles": {
+          "fr": "Tour Eiffel 95.2"
+        }
+      },
+      {
+        "pageid": 6364782,
+        "ns": 0,
+        "title": "Tour Eiffel (Delaunay, 1911)",
+        "index": 3,
+        "description": "tableau de Robert Delaunay",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Delaunay_-_Tour_Eiffel.jpeg/330px-Delaunay_-_Tour_Eiffel.jpeg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 414
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:13:06Z",
+        "lastrevid": 235838387,
+        "length": 2298,
+        "displaytitle": "<i>Tour Eiffel</i> (Delaunay, 1911)",
+        "varianttitles": {
+          "fr": "<i>Tour Eiffel</i> (Delaunay, 1911)"
+        }
+      },
+      {
+        "pageid": 9631074,
+        "ns": 0,
+        "title": "La Tour Eiffel (Seurat)",
+        "index": 7,
+        "description": "tableau de Georges Seurat",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Georges_Seurat_043.jpg/330px-Georges_Seurat_043.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 518
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:17:22Z",
+        "lastrevid": 240390030,
+        "length": 1982,
+        "displaytitle": "<i>La Tour Eiffel</i> (Seurat)",
+        "varianttitles": {
+          "fr": "<i>La Tour Eiffel</i> (Seurat)"
+        }
+      },
+      {
+        "pageid": 10318723,
+        "ns": 0,
+        "title": "La Tour Eiffel en otage",
+        "index": 2,
+        "description": "film de Claudio Guzmán, sorti en 1980",
+        "descriptionsource": "central",
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:18:14Z",
+        "lastrevid": 240555077,
+        "length": 3792,
+        "displaytitle": "<i>La Tour Eiffel en otage</i>",
+        "varianttitles": {
+          "fr": "<i>La Tour Eiffel en otage</i>"
+        }
+      },
+      {
+        "pageid": 12280099,
+        "ns": 0,
+        "title": "Tour Eiffel (Delaunay, 1926)",
+        "index": 4,
+        "description": "tableau de Robert Delaunay (musée d'art moderne de la Ville de Paris)",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Robert_Delaunay%2C_1926%2C_Tour_Eiffel%2C_oil_on_canvas%2C_169_%C3%97_86_cm%2C_Mus%C3%A9e_d%27Art_Moderne_de_la_ville_de_Paris.jpg/330px-Robert_Delaunay%2C_1926%2C_Tour_Eiffel%2C_oil_on_canvas%2C_169_%C3%97_86_cm%2C_Mus%C3%A9e_d%27Art_Moderne_de_la_ville_de_Paris.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 538
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:20:46Z",
+        "lastrevid": 235072443,
+        "length": 960,
+        "displaytitle": "<i>Tour Eiffel</i> (Delaunay, 1926)",
+        "varianttitles": {
+          "fr": "<i>Tour Eiffel</i> (Delaunay, 1926)"
+        }
+      },
+      {
+        "pageid": 12305527,
+        "ns": 0,
+        "title": "La Tour Eiffel (Delaunay, 1926)",
+        "index": 9,
+        "description": "tableau de Robert Delaunay (musée national d'art moderne, 1926)",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Robert_Delaunay%2C_Rythmes_sans_fin_-_La_Tour_Eiffel%2C_1926.jpg/330px-Robert_Delaunay%2C_Rythmes_sans_fin_-_La_Tour_Eiffel%2C_1926.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 614
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:20:48Z",
+        "lastrevid": 210786898,
+        "length": 970,
+        "displaytitle": "<i>La Tour Eiffel</i> (Delaunay, 1926)",
+        "varianttitles": {
+          "fr": "<i>La Tour Eiffel</i> (Delaunay, 1926)"
+        }
+      }
+    ]
+  }
+}

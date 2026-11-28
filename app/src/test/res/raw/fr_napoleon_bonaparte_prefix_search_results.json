@@ -1,0 +1,260 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "redirects": [
+      {
+        "index": 4,
+        "from": "Napoléon Bonaparte",
+        "to": "Napoléon Ier"
+      },
+      {
+        "index": 5,
+        "from": "Napoléon Bonaparte (film, 1927)",
+        "to": "Napoléon vu par Abel Gance"
+      },
+      {
+        "index": 6,
+        "from": "Napoléon bonaparte (ferry)",
+        "to": "Rhapsody (cruise-ferry)"
+      },
+      {
+        "index": 8,
+        "from": "Napoléon Bonaparte À L’École Royale D’Artillerie À Auxonne",
+        "to": "Séjour de Napoléon Bonaparte à Auxonne"
+      },
+      {
+        "index": 9,
+        "from": "Napoléon Bonaparte (personnage)",
+        "to": "Inspecteur Napoléon Bonaparte"
+      }
+    ],
+    "pages": [
+      {
+        "pageid": 268210,
+        "ns": 0,
+        "title": "Napoléon vu par Abel Gance",
+        "index": 5,
+        "description": "film muet d'Abel Gance, sorti en 1927",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Choumoff_-_Albert_Dieudonn%C3%A9_Napoleon.jpg/330px-Choumoff_-_Albert_Dieudonn%C3%A9_Napoleon.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 220
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:02:23Z",
+        "lastrevid": 240450555,
+        "length": 58727,
+        "displaytitle": "<i>Napoléon vu par Abel Gance</i>",
+        "varianttitles": {
+          "fr": "<i>Napoléon vu par Abel Gance</i>"
+        }
+      },
+      {
+        "pageid": 323065,
+        "ns": 0,
+        "title": "Rhapsody (cruise-ferry)",
+        "index": 6,
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Rhapsody_%28ship%2C_1996%29%2C_S%C3%A8te_cf01.jpg/330px-Rhapsody_%28ship%2C_1996%29%2C_S%C3%A8te_cf01.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 206
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:02:33Z",
+        "lastrevid": 239848950,
+        "length": 43634,
+        "displaytitle": "<i>Rhapsody</i> (cruise-ferry)",
+        "varianttitles": {
+          "fr": "<i>Rhapsody</i> (cruise-ferry)"
+        }
+      },
+      {
+        "pageid": 676806,
+        "ns": 0,
+        "title": "Napoléon Ier",
+        "index": 4,
+        "description": "militaire, homme d'État et monarque français",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg/330px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 549
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:03:33Z",
+        "lastrevid": 240611359,
+        "length": 260796,
+        "displaytitle": "<span class=\"nowrap\">Napoléon <abbr class=\"abbr\" title=\"premier\"><span class=\"romain\" style=\"text-transform:uppercase\">I</span><sup>er</sup></abbr></span>",
+        "varianttitles": {
+          "fr": "<span class=\"nowrap\">Napoléon <abbr class=\"abbr\" title=\"premier\"><span class=\"romain\" style=\"text-transform:uppercase\">I</span><sup>er</sup></abbr></span>"
+        }
+      },
+      {
+        "pageid": 1923217,
+        "ns": 0,
+        "title": "Séjour de Napoléon Bonaparte à Auxonne",
+        "index": 8,
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Auxonne_-_Bonaparte_2.JPG/330px-Auxonne_-_Bonaparte_2.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 440
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:06:13Z",
+        "lastrevid": 236032798,
+        "length": 11167,
+        "displaytitle": "Séjour de Napoléon Bonaparte à Auxonne",
+        "varianttitles": {
+          "fr": "Séjour de Napoléon Bonaparte à Auxonne"
+        }
+      },
+      {
+        "pageid": 2812101,
+        "ns": 0,
+        "title": "Napoleon Bonaparte Broward",
+        "index": 10,
+        "description": "politicien américain",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Napoleon_Bonaparte_Broward.jpg/330px-Napoleon_Bonaparte_Broward.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 395
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:06:58Z",
+        "lastrevid": 220436535,
+        "length": 3205,
+        "displaytitle": "Napoleon Bonaparte Broward",
+        "varianttitles": {
+          "fr": "Napoleon Bonaparte Broward"
+        }
+      },
+      {
+        "pageid": 6918863,
+        "ns": 0,
+        "title": "Napoléon Bonaparte (Dumas)",
+        "index": 7,
+        "description": "pièce d'Alexandre Dumas",
+        "descriptionsource": "central",
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-10-13T13:32:25Z",
+        "lastrevid": 238980374,
+        "length": 3110,
+        "displaytitle": "<i>Napoléon Bonaparte</i> (Dumas)",
+        "varianttitles": {
+          "fr": "<i>Napoléon Bonaparte</i> (Dumas)"
+        }
+      },
+      {
+        "pageid": 9247232,
+        "ns": 0,
+        "title": "Inspecteur Napoléon Bonaparte",
+        "index": 9,
+        "description": "personnage de fiction des romans de l'écrivain Arthur Upfield",
+        "descriptionsource": "central",
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:16:50Z",
+        "lastrevid": 228139688,
+        "length": 18687,
+        "displaytitle": "Inspecteur Napoléon Bonaparte",
+        "varianttitles": {
+          "fr": "Inspecteur Napoléon Bonaparte"
+        }
+      },
+      {
+        "pageid": 10524591,
+        "ns": 0,
+        "title": "Napoleon Bonaparte Buford",
+        "index": 3,
+        "description": "général de l'Union de la guerre de Sécession (1807-1883)",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/3/3e/NBBuford.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+          "width": 248,
+          "height": 349
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:18:31Z",
+        "lastrevid": 207432298,
+        "length": 7037,
+        "displaytitle": "Napoleon Bonaparte Buford",
+        "varianttitles": {
+          "fr": "Napoleon Bonaparte Buford"
+        }
+      },
+      {
+        "pageid": 17660302,
+        "ns": 0,
+        "title": "Napoléon Bonaparte (buste de Chinard)",
+        "index": 2,
+        "description": "sculpture de Joseph Chinard",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Napol%C3%A9on_Bonaparte_%28Joseph_Chinard%2C_1801%29.jpg/330px-Napol%C3%A9on_Bonaparte_%28Joseph_Chinard%2C_1801%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 440
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:28:20Z",
+        "lastrevid": 240362158,
+        "length": 8288,
+        "displaytitle": "<i>Napoléon Bonaparte</i> (buste de Chinard)",
+        "varianttitles": {
+          "fr": "<i>Napoléon Bonaparte</i> (buste de Chinard)"
+        }
+      },
+      {
+        "pageid": 17678531,
+        "ns": 0,
+        "title": "Napoléon Bonaparte (policier)",
+        "index": 1,
+        "description": "policier indonésien",
+        "descriptionsource": "central",
+        "thumbnail": {
+          "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Irjen_Napoleon_Bonaparte.jpg/330px-Irjen_Napoleon_Bonaparte.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "width": 330,
+          "height": 440
+        },
+        "contentmodel": "wikitext",
+        "pagelanguage": "fr",
+        "pagelanguagehtmlcode": "fr",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-11-02T16:28:21Z",
+        "lastrevid": 240906373,
+        "length": 2675,
+        "displaytitle": "Napoléon Bonaparte (policier)",
+        "varianttitles": {
+          "fr": "Napoléon Bonaparte (policier)"
+        }
+      }
+    ]
+  }
+}
